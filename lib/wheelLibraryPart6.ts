@@ -1,0 +1,155 @@
+import { WheelExperience } from './wheelLibraryTypes';
+
+export const WHEEL_LIBRARY_PART6: WheelExperience[] = [
+  // ==========================================
+  // 11. TRAVEL & EXPLORATION (5 experiences)
+  // ==========================================
+  {
+    id: 'travel-destination-wheel',
+    name: 'Travel Destination Wheel',
+    purpose: 'Inspire your next major international vacation or bucket-list expedition.',
+    targetAudience: 'Digital nomads, avid globetrotters, couples planning their annual vacation.',
+    defaultEntries: ['Kyoto & Tokyo, Japan', 'Amalfi Coast, Italy', 'Reykjavik & Waterfalls, Iceland', 'Oaxaca & Mexico City', 'Queenstown, New Zealand', 'Cape Town & Safari, South Africa', 'Banff & Lake Louise, Canada', 'Lisbon & Sintra, Portugal'],
+    category: 'TRAVEL',
+    instructions: 'Spin with an open mind. Research flights and accommodation within 48 hours of your result.',
+    optionalModes: ['Budget Friendly (<$1500)', 'Adventure/Nature vs Cultural City', 'Visa-Free Priority'],
+    relatedWheels: ['Weekend Trip Wheel', 'City Picker', 'Country Picker'],
+    relatedTools: ['Google Flights Quick Search Linker', 'Travel Packing Checklist'],
+    difficulty: 'Medium',
+    shareableResultConcept: 'Passport Boarding Pass stamped with dream destination and airport code.',
+    uniqueValueProposition: 'Curated mix of cultural capitals, scenic wilderness, and culinary hotspots.',
+    paletteKey: 'emerald'
+  },
+  {
+    id: 'weekend-trip-wheel',
+    name: 'Weekend Trip Wheel',
+    purpose: 'Break free on spontaneous Friday afternoon road trips within a 3-hour driving radius.',
+    targetAudience: 'Weekend adventurers, road trippers, city dwellers seeking a countryside escape.',
+    defaultEntries: ['Cozy Cabin in the Pine Woods', 'Coastal Beach Town & Boardwalk', 'Historic Colonial Bed & Breakfast', 'Wine Country Vineyard Tour', 'Mountain Lake Kayak & Camp', 'State Park Hiking Trail Loop', 'Quaint Antiquing Village', 'Scenic Riverside Glamping'],
+    category: 'TRAVEL',
+    instructions: 'Spin on Thursday night, pack a weekend duffel bag, and hit the highway Friday at 5 PM.',
+    optionalModes: ['Within 2 Hours Drive', 'Camping vs Hotel', 'Pet-Friendly Only'],
+    relatedWheels: ['Travel Destination Wheel', 'City Picker', 'Weekend Picker'],
+    relatedTools: ['Road Trip Route Distance Calculator', 'Weekend Duffel Packing Guide'],
+    difficulty: 'Easy',
+    shareableResultConcept: 'Road Trip Map Ticket showing mileage and weekend getaway badge.',
+    uniqueValueProposition: 'Focuses on drive-time accessible weekend formats that don\'t require airport logistics.',
+    paletteKey: 'arcade'
+  },
+  {
+    id: 'city-picker',
+    name: 'City Picker',
+    purpose: 'Choose world-class metropolis destinations for urban culture, museums, and gastronomy.',
+    targetAudience: 'Urban explorers, architecture buffs, weekend city-break travelers.',
+    defaultEntries: ['New York City, USA', 'London, United Kingdom', 'Tokyo, Japan', 'Paris, France', 'Berlin, Germany', 'Seoul, South Korea', 'Barcelona, Spain', 'Singapore', 'Rome, Italy', 'Melbourne, Australia'],
+    category: 'TRAVEL',
+    instructions: 'Spin to lock in your next urban city break exploration.',
+    optionalModes: ['European Cities Only', 'Asian Megacities Only', 'Americas Explorer'],
+    relatedWheels: ['Country Picker', 'Travel Destination Wheel', 'Cuisine Wheel'],
+    relatedTools: ['City Pass Tourist Card Estimator', 'Metro Transit Map Linker'],
+    difficulty: 'Casual',
+    shareableResultConcept: 'Metro Transit Card stamped with city skyline and subway line icon.',
+    uniqueValueProposition: 'Profiles the world\'s top cultural hubs celebrated for public transit and art.',
+    paletteKey: 'vibrant'
+  },
+  {
+    id: 'country-picker',
+    name: 'Country Picker',
+    purpose: 'Broad global country randomizer for geography quizzes, UN simulations, or world travelers.',
+    targetAudience: 'Geography teachers, trivia buffs, backpackers planning gap-year itineraries.',
+    defaultEntries: ['Japan', 'Brazil', 'Norway', 'Morocco', 'Vietnam', 'Greece', 'New Zealand', 'Peru', 'Switzerland', 'Thailand', 'South Africa', 'Costa Rica'],
+    category: 'TRAVEL',
+    instructions: 'Spin to discover a new country\'s flag, history, language, and cultural traditions.',
+    optionalModes: ['By Continent Filter (Europe, Asia, Africa, Americas)', 'Island Nations Only'],
+    relatedWheels: ['City Picker', 'Travel Destination Wheel', 'Quiz Topic Wheel'],
+    relatedTools: ['World Map Interactive Pin', 'Country Fact Sheet Generator'],
+    difficulty: 'Easy',
+    shareableResultConcept: 'Official Visa Stamp Graphic with country flag and capital city callout.',
+    uniqueValueProposition: 'Represents diverse geographies across six continents with cultural accuracy.',
+    paletteKey: 'casino'
+  },
+  {
+    id: 'travel-activity-picker',
+    name: 'Activity Picker',
+    purpose: 'Decide day-trip activities once you have arrived at your travel destination.',
+    targetAudience: 'Tourists standing in hotel lobbies wondering what to do that morning.',
+    defaultEntries: ['Visit the Top-Rated Art Museum', 'Take a Local Guided Food Walking Tour', 'Rent Bicycles and Tour Riverfront Trails', 'Climb the Highest Scenic City Viewpoint', 'Explore Local Flea & Artisanal Markets', 'Relax at a Historic Botanical Garden', 'Join a Boat / Harbour Sightseeing Cruise', 'Get Lost in the Old Town Quarter'],
+    category: 'TRAVEL',
+    instructions: 'Spin each morning of your vacation at 8:30 AM over coffee to set today\'s itinerary.',
+    optionalModes: ['Rainy Day Indoor Options', 'Free Walking Tour', 'High Adrenaline Thrill'],
+    relatedWheels: ['Travel Destination Wheel', 'What Should I Do?', 'Weekend Picker'],
+    relatedTools: ['Walking Tour GPS Guide', 'Museum Ticket Booking Linker'],
+    difficulty: 'Casual',
+    shareableResultConcept: 'Travel Itinerary Compass badge highlighting day excursion.',
+    uniqueValueProposition: 'Cuts through tourist trap confusion to deliver timeless, high-satisfaction travel experiences.',
+    paletteKey: 'pastel'
+  },
+
+  // ==========================================
+  // 12. GIVEAWAYS & CONTESTS (4 experiences)
+  // ==========================================
+  {
+    id: 'giveaway-wheel',
+    name: 'Giveaway Wheel',
+    purpose: 'Host transparent, live-streamed social media giveaways with provably fair verification.',
+    targetAudience: 'Twitch streamers, YouTubers, Instagram influencers, brand marketers.',
+    defaultEntries: ['@streamfan_99', '@coffeelover_x', '@gaming_wizard', '@digital_artist_24', '@tech_reviewer', '@lucky_ducky', '@pixel_master', '@soundwave_pro'],
+    category: 'GIVEAWAY',
+    instructions: 'Paste usernames from comments or contest entries. Spin live on screen with audience watching.',
+    optionalModes: ['Cryptographic Audit Stamp', 'Instant Winner Confetti Fanfare', 'Winner Disqualification / Re-roll'],
+    relatedWheels: ['Winner Picker', 'Raffle Wheel', 'Contest Picker'],
+    relatedTools: ['Instagram/YouTube Comment Scraper', 'Fairness Cryptographic Verifier'],
+    difficulty: 'Easy',
+    shareableResultConcept: 'Official Giveaway Winner Banner with verified seed and live stream link.',
+    uniqueValueProposition: 'Built-in public verification hash prevents viewer accusations of rigged drawings.',
+    paletteKey: 'arcade'
+  },
+  {
+    id: 'winner-picker',
+    name: 'Winner Picker',
+    purpose: 'Universal random drawing engine for corporate contests, employee prizes, and event drawings.',
+    targetAudience: 'HR coordinators, conference emcees, non-profit benefit organizers.',
+    defaultEntries: ['Ticket #1042 - Marcus Bell', 'Ticket #1088 - Sarah Lin', 'Ticket #1135 - David Patel', 'Ticket #1190 - Elena Rostova', 'Ticket #1244 - Chloe Nguyen', 'Ticket #1298 - James Walker'],
+    category: 'GIVEAWAY',
+    instructions: 'Load attendees or raffle ticket numbers. Enable sound effects for high-energy stage tension.',
+    optionalModes: ['Multiple Winners (1st, 2nd, 3rd Prize)', 'Elimination Drum Roll'],
+    relatedWheels: ['Giveaway Wheel', 'Raffle Wheel', 'Contest Picker'],
+    relatedTools: ['Winner Certificate Generator', 'Ticket Number Sequence Importer'],
+    difficulty: 'Easy',
+    shareableResultConcept: 'Winner Certificate of Honor stamped with prize name and event seal.',
+    uniqueValueProposition: 'Supports multi-tier prize cascades (Grand Prize, Runner Up) with elimination logic.',
+    paletteKey: 'vibrant'
+  },
+  {
+    id: 'raffle-wheel',
+    name: 'Raffle Wheel',
+    purpose: 'Digital raffle drum supporting weighted tickets, charity fundraising, and school auctions.',
+    targetAudience: 'PTA school organizers, charity auctioneers, festival coordinators.',
+    defaultEntries: ['🎟️ Gold Tier - 10 Tickets', '🎟️ Silver Tier - 5 Tickets', '🎟️ Bronze Tier - 2 Tickets', '🎟️ Single Entry - 1 Ticket', '🎟️ Donor VIP - 8 Tickets', '🎟️ Community Supporter - 3 Tickets'],
+    category: 'GIVEAWAY',
+    instructions: 'Assign proportional weights to participants according to tickets purchased.',
+    optionalModes: ['Weighted Odds Mode', 'Charity Goal Counter', 'Ticket Roll Call'],
+    relatedWheels: ['Giveaway Wheel', 'Winner Picker', 'Percentage Wheel'],
+    relatedTools: ['WeightedEditor Component', 'Ticket Sales Calculator'],
+    difficulty: 'Medium',
+    shareableResultConcept: 'Charity Raffle Golden Ticket showcasing donor impact and winning number.',
+    uniqueValueProposition: 'Direct visual feedback showing ticket volume mapped accurately to slice angle.',
+    paletteKey: 'casino'
+  },
+  {
+    id: 'contest-picker',
+    name: 'Contest Picker',
+    purpose: 'Select finalists, judge assignments, and competition entry orders in judged events.',
+    targetAudience: 'Hackathon judges, art competition jurors, science fair organizers.',
+    defaultEntries: ['Entry 101 - Smart Irrigation App', 'Entry 102 - Solar Power Storage Unit', 'Entry 103 - Assistive AI Reader', 'Entry 104 - Biodegradable Packaging', 'Entry 105 - Autonomous Drone Delivery', 'Entry 106 - Mental Health Companion'],
+    category: 'GIVEAWAY',
+    instructions: 'Spin to select which team pitches next to eliminate judge bias in presentation order.',
+    optionalModes: ['Pitch Order Elimination', 'Finalist Bracket Seed'],
+    relatedWheels: ['Winner Picker', 'Tournament Wheel', 'Team Maker'],
+    relatedTools: ['Pitch Presentation 5-Min Timer', 'Judge Scorecard Sheet'],
+    difficulty: 'Medium',
+    shareableResultConcept: 'Finalist Pitch Order Spotlight card with entry title and team roster.',
+    uniqueValueProposition: 'Eliminates recency bias by randomizing pitch orders across competitive tracks.',
+    paletteKey: 'emerald'
+  }
+];

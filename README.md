@@ -1,11 +1,36 @@
-<div align="center">
+# SpinWheelGames 🎯
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A high-performance web application for custom spinning wheel games, random pickers, and decision tools with certified cryptographic randomness, custom themes, and preset libraries.
 
-  <h1>Built with AI Studio</h2>
+## 🚀 Exporting & Deploying to GitHub from AI Studio
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+To sync and automatically push this application from **Google AI Studio** to your **GitHub repository**:
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+1. **Export to GitHub**:
+   - In **Google AI Studio Build**, click on the **Settings / Export** menu (top right).
+   - Select **Export to GitHub**.
+   - Authenticate with your GitHub account and choose or create your destination repository (e.g. `your-username/spin-wheel-games`).
 
-</div>
+2. **Automated Continuous Integration & Builds**:
+   - The included `.github/workflows/deploy.yml` workflow automatically runs on every `git push` to your repository.
+   - It installs dependencies, verifies ESLint code quality, and builds the Next.js production bundle.
+
+3. **Deploying Options**:
+   - **Vercel / Cloudflare Pages / Cloud Run**: Connect your GitHub repository directly to Vercel or Cloudflare Pages for instant automatic deployments on every commit.
+   - **Environment Variables**: Add `GEMINI_API_KEY` to your host's Environment Variables settings if server-side AI functionality is used.
+
+## 🛠️ Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Run linter
+npm run lint
+```

@@ -1,0 +1,6 @@
+{
+  "name": "SpinWheelGames",
+  "description": "Free wheel games, random pickers, and certified fair decision tools with cryptographic randomness.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

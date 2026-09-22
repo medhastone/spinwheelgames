@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --surface: #fbf8ff;
+    --surface-dim: #dad9e3;
+    --surface-bright: #fbf8ff;
+    --surface-container-lowest: #ffffff;
+    --surface-container-low: #f4f2fd;
+    --surface-container: #eeedf7;
+    --surface-container-high: #e8e7f1;
+    --surface-container-highest: #e3e1ec;
+    --on-surface: #1a1b22;
+    --on-surface-variant: #464554;
+    --inverse-surface: #2f3038;
+    --inverse-on-surface: #f1effa;
+    --outline: #767586;
+    --outline-variant: #c7c4d7;
+    --primary: #4648d4;
+    --primary-container: #6063ee;
+    --on-primary: #ffffff;
+    --on-primary-container: #fffbff;
+    --primary-fixed: #e1e0ff;
+    --primary-fixed-dim: #c0c1ff;
+    --on-primary-fixed: #07006c;
+    --secondary: #006c49;
+    --secondary-container: #6cf8bb;
+    --on-secondary: #ffffff;
+    --on-secondary-container: #00714d;
+    --secondary-fixed: #6ffbbe;
+    --secondary-fixed-dim: #4edea3;
+    --tertiary: #b90538;
+    --tertiary-container: #dc2c4f;
+    --on-tertiary: #ffffff;
+    --on-tertiary-container: #fffbff;
+    --tertiary-fixed: #ffdadb;
+    --tertiary-fixed-dim: #ffb2b7;
+    --error: #ba1a1a;
+    --error-container: #ffdad6;
+    --on-error: #ffffff;
+    --on-error-container: #93000a;
+  }
+
+  .dark {
+    --surface: #12131a;
+    --surface-dim: #0e0f14;
+    --surface-bright: #272833;
+    --surface-container-lowest: #181922;
+    --surface-container-low: #1d1e28;
+    --surface-container: #222330;
+    --surface-container-high: #292a39;
+    --surface-container-highest: #313345;
+    --on-surface: #f1effa;
+    --on-surface-variant: #c7c4d7;
+    --inverse-surface: #f1effa;
+    --inverse-on-surface: #1a1b22;
+    --outline: #908fa1;
+    --outline-variant: #464554;
+    --primary: #8587ff;
+    --primary-container: #5052e4;
+    --on-primary: #ffffff;
+    --on-primary-container: #ffffff;
+    --primary-fixed: #32338f;
+    --primary-fixed-dim: #26276d;
+    --on-primary-fixed: #e1e0ff;
+    --secondary: #4edea3;
+    --secondary-container: #005236;
+    --on-secondary: #002113;
+    --on-secondary-container: #6cf8bb;
+    --secondary-fixed: #003824;
+    --secondary-fixed-dim: #002819;
+    --tertiary: #ff8595;
+    --tertiary-container: #92002a;
+    --on-tertiary: #40000d;
+    --on-tertiary-container: #ffdadb;
+    --tertiary-fixed: #5c0019;
+    --tertiary-fixed-dim: #40000d;
+    --error: #ffb4ab;
+    --error-container: #93000a;
+    --on-error: #690005;
+    --on-error-container: #ffdad6;
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--on-surface);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  70% {
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-bounceIn {
+  animation: bounceIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
