@@ -2,10 +2,19 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   const content = `# Robots.txt for SpinWheelGames.org
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: *
 Allow: /
 
-# Prevent duplicate content from tracking parameters and filters
+# Prevent duplicate indexing of search filters and tracking parameters
 Disallow: /*?*sort=
 Disallow: /*?*filter=
 Disallow: /*?*utm_*

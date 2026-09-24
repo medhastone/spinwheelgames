@@ -14,16 +14,13 @@ export function getCryptoUint32(): number {
 }
 
 /**
- * Returns a cryptographically secure float in range [0, 1) with 53 bits of precision.
+ * Returns a cryptographically secure float in range [0, 1) with full uniform distribution.
  */
 export function getCryptoRandomFloat(): number {
-  if (typeof window !== 'undefined' && window.crypto && window.crypto.getRandomValues) {
-    const arr = new Uint32Array(2);
+  if (typeof window !== 'undefined' && window.crypto && typeof window.crypto.getRandomValues === 'function') {
+    const arr = new Uint32Array(1);
     window.crypto.getRandomValues(arr);
-    // 53 bits of randomness: 21 bits from first word, 32 bits from second word
-    const high = arr[0] >>> 11;
-    const low = arr[1];
-    return (high * 4294967296 + low) / 9007199254740992;
+    return arr[0] / 4294967296; // 2^32 gives 4.29 billion uniform points in [0, 1)
   }
   return Math.random();
 }
@@ -32,7 +29,7 @@ export function getCryptoRandomFloat(): number {
  * Generates a hexadecimal seed hash representing the cryptographic draw.
  */
 export function generateSeedHash(): string {
-  if (typeof window !== 'undefined' && window.crypto && window.crypto.getRandomValues) {
+  if (typeof window !== 'undefined' && window.crypto && typeof window.crypto.getRandomValues === 'function') {
     const arr = new Uint16Array(4);
     window.crypto.getRandomValues(arr);
     return '0x' + Array.from(arr).map(b => b.toString(16).padStart(4, '0')).join('').toUpperCase();
@@ -42,7 +39,7 @@ export function generateSeedHash(): string {
 
 /**
  * Selects a winner item based on weights using cryptographic randomness.
- * DOES NOT rely on animation position; winner is chosen BEFORE the animation runs.
+ * Generates a completely fresh draw on every single invocation.
  */
 export function selectWeightedWinner(items: WheelItem[]): {
   winner: WheelItem;
@@ -50,11 +47,10 @@ export function selectWeightedWinner(items: WheelItem[]): {
   seed: string;
   oddsPercent: string;
 } {
-  if (items.length === 0) {
+  if (!items || items.length === 0) {
     throw new Error('Cannot select winner from empty items list');
   }
 
-  const seed = generateSeedHash();
   const totalWeight = items.reduce((sum, item) => sum + Math.max(0.001, item.weight || 1), 0);
   const randomFloat = getCryptoRandomFloat();
   const targetWeight = randomFloat * totalWeight;
@@ -73,6 +69,7 @@ export function selectWeightedWinner(items: WheelItem[]): {
   const winner = items[winnerIndex];
   const itemWeight = Math.max(0.001, winner.weight || 1);
   const oddsPercent = ((itemWeight / totalWeight) * 100).toFixed(1);
+  const seed = generateSeedHash();
 
   return {
     winner,

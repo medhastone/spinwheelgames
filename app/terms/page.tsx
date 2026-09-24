@@ -147,7 +147,7 @@ export default function TermsPage() {
               7. Contact Information
             </h2>
             <p>
-              For legal inquiries, licensing requests, or terms clarification, please contact <a href="mailto:legal@spinwheelgames.org" className="text-[#4648d4] dark:text-[#8587ff] font-semibold underline">legal@spinwheelgames.org</a> or visit our <Link href="/contact" className="text-[#4648d4] dark:text-[#8587ff] font-semibold underline">Contact Page</Link>.
+              For legal inquiries, licensing requests, or terms clarification, please contact <a href="mailto:info@spinwheelgames.org" className="text-[#4648d4] dark:text-[#8587ff] font-semibold underline">info@spinwheelgames.org</a> or visit our <Link href="/contact" className="text-[#4648d4] dark:text-[#8587ff] font-semibold underline">Contact Page</Link>.
             </p>
           </div>
         </section>

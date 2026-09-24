@@ -185,7 +185,7 @@ export default function AccessibilityPage() {
             Accessibility Feedback &amp; Support
           </h2>
           <p className="text-[14px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-            We welcome feedback from assistive technology users and educators. If you encounter any barrier while operating our wheels, please email our accessibility team at <a href="mailto:accessibility@spinwheelgames.org" className="text-[#4648d4] dark:text-[#8587ff] font-bold underline">accessibility@spinwheelgames.org</a> or visit our <Link href="/contact" className="text-[#4648d4] dark:text-[#8587ff] font-bold underline">Contact Page</Link>.
+            We welcome feedback from assistive technology users and educators. If you encounter any barrier while operating our wheels, please email our accessibility team at <a href="mailto:info@spinwheelgames.org" className="text-[#4648d4] dark:text-[#8587ff] font-bold underline">info@spinwheelgames.org</a> or visit our <Link href="/contact" className="text-[#4648d4] dark:text-[#8587ff] font-bold underline">Contact Page</Link>.
           </p>
         </section>
       </main>

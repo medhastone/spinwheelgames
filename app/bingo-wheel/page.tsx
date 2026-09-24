@@ -1,0 +1,457 @@
+import React from 'react';
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import {
+  Sparkles,
+  CheckCircle2,
+  HelpCircle,
+  Users,
+  Compass,
+  ArrowRight,
+  ShieldCheck,
+  ChevronRight,
+  Dices,
+  Volume2,
+  RotateCcw,
+  Maximize2,
+  Grid,
+  Radio,
+  Trophy,
+  Gamepad2,
+  Printer
+} from 'lucide-react';
+import BingoWheelEngine from '@/components/bingo/BingoWheelEngine';
+import SubpageHeader from '@/components/SubpageHeader';
+import Footer from '@/components/Footer';
+import DirectAnswer from '@/components/DirectAnswer';
+import QuickFacts from '@/components/QuickFacts';
+import ConcreteExample from '@/components/ConcreteExample';
+
+export const metadata: Metadata = {
+  title: 'Bingo Spin Wheel – Random Bingo Number Generator',
+  description:
+    'Spin a free bingo wheel to randomly call numbers without repeats. Perfect for classroom games, family bingo, parties and events.',
+  keywords: [
+    'bingo spin wheel',
+    'bingo number generator',
+    'bingo wheel',
+    'random bingo number generator',
+    'bingo spinner',
+    'bingo picker',
+    '75 ball bingo caller',
+    'classroom bingo caller'
+  ],
+  alternates: {
+    canonical: 'https://spinwheelgames.org/bingo-wheel'
+  },
+  openGraph: {
+    title: 'Bingo Spin Wheel – Random Bingo Number Generator',
+    description:
+      'Spin a free bingo wheel to randomly call numbers without repeats. Perfect for classroom games, family bingo, parties and events.',
+    url: 'https://spinwheelgames.org/bingo-wheel',
+    siteName: 'SpinWheelGames',
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bingo Spin Wheel – Random Bingo Number Generator',
+    description:
+      'Spin a free bingo wheel to randomly call numbers without repeats. Perfect for classroom games, family bingo, parties and events.'
+  }
+};
+
+const JSON_LD_DATA = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      '@id': 'https://spinwheelgames.org/bingo-wheel#webapp',
+      name: 'Bingo Spin Wheel',
+      url: 'https://spinwheelgames.org/bingo-wheel',
+      applicationCategory: 'GameApplication',
+      operatingSystem: 'All',
+      description:
+        'Free online Bingo spin wheel and random bingo number caller tool. Call 75-ball, 90-ball or mini bingo numbers without repeats, view master board history, enable voice caller, and mark player cards.',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD'
+      },
+      featureList: [
+        '75-Ball, 90-Ball, and 30-Ball Mini Bingo modes',
+        'Automatic No-Repeat elimination mode',
+        'Interactive Master Bingo Call Board matrix',
+        'Full-screen classroom and projector display mode',
+        'Voice Speech Synthesis (TTS) bingo caller',
+        'In-browser interactive player bingo cards with 5-in-a-row win detection',
+        'Reset game and called numbers history'
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://spinwheelgames.org/bingo-wheel#breadcrumb',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://spinwheelgames.org'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Games & Classroom',
+          item: 'https://spinwheelgames.org/classroom-wheel'
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: 'Bingo Wheel',
+          item: 'https://spinwheelgames.org/bingo-wheel'
+        }
+      ]
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': 'https://spinwheelgames.org/bingo-wheel#faq',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How does the Bingo spin wheel ensure numbers are not repeated?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'When a number is drawn, the engine automatically records it in the called numbers history and removes it from the active spin wheel pool. No number can be picked twice until you click the Reset Game button.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Can I use this for 75-Ball, 90-Ball, and Mini Bingo games?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes! The tool supports 75-Ball American Bingo (B1-15, I16-30, N31-45, G46-60, O61-75), 90-Ball UK/Australian Bingo (1-90), and 30-Ball Speed Mini Bingo with a single click.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Does the tool have voice calling audio for numbers?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes! You can toggle the "Voice ON" button to enable real-time speech synthesis that reads out the letter and number as each ball lands (e.g. "B, 12" or "N, 35").'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'How do players mark numbers on their bingo cards?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Switch to the "Player Cards" tab. Players can generate custom 5x5 bingo cards and click or tap any cell to dab called numbers. The engine automatically detects 5-in-a-row BINGO wins along rows, columns, and diagonals!'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Is the Bingo Spin Wheel free to use for teachers and events?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: '100% free with no registration, no ads, and no limits. You can project it in full-screen mode onto classroom smartboards or party screens.'
+          }
+        }
+      ]
+    }
+  ]
+};
+
+export default function BingoWheelPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_DATA) }}
+      />
+
+      <div className="min-h-screen flex flex-col bg-[#faf8fd] dark:bg-[#0c0d14] text-[#1a1b22] dark:text-[#eeedf7]">
+        {/* Global Header */}
+        <SubpageHeader activePage="/bingo-wheel" />
+
+        {/* Breadcrumb Navigation */}
+        <nav
+          aria-label="Breadcrumbs"
+          className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 lg:pt-32 pb-2 text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1.5 w-full"
+        >
+          <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+            Home
+          </Link>
+          <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
+          <Link href="/classroom-wheel" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+            Games & Classroom
+          </Link>
+          <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
+          <span className="font-semibold text-gray-800 dark:text-gray-200" aria-current="page">
+            Bingo Wheel
+          </span>
+        </nav>
+
+        {/* Hero Section */}
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
+          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-700 dark:text-rose-400 text-xs font-bold mb-3 border border-rose-500/20">
+              <Dices className="w-3.5 h-3.5" />
+              <span>Random Bingo Number Generator & Live Caller</span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-headline tracking-tight text-gray-900 dark:text-white mb-3">
+              Bingo Spin Wheel
+            </h1>
+
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+              Spin a free bingo wheel to randomly call numbers without repeats. Perfect for classroom games, family bingo, parties and events.
+            </p>
+          </div>
+
+          {/* Interactive Bingo Wheel Engine Tool */}
+          <div className="mb-10">
+            <BingoWheelEngine />
+          </div>
+
+          {/* Direct Answer Block Below Wheel Container */}
+          <div className="mb-10">
+            <DirectAnswer
+              question="What is the Bingo Spin Wheel?"
+              answer="The Bingo Spin Wheel is a free, interactive online random number caller designed for 75-Ball, 90-Ball, and 30-Ball Bingo. It spins to select numbers without repeats, tracks draws on a live master board, offers voice text-to-speech calling, and provides interactive digital player cards."
+            />
+          </div>
+
+          {/* Quick Facts Component */}
+          <div className="mb-10">
+            <QuickFacts
+              facts={{
+                toolName: 'Bingo Spin Wheel & Caller',
+                purpose: 'Random bingo number generation and live automated game calling',
+                bestFor: 'Classroom games, senior center bingo, family game nights, and fundraiser events',
+                modes: ['75-Ball US Bingo', '90-Ball UK Bingo', '30-Ball Speed Mini', 'Player Cards Mode'],
+                customization: ['Spin Speed (1.5s to 8.5s)', 'Voice TTS Caller', 'Master Board History', 'Card Dabbing'],
+                accountRequired: 'No Account Required',
+                cost: '100% Free Forever',
+                selectionMethod: 'Browser Hardware-Seeded Web Cryptography (CSPRNG)'
+              }}
+            />
+          </div>
+
+          {/* Concrete Example */}
+          <div className="mb-10">
+            <ConcreteExample
+              example={{
+                title: 'Example Bingo Call Workflow',
+                scenario: 'A classroom teacher spins the 75-Ball Bingo Wheel during math review. 75 numbers (B1–15 through O61–75) are in the pool.',
+                userChoices: ['B-12', 'I-24', 'N-37', 'G-51', 'O-68'],
+                result: 'N-37',
+                explanation: 'The wheel landed firmly on N-37, the audio voice caller announced "N, 37", and cell 37 lit up on the Master Call Board while locking against repeat draws.'
+              }}
+            />
+          </div>
+
+          {/* Core Feature Highlights */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
+            <div className="p-4 rounded-xl bg-white dark:bg-[#161722] border border-[#eceaf6] dark:border-[#27283c] shadow-sm">
+              <div className="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
+                <Dices className="w-5 h-5" />
+              </div>
+              <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-1">75, 90 & Mini Modes</h2>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                Full support for standard 75-Ball US Bingo (B-I-N-G-O), 90-Ball UK Bingo, and 30-Ball speed games.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-[#161722] border border-[#eceaf6] dark:border-[#27283c] shadow-sm">
+              <div className="w-10 h-10 rounded-lg bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-3">
+                <Grid className="w-5 h-5" />
+              </div>
+              <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-1">Master Call Board</h2>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                Live interactive matrix highlights all called numbers with B-I-N-G-O column grouping and recent call log.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-[#161722] border border-[#eceaf6] dark:border-[#27283c] shadow-sm">
+              <div className="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-3">
+                <Radio className="w-5 h-5" />
+              </div>
+              <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-1">Voice Audio Caller</h2>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                Built-in Web Speech API announcer vocalizes each called letter and number with realistic caller sound FX.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-[#161722] border border-[#eceaf6] dark:border-[#27283c] shadow-sm">
+              <div className="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
+                <Gamepad2 className="w-5 h-5" />
+              </div>
+              <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-1">Interactive Player Cards</h2>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                Generate 5x5 player cards in browser for players to dab numbers and automatically detect 5-in-a-row BINGO!
+              </p>
+            </div>
+          </div>
+
+          {/* Deep Editorial Content */}
+          <section className="space-y-12 mb-16 text-gray-800 dark:text-gray-200">
+            {/* Step-by-Step Instructions */}
+            <div className="bg-white dark:bg-[#161722] p-6 sm:p-8 rounded-2xl border border-[#eceaf6] dark:border-[#27283c] shadow-sm">
+              <h2 className="text-xl sm:text-2xl font-bold font-headline text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                <Compass className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                How to Host a Game with the Bingo Spin Wheel
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                <div className="space-y-2">
+                  <div className="w-7 h-7 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center">
+                    1
+                  </div>
+                  <h3 className="font-bold text-gray-900 dark:text-white">Select Your Bingo Mode</h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                    Choose <strong>75-Ball</strong> for traditional American B-I-N-G-O, <strong>90-Ball</strong> for UK/Aussie games, or <strong>30-Ball</strong> for rapid mini games.
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="w-7 h-7 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center">
+                    2
+                  </div>
+                  <h3 className="font-bold text-gray-900 dark:text-white">Spin & Call Numbers</h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                    Click <strong>CALL NEXT BINGO NUMBER</strong>. The wheel spins smoothly and announces the result with sound FX and voice text-to-speech. Numbers are drawn strictly without repeats!
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="w-7 h-7 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center">
+                    3
+                  </div>
+                  <h3 className="font-bold text-gray-900 dark:text-white">Track on Master Board & Cards</h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                    View called numbers on the <strong>Master Call Board</strong> or hand out digital <strong>Player Cards</strong> for participants to mark their numbers in real time.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Popular Bingo Game Formats */}
+            <div className="space-y-6">
+              <h2 className="text-xl sm:text-2xl font-bold font-headline text-gray-900 dark:text-white">
+                Popular Bingo Game Formats & Ideas
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs">
+                <div className="p-5 rounded-xl bg-white dark:bg-[#161722] border border-[#eceaf6] dark:border-[#27283c] space-y-2">
+                  <span className="font-bold text-sm text-blue-600 dark:text-blue-400 block">Classroom Vocabulary Bingo</span>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Teachers assign numbers to vocabulary words or math problems. Spin the wheel to pick the next question and keep students engaged on smartboards.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-xl bg-white dark:bg-[#161722] border border-[#eceaf6] dark:border-[#27283c] space-y-2">
+                  <span className="font-bold text-sm text-rose-600 dark:text-rose-400 block">Family & Party Night Bingo</span>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    No physical bingo cage or wooden balls required! Turn on the Voice Caller and project the wheel onto TV screens for holiday family gatherings.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-xl bg-white dark:bg-[#161722] border border-[#eceaf6] dark:border-[#27283c] space-y-2">
+                  <span className="font-bold text-sm text-purple-600 dark:text-purple-400 block">Fundraiser & Community Events</span>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Provably fair CSPRNG hardware randomness guarantees equal odds for charity raffles, church bingo nights, and corporate team-building events.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Frequently Asked Questions */}
+            <div className="bg-white dark:bg-[#161722] p-6 sm:p-8 rounded-2xl border border-[#eceaf6] dark:border-[#27283c] space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold font-headline text-gray-900 dark:text-white flex items-center gap-2">
+                <HelpCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-4 text-xs sm:text-sm">
+                <div className="p-4 rounded-xl bg-gray-50 dark:bg-[#1a1b28] border border-gray-200 dark:border-gray-800">
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">
+                    How does the Bingo spin wheel ensure numbers are not repeated?
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    When a number is drawn, the engine automatically records it in the called numbers history and removes it from the active spin wheel pool. No number can be picked twice until you click the Reset Game button.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-gray-50 dark:bg-[#1a1b28] border border-gray-200 dark:border-gray-800">
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">
+                    Can I use this for 75-Ball, 90-Ball, and Mini Bingo games?
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Yes! The tool supports 75-Ball American Bingo (B1-15, I16-30, N31-45, G46-60, O61-75), 90-Ball UK/Australian Bingo (1-90), and 30-Ball Speed Mini Bingo with a single click.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-gray-50 dark:bg-[#1a1b28] border border-gray-200 dark:border-gray-800">
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">
+                    Does the tool have voice calling audio for numbers?
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Yes! You can toggle the &quot;Voice ON&quot; button to enable real-time speech synthesis that reads out the letter and number as each ball lands (e.g. &quot;B, 12&quot; or &quot;N, 35&quot;).
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-gray-50 dark:bg-[#1a1b28] border border-gray-200 dark:border-gray-800">
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">
+                    How do players mark numbers on their bingo cards?
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Switch to the &quot;Player Cards&quot; tab. Players can generate custom 5x5 bingo cards and click or tap any cell to dab called numbers. The engine automatically detects 5-in-a-row BINGO wins along rows, columns, and diagonals!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Related Tools & Wheels */}
+            <div className="p-6 rounded-2xl bg-[#f8f7fd] dark:bg-[#171825] border border-[#eceaf6] dark:border-[#27283c]">
+              <h2 className="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-indigo-500" />
+                Explore More Games & Classroom Wheels
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                <Link
+                  href="/number-wheel"
+                  className="p-3 rounded-xl bg-white dark:bg-[#202130] border border-gray-200/80 dark:border-gray-700/80 hover:border-indigo-400 transition-colors block text-center"
+                >
+                  <span className="font-bold text-gray-900 dark:text-white block mb-0.5">Number Wheel</span>
+                  <span className="text-[11px] text-gray-500 dark:text-gray-400">Random range & dice roller</span>
+                </Link>
+
+                <Link
+                  href="/classroom-wheel"
+                  className="p-3 rounded-xl bg-white dark:bg-[#202130] border border-gray-200/80 dark:border-gray-700/80 hover:border-indigo-400 transition-colors block text-center"
+                >
+                  <span className="font-bold text-gray-900 dark:text-white block mb-0.5">Classroom Wheel</span>
+                  <span className="text-[11px] text-gray-500 dark:text-gray-400">Student & group picker</span>
+                </Link>
+
+                <Link
+                  href="/question-wheel"
+                  className="p-3 rounded-xl bg-white dark:bg-[#202130] border border-gray-200/80 dark:border-gray-700/80 hover:border-indigo-400 transition-colors block text-center"
+                >
+                  <span className="font-bold text-gray-900 dark:text-white block mb-0.5">Question Wheel</span>
+                  <span className="text-[11px] text-gray-500 dark:text-gray-400">Icebreakers & trivia prompts</span>
+                </Link>
+
+                <Link
+                  href="/drawing-wheel"
+                  className="p-3 rounded-xl bg-white dark:bg-[#202130] border border-gray-200/80 dark:border-gray-700/80 hover:border-indigo-400 transition-colors block text-center"
+                >
+                  <span className="font-bold text-gray-900 dark:text-white block mb-0.5">Drawing Wheel</span>
+                  <span className="text-[11px] text-gray-500 dark:text-gray-400">Art & Pictionary ideas</span>
+                </Link>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        {/* Global Footer */}
+        <Footer />
+      </div>
+    </>
+  );
+}

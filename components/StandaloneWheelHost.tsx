@@ -7,7 +7,7 @@ import BulkPasteModal from './BulkPasteModal';
 import { WheelItem, WheelMode, SpinLogItem, SoundSettings } from '@/lib/types';
 import { COLOR_PALETTES } from '@/lib/presets';
 import { selectWeightedWinner } from '@/lib/random';
-import { loadPreferences, savePreferences, loadSoundSettings, saveSoundSettings } from '@/lib/storage';
+import { useAppPreferences, useAppSoundSettings } from '@/lib/storage';
 
 interface StandaloneWheelHostProps {
   initialTitle: string;
@@ -34,9 +34,11 @@ export default function StandaloneWheelHost({
     COLOR_PALETTES[initialPaletteKey]?.colors || COLOR_PALETTES.arcade.colors
   );
 
-  const [spinDuration, setSpinDuration] = useState(() => loadPreferences().duration || 5);
-  const [currentMode, setCurrentMode] = useState<WheelMode>(() => loadPreferences().mode || 'standard');
-  const [soundSettings, setSoundSettings] = useState<SoundSettings>(() => loadSoundSettings());
+  const [appPrefs, updateAppPrefs] = useAppPreferences();
+  const [soundSettings, setSoundSettings] = useAppSoundSettings();
+
+  const currentMode = appPrefs.mode || 'standard';
+  const spinDuration = appPrefs.duration || 6;
 
   const [isSpinning, setIsSpinning] = useState(false);
   const [preSelectedWinner, setPreSelectedWinner] = useState<{
@@ -54,17 +56,14 @@ export default function StandaloneWheelHost({
 
   const handleUpdateSoundSettings = (newSettings: SoundSettings) => {
     setSoundSettings(newSettings);
-    saveSoundSettings(newSettings);
   };
 
   const handleUpdateDuration = (dur: number) => {
-    setSpinDuration(dur);
-    savePreferences({ duration: dur });
+    updateAppPrefs({ duration: dur });
   };
 
   const handleSelectMode = (mode: WheelMode) => {
-    setCurrentMode(mode);
-    savePreferences({ mode });
+    updateAppPrefs({ mode });
   };
 
   const handleSelectPalette = (key: string) => {
@@ -142,34 +141,24 @@ export default function StandaloneWheelHost({
         spinLogs={spinLogs}
         isSpinning={isSpinning}
         preSelectedWinner={preSelectedWinner}
-        onUpdateItems={setItems}
-        onSelectPalette={handleSelectPalette}
-        onChangeDuration={handleUpdateDuration}
-        onChangeSoundSettings={handleUpdateSoundSettings}
-        onTriggerSpin={handleTriggerSpin}
-        onSpinStart={() => setIsSpinning(true)}
-        onSpinEnd={handleSpinEnd}
-        onOpenBulkImport={() => setBulkImportOpen(true)}
-        onResetWheel={handleResetWheel}
-      />
-
-      <WinnerModal
-        isOpen={winnerModalOpen}
-        winner={winnerItem}
-        oddsPercent={preSelectedWinner?.oddsPercent || '12.5'}
-        seed={preSelectedWinner?.seed || '0x94F2B01E'}
-        spinNumber={lastSpinNumber}
-        currentMode={currentMode}
-        soundEnabled={soundSettings.enabled}
-        soundPack={soundSettings.pack}
-        volume={soundSettings.volume}
-        ttsEnabled={soundSettings.ttsEnabled}
-        onClose={() => setWinnerModalOpen(false)}
+        winnerModalOpen={winnerModalOpen}
+        winnerItem={winnerItem}
+        lastSpinNumber={lastSpinNumber}
+        onCloseWinnerModal={() => setWinnerModalOpen(false)}
         onSpinAgain={() => {
           setWinnerModalOpen(false);
           setTimeout(() => handleTriggerSpin(), 150);
         }}
         onRemoveWinner={handleRemoveWinner}
+        onUpdateItems={setItems}
+        onSelectPalette={handleSelectPalette}
+        onChangeDuration={handleUpdateDuration}
+        onChangeSoundSettings={handleUpdateSoundSettings}
+        onTriggerSpin={handleTriggerSpin}
+        onSpinStart={handleTriggerSpin}
+        onSpinEnd={handleSpinEnd}
+        onOpenBulkImport={() => setBulkImportOpen(true)}
+        onResetWheel={handleResetWheel}
       />
 
       <BulkPasteModal

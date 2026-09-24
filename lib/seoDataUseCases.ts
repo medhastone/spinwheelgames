@@ -148,21 +148,21 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     slug: 'classroom-wheel',
     fullPath: '/classroom-wheel',
     pageType: 'tool',
-    title: 'Classroom Wheel – Student Picker & Teaching Activity Spinner',
-    metaDescription: 'Keep students engaged and participation 100% fair. Classroom Wheel features cold-calling, reading turns, classroom jobs, and student elimination.',
-    h1: 'Classroom Wheel: Fair Student Picker & Activity Spinner',
-    introduction: 'Designed for educators from elementary to university levels, the Classroom Wheel provides a fun, transparent way to select students for questions, assign classroom jobs, pick reading groups, and organize learning stations without any complaints of favoritism.',
+    title: 'Classroom Spin Wheel – Random Student Picker',
+    metaDescription: 'Use a free classroom spin wheel to randomly pick students, teams, activities, questions and classroom jobs. Fast, fair and easy to customize.',
+    h1: 'Classroom Spin Wheel',
+    introduction: 'Teachers need a fair and quick way to randomly select students, activities, groups or questions without bias. Our free Classroom Spin Wheel combines cold-calling, student elimination, text-to-speech narration, and an instant random team generator into a single interactive whiteboard tool.',
     primaryIntent: 'classroom',
     secondaryIntents: ['educational', 'transactional/use tool'],
     categoryKey: 'classroom',
     parentCategoryPath: '/classroom',
     parentCategoryName: 'Classroom & Education',
     featureBadges: [
-      'Popsicle Stick Alternative',
-      'No-Repeat Student Removal',
-      'Text-to-Speech Announcements',
-      'Private Roster Storage',
-      'Smartboard & Tablet Ready'
+      'Random Student Picker',
+      'No-Repeat Elimination',
+      'Reading Order & Quiz Topics',
+      'Classroom Job Spinner',
+      'Team Generator & Group Maker'
     ],
     defaultWheelData: {
       title: 'Classroom Participation Wheel',
@@ -753,21 +753,22 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     slug: 'number-wheel',
     fullPath: '/number-wheel',
     pageType: 'tool',
-    title: 'Number Wheel – Random Number Generator Spinner (1-100)',
-    metaDescription: 'Spin a custom random number wheel. Generate numbers from 1 to 10, 1 to 50, or 1 to 100 for raffles, games, and math practice.',
-    h1: 'Number Wheel: Random Number Generator Spinner',
-    introduction: 'Generate random numbers with visual suspense. Whether you need a number from 1 to 10, a replacement for lost dice, or a raffle digit generator, our Number Wheel delivers clean, unbiased results.',
-    primaryIntent: 'educational',
-    secondaryIntents: ['transactional/use tool', 'decision'],
+    title: 'Number Spin Wheel – Free Random Number Picker',
+    metaDescription: 'Spin a random number wheel online. Choose any range, generate unique numbers, exclude numbers, and use the result for games, decisions or activities.',
+    h1: 'Number Spin Wheel',
+    introduction: 'Spin a free random number wheel online or generate unique numbers instantly. Customize your range (1-4, 1-6, 1-10, 1-20, 1-50, 1-100 or custom), filter even or odd numbers, exclude specific digits, and draw single or batch results with certified cryptographic randomness.',
+    primaryIntent: 'transactional/use tool',
+    secondaryIntents: ['educational', 'decision', 'entertainment'],
     categoryKey: 'numbers',
     parentCategoryPath: '/numbers',
     parentCategoryName: 'Numbers & Dice',
     featureBadges: [
-      'Preset Number Ranges (1-10, 1-20, 1-100)',
-      'Digital Die Alternative',
-      'Math Classroom Ready',
-      'No-Repeat Mode',
-      'Provably Fair Odds'
+      'Custom Number Range',
+      'Presets (1-4, 1-6, 1-10, 1-20, 1-50, 1-100)',
+      'Even / Odd Filters',
+      'Number Exclusion Manager',
+      'Unique Multiple Results Mode',
+      'Wheel & Instant Generator'
     ],
     defaultWheelData: {
       title: 'Random Number Wheel (1-10)',
@@ -787,67 +788,120 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
       ]
     },
     instructions: [
-      'Choose your desired number range or type custom numbers into the entry box.',
-      'Click SPIN to start the wheel.',
-      'Read the winning number indicated by the pointer.',
-      'Use the number for your board game, math drill, or drawing.'
+      'Choose a quick preset range (1-4, 1-6, 1-10, 1-20, 1-50, 1-100) or specify custom Min and Max numbers.',
+      'Optionally apply Even Numbers Only, Odd Numbers Only, or add Excluded Numbers.',
+      'Choose Wheel Mode to watch the physical spin animation, or switch to Instant Generator to draw single or multiple unique numbers immediately.',
+      'Click SPIN (or press Spacebar) to rotate the wheel.',
+      'View the drawn number, copy the result, or activate No-Repeat elimination to draw subsequent unique numbers without duplicates.'
     ],
     whoItsUsefulFor: [
       {
-        audience: 'Math Teachers',
-        benefit: 'Creates quick mental math drills (e.g. "Multiply the spun number by 7!").'
+        audience: 'Teachers & Educators',
+        benefit: 'Draws student roll numbers, sets up math fact drills, and groups students fairly without bias.'
       },
       {
-        audience: 'Tabletop Gamers',
-        benefit: 'Acts as an emergency replacement for lost 6-sided, 10-sided, or 20-sided dice.'
+        audience: 'Tabletop Gamers & RPG Players',
+        benefit: 'Serves as an emergency digital replacement for lost D4, D6, D10, D12, and D20 polyhedral dice.'
+      },
+      {
+        audience: 'Event Organizers & Raffle Hosts',
+        benefit: 'Picks winning ticket and stub numbers with full cryptographic fairness and transparent elimination.'
+      },
+      {
+        audience: 'Researchers & Sweepstakes Coordinators',
+        benefit: 'Generates non-repeating unique batches of randomized integer IDs for sampling or giveaways.'
       }
     ],
     useCases: [
       {
-        title: 'Math Fact Practice',
-        benefit: 'Spins random factors or addends for students to calculate on individual whiteboards.',
-        description: 'Spins random factors or addends for students to calculate on individual whiteboards.'
+        title: 'Digital Dice & Tabletop Gaming',
+        description: 'Use the 1-6 or 1-20 range presets as a 100% fair digital die for Dungeons & Dragons, Settlers of Catan, or Monopoly.',
+        benefit: 'Never get stalled by lost dice or cocked rolls.'
+      },
+      {
+        title: 'Classroom Math Drills & Student Selection',
+        description: 'Spin numbers for mental math challenges (multiplication tables, prime identification) or call on students by roster number.',
+        benefit: 'Boosts student engagement while keeping turn-taking impartial.'
+      },
+      {
+        title: 'Raffle & Door Prize Drawings',
+        description: 'Set your range from 1 to the total number of tickets sold, exclude non-eligible tickets, and spin for winners.',
+        benefit: 'Delivers exciting visual suspense with provable hardware randomness.'
       }
     ],
     customizationOptions: [
       {
-        title: 'Custom Number Ranges',
-        description: 'Quickly set ranges from 1 to 20, 1 to 50, or custom ticket sequences.'
+        title: 'Custom Min / Max Range',
+        description: 'Specify any integer span (including negative numbers or large ranges up to thousands).'
+      },
+      {
+        title: 'Parity Filtering (Even / Odd)',
+        description: 'Restrict the number pool strictly to even or odd integers.'
+      },
+      {
+        title: 'Exclusion Blacklist',
+        description: 'Exclude specific numbers from being generated or shown on the wheel.'
+      },
+      {
+        title: 'Batch Generation & Unique Sets',
+        description: 'Draw 1, 3, 5, 10 or more distinct numbers at once without replacement.'
       }
     ],
-    resultExplanation: 'All numbers have equal slice width and identical mathematical probability.',
+    resultExplanation: 'All numbers are mapped to equal probability intervals. The winning number is generated using the browser\'s native Web Cryptography API (crypto.getRandomValues) to ensure mathematically certified uniformity.',
     uniqueExamples: [
-      'Raffle Numbers: 101, 102, 103, 104, 105, 106, 107, 108'
+      'Standard 6-Sided Die: 1, 2, 3, 4, 5, 6',
+      'D20 Tabletop Roll: 1 to 20',
+      'Classroom Roster (28 students): 1 to 28 with No-Repeat',
+      'Raffle Tickets (100-250): Min 100, Max 250'
     ],
     tips: [
-      'For multiplication games, spin the wheel twice and have students multiply the two numbers!'
+      'Press Spacebar on desktop to trigger consecutive spins quickly.',
+      'Activate No-Repeat mode when drawing multiple prize tiers so the same ticket number cannot win twice.',
+      'Use Instant Mode when you need 5+ random numbers at once for lottery picks or statistical sampling.'
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Why Digital Number Wheels Beat Traditional Dice',
+        heading: 'Why CSPRNG Cryptographic Randomness Matters for Numbers',
         body: [
-          'Dice can roll off tables, get lost, or have physical manufacturing imbalances. A digital number wheel is always visible to everyone in the room and guarantees pure cryptographic fairness.'
+          'Many online number generators use basic Math.random() implementations, which rely on pseudo-random linear congruential algorithms that can exhibit subtle periodicity and non-uniform clustering.',
+          'The SpinWheelGames Number Wheel uses the W3C Web Cryptography API (crypto.getRandomValues), drawing entropy directly from your operating system\'s hardware noise sources. This guarantees true statistical independence across all spins.'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Can I create a 1 to 100 wheel?',
-        answer: 'Yes! You can paste 1 through 100 into the Bulk Paste dialog to create a full 100-slice wheel.'
+        question: 'Can I pick multiple unique numbers at once?',
+        answer: 'Yes! Switch to the Instant Generator mode or use the "Pick Multiple" batch counter to generate 2, 5, 10, or up to 50 unique numbers simultaneously without duplicates.'
+      },
+      {
+        question: 'How do I exclude numbers that have already won?',
+        answer: 'You can type excluded numbers (comma-separated) into the "Exclude Numbers" box, or simply enable "No-Repeat" mode to automatically remove each winning number as it is spun.'
+      },
+      {
+        question: 'Can I use this as a replacement for gaming dice (D6, D20)?',
+        answer: 'Absolutely. Click the 1-6 preset for a standard D6 cube die, or the 1-20 preset for a tabletop RPG D20. Each face has an exact, equal probability.'
+      },
+      {
+        question: 'Is there a limit on how high the maximum number can be?',
+        answer: 'In Instant Generator mode, you can set ranges up to 1,000,000+. For the interactive visual wheel, up to 100 numbers can be rendered clearly on the canvas wheel simultaneously.'
       }
     ],
     relatedTools: [
-      { name: 'Letter Wheel', path: '/letter-wheel', description: 'Alphabet A-Z letter spinner.' },
-      { name: 'Random Picker', path: '/random-picker', description: 'General item selector.' }
+      { name: 'Decision Wheel', path: '/decision-wheel', description: 'Make quick everyday choices and settle dilemmas.' },
+      { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', description: 'Simple 50/50 binary decision maker.' },
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Random name and student picker.' },
+      { name: 'Food Wheel', path: '/food-wheel', description: 'Random meal and dinner decider.' }
     ],
     relatedWheels: [
-      { name: 'Letter Wheel', path: '/letter-wheel', count: 10 }
+      { name: 'Decision Wheel', path: '/decision-wheel', count: 6 },
+      { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', count: 2 }
     ],
     relatedGuides: [
       { name: 'How Random Wheels Work', path: '/how-random-wheels-work', readingTime: '6 min' }
     ],
     internalLinks: [
-      { label: 'Explore Numbers Pillar', href: '/numbers', context: 'All numeric spinners.' }
+      { label: 'Explore Decision Wheels', href: '/decisions', context: 'All choice and decision-making tools.' },
+      { label: 'Try Wheel of Names', href: '/wheel-of-names', context: 'Pick names instead of numbers.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org' },

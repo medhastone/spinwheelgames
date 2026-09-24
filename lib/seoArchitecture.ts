@@ -46,6 +46,41 @@ export interface EeatEditorialMeta {
   isoCompliance?: string;
 }
 
+export interface SeoQuickFacts {
+  toolName: string;
+  purpose: string;
+  bestFor: string;
+  modes: string[];
+  customization: string[];
+  accountRequired: string;
+  cost: string;
+  selectionMethod: string;
+}
+
+export interface SeoConcreteExample {
+  title: string;
+  scenario: string;
+  userChoices: string[];
+  result: string;
+  explanation: string;
+}
+
+export interface KeywordContentMatrixItem {
+  url: string;
+  pageName: string;
+  primaryKeyword: string;
+  secondaryKeywords: string[];
+  semanticTerms: string[];
+  searchIntent: string;
+  targetAudience: string;
+  problemSolved: string;
+  toolType: string;
+  uniqueValue: string;
+  internalLinks: string[];
+  sourceRequirements: string[];
+  indexable: boolean;
+}
+
 export interface SeoPageData {
   slug: string;
   fullPath: string;
@@ -54,6 +89,15 @@ export interface SeoPageData {
   metaDescription: string;
   h1: string;
   introduction: string;
+  directAnswer?: string;
+  quickFacts?: SeoQuickFacts;
+  concreteExample?: SeoConcreteExample;
+  primaryKeyword?: string;
+  secondaryKeywords?: string[];
+  semanticTerms?: string[];
+  targetAudience?: string;
+  problemSolved?: string;
+  uniqueValue?: string;
   primaryIntent: SearchIntentType;
   secondaryIntents: SearchIntentType[];
   categoryKey: string;

@@ -1,7 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, useSyncExternalStore } from 'react';
+import React, { useState, useEffect, useRef, useSyncExternalStore } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import {
   Search,
   Volume2,
@@ -15,7 +17,21 @@ import {
   Plus,
   Menu,
   X,
-  Heart
+  Heart,
+  HelpCircle,
+  Users,
+  Utensils,
+  GraduationCap,
+  PartyPopper,
+  Film,
+  Trophy,
+  Gift,
+  Hash,
+  ArrowRight,
+  CheckCircle2,
+  Dice5,
+  TrendingUp,
+  Star
 } from 'lucide-react';
 import {
   subscribeTheme,
@@ -26,19 +42,20 @@ import {
 } from '@/lib/theme';
 import {
   useSavedWheels,
-  loadUserStats,
+  useUserStats,
   SavedWheel
 } from '@/lib/storage';
 import { WheelConfig } from '@/lib/presets';
 import SavedWheelsModal from './SavedWheelsModal';
+import SearchModal from './SearchModal';
 
 interface NavbarProps {
-  soundEnabled: boolean;
-  onToggleSound: () => void;
-  onOpenSearch: () => void;
-  onOpenCreateWheel: () => void;
-  activeNav: string;
-  onSelectNav: (nav: string) => void;
+  soundEnabled?: boolean;
+  onToggleSound?: () => void;
+  onOpenSearch?: () => void;
+  onOpenCreateWheel?: () => void;
+  activeNav?: string;
+  onSelectNav?: (nav: string) => void;
   onSelectPreset?: (wheel: WheelConfig) => void;
 }
 
@@ -47,10 +64,11 @@ export default function Navbar({
   onToggleSound,
   onOpenSearch,
   onOpenCreateWheel,
-  activeNav,
+  activeNav = 'home',
   onSelectNav,
   onSelectPreset
 }: NavbarProps) {
+  const router = useRouter();
   const isDark = useSyncExternalStore(
     subscribeTheme,
     getThemeSnapshot,
@@ -58,95 +76,390 @@ export default function Navbar({
   );
 
   const savedWheels = useSavedWheels();
+  const userStats = useUserStats();
+  const stats = { currentDailyStreak: userStats.currentDailyStreak || 7 };
 
-  const [stats] = useState(() => {
-    try {
-      const userStats = loadUserStats();
-      return { currentDailyStreak: userStats.currentDailyStreak || 7 };
-    } catch {
-      return { currentDailyStreak: 7 };
-    }
-  });
   const [profileOpen, setProfileOpen] = useState(false);
+  const [popularOpen, setPopularOpen] = useState(false);
+  const [trendingOpen, setTrendingOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileTab, setMobileTab] = useState<'popular' | 'trending'>('popular');
   const [savedModalOpen, setSavedModalOpen] = useState(false);
+  const [internalSearchOpen, setInternalSearchOpen] = useState(false);
+  const [internalSound, setInternalSound] = useState(true);
+
+  const navRef = useRef<HTMLDivElement>(null);
+
+  const isSoundActive = soundEnabled !== undefined ? soundEnabled : internalSound;
+
+  const handleToggleSound = () => {
+    if (onToggleSound) {
+      onToggleSound();
+    } else {
+      setInternalSound(!internalSound);
+    }
+  };
+
+  const handleOpenSearch = () => {
+    if (onOpenSearch) {
+      onOpenSearch();
+    } else {
+      setInternalSearchOpen(true);
+    }
+  };
+
+  const handleOpenCreateWheel = () => {
+    if (onOpenCreateWheel) {
+      onOpenCreateWheel();
+    } else {
+      router.push('/#create-wheel');
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (onSelectNav) {
+      onSelectNav('home');
+    } else {
+      router.push('/');
+    }
+  };
 
   useEffect(() => {
     applySavedTheme();
   }, [isDark]);
 
+  // Close dropdowns on outside click
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setPopularOpen(false);
+        setTrendingOpen(false);
+        setProfileOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   const toggleDarkMode = () => {
     toggleTheme();
   };
 
-  const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'classroom', label: 'Classroom' },
-    { id: 'giveaway', label: 'Giveaways' },
-    { id: 'business', label: 'Business' },
-    { id: 'wheel-games', label: 'Multi-Wheel' },
-    { id: 'battle', label: 'Battle' }
+  // Curated Popular Games
+  const popularGames = [
+    {
+      id: 'wheel-of-names',
+      name: 'Wheel of Names',
+      desc: 'Pick random names & callers without repeats',
+      icon: Users,
+      href: '/wheel-of-names',
+      color: 'text-purple-600 dark:text-purple-400 bg-purple-500/10',
+      badge: 'Most Popular'
+    },
+    {
+      id: 'food-wheel',
+      name: 'Food & Meal Decider',
+      desc: 'Decide what to eat, cook, or order tonight',
+      icon: Utensils,
+      href: '/food-wheel',
+      color: 'text-orange-600 dark:text-orange-400 bg-orange-500/10'
+    },
+    {
+      id: 'decision-wheel',
+      name: 'Decision & Tie-Breaker',
+      desc: 'Unbiased decider for debates and choices',
+      icon: HelpCircle,
+      href: '/decision-wheel',
+      color: 'text-indigo-600 dark:text-indigo-400 bg-indigo-500/10'
+    },
+    {
+      id: 'yes-or-no-wheel',
+      name: 'Yes or No Wheel',
+      desc: 'Instant 50/50 binary coin flip & decision maker',
+      icon: CheckCircle2,
+      href: '/yes-or-no-wheel',
+      color: 'text-emerald-600 dark:text-emerald-400 bg-emerald-500/10'
+    },
+    {
+      id: 'classroom-wheel',
+      name: 'Classroom & Student Picker',
+      desc: 'Fair student picker, teams & duty assigner',
+      icon: GraduationCap,
+      href: '/classroom-wheel',
+      color: 'text-blue-600 dark:text-blue-400 bg-blue-500/10'
+    },
+    {
+      id: 'number-wheel',
+      name: 'Number Wheel RNG',
+      desc: 'Draw random numbers with customizable ranges',
+      icon: Hash,
+      href: '/number-wheel',
+      color: 'text-teal-600 dark:text-teal-400 bg-teal-500/10'
+    }
+  ];
+
+  // Curated Trending Games
+  const trendingGames = [
+    {
+      id: 'bingo-wheel',
+      name: 'Bingo Spin Wheel',
+      desc: 'Live 75/90 caller, Master Board & player cards',
+      icon: Trophy,
+      href: '/bingo-wheel',
+      color: 'text-rose-600 dark:text-rose-400 bg-rose-500/10',
+      badge: '🔥 Hot'
+    },
+    {
+      id: 'challenges',
+      name: 'Daily Lucky Challenge',
+      desc: 'Spin daily missions & maintain your streak',
+      icon: Flame,
+      href: '/challenges',
+      color: 'text-red-600 dark:text-red-400 bg-red-500/10',
+      badge: 'Streak'
+    },
+    {
+      id: 'party-wheel',
+      name: 'Truth or Dare & Party',
+      desc: 'Hilarious party dares, icebreakers & trivia',
+      icon: PartyPopper,
+      href: '/party-wheel',
+      color: 'text-pink-600 dark:text-pink-400 bg-pink-500/10'
+    },
+    {
+      id: 'giveaway-wheel',
+      name: 'Giveaways & Raffles',
+      desc: 'Multi-ticket drawings with verified fair seeds',
+      icon: Gift,
+      href: '/giveaway-wheel',
+      color: 'text-amber-600 dark:text-amber-400 bg-amber-500/10'
+    },
+    {
+      id: 'team-generator',
+      name: 'Team & Group Splitter',
+      desc: 'Evenly balance groups for sports & games',
+      icon: Users,
+      href: '/team-generator',
+      color: 'text-cyan-600 dark:text-cyan-400 bg-cyan-500/10'
+    },
+    {
+      id: 'movie-wheel',
+      name: 'Movie & Streaming Decider',
+      desc: 'Pick films by genre, streaming & cinema',
+      icon: Film,
+      href: '/movie-wheel',
+      color: 'text-violet-600 dark:text-violet-400 bg-violet-500/10'
+    }
   ];
 
   return (
     <>
-      <header className="fixed top-0 w-full z-50 bg-[#fbf8ff]/90 dark:bg-[#12131a]/90 backdrop-blur-xl border-b border-[#eeedf7] dark:border-[#222330] shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-          {/* Logo and Brand */}
-          <div className="flex items-center gap-6">
+      <header className="fixed top-0 w-full z-50 bg-[#fbf8ff]/95 dark:bg-[#12131a]/95 backdrop-blur-xl border-b border-[#eeedf7] dark:border-[#222330] shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+        <div ref={navRef} className="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-22 lg:h-24 flex items-center justify-between gap-3">
+          
+          {/* Brand Logo */}
+          <div className="flex items-center gap-4 lg:gap-8">
             <button
               type="button"
-              onClick={() => onSelectNav('home')}
-              className="flex items-center gap-2.5 group text-left cursor-pointer"
+              onClick={handleLogoClick}
+              className="flex items-center gap-2 group text-left cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98]"
+              aria-label="SpinWheelGames Home"
             >
-              <div className="relative w-8 h-8 rounded-full overflow-hidden shadow-sm group-hover:rotate-45 transition-transform duration-300">
+              <div className="relative h-14 sm:h-16 lg:h-18 w-auto flex items-center">
                 <Image
-                  src="/logo.svg"
+                  src="/spinwheel-logo-v2.webp"
                   alt="SpinWheelGames Logo"
-                  fill
-                  className="object-cover"
+                  width={280}
+                  height={72}
+                  className="h-13 sm:h-15 lg:h-17 w-auto object-contain max-h-[68px] dark:drop-shadow-[0_0_16px_rgba(133,135,255,0.45)] dark:brightness-110"
+                  priority
+                  unoptimized
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="font-headline font-extrabold text-[18px] tracking-tight bg-gradient-to-r from-[#4648d4] via-[#6063ee] to-[#7c7fff] bg-clip-text text-transparent">
-                  SpinWheelGames
-                </span>
-              </div>
             </button>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) => (
+            {/* Clean Desktop Navigation: Popular Games & Trending Games */}
+            <nav className="hidden md:flex items-center gap-2">
+              
+              {/* 1. POPULAR GAMES DROPDOWN */}
+              <div className="relative">
                 <button
-                  key={link.id}
                   type="button"
-                  onClick={() => onSelectNav(link.id)}
-                  className={`px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors cursor-pointer ${
-                    activeNav === link.id
-                      ? 'bg-[#4648d4]/10 dark:bg-[#4648d4]/20 text-[#4648d4] dark:text-[#8587ff] font-semibold'
-                      : 'text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28]'
+                  onClick={() => {
+                    setPopularOpen(!popularOpen);
+                    setTrendingOpen(false);
+                    setProfileOpen(false);
+                  }}
+                  className={`px-3.5 py-2 rounded-xl text-[13px] font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                    popularOpen
+                      ? 'bg-[#4648d4] text-white shadow-sm shadow-[#4648d4]/20'
+                      : 'text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28]'
                   }`}
+                  aria-expanded={popularOpen}
                 >
-                  {link.label}
+                  <Star className={`w-4 h-4 ${popularOpen ? 'text-amber-300' : 'text-amber-500'}`} />
+                  <span>Popular Games</span>
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${popularOpen ? 'rotate-180' : ''}`} />
                 </button>
-              ))}
+
+                {popularOpen && (
+                  <div className="absolute left-0 top-12 w-[480px] bg-white dark:bg-[#181922] rounded-2xl shadow-2xl border border-[#eeedf7] dark:border-[#292a39] p-3 z-50 animate-fadeIn">
+                    <div className="flex items-center justify-between px-2 pb-2 mb-2 border-b border-[#eeedf7] dark:border-[#222330]">
+                      <div className="flex items-center gap-1.5">
+                        <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
+                          Most Played Wheels
+                        </span>
+                      </div>
+                      <Link
+                        href="/games"
+                        onClick={() => setPopularOpen(false)}
+                        className="text-[11px] font-bold text-[#4648d4] dark:text-[#8587ff] hover:underline flex items-center gap-1"
+                      >
+                        <span>View All Games</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-1">
+                      {popularGames.map((game) => {
+                        const Icon = game.icon;
+                        return (
+                          <Link
+                            key={game.id}
+                            href={game.href}
+                            onClick={() => setPopularOpen(false)}
+                            className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#f4f2fd] dark:hover:bg-[#222330] transition-colors group"
+                          >
+                            <div className={`p-2 rounded-xl shrink-0 group-hover:scale-105 transition-transform ${game.color}`}>
+                              <Icon className="w-4 h-4" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2">
+                                <p className="text-[13px] font-bold text-[#1a1b22] dark:text-white group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors">
+                                  {game.name}
+                                </p>
+                                {game.badge && (
+                                  <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff]">
+                                    {game.badge}
+                                  </span>
+                                )}
+                              </div>
+                              <p className="text-[11px] text-[#767586] dark:text-[#908fa1] truncate mt-0.5">
+                                {game.desc}
+                              </p>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* 2. TRENDING GAMES DROPDOWN */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setTrendingOpen(!trendingOpen);
+                    setPopularOpen(false);
+                    setProfileOpen(false);
+                  }}
+                  className={`px-3.5 py-2 rounded-xl text-[13px] font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                    trendingOpen
+                      ? 'bg-gradient-to-r from-rose-500 to-amber-500 text-white shadow-sm'
+                      : 'text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28]'
+                  }`}
+                  aria-expanded={trendingOpen}
+                >
+                  <Flame className={`w-4 h-4 ${trendingOpen ? 'text-amber-200 fill-amber-200' : 'text-rose-500'}`} />
+                  <span>Trending Games</span>
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${trendingOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {trendingOpen && (
+                  <div className="absolute left-0 top-12 w-[480px] bg-white dark:bg-[#181922] rounded-2xl shadow-2xl border border-[#eeedf7] dark:border-[#292a39] p-3 z-50 animate-fadeIn">
+                    <div className="flex items-center justify-between px-2 pb-2 mb-2 border-b border-[#eeedf7] dark:border-[#222330]">
+                      <div className="flex items-center gap-1.5">
+                        <Flame className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
+                          Fast-Rising &amp; Interactive Games
+                        </span>
+                      </div>
+                      <Link
+                        href="/games"
+                        onClick={() => setTrendingOpen(false)}
+                        className="text-[11px] font-bold text-[#4648d4] dark:text-[#8587ff] hover:underline flex items-center gap-1"
+                      >
+                        <span>All 100+ Games</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-1">
+                      {trendingGames.map((game) => {
+                        const Icon = game.icon;
+                        return (
+                          <Link
+                            key={game.id}
+                            href={game.href}
+                            onClick={() => setTrendingOpen(false)}
+                            className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#f4f2fd] dark:hover:bg-[#222330] transition-colors group"
+                          >
+                            <div className={`p-2 rounded-xl shrink-0 group-hover:scale-105 transition-transform ${game.color}`}>
+                              <Icon className="w-4 h-4" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2">
+                                <p className="text-[13px] font-bold text-[#1a1b22] dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
+                                  {game.name}
+                                </p>
+                                {game.badge && (
+                                  <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400">
+                                    {game.badge}
+                                  </span>
+                                )}
+                              </div>
+                              <p className="text-[11px] text-[#767586] dark:text-[#908fa1] truncate mt-0.5">
+                                {game.desc}
+                              </p>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* 3. Direct All Games Link */}
+              <Link
+                href="/games"
+                className="px-3.5 py-2 rounded-xl text-[13px] font-semibold text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] transition-colors"
+              >
+                All Games
+              </Link>
             </nav>
           </div>
 
-          {/* Quick Actions & Profile */}
+          {/* Quick Actions (Search, Create, Sound, Theme, User) */}
           <div className="flex items-center gap-1.5 sm:gap-2">
+            
             {/* Search Trigger */}
             <button
               id="header-search-btn"
               type="button"
-              onClick={onOpenSearch}
-              aria-label="Search all 106+ wheels"
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] hover:bg-[#eae8f7] dark:hover:bg-[#282937] text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white transition-colors border border-[#eeedf7] dark:border-[#292a39] text-xs sm:text-sm cursor-pointer"
+              onClick={handleOpenSearch}
+              aria-label="Search wheels"
+              className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] hover:bg-[#eae8f7] dark:hover:bg-[#282937] text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white transition-colors border border-[#eeedf7] dark:border-[#292a39] text-xs sm:text-[13px] font-semibold cursor-pointer"
             >
               <Search className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
-              <span className="hidden sm:inline">Search Wheels</span>
-              <kbd className="hidden sm:inline text-[10px] font-medium px-1.5 py-0.5 rounded bg-white dark:bg-[#12131a] text-[#767586] dark:text-[#908fa1] border border-[#eeedf7] dark:border-[#383a4c]">
+              <span className="hidden sm:inline">Search</span>
+              <kbd className="hidden lg:inline text-[10px] font-medium px-1.5 py-0.5 rounded bg-white dark:bg-[#12131a] text-[#767586] dark:text-[#908fa1] border border-[#eeedf7] dark:border-[#383a4c]">
                 ⌘K
               </kbd>
             </button>
@@ -155,28 +468,29 @@ export default function Navbar({
             <button
               id="header-create-wheel-btn"
               type="button"
-              onClick={onOpenCreateWheel}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#4648d4] text-white text-[13px] font-semibold hover:bg-[#3b3dbb] shadow-xs transition-all cursor-pointer"
+              onClick={handleOpenCreateWheel}
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#4648d4] text-white text-[13px] font-bold hover:bg-[#3b3dbb] shadow-xs transition-all cursor-pointer"
             >
               <PlusCircle className="w-4 h-4" />
               <span>Create Wheel</span>
             </button>
 
-            {/* Audio Toggle */}
+            {/* Audio Sound Toggle */}
             <button
               type="button"
-              onClick={onToggleSound}
-              aria-label={soundEnabled ? 'Mute sound effects' : 'Enable sound effects'}
+              onClick={handleToggleSound}
+              aria-label={isSoundActive ? 'Mute sound effects' : 'Enable sound effects'}
               className="p-2 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white border border-[#eeedf7] dark:border-[#292a39] transition-colors cursor-pointer"
+              title={isSoundActive ? 'Sound On' : 'Sound Off'}
             >
-              {soundEnabled ? (
+              {isSoundActive ? (
                 <Volume2 className="w-4 h-4 text-[#4648d4] dark:text-[#8587ff]" />
               ) : (
                 <VolumeX className="w-4 h-4 text-[#767586]" />
               )}
             </button>
 
-            {/* Theme Toggle */}
+            {/* Dark/Light Theme Toggle */}
             <button
               id="header-theme-toggle-btn"
               type="button"
@@ -192,18 +506,22 @@ export default function Navbar({
               )}
             </button>
 
-            {/* User Profile Menu */}
+            {/* User Profile / Saved Wheels */}
             <div className="relative flex items-center">
               <button
                 type="button"
-                onClick={() => setProfileOpen(!profileOpen)}
+                onClick={() => {
+                  setProfileOpen(!profileOpen);
+                  setPopularOpen(false);
+                  setTrendingOpen(false);
+                }}
                 aria-label="User account menu"
                 className="flex items-center gap-1 rounded-full p-0.5 hover:ring-2 hover:ring-[#4648d4]/30 transition-all cursor-pointer"
               >
                 <div className="relative w-8 h-8 rounded-full overflow-hidden border border-[#c7c4d7] dark:border-[#464554]">
                   <Image
                     src="/avatar.svg"
-                    alt="Alex Spinmaster Profile"
+                    alt="User Profile"
                     fill
                     className="object-cover"
                     referrerPolicy="no-referrer"
@@ -223,7 +541,7 @@ export default function Navbar({
                       <div className="relative w-9 h-9 rounded-full overflow-hidden border border-[#c7c4d7] dark:border-[#464554] shrink-0">
                         <Image
                           src="/avatar.svg"
-                          alt="Alex Spinmaster Profile"
+                          alt="User Profile"
                           fill
                           className="object-cover"
                           referrerPolicy="no-referrer"
@@ -231,7 +549,7 @@ export default function Navbar({
                       </div>
                       <div className="min-w-0">
                         <p className="text-[14px] font-bold text-[#1a1b22] dark:text-white truncate">
-                          Alex Spinmaster
+                          Spin Master
                         </p>
                         <p className="text-[11px] text-[#767586] dark:text-[#908fa1]">
                           Verified Free Profile
@@ -247,7 +565,7 @@ export default function Navbar({
                         setProfileOpen(false);
                         setSavedModalOpen(true);
                       }}
-                      className="w-full text-left px-4 py-2 hover:bg-[#f4f2fd] dark:hover:bg-[#222330] flex items-center justify-between cursor-pointer"
+                      className="w-full text-left px-4 py-2.5 hover:bg-[#f4f2fd] dark:hover:bg-[#222330] flex items-center justify-between cursor-pointer"
                     >
                       <div className="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-semibold">
                         <Heart className="w-4 h-4 fill-rose-500/20" />
@@ -262,11 +580,11 @@ export default function Navbar({
                       type="button"
                       onClick={() => {
                         setProfileOpen(false);
-                        onSelectNav('home');
+                        router.push('/challenges');
                       }}
-                      className="w-full text-left px-4 py-2 hover:bg-[#f4f2fd] dark:hover:bg-[#222330] flex items-center justify-between cursor-pointer"
+                      className="w-full text-left px-4 py-2.5 hover:bg-[#f4f2fd] dark:hover:bg-[#222330] flex items-center justify-between cursor-pointer"
                     >
-                      <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
+                      <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold">
                         <Flame className="w-4 h-4" />
                         <span>Daily Streak</span>
                       </div>
@@ -279,9 +597,9 @@ export default function Navbar({
                       type="button"
                       onClick={() => {
                         setProfileOpen(false);
-                        onOpenCreateWheel();
+                        handleOpenCreateWheel();
                       }}
-                      className="w-full text-left px-4 py-2 hover:bg-[#f4f2fd] dark:hover:bg-[#222330] flex items-center gap-2 text-[#4648d4] dark:text-[#8587ff] font-medium cursor-pointer"
+                      className="w-full text-left px-4 py-2.5 hover:bg-[#f4f2fd] dark:hover:bg-[#222330] flex items-center gap-2 text-[#4648d4] dark:text-[#8587ff] font-medium cursor-pointer"
                     >
                       <Plus className="w-4 h-4" />
                       <span>Build New Wheel</span>
@@ -291,88 +609,147 @@ export default function Navbar({
               )}
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Hamburger Toggle */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] cursor-pointer"
-              aria-label="Toggle mobile menu"
+              className="md:hidden p-2 rounded-xl text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center"
+              aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6 text-[#1a1b22] dark:text-white" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6 text-[#1a1b22] dark:text-white" />
               )}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu Drawer */}
+        {/* Accessible Mobile Menu Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white dark:bg-[#181922] border-b border-[#eeedf7] dark:border-[#222330] px-4 py-3 flex flex-col gap-1 shadow-lg">
-            {navLinks.map((link) => (
+          <div className="md:hidden bg-white dark:bg-[#181922] border-b border-[#eeedf7] dark:border-[#222330] px-4 py-4 flex flex-col gap-3 shadow-xl max-h-[85vh] overflow-y-auto">
+            
+            {/* Mobile Segmented Tab: Popular vs Trending */}
+            <div className="flex p-1 bg-[#f4f2fd] dark:bg-[#12131a] rounded-xl border border-[#eeedf7] dark:border-[#292a39]">
               <button
-                key={link.id}
                 type="button"
-                onClick={() => {
-                  onSelectNav(link.id);
-                  setMobileMenuOpen(false);
-                }}
-                className={`text-left px-3 py-2 rounded-lg text-[14px] font-medium transition-colors cursor-pointer ${
-                  activeNav === link.id
-                    ? 'bg-[#4648d4] text-white font-semibold'
-                    : 'text-[#1a1b22] dark:text-[#f1effa] hover:bg-[#f4f2fd] dark:hover:bg-[#222330]'
+                onClick={() => setMobileTab('popular')}
+                className={`flex-1 py-2 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer min-h-[40px] ${
+                  mobileTab === 'popular'
+                    ? 'bg-white dark:bg-[#222330] text-[#4648d4] dark:text-[#8587ff] shadow-xs'
+                    : 'text-[#767586] dark:text-[#908fa1]'
                 }`}
               >
-                {link.label}
+                <Star className="w-3.5 h-3.5 text-amber-500" />
+                <span>Popular Games</span>
               </button>
-            ))}
-            <div className="pt-2 border-t border-[#eeedf7] dark:border-[#222330] flex flex-col gap-2">
+              
+              <button
+                type="button"
+                onClick={() => setMobileTab('trending')}
+                className={`flex-1 py-2 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer min-h-[40px] ${
+                  mobileTab === 'trending'
+                    ? 'bg-white dark:bg-[#222330] text-rose-600 dark:text-rose-400 shadow-xs'
+                    : 'text-[#767586] dark:text-[#908fa1]'
+                }`}
+              >
+                <Flame className="w-3.5 h-3.5 text-rose-500" />
+                <span>Trending Games</span>
+              </button>
+            </div>
+
+            {/* Mobile Games List with High-Accessibility Touch Targets (>= 44px) */}
+            <div className="flex flex-col gap-1">
+              {(mobileTab === 'popular' ? popularGames : trendingGames).map((game) => {
+                const Icon = game.icon;
+                return (
+                  <Link
+                    key={game.id}
+                    href={game.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-[#f4f2fd] dark:hover:bg-[#222330] active:scale-[0.99] transition-all min-h-[52px]"
+                  >
+                    <div className={`p-2.5 rounded-xl shrink-0 ${game.color}`}>
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[14px] font-bold text-[#1a1b22] dark:text-white truncate">
+                          {game.name}
+                        </span>
+                        {game.badge && (
+                          <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full ${
+                            mobileTab === 'popular'
+                              ? 'bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff]'
+                              : 'bg-rose-500/10 text-rose-600 dark:text-rose-400'
+                          }`}>
+                            {game.badge}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-[11px] text-[#767586] dark:text-[#908fa1] truncate">
+                        {game.desc}
+                      </p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-[#767586] shrink-0" />
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* All 100+ Games Button */}
+            <Link
+              href="/games"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3 px-4 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] text-[#4648d4] dark:text-[#8587ff] text-[13px] font-bold flex items-center justify-between border border-[#eeedf7] dark:border-[#292a39] min-h-[44px]"
+            >
+              <span>Explore All 100+ Games &amp; Spinners</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            {/* Quick Action Footer in Mobile Drawer */}
+            <div className="pt-2 border-t border-[#eeedf7] dark:border-[#222330] flex gap-2">
               <button
                 type="button"
                 onClick={() => {
                   setSavedModalOpen(true);
                   setMobileMenuOpen(false);
                 }}
-                className="w-full py-2 px-3 rounded-xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-300 text-[13px] font-bold flex items-center justify-between cursor-pointer"
+                className="flex-1 py-2.5 px-3 rounded-xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-300 text-xs font-bold flex items-center justify-center gap-1.5 min-h-[44px]"
               >
-                <div className="flex items-center gap-2">
-                  <Heart className="w-4 h-4 fill-rose-500" />
-                  <span>My Saved Wheels</span>
-                </div>
-                <span className="text-[11px] px-2 py-0.5 rounded-full bg-rose-200 dark:bg-rose-900 text-rose-800 dark:text-rose-100">
-                  {savedWheels.length}
-                </span>
+                <Heart className="w-4 h-4 fill-rose-500/20" />
+                <span>Saved ({savedWheels.length})</span>
               </button>
 
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    onOpenSearch();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="flex-1 py-2 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] text-[13px] font-medium flex items-center justify-center gap-1.5 cursor-pointer text-[#1a1b22] dark:text-white"
-                >
-                  <Search className="w-4 h-4" />
-                  <span>Search</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    onOpenCreateWheel();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="flex-1 py-2 rounded-xl bg-[#4648d4] text-white text-[13px] font-bold flex items-center justify-center gap-1.5 cursor-pointer"
-                >
-                  <Plus className="w-4 h-4" />
-                  <span>Create</span>
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  handleOpenCreateWheel();
+                  setMobileMenuOpen(false);
+                }}
+                className="flex-1 py-2.5 px-3 rounded-xl bg-[#4648d4] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm min-h-[44px]"
+              >
+                <Plus className="w-4 h-4" />
+                <span>Create Wheel</span>
+              </button>
             </div>
           </div>
         )}
       </header>
+
+      {/* Internal Search Modal fallback */}
+      <SearchModal
+        isOpen={internalSearchOpen}
+        onClose={() => setInternalSearchOpen(false)}
+        onSelectWheel={(preset) => {
+          setInternalSearchOpen(false);
+          if (onSelectPreset) {
+            onSelectPreset(preset);
+          } else {
+            router.push(`/${preset.id}`);
+          }
+        }}
+      />
 
       {/* Saved Wheels Modal */}
       <SavedWheelsModal
@@ -381,9 +758,11 @@ export default function Navbar({
         onSelectWheel={(wheel) => {
           if (onSelectPreset) {
             onSelectPreset(wheel);
+          } else {
+            router.push(`/${wheel.id}`);
           }
         }}
-        onOpenCreate={() => onOpenCreateWheel()}
+        onOpenCreate={() => handleOpenCreateWheel()}
       />
     </>
   );

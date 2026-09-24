@@ -148,6 +148,35 @@ export const WHEEL_LIBRARY_PART2: WheelExperience[] = [
     uniqueValueProposition: 'Eliminates clique formations and guarantees diverse cross-pollination.',
     paletteKey: 'pastel'
   },
+  {
+    id: 'animal-wheel',
+    name: 'Animal Wheel',
+    purpose: 'Random animal picker with 8 categories, biological facts, guess the creature mode, and art challenges.',
+    targetAudience: 'Teachers, elementary classrooms, artists, parents, and party game players.',
+    defaultEntries: [
+      '🦁 Lion',
+      '🐘 African Elephant',
+      '🐯 Bengal Tiger',
+      '🦒 Giraffe',
+      '🦅 Bald Eagle',
+      '🐬 Bottlenose Dolphin',
+      '🦖 Tyrannosaurus Rex',
+      '🐧 Emperor Penguin',
+      '🦘 Red Kangaroo',
+      '🐼 Giant Panda',
+      '🐺 Gray Wolf',
+      '🐙 Pacific Octopus'
+    ],
+    category: 'CLASSROOM',
+    instructions: 'Spin to pick random creatures for drawing, storytelling, taxonomy sorting, and sound mimicry challenges.',
+    optionalModes: ['Mammals', 'Birds', 'Marine Animals', 'Farm Animals', 'Wild Animals', 'Pets', 'Dinosaurs', 'Guess Clue Mode'],
+    relatedWheels: ['Drawing Prompts Wheel', 'Student Picker Wheel', 'Creative Writing Wheel'],
+    relatedTools: ['Animal Facts Card', 'Guess The Animal Clue Game', 'Animal Challenge Mode'],
+    difficulty: 'Easy',
+    shareableResultConcept: 'Zoology Explorer Badge celebrating creature discovery.',
+    uniqueValueProposition: 'Includes 64+ species with difficulty tiers, progressive clue trivia, and biological superpower facts.',
+    paletteKey: 'emerald'
+  },
 
   // ==========================================
   // 4. PARTY (7 experiences)
@@ -315,5 +344,21 @@ export const WHEEL_LIBRARY_PART2: WheelExperience[] = [
     shareableResultConcept: 'Social Butterfly Star awarded for completing party mixer tasks.',
     uniqueValueProposition: 'Engineered specifically to alleviate social anxiety rather than putting guests on the spot.',
     paletteKey: 'pastel'
+  },
+  {
+    id: 'bingo-wheel',
+    name: 'Bingo Spin Wheel',
+    purpose: 'Spin a free random bingo wheel to call numbers without repeats for classroom, party, and family bingo games.',
+    targetAudience: 'Teachers, educators, party hosts, bingo callers, family game night organizers.',
+    defaultEntries: ['B-1', 'B-2', 'B-3', 'B-4', 'B-5', 'I-16', 'I-17', 'N-31', 'G-46', 'O-61'],
+    category: 'CLASSROOM',
+    instructions: 'Select 75-Ball, 90-Ball, or 30-Ball mode. Click spin or spacebar to call numbers without repeats.',
+    optionalModes: ['75-Ball US Bingo', '90-Ball UK Bingo', '30-Ball Speed Bingo', 'Voice Caller TTS', 'Master Board'],
+    relatedWheels: ['Number Wheel', 'Classroom Wheel', 'Quiz Topic Wheel'],
+    relatedTools: ['Master Call Board', 'Interactive Player Cards', 'Voice Announcer'],
+    difficulty: 'Easy',
+    shareableResultConcept: 'Bingo Winner Badge with called number history.',
+    uniqueValueProposition: 'Includes built-in master call board matrix, TTS voice caller announcer, and interactive player cards.',
+    paletteKey: 'vibrant'
   }
 ];

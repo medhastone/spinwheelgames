@@ -25,42 +25,52 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://spinwheelgames.org'),
   title: {
-    default: 'SpinWheelGames - Free Online Random Wheel Spinner & Decision Maker',
+    default: 'Spin the Wheel & See What Happens | SpinWheelGames',
     template: '%s | SpinWheelGames'
   },
   description:
-    'Free wheel games, classroom student pickers, giveaway drawing tools, business meeting decision wheels, and certified fair decision pickers with cryptographic randomness.',
+    'Not sure what to choose? Give the wheel a spin and let the result surprise you. Play free wheel games, pick names and make decisions.',
   keywords: [
     'spin wheel',
+    'wheel games',
     'random picker',
-    'wheel spinner',
+    'wheel of names',
+    'decision wheel',
+    'random wheel',
+    'picker wheel',
     'random name picker',
-    'classroom wheel',
-    'giveaway picker',
-    'decision maker',
-    'provably fair wheel'
+    'yes or no wheel'
   ],
-  authors: [{ name: 'SpinWheelGames Engineering Team', url: 'https://spinwheelgames.org' }],
+  authors: [{ name: 'SpinWheelGames', url: 'https://spinwheelgames.org' }],
   creator: 'SpinWheelGames',
   publisher: 'SpinWheelGames',
   applicationName: 'SpinWheelGames',
   alternates: {
-    canonical: 'https://spinwheelgames.org'
+    canonical: 'https://spinwheelgames.org/'
   },
   openGraph: {
-    title: 'SpinWheelGames - Free Online Random Wheel Spinner & Decision Maker',
+    title: 'Spin the Wheel & See What Happens | SpinWheelGames',
     description:
-      'Free wheel games, classroom student pickers, giveaway drawings, and certified fair decision tools with cryptographic randomness.',
-    url: 'https://spinwheelgames.org',
+      'Not sure what to choose? Give the wheel a spin and let the result surprise you. Play free wheel games, pick names and make decisions.',
+    url: 'https://spinwheelgames.org/',
     siteName: 'SpinWheelGames',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SpinWheelGames - Free Online Random Wheel Spinner & Decision Maker',
+    title: 'Spin the Wheel & See What Happens | SpinWheelGames',
     description:
-      'Free wheel games, classroom student pickers, giveaway drawings, and certified fair decision tools with cryptographic randomness.',
+      'Free wheel games and random pickers for decisions, names, teams, food, classrooms, parties and giveaways.',
+  },
+  icons: {
+    icon: [
+      { url: '/spinwheel-favicon.webp', type: 'image/webp' },
+      { url: '/favicon.webp', type: 'image/webp' },
+      { url: '/favicon.ico', sizes: 'any' }
+    ],
+    shortcut: '/spinwheel-favicon.webp',
+    apple: '/spinwheel-favicon.webp',
   },
   robots: {
     index: true,
@@ -80,57 +90,94 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebSite',
-        '@id': 'https://spinwheelgames.org/#website',
-        name: 'SpinWheelGames',
-        url: 'https://spinwheelgames.org',
-        description: 'Free online random wheel spinner and certified fair decision maker',
-        inLanguage: 'en-US',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: 'https://spinwheelgames.org/?search={search_term_string}',
-          'query-input': 'required name=search_term_string'
-        }
-      },
-      {
-        '@type': 'SoftwareApplication',
-        '@id': 'https://spinwheelgames.org/#app',
-        name: 'SpinWheelGames Interactive Wheel Engine',
-        applicationCategory: 'UtilitiesApplication',
-        operatingSystem: 'All',
-        url: 'https://spinwheelgames.org',
-        offers: {
-          '@type': 'Offer',
-          price: '0.00',
-          priceCurrency: 'USD'
-        },
-        featureList: [
-          'Hardware-Seeded Web Cryptography (CSPRNG)',
-          'Classroom Student Picker & Team Splitter',
-          'Giveaway Entry Import & Winner Verification',
-          'Business Meeting Decision Tools',
-          'Zero-Lag 60 FPS Canvas Graphics',
-          'No Account Required / 100% Client-Side Privacy'
-        ]
-      },
-      {
         '@type': 'Organization',
         '@id': 'https://spinwheelgames.org/#organization',
         name: 'SpinWheelGames',
-        url: 'https://spinwheelgames.org',
-        logo: 'https://spinwheelgames.org/logo.svg'
+        url: 'https://spinwheelgames.org/',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://spinwheelgames.org/spinwheel-logo.webp'
+        },
+        description: 'SpinWheelGames is an online platform for free wheel games, random pickers, decision tools, classroom activities, party games, giveaways and interactive randomizers.'
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://spinwheelgames.org/#website',
+        name: 'SpinWheelGames',
+        url: 'https://spinwheelgames.org/',
+        publisher: {
+          '@id': 'https://spinwheelgames.org/#organization'
+        },
+        description: 'Free online wheel games, random pickers and decision tools.'
+      },
+      {
+        '@type': 'WebPage',
+        '@id': 'https://spinwheelgames.org/#webpage',
+        url: 'https://spinwheelgames.org/',
+        name: 'Spin the Wheel & See What Happens | SpinWheelGames',
+        description: 'Not sure what to choose? Give the wheel a spin and let the result surprise you. Play free wheel games, pick names and make decisions.',
+        isPartOf: {
+          '@id': 'https://spinwheelgames.org/#website'
+        },
+        about: {
+          '@id': 'https://spinwheelgames.org/#organization'
+        },
+        inLanguage: 'en'
       }
     ]
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
+    <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`} suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('spinwheel_theme_preference');
+                  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (saved === 'dark' || (!saved && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
+            `
+          }}
+        />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/webp" href="/spinwheel-favicon.webp" />
+        <link rel="shortcut icon" href="/spinwheel-favicon.webp" />
+        <link rel="apple-touch-icon" href="/spinwheel-favicon.webp" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('error', function(event) {
+                var message = (event && event.message) || '';
+                if (
+                  message.indexOf('ChunkLoadError') !== -1 ||
+                  message.indexOf('Loading chunk') !== -1 ||
+                  message.indexOf('Failed to fetch dynamically imported module') !== -1
+                ) {
+                  var storageKey = 'swg_chunk_reload_' + window.location.pathname;
+                  var now = Date.now();
+                  var lastReload = parseInt(sessionStorage.getItem(storageKey) || '0', 10);
+                  if (now - lastReload > 8000) {
+                    sessionStorage.setItem(storageKey, String(now));
+                    window.location.reload();
+                  }
+                }
+              });
+            `
+          }}
         />
       </head>
       <body suppressHydrationWarning className="antialiased bg-[#fbf8ff] dark:bg-[#0c0d14] text-[#1a1b22] dark:text-[#eeedf7]">

@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import WheelCanvas from './WheelCanvas';
+import WinnerModal from './WinnerModal';
 import { WheelItem, SoundSettings } from '@/lib/types';
 import { selectWeightedWinner } from '@/lib/random';
-import { playWinnerFanfare, playTickSound, playCountdownBeep } from '@/lib/sound';
+import { playWinnerFanfare, playTickSound, playCountdownBeep, announceWinnerTTS } from '@/lib/sound';
 import confetti from 'canvas-confetti';
 import {
   Briefcase,
@@ -241,7 +242,7 @@ export default function BusinessModeView({
   }, [isSpinning, currentWheelItems]);
 
   // Spin End
-  const handleSpinEnd = (winner: WheelItem) => {
+  const handleSpinEnd = useCallback((winner: WheelItem) => {
     setIsSpinning(false);
 
     if (activeTab === 'standup') {
@@ -270,8 +271,9 @@ export default function BusinessModeView({
 
     if (soundSettings.enabled) {
       playWinnerFanfare(soundSettings.enabled, soundSettings.pack, soundSettings.volume);
+      announceWinnerTTS(winner.text, { enabled: true, prefix: 'Selected is' });
     }
-  };
+  }, [activeTab, completedSpeakers, soundSettings, timerDuration]);
 
   // Add Team Member
   const handleAddMember = (e: React.FormEvent) => {
@@ -477,7 +479,7 @@ export default function BusinessModeView({
                 soundEnabled={soundSettings.enabled}
                 soundPack={soundSettings.pack}
                 volume={soundSettings.volume}
-                onSpinStart={() => setIsSpinning(true)}
+                onSpinStart={handleTriggerSpin}
                 onSpinEnd={handleSpinEnd}
               />
             </div>
@@ -646,7 +648,7 @@ export default function BusinessModeView({
                 soundEnabled={soundSettings.enabled}
                 soundPack={soundSettings.pack}
                 volume={soundSettings.volume}
-                onSpinStart={() => setIsSpinning(true)}
+                onSpinStart={handleTriggerSpin}
                 onSpinEnd={handleSpinEnd}
               />
             </div>
@@ -802,7 +804,7 @@ export default function BusinessModeView({
                 soundEnabled={soundSettings.enabled}
                 soundPack={soundSettings.pack}
                 volume={soundSettings.volume}
-                onSpinStart={() => setIsSpinning(true)}
+                onSpinStart={handleTriggerSpin}
                 onSpinEnd={handleSpinEnd}
               />
             </div>
@@ -837,6 +839,45 @@ export default function BusinessModeView({
             </div>
           </div>
         </div>
+      )}
+
+      {/* Winner Modal */}
+      {winnerModalOpen && preSelected && (
+        <WinnerModal
+          isOpen={winnerModalOpen}
+          winner={preSelected.winner}
+          items={currentWheelItems}
+          palette={['#4648d4', '#006c49', '#dc2c4f', '#6063ee', '#f59e0b', '#10b981']}
+          wheelTitle={
+            activeTab === 'standup'
+              ? 'Standup Speaker'
+              : activeTab === 'decision'
+              ? 'Decision & Tie-Breaker'
+              : activeTab === 'retro'
+              ? 'Retrospective Prompt'
+              : 'Team Lunch'
+          }
+          oddsPercent={preSelected.oddsPercent}
+          seed={preSelected.seed}
+          spinNumber={1}
+          soundEnabled={soundSettings.enabled}
+          soundPack={soundSettings.pack}
+          volume={soundSettings.volume}
+          ttsEnabled={soundSettings.ttsEnabled}
+          onClose={() => setWinnerModalOpen(false)}
+          onSpinAgain={() => {
+            setWinnerModalOpen(false);
+            setTimeout(() => handleTriggerSpin(), 150);
+          }}
+          onRemoveWinner={(toRemove) => {
+            if (activeTab === 'standup') {
+              handleRemoveMember(toRemove.text);
+            } else if (activeTab === 'decision') {
+              setDecisionOptions((prev) => prev.filter((opt) => opt !== toRemove.text));
+            }
+            setWinnerModalOpen(false);
+          }}
+        />
       )}
     </div>
   );

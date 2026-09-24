@@ -7,6 +7,7 @@ import {
   SavedWheel
 } from '@/lib/storage';
 import { WheelConfig, COLOR_PALETTES } from '@/lib/presets';
+import { getShortShareUrl } from '@/lib/shortener';
 import {
   Heart,
   Search,
@@ -51,7 +52,7 @@ export default function SavedWheelsModal({
     );
   });
 
-  const handleLaunch = (wheel: SavedWheel) => {
+  const handleLaunch = async (wheel: SavedWheel) => {
     if (onSelectWheel) {
       const config: WheelConfig = {
         id: wheel.id,
@@ -75,12 +76,12 @@ export default function SavedWheelsModal({
         palette: wheel.palette || (wheel.paletteKey && COLOR_PALETTES[wheel.paletteKey]?.colors) || COLOR_PALETTES.arcade.colors,
         items: wheel.items
       };
-      const json = encodeURIComponent(JSON.stringify(config));
-      window.location.assign(`/?data=${json}`);
+      const url = await getShortShareUrl(config);
+      window.location.assign(url);
     }
   };
 
-  const handleCopyLink = (wheel: SavedWheel, e: React.MouseEvent) => {
+  const handleCopyLink = async (wheel: SavedWheel, e: React.MouseEvent) => {
     e.stopPropagation();
     if (typeof window === 'undefined') return;
     const config: WheelConfig = {
@@ -92,8 +93,7 @@ export default function SavedWheelsModal({
       palette: wheel.palette || (wheel.paletteKey && COLOR_PALETTES[wheel.paletteKey]?.colors) || COLOR_PALETTES.arcade.colors,
       items: wheel.items
     };
-    const json = encodeURIComponent(JSON.stringify(config));
-    const url = `${window.location.origin}/?data=${json}`;
+    const url = await getShortShareUrl(config);
     navigator.clipboard.writeText(url);
     setCopiedId(wheel.id);
     setTimeout(() => setCopiedId(null), 2000);

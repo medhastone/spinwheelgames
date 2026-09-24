@@ -4,10 +4,17 @@ import React, { useState, useEffect, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import StandaloneWheelHost from './StandaloneWheelHost';
+import Navbar from './Navbar';
 import Footer from './Footer';
 import SearchModal from './SearchModal';
 import SavedWheelsModal from './SavedWheelsModal';
-import { SeoPageData } from '@/lib/seoArchitecture';
+import Breadcrumbs from './Breadcrumbs';
+import DirectAnswer from './DirectAnswer';
+import QuickFacts from './QuickFacts';
+import ConcreteExample from './ConcreteExample';
+import CategoryWheelExplorer from './CategoryWheelExplorer';
+import { SeoPageData, SeoQuickFacts } from '@/lib/seoArchitecture';
+import { WheelExperience } from '@/lib/wheelLibrary';
 import { generatePageJsonLd } from '@/lib/seoData';
 import {
   subscribeTheme,
@@ -89,6 +96,37 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [savedModalOpen, setSavedModalOpen] = useState(false);
 
+  // Dynamic active wheel state (can be swapped by CategoryWheelExplorer in-place)
+  const [activeWheel, setActiveWheel] = useState<{
+    title: string;
+    items: { id: string; text: string; weight: number }[];
+    paletteKey?: string;
+  }>({
+    title: page.defaultWheelData.title,
+    items: page.defaultWheelData.items,
+    paletteKey: page.defaultWheelData.paletteKey
+  });
+
+  const handleSelectExperience = (exp: WheelExperience) => {
+    setActiveWheel({
+      title: `${exp.name} Wheel`,
+      items: exp.defaultEntries.map((entry, idx) => ({
+        id: `slice-${idx}`,
+        text: entry,
+        weight: 1
+      })),
+      paletteKey: exp.paletteKey || 'arcade'
+    });
+
+    // Smoothly scroll to the interactive wheel section
+    if (typeof window !== 'undefined') {
+      const el = document.getElementById('interactive-tool-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  };
+
   const isDark = useSyncExternalStore(
     subscribeTheme,
     getThemeSnapshot,
@@ -144,102 +182,26 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
       />
 
-      {/* Main Top Header */}
-      <header className="sticky top-0 z-30 w-full bg-white/90 dark:bg-[#12131a]/90 backdrop-blur-xl border-b border-[#eeedf7] dark:border-[#222330] shadow-xs transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-          {/* Logo and Brand */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="relative w-8 h-8 rounded-full overflow-hidden shadow-xs group-hover:rotate-45 transition-transform duration-300">
-              <Image
-                src="/logo.svg"
-                alt="SpinWheelGames Logo"
-                fill
-                className="object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <span className="font-headline font-extrabold text-[18px] tracking-tight bg-gradient-to-r from-[#4648d4] via-[#6063ee] to-[#7c7fff] bg-clip-text text-transparent">
-              SpinWheelGames
-            </span>
-          </Link>
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 text-[13px] font-medium text-[#464554] dark:text-[#c7c4d7]">
-            <Link
-              href="/"
-              className="px-3 py-1.5 rounded-lg hover:text-[#1a1b22] dark:hover:text-white hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] transition-colors"
-            >
-              Home
-            </Link>
-            <Link
-              href="/tools/wheel-of-names"
-              className="px-3 py-1.5 rounded-lg hover:text-[#1a1b22] dark:hover:text-white hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] transition-colors"
-            >
-              Wheel of Names
-            </Link>
-            <Link
-              href="/tools/decision-maker-wheel"
-              className="px-3 py-1.5 rounded-lg hover:text-[#1a1b22] dark:hover:text-white hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] transition-colors"
-            >
-              Decision Maker
-            </Link>
-            <Link
-              href="/tools/yes-or-no-wheel"
-              className="px-3 py-1.5 rounded-lg hover:text-[#1a1b22] dark:hover:text-white hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] transition-colors"
-            >
-              Yes or No
-            </Link>
-            <Link
-              href="/tools/random-number-wheel"
-              className="px-3 py-1.5 rounded-lg hover:text-[#1a1b22] dark:hover:text-white hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] transition-colors"
-            >
-              Random Number
-            </Link>
-          </nav>
-
-          {/* Quick Actions (Search, Saved Wheels, Theme Toggle, App Button) */}
-          <div className="flex items-center gap-2">
-            {/* Search Trigger */}
-            <button
-              id="header-search-btn"
-              type="button"
-              onClick={() => setSearchOpen(true)}
-              aria-label="Search all 106+ wheels"
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] hover:bg-[#eae8f7] dark:hover:bg-[#282937] text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white transition-colors border border-[#eeedf7] dark:border-[#292a39] text-xs sm:text-sm cursor-pointer"
-            >
-              <Search className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
-              <span className="hidden sm:inline">Search Wheels</span>
-              <kbd className="hidden sm:inline text-[10px] font-medium px-1.5 py-0.5 rounded bg-white dark:bg-[#12131a] text-[#767586] dark:text-[#908fa1] border border-[#eeedf7] dark:border-[#383a4c]">
-                ⌘K
-              </kbd>
-            </button>
-
-            {/* Theme Toggle Button */}
-            <button
-              id="header-theme-toggle-btn"
-              type="button"
-              onClick={toggleDarkMode}
-              aria-label="Toggle dark and light theme"
-              title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-              className="p-2 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] hover:bg-[#eae8f7] dark:hover:bg-[#282937] text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white transition-colors border border-[#eeedf7] dark:border-[#292a39] cursor-pointer"
-            >
-              {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-[#4648d4]" />}
-            </button>
-
-            {/* Full App Link */}
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#4648d4] hover:bg-[#3b3dbb] text-white text-xs sm:text-sm font-bold shadow-xs transition-colors"
-            >
-              <Dices className="w-3.5 h-3.5" />
-              <span>Full App</span>
-            </Link>
-          </div>
-        </div>
-      </header>
+      {/* Global Navbar */}
+      <Navbar activeNav={page.fullPath} />
 
       {/* Main Content Area */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-16 space-y-10 w-full flex-1">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 lg:pt-32 pb-16 space-y-10 w-full flex-1">
+        {/* Breadcrumb Navigation */}
+        <Breadcrumbs
+          items={
+            page.breadcrumbs && page.breadcrumbs.length > 0
+              ? page.breadcrumbs.slice(1).map((b) => ({
+                  label: b.name,
+                  href: b.item.replace('https://spinwheelgames.org', '')
+                }))
+              : [
+                  { label: page.parentCategoryName, href: page.parentCategoryPath },
+                  { label: page.h1 }
+                ]
+          }
+        />
+
         {/* Header Intro Section */}
         <section className="space-y-4 max-w-4xl" id="page-header-intro">
           <div className="flex flex-wrap items-center gap-2.5">
@@ -259,6 +221,15 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-headline font-extrabold tracking-tight text-[#1a1b22] dark:text-white leading-tight">
             {page.h1}
           </h1>
+
+          {/* Direct Answer Block */}
+          <DirectAnswer
+            question={`What is ${page.h1}?`}
+            answer={
+              page.directAnswer ||
+              `${page.h1} is a free, interactive web-based randomizer engineered for fair decision making, group games, and instant random selection. It runs entirely in your browser using hardware-seeded cryptographic randomness (Web Crypto API) with zero server tracking, instant custom list support, and provably fair outcomes.`
+            }
+          />
 
           <p className="text-base sm:text-lg text-[#464554] dark:text-[#c7c4d7] leading-relaxed max-w-3xl">
             {page.introduction}
@@ -307,7 +278,7 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
             <div className="flex items-center gap-2">
               <Play className="w-4 h-4 text-[#006c49] dark:text-emerald-400" />
               <span className="text-sm font-bold text-[#1a1b22] dark:text-[#f1effa]">
-                Interactive {page.defaultWheelData.title}
+                Interactive {activeWheel.title}
               </span>
             </div>
             <span className="text-xs text-[#767586] dark:text-[#908fa1] font-mono">
@@ -316,11 +287,68 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
           </div>
 
           <StandaloneWheelHost
-            initialTitle={page.defaultWheelData.title}
-            initialItems={page.defaultWheelData.items}
-            initialPaletteKey={page.defaultWheelData.paletteKey}
+            key={`${activeWheel.title}-${activeWheel.items.length}-${activeWheel.items[0]?.text}`}
+            initialTitle={activeWheel.title}
+            initialItems={activeWheel.items}
+            initialPaletteKey={activeWheel.paletteKey}
           />
         </section>
+
+        {/* Quick Facts / At a Glance Component */}
+        <QuickFacts
+          facts={
+            page.quickFacts || {
+              toolName: page.h1,
+              purpose: `Fair random selection and decision making for ${page.parentCategoryName.toLowerCase()}`,
+              bestFor:
+                page.whoItsUsefulFor?.map((w) => w.audience).join(', ') ||
+                'Teachers, teams, event organizers, and everyday decision makers',
+              modes: ['Interactive Wheel', 'Elimination Mode', 'Full Screen View', 'Bulk Paste'],
+              customization:
+                page.customizationOptions?.slice(0, 3).map((c) => c.title) || [
+                  'Custom Items & Slices',
+                  'Weights & Probabilities',
+                  'Themes & Audio Controls'
+                ],
+              accountRequired: 'No Account Required',
+              cost: 'Free Forever',
+              selectionMethod: 'Browser Hardware-Seeded Web Crypto (CSPRNG)'
+            }
+          }
+        />
+
+        {/* All Games & Wheel Tools in this Category Explorer */}
+        <CategoryWheelExplorer
+          categoryKey={page.categoryKey || page.slug}
+          categoryName={
+            page.pageType === 'category'
+              ? page.h1.split(':')[0].replace(/ Wheels.*$/i, '').trim()
+              : page.parentCategoryName !== 'Home'
+              ? page.parentCategoryName
+              : page.h1
+          }
+          onSelectExperience={handleSelectExperience}
+        />
+
+        {/* Real-World Concrete Example */}
+        <ConcreteExample
+          example={
+            page.concreteExample || {
+              title: `Real-World Example: ${page.h1}`,
+              scenario: `Here is a concrete example of how users configure and spin ${page.h1} for unbiased selection:`,
+              userChoices:
+                page.defaultWheelData.items.slice(0, 5).map((i) => i.text) || [
+                  'Option 1',
+                  'Option 2',
+                  'Option 3',
+                  'Option 4'
+                ],
+              result: page.defaultWheelData.items[0]?.text || 'Option 1',
+              explanation:
+                'The wheel spun through cryptographically verified physics, ensuring every entered slice had an equal, mathematically unbiased probability of landing.'
+            }
+          }
+        />
 
         {/* Step-by-Step Instructions & Who It's Useful For */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8" id="instructions-and-audiences">

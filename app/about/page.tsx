@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import {
   ShieldCheck,
   Cpu,
@@ -60,7 +61,7 @@ export default function AboutPage() {
       '@type': 'Organization',
       name: 'SpinWheelGames.org',
       url: 'https://spinwheelgames.org',
-      logo: 'https://spinwheelgames.org/logo.svg',
+      logo: 'https://spinwheelgames.org/spinwheel-logo.webp',
       description:
         'A browser-native random decision wheel engine built on modern Web Cryptography API (CSPRNG), providing ad-free tools for education, giveaways, and decision making.',
       foundingDate: '2024',
@@ -87,7 +88,9 @@ export default function AboutPage() {
 
       <SubpageHeader activePage="/about" />
 
-      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-12 sm:space-y-16">
+      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-12">
+        <Breadcrumbs items={[{ label: 'About Us' }]} />
+
         {/* Hero Section */}
         <section className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4648d4]/10 dark:bg-[#4648d4]/20 text-[#4648d4] dark:text-[#8587ff] text-xs font-bold uppercase tracking-wider">

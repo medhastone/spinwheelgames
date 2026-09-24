@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import WheelCanvas from './WheelCanvas';
 import { WheelItem, SoundSettings } from '@/lib/types';
 import { selectWeightedWinner } from '@/lib/random';
-import { playWinnerFanfare, playTickSound } from '@/lib/sound';
+import { playWinnerFanfare, playTickSound, announceWinnerTTS } from '@/lib/sound';
 import confetti from 'canvas-confetti';
 import {
   Gift,
@@ -27,7 +27,8 @@ import {
   Flame,
   CheckCircle2,
   Hash,
-  Crown
+  Crown,
+  Volume2
 } from 'lucide-react';
 
 interface GiveawayModeViewProps {
@@ -240,6 +241,7 @@ export default function GiveawayModeView({
 
     if (soundSettings.enabled) {
       playWinnerFanfare(soundSettings.enabled, soundSettings.pack, soundSettings.volume);
+      announceWinnerTTS(winner.text, { enabled: true, prefix: 'The giveaway prize winner is' });
     }
   };
 
@@ -770,6 +772,24 @@ export default function GiveawayModeView({
             <h2 className="font-headline font-black text-[30px] sm:text-[36px] text-[#1a1b22] dark:text-white leading-tight">
               {activeWinnerModal.winnerName}
             </h2>
+
+            {/* Spoken Voice Announcer Button */}
+            <div className="flex items-center justify-center">
+              <button
+                type="button"
+                onClick={() =>
+                  announceWinnerTTS(activeWinnerModal.winnerName, {
+                    enabled: true,
+                    prefix: 'The giveaway prize winner is'
+                  })
+                }
+                className="px-3 py-1 rounded-full bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30 text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer"
+                title="Speak winner name out loud"
+              >
+                <Volume2 className="w-3.5 h-3.5" />
+                <span>🔊 Speak Winner Name</span>
+              </button>
+            </div>
 
             <p className="text-xs font-bold text-purple-600 dark:text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full">
               {activeWinnerModal.prizeTitle || 'Prize Winner'}

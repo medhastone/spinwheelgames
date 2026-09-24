@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import {
   Globe,
   Search,
@@ -16,9 +17,20 @@ import {
   Trophy,
   Users,
   Binary,
-  ArrowRight
+  ArrowRight,
+  Flame,
+  Tv,
+  Gamepad2,
+  Plane,
+  Palette,
+  CheckSquare,
+  Heart,
+  MessageSquare,
+  Coins,
+  Smile
 } from 'lucide-react';
 import Link from 'next/link';
+import { ALL_SEO_PAGES_LIST } from '@/lib/seoData';
 
 interface SitemapCategory {
   id: string;
@@ -28,160 +40,209 @@ interface SitemapCategory {
   links: { href: string; label: string; desc?: string }[];
 }
 
-const SITEMAP_DATA: SitemapCategory[] = [
-  {
-    id: 'core',
-    title: 'Core Random Decision Tools',
-    icon: <Sparkles className="w-5 h-5 text-[#4648d4] dark:text-[#8587ff]" />,
-    description: 'High-frequency random pickers, spinner wheels, and general choice engines.',
-    links: [
-      { href: '/spin-the-wheel', label: 'Spin the Wheel', desc: 'Customizable 60 FPS random decision spinner' },
-      { href: '/wheel-of-names', label: 'Wheel of Names', desc: 'Random student and participant name selector' },
-      { href: '/random-picker', label: 'Random Picker', desc: 'Weighted and equal-probability item selector' },
-      { href: '/yes-or-no-wheel', label: 'Yes or No Wheel', desc: 'Instant binary choice decider with coin-flip animations' },
-      { href: '/decision-wheel', label: 'Decision Wheel', desc: 'Multi-option decision maker with elimination mode' },
-      { href: '/picker-wheel', label: 'Picker Wheel', desc: 'Interactive item selector for raffles and games' },
-      { href: '/random-wheel', label: 'Random Wheel Generator', desc: 'Create custom branded random wheels' }
-    ]
-  },
-  {
-    id: 'classroom',
-    title: 'Classroom & Student Pickers',
-    icon: <School className="w-5 h-5 text-indigo-500" />,
-    description: 'FERPA/COPPA safe tools for teachers, student grouping, and classroom participation.',
-    links: [
-      { href: '/classroom', label: 'Classroom Wheel Hub', desc: 'Full classroom management and student picker suite' },
-      { href: '/classroom-wheel/random-student', label: 'Random Student Picker', desc: 'Fair, non-repeating cold-call selector' },
-      { href: '/classroom-wheel/participation', label: 'Student Participation Wheel', desc: 'Keep classroom engagement balanced' },
-      { href: '/classroom-wheel/homework-picker', label: 'Homework & Assignment Picker', desc: 'Random topic and homework assigner' },
-      { href: '/classroom-wheel/reward-wheel', label: 'Classroom Reward Wheel', desc: 'Student reward spinner for good behavior' },
-      { href: '/team-picker', label: 'Team Picker', desc: 'Split class into 2 to 8 balanced groups' },
-      { href: '/random-team-generator', label: 'Random Team Generator', desc: 'Instant roster group generator' }
-    ]
-  },
-  {
-    id: 'giveaways',
-    title: 'Giveaways, Contests & Raffles',
-    icon: <Gift className="w-5 h-5 text-amber-500" />,
-    description: 'Provably fair prize wheels with cryptographic audit logs for live streamers and brands.',
-    links: [
-      { href: '/giveaways', label: 'Giveaways Hub', desc: 'Full prize wheel and contest suite' },
-      { href: '/giveaway-wheel/prize-wheel', label: 'Prize Wheel', desc: 'Customizable multi-tier prize spinner' },
-      { href: '/giveaway-wheel/raffle-wheel', label: 'Raffle Wheel', desc: 'Provably fair raffle ticket selector' },
-      { href: '/giveaway-wheel/winner-picker', label: 'Random Winner Picker', desc: 'Broadcast-ready giveaway drawing tool' },
-      { href: '/giveaway-wheel/discount-wheel', label: 'Discount & Coupon Wheel', desc: 'Promotional discount decider' }
-    ]
-  },
-  {
-    id: 'food',
-    title: 'Food, Dining & What to Eat',
-    icon: <Utensils className="w-5 h-5 text-rose-500" />,
-    description: 'End mealtime indecision with curated cuisine and restaurant wheels.',
-    links: [
-      { href: '/food', label: 'Food & Dining Hub', desc: 'Comprehensive food choice deciders' },
-      { href: '/food-wheel/dinner', label: 'What to Eat for Dinner Wheel', desc: 'Resolve evening meal debates instantly' },
-      { href: '/food-wheel/lunch', label: 'What to Eat for Lunch Wheel', desc: 'Quick midday dining suggestions' },
-      { href: '/food-wheel/takeout', label: 'Takeout Decider Wheel', desc: 'Choose between local delivery favorites' },
-      { href: '/food-wheel/pizza', label: 'Pizza Toppings Wheel', desc: 'Fun randomized topping selections' },
-      { href: '/food-wheel/restaurant', label: 'Restaurant Picker Wheel', desc: 'Random dining venue decider' }
-    ]
-  },
-  {
-    id: 'party',
-    title: 'Party & Social Games',
-    icon: <Sparkles className="w-5 h-5 text-purple-500" />,
-    description: 'Icebreakers, truth or dare wheels, and party game generators.',
-    links: [
-      { href: '/party', label: 'Party Games Hub', desc: 'Full social entertainment and party suite' },
-      { href: '/party-wheel/truth-or-dare', label: 'Truth or Dare Wheel', desc: 'Spin for spontaneous party challenges' },
-      { href: '/party-wheel/icebreaker', label: 'Icebreaker Question Wheel', desc: 'Great for onboarding and social mixers' },
-      { href: '/party-wheel/charades', label: 'Charades Generator Wheel', desc: 'Random action and topic prompts' },
-      { href: '/party-wheel/never-have-i-ever', label: 'Never Have I Ever Wheel', desc: 'Casual party game prompt spinner' }
-    ]
-  },
-  {
-    id: 'sports',
-    title: 'Sports, Fantasy & Team Drafts',
-    icon: <Trophy className="w-5 h-5 text-emerald-500" />,
-    description: 'Fantasy draft order pickers, workout routines, and sports team generators.',
-    links: [
-      { href: '/sports', label: 'Sports & Drafts Hub', desc: 'Full sports randomization suite' },
-      { href: '/sports-wheel/draft-order', label: 'Fantasy Draft Order Picker', desc: 'Fair, tamper-proof draft position draw' },
-      { href: '/sports-wheel/workout', label: 'Random Workout & Exercise Wheel', desc: 'Randomize your fitness circuit' },
-      { href: '/sports-wheel/nfl-teams', label: 'NFL Team Picker Wheel', desc: 'Random football team decider' },
-      { href: '/sports-wheel/nba-teams', label: 'NBA Team Picker Wheel', desc: 'Random basketball team decider' }
-    ]
-  },
-  {
-    id: 'numbers',
-    title: 'Numbers, Dice & Letters',
-    icon: <Binary className="w-5 h-5 text-blue-500" />,
-    description: 'Mathematical generators, dice simulators, and alphabet wheels.',
-    links: [
-      { href: '/numbers', label: 'Numbers & Dice Hub', desc: 'Full numerical randomizer directory' },
-      { href: '/number-wheel', label: 'Random Number Wheel 1-10', desc: 'Numeric spinner for games and math exercises' },
-      { href: '/letter-wheel', label: 'Letter Wheel (A-Z)', desc: 'Alphabet selector for word games and phonics' }
-    ]
-  },
-  {
-    id: 'guides',
-    title: 'Educational Guides & Decision Theory',
-    icon: <BookOpen className="w-5 h-5 text-cyan-500" />,
-    description: 'Expert articles on probability, classroom engagement, and cryptographic randomness.',
-    links: [
-      { href: '/how-to-use-a-wheel', label: 'How to Use a Random Wheel', desc: 'Complete operational walkthrough' },
-      { href: '/how-random-wheels-work', label: 'How Random Wheels Work', desc: 'The science of digital spinners and physics' },
-      { href: '/how-to-pick-a-random-winner', label: 'How to Pick a Random Winner', desc: 'Best practices for fair giveaways' },
-      { href: '/random-vs-weighted-selection', label: 'Random vs. Weighted Selection', desc: 'Understanding mathematical odds and slices' },
-      { href: '/how-to-make-a-classroom-wheel', label: 'Classroom Wheel Engagement Guide', desc: 'Effective teaching strategies with wheels' }
-    ]
-  },
-  {
-    id: 'company',
-    title: 'Company, Trust & Legal',
-    icon: <Scale className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
-    description: 'Cryptographic audits, accessibility statements, privacy disclosures, and contact info.',
-    links: [
-      { href: '/about', label: 'About SpinWheelGames', desc: 'Our mission, architecture, and team' },
-      { href: '/fairness', label: 'Fairness & Entropy (CSPRNG)', desc: 'Interactive Monte Carlo simulation & Web Crypto API audit' },
-      { href: '/accessibility', label: 'Accessibility Statement (WCAG 2.1)', desc: 'Keyboard navigation, screen readers, and TTS' },
-      { href: '/privacy', label: 'Privacy Policy', desc: 'Zero-knowledge 100% client-side privacy guarantee' },
-      { href: '/terms', label: 'Terms of Service', desc: 'Acceptable use, educational embedding, and license' },
-      { href: '/contact', label: 'Contact & Support', desc: 'Direct support, bug reports, and educational inquiries' }
-    ]
-  }
-];
-
 export default function HtmlSitemapPage() {
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Dynamically group all SEO pages by their category
+  const categories: SitemapCategory[] = useMemo(() => {
+    const map: Record<string, { title: string; icon: React.ReactNode; description: string; links: { href: string; label: string; desc?: string }[] }> = {
+      decisions: {
+        title: 'Decisions & Choices',
+        icon: <Sparkles className="w-5 h-5 text-[#4648d4] dark:text-[#8587ff]" />,
+        description: 'Resolve analysis paralysis, binary dilemmas, and micro-choices.',
+        links: []
+      },
+      names: {
+        title: 'Names & Roll Calls',
+        icon: <Users className="w-5 h-5 text-indigo-500" />,
+        description: 'Baby names, fictional characters, gamertags, and universal name pickers.',
+        links: []
+      },
+      classroom: {
+        title: 'Classroom & Education',
+        icon: <School className="w-5 h-5 text-emerald-500" />,
+        description: 'Equitable student pickers, station rotations, quiz rounds, and job boards.',
+        links: []
+      },
+      party: {
+        title: 'Party & Social Games',
+        icon: <Flame className="w-5 h-5 text-rose-500" />,
+        description: 'Truth or dare, would you rather, charades, and social mixers.',
+        links: []
+      },
+      food: {
+        title: 'Food & Dining',
+        icon: <Utensils className="w-5 h-5 text-amber-500" />,
+        description: 'Dinner deciders, cuisines, restaurants, breakfasts, and snack picks.',
+        links: []
+      },
+      entertainment: {
+        title: 'Entertainment & Media',
+        icon: <Tv className="w-5 h-5 text-purple-500" />,
+        description: 'Streaming movies, anime genres, music playlists, and book deciders.',
+        links: [
+          { href: '/movie-wheel', label: 'Movie Wheel Spin', desc: 'Random movie picker & decision tool by genre and streaming service' }
+        ]
+      },
+      gaming: {
+        title: 'Gaming & Esports',
+        icon: <Gamepad2 className="w-5 h-5 text-cyan-500" />,
+        description: 'Battle royale drop pickers, agent selectors, and RPG class wheels.',
+        links: []
+      },
+      sports: {
+        title: 'Sports & Fitness',
+        icon: <Trophy className="w-5 h-5 text-blue-500" />,
+        description: 'Fantasy draft order pickers, workout routines, and sports team generators.',
+        links: []
+      },
+      numbers: {
+        title: 'Numbers & Dice',
+        icon: <Binary className="w-5 h-5 text-teal-500" />,
+        description: 'Mathematical generators, dice simulators (D6, D20), and raffle wheels.',
+        links: []
+      },
+      workout: {
+        title: 'Workout & Fitness',
+        icon: <Trophy className="w-5 h-5 text-orange-500" />,
+        description: 'HIIT circuits, calisthenics, yoga flows, and workout routines.',
+        links: []
+      },
+      travel: {
+        title: 'Travel & Exploration',
+        icon: <Plane className="w-5 h-5 text-sky-500" />,
+        description: 'Weekend getaways, vacation activities, and international destinations.',
+        links: []
+      },
+      giveaway: {
+        title: 'Giveaways & Contests',
+        icon: <Gift className="w-5 h-5 text-pink-500" />,
+        description: 'Provably fair prize wheels, raffle stubs, and discount drawers.',
+        links: []
+      },
+      creativity: {
+        title: 'Creativity & Writing',
+        icon: <Palette className="w-5 h-5 text-violet-500" />,
+        description: 'Writing prompts, plot twists, character archetypes, and art mediums.',
+        links: []
+      },
+      productivity: {
+        title: 'Productivity & Habits',
+        icon: <CheckSquare className="w-5 h-5 text-emerald-600" />,
+        description: 'Pomodoro breaks, micro-habits, decluttering, and priority pickers.',
+        links: []
+      },
+      wellness: {
+        title: 'Wellness & Mindfulness',
+        icon: <Heart className="w-5 h-5 text-red-500" />,
+        description: 'Self-care rituals, breathing exercises, and gratitude prompts.',
+        links: []
+      },
+      'date-night': {
+        title: 'Date Night & Couples',
+        icon: <Smile className="w-5 h-5 text-pink-600" />,
+        description: 'Romantic ideas, dinner plans, conversation starters, and activities.',
+        links: []
+      },
+      icebreakers: {
+        title: 'Icebreakers & Team Building',
+        icon: <MessageSquare className="w-5 h-5 text-indigo-600" />,
+        description: 'Meeting energizers, standup warmups, trivia, and team activities.',
+        links: []
+      },
+      finance: {
+        title: 'Finance & Budgeting',
+        icon: <Coins className="w-5 h-5 text-yellow-600" />,
+        description: 'No-spend challenges, savings goals, and splurge decision wheels.',
+        links: []
+      },
+      guides: {
+        title: 'Educational Guides & Theory',
+        icon: <BookOpen className="w-5 h-5 text-cyan-600" />,
+        description: 'In-depth articles on probability, cryptographic randomness, and group psychology.',
+        links: []
+      },
+      company: {
+        title: 'Company, Trust & Legal',
+        icon: <Scale className="w-5 h-5 text-amber-600" />,
+        description: 'Cryptographic audit reports, accessibility, privacy, and team info.',
+        links: [
+          { href: '/about', label: 'About SpinWheelGames', desc: 'Our mission, architecture, and editorial team' },
+          { href: '/fairness', label: 'Fairness & Entropy (CSPRNG)', desc: 'Monte Carlo testing & Web Cryptography API audit' },
+          { href: '/accessibility', label: 'Accessibility Statement (WCAG 2.1)', desc: 'Keyboard navigation, screen readers, and TTS' },
+          { href: '/privacy', label: 'Privacy Policy', desc: 'Zero-knowledge 100% client-side privacy guarantee' },
+          { href: '/terms', label: 'Terms of Service', desc: 'Acceptable use, educational embedding, and license' },
+          { href: '/contact', label: 'Contact & Support', desc: 'Direct support, bug reports, and educational inquiries' }
+        ]
+      }
+    };
+
+    // Populate SEO pages into their respective category bucket
+    for (const page of ALL_SEO_PAGES_LIST) {
+      if (page.pageType === 'guide') {
+        map.guides.links.push({
+          href: page.fullPath,
+          label: page.h1 || page.title,
+          desc: page.metaDescription
+        });
+      } else if (page.categoryKey && map[page.categoryKey]) {
+        map[page.categoryKey].links.push({
+          href: page.fullPath,
+          label: page.h1.replace(/:\s*.*$/, ''),
+          desc: page.metaDescription
+        });
+      } else {
+        // Fallback to decisions
+        map.decisions.links.push({
+          href: page.fullPath,
+          label: page.h1,
+          desc: page.metaDescription
+        });
+      }
+    }
+
+    return Object.entries(map)
+      .map(([id, data]) => ({
+        id,
+        title: data.title,
+        icon: data.icon,
+        description: data.description,
+        links: data.links
+      }))
+      .filter((c) => c.links.length > 0);
+  }, []);
+
   const filteredCategories = useMemo(() => {
-    if (!searchQuery.trim()) return SITEMAP_DATA;
+    if (!searchQuery.trim()) return categories;
     const q = searchQuery.toLowerCase();
 
-    return SITEMAP_DATA.map((cat) => {
-      const matchingLinks = cat.links.filter(
-        (l) => l.label.toLowerCase().includes(q) || (l.desc && l.desc.toLowerCase().includes(q))
-      );
-      if (matchingLinks.length > 0 || cat.title.toLowerCase().includes(q)) {
-        return {
-          ...cat,
-          links: matchingLinks.length > 0 ? matchingLinks : cat.links
-        };
-      }
-      return null;
-    }).filter(Boolean) as SitemapCategory[];
-  }, [searchQuery]);
+    return categories
+      .map((cat) => {
+        const matchingLinks = cat.links.filter(
+          (l) => l.label.toLowerCase().includes(q) || (l.desc && l.desc.toLowerCase().includes(q))
+        );
+        if (matchingLinks.length > 0 || cat.title.toLowerCase().includes(q)) {
+          return {
+            ...cat,
+            links: matchingLinks.length > 0 ? matchingLinks : cat.links
+          };
+        }
+        return null;
+      })
+      .filter(Boolean) as SitemapCategory[];
+  }, [categories, searchQuery]);
 
   const totalLinks = useMemo(() => {
-    return SITEMAP_DATA.reduce((acc, cat) => acc + cat.links.length, 0);
-  }, []);
+    return categories.reduce((acc, cat) => acc + cat.links.length, 0);
+  }, [categories]);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#12131a] text-[#1a1b22] dark:text-[#f1effa] transition-colors">
       <SubpageHeader activePage="/sitemap" />
 
-      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-12">
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-12">
+        <Breadcrumbs items={[{ label: 'HTML Sitemap' }]} />
+
         {/* Header */}
         <section className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4648d4]/10 dark:bg-[#4648d4]/20 text-[#4648d4] dark:text-[#8587ff] text-xs font-bold uppercase tracking-wider">
@@ -221,7 +282,7 @@ export default function HtmlSitemapPage() {
                     {category.icon}
                   </div>
                   <h2 className="font-headline text-[17px] font-bold text-[#1a1b22] dark:text-white">
-                    {category.title}
+                    {category.title} ({category.links.length})
                   </h2>
                 </div>
                 <p className="text-xs text-[#767586] dark:text-[#908fa1]">

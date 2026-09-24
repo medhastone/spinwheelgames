@@ -27,27 +27,33 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       description: 'Explore curated decision wheels',
       paletteKey: 'arcade',
       items: [
-        { id: 'cat-d1', text: 'Spin the Wheel', weight: 1 },
-        { id: 'cat-d2', text: 'Decision Wheel', weight: 1 },
-        { id: 'cat-d3', text: 'Yes or No Wheel', weight: 1 },
-        { id: 'cat-d4', text: 'Random Picker', weight: 1 },
-        { id: 'cat-d5', text: 'Food Wheel', weight: 1 },
-        { id: 'cat-d6', text: 'Picker Wheel', weight: 1 }
+        { id: 'cat-d1', text: 'Movie Wheel Spin', weight: 1 },
+        { id: 'cat-d2', text: 'Food Wheel', weight: 1 },
+        { id: 'cat-d3', text: 'Decision Wheel', weight: 1 },
+        { id: 'cat-d4', text: 'Yes or No Wheel', weight: 1 },
+        { id: 'cat-d5', text: 'Spin the Wheel', weight: 1 },
+        { id: 'cat-d6', text: 'Random Picker', weight: 1 },
+        { id: 'cat-d7', text: 'Number Wheel', weight: 1 },
+        { id: 'cat-d8', text: 'Animal Wheel', weight: 1 }
       ]
     },
     instructions: [
-      'Identify what kind of decision you need to make (binary yes/no vs. multi-option dilemma).',
+      'Identify what kind of decision you need to make (e.g. movies, dining, binary yes/no, or multi-option dilemmas).',
       'Select the specialized tool below or use the interactive preview wheel above.',
-      'Input your alternatives and hit Spin to reach clarity instantly.'
+      'Input your alternatives or use pre-loaded curated categories, and hit Spin to reach clarity instantly.'
     ],
     whoItsUsefulFor: [
+      {
+        audience: 'Movie Night & Entertainment Planners',
+        benefit: 'Eliminates endless Netflix/Disney+ scrolling by picking what to watch in 10 seconds.'
+      },
       {
         audience: 'Solo Decision Makers',
         benefit: 'Breaks perfectionist paralysis on routine tasks and low-consequence choices.'
       },
       {
         audience: 'Couples & Roommates',
-        benefit: 'Prevents circular arguments over meals, chores, or weekend plans.'
+        benefit: 'Prevents circular arguments over meals, takeout, movies, chores, or weekend plans.'
       },
       {
         audience: 'Team Leaders & Agile Coaches',
@@ -55,6 +61,16 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       }
     ],
     useCases: [
+      {
+        title: 'Movie & Entertainment Deciders',
+        benefit: 'Instant random picks by genre (Animation, Comedy, Action, Horror, Classic) or custom watchlist.',
+        description: 'Instant random picks by genre (Animation, Comedy, Action, Horror, Classic) or custom watchlist.'
+      },
+      {
+        title: 'Dinner & Food Dilemmas',
+        benefit: 'Randomly choose cuisines, takeout spots, recipes, and fast food with zero dinner debates.',
+        description: 'Randomly choose cuisines, takeout spots, recipes, and fast food with zero dinner debates.'
+      },
       {
         title: 'Overcoming Low-Stakes Dilemmas',
         benefit: 'Saves cognitive willpower for high-impact professional choices by automating small decisions.',
@@ -69,24 +85,31 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     customizationOptions: [
       {
         title: 'Preset Decision Lists',
-        description: 'Choose from pre-built templates for dinner, chores, workout moves, and study topics.'
+        description: 'Choose from pre-built templates for movies, streaming, dinner, chores, workout moves, and study topics.'
       }
     ],
     resultExplanation: 'All decision wheels on SpinWheelGames use the Web Cryptography API to generate hardware-seeded, mathematically unbiased outcomes.',
     uniqueExamples: [
+      'Streaming & Watchlist: Movie Wheel Spin (Sci-Fi, Comedy, Action, Horror, Romance, Classic)',
+      'Dining & Meals: Food Wheel (Pizza, Sushi, Tacos, Burgers, Thai, Indian, Salad)',
       'Everyday Choices: Cook Dinner, Order Takeout, Run 3 Miles, Clean Office, Call Friend, Read Book'
     ],
     tips: [
+      'For movie night indecision, spin the Movie Wheel to pick a genre or load your personal Netflix watchlist.',
+      'For dinner debates, spin the Food Wheel to lock in takeout vs home-cooked meals.',
       'If you have a binary choice, use the Yes or No Wheel for fastest results.',
       'If your options have unequal appeal, use weighted sliders on the Random Picker to reflect preference.'
     ],
     comparisonTable: {
       headers: ['Decision Type', 'Recommended Tool', 'Best Scenario', 'Average Time'],
       rows: [
+        ['Movies & Streaming', 'Movie Wheel Spin', 'What to watch tonight, Netflix debate, date night', '5 seconds'],
+        ['Meals & Dining', 'Food Wheel', 'Takeout vs. cooking, restaurant picking', '6 seconds'],
         ['Simple 50/50', 'Yes or No Wheel', 'Go to gym vs. rest, take walk vs. read', '3 seconds'],
         ['Multi-Choice (3–10 options)', 'Decision Wheel', 'Weekend plans, chore assignments', '8 seconds'],
-        ['Meals & Dining', 'Food Wheel', 'Takeout vs. cooking, restaurant picking', '10 seconds'],
-        ['Rosters & People', 'Wheel of Names', 'Classroom cold-calling, raffle winners', '12 seconds']
+        ['Rosters & People', 'Wheel of Names', 'Classroom cold-calling, raffle winners', '12 seconds'],
+        ['Numbers & Lotteries', 'Number Wheel', 'Raffles, lucky draws, number ranges', '5 seconds'],
+        ['Animals & Nature', 'Animal Wheel', 'Wildlife trivia, science activities, games', '5 seconds']
       ]
     },
     uniqueContentBlocks: [
@@ -96,29 +119,62 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
           'Behavioral economists describe "decision fatigue" as the deteriorating quality of choices made after a long session of decision making.',
           'Using a visual randomizer delegates low-impact choices to chance. More importantly, when the wheel spins, you often discover your genuine preference: if you hope it lands on Option B while it\'s turning, your subconscious has already made up its mind!'
         ]
+      },
+      {
+        heading: 'From Movie Night Debates to Mealtime Paralysis',
+        body: [
+          'The most frequent domestic stalemates revolve around simple entertainment and food choices: "What should we watch tonight?" and "What do you want to eat?"',
+          'Instead of spending 20+ minutes browsing streaming catalogs or delivery apps, spinning the dedicated [Movie Wheel](/movie-wheel) or [Food Wheel](/food-wheel) makes a fair, delightful choice in seconds.'
+        ]
       }
     ],
     faqs: [
       {
-        question: 'Which decision tool is best for beginners?',
-        answer: 'Start with Spin the Wheel or Decision Wheel—both allow you to customize entries and spin immediately.'
+        question: 'Which decision tool is best for picking a movie or show?',
+        answer: 'Use the Movie Wheel Spin (/movie-wheel). It includes built-in genre filters (Action, Comedy, Horror, Animation, Family, Classic) and allows pasting your custom streaming watchlist.'
+      },
+      {
+        question: 'Which tool should I use for deciding what to eat?',
+        answer: 'Use the Food Wheel (/food-wheel). It offers pre-built cuisine wheels, takeout vs home cooking pickers, and dietary preferences.'
+      },
+      {
+        question: 'Which decision tool is best for general dilemmas?',
+        answer: 'Start with Decision Wheel or Spin the Wheel—both allow you to customize entries and spin immediately.'
       }
     ],
     relatedTools: [
-      { name: 'Spin the Wheel', path: '/spin-the-wheel', description: 'General multi-choice decision maker.' },
+      { name: 'Movie Wheel Spin', path: '/movie-wheel', description: 'Random movie picker by genre, mood, or custom watchlist.' },
+      { name: 'Food Wheel', path: '/food-wheel', description: 'Random meal, dinner, restaurant, and cuisine picker.' },
+      { name: 'Decision Wheel', path: '/decision-wheel', description: 'Dedicated multi-choice dilemma solver.' },
       { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', description: 'Fast 50/50 binary decider.' },
-      { name: 'Decision Wheel', path: '/decision-wheel', description: 'Dedicated dilemma solver.' }
+      { name: 'Spin the Wheel', path: '/spin-the-wheel', description: 'General multi-choice decision maker.' },
+      { name: 'Random Picker', path: '/random-picker', description: 'Weighted random item and option picker.' },
+      { name: 'Number Wheel', path: '/number-wheel', description: 'Random number generator wheel for raffles and range draws.' },
+      { name: 'Animal Wheel', path: '/animal-wheel', description: 'Random animal selector and biodiversity spinner.' },
+      { name: 'Random Object Generator', path: '/random-object-generator', description: 'Random everyday object and creative prompt generator.' }
     ],
     relatedWheels: [
-      { name: 'Spin the Wheel', path: '/spin-the-wheel', count: 6 },
-      { name: 'Decision Wheel', path: '/decision-wheel', count: 6 }
+      { name: 'Movie Wheel Spin', path: '/movie-wheel', count: 12 },
+      { name: 'Food Wheel', path: '/food-wheel', count: 12 },
+      { name: 'Decision Wheel', path: '/decision-wheel', count: 6 },
+      { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', count: 6 },
+      { name: 'Spin the Wheel', path: '/spin-the-wheel', count: 8 },
+      { name: 'Random Picker', path: '/random-picker', count: 10 },
+      { name: 'Number Wheel', path: '/number-wheel', count: 10 },
+      { name: 'Animal Wheel', path: '/animal-wheel', count: 12 },
+      { name: 'Random Object Generator', path: '/random-object-generator', count: 12 }
     ],
     relatedGuides: [
       { name: 'How to Use a Wheel for Decisions', path: '/how-to-use-a-wheel', readingTime: '4 min' }
     ],
     internalLinks: [
-      { label: 'Try Spin the Wheel', href: '/spin-the-wheel', context: 'Primary interactive tool.' },
-      { label: 'Read Decision-Making Guide', href: '/how-to-use-a-wheel', context: 'Frameworks for faster choices.' }
+      { label: 'Spin Movie Wheel', href: '/movie-wheel', context: 'What should we watch tonight?' },
+      { label: 'Spin Food Wheel', href: '/food-wheel', context: 'What should we eat tonight?' },
+      { label: 'Try Decision Wheel', href: '/decision-wheel', context: 'Solve multi-option dilemmas' },
+      { label: 'Try Yes or No Wheel', href: '/yes-or-no-wheel', context: 'Fast 50/50 binary decider' },
+      { label: 'Try Number Wheel', href: '/number-wheel', context: 'Random number drawings' },
+      { label: 'Try Animal Wheel', href: '/animal-wheel', context: 'Random animal generator' },
+      { label: 'Read Decision-Making Guide', href: '/how-to-use-a-wheel', context: 'Frameworks for faster choices' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org' },

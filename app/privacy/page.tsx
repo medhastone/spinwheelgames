@@ -160,7 +160,7 @@ export default function PrivacyPage() {
               6. Contact for Privacy Inquiries
             </h2>
             <p>
-              If you have any questions or data privacy inquiries regarding our platform, please reach out via email at <a href="mailto:privacy@spinwheelgames.org" className="text-[#4648d4] dark:text-[#8587ff] font-semibold underline">privacy@spinwheelgames.org</a> or visit our <Link href="/contact" className="text-[#4648d4] dark:text-[#8587ff] font-semibold underline">Contact Page</Link>.
+              If you have any questions or data privacy inquiries regarding our platform, please reach out via email at <a href="mailto:info@spinwheelgames.org" className="text-[#4648d4] dark:text-[#8587ff] font-semibold underline">info@spinwheelgames.org</a> or visit our <Link href="/contact" className="text-[#4648d4] dark:text-[#8587ff] font-semibold underline">Contact Page</Link>.
             </p>
           </div>
         </section>

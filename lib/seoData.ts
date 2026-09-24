@@ -2,11 +2,15 @@ import { SeoPageData, PageCategoryType } from './seoArchitecture';
 import { CORE_TOOLS_SEO } from './seoDataCoreTools';
 import { USE_CASES_SEO } from './seoDataUseCases';
 import { CATEGORIES_AND_GUIDES_SEO } from './seoDataCategoriesAndGuides';
+import { EXTENDED_PILLARS_SEO } from './seoDataExtendedPillars';
+import { WHEEL_EXPERIENCES_SEO } from './seoDataWheelExperiences';
 
 export const ALL_SEO_PAGES_MAP: Record<string, SeoPageData> = {
+  ...WHEEL_EXPERIENCES_SEO,
   ...CORE_TOOLS_SEO,
   ...USE_CASES_SEO,
-  ...CATEGORIES_AND_GUIDES_SEO
+  ...CATEGORIES_AND_GUIDES_SEO,
+  ...EXTENDED_PILLARS_SEO
 };
 
 export const ALL_SEO_PAGES_LIST: SeoPageData[] = Object.values(ALL_SEO_PAGES_MAP);
@@ -56,7 +60,7 @@ export function generatePageJsonLd(page: SeoPageData): object[] {
       url: 'https://spinwheelgames.org',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://spinwheelgames.org/logo.svg'
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp'
       }
     },
     isPartOf: {

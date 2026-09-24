@@ -5,7 +5,7 @@ import WheelCanvas from './WheelCanvas';
 import SoundControls from './SoundControls';
 import { WheelItem, SoundSettings } from '@/lib/types';
 import { selectWeightedWinner } from '@/lib/random';
-import { playWinnerFanfare, playTickSound } from '@/lib/sound';
+import { playWinnerFanfare, playTickSound, announceWinnerTTS } from '@/lib/sound';
 import confetti from 'canvas-confetti';
 import {
   GraduationCap,
@@ -218,6 +218,7 @@ export default function ClassroomModeView({
 
     if (soundSettings.enabled) {
       playWinnerFanfare(soundSettings.enabled, soundSettings.pack, soundSettings.volume);
+      announceWinnerTTS(winner.text, { enabled: true, prefix: 'Selected student is' });
     }
   };
 
@@ -963,6 +964,25 @@ export default function ClassroomModeView({
             <h2 className="font-headline font-black text-[32px] sm:text-[38px] text-[#1a1b22] dark:text-white leading-tight">
               {currentWinner}
             </h2>
+
+            {/* Spoken Voice Announcer Button */}
+            <div className="mb-2 flex items-center justify-center">
+              <button
+                type="button"
+                onClick={() =>
+                  currentWinner &&
+                  announceWinnerTTS(currentWinner, {
+                    enabled: true,
+                    prefix: 'Selected student is'
+                  })
+                }
+                className="px-3 py-1 rounded-full bg-[#f4f2fd] dark:bg-[#222330] hover:bg-[#eae6fd] text-[#4648d4] dark:text-[#8587ff] border border-[#eeedf7] dark:border-[#353648] text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer"
+                title="Speak student name out loud"
+              >
+                <Volume2 className="w-3.5 h-3.5" />
+                <span>🔊 Speak Student Name</span>
+              </button>
+            </div>
 
             <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1]">
               It&apos;s your turn to participate or share your thoughts!

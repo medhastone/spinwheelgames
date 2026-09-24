@@ -3,34 +3,44 @@ import { ChevronDown, HelpCircle } from 'lucide-react';
 
 export const FAQS_DATA = [
   {
-    question: 'Is this wheel truly random and fair for giveaways and prize draws?',
+    question: 'What is SpinWheelGames?',
     answer:
-      'Yes, 100%. SpinWheelGames.org utilizes the Web Cryptography API (crypto.getRandomValues), the highest standard of hardware and thermal pseudo-randomness available in modern browsers. It generates cryptographically secure entropy, rendering results mathematically impossible to predict, skew, or bias.'
+      'SpinWheelGames is an online decision engine and random picker platform. It helps you pick names, choose food, split teams, make decisions, play wheel games, and run giveaways for free.'
   },
   {
-    question: 'How many items or names can I put on one wheel?',
+    question: 'Is the wheel free to use?',
     answer:
-      'You can add anywhere from 2 up to 500 options on a single wheel! When you exceed 50 items, our canvas engine dynamically adjusts slice widths, radial text scaling, and micro-tick markers to maintain a steady 60 FPS animation without browser lag.'
+      'Yes, 100% free with no forced registration, premium paywalls, or hidden limits on spins.'
   },
   {
-    question: 'Can I save custom wheels and share them via link with others?',
+    question: 'Can I create my own wheel?',
     answer:
-      'Absolutely! When you click "Share / Embed", your wheel options, custom color themes, and duration settings are encoded directly into a shareable URL hash. No account creation or external database is required—the link itself faithfully reconstructs your wheel configuration.'
+      'Yes. You can enter custom names, choices, or items, customize slice colors, assign weights, enable elimination mode, and save or share your wheel link.'
   },
   {
-    question: 'Can I embed this wheel on my classroom site, blog, or LMS?',
+    question: 'Can I pick a random name?',
     answer:
-      'Yes! You can use our responsive, ad-free iframe snippet that automatically adjusts to mobile, tablet, and desktop screens with zero third-party tracking scripts or cookie walls.'
+      'Yes. Use our Wheel of Names or Random Name Picker tools to draw random names for raffles, classroom calling, or contest winners.'
   },
   {
-    question: 'Can I weight different options with custom odds or probabilities?',
+    question: 'Can I remove a winner after spinning?',
     answer:
-      'Yes! With Weighted Mode enabled, you can assign custom integer or decimal weights to any slice. The wheel mathematically scales slice angles and probability distributions proportional to the sum of all slice weights.'
+      'Yes. You can enable Elimination mode or click "Hide/Remove Winner" on the result modal to remove selected items for subsequent spins.'
   },
   {
-    question: 'Does this work offline without an active internet connection?',
+    question: 'Can I share a wheel?',
     answer:
-      'Yes! All calculations, audio synthesis, CSPRNG algorithms, and rendering happen locally on your device. Once loaded, you can spin offline without any external API calls.'
+      'Yes. Click "Share Link" to generate a unique shareable URL that preserves your custom options, colors, and settings.'
+  },
+  {
+    question: 'How are random results selected?',
+    answer:
+      'SpinWheelGames uses your browser’s built-in Web Crypto API (crypto.getRandomValues) to select unbiased random results locally on your device.'
+  },
+  {
+    question: 'Can I use the wheel in a classroom?',
+    answer:
+      'Yes. It is widely used by educators for cold-calling students, assigning groups, picking presentation orders, and running review activities.'
   }
 ];
 

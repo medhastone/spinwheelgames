@@ -80,14 +80,12 @@ export const WHEEL_PRESETS: WheelConfig[] = [
     palette: COLOR_PALETTES.arcade.colors,
     themeKey: 'arcade',
     items: [
-      { id: '1', text: '🍕 Wood-Fired Pizza', weight: 1 },
-      { id: '2', text: '🍣 Fresh Sushi Box', weight: 1 },
-      { id: '3', text: '🌮 Street Tacos', weight: 1 },
-      { id: '4', text: '🍔 Smash Burgers', weight: 1 },
-      { id: '5', text: '🍜 Spicy Thai Curry', weight: 1 },
-      { id: '6', text: '🥗 Green Protein Bowl', weight: 1 },
-      { id: '7', text: '🍝 Creamy Carbonara', weight: 1 },
-      { id: '8', text: '🍲 Tonkotsu Ramen', weight: 1 }
+      { id: '1', text: 'Pizza', weight: 1 },
+      { id: '2', text: 'Burger', weight: 1 },
+      { id: '3', text: 'Biryani', weight: 1 },
+      { id: '4', text: 'Pasta', weight: 1 },
+      { id: '5', text: 'Tacos', weight: 1 },
+      { id: '6', text: 'Sushi', weight: 1 }
     ]
   },
   {
@@ -160,6 +158,26 @@ export const WHEEL_PRESETS: WheelConfig[] = [
       { id: 't6', text: '🧘 Hold a plank for 45 seconds', weight: 1 },
       { id: 't7', text: '🐶 Do your best impression of a pet', weight: 1 },
       { id: 't8', text: '👑 Speak in a royal accent for 3 rounds', weight: 1 }
+    ]
+  },
+  {
+    id: 'bingo-wheel',
+    title: 'Bingo Spin Wheel',
+    category: 'Bingo & Games',
+    description: 'Random Bingo number generator and live caller without repeats.',
+    palette: COLOR_PALETTES.vibrant.colors,
+    themeKey: 'vibrant',
+    items: [
+      { id: 'b1', text: 'B-1', weight: 1 },
+      { id: 'b2', text: 'B-2', weight: 1 },
+      { id: 'b3', text: 'B-3', weight: 1 },
+      { id: 'b4', text: 'B-4', weight: 1 },
+      { id: 'b5', text: 'B-5', weight: 1 },
+      { id: 'i16', text: 'I-16', weight: 1 },
+      { id: 'i17', text: 'I-17', weight: 1 },
+      { id: 'n31', text: 'N-31', weight: 1 },
+      { id: 'g46', text: 'G-46', weight: 1 },
+      { id: 'o61', text: 'O-61', weight: 1 }
     ]
   }
 ];

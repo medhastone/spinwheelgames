@@ -3,28 +3,34 @@
 import React, { useEffect, useState } from 'react';
 import confetti from 'canvas-confetti';
 import { WheelItem, WheelMode, ResultCardData, SurpriseModifier } from '@/lib/types';
-import { playWinnerFanfare, announceWinnerTTS } from '@/lib/sound';
+import { playWinnerFanfare, announceWinnerTTS, stopSpeaking } from '@/lib/sound';
 import { getRandomSurpriseModifier } from '@/lib/gamification';
 import { loadUserStats } from '@/lib/storage';
 import ResultCardModal from './ResultCardModal';
 import {
   X,
   Trophy,
-  Info,
   RotateCcw,
-  Trash2,
+  UserX,
+  Share2,
   Copy,
   Check,
-  Flame,
   Sparkles,
-  Share2,
-  Swords,
-  Dice5
+  Download,
+  Flame,
+  Volume2,
+  Dice5,
+  ShieldCheck,
+  ExternalLink,
+  Crown
 } from 'lucide-react';
 
 interface WinnerModalProps {
   isOpen?: boolean;
   winner: WheelItem | null;
+  items?: WheelItem[];
+  palette?: string[];
+  wheelTitle?: string;
   oddsPercent?: string;
   seed?: string;
   spinNumber?: number;
@@ -42,6 +48,9 @@ interface WinnerModalProps {
 export default function WinnerModal({
   isOpen = true,
   winner,
+  items = [],
+  palette = ['#4648d4', '#00a86b', '#f59e0b', '#ec4899', '#3b82f6', '#8b5cf6', '#10b981', '#f97316'],
+  wheelTitle = 'Wheel of Names',
   oddsPercent = '12.5',
   seed = '0x94F2B01E',
   spinNumber = 1,
@@ -49,7 +58,7 @@ export default function WinnerModal({
   soundEnabled = true,
   soundPack = 'carnival',
   volume = 0.7,
-  ttsEnabled = false,
+  ttsEnabled = true,
   onClose,
   onSpinAgain,
   onRemoveWinner,
@@ -59,47 +68,81 @@ export default function WinnerModal({
   const [surpriseModifier, setSurpriseModifier] = useState<SurpriseModifier | null>(null);
   const [surpriseWinnerId, setSurpriseWinnerId] = useState<string | null>(null);
   const [resultCardOpen, setResultCardOpen] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
 
   useEffect(() => {
-    if (!isOpen || !winner) return;
+    if (!isOpen || !winner) {
+      stopSpeaking();
+      return;
+    }
 
-    // Launch celebratory confetti with multiple bursts
+    let t1: ReturnType<typeof setTimeout> | null = null;
+    let ttsTimer: ReturnType<typeof setTimeout> | null = null;
+
+    // 1. Launch celebratory confetti bursts
     try {
       confetti({
-        particleCount: 120,
-        spread: 80,
+        particleCount: 100,
+        spread: 70,
         origin: { y: 0.6 }
       });
-      setTimeout(() => {
-        confetti({
-          particleCount: 60,
-          angle: 60,
-          spread: 55,
-          origin: { x: 0 }
-        });
-        confetti({
-          particleCount: 60,
-          angle: 120,
-          spread: 55,
-          origin: { x: 1 }
-        });
+      t1 = setTimeout(() => {
+        try {
+          confetti({
+            particleCount: 50,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }
+          });
+          confetti({
+            particleCount: 50,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
+          });
+        } catch {
+          // Ignore
+        }
       }, 250);
     } catch {
       // Confetti fallback safely ignored
     }
 
-    // Play fanfare chime
+    // 2. Play fanfare chime
     if (soundEnabled) {
       playWinnerFanfare(soundEnabled, soundPack, volume);
     }
 
-    // Announce via Web Speech API if TTS enabled
+    // 3. Auto-Announce via Web Speech API (TTS)
     if (ttsEnabled) {
-      announceWinnerTTS(winner.text);
+      ttsTimer = setTimeout(() => {
+        announceWinnerTTS(winner.text, {
+          enabled: true,
+          volume,
+          onStart: () => setIsSpeaking(true),
+          onEnd: () => setIsSpeaking(false)
+        });
+      }, 300);
     }
+
+    return () => {
+      if (t1) clearTimeout(t1);
+      if (ttsTimer) clearTimeout(ttsTimer);
+      stopSpeaking();
+    };
   }, [isOpen, winner, soundEnabled, volume, soundPack, ttsEnabled]);
 
   if (!isOpen || !winner) return null;
+
+  const handleSpeakWinnerAgain = () => {
+    if (!winner) return;
+    announceWinnerTTS(winner.text, {
+      enabled: true,
+      volume,
+      onStart: () => setIsSpeaking(true),
+      onEnd: () => setIsSpeaking(false)
+    });
+  };
 
   const activeModifier = surpriseWinnerId === winner.id ? surpriseModifier : null;
   const stats = loadUserStats();
@@ -111,8 +154,8 @@ export default function WinnerModal({
     setSurpriseWinnerId(winner.id);
     try {
       confetti({
-        particleCount: 80,
-        spread: 70,
+        particleCount: 70,
+        spread: 60,
         origin: { y: 0.7 }
       });
     } catch {
@@ -121,7 +164,7 @@ export default function WinnerModal({
   };
 
   const handleCopy = () => {
-    const text = `🎉 Winner: ${winner.text} (Odds: ${oddsPercent}%, Seed: ${seed}, Streak: 🔥${streak} Days) - SpinWheelGames.org`;
+    const text = `🎉 Winner: ${winner.text} (Odds: ${oddsPercent}%, Seed: ${seed}, Mode: ${currentMode}) - SpinWheelGames.org`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -130,7 +173,7 @@ export default function WinnerModal({
   const resultCardData: ResultCardData = {
     winner: winner.text,
     streak,
-    challengeName: currentMode === 'standard' ? 'Provably Fair Wheel' : `${currentMode.toUpperCase()} Decision`,
+    challengeName: wheelTitle || 'Provably Fair Wheel',
     oddsPercent,
     seed,
     brand: 'SpinWheelGames.org',
@@ -138,180 +181,242 @@ export default function WinnerModal({
     modifier: activeModifier
   };
 
+  // Prepare slices for the mini preview wheel
+  const previewSlices = items.length > 0 ? items : [
+    { id: '1', text: winner.text, weight: 1 },
+    { id: '2', text: 'Option B', weight: 1 },
+    { id: '3', text: 'Option C', weight: 1 },
+    { id: '4', text: 'Option D', weight: 1 },
+    { id: '5', text: 'Option E', weight: 1 },
+    { id: '6', text: 'Option F', weight: 1 },
+  ];
+
+  const totalSlices = previewSlices.length;
+  const sliceAngle = 360 / totalSlices;
+
   return (
     <>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-        <div className="relative w-full max-w-md bg-white dark:bg-[#181922] rounded-3xl p-6 sm:p-8 border border-[#eeedf7] dark:border-[#292a39] shadow-2xl animate-bounceIn flex flex-col items-center text-center max-h-[92vh] overflow-y-auto">
-          {/* Close Button */}
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-black/70 backdrop-blur-md animate-fadeIn overflow-y-auto">
+        <div className="relative w-full max-w-2xl bg-white dark:bg-[#0f1016] text-[#1a1b22] dark:text-white rounded-3xl p-5 sm:p-7 border border-[#eeedf7] dark:border-[#292a39] shadow-2xl flex flex-col items-center my-auto animate-bounceIn transition-colors">
+          
+          {/* Close Icon Button */}
           <button
             type="button"
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#222330] transition-colors cursor-pointer"
-            aria-label="Close winner dialog"
+            className="absolute top-4 right-4 p-2 rounded-full text-[#767586] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] transition-colors cursor-pointer z-10"
+            aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
           </button>
 
-          {/* Victory Trophy Badge with Streak Indicator */}
-          <div className="flex items-center gap-2 mb-3">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#4648d4] to-[#6063ee] text-white flex items-center justify-center shadow-lg shadow-[#4648d4]/30 animate-pulse">
-              <Trophy className="w-8 h-8" />
-            </div>
-
-            {/* Streak Chip */}
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-600 dark:text-amber-400 font-bold text-xs">
-              <Flame className="w-4 h-4 fill-current" />
-              <span>{streak} Day Streak</span>
-            </div>
+          {/* Top Celebration Sub-Header */}
+          <div className="flex flex-col items-center text-center mb-3">
+            <span className="text-amber-500 dark:text-amber-400 font-extrabold text-sm sm:text-base flex items-center gap-1.5 tracking-wide uppercase font-mono">
+              <Sparkles className="w-4 h-4" />
+              <span>Woohoo!</span>
+            </span>
+            <h3 className="font-headline font-black text-lg sm:text-xl text-[#1a1b22] dark:text-[#f1effa]">
+              {winner.text}
+            </h3>
           </div>
 
-          {/* Header */}
-          <span className="text-[12px] font-bold uppercase tracking-widest text-[#4648d4] dark:text-[#8587ff]">
-            We Have a Winner!
-          </span>
+          {/* ========================================================================= */}
+          {/* Main Winner Presentation Card (Matches Reference Image 2)                 */}
+          {/* ========================================================================= */}
+          <div className="w-full bg-gradient-to-br from-[#181a26] via-[#151622] to-[#1e1730] rounded-2xl border border-[#38374d] p-5 sm:p-6 shadow-inner relative overflow-hidden flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6 text-white">
+            
+            {/* Ambient background particles/glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#4648d4]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
 
-          {/* Winner Highlight Text */}
-          <h2 className="font-headline font-extrabold text-[28px] sm:text-[32px] text-[#1a1b22] dark:text-[#f1effa] mt-1 mb-3 leading-tight max-w-full break-words">
-            {winner.text}
-          </h2>
-
-          {/* Cryptographic Selection Stats */}
-          <div className="w-full bg-[#f4f2fd] dark:bg-[#1d1e28] rounded-xl p-3 border border-[#eeedf7] dark:border-[#292a39] mb-4 grid grid-cols-3 gap-2 text-left">
-            <div>
-              <span className="block text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] uppercase">
-                Calculated Odds
-              </span>
-              <span className="font-mono font-bold text-[13px] text-[#006c49] dark:text-[#4edea3]">
-                {oddsPercent}%
-              </span>
-            </div>
-            <div>
-              <span className="block text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] uppercase">
-                Spin Count
-              </span>
-              <span className="font-mono font-bold text-[13px] text-[#1a1b22] dark:text-[#f1effa]">
-                #{spinNumber}
-              </span>
-            </div>
-            <div>
-              <span className="block text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] uppercase">
-                Entropy Seed
-              </span>
-              <span className="font-mono font-bold text-[11px] text-[#4648d4] dark:text-[#8587ff] truncate block">
-                {seed}
-              </span>
-            </div>
-          </div>
-
-          {/* Surprise Twist Card Reveal (Core Loop Surprise Mechanic) */}
-          <div className="w-full mb-4">
-            {!activeModifier ? (
-              <button
-                type="button"
-                onClick={handleDrawSurprise}
-                className="w-full py-2 px-3 rounded-xl border border-purple-300 dark:border-purple-800/60 bg-purple-50/50 dark:bg-purple-950/20 hover:bg-purple-100/50 dark:hover:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
-              >
-                <Dice5 className="w-4 h-4 text-purple-500" />
-                <span>Draw Surprise Twist / Modifier?</span>
-              </button>
-            ) : (
-              <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10 border border-purple-500/30 text-left flex items-start gap-2.5 animate-fadeIn">
-                <Sparkles className="w-5 h-5 text-purple-500 shrink-0 mt-0.5" />
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold uppercase text-purple-600 dark:text-purple-400">
-                      Surprise Twist Drawn!
-                    </span>
-                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-700 dark:text-purple-200 font-bold">
-                      {activeModifier.tag}
-                    </span>
-                  </div>
-                  <h4 className="font-bold text-sm text-[#1a1b22] dark:text-white mt-0.5">
-                    {activeModifier.title}
-                  </h4>
-                  <p className="text-xs text-[#767586] dark:text-[#908fa1] mt-0.5">
-                    {activeModifier.description}
-                  </p>
-                </div>
+            {/* Left Side: Winner Details */}
+            <div className="flex-1 flex flex-col items-center sm:items-start text-center sm:text-left z-10 space-y-2.5 min-w-0">
+              {/* Wheel Title */}
+              <div>
+                <h4 className="text-[#c7c4d7] font-extrabold text-base sm:text-lg tracking-tight">
+                  {wheelTitle}
+                </h4>
+                <div className="w-12 h-1 bg-gradient-to-r from-amber-400 to-rose-500 rounded-full mt-1 mx-auto sm:mx-0" />
               </div>
-            )}
-          </div>
 
-          {/* Mode specific elimination hint */}
-          {currentMode === 'elimination' && (
-            <p className="text-[12px] text-amber-600 dark:text-amber-400 mb-3 font-medium flex items-center justify-center gap-1.5">
-              <Info className="w-4 h-4 shrink-0" />
-              <span>Elimination mode: Winner can now be removed for the next round.</span>
-            </p>
-          )}
+              {/* Winner Tag Badge */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-rose-500/20 border border-rose-500/40 text-rose-300 font-black text-xs uppercase tracking-wider">
+                <Trophy className="w-3.5 h-3.5 text-amber-400" />
+                <span>WINNER</span>
+              </div>
 
-          {/* Primary Action Buttons */}
-          <div className="w-full flex flex-col gap-2">
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={onSpinAgain}
-                className="flex-1 py-3 px-4 rounded-xl bg-[#4648d4] hover:bg-[#6063ee] text-white font-bold text-[14px] shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer"
-              >
-                <RotateCcw className="w-4 h-4" />
-                <span>Spin Again</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setResultCardOpen(true)}
-                className="flex-1 py-3 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-[14px] shadow-md flex items-center justify-center gap-1.5 transition-all cursor-pointer"
-              >
-                <Share2 className="w-4 h-4" />
-                <span>Share Card</span>
-              </button>
-            </div>
-
-            {/* Optional Best of 3 / Elimination row */}
-            <div className="flex gap-2">
-              {onStartBestOfThree && (
+              {/* Massive Bold Winner Name + Speak button */}
+              <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-start">
+                <h2 className="font-headline font-black text-3xl sm:text-4xl md:text-5xl text-white tracking-tight break-words max-w-full drop-shadow-md">
+                  {winner.text}
+                </h2>
                 <button
                   type="button"
-                  onClick={() => {
-                    onClose();
-                    onStartBestOfThree();
-                  }}
-                  className="flex-1 py-2 px-3 rounded-xl border border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                  onClick={handleSpeakWinnerAgain}
+                  className={`p-2.5 rounded-xl border transition-all cursor-pointer ${
+                    isSpeaking
+                      ? 'bg-[#4648d4] text-white border-white/40 scale-105 shadow-md shadow-[#4648d4]/40 animate-pulse'
+                      : 'bg-white/10 hover:bg-white/20 text-[#f1effa] hover:text-white border-white/15'
+                  }`}
+                  title="Speak / Pronounce Winner Aloud"
+                  aria-label="Speak winner name"
                 >
-                  <Swords className="w-3.5 h-3.5" />
-                  <span>Best-of-3 Duel</span>
+                  <Volume2 className="w-5 h-5" />
                 </button>
-              )}
+              </div>
 
-              <button
-                type="button"
-                onClick={() => onRemoveWinner(winner)}
-                className="flex-1 py-2 px-3 rounded-xl bg-red-50 hover:bg-red-100 dark:bg-red-950/40 dark:hover:bg-red-900/40 text-red-600 dark:text-red-300 font-bold text-xs border border-red-200 dark:border-red-800 flex items-center justify-center gap-1.5 transition-all cursor-pointer"
-              >
-                <Trash2 className="w-3.5 h-3.5" />
-                <span>Remove Winner</span>
-              </button>
+              {/* Hand-drawn playful 'Spin it! ↗' pointer */}
+              <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-amber-300/90 pt-1">
+                <span>Spin it!</span>
+                <span className="text-sm">↗</span>
+              </div>
+
+              {/* Watermark badge */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#908fa1] text-[11px] font-mono">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>spinwheelgames.org</span>
+              </div>
             </div>
 
-            <div className="flex gap-2 pt-1">
-              <button
-                type="button"
-                onClick={handleCopy}
-                className="flex-1 py-2 rounded-xl border border-[#c7c4d7] dark:border-[#464554] text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#222330] text-[12px] font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
-              >
-                {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
-                <span>{copied ? 'Copied!' : 'Copy Result'}</span>
-              </button>
+            {/* Right Side: Mini Preview Wheel Illustration */}
+            <div className="w-40 sm:w-48 md:w-52 aspect-square relative shrink-0 z-10 flex items-center justify-center">
+              <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-xl overflow-visible">
+                <defs>
+                  <filter id="miniGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#000" floodOpacity="0.5" />
+                  </filter>
+                </defs>
 
-              <button
-                type="button"
-                onClick={onClose}
-                className="flex-1 py-2 rounded-xl border border-[#c7c4d7] dark:border-[#464554] text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#222330] text-[12px] font-semibold transition-all cursor-pointer"
-              >
-                Keep &amp; Close
-              </button>
+                {/* Outer Wheel Rim */}
+                <circle cx="100" cy="100" r="94" fill="#1d1e28" stroke="#38374d" strokeWidth="4" />
+
+                {/* Slices */}
+                <g filter="url(#miniGlow)">
+                  {previewSlices.map((item, idx) => {
+                    const startAngle = (idx * sliceAngle - 90) * (Math.PI / 180);
+                    const endAngle = ((idx + 1) * sliceAngle - 90) * (Math.PI / 180);
+                    const x1 = 100 + 88 * Math.cos(startAngle);
+                    const y1 = 100 + 88 * Math.sin(startAngle);
+                    const x2 = 100 + 88 * Math.cos(endAngle);
+                    const y2 = 100 + 88 * Math.sin(endAngle);
+                    const largeArc = sliceAngle > 180 ? 1 : 0;
+                    const pathData = `M 100 100 L ${x1} ${y1} A 88 88 0 ${largeArc} 1 ${x2} ${y2} Z`;
+                    const color = item.color || palette[idx % palette.length];
+                    const isWinningSlice = item.text === winner.text;
+
+                    const midAngle = (idx * sliceAngle + sliceAngle / 2 - 90);
+                    const midRad = midAngle * (Math.PI / 180);
+                    const textX = 100 + 56 * Math.cos(midRad);
+                    const textY = 100 + 56 * Math.sin(midRad);
+
+                    return (
+                      <g key={item.id || idx}>
+                        <path
+                          d={pathData}
+                          fill={color}
+                          stroke="#151622"
+                          strokeWidth="2"
+                          opacity={isWinningSlice ? 1 : 0.85}
+                        />
+                        <text
+                          x={textX}
+                          y={textY}
+                          fill="#ffffff"
+                          fontSize={totalSlices > 10 ? '7' : '9'}
+                          fontWeight="bold"
+                          textAnchor="middle"
+                          dominantBaseline="central"
+                          transform={`rotate(${midAngle + 90}, ${textX}, ${textY})`}
+                          className="drop-shadow-xs"
+                        >
+                          {item.text.length > 8 ? item.text.substring(0, 7) + '…' : item.text}
+                        </text>
+                      </g>
+                    );
+                  })}
+                </g>
+
+                {/* Center Hub */}
+                <circle cx="100" cy="100" r="18" fill="#12131a" stroke="#4648d4" strokeWidth="2.5" />
+                <text
+                  x="100"
+                  y="100"
+                  fill="#ffffff"
+                  fontSize="7"
+                  fontWeight="900"
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                >
+                  Spin
+                </text>
+
+                {/* Winning Pointer at 12 o'clock */}
+                <polygon points="94,6 106,6 100,20" fill="#ffffff" stroke="#12131a" strokeWidth="1.5" />
+              </svg>
             </div>
           </div>
+
+          {/* ========================================================================= */}
+          {/* Action Buttons Row (Matches Reference Image 2)                            */}
+          {/* ========================================================================= */}
+          <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4">
+            {/* 1. Spin Again */}
+            <button
+              type="button"
+              onClick={onSpinAgain}
+              className="py-3 px-3 rounded-xl bg-red-600 hover:bg-red-500 active:scale-[0.98] text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-md transition-all cursor-pointer"
+            >
+              <RotateCcw className="w-4 h-4" />
+              <span>Spin Again</span>
+            </button>
+
+            {/* 2. Remove Winner */}
+            <button
+              type="button"
+              onClick={() => onRemoveWinner(winner)}
+              className="py-3 px-3 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] hover:bg-[#eae8f7] dark:hover:bg-[#282a38] text-[#1a1b22] dark:text-[#c7c4d7] hover:text-red-600 dark:hover:text-white border border-[#eeedf7] dark:border-[#292a39] font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+            >
+              <UserX className="w-4 h-4 text-red-500 dark:text-red-400" />
+              <span>Remove Winner</span>
+            </button>
+
+            {/* 3. Copy / Save Result */}
+            <button
+              type="button"
+              onClick={handleCopy}
+              className="py-3 px-3 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] hover:bg-[#eae8f7] dark:hover:bg-[#282a38] text-[#1a1b22] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white border border-[#eeedf7] dark:border-[#292a39] font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+            >
+              {copied ? <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> : <Copy className="w-4 h-4" />}
+              <span>{copied ? 'Copied!' : 'Copy Result'}</span>
+            </button>
+
+            {/* 4. Share Card */}
+            <button
+              type="button"
+              onClick={() => setResultCardOpen(true)}
+              className="py-3 px-3 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] hover:bg-[#eae8f7] dark:hover:bg-[#282a38] text-[#1a1b22] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white border border-[#eeedf7] dark:border-[#292a39] font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+            >
+              <Share2 className="w-4 h-4 text-amber-500 dark:text-amber-400" />
+              <span>Share Card</span>
+            </button>
+          </div>
+
+          {/* ========================================================================= */}
+          {/* Cryptographic Fairness & Entropy Footer Info                              */}
+          {/* ========================================================================= */}
+          <div className="w-full mt-3 p-3 rounded-xl bg-[#f4f2fd] dark:bg-[#14151e] border border-[#eeedf7] dark:border-[#292a39] flex flex-wrap items-center justify-between text-xs text-[#767586] dark:text-[#908fa1] gap-2">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-[#006c49] dark:text-emerald-400" />
+              <span>
+                Selection Odds: <strong className="text-[#1a1b22] dark:text-white font-mono">{oddsPercent}%</strong> • Spin #{spinNumber}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 font-mono text-[11px]">
+              <span>CSPRNG Seed:</span>
+              <code className="px-1.5 py-0.5 rounded bg-white dark:bg-[#1f202c] border border-[#eeedf7] dark:border-transparent text-[#4648d4] dark:text-[#8587ff]">{seed}</code>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -324,4 +429,3 @@ export default function WinnerModal({
     </>
   );
 }
-

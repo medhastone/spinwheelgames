@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { SoundSettings, SoundPack } from '@/lib/types';
-import { playTickSound, playWinnerFanfare } from '@/lib/sound';
+import { playTickSound, playWinnerFanfare, announceWinnerTTS, unlockAudioContext } from '@/lib/sound';
 import {
   Volume2,
   VolumeX,
@@ -13,6 +13,7 @@ import {
   Gamepad2,
   Wrench,
   Bell,
+  Radio,
   type LucideIcon
 } from 'lucide-react';
 
@@ -22,6 +23,8 @@ interface SoundControlsProps {
 }
 
 export default function SoundControls({ settings, onChangeSettings }: SoundControlsProps) {
+  const [isSpeakingTest, setIsSpeakingTest] = useState(false);
+
   const packs: { id: SoundPack; label: string; icon: LucideIcon }[] = [
     { id: 'carnival', label: 'Carnival Clacker', icon: PartyPopper },
     { id: 'arcade', label: '8-Bit Arcade', icon: Gamepad2 },
@@ -30,7 +33,18 @@ export default function SoundControls({ settings, onChangeSettings }: SoundContr
   ];
 
   const handleTestSound = () => {
+    unlockAudioContext();
     playWinnerFanfare(true, settings.pack, settings.volume);
+  };
+
+  const handleTestVoice = () => {
+    unlockAudioContext();
+    announceWinnerTTS('Sample Winner 100', {
+      enabled: true,
+      volume: settings.volume,
+      onStart: () => setIsSpeakingTest(true),
+      onEnd: () => setIsSpeakingTest(false)
+    });
   };
 
   return (
@@ -121,25 +135,41 @@ export default function SoundControls({ settings, onChangeSettings }: SoundContr
       </div>
 
       {/* Text-to-Speech Winner Announcement Toggle */}
-      <div className="flex items-center justify-between pt-2 border-t border-[#eeedf7] dark:border-[#292a39]">
-        <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between pt-2 border-t border-[#eeedf7] dark:border-[#292a39] gap-3">
+        <div className="flex items-center gap-2 flex-1">
           <Mic className="w-4 h-4 text-[#4648d4] dark:text-[#8587ff] shrink-0" />
           <div>
             <span className="text-[13px] font-semibold text-[#1a1b22] dark:text-[#f1effa] block">
               Speak Winner Out Loud (TTS)
             </span>
             <span className="text-[11px] text-[#767586] dark:text-[#908fa1]">
-              Uses browser Web Speech API to announce winner upon landing
+              Uses browser Web Speech API to announce winner words upon landing
             </span>
           </div>
         </div>
 
-        <input
-          type="checkbox"
-          checked={settings.ttsEnabled}
-          onChange={(e) => onChangeSettings({ ...settings, ttsEnabled: e.target.checked })}
-          className="w-4 h-4 accent-[#4648d4] cursor-pointer"
-        />
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={handleTestVoice}
+            className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
+              isSpeakingTest
+                ? 'bg-[#4648d4] text-white border-[#4648d4]'
+                : 'border-[#c7c4d7] dark:border-[#464554] text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#222330]'
+            }`}
+            title="Hear voice speak sample winner words"
+          >
+            {isSpeakingTest ? <Radio className="w-3 h-3 animate-spin" /> : <Volume2 className="w-3 h-3" />}
+            <span>Test Voice</span>
+          </button>
+
+          <input
+            type="checkbox"
+            checked={settings.ttsEnabled}
+            onChange={(e) => onChangeSettings({ ...settings, ttsEnabled: e.target.checked })}
+            className="w-4 h-4 accent-[#4648d4] cursor-pointer ml-1"
+          />
+        </div>
       </div>
     </div>
   );

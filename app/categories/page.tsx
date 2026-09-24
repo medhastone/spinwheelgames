@@ -1,0 +1,179 @@
+import React from 'react';
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import SubpageHeader from '@/components/SubpageHeader';
+import Footer from '@/components/Footer';
+import DirectAnswer from '@/components/DirectAnswer';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import { CATEGORY_METADATA } from '@/lib/wheelLibrary';
+import {
+  Layers,
+  Sparkles,
+  ArrowRight,
+  ShieldCheck,
+  CheckCircle2,
+  Lock,
+  ThumbsUp,
+  UserCheck,
+  GraduationCap,
+  PartyPopper,
+  Utensils,
+  Film,
+  Gamepad2,
+  Trophy,
+  Hash,
+  Dumbbell,
+  Compass,
+  Gift,
+  PenTool,
+  Heart,
+  Users,
+  PiggyBank
+} from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'All Wheel Categories & Decision Games | SpinWheelGames',
+  description:
+    'Browse all 18+ wheel categories and 106+ vetted random pickers, classroom tools, party games, decision wheels, and probability spinners.',
+  alternates: {
+    canonical: 'https://spinwheelgames.org/categories'
+  },
+  openGraph: {
+    title: 'All Wheel Categories & Decision Games | SpinWheelGames',
+    description:
+      'Browse all 18+ wheel categories and 106+ vetted random pickers, classroom tools, party games, decision wheels, and probability spinners.',
+    url: 'https://spinwheelgames.org/categories',
+    siteName: 'SpinWheelGames',
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'All Wheel Categories & Decision Games | SpinWheelGames',
+    description:
+      'Browse all 18+ wheel categories and 106+ vetted random pickers, classroom tools, party games, decision wheels, and probability spinners.'
+  }
+};
+
+const CATEGORY_SLUG_MAP: Record<string, string> = {
+  DECISIONS: '/decisions',
+  NAMES: '/names',
+  CLASSROOM: '/classroom',
+  PARTY: '/party',
+  FOOD: '/food',
+  ENTERTAINMENT: '/entertainment',
+  GAMING: '/gaming',
+  SPORTS: '/sports',
+  NUMBERS: '/numbers',
+  WORKOUT: '/workout',
+  TRAVEL: '/travel',
+  GIVEAWAY: '/giveaways',
+  'CREATIVITY & WRITING': '/creativity',
+  'PRODUCTIVITY & HABITS': '/productivity',
+  'WELLNESS & MINDFULNESS': '/wellness',
+  'DATE NIGHT & COUPLES': '/date-night',
+  'ICEBREAKERS & TEAM BUILDING': '/icebreakers',
+  'FINANCE & BUDGETING': '/finance'
+};
+
+const ICON_MAP: Record<string, React.ReactNode> = {
+  ThumbsUp: <ThumbsUp className="w-5 h-5 text-[#4648d4]" />,
+  UserCheck: <UserCheck className="w-5 h-5 text-[#6063ee]" />,
+  GraduationCap: <GraduationCap className="w-5 h-5 text-[#006c49]" />,
+  PartyPopper: <PartyPopper className="w-5 h-5 text-[#dc2c4f]" />,
+  Utensils: <Utensils className="w-5 h-5 text-[#b45309]" />,
+  Film: <Film className="w-5 h-5 text-[#7c3aed]" />,
+  Gamepad2: <Gamepad2 className="w-5 h-5 text-[#0284c7]" />,
+  Trophy: <Trophy className="w-5 h-5 text-[#059669]" />,
+  Hash: <Hash className="w-5 h-5 text-[#475569]" />,
+  Dumbbell: <Dumbbell className="w-5 h-5 text-[#ea580c]" />,
+  Compass: <Compass className="w-5 h-5 text-[#0d9488]" />,
+  Gift: <Gift className="w-5 h-5 text-[#db2777]" />,
+  PenTool: <PenTool className="w-5 h-5 text-[#9333ea]" />,
+  CheckCircle2: <CheckCircle2 className="w-5 h-5 text-[#16a34a]" />,
+  Heart: <Heart className="w-5 h-5 text-[#059669]" />,
+  Sparkles: <Sparkles className="w-5 h-5 text-[#e11d48]" />,
+  Users: <Users className="w-5 h-5 text-[#2563eb]" />,
+  PiggyBank: <PiggyBank className="w-5 h-5 text-[#15803d]" />
+};
+
+export default function CategoriesIndexPage() {
+  const categoriesList = Object.entries(CATEGORY_METADATA).filter(
+    ([key]) => key !== 'ALL'
+  );
+
+  return (
+    <div className="min-h-screen bg-[#fbf8ff] dark:bg-[#12131a] text-[#1a1b22] dark:text-[#f1effa] flex flex-col justify-between transition-colors">
+      <SubpageHeader activePage="/categories" />
+
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 lg:pt-32 pb-16 space-y-10 w-full flex-1">
+        <Breadcrumbs items={[{ label: 'Wheel Categories' }]} />
+
+        {/* Header Section */}
+        <section className="space-y-4 max-w-4xl">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#4648d4]/10 dark:bg-[#4648d4]/20 text-[#4648d4] dark:text-[#8587ff] border border-[#4648d4]/20 uppercase tracking-wider">
+              <Layers className="w-3.5 h-3.5" />
+              Complete Catalog
+            </span>
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-headline font-extrabold tracking-tight text-[#1a1b22] dark:text-white leading-tight">
+            Explore All Wheel Spinner Categories &amp; Games
+          </h1>
+
+          <DirectAnswer
+            question="What is the SpinWheelGames Category Directory?"
+            answer="The SpinWheelGames category directory organizes over 106+ vetted, provably fair spin wheels and randomizer tools across 18 dedicated domains—from classroom student pickers and meal deciders to party icebreakers, raffle drawings, and probability generators."
+          />
+
+          <p className="text-base sm:text-lg text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
+            Select any category below to access dedicated interactive wheels, curated game collections, fairness documentation, and step-by-step decision frameworks.
+          </p>
+        </section>
+
+        {/* Category Grid */}
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {categoriesList.map(([key, cat]) => {
+            const targetHref = CATEGORY_SLUG_MAP[key] || `/category/${key.toLowerCase()}`;
+            const icon = ICON_MAP[cat.iconKey] || <Layers className="w-5 h-5 text-[#4648d4]" />;
+
+            return (
+              <Link
+                key={key}
+                href={targetHref}
+                className="group rounded-3xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] p-6 hover:border-[#4648d4]/50 dark:hover:border-[#8587ff]/50 hover:bg-[#fbf8ff] dark:hover:bg-[#1e1f2b] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="p-3 rounded-2xl bg-[#f4f2fd] dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#292a39] group-hover:scale-105 transition-transform">
+                      {icon}
+                    </div>
+                    <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#f4f2fd] dark:bg-[#222330] text-[#4648d4] dark:text-[#8587ff] border border-[#eeedf7] dark:border-[#292a39]">
+                      {cat.count} Games
+                    </span>
+                  </div>
+
+                  <div>
+                    <h2 className="text-lg font-bold text-[#1a1b22] dark:text-white group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors leading-snug">
+                      {cat.label}
+                    </h2>
+                    <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] leading-relaxed mt-1.5">
+                      {cat.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-[#eeedf7] dark:border-[#222330] flex items-center justify-between text-xs font-semibold text-[#4648d4] dark:text-[#8587ff]">
+                  <span>Explore {cat.count} Wheels</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            );
+          })}
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}

@@ -1,6 +1,6 @@
 {
   "name": "SpinWheelGames",
-  "description": "Free wheel games, random pickers, and certified fair decision tools with cryptographic randomness.",
+  "description": "Not sure what to choose? Give the wheel a spin and let the result surprise you. Play free wheel games, pick names and make decisions.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

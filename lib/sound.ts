@@ -1,7 +1,24 @@
 // Web Audio API synthesizer for wheel ticking, countdown, and celebration sounds
+// Enhanced Web Speech API (TTS) voice announcer engine
 // Works 100% offline, zero external sound files required
 
 let audioCtx: AudioContext | null = null;
+let cachedVoices: SpeechSynthesisVoice[] = [];
+
+if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  try {
+    cachedVoices = window.speechSynthesis.getVoices();
+    window.speechSynthesis.onvoiceschanged = () => {
+      try {
+        cachedVoices = window.speechSynthesis.getVoices();
+      } catch {
+        // Ignore voice loading errors
+      }
+    };
+  } catch {
+    // Ignore
+  }
+}
 
 function getAudioContext(): AudioContext | null {
   if (typeof window === 'undefined') return null;
@@ -14,9 +31,71 @@ function getAudioContext(): AudioContext | null {
     }
   }
   if (audioCtx && audioCtx.state === 'suspended') {
-    audioCtx.resume();
+    audioCtx.resume().catch(() => {});
   }
   return audioCtx;
+}
+
+/**
+ * Primes both Web Audio Context and Web Speech API on user gesture (click/tap/space)
+ */
+export function unlockAudioContext(): void {
+  if (typeof window === 'undefined') return;
+  const ctx = getAudioContext();
+  if (ctx && ctx.state === 'suspended') {
+    ctx.resume().catch(() => {});
+  }
+  primeSpeechSynthesis();
+}
+
+/**
+ * Primes speech synthesis and preloads voices
+ */
+export function primeSpeechSynthesis(): void {
+  if (typeof window === 'undefined' || !window.speechSynthesis) return;
+  try {
+    if (window.speechSynthesis.paused) {
+      window.speechSynthesis.resume();
+    }
+    if (typeof window.speechSynthesis.getVoices === 'function') {
+      const v = window.speechSynthesis.getVoices();
+      if (v && v.length > 0) {
+        cachedVoices = v;
+      }
+    }
+  } catch {
+    // Ignore speech prime errors
+  }
+}
+
+export function isSpeechSynthesisSupported(): boolean {
+  return typeof window !== 'undefined' && 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+}
+
+export function playClickSound(soundEnabled = true, volume = 0.8) {
+  if (!soundEnabled || volume <= 0) return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  try {
+    if (ctx.state === 'suspended') {
+      ctx.resume().catch(() => {});
+    }
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    const now = ctx.currentTime;
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(520, now);
+    osc.frequency.exponentialRampToValueAtTime(880, now + 0.04);
+    gain.gain.setValueAtTime(0.08 * volume, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now + 0.04);
+  } catch {
+    // Ignore audio error
+  }
 }
 
 export function playTickSound(soundEnabled = true, soundPack = 'carnival', volume = 0.8) {
@@ -149,20 +228,182 @@ export function playWinnerFanfare(soundEnabled = true, soundPack = 'carnival', v
   }
 }
 
+// Global reference retention to prevent Chromium Garbage Collection bug (Issue 679437)
+let activeUtterances: SpeechSynthesisUtterance[] = [];
+let speechPendingTimeout: ReturnType<typeof setTimeout> | null = null;
+
 /**
- * Announces the winner using the browser's native Web Speech API Text-to-Speech
+ * Finds the best available natural human voice in the browser
  */
-export function announceWinnerTTS(winnerTitle: string, enabled = true) {
-  if (!enabled || typeof window === 'undefined' || !window.speechSynthesis) return;
+function findBestVoice(synth: SpeechSynthesis, voicesList?: SpeechSynthesisVoice[]): SpeechSynthesisVoice | null {
+  try {
+    const voices = voicesList && voicesList.length > 0 ? voicesList : synth.getVoices() || cachedVoices;
+    if (!voices || voices.length === 0) return null;
+
+    // 1. Prefer high quality Natural English voices
+    const naturalVoice = voices.find(
+      (v) =>
+        (v.name.includes('Natural') ||
+          v.name.includes('Google') ||
+          v.name.includes('Samantha') ||
+          v.name.includes('Karen') ||
+          v.name.includes('Daniel') ||
+          v.name.includes('Zira') ||
+          v.name.includes('David') ||
+          v.name.includes('Victoria')) &&
+        (v.lang.startsWith('en') || !v.lang)
+    );
+
+    if (naturalVoice) return naturalVoice;
+
+    // 2. Fallback to any English voice
+    const anyEn = voices.find((v) => v.lang && v.lang.startsWith('en'));
+    if (anyEn) return anyEn;
+
+    // 3. Fallback to default voice
+    const defaultVoice = voices.find((v) => v.default);
+    return defaultVoice || voices[0] || null;
+  } catch {
+    return null;
+  }
+}
+
+export interface AnnounceTTSOptions {
+  enabled?: boolean;
+  prefix?: string;
+  suffix?: string;
+  rate?: number;
+  pitch?: number;
+  volume?: number;
+  onStart?: () => void;
+  onEnd?: () => void;
+}
+
+/**
+ * Cleans winner string for articulate and pleasant speech synthesis
+ */
+export function cleanSpokenWinnerWords(winnerTitle: string): string {
+  if (!winnerTitle) return 'Winner';
+
+  // Strip emojis and non-speech symbols while preserving international letters (Unicode) and numbers
+  let clean = winnerTitle
+    .replace(/[\u{1F300}-\u{1FAD6}]|[\u{1F900}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]/gu, '')
+    .replace(/[^\p{L}\p{N}\s.,!?'"#-]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  return clean || winnerTitle.trim();
+}
+
+/**
+ * Announces the winner using the browser's native Web Speech API Text-to-Speech (Spoken Person).
+ * Implements anti-GC protection, queue unpausing, and natural inflection.
+ */
+export function announceWinnerTTS(
+  winnerTitle: string,
+  enabledOrOptions: boolean | AnnounceTTSOptions = true
+) {
+  const options: AnnounceTTSOptions =
+    typeof enabledOrOptions === 'boolean'
+      ? { enabled: enabledOrOptions }
+      : enabledOrOptions;
+
+  const isEnabled = options.enabled ?? true;
+  if (!isEnabled || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+
+  const synth = window.speechSynthesis;
+
+  if (speechPendingTimeout) {
+    clearTimeout(speechPendingTimeout);
+    speechPendingTimeout = null;
+  }
 
   try {
-    window.speechSynthesis.cancel(); // Stop any pending speech
-    const cleanText = winnerTitle.replace(/[^\w\s]/gi, '').trim() || winnerTitle;
-    const utterance = new SpeechSynthesisUtterance(`The winner is ${cleanText}`);
-    utterance.rate = 1.05;
-    utterance.pitch = 1.1;
-    window.speechSynthesis.speak(utterance);
+    synth.cancel();
   } catch {
-    // Ignore speech errors
+    // Ignore cancel error
+  }
+
+  const cleanWords = cleanSpokenWinnerWords(winnerTitle);
+  const prefix = options.prefix ?? 'The winner is';
+  const textToSpeak = `${prefix} ${cleanWords}!${options.suffix ? ' ' + options.suffix : ''}`;
+
+  const speakNow = () => {
+    try {
+      if (synth.paused) {
+        synth.resume();
+      }
+
+      const utterance = new SpeechSynthesisUtterance(textToSpeak);
+      utterance.rate = options.rate ?? 0.95;
+      utterance.pitch = options.pitch ?? 1.05;
+      utterance.volume = options.volume ?? 1.0;
+      utterance.lang = 'en-US';
+
+      const voices = synth.getVoices() || cachedVoices;
+      const voice = findBestVoice(synth, voices);
+      if (voice) {
+        utterance.voice = voice;
+        utterance.lang = voice.lang || 'en-US';
+      }
+
+      // GC Retention: Keep reference alive until speech ends or errors
+      activeUtterances.push(utterance);
+
+      utterance.onstart = () => {
+        options.onStart?.();
+      };
+
+      const cleanup = () => {
+        activeUtterances = activeUtterances.filter((u) => u !== utterance);
+        options.onEnd?.();
+      };
+
+      utterance.onend = cleanup;
+      utterance.onerror = (err) => {
+        console.warn('TTS Speech error:', err);
+        cleanup();
+      };
+
+      synth.speak(utterance);
+
+      if (synth.paused) {
+        synth.resume();
+      }
+
+      // Keep synthesis alive for Chromium background voice pausing bug
+      const resumeInterval = setInterval(() => {
+        if (!activeUtterances.includes(utterance)) {
+          clearInterval(resumeInterval);
+          return;
+        }
+        if (synth.paused) {
+          synth.resume();
+        }
+      }, 300);
+    } catch (e) {
+      console.warn('TTS execution error:', e);
+      options.onEnd?.();
+    }
+  };
+
+  // Immediate or micro-tick execution
+  speechPendingTimeout = setTimeout(speakNow, 40);
+}
+
+/**
+ * Stops any active speech announcer
+ */
+export function stopSpeaking(): void {
+  if (typeof window === 'undefined' || !window.speechSynthesis) return;
+  try {
+    if (speechPendingTimeout) {
+      clearTimeout(speechPendingTimeout);
+      speechPendingTimeout = null;
+    }
+    activeUtterances = [];
+    window.speechSynthesis.cancel();
+  } catch {
+    // Ignore
   }
 }

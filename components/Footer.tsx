@@ -15,33 +15,32 @@ export default function Footer({ onQuickLink }: FooterProps) {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
           {/* Brand info (2 cols on large screens) */}
-          <div className="lg:col-span-2 flex flex-col gap-4 pr-0 lg:pr-6">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="relative w-8 h-8 flex-shrink-0">
+          <div className="lg:col-span-2 flex flex-col gap-5 pr-0 lg:pr-6">
+            <Link href="/" className="inline-flex items-center group transition-transform hover:scale-[1.02] active:scale-[0.98]">
+              <div className="relative h-16 sm:h-20 w-auto flex items-center">
                 <Image
-                  src="/logo.svg"
+                  src="/spinwheel-logo-v2.webp"
                   alt="SpinWheelGames Logo"
-                  fill
-                  className="object-contain"
+                  width={320}
+                  height={84}
+                  className="h-15 sm:h-18 lg:h-20 w-auto object-contain max-h-[76px] dark:drop-shadow-[0_0_16px_rgba(133,135,255,0.45)] dark:brightness-110"
+                  unoptimized
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <span className="font-headline text-[20px] font-extrabold bg-gradient-to-r from-[#4648d4] via-[#6063ee] to-[#7c7fff] bg-clip-text text-transparent">
-                SpinWheelGames.org
-              </span>
             </Link>
 
             <p className="text-[14px] text-[#464554] dark:text-[#c7c4d7] max-w-md leading-relaxed">
-              The search-first, ad-free random decision engine and custom spinner platform. Engineered for classrooms, live streams, raffles, and team standups with browser-native cryptographic entropy (Web Cryptography API CSPRNG).
+              Free wheel games and random pickers for everyday decisions, classrooms, parties, teams and giveaways. Engineered with browser-native Web Crypto API random selection.
             </p>
 
             <div className="flex flex-wrap items-center gap-2 pt-1">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#6cf8bb]/30 dark:bg-[#005236] text-[#006c49] dark:text-[#4edea3] text-[11px] font-bold">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                Hardware-Seeded CSPRNG
+                Web Crypto API
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#4648d4]/10 dark:bg-[#4648d4]/20 text-[#4648d4] dark:text-[#8587ff] text-[11px] font-bold">
-                100% Client-Side Privacy
+                No Signup Required
               </span>
             </div>
           </div>
@@ -84,8 +83,33 @@ export default function Footer({ onQuickLink }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <Link href="/number-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                <Link href="/movie-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                  Movie Wheel Spin
+                </Link>
+              </li>
+              <li>
+                <Link href="/food-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                  Food Wheel (What to Eat)
+                </Link>
+              </li>
+              <li>
+                <Link href="/random-object-generator" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                  Random Object Generator
+                </Link>
+              </li>
+              <li>
+                <Link href="/animal-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                  Animal Spin the Wheel
+                </Link>
+              </li>
+              <li>
+                <Link href="/number-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
                   Random Number Wheel
+                </Link>
+              </li>
+              <li>
+                <Link href="/bingo-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                  Bingo Spin Wheel
                 </Link>
               </li>
             </ul>
@@ -238,7 +262,7 @@ export default function Footer({ onQuickLink }: FooterProps) {
           <div className="flex items-center gap-3 text-[11px] sm:text-[12px] text-[#464554] dark:text-[#c7c4d7]">
             <span className="inline-flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#006c49] dark:bg-[#4edea3] animate-pulse" />
-              Hardware Entropy Active
+              Fair Random Selection
             </span>
             <span className="text-[#767586] dark:text-[#908fa1]">Web Crypto CSPRNG</span>
           </div>

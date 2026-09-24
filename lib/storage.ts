@@ -1,4 +1,4 @@
-import { useSyncExternalStore } from 'react';
+import { useSyncExternalStore, useCallback } from 'react';
 import { WheelConfig, SoundSettings, DailyChallengeState, WheelMode, UserStats, Achievement, WheelItem } from './types';
 import { INITIAL_ACHIEVEMENTS, evaluateAchievements } from './gamification';
 
@@ -37,6 +37,83 @@ export const DEFAULT_SOUND_SETTINGS: SoundSettings = {
   volume: 0.8,
   ttsEnabled: true
 };
+
+const storageListeners = new Set<() => void>();
+
+function subscribeStorage(callback: () => void) {
+  storageListeners.add(callback);
+  if (typeof window !== 'undefined') {
+    window.addEventListener('storage', callback);
+  }
+  return () => {
+    storageListeners.delete(callback);
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('storage', callback);
+    }
+  };
+}
+
+function notifyStorageChange() {
+  storageListeners.forEach((cb) => cb());
+}
+
+let _cachedPrefsSnapshot: AppPreferences = DEFAULT_PREFERENCES;
+let _cachedPrefsRaw: string | null = null;
+
+function getPreferencesSnapshot(): AppPreferences {
+  if (typeof window === 'undefined') return DEFAULT_PREFERENCES;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.PREFERENCES);
+    if (raw === _cachedPrefsRaw) return _cachedPrefsSnapshot;
+    _cachedPrefsRaw = raw;
+    _cachedPrefsSnapshot = raw ? { ...DEFAULT_PREFERENCES, ...JSON.parse(raw) } : DEFAULT_PREFERENCES;
+    return _cachedPrefsSnapshot;
+  } catch {
+    return DEFAULT_PREFERENCES;
+  }
+}
+
+let _cachedSoundSnapshot: SoundSettings = DEFAULT_SOUND_SETTINGS;
+let _cachedSoundRaw: string | null = null;
+
+function getSoundSnapshot(): SoundSettings {
+  if (typeof window === 'undefined') return DEFAULT_SOUND_SETTINGS;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.SOUND_SETTINGS);
+    if (raw === _cachedSoundRaw) return _cachedSoundSnapshot;
+    _cachedSoundRaw = raw;
+    _cachedSoundSnapshot = raw ? { ...DEFAULT_SOUND_SETTINGS, ...JSON.parse(raw) } : DEFAULT_SOUND_SETTINGS;
+    return _cachedSoundSnapshot;
+  } catch {
+    return DEFAULT_SOUND_SETTINGS;
+  }
+}
+
+export function useAppPreferences(): [AppPreferences, (update: Partial<AppPreferences>) => void] {
+  const prefs = useSyncExternalStore(
+    subscribeStorage,
+    getPreferencesSnapshot,
+    () => DEFAULT_PREFERENCES
+  );
+  const updatePrefs = useCallback((update: Partial<AppPreferences>) => {
+    savePreferences(update);
+    notifyStorageChange();
+  }, []);
+  return [prefs, updatePrefs];
+}
+
+export function useAppSoundSettings(): [SoundSettings, (settings: SoundSettings) => void] {
+  const settings = useSyncExternalStore(
+    subscribeStorage,
+    getSoundSnapshot,
+    () => DEFAULT_SOUND_SETTINGS
+  );
+  const updateSound = useCallback((newSettings: SoundSettings) => {
+    saveSoundSettings(newSettings);
+    notifyStorageChange();
+  }, []);
+  return [settings, updateSound];
+}
 
 export interface SavedWheel {
   id: string;
@@ -327,6 +404,58 @@ export function loadDailyChallenge(dateKey: string): DailyChallengeState {
 
 export function saveDailyChallenge(state: DailyChallengeState): void {
   safeSetItem(STORAGE_KEYS.DAILY_CHALLENGE, state);
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new Event('spinwheel_daily_challenge_updated'));
+  }
+}
+
+const _dailyServerSnapshotMap = new Map<string, DailyChallengeState>();
+
+export function getDailyChallengeServerSnapshot(dateKey: string): DailyChallengeState {
+  let cached = _dailyServerSnapshotMap.get(dateKey);
+  if (!cached) {
+    cached = Object.freeze({
+      dateKey,
+      completed: false,
+      spunResult: null,
+      streakCount: 0,
+      lastSpunDate: null
+    });
+    _dailyServerSnapshotMap.set(dateKey, cached);
+  }
+  return cached;
+}
+
+let _cachedDailyChallengeSnapshot: DailyChallengeState | null = null;
+let _cachedDailyChallengeRaw: string | null = null;
+let _cachedDailyChallengeDateKey: string = '';
+
+export function getDailyChallengeSnapshot(dateKey: string): DailyChallengeState {
+  if (typeof window === 'undefined') {
+    return getDailyChallengeServerSnapshot(dateKey);
+  }
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.DAILY_CHALLENGE);
+    if (raw === _cachedDailyChallengeRaw && dateKey === _cachedDailyChallengeDateKey && _cachedDailyChallengeSnapshot) {
+      return _cachedDailyChallengeSnapshot;
+    }
+    _cachedDailyChallengeRaw = raw;
+    _cachedDailyChallengeDateKey = dateKey;
+    _cachedDailyChallengeSnapshot = loadDailyChallenge(dateKey);
+    return _cachedDailyChallengeSnapshot;
+  } catch {
+    return getDailyChallengeServerSnapshot(dateKey);
+  }
+}
+
+export function subscribeDailyChallenge(callback: () => void): () => void {
+  if (typeof window === 'undefined') return () => {};
+  window.addEventListener('spinwheel_daily_challenge_updated', callback);
+  window.addEventListener('storage', callback);
+  return () => {
+    window.removeEventListener('spinwheel_daily_challenge_updated', callback);
+    window.removeEventListener('storage', callback);
+  };
 }
 
 export const DEFAULT_USER_STATS: UserStats = {
@@ -347,13 +476,70 @@ export const DEFAULT_USER_STATS: UserStats = {
   lastSpinDate: null
 };
 
+let _cachedUserStatsSnapshot: UserStats = DEFAULT_USER_STATS;
+let _cachedUserStatsRaw: string | null = null;
+let _hasInitializedUserStatsCache = false;
+
+function refreshUserStatsCache(): UserStats {
+  if (typeof window === 'undefined') {
+    return DEFAULT_USER_STATS;
+  }
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.STATS);
+    if (raw === _cachedUserStatsRaw && _hasInitializedUserStatsCache) {
+      return _cachedUserStatsSnapshot;
+    }
+    _cachedUserStatsRaw = raw;
+    _hasInitializedUserStatsCache = true;
+    if (!raw) {
+      _cachedUserStatsSnapshot = DEFAULT_USER_STATS;
+      safeSetItem(STORAGE_KEYS.STATS, DEFAULT_USER_STATS);
+      return _cachedUserStatsSnapshot;
+    }
+    const parsed = JSON.parse(raw);
+    _cachedUserStatsSnapshot = parsed && typeof parsed === 'object' ? { ...DEFAULT_USER_STATS, ...parsed } : DEFAULT_USER_STATS;
+    return _cachedUserStatsSnapshot;
+  } catch {
+    _cachedUserStatsSnapshot = DEFAULT_USER_STATS;
+    return _cachedUserStatsSnapshot;
+  }
+}
+
+export function getUserStatsSnapshot(): UserStats {
+  return refreshUserStatsCache();
+}
+
+export function getUserStatsServerSnapshot(): UserStats {
+  return DEFAULT_USER_STATS;
+}
+
+export function subscribeUserStats(callback: () => void): () => void {
+  if (typeof window === 'undefined') return () => {};
+  window.addEventListener('spinwheel_stats_updated', callback);
+  window.addEventListener('storage', callback);
+  return () => {
+    window.removeEventListener('spinwheel_stats_updated', callback);
+    window.removeEventListener('storage', callback);
+  };
+}
+
+export function useUserStats(): UserStats {
+  return useSyncExternalStore(
+    subscribeUserStats,
+    getUserStatsSnapshot,
+    getUserStatsServerSnapshot
+  );
+}
+
 export function loadUserStats(): UserStats {
-  const stored = safeGetItem<Partial<UserStats>>(STORAGE_KEYS.STATS, {});
-  return { ...DEFAULT_USER_STATS, ...stored };
+  return refreshUserStatsCache();
 }
 
 export function saveUserStats(stats: UserStats): void {
   safeSetItem(STORAGE_KEYS.STATS, stats);
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new Event('spinwheel_stats_updated'));
+  }
 }
 
 export function loadAchievements(): Achievement[] {

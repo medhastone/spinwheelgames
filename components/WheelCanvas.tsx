@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react';
 import { WheelItem } from '@/lib/types';
 import { playTickSound } from '@/lib/sound';
+import { selectWeightedWinner } from '@/lib/random';
 
 interface WheelCanvasProps {
   items: WheelItem[];
@@ -10,11 +11,14 @@ interface WheelCanvasProps {
   isSpinning: boolean;
   onSpinStart: () => void;
   onSpinEnd: (winner: WheelItem) => void;
+  onCenterClick?: () => void;
   duration?: number; // duration in seconds (2 to 15)
   soundEnabled?: boolean;
   soundPack?: string;
   volume?: number;
   mysteryMode?: boolean;
+  isFullscreen?: boolean;
+  className?: string;
   preSelectedWinner?: {
     winner: WheelItem;
     winnerIndex: number;
@@ -29,11 +33,14 @@ export default function WheelCanvas({
   isSpinning,
   onSpinStart,
   onSpinEnd,
+  onCenterClick,
   duration = 6,
   soundEnabled = true,
   soundPack = 'carnival',
   volume = 0.8,
   mysteryMode = false,
+  isFullscreen = false,
+  className = '',
   preSelectedWinner
 }: WheelCanvasProps) {
   const rotationRef = useRef<number>(0);
@@ -41,7 +48,15 @@ export default function WheelCanvas({
   const [needleDeflection, setNeedleDeflection] = useState<number>(0);
 
   const animFrameRef = useRef<number | null>(null);
+  const isSpinningActiveRef = useRef<boolean>(false);
   const lastTickSliceRef = useRef<number>(-1);
+
+  // Keep mutable references to prevent mid-spin cancellations/restarts
+  const onSpinEndRef = useRef(onSpinEnd);
+  const soundSettingsRef = useRef({ soundEnabled, soundPack, volume });
+  const durationRef = useRef(duration);
+  const itemsRef = useRef(items);
+  const preSelectedWinnerRef = useRef(preSelectedWinner);
 
   const totalWeight = useMemo(() => {
     return items.reduce((sum, item) => sum + Math.max(0.001, item.weight || 1), 0);
@@ -64,6 +79,8 @@ export default function WheelCanvas({
 
       const color = item.color || palette[idx % palette.length];
 
+      const round = (val: number) => Number(val.toFixed(4));
+
       // Geometry for SVG path (radius 200, center 220, 220)
       const r = 200;
       const cx = 220;
@@ -72,10 +89,10 @@ export default function WheelCanvas({
       const startRad = (startAngle * Math.PI) / 180;
       const endRad = (endAngle * Math.PI) / 180;
 
-      const x1 = cx + r * Math.cos(startRad);
-      const y1 = cy + r * Math.sin(startRad);
-      const x2 = cx + r * Math.cos(endRad);
-      const y2 = cy + r * Math.sin(endRad);
+      const x1 = round(cx + r * Math.cos(startRad));
+      const y1 = round(cy + r * Math.sin(startRad));
+      const x2 = round(cx + r * Math.cos(endRad));
+      const y2 = round(cy + r * Math.sin(endRad));
 
       const largeArc = sliceAngle > 180 ? 1 : 0;
       const pathData = `M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2} Z`;
@@ -83,8 +100,8 @@ export default function WheelCanvas({
       // Peg coordinate at edge
       const pegRad = (startAngle * Math.PI) / 180;
       const pegR = r - 6;
-      const pegX = cx + pegR * Math.cos(pegRad);
-      const pegY = cy + pegR * Math.sin(pegRad);
+      const pegX = round(cx + pegR * Math.cos(pegRad));
+      const pegY = round(cy + pegR * Math.sin(pegRad));
 
       result.push({
         item,
@@ -104,28 +121,65 @@ export default function WheelCanvas({
     return result;
   }, [items, totalWeight, palette]);
 
+  const slicesRef = useRef(slices);
+
+  useEffect(() => {
+    onSpinEndRef.current = onSpinEnd;
+    soundSettingsRef.current = { soundEnabled, soundPack, volume };
+    durationRef.current = duration;
+    itemsRef.current = items;
+    preSelectedWinnerRef.current = preSelectedWinner;
+    slicesRef.current = slices;
+  }, [onSpinEnd, soundEnabled, soundPack, volume, duration, items, preSelectedWinner, slices]);
+
   // Find slice currently under top pointer (270 degrees in SVG coordinates)
   const getSliceAtPointer = useCallback((rotationDeg: number) => {
-    if (slices.length === 0) return 0;
+    const curSlices = slicesRef.current;
+    if (!curSlices || curSlices.length === 0) return 0;
     const normalizedAngle = (270 - (rotationDeg % 360) + 720) % 360;
-    for (let i = 0; i < slices.length; i++) {
-      const s = slices[i];
+    for (let i = 0; i < curSlices.length; i++) {
+      const s = curSlices[i];
       if (normalizedAngle >= s.startAngle && normalizedAngle < s.endAngle) {
         return i;
       }
     }
     return 0;
-  }, [slices]);
+  }, []);
 
-  // Handle spin execution when isSpinning flips to true with preSelectedWinner
+  // Handle spin execution when isSpinning flips to true
   useEffect(() => {
-    if (!isSpinning || !preSelectedWinner || slices.length === 0) return;
+    if (!isSpinning) {
+      isSpinningActiveRef.current = false;
+      if (animFrameRef.current) {
+        cancelAnimationFrame(animFrameRef.current);
+        animFrameRef.current = null;
+      }
+      return;
+    }
 
-    const winnerIndex = Math.min(preSelectedWinner.winnerIndex, slices.length - 1);
-    const targetSlice = slices[winnerIndex];
-    const winnerItem = preSelectedWinner.winner;
+    // If already actively spinning this cycle, do not restart
+    if (isSpinningActiveRef.current) return;
 
-    // Pick random jitter within slice arc (15% to 85%) to avoid boundary lines
+    const curSlices = slicesRef.current;
+    const curItems = itemsRef.current;
+    if (!curSlices || curSlices.length === 0 || !curItems || curItems.length === 0) {
+      return;
+    }
+
+    isSpinningActiveRef.current = true;
+
+    // Use passed preSelectedWinner or generate fresh random selection on the spot
+    const activeWinnerData =
+      preSelectedWinnerRef.current && preSelectedWinnerRef.current.winner
+        ? preSelectedWinnerRef.current
+        : selectWeightedWinner(curItems);
+
+    const matchIdx = curSlices.findIndex((s) => s.item.id === activeWinnerData.winner.id);
+    const winnerIndex = matchIdx >= 0 ? matchIdx : Math.min(activeWinnerData.winnerIndex, curSlices.length - 1);
+    const targetSlice = curSlices[winnerIndex] || curSlices[0];
+    const winnerItem = targetSlice ? targetSlice.item : activeWinnerData.winner;
+
+    // Pick random jitter within slice arc (18% to 82%) to avoid boundary lines
     const minJitter = targetSlice.startAngle + targetSlice.sliceAngle * 0.18;
     const maxJitter = targetSlice.startAngle + targetSlice.sliceAngle * 0.82;
     const jitterAngle = minJitter + Math.random() * (maxJitter - minJitter);
@@ -146,7 +200,7 @@ export default function WheelCanvas({
     const endRot = startRot + totalAddedRotation;
 
     const startTime = performance.now();
-    const durationMs = Math.max(2000, duration * 1000);
+    const durationMs = Math.max(2000, durationRef.current * 1000);
 
     // Quintic deceleration curve for genuine physical spin deceleration
     function easeOutQuint(t: number): number {
@@ -156,6 +210,8 @@ export default function WheelCanvas({
     lastTickSliceRef.current = -1;
 
     function animate(currentTime: number) {
+      if (!isSpinningActiveRef.current) return;
+
       const elapsed = currentTime - startTime;
       const progress = Math.min(1, elapsed / durationMs);
       const easedProgress = easeOutQuint(progress);
@@ -168,7 +224,8 @@ export default function WheelCanvas({
       const currentSliceIdx = getSliceAtPointer(newRotation);
       if (currentSliceIdx !== lastTickSliceRef.current) {
         lastTickSliceRef.current = currentSliceIdx;
-        playTickSound(soundEnabled, soundPack, volume);
+        const { soundEnabled: snd, soundPack: pck, volume: vol } = soundSettingsRef.current;
+        playTickSound(snd, pck, vol);
         // Deflect pointer needle momentarily
         setNeedleDeflection(progress < 0.8 ? -16 : -8);
         setTimeout(() => setNeedleDeflection(0), 40);
@@ -177,21 +234,25 @@ export default function WheelCanvas({
       if (progress < 1) {
         animFrameRef.current = requestAnimationFrame(animate);
       } else {
+        isSpinningActiveRef.current = false;
+        animFrameRef.current = null;
         rotationRef.current = endRot;
         setCurrentRotation(endRot);
         setNeedleDeflection(0);
-        onSpinEnd(winnerItem);
+        onSpinEndRef.current(winnerItem);
       }
     }
 
     animFrameRef.current = requestAnimationFrame(animate);
 
     return () => {
+      // Cleanup if unmounted while spinning
       if (animFrameRef.current) {
         cancelAnimationFrame(animFrameRef.current);
+        animFrameRef.current = null;
       }
     };
-  }, [isSpinning, preSelectedWinner, slices, duration, soundEnabled, soundPack, volume, getSliceAtPointer, onSpinEnd]);
+  }, [isSpinning, getSliceAtPointer]);
 
   // Clean text label for display
   const truncateText = (text: string, maxLen = 18) => {
@@ -202,8 +263,32 @@ export default function WheelCanvas({
   const isHighDensity = items.length > 36;
   const isExtremeDensity = items.length > 70;
 
+  const handleHubClick = useCallback(
+    (e?: React.MouseEvent | React.TouchEvent) => {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      if (isSpinning || items.length < 2) return;
+      if (onCenterClick) {
+        onCenterClick();
+      } else {
+        onSpinStart();
+      }
+    },
+    [isSpinning, items.length, onCenterClick, onSpinStart]
+  );
+
   return (
-    <div className="relative w-full max-w-[440px] sm:max-w-[490px] aspect-square mx-auto flex items-center justify-center select-none">
+    <div
+      className={`relative w-full aspect-square mx-auto flex items-center justify-center select-none transition-all duration-300 ${
+        className
+          ? className
+          : isFullscreen
+          ? 'max-w-[min(90vw,80vh,760px)]'
+          : 'w-full max-w-[clamp(300px,88vw,420px)] sm:max-w-[clamp(400px,56vw,480px)] lg:max-w-[clamp(450px,36vw,560px)] xl:max-w-[560px] 2xl:max-w-[590px]'
+      }`}
+    >
       {/* Outer ambient glow and decorative rim */}
       <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#4648d4]/15 via-transparent to-[#6063ee]/15 blur-xl pointer-events-none" />
 
@@ -275,9 +360,9 @@ export default function WheelCanvas({
               // Vector from center (220, 220) along midAngle
               const textRad = (slice.midAngle * Math.PI) / 180;
               const textDist = isHighDensity ? 140 : 135;
-              const tx = 220 + textDist * Math.cos(textRad);
-              const ty = 220 + textDist * Math.sin(textRad);
-              const textRotation = slice.midAngle;
+              const tx = Number((220 + textDist * Math.cos(textRad)).toFixed(4));
+              const ty = Number((220 + textDist * Math.sin(textRad)).toFixed(4));
+              const textRotation = Number(slice.midAngle.toFixed(4));
 
               return (
                 <g key={slice.item.id || slice.index} className="transition-opacity">
@@ -361,10 +446,16 @@ export default function WheelCanvas({
 
           {/* Center Stationary Hub (Interactive CTA button) */}
           <g
-            className="cursor-pointer group"
-            onClick={() => {
-              if (!isSpinning && items.length >= 2) {
-                onSpinStart();
+            role="button"
+            tabIndex={0}
+            aria-label="Spin wheel"
+            className="cursor-pointer group select-none pointer-events-auto"
+            onClick={handleHubClick}
+            onTouchEnd={handleHubClick}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleHubClick();
               }
             }}
           >
@@ -393,7 +484,7 @@ export default function WheelCanvas({
               cy="220"
               r="32"
               fill="#4648d4"
-              className="group-hover:fill-[#6063ee] transition-colors"
+              className="group-hover:fill-[#6063ee] active:scale-95 transition-all"
             />
 
             {/* Hub Icon / Text */}
@@ -407,6 +498,7 @@ export default function WheelCanvas({
               fontSize={isSpinning ? '12' : '13'}
               letterSpacing="0.06em"
               fontFamily="'Plus Jakarta Sans', system-ui, sans-serif"
+              className="pointer-events-none select-none"
             >
               {isSpinning ? 'SPINNING' : 'SPIN'}
             </text>
@@ -420,6 +512,7 @@ export default function WheelCanvas({
                 fontWeight="600"
                 fontSize="8"
                 letterSpacing="0.08em"
+                className="pointer-events-none select-none"
               >
                 CLICK OR SPACE
               </text>

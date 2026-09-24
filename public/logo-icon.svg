@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" width="100%" height="100%">
+  <defs>
+    <filter id="iconShadow3d" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="5" flood-color="#020817" flood-opacity="0.38"/>
+    </filter>
+    <filter id="iconSparkleGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <linearGradient id="iconGoldRimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="20%" stop-color="#fef08a"/>
+      <stop offset="45%" stop-color="#f59e0b"/>
+      <stop offset="70%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </linearGradient>
+
+    <radialGradient id="iconGoldBevelGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="35%" stop-color="#fde047"/>
+      <stop offset="70%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#92400e"/>
+    </radialGradient>
+
+    <radialGradient id="iconHubNavyGrad" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="30%" stop-color="#1d4ed8"/>
+      <stop offset="75%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+
+    <linearGradient id="iconHubStarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#fef08a"/>
+      <stop offset="70%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+
+    <linearGradient id="iconWindSwooshGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7dd3fc"/>
+      <stop offset="30%" stop-color="#00b4d8"/>
+      <stop offset="70%" stop-color="#0077b6"/>
+      <stop offset="100%" stop-color="#023e8a"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(140, 145)">
+    <!-- Swirling Blue Speed Trails / Wind Ribbon Behind Wheel -->
+    <path d="M -90 -30 C -115 10, -105 75, -60 110 C -30 132, 10 136, 50 126" 
+          fill="none" stroke="url(#iconWindSwooshGrad)" stroke-width="9" stroke-linecap="round" opacity="0.9" filter="url(#iconShadow3d)"/>
+    <path d="M -80 -60 C -115 -25, -125 35, -95 85" 
+          fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+    <path d="M 50 -95 C 80 -70, 102 -35, 98 20" 
+          fill="none" stroke="url(#iconWindSwooshGrad)" stroke-width="8.5" stroke-linecap="round" opacity="0.9" filter="url(#iconShadow3d)"/>
+    <path d="M 20 -105 C 60 -100, 92 -68, 98 -30" 
+          fill="none" stroke="#7dd3fc" stroke-width="5" stroke-linecap="round" opacity="0.75"/>
+
+    <!-- Golden Stars / Sparkles around Wheel -->
+    <g transform="translate(-95, -70)" filter="url(#iconSparkleGlow)">
+      <path d="M 0 -17 Q 0 0 17 0 Q 0 0 0 17 Q 0 0 -17 0 Q 0 0 0 -17 Z" fill="#f59e0b"/>
+      <circle cx="0" cy="0" r="3" fill="#ffffff"/>
+    </g>
+    <g transform="translate(-115, -35)">
+      <path d="M 0 -9 Q 0 0 9 0 Q 0 0 0 9 Q 0 0 -9 0 Q 0 0 0 -9 Z" fill="#fbbf24"/>
+    </g>
+
+    <g transform="translate(80, 85)" filter="url(#iconSparkleGlow)">
+      <path d="M 0 -17 Q 0 0 17 0 Q 0 0 0 17 Q 0 0 -17 0 Q 0 0 0 -17 Z" fill="#f59e0b"/>
+      <circle cx="0" cy="0" r="3" fill="#ffffff"/>
+    </g>
+
+    <!-- Wheel Drop Shadow -->
+    <circle cx="4" cy="9" r="88" fill="#000000" opacity="0.32" filter="url(#iconShadow3d)"/>
+
+    <!-- Outer 3D Gold Tire Frame -->
+    <circle cx="0" cy="0" r="88" fill="url(#iconGoldRimGrad)" stroke="#78350f" stroke-width="4.5" filter="url(#iconShadow3d)"/>
+    <circle cx="0" cy="0" r="78" fill="none" stroke="#fef08a" stroke-width="2.5"/>
+
+    <!-- 8 Rainbow Sectors (Radius = 76) -->
+    <g id="icon-slices-8">
+      <path d="M 0 0 L 29.08 -70.21 A 76 76 0 0 1 70.21 -29.08 Z" fill="#facc15"/>
+      <path d="M 0 0 L 70.21 -29.08 A 76 76 0 0 1 70.21 29.08 Z" fill="#22c55e"/>
+      <path d="M 0 0 L 70.21 29.08 A 76 76 0 0 1 29.08 70.21 Z" fill="#00d2ff"/>
+      <path d="M 0 0 L 29.08 70.21 A 76 76 0 0 1 -29.08 70.21 Z" fill="#2563eb"/>
+      <path d="M 0 0 L -29.08 70.21 A 76 76 0 0 1 -70.21 29.08 Z" fill="#7c3aed"/>
+      <path d="M 0 0 L -70.21 29.08 A 76 76 0 0 1 -70.21 -29.08 Z" fill="#ec4899"/>
+      <path d="M 0 0 L -70.21 -29.08 A 76 76 0 0 1 -29.08 -70.21 Z" fill="#ef4444"/>
+      <path d="M 0 0 L -29.08 -70.21 A 76 76 0 0 1 29.08 -70.21 Z" fill="#f97316"/>
+    </g>
+
+    <!-- Glossy Sector Sheen Overlay -->
+    <path d="M -70.21 -29.08 A 76 76 0 0 1 70.21 -29.08 Q 0 10 -70.21 -29.08 Z" fill="#ffffff" opacity="0.2"/>
+
+    <!-- Slice Divider Lines -->
+    <g stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.95">
+      <line x1="0" y1="0" x2="29.08" y2="-70.21"/>
+      <line x1="0" y1="0" x2="70.21" y2="-29.08"/>
+      <line x1="0" y1="0" x2="70.21" y2="29.08"/>
+      <line x1="0" y1="0" x2="29.08" y2="70.21"/>
+      <line x1="0" y1="0" x2="-29.08" y2="70.21"/>
+      <line x1="0" y1="0" x2="-70.21" y2="29.08"/>
+      <line x1="0" y1="0" x2="-70.21" y2="-29.08"/>
+      <line x1="0" y1="0" x2="-29.08" y2="-70.21"/>
+    </g>
+
+    <!-- 8 Perimeter Pearl Studs with Bevel -->
+    <g fill="#ffffff" filter="url(#iconShadow3d)">
+      <circle cx="29.08" cy="-70.21" r="4"/>
+      <circle cx="70.21" cy="-29.08" r="4"/>
+      <circle cx="70.21" cy="29.08" r="4"/>
+      <circle cx="29.08" cy="70.21" r="4"/>
+      <circle cx="-29.08" cy="70.21" r="4"/>
+      <circle cx="-70.21" cy="29.08" r="4"/>
+      <circle cx="-70.21" cy="-29.08" r="4"/>
+      <circle cx="-29.08" cy="-70.21" r="4"/>
+    </g>
+
+    <!-- Center Hub -->
+    <circle cx="0" cy="0" r="32" fill="url(#iconGoldBevelGrad)" stroke="#78350f" stroke-width="3.5" filter="url(#iconShadow3d)"/>
+    <circle cx="0" cy="0" r="25" fill="url(#iconHubNavyGrad)" stroke="#fef08a" stroke-width="2.5"/>
+
+    <!-- Center Brilliant 4-Point Golden Star -->
+    <g filter="url(#iconSparkleGlow)">
+      <path d="M 0 -18 Q 0 0 18 0 Q 0 0 0 18 Q 0 0 -18 0 Q 0 0 0 -18 Z" fill="url(#iconHubStarGrad)"/>
+      <circle cx="0" cy="0" r="4" fill="#ffffff"/>
+    </g>
+
+    <!-- 3D Top Indicator Arrow -->
+    <g transform="translate(0, -88)" filter="url(#iconShadow3d)">
+      <path d="M -19 -22 L 19 -22 L 0 20 Z" fill="url(#iconGoldRimGrad)" stroke="#78350f" stroke-width="3.5"/>
+      <path d="M -13 -18 L 13 -18 L 0 12 Z" fill="#fef08a" opacity="0.9"/>
+    </g>
+  </g>
+</svg>

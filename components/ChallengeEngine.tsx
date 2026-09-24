@@ -1,10 +1,16 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback, useSyncExternalStore } from 'react';
 import { WheelItem, WheelConfig, DailyChallengeState, ResultCardData } from '@/lib/types';
 import { DAILY_CHALLENGE_POOL } from '@/lib/presets';
 import { createDateSeededPRNG } from '@/lib/random';
-import { loadDailyChallenge, saveDailyChallenge, recordDailyChallengeComplete } from '@/lib/storage';
+import {
+  saveDailyChallenge,
+  recordDailyChallengeComplete,
+  subscribeDailyChallenge,
+  getDailyChallengeSnapshot,
+  getDailyChallengeServerSnapshot
+} from '@/lib/storage';
 import WheelCanvas from './WheelCanvas';
 import confetti from 'canvas-confetti';
 import { Globe, Flame, CheckCircle2, Play, Share2 } from 'lucide-react';
@@ -26,9 +32,22 @@ export default function ChallengeEngine({
     return now.toISOString().split('T')[0];
   }, []);
 
-  const [challengeState, setChallengeState] = useState<DailyChallengeState>(() => {
-    return loadDailyChallenge(todayStr);
-  });
+  const [localChallenge, setLocalChallenge] = useState<DailyChallengeState | null>(null);
+
+  const getSnapshot = useCallback(() => getDailyChallengeSnapshot(todayStr), [todayStr]);
+  const getServerSnapshot = useCallback(() => getDailyChallengeServerSnapshot(todayStr), [todayStr]);
+
+  const clientChallenge = useSyncExternalStore(
+    subscribeDailyChallenge,
+    getSnapshot,
+    getServerSnapshot
+  );
+
+  const challengeState = localChallenge || clientChallenge;
+
+  const setChallengeState = (newState: DailyChallengeState) => {
+    setLocalChallenge(newState);
+  };
 
   const [isSpinning, setIsSpinning] = useState(false);
   const [shareModalOpen, setShareModalOpen] = useState(false);
@@ -194,7 +213,7 @@ export default function ChallengeEngine({
                 className="mt-2 py-3 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer"
               >
                 <Share2 className="w-4 h-4" />
-                <span>Share Daily Challenge Card</span>
+                <span>Share My Score</span>
               </button>
             </div>
           ) : (
@@ -219,7 +238,7 @@ export default function ChallengeEngine({
                 className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#006c49] to-[#10b981] hover:brightness-110 text-white font-headline font-bold text-[16px] shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
               >
                 <Play className="w-5 h-5 fill-current" />
-                <span>{isSpinning ? "SPINNING TODAY'S CHALLENGE..." : "SPIN TODAY'S CHALLENGE"}</span>
+                <span>{isSpinning ? "Spinning Today's Challenge..." : "Play Today's Challenge"}</span>
               </button>
             </div>
           )}

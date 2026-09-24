@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { WheelConfig } from '@/lib/types';
 import { Share2, X, Disc, Check, Copy, Code2 } from 'lucide-react';
+import { getShortShareUrl } from '@/lib/shortener';
 
 interface SharePanelProps {
   wheel: WheelConfig;
@@ -12,33 +13,27 @@ interface SharePanelProps {
 export default function SharePanel({ wheel, onClose }: SharePanelProps) {
   const [copiedLink, setCopiedLink] = useState(false);
   const [copiedEmbed, setCopiedEmbed] = useState(false);
-
-  // Generate shareable URL with preset ID or custom encoded configuration
-  const customPayload = encodeURIComponent(
-    btoa(
-      encodeURIComponent(
-        JSON.stringify({
-          title: wheel.title,
-          category: wheel.category || 'Custom',
-          items: wheel.items.map((i) => ({ text: i.text, weight: i.weight, color: i.color })),
-          paletteKey: wheel.themeKey || 'arcade'
-        })
-      )
-    )
-  );
+  const [shareUrl, setShareUrl] = useState<string>('');
 
   const baseUrl = typeof window !== 'undefined'
     ? window.location.origin
     : 'https://spinwheelgames.org';
 
-  const shareUrl = wheel.id.startsWith('preset-')
-    ? `${baseUrl}/?preset=${wheel.id}`
-    : `${baseUrl}/?data=${customPayload}`;
+  useEffect(() => {
+    let isMounted = true;
+    getShortShareUrl(wheel).then((url) => {
+      if (isMounted) setShareUrl(url);
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, [wheel]);
 
-  const embedCode = `<iframe src="${shareUrl}" width="100%" height="650" frameborder="0" style="border:0; border-radius: 16px; overflow:hidden;" allow="fullscreen"></iframe>`;
+  const effectiveShareUrl = shareUrl || `${baseUrl}/`;
+  const embedCode = `<iframe src="${effectiveShareUrl}" width="100%" height="650" frameborder="0" style="border:0; border-radius: 16px; overflow:hidden;" allow="fullscreen"></iframe>`;
 
   const handleCopyLink = () => {
-    navigator.clipboard?.writeText?.(shareUrl);
+    navigator.clipboard?.writeText?.(effectiveShareUrl);
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 2000);
   };
@@ -91,7 +86,7 @@ export default function SharePanel({ wheel, onClose }: SharePanelProps) {
             <input
               type="text"
               readOnly
-              value={shareUrl}
+              value={effectiveShareUrl}
               className="flex-1 px-3 py-2 rounded-xl bg-[#f4f2fd] dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#292a39] text-[12px] font-mono text-[#1a1b22] dark:text-[#f1effa] select-all focus:outline-none"
             />
             <button

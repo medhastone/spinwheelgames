@@ -4,18 +4,42 @@ import { ALL_SEO_PAGES_LIST } from '@/lib/seoData';
 export async function GET() {
   const lastmod = new Date().toISOString().split('T')[0];
 
+  const staticRoutes: { path: string; changefreq: string; priority: string }[] = [
+    { path: '', changefreq: 'daily', priority: '1.0' },
+    { path: '/movie-wheel', changefreq: 'daily', priority: '0.95' },
+    { path: '/food-wheel', changefreq: 'daily', priority: '0.95' },
+    { path: '/number-wheel', changefreq: 'daily', priority: '0.95' },
+    { path: '/bingo-wheel', changefreq: 'daily', priority: '0.95' },
+    { path: '/animal-wheel', changefreq: 'daily', priority: '0.95' },
+    { path: '/random-object-generator', changefreq: 'daily', priority: '0.95' },
+    { path: '/about', changefreq: 'monthly', priority: '0.6' },
+    { path: '/fairness', changefreq: 'monthly', priority: '0.7' },
+    { path: '/contact', changefreq: 'monthly', priority: '0.5' },
+    { path: '/privacy', changefreq: 'monthly', priority: '0.4' },
+    { path: '/terms', changefreq: 'monthly', priority: '0.4' },
+    { path: '/accessibility', changefreq: 'monthly', priority: '0.5' },
+    { path: '/sitemap', changefreq: 'weekly', priority: '0.6' },
+  ];
+
+  const existingPaths = new Set(staticRoutes.map((r) => r.path));
+
   const toolPages = ALL_SEO_PAGES_LIST.filter(
     (p) => p.pageType === 'tool' || p.pageType === 'subtool'
   );
 
-  const homeEntry = `  <url>
-    <loc>https://spinwheelgames.org/</loc>
+  const staticXml = staticRoutes
+    .map(
+      (r) => `  <url>
+    <loc>https://spinwheelgames.org${r.path}</loc>
     <lastmod>${lastmod}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>`;
+    <changefreq>${r.changefreq}</changefreq>
+    <priority>${r.priority}</priority>
+  </url>`
+    )
+    .join('\n');
 
-  const urlsXml = toolPages
+  const toolXml = toolPages
+    .filter((page) => !existingPaths.has(page.fullPath))
     .map((page) => {
       const priority = page.pageType === 'tool' ? '0.9' : '0.85';
       return `  <url>
@@ -29,14 +53,16 @@ export async function GET() {
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${homeEntry}
-${urlsXml}
+${staticXml}
+${toolXml}
 </urlset>`;
 
   return new NextResponse(xml, {
     headers: {
-      'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=86400, s-maxage=86400'
+      'Content-Type': 'application/xml; charset=utf-8',
+      'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+      'X-Content-Type-Options': 'nosniff'
     }
   });
 }
+
