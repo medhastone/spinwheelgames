@@ -97,7 +97,7 @@ export default function PrivacyPage() {
               1. Information We Do NOT Collect
             </h2>
             <p>
-              SpinWheelGames.org is architected on a <strong>zero-knowledge, client-side execution model</strong>. When you create, edit, customize, or spin a wheel, all data operations are executed directly within your web browser’s JavaScript sandbox:
+              SpinWheelGames.org is architected on a <strong>100% private, browser-based model</strong>. When you create, edit, customize, or spin a wheel, all data operations run directly inside your web browser:
             </p>
             <ul className="list-disc pl-5 space-y-1">
               <li>We do <strong>not</strong> collect or store student rosters, participant names, raffle entries, or custom slice items.</li>
@@ -109,7 +109,7 @@ export default function PrivacyPage() {
 
           <div className="space-y-3">
             <h2 className="font-headline text-[22px] font-bold text-[#1a1b22] dark:text-white">
-              2. Browser Local Storage &amp; URL Parameters
+              2. Saved Preferences &amp; Share Links
             </h2>
             <p>
               To provide a seamless experience without cloud databases, we utilize standard browser storage mechanisms:
@@ -119,17 +119,17 @@ export default function PrivacyPage() {
                 <strong>Browser LocalStorage:</strong> Used solely to persist your custom wheels, volume and audio preferences, dark mode selection, and recent spin history on your current device. You can clear this at any time by clearing your browser cache or clicking &quot;Reset All&quot; in the settings menu.
               </li>
               <li>
-                <strong>URL Hashes &amp; Share Parameters:</strong> When you share a wheel, the wheel’s title, slice names, weights, and color palette are compressed into a standard URL query string. When a recipient opens the link, their browser decodes the configuration locally.
+                <strong>Shareable Links:</strong> When you share a wheel, the wheel’s title, slice names, weights, and color palette are compressed into a shareable web link. When a recipient opens the link, their browser loads the wheel setup directly.
               </li>
             </ul>
           </div>
 
           <div className="space-y-3">
             <h2 className="font-headline text-[22px] font-bold text-[#1a1b22] dark:text-white">
-              3. Web Cryptography API &amp; RNG Fairness
+              3. True Randomness &amp; Fair Selection
             </h2>
             <p>
-              All random numbers are generated locally using the standard <code className="bg-[#f4f2fd] dark:bg-[#181922] px-1.5 py-0.5 rounded text-xs">window.crypto.getRandomValues()</code> interface provided by modern browsers. No server communication is required to determine the winning slice.
+              All random numbers are generated locally on your device using certified browser randomness. No server connection is needed to determine the winning slice.
             </p>
           </div>
 

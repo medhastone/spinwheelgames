@@ -26,9 +26,19 @@ import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Movie Wheel Spin – Random Movie Picker',
+  title: 'Movie Wheel Spin – Random Movie Generator & Film Picker',
   description:
-    'Spin the movie wheel to randomly pick what to watch. Choose by genre or use your own movie list for a quick decision.',
+    'Spin the movie wheel to randomly pick what to watch. Use as a random movie generator, film spinner, netflix random movie generator, or custom film chooser.',
+  keywords: [
+    'random movie generator',
+    'random film generator',
+    'movie randomizer',
+    'random film chooser',
+    'netflix random movie generator',
+    'wheel of movies',
+    'film spinner',
+    'random movie generator by genre'
+  ],
   alternates: {
     canonical: 'https://spinwheelgames.org/movie-wheel'
   },

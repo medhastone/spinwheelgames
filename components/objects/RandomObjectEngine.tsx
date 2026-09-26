@@ -761,11 +761,11 @@ export default function RandomObjectEngine() {
       )}
 
       {/* 1. Purpose Selector Bar */}
-      <section className="bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-800 p-4 shadow-xl">
+      <section className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 p-4 shadow-xl">
         <div className="flex items-center justify-between mb-3 px-1">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-indigo-400" />
-            <h2 className="text-sm font-semibold text-slate-200 uppercase tracking-wider flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+            <h2 className="text-sm font-semibold text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center gap-2">
               <span>What do you need a random object for?</span>
               <button
                 type="button"
@@ -774,15 +774,15 @@ export default function RandomObjectEngine() {
                 title={isGameFavorited ? 'Saved in Profile Favorites' : 'Save Generator to Profile Favorites'}
                 className={`p-1 rounded-full transition-all cursor-pointer ${
                   isGameFavorited
-                    ? 'bg-rose-500/20 text-rose-400 scale-105'
-                    : 'bg-slate-800 text-slate-400 hover:text-rose-400 hover:bg-rose-950/30'
+                    ? 'bg-rose-500/20 text-rose-500 scale-105'
+                    : 'bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-rose-500'
                 }`}
               >
                 <Heart className={`w-4 h-4 ${isGameFavorited ? 'fill-rose-500 text-rose-500' : ''}`} />
               </button>
             </h2>
           </div>
-          <span className="text-xs text-slate-400 hidden sm:inline">
+          <span className="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">
             Filters 1,000+ objects for your specific use case
           </span>
         </div>
@@ -799,13 +799,13 @@ export default function RandomObjectEngine() {
                 }}
                 className={`flex items-center gap-2.5 p-2.5 rounded-xl text-left transition-all border text-xs sm:text-sm ${
                   isSelected
-                    ? 'bg-indigo-600/30 border-indigo-500 text-white font-medium shadow-md shadow-indigo-900/30'
-                    : 'bg-slate-800/60 border-slate-700/60 text-slate-300 hover:bg-slate-800 hover:border-slate-600'
+                    ? 'bg-indigo-600/10 dark:bg-indigo-600/30 border-indigo-500 text-indigo-950 dark:text-white font-medium shadow-xs'
+                    : 'bg-slate-100/80 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
                 }`}
               >
                 <div
                   className={`p-1.5 rounded-lg shrink-0 ${
-                    isSelected ? 'bg-indigo-500 text-white' : 'bg-slate-700 text-slate-300'
+                    isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
                   }`}
                 >
                   {p.id === 'all' && <Sparkles className="w-4 h-4" />}
@@ -821,7 +821,7 @@ export default function RandomObjectEngine() {
                 </div>
                 <div className="truncate">
                   <div className="truncate font-semibold">{p.label}</div>
-                  <div className="text-[10px] text-slate-400 truncate">{p.tagline}</div>
+                  <div className="text-[10px] text-slate-500 dark:text-slate-400 truncate">{p.tagline}</div>
                 </div>
               </button>
             );
@@ -830,11 +830,11 @@ export default function RandomObjectEngine() {
       </section>
 
       {/* 2. Interactive Main Tool Container */}
-      <section className="bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden">
+      <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden">
         {/* Top Control Bar: Mode Selector & Global Controls */}
-        <div className="bg-slate-950/70 border-b border-slate-800 p-4 sm:px-6 flex flex-wrap items-center justify-between gap-3">
+        <div className="bg-slate-50 dark:bg-slate-950/70 border-b border-slate-200 dark:border-slate-800 p-4 sm:px-6 flex flex-wrap items-center justify-between gap-3">
           {/* Mode Tabs */}
-          <div className="flex flex-wrap items-center gap-1.5 bg-slate-900 p-1 rounded-xl border border-slate-800">
+          <div className="flex flex-wrap items-center gap-1.5 bg-slate-200/80 dark:bg-slate-900 p-1 rounded-xl border border-slate-300/80 dark:border-slate-800">
             <button
               onClick={() => {
                 setActiveMode('instant');
@@ -842,8 +842,8 @@ export default function RandomObjectEngine() {
               }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                 activeMode === 'instant'
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
@@ -857,8 +857,8 @@ export default function RandomObjectEngine() {
               }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                 activeMode === 'grid'
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               <Grid className="w-3.5 h-3.5" />
@@ -871,8 +871,8 @@ export default function RandomObjectEngine() {
               }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                 activeMode === 'wheel'
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               <Disc className="w-3.5 h-3.5" />
@@ -886,8 +886,8 @@ export default function RandomObjectEngine() {
               }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                 activeMode === 'challenge'
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               <Target className="w-3.5 h-3.5" />
@@ -900,8 +900,8 @@ export default function RandomObjectEngine() {
               }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                 activeMode === 'streak'
-                  ? 'bg-amber-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-amber-600 text-white shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               <Flame className="w-3.5 h-3.5" />
@@ -914,8 +914,8 @@ export default function RandomObjectEngine() {
               }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                 activeMode === 'custom'
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               <Upload className="w-3.5 h-3.5" />
@@ -928,8 +928,8 @@ export default function RandomObjectEngine() {
               }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                 activeMode === 'daily'
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               <Calendar className="w-3.5 h-3.5" />
@@ -942,12 +942,12 @@ export default function RandomObjectEngine() {
             <button
               onClick={() => setSoundEnabled((prev) => !prev)}
               title={soundEnabled ? 'Mute Sound Effects' : 'Enable Sound Effects'}
-              className="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition"
+              className="p-2 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-800 transition"
             >
               {soundEnabled ? (
-                <Volume2 className="w-4 h-4 text-emerald-400" />
+                <Volume2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               ) : (
-                <VolumeX className="w-4 h-4 text-slate-500" />
+                <VolumeX className="w-4 h-4 text-slate-400 dark:text-slate-500" />
               )}
             </button>
             {noRepeats && historyIds.size > 0 && (
@@ -956,7 +956,7 @@ export default function RandomObjectEngine() {
                   setHistoryIds(new Set());
                   playSynthSound('click', soundEnabled);
                 }}
-                className="text-xs text-slate-400 hover:text-rose-400 transition flex items-center gap-1"
+                className="text-xs text-slate-500 dark:text-slate-400 hover:text-rose-500 transition flex items-center gap-1"
                 title="Clear no-repeat history"
               >
                 <RotateCcw className="w-3 h-3" />
@@ -967,14 +967,14 @@ export default function RandomObjectEngine() {
         </div>
 
         {/* Filters & Parameter Toolbar */}
-        <div className="p-4 sm:p-6 bg-slate-950/40 border-b border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs sm:text-sm">
+        <div className="p-4 sm:p-6 bg-slate-100/60 dark:bg-slate-950/40 border-b border-slate-200 dark:border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs sm:text-sm">
           {/* Category Dropdown */}
           <div className="space-y-1.5">
-            <label className="text-slate-400 font-medium">Category</label>
+            <label className="text-slate-600 dark:text-slate-400 font-medium">Category</label>
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value as ObjectCategory)}
-              className="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-2 text-slate-200 font-medium focus:outline-none focus:border-indigo-500"
+              className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-slate-900 dark:text-slate-200 font-medium focus:outline-none focus:border-indigo-500"
             >
               {ALL_CATEGORIES.map((cat) => (
                 <option key={cat} value={cat}>
@@ -986,13 +986,13 @@ export default function RandomObjectEngine() {
 
           {/* Difficulty Dropdown */}
           <div className="space-y-1.5">
-            <label className="text-slate-400 font-medium">Difficulty</label>
+            <label className="text-slate-600 dark:text-slate-400 font-medium">Difficulty</label>
             <select
               value={selectedDifficulty}
               onChange={(e) =>
                 setSelectedDifficulty(e.target.value as 'All' | ObjectDifficulty)
               }
-              className="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-2 text-slate-200 font-medium focus:outline-none focus:border-indigo-500"
+              className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-slate-900 dark:text-slate-200 font-medium focus:outline-none focus:border-indigo-500"
             >
               <option value="All">All Difficulties</option>
               {ALL_DIFFICULTIES.map((diff) => (
@@ -1005,7 +1005,7 @@ export default function RandomObjectEngine() {
 
           {/* Quantity Controls */}
           <div className="space-y-1.5">
-            <label className="text-slate-400 font-medium">Quantity</label>
+            <label className="text-slate-600 dark:text-slate-400 font-medium">Quantity</label>
             <div className="flex items-center gap-1">
               {[1, 5, 10].map((q) => (
                 <button
@@ -1014,7 +1014,7 @@ export default function RandomObjectEngine() {
                   className={`flex-1 py-2 rounded-xl font-bold transition text-xs ${
                     quantity === q
                       ? 'bg-indigo-600 text-white'
-                      : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'
+                      : 'bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-800'
                   }`}
                 >
                   {q}
@@ -1029,19 +1029,19 @@ export default function RandomObjectEngine() {
                   setQuantity(Math.max(1, Math.min(25, parseInt(e.target.value) || 1)))
                 }
                 title="Custom Quantity (max 25)"
-                className="w-14 bg-slate-900 border border-slate-700/80 rounded-xl py-2 px-1 text-center font-bold text-slate-200 focus:outline-none focus:border-indigo-500"
+                className="w-14 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/80 rounded-xl py-2 px-1 text-center font-bold text-slate-900 dark:text-slate-200 focus:outline-none focus:border-indigo-500"
               />
             </div>
           </div>
 
           {/* Options: No-Repeat Checkbox */}
           <div className="space-y-1.5 flex flex-col justify-end">
-            <label className="flex items-center gap-2 cursor-pointer select-none text-slate-300">
+            <label className="flex items-center gap-2 cursor-pointer select-none text-slate-700 dark:text-slate-300">
               <input
                 type="checkbox"
                 checked={noRepeats}
                 onChange={(e) => setNoRepeats(e.target.checked)}
-                className="w-4 h-4 rounded border-slate-700 text-indigo-600 focus:ring-indigo-500 bg-slate-900"
+                className="w-4 h-4 rounded border-slate-300 dark:border-slate-700 text-indigo-600 focus:ring-indigo-500 bg-white dark:bg-slate-900"
               />
               <span className="font-semibold text-xs sm:text-sm">No Repeats</span>
             </label>
@@ -1058,19 +1058,19 @@ export default function RandomObjectEngine() {
             <div className="space-y-6">
               {/* Primary Card View (if quantity === 1) */}
               {quantity === 1 && primaryObject && (
-                <div className="relative bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 text-center space-y-5 shadow-2xl">
+                <div className="relative bg-gradient-to-br from-indigo-50/90 via-white to-slate-100 dark:from-slate-900 dark:via-indigo-950/40 dark:to-slate-900 border border-indigo-200 dark:border-indigo-500/30 rounded-3xl p-6 sm:p-8 text-center space-y-5 shadow-2xl">
                   {/* Category & Difficulty Badges */}
                   <div className="flex flex-wrap items-center justify-center gap-2">
-                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 dark:border-indigo-500/30">
                       {primaryObject.category} • {primaryObject.subcategory}
                     </span>
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-bold border ${
                         primaryObject.difficulty === 'Easy'
-                          ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                          ? 'bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/20 dark:border-emerald-500/30'
                           : primaryObject.difficulty === 'Medium'
-                          ? 'bg-amber-500/20 text-amber-300 border-amber-500/30'
-                          : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
+                          ? 'bg-amber-500/10 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/20 dark:border-amber-500/30'
+                          : 'bg-rose-500/10 dark:bg-rose-500/20 text-rose-700 dark:text-rose-300 border-rose-500/20 dark:border-rose-500/30'
                       }`}
                     >
                       {primaryObject.difficulty}
@@ -1079,13 +1079,13 @@ export default function RandomObjectEngine() {
 
                   {/* Main Object Typography */}
                   <div className="space-y-2">
-                    <div className="text-xs uppercase tracking-widest text-slate-400 font-semibold">
+                    <div className="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 font-semibold">
                       Your Random Object
                     </div>
-                    <h2 className="text-4xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-100 to-indigo-300 tracking-tight">
+                    <h2 className="text-4xl sm:text-6xl font-black text-slate-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-white dark:via-indigo-100 dark:to-indigo-300 tracking-tight">
                       {primaryObject.name}
                     </h2>
-                    <p className="max-w-xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed">
+                    <p className="max-w-xl mx-auto text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
                       {primaryObject.shortDescription}
                     </p>
                   </div>
@@ -1093,11 +1093,11 @@ export default function RandomObjectEngine() {
                   {/* Creative Challenge Banner */}
                   {primaryObject.funChallenge && (
                     <div className="max-w-xl mx-auto bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 text-left">
-                      <div className="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider mb-1">
+                      <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-bold text-xs uppercase tracking-wider mb-1">
                         <Target className="w-4 h-4" />
                         Creative Prompt
                       </div>
-                      <p className="text-slate-200 text-sm italic font-medium">
+                      <p className="text-slate-800 dark:text-slate-200 text-sm italic font-medium">
                         &ldquo;{primaryObject.funChallenge}&rdquo;
                       </p>
                     </div>
@@ -1118,7 +1118,7 @@ export default function RandomObjectEngine() {
                         setQuantity(5);
                         handleGenerate(5);
                       }}
-                      className="px-4 py-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition"
+                      className="px-4 py-3 rounded-2xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-sm border border-slate-300 dark:border-slate-700 transition"
                     >
                       Generate 5 More
                     </button>
@@ -1129,32 +1129,32 @@ export default function RandomObjectEngine() {
                         setTimerSeconds(30);
                         setTimerRunning(false);
                       }}
-                      className="px-4 py-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-amber-300 font-semibold text-sm border border-slate-700 transition flex items-center gap-1.5"
+                      className="px-4 py-3 rounded-2xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-amber-700 dark:text-amber-300 font-semibold text-sm border border-slate-300 dark:border-slate-700 transition flex items-center gap-1.5"
                     >
                       <Target className="w-4 h-4" />
                       Challenge Me
                     </button>
                     <button
                       onClick={() => handleCopy(primaryObject.name)}
-                      className="p-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition"
+                      className="p-3 rounded-2xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-300 border border-slate-300 dark:border-slate-700 transition"
                       title="Copy Object Name"
                     >
                       {copiedText ? (
-                        <Check className="w-5 h-5 text-emerald-400" />
+                        <Check className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                       ) : (
                         <Copy className="w-5 h-5" />
                       )}
                     </button>
                     <button
                       onClick={() => handleShare(primaryObject.name, primaryObject.category)}
-                      className="p-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition"
+                      className="p-3 rounded-2xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-300 border border-slate-300 dark:border-slate-700 transition"
                       title="Share Result"
                     >
                       <Share2 className="w-5 h-5" />
                     </button>
                     <button
                       onClick={() => downloadObjectCard(primaryObject)}
-                      className="p-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition"
+                      className="p-3 rounded-2xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-300 border border-slate-300 dark:border-slate-700 transition"
                       title="Download Shareable Image Card"
                     >
                       <Download className="w-5 h-5" />
@@ -1162,21 +1162,21 @@ export default function RandomObjectEngine() {
                   </div>
 
                   {/* "What can I do with this?" Suggestion Pill List */}
-                  <div className="pt-4 border-t border-slate-800/80 max-w-xl mx-auto">
-                    <div className="text-xs text-slate-400 font-semibold mb-2">
+                  <div className="pt-4 border-t border-slate-200 dark:border-slate-800/80 max-w-xl mx-auto">
+                    <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold mb-2">
                       Try with this object:
                     </div>
-                    <div className="flex flex-wrap items-center justify-center gap-2 text-xs text-slate-300">
-                      <span className="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+                    <div className="flex flex-wrap items-center justify-center gap-2 text-xs text-slate-700 dark:text-slate-300">
+                      <span className="bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
                         🎨 Quick 60s sketch
                       </span>
-                      <span className="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+                      <span className="bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
                         🤫 Describe without naming it
                       </span>
-                      <span className="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+                      <span className="bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
                         📖 Use as a story prop
                       </span>
-                      <span className="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+                      <span className="bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
                         🔍 Scavenger hunt clue
                       </span>
                     </div>
@@ -1188,7 +1188,7 @@ export default function RandomObjectEngine() {
               {quantity > 1 && (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-bold text-slate-200">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-slate-200">
                       Generated {generatedList.length} Random Objects
                     </h3>
                     <div className="flex items-center gap-2">
@@ -1196,10 +1196,10 @@ export default function RandomObjectEngine() {
                         onClick={() =>
                           handleCopy(generatedList.map((g, i) => `${i + 1}. ${g.name}`).join('\n'))
                         }
-                        className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition flex items-center gap-1.5"
+                        className="px-3 py-1.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 transition flex items-center gap-1.5"
                       >
                         {copiedText ? (
-                          <Check className="w-3.5 h-3.5 text-emerald-400" />
+                          <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                         ) : (
                           <Copy className="w-3.5 h-3.5" />
                         )}
@@ -1219,25 +1219,25 @@ export default function RandomObjectEngine() {
                     {generatedList.map((item, idx) => (
                       <div
                         key={item.id}
-                        className="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-indigo-500 transition space-y-2 group"
+                        className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 transition space-y-2 group"
                       >
                         <div className="flex items-center justify-between text-xs">
-                          <span className="font-bold text-indigo-400">#{idx + 1}</span>
-                          <span className="px-2 py-0.5 rounded-md bg-slate-900 text-slate-400 border border-slate-800">
+                          <span className="font-bold text-indigo-600 dark:text-indigo-400">#{idx + 1}</span>
+                          <span className="px-2 py-0.5 rounded-md bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">
                             {item.category}
                           </span>
                         </div>
-                        <h4 className="text-lg font-bold text-white group-hover:text-indigo-300 transition">
+                        <h4 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition">
                           {item.name}
                         </h4>
-                        <p className="text-xs text-slate-400 line-clamp-2">
+                        <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-2">
                           {item.shortDescription}
                         </p>
-                        <div className="pt-2 flex items-center justify-between border-t border-slate-700/60 text-xs">
-                          <span className="text-slate-400 font-medium">{item.difficulty}</span>
+                        <div className="pt-2 flex items-center justify-between border-t border-slate-200 dark:border-slate-700/60 text-xs">
+                          <span className="text-slate-500 dark:text-slate-400 font-medium">{item.difficulty}</span>
                           <button
                             onClick={() => handleCopy(item.name)}
-                            className="text-slate-400 hover:text-white transition flex items-center gap-1"
+                            className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1"
                           >
                             <Copy className="w-3 h-3" />
                             Copy
@@ -1255,7 +1255,7 @@ export default function RandomObjectEngine() {
           {activeMode === 'grid' && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-bold text-slate-200">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-200">
                   Object Catalog Cards ({generatedList.length} results)
                 </h3>
                 <button
@@ -1271,24 +1271,24 @@ export default function RandomObjectEngine() {
                 {generatedList.map((obj) => (
                   <div
                     key={obj.id}
-                    className="p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/80 transition-all flex flex-col justify-between space-y-3 group shadow-lg"
+                    className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/80 transition-all flex flex-col justify-between space-y-3 group shadow-lg"
                   >
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-indigo-500/20 text-indigo-300">
+                        <span className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300">
                           {obj.category}
                         </span>
-                        <span className="text-xs text-slate-400">{obj.difficulty}</span>
+                        <span className="text-xs text-slate-500 dark:text-slate-400">{obj.difficulty}</span>
                       </div>
-                      <h4 className="text-xl font-black text-white group-hover:text-indigo-300 transition">
+                      <h4 className="text-xl font-black text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition">
                         {obj.name}
                       </h4>
-                      <p className="text-xs text-slate-400 leading-relaxed">
+                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                         {obj.shortDescription}
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+                    <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs">
                       <button
                         onClick={() => {
                           setChallengeObject(obj);
@@ -1296,21 +1296,21 @@ export default function RandomObjectEngine() {
                           setTimerSeconds(30);
                           setTimerRunning(false);
                         }}
-                        className="text-amber-400 hover:text-amber-300 font-semibold flex items-center gap-1"
+                        className="text-amber-600 dark:text-amber-400 hover:underline font-semibold flex items-center gap-1"
                       >
                         <Target className="w-3.5 h-3.5" />
                         Challenge
                       </button>
                       <button
                         onClick={() => downloadObjectCard(obj)}
-                        className="text-slate-400 hover:text-white transition flex items-center gap-1"
+                        className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1"
                       >
                         <Download className="w-3.5 h-3.5" />
                         Card
                       </button>
                       <button
                         onClick={() => handleCopy(obj.name)}
-                        className="text-slate-400 hover:text-white transition flex items-center gap-1"
+                        className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1"
                       >
                         <Copy className="w-3.5 h-3.5" />
                         Copy
@@ -1326,8 +1326,8 @@ export default function RandomObjectEngine() {
           {activeMode === 'wheel' && (
             <div className="flex flex-col items-center justify-center space-y-6">
               <div className="text-center space-y-1">
-                <h3 className="text-2xl font-black text-white">Random Object Spin Wheel</h3>
-                <p className="text-xs text-slate-400">
+                <h3 className="text-2xl font-black text-slate-900 dark:text-white">Random Object Spin Wheel</h3>
+                <p className="text-xs text-slate-600 dark:text-slate-400">
                   Pre-selected using cryptographic CSPRNG • Certified 100% fair
                 </p>
               </div>
@@ -1344,7 +1344,8 @@ export default function RandomObjectEngine() {
                   ref={wheelCanvasRef}
                   width={380}
                   height={380}
-                  className="rounded-full shadow-2xl border-4 border-slate-800 max-w-full"
+                  className="w-full max-w-[min(92vw,360px)] sm:max-w-[400px] aspect-square rounded-full shadow-2xl border-4 border-slate-200 dark:border-slate-800 touch-manipulation cursor-pointer"
+                  onClick={spinWheel}
                 />
               </div>
 
@@ -1365,7 +1366,7 @@ export default function RandomObjectEngine() {
                     playSynthSound('click', soundEnabled);
                   }}
                   disabled={isSpinning}
-                  className="px-4 py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition flex items-center gap-1.5"
+                  className="px-4 py-3.5 rounded-2xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-sm border border-slate-300 dark:border-slate-700 transition flex items-center gap-1.5"
                 >
                   <Shuffle className="w-4 h-4" />
                   Shuffle Slices
@@ -1373,35 +1374,35 @@ export default function RandomObjectEngine() {
               </div>
 
               {/* Elimination Toggle */}
-              <label className="flex items-center gap-2 text-xs text-slate-400 cursor-pointer">
+              <label className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={eliminateWinner}
                   onChange={(e) => setEliminateWinner(e.target.checked)}
-                  className="w-4 h-4 rounded border-slate-700 text-indigo-600 bg-slate-900"
+                  className="w-4 h-4 rounded border-slate-300 dark:border-slate-700 text-indigo-600 bg-white dark:bg-slate-900"
                 />
                 Elimination Mode: Remove chosen object from wheel after spin
               </label>
 
               {/* Winner Announcement Card */}
               {wheelWinner && (
-                <div className="w-full max-w-md bg-gradient-to-r from-indigo-950 to-slate-900 border border-indigo-500/50 rounded-2xl p-5 text-center space-y-3 animate-fade-in shadow-xl">
-                  <div className="text-xs text-amber-400 font-bold uppercase tracking-widest">
+                <div className="w-full max-w-md bg-gradient-to-r from-indigo-50 via-white to-slate-100 dark:from-indigo-950 dark:to-slate-900 border border-indigo-200 dark:border-indigo-500/50 rounded-2xl p-5 text-center space-y-3 animate-fade-in shadow-xl">
+                  <div className="text-xs text-amber-600 dark:text-amber-400 font-bold uppercase tracking-widest">
                     🎉 Spin Wheel Winner!
                   </div>
-                  <h4 className="text-3xl font-black text-white">{wheelWinner.name}</h4>
-                  <p className="text-xs text-slate-300">{wheelWinner.shortDescription}</p>
+                  <h4 className="text-3xl font-black text-slate-900 dark:text-white">{wheelWinner.name}</h4>
+                  <p className="text-xs text-slate-600 dark:text-slate-300">{wheelWinner.shortDescription}</p>
                   <div className="flex items-center justify-center gap-2 pt-2">
                     <button
                       onClick={() => handleCopy(wheelWinner.name)}
-                      className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 flex items-center gap-1"
+                      className="px-3 py-1.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 flex items-center gap-1"
                     >
                       <Copy className="w-3.5 h-3.5" />
                       Copy
                     </button>
                     <button
                       onClick={() => handleShare(wheelWinner.name, wheelWinner.category)}
-                      className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 flex items-center gap-1"
+                      className="px-3 py-1.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 flex items-center gap-1"
                     >
                       <Share2 className="w-3.5 h-3.5" />
                       Share
@@ -1421,29 +1422,29 @@ export default function RandomObjectEngine() {
 
           {/* ----------------- MODE D: CHALLENGE MODE ----------------- */}
           {activeMode === 'challenge' && challengeObject && (
-            <div className="max-w-xl mx-auto bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 text-center shadow-xl">
-              <div className="flex items-center justify-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-widest">
+            <div className="max-w-xl mx-auto bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 text-center shadow-xl">
+              <div className="flex items-center justify-center gap-2 text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-widest">
                 <Target className="w-4 h-4" />
                 Object Challenge Mode
               </div>
 
               {/* Challenge Target Object */}
               <div className="space-y-1">
-                <div className="text-xs text-slate-400">Target Object</div>
-                <h3 className="text-3xl sm:text-5xl font-black text-white">
+                <div className="text-xs text-slate-500 dark:text-slate-400">Target Object</div>
+                <h3 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white">
                   {challengeObject.name}
                 </h3>
-                <span className="inline-block mt-1 px-3 py-0.5 rounded-full text-xs font-semibold bg-slate-800 text-slate-300">
+                <span className="inline-block mt-1 px-3 py-0.5 rounded-full text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
                   {challengeObject.category} • {challengeObject.difficulty}
                 </span>
               </div>
 
               {/* Challenge Rule Prompt Box */}
-              <div className="p-5 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-left space-y-2">
-                <div className="text-xs font-bold text-indigo-300 uppercase tracking-wider">
+              <div className="p-5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-500/30 text-left space-y-2">
+                <div className="text-xs font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-wider">
                   Your Mission:
                 </div>
-                <p className="text-base sm:text-lg font-semibold text-slate-100">
+                <p className="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100">
                   {challengeObject.funChallenge ||
                     `Draw or describe "${challengeObject.name}" without saying its name or using hand gestures!`}
                 </p>
@@ -1451,7 +1452,7 @@ export default function RandomObjectEngine() {
 
               {/* Countdown Timer */}
               <div className="flex flex-col items-center justify-center space-y-3">
-                <div className="flex items-center gap-2 text-3xl sm:text-4xl font-black text-amber-400 font-mono">
+                <div className="flex items-center gap-2 text-3xl sm:text-4xl font-black text-amber-600 dark:text-amber-400 font-mono">
                   <Timer className="w-8 h-8" />
                   {timerSeconds}s
                 </div>
@@ -1476,7 +1477,7 @@ export default function RandomObjectEngine() {
                       setTimerRunning(false);
                       playSynthSound('click', soundEnabled);
                     }}
-                    className="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 border border-slate-700"
+                    className="px-3 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700"
                   >
                     Reset
                   </button>
@@ -1484,7 +1485,7 @@ export default function RandomObjectEngine() {
               </div>
 
               {/* Challenge Navigation Buttons */}
-              <div className="pt-4 border-t border-slate-800 flex items-center justify-center gap-3">
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-center gap-3">
                 <button
                   onClick={() => {
                     const nextObj = eligiblePool[generateRandomIndex(eligiblePool.length)];
@@ -1505,7 +1506,7 @@ export default function RandomObjectEngine() {
                       challengeObject.category
                     )
                   }
-                  className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 flex items-center gap-1.5"
+                  className="px-4 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-sm border border-slate-300 dark:border-slate-700 flex items-center gap-1.5"
                 >
                   <Share2 className="w-4 h-4" />
                   Share Challenge
@@ -1518,8 +1519,8 @@ export default function RandomObjectEngine() {
           {activeMode === 'custom' && (
             <div className="max-w-2xl mx-auto space-y-5">
               <div className="space-y-1">
-                <h3 className="text-xl font-bold text-white">Custom Object List Generator</h3>
-                <p className="text-xs text-slate-400">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Custom Object List Generator</h3>
+                <p className="text-xs text-slate-600 dark:text-slate-400">
                   Paste your own custom items (one per line) or import from a TXT or CSV file.
                 </p>
               </div>
@@ -1530,20 +1531,20 @@ export default function RandomObjectEngine() {
                   value={customInput}
                   onChange={(e) => setCustomInput(e.target.value)}
                   placeholder="Enter items one per line..."
-                  className="w-full bg-slate-950 border border-slate-800 rounded-2xl p-4 text-sm text-slate-200 font-mono focus:outline-none focus:border-indigo-500"
+                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-2xl p-4 text-sm text-slate-900 dark:text-slate-200 font-mono focus:outline-none focus:border-indigo-500"
                 />
                 <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
-                  <label className="flex items-center gap-2 cursor-pointer text-slate-400">
+                  <label className="flex items-center gap-2 cursor-pointer text-slate-600 dark:text-slate-400">
                     <input
                       type="checkbox"
                       checked={customDedupe}
                       onChange={(e) => setCustomDedupe(e.target.checked)}
-                      className="w-3.5 h-3.5 rounded border-slate-700 text-indigo-600 bg-slate-900"
+                      className="w-3.5 h-3.5 rounded border-slate-300 dark:border-slate-700 text-indigo-600 bg-white dark:bg-slate-900"
                     />
                     Remove duplicate entries
                   </label>
 
-                  <label className="cursor-pointer text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1">
+                  <label className="cursor-pointer text-indigo-600 dark:text-indigo-400 hover:underline font-semibold flex items-center gap-1">
                     <Upload className="w-3.5 h-3.5" />
                     Upload TXT / CSV file
                     <input
@@ -1575,7 +1576,7 @@ export default function RandomObjectEngine() {
                     alert(`Random Choice: ${randomChoice}`);
                     playSynthSound('win', soundEnabled);
                   }}
-                  className="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 flex items-center gap-1.5"
+                  className="px-5 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-sm border border-slate-300 dark:border-slate-700 flex items-center gap-1.5"
                 >
                   <Shuffle className="w-4 h-4" />
                   Pick 1 Instant Winner
@@ -1586,28 +1587,28 @@ export default function RandomObjectEngine() {
 
           {/* ----------------- MODE F: DAILY OBJECT OF THE DAY ----------------- */}
           {activeMode === 'daily' && (
-            <div className="max-w-xl mx-auto bg-gradient-to-br from-indigo-950/60 to-slate-900 border border-indigo-500/40 rounded-3xl p-6 sm:p-8 text-center space-y-5 shadow-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+            <div className="max-w-xl mx-auto bg-gradient-to-br from-indigo-50 via-white to-slate-100 dark:from-indigo-950/60 dark:to-slate-900 border border-indigo-200 dark:border-indigo-500/40 rounded-3xl p-6 sm:p-8 text-center space-y-5 shadow-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 dark:border-indigo-500/30">
                 <Calendar className="w-3.5 h-3.5" />
                 Object of the Day ({getTodayDateString()})
               </div>
 
               <div className="space-y-2">
-                <h3 className="text-4xl sm:text-5xl font-black text-white">
+                <h3 className="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white">
                   {dailyObject.name}
                 </h3>
-                <p className="text-slate-300 text-sm">{dailyObject.shortDescription}</p>
-                <div className="inline-block px-3 py-0.5 rounded-full text-xs font-semibold bg-slate-800 text-slate-400">
+                <p className="text-slate-600 dark:text-slate-300 text-sm">{dailyObject.shortDescription}</p>
+                <div className="inline-block px-3 py-0.5 rounded-full text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-400">
                   {dailyObject.category} • {dailyObject.difficulty}
                 </div>
               </div>
 
               {dailyObject.funChallenge && (
                 <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-left">
-                  <div className="text-xs font-bold text-amber-400 uppercase tracking-wider mb-1">
+                  <div className="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider mb-1">
                     Daily Worldwide Challenge:
                   </div>
-                  <p className="text-slate-100 text-sm italic font-medium">
+                  <p className="text-slate-800 dark:text-slate-100 text-sm italic font-medium">
                     &ldquo;{dailyObject.funChallenge}&rdquo;
                   </p>
                 </div>
@@ -1628,7 +1629,7 @@ export default function RandomObjectEngine() {
                 </button>
                 <button
                   onClick={() => downloadObjectCard(dailyObject)}
-                  className="p-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
+                  className="p-3 rounded-2xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-300 border border-slate-300 dark:border-slate-700"
                   title="Download Daily Object Card"
                 >
                   <Download className="w-5 h-5" />
@@ -1639,14 +1640,14 @@ export default function RandomObjectEngine() {
 
           {/* ----------------- MODE G: OBJECT STREAK GAME ----------------- */}
           {activeMode === 'streak' && streakGameTarget && (
-            <div className="max-w-xl mx-auto bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 text-center shadow-xl">
+            <div className="max-w-xl mx-auto bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 text-center shadow-xl">
               {/* Streak Tracker Header */}
-              <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-xs sm:text-sm font-semibold">
-                <div className="flex items-center gap-1.5 text-amber-400">
-                  <Flame className="w-5 h-5 fill-amber-400" />
+              <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800 text-xs sm:text-sm font-semibold">
+                <div className="flex items-center gap-1.5 text-amber-600 dark:text-amber-400">
+                  <Flame className="w-5 h-5 fill-amber-500" />
                   <span>Current Streak: {currentStreak}</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-slate-400">
+                <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
                   <Trophy className="w-4 h-4 text-yellow-500" />
                   <span>Best Streak: {bestStreak}</span>
                 </div>
@@ -1654,25 +1655,25 @@ export default function RandomObjectEngine() {
 
               {/* Game Question */}
               <div className="space-y-2">
-                <div className="text-xs uppercase tracking-widest text-slate-400 font-bold">
+                <div className="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold">
                   Guess the Category
                 </div>
-                <h3 className="text-3xl sm:text-4xl font-black text-white">
+                <h3 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">
                   {streakGameTarget.name}
                 </h3>
-                <p className="text-xs text-slate-300 italic max-w-md mx-auto">
+                <p className="text-xs text-slate-600 dark:text-slate-300 italic max-w-md mx-auto">
                   &ldquo;{streakGameTarget.shortDescription}&rdquo;
                 </p>
               </div>
 
               {/* Feedback Alert */}
               {streakFeedback === 'correct' && (
-                <div className="p-3 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-sm font-bold animate-bounce">
+                <div className="p-3 rounded-xl bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30 text-sm font-bold animate-bounce">
                   ✨ Correct! Streak +1!
                 </div>
               )}
               {streakFeedback === 'wrong' && (
-                <div className="p-3 rounded-xl bg-rose-500/20 text-rose-300 border border-rose-500/30 text-sm font-bold">
+                <div className="p-3 rounded-xl bg-rose-500/20 text-rose-800 dark:text-rose-300 border border-rose-500/30 text-sm font-bold">
                   ❌ Incorrect! The correct category was: {streakGameTarget.category}. Streak reset.
                 </div>
               )}
@@ -1684,7 +1685,7 @@ export default function RandomObjectEngine() {
                     key={opt}
                     disabled={streakFeedback !== null}
                     onClick={() => handleStreakAnswer(opt)}
-                    className="p-3.5 rounded-2xl bg-slate-900 hover:bg-indigo-600/30 border border-slate-700/80 hover:border-indigo-500 text-white font-bold text-sm transition transform active:scale-95 text-center"
+                    className="p-3.5 rounded-2xl bg-white dark:bg-slate-900 hover:bg-indigo-500/10 dark:hover:bg-indigo-600/30 border border-slate-300 dark:border-slate-700/80 hover:border-indigo-500 text-slate-900 dark:text-white font-bold text-sm transition transform active:scale-95 text-center"
                   >
                     {opt}
                   </button>

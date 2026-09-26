@@ -32,13 +32,13 @@ export default function FairnessSection() {
       <div className="max-w-7xl mx-auto">
         <div className="max-w-3xl mb-8">
           <span className="text-[12px] font-bold text-[#006c49] dark:text-[#4edea3] uppercase tracking-wider">
-            Certified Verifiable Engine
+            Certified Fair Random Spinner
           </span>
           <h2 className="font-headline text-[26px] sm:text-[32px] font-bold text-[#1a1b22] dark:text-white mt-1">
             Why SpinWheelGames.org is 100% Truly Fair
           </h2>
           <p className="text-[14px] sm:text-[15px] text-[#464554] dark:text-[#c7c4d7] mt-2 leading-relaxed">
-            Unlike standard websites that use basic <code className="bg-[#eeedf7] dark:bg-[#292a39] px-1.5 py-0.5 rounded font-mono text-[13px]">Math.random()</code> which is predictable, our engine executes client-side cryptographic hardware randomness.
+            Unlike standard websites that use basic unpredictable numbers, our wheel uses browser-based certified true random selection directly on your device.
           </p>
         </div>
 
@@ -50,10 +50,10 @@ export default function FairnessSection() {
                 <Lock className="w-5 h-5 text-[#006c49] dark:text-[#4edea3]" />
               </div>
               <h3 className="font-headline text-[18px] font-bold text-[#1a1b22] dark:text-white">
-                Web Crypto API
+                True Random Technology
               </h3>
               <p className="text-[13px] text-[#464554] dark:text-[#c7c4d7] mt-2 leading-relaxed">
-                We leverage browser native <code className="bg-white dark:bg-[#12131a] px-1 py-0.5 rounded font-mono text-[12px]">crypto.getRandomValues()</code> pulling thermal and physical entropy directly from your device processor.
+                We use native browser randomness built directly into your device to ensure every single item gets a 100% equal chance of winning.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-[#eeedf7] dark:border-[#292a39] text-[12px] text-[#006c49] dark:text-[#4edea3] font-bold">
@@ -68,14 +68,14 @@ export default function FairnessSection() {
                 <Scale className="w-5 h-5 text-[#4648d4] dark:text-[#8587ff]" />
               </div>
               <h3 className="font-headline text-[18px] font-bold text-[#1a1b22] dark:text-white">
-                Uniform Arc Physics
+                Equal Slice Arc
               </h3>
               <p className="text-[13px] text-[#464554] dark:text-[#c7c4d7] mt-2 leading-relaxed">
-                Each wedge segment occupies an exact degree slice (<span className="font-mono">360° / N</span>). Friction deceleration is determined before spin launch to eliminate visual drift manipulation.
+                Each slice segment occupies an exact degree slice (<span className="font-mono">360° / N</span>). Friction deceleration is computed before spin launch to prevent visual trickery.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-[#eeedf7] dark:border-[#292a39] text-[12px] text-[#4648d4] dark:text-[#8587ff] font-bold">
-              Decoupled Render Loop
+              Smooth Fair Motion
             </div>
           </div>
 
@@ -86,14 +86,14 @@ export default function FairnessSection() {
                 <FileText className="w-5 h-5 text-[#1a1b22] dark:text-white" />
               </div>
               <h3 className="font-headline text-[18px] font-bold text-[#1a1b22] dark:text-white">
-                Audit Export
+                Export Spin Results
               </h3>
               <p className="text-[13px] text-[#464554] dark:text-[#c7c4d7] mt-2 leading-relaxed">
-                Export every spin result alongside its timestamp, random seed hash, and item list in a verifiable JSON format for giveaway validation.
+                Export every spin result alongside its timestamp and item list in a clear file format for giveaway proof.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-[#eeedf7] dark:border-[#292a39] text-[12px] text-[#1a1b22] dark:text-white font-bold">
-              Auditor Compatible
+              100% Verifiable Results
             </div>
           </div>
         </div>

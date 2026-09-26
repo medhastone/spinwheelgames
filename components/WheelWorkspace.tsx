@@ -371,7 +371,7 @@ export default function WheelWorkspace({
   return (
     <div
       ref={workspaceRef}
-      className={`w-full max-w-[1360px] mx-auto flex flex-col gap-4 transition-all ${
+      className={`w-full max-w-[1440px] mx-auto flex flex-col gap-4 transition-all ${
         isFullscreen
           ? 'fixed inset-0 z-50 bg-[#fbf8ff] dark:bg-[#0d0e15] p-4 sm:p-6 overflow-y-auto flex items-center justify-center'
           : ''
@@ -384,9 +384,9 @@ export default function WheelWorkspace({
       <div className="w-full flex flex-col lg:flex-row items-stretch justify-center gap-4 sm:gap-5 lg:gap-6">
         
         {/* ------------------------------------------------------------------------- */}
-        {/* LEFT COLUMN: Large Centered Wheel Stage (~760–860px on Desktop)          */}
+        {/* LEFT COLUMN: Large Centered Wheel Stage (~800–960px on Desktop)          */}
         {/* ------------------------------------------------------------------------- */}
-        <div className="flex-1 w-full lg:min-w-0 bg-white dark:bg-[#0f1017] rounded-3xl border border-[#eeedf7] dark:border-[#20212f] p-4 sm:p-6 flex flex-col justify-between items-center shadow-lg dark:shadow-xl relative min-h-[540px] sm:min-h-[620px] lg:min-h-[660px] transition-colors">
+        <div className="flex-1 w-full lg:min-w-0 bg-white dark:bg-[#0f1017] rounded-3xl border border-[#eeedf7] dark:border-[#20212f] p-3.5 sm:p-6 lg:p-7 flex flex-col justify-between items-center shadow-lg dark:shadow-xl relative min-h-[auto] sm:min-h-[640px] lg:min-h-[720px] xl:min-h-[760px] transition-colors overflow-hidden">
           
           {/* Top Stage Bar: Pointer label indicator + Top-Right Action buttons */}
           <div className="w-full flex items-center justify-between z-10">
@@ -452,48 +452,56 @@ export default function WheelWorkspace({
           </div>
 
           {/* Bottom Stage Toolbar */}
-          <div className="w-full pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-[#eeedf7] dark:border-[#1e1f2d]">
-            {/* Left Icons: Sound Toggle & Quick Preset Reset */}
-            <div className="flex items-center gap-1.5">
-              <button
-                type="button"
-                onClick={() =>
-                  onChangeSoundSettings({ ...soundSettings, enabled: !soundSettings.enabled })
-                }
-                className={`p-2.5 rounded-xl border transition-all cursor-pointer ${
-                  soundSettings.enabled
-                    ? 'bg-[#f4f2fd] dark:bg-[#1b1c28] text-[#4648d4] dark:text-white border-[#eeedf7] dark:border-[#2e3042] hover:text-[#4648d4] dark:hover:text-[#8587ff]'
-                    : 'bg-[#f4f2fd] dark:bg-[#14151e] text-[#908fa1] dark:text-[#6b6a7a] border-[#eeedf7] dark:border-[#2e3042]'
-                }`}
-                title={soundSettings.enabled ? 'Sound On' : 'Sound Muted'}
-                aria-label="Toggle sound"
-              >
-                {soundSettings.enabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-              </button>
+          <div className="w-full pt-3 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-[#eeedf7] dark:border-[#1e1f2d]">
+            {/* Action Bar (Top on mobile, sides on desktop) */}
+            <div className="flex items-center justify-between w-full sm:w-auto gap-2">
+              <div className="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={() =>
+                    onChangeSoundSettings({ ...soundSettings, enabled: !soundSettings.enabled })
+                  }
+                  className={`p-2.5 rounded-xl border transition-all cursor-pointer ${
+                    soundSettings.enabled
+                      ? 'bg-[#f4f2fd] dark:bg-[#1b1c28] text-[#4648d4] dark:text-white border-[#eeedf7] dark:border-[#2e3042] hover:text-[#4648d4] dark:hover:text-[#8587ff]'
+                      : 'bg-[#f4f2fd] dark:bg-[#14151e] text-[#908fa1] dark:text-[#6b6a7a] border-[#eeedf7] dark:border-[#2e3042]'
+                  }`}
+                  title={soundSettings.enabled ? 'Sound On' : 'Sound Muted'}
+                  aria-label="Toggle sound"
+                >
+                  {soundSettings.enabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+                </button>
 
-              <button
-                type="button"
-                onClick={onResetWheel}
-                className="p-2.5 rounded-xl bg-[#f4f2fd] dark:bg-[#1b1c28] text-[#464554] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white border border-[#eeedf7] dark:border-[#2e3042] transition-colors cursor-pointer"
-                title="Reset to default items"
-                aria-label="Reset wheel"
-              >
-                <RotateCcw className="w-4 h-4" />
-              </button>
+                <button
+                  type="button"
+                  onClick={onResetWheel}
+                  className="p-2.5 rounded-xl bg-[#f4f2fd] dark:bg-[#1b1c28] text-[#464554] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white border border-[#eeedf7] dark:border-[#2e3042] transition-colors cursor-pointer"
+                  title="Reset to default items"
+                  aria-label="Reset wheel"
+                >
+                  <RotateCcw className="w-4 h-4" />
+                </button>
 
-              <button
-                type="button"
-                onClick={handleShuffle}
-                className="p-2.5 rounded-xl bg-[#f4f2fd] dark:bg-[#1b1c28] text-[#464554] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white border border-[#eeedf7] dark:border-[#2e3042] transition-colors cursor-pointer"
-                title="Shuffle slices"
-                aria-label="Shuffle slices"
-              >
-                <Shuffle className="w-4 h-4" />
-              </button>
+                <button
+                  type="button"
+                  onClick={handleShuffle}
+                  className="p-2.5 rounded-xl bg-[#f4f2fd] dark:bg-[#1b1c28] text-[#464554] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white border border-[#eeedf7] dark:border-[#2e3042] transition-colors cursor-pointer"
+                  title="Shuffle slices"
+                  aria-label="Shuffle slices"
+                >
+                  <Shuffle className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Mobile Provably Fair Badge */}
+              <span className="sm:hidden inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-[#f4f2fd] dark:bg-[#14151e] border border-[#eeedf7] dark:border-[#2e3042] text-[10px] font-bold text-[#006c49] dark:text-emerald-400 font-mono">
+                <ShieldCheck className="w-3 h-3" />
+                <span>Fair</span>
+              </span>
             </div>
 
             {/* Center: Large Spin Button */}
-            <div className="flex-1 max-w-sm mx-auto flex items-center justify-center">
+            <div className="w-full sm:flex-1 sm:max-w-sm flex items-center justify-center">
               <SpinButton
                 onSpin={handleInitiateSpin}
                 isSpinning={isSpinning}
@@ -502,7 +510,7 @@ export default function WheelWorkspace({
               />
             </div>
 
-            {/* Right: Provably Fair Badge */}
+            {/* Right: Desktop Provably Fair Badge */}
             <div className="hidden sm:flex items-center gap-1.5">
               <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#f4f2fd] dark:bg-[#14151e] border border-[#eeedf7] dark:border-[#2e3042] text-[11px] font-bold text-[#006c49] dark:text-emerald-400 font-mono">
                 <ShieldCheck className="w-3.5 h-3.5" />

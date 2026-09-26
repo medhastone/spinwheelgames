@@ -54,7 +54,7 @@ export default function SoundControls({ settings, onChangeSettings }: SoundContr
         <div className="flex items-center gap-2">
           <Volume2 className="w-5 h-5 text-[#4648d4] dark:text-[#8587ff]" />
           <h3 className="font-headline font-bold text-[16px] text-[#1a1b22] dark:text-[#f1effa]">
-            Audio & Speech Engine
+            Sound &amp; Voice Effects
           </h3>
         </div>
 

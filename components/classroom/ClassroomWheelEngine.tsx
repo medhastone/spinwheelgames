@@ -856,12 +856,12 @@ export default function ClassroomWheelEngine() {
             </div>
 
             {/* Canvas Container */}
-            <div className="relative p-2 bg-slate-100 dark:bg-slate-900 rounded-full shadow-inner border border-slate-200 dark:border-slate-800">
+            <div className="relative p-2 bg-slate-100 dark:bg-slate-900 rounded-full shadow-inner border border-slate-200 dark:border-slate-800 flex items-center justify-center">
               <canvas
                 ref={canvasRef}
                 width={420}
                 height={420}
-                className="w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] cursor-pointer touch-none transition-transform"
+                className="w-full max-w-[min(92vw,360px)] aspect-square sm:max-w-[400px] cursor-pointer touch-manipulation transition-transform"
                 onClick={handleSpin}
               />
             </div>

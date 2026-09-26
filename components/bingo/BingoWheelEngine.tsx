@@ -468,7 +468,7 @@ export default function BingoWheelEngine() {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold mb-1 border border-rose-500/20">
             <Radio className="w-3.5 h-3.5 animate-pulse text-rose-500" />
-            <span>Live Bingo Caller & Wheel Engine</span>
+            <span>Live Bingo Caller &amp; Game</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
             <span>Bingo Spin Wheel</span>
@@ -537,12 +537,12 @@ export default function BingoWheelEngine() {
           </div>
 
           {/* Spin Duration / Speed Selector */}
-          <div className="bg-slate-100 dark:bg-[#1a1b26] p-1 rounded-xl flex items-center gap-1 border border-slate-200 dark:border-slate-800 text-xs font-semibold">
+          <div className="bg-slate-100 dark:bg-[#1a1b26] p-1 rounded-xl flex flex-wrap items-center gap-1 border border-slate-200 dark:border-slate-800 text-xs font-semibold">
             <button
               type="button"
               onClick={() => setSpinSpeed('fast')}
               title="Fast 1.5s spin speed"
-              className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1 cursor-pointer ${
+              className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1 cursor-pointer min-h-[36px] ${
                 spinSpeed === 'fast'
                   ? 'bg-indigo-600 text-white shadow-sm font-bold'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -555,7 +555,7 @@ export default function BingoWheelEngine() {
               type="button"
               onClick={() => setSpinSpeed('standard')}
               title="Standard 3.5s realistic spin"
-              className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1 cursor-pointer ${
+              className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1 cursor-pointer min-h-[36px] ${
                 spinSpeed === 'standard'
                   ? 'bg-indigo-600 text-white shadow-sm font-bold'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -567,7 +567,7 @@ export default function BingoWheelEngine() {
               type="button"
               onClick={() => setSpinSpeed('dramatic')}
               title="Dramatic 5.5s suspense spin"
-              className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1 cursor-pointer ${
+              className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1 cursor-pointer min-h-[36px] ${
                 spinSpeed === 'dramatic'
                   ? 'bg-amber-600 text-white shadow-sm font-bold'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -579,7 +579,7 @@ export default function BingoWheelEngine() {
               type="button"
               onClick={() => setSpinSpeed('epic')}
               title="Epic 8.5s maximum suspense spin"
-              className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1 cursor-pointer ${
+              className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1 cursor-pointer min-h-[36px] ${
                 spinSpeed === 'epic'
                   ? 'bg-rose-600 text-white shadow-sm font-bold'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -693,9 +693,10 @@ export default function BingoWheelEngine() {
             </div>
 
             {/* Spinning Wheel Graphic */}
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full p-2 bg-gradient-to-tr from-indigo-600 via-purple-600 to-rose-500 shadow-2xl flex items-center justify-center">
+            <div className="relative w-full max-w-[min(92vw,380px)] aspect-square sm:max-w-[420px] lg:max-w-[460px] rounded-full p-2 bg-gradient-to-tr from-indigo-600 via-purple-600 to-rose-500 shadow-2xl flex items-center justify-center touch-manipulation">
               <div
-                className="w-full h-full rounded-full relative overflow-hidden transition-all ease-out"
+                className="w-full h-full rounded-full relative overflow-hidden transition-all ease-out cursor-pointer"
+                onClick={spinAndCallNumber}
                 style={{
                   transform: `rotate(${wheelAngle}deg)`,
                   transitionDuration: isSpinning ? `${activeDurationMs}ms` : '0ms',
@@ -759,7 +760,13 @@ export default function BingoWheelEngine() {
               </div>
 
               {/* Central Caller Wheel Hub */}
-              <div className="absolute w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-slate-900 border-4 border-white dark:border-slate-800 shadow-2xl flex flex-col items-center justify-center text-center z-10">
+              <button
+                type="button"
+                onClick={spinAndCallNumber}
+                disabled={isSpinning || remainingNumbers.length === 0}
+                aria-label="Spin Bingo Caller"
+                className="absolute w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-slate-900 border-4 border-white dark:border-slate-800 shadow-2xl flex flex-col items-center justify-center text-center z-10 cursor-pointer active:scale-95 transition-transform"
+              >
                 {currentCall ? (
                   <div className="animate-in zoom-in-50 duration-300">
                     {currentCall.letter && (
@@ -779,7 +786,7 @@ export default function BingoWheelEngine() {
                     </span>
                   </div>
                 )}
-              </div>
+              </button>
             </div>
 
             {/* Spin CTA Button */}

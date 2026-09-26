@@ -95,13 +95,13 @@ export default function AboutPage() {
         <section className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4648d4]/10 dark:bg-[#4648d4]/20 text-[#4648d4] dark:text-[#8587ff] text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
-            Engineering &amp; Philosophy
+            Design &amp; Philosophy
           </div>
           <h1 className="font-headline text-[32px] sm:text-[44px] font-extrabold tracking-tight text-[#1a1b22] dark:text-white leading-tight">
-            Building the Open Web’s Most Reliable Random Decision Engine
+            Building the Open Web’s Most Reliable Fair Decision Spinner
           </h1>
           <p className="text-[16px] sm:text-[18px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-            SpinWheelGames was created to replace bloated, ad-cluttered spinner websites with a fast, private, 100% client-side decision platform backed by true hardware cryptography.
+            SpinWheelGames was created to replace bloated, ad-cluttered spinner websites with a fast, private, 100% browser-based decision wheel backed by true device randomness.
           </p>
         </section>
 
@@ -112,10 +112,10 @@ export default function AboutPage() {
               <Cpu className="w-6 h-6" />
             </div>
             <h2 className="font-headline text-[20px] font-bold text-[#1a1b22] dark:text-white">
-              1. Cryptographically Provable Randomness
+              1. Truly Fair Random Selection
             </h2>
             <p className="text-[14px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-              Unlike legacy wheels that use outdated pseudorandom generators like <code className="bg-[#f4f2fd] dark:bg-[#222330] px-1.5 py-0.5 rounded text-xs">Math.random()</code>, every spin on our platform draws 53 bits of hardware and thermal entropy directly from the browser’s <code className="bg-[#f4f2fd] dark:bg-[#222330] px-1.5 py-0.5 rounded text-xs">window.crypto.getRandomValues()</code> CSPRNG.
+              Unlike legacy wheels that use outdated pseudorandom algorithms, every spin on our platform uses certified native device randomness to guarantee every option gets a 100% equal chance.
             </p>
           </div>
 

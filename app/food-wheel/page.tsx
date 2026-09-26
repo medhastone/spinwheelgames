@@ -21,9 +21,55 @@ import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Food Spin the Wheel – Random Food Picker',
+  title: 'Food Spin the Wheel – Random Food Picker & Dinner Wheel',
   description:
-    'Spin a free food wheel to randomly choose dinner, lunch, snacks, desserts, cuisines and more. Customize the choices or add your own foods.',
+    'Spin a free food wheel to randomly choose dinner, lunch, snacks, desserts, cuisines and fast food. Customize your options or pick what to eat instantly.',
+  keywords: [
+    'random food generator',
+    'random food picker',
+    'food wheel',
+    'random food',
+    'food wheel spin',
+    'food wheel spinner',
+    'food roulette',
+    'wheel dinner',
+    'dinner wheel',
+    'food spin the wheel',
+    'fast food spin wheel',
+    'wheel of food',
+    'dinner roulette',
+    'fast food roulette',
+    'dinner spinner',
+    'fast food spin the wheel',
+    'food randomizer',
+    'fast food roulette wheel',
+    'fast food generator',
+    'food spinner',
+    'what to eat generator',
+    'food decision wheel',
+    'food decider',
+    'choose dinner for me',
+    'dinner picker',
+    'food spinner wheel',
+    'what should i eat today generator',
+    'fast food randomizer',
+    'fast food random',
+    'food randomizer wheel',
+    'spin for dinner',
+    'food decision dice',
+    'dinner wheel spin',
+    'pick food',
+    'dinner spinner app',
+    'pick my dinner',
+    'fast food spinner',
+    'what to eat randomizer',
+    'food wheel decider',
+    'pick food for me',
+    'spin wheel food',
+    'what should i order for dinner tonight generator',
+    'random fast food wheel',
+    'random fast food place'
+  ],
   alternates: {
     canonical: 'https://spinwheelgames.org/food-wheel'
   },
@@ -154,22 +200,18 @@ export default function FoodWheelPage() {
           </div>
 
           {/* HERO SECTION */}
-          <section className="mb-8 text-center sm:text-left">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-orange-500/10 text-orange-600 dark:text-orange-400 mb-2">
-                <Utensils className="w-3.5 h-3.5" />
-                <span>Free Random Food Picker & Wheel Spinner</span>
-              </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-950 dark:text-white tracking-tight">
-                Food Spin the Wheel
-              </h1>
-              <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
-                Stuck on what to eat? Spin our free food wheel spinner to randomly choose dinner, lunch, breakfast, snacks, or desserts. Filter by cuisine or dietary preference, or build your own custom restaurant list in seconds.
-              </p>
+          <section className="mb-8 text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-orange-500/10 text-orange-600 dark:text-orange-400">
+              <Utensils className="w-3.5 h-3.5" />
+              <span>Free Random Food Picker & Wheel Spinner</span>
             </div>
-          </div>
-        </section>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-950 dark:text-white tracking-tight">
+              Food Spin the Wheel
+            </h1>
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
+              Stuck on what to eat? Spin our free food wheel spinner to randomly choose dinner, lunch, breakfast, snacks, or desserts. Filter by cuisine or dietary preference, or build your own custom restaurant list in seconds.
+            </p>
+          </section>
 
         {/* INTERACTIVE FOOD WHEEL ENGINE */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-16">

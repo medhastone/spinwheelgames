@@ -586,7 +586,7 @@ export default function AllGamesExplorer() {
             }`}
           >
             <Trophy className="w-4 h-4 text-blue-200" />
-            <span>🏆 Featured Engines</span>
+            <span>🏆 Featured Wheels</span>
             <span className="text-[11px] px-1.5 py-0.2 rounded-full bg-white/20">
               {levelCounts.featured}
             </span>

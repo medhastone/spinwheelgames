@@ -250,10 +250,43 @@ export const KEYWORD_CONTENT_MATRIX: KeywordContentMatrixItem[] = [
     ],
     sourceRequirements: ['Curated Semantic Object Lexicon'],
     indexable: true
+  },
+  {
+    url: '/team-generator',
+    pageName: 'Random Team Generator – Group Maker & Wheel',
+    primaryKeyword: 'random team generator',
+    secondaryKeywords: [
+      'team generator',
+      'random group generator',
+      'team picker wheel',
+      'split into teams',
+      'group maker'
+    ],
+    semanticTerms: [
+      'balanced teams',
+      'snake draft',
+      'live draft wheel',
+      'custom squad names',
+      'classroom pods'
+    ],
+    searchIntent: 'tool / education / sports',
+    targetAudience: 'Teachers, coaches, team leads, gamers, event organizers',
+    problemSolved: 'Divides lists of names into random, balanced teams or runs live draft wheels without bias',
+    toolType: 'Random Team Generator & Live Draft Wheel',
+    uniqueValue: 'Instant divider by team count or group size, live wheel draft, custom themes, CSV & Markdown export',
+    internalLinks: [
+      '/classroom-wheel',
+      '/wheel-of-names',
+      '/number-wheel',
+      '/random-object-generator'
+    ],
+    sourceRequirements: ['W3C Web Cryptography API', 'Fisher-Yates Shuffle Algorithm'],
+    indexable: true
   }
 ];
 
 export function getMatrixItemByUrl(url: string): KeywordContentMatrixItem | undefined {
+
   return KEYWORD_CONTENT_MATRIX.find(
     (item) => item.url === url || item.url === url.replace(/\/$/, '')
   );

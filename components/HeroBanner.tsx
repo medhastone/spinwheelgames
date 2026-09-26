@@ -20,7 +20,7 @@ export default function HeroBanner({ onSpinClick, onExploreClick }: HeroBannerPr
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f4f2fd] dark:bg-[#1d1e28] border border-[#eeedf7] dark:border-[#292a39] shadow-2xs">
           <Sparkles className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
           <span className="text-[11px] sm:text-[12px] font-bold text-[#1a1b22] dark:text-[#f1effa] tracking-wide">
-            Interactive Decision Engine &amp; Hardware-Seeded Picker Platform
+            Interactive Spin Wheel &amp; Truly Fair Random Decision Studio
           </span>
         </div>
 

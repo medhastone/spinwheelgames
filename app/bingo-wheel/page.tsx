@@ -39,7 +39,18 @@ export const metadata: Metadata = {
     'bingo spinner',
     'bingo picker',
     '75 ball bingo caller',
-    'classroom bingo caller'
+    'classroom bingo caller',
+    'bingo caller online free',
+    'bingo ball generator',
+    'bingo number selector',
+    'bingo roller',
+    'bingo generator caller',
+    'bingo caller 1 75',
+    'bingo ball spinner',
+    'bingo call generator',
+    'spinning bingo',
+    'bingo game number generator',
+    'bingo caller 1-75'
   ],
   alternates: {
     canonical: 'https://spinwheelgames.org/bingo-wheel'

@@ -71,8 +71,8 @@ export default function AllGamesPage() {
         />
 
         {/* Hero Header */}
-        <section className="space-y-4 max-w-4xl">
-          <div className="flex flex-wrap items-center gap-2">
+        <section className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#4648d4]/10 dark:bg-[#4648d4]/20 text-[#4648d4] dark:text-[#8587ff] border border-[#4648d4]/20 uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
               Complete Catalog (180+ Wheels)
@@ -87,7 +87,7 @@ export default function AllGamesPage() {
             Explore All 180+ Wheel Games &amp; Decision Spinners
           </h1>
 
-          <p className="text-base sm:text-lg text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#464554] dark:text-[#c7c4d7] leading-relaxed max-w-3xl mx-auto">
             Browse our complete directory of interactive wheel games, decision engines, classroom callers, party pickers, and cryptographic lottery spinners. Filter by category or explore trending, hot viral, and most popular wheels.
           </p>
 

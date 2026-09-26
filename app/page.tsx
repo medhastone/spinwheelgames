@@ -8,6 +8,7 @@ import WheelWorkspace from '@/components/WheelWorkspace';
 import PurposeCards from '@/components/PurposeCards';
 import PopularWheels from '@/components/PopularWheels';
 import GameCards from '@/components/GameCards';
+import HomeDicePromo from '@/components/HomeDicePromo';
 import DailyChallenge from '@/components/DailyChallenge';
 import CreateWheelCTA from '@/components/CreateWheelCTA';
 import CategoryGrid from '@/components/CategoryGrid';
@@ -68,7 +69,7 @@ function EngineSkeleton({ title }: { title: string }) {
         {title}
       </span>
       <span className="text-[12px] text-[#767586] dark:text-[#908fa1]">
-        Initializing Web Cryptography &amp; Canvas Engine...
+        Initializing Fair Spinner &amp; Wheel Game...
       </span>
     </div>
   );
@@ -91,12 +92,12 @@ const BusinessModeView = dynamic(() => import('@/components/BusinessModeView'), 
 });
 
 const MultiWheelEngine = dynamic(() => import('@/components/MultiWheelEngine'), {
-  loading: () => <EngineSkeleton title="Loading Multi-Wheel Engine..." />,
+  loading: () => <EngineSkeleton title="Loading Multi-Wheel Studio..." />,
   ssr: false
 });
 
 const TournamentEngine = dynamic(() => import('@/components/TournamentEngine'), {
-  loading: () => <EngineSkeleton title="Loading Tournament Engine..." />,
+  loading: () => <EngineSkeleton title="Loading Elimination Tournament..." />,
   ssr: false
 });
 
@@ -106,12 +107,12 @@ const ChallengeEngine = dynamic(() => import('@/components/ChallengeEngine'), {
 });
 
 const WheelBattleEngine = dynamic(() => import('@/components/WheelBattleEngine'), {
-  loading: () => <EngineSkeleton title="Loading Wheel Battle Engine..." />,
+  loading: () => <EngineSkeleton title="Loading Wheel Battle Arena..." />,
   ssr: false
 });
 
 const FairnessPanel = dynamic(() => import('@/components/FairnessPanel'), {
-  loading: () => <EngineSkeleton title="Loading Cryptographic Audit Panel..." />,
+  loading: () => <EngineSkeleton title="Loading Fair Chance Verification..." />,
   ssr: false
 });
 
@@ -402,7 +403,7 @@ export default function HomePage() {
         />
 
         {/* Engine Modes Switcher Bar - Compact & Clean */}
-        <div id="interactive-workspace" className="w-full max-w-[1240px] mx-auto px-4 sm:px-6 pt-2 sm:pt-3 pb-1">
+        <div id="interactive-workspace" className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 pt-2 sm:pt-3 pb-1">
           <div className="flex flex-wrap items-center justify-between gap-2.5 bg-white dark:bg-[#181922] p-1.5 sm:p-2 rounded-2xl border border-[#eeedf7] dark:border-[#222330] shadow-2xs">
             {/* Primary View Switcher Pills */}
             <div className="flex flex-wrap items-center gap-1">
@@ -519,7 +520,7 @@ export default function HomePage() {
                       }`}
                     >
                       <Layers className="w-4 h-4 text-[#4648d4] dark:text-[#8587ff]" />
-                      <span>Multi-Wheel Engine</span>
+                      <span>Multi-Wheel Studio</span>
                     </button>
 
                     <button
@@ -583,7 +584,7 @@ export default function HomePage() {
                       }`}
                     >
                       <ShieldCheck className="w-4 h-4 text-emerald-500" />
-                      <span>Cryptographic Audit</span>
+                      <span>Fairness Verification</span>
                     </button>
                   </div>
                 )}
@@ -616,7 +617,7 @@ export default function HomePage() {
         </div>
 
         {/* View Component Display */}
-        <div className="w-full max-w-[1240px] mx-auto px-4 sm:px-6 py-2 sm:py-3">
+        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 py-2 sm:py-3">
           {engineView === 'solo' && (
             <WheelWorkspace
               wheelTitle={wheelTitle}
@@ -716,6 +717,9 @@ export default function HomePage() {
 
         {/* 6. Play Section ("Play a Quick Wheel Game") */}
         <GameCards />
+
+        {/* 6.5. 3D Dice Hub Promo ("Roll 3D Dice Online") */}
+        <HomeDicePromo />
 
         {/* 7. Daily Challenge ("🔥 Daily Spin Challenge") */}
         <DailyChallenge soundEnabled={soundSettings.enabled} />

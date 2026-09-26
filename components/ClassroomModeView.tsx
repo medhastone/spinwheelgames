@@ -374,7 +374,7 @@ export default function ClassroomModeView({
               <span>Classroom &amp; Educator Suite</span>
             </div>
             <h1 className="font-headline font-extrabold text-[26px] sm:text-[34px] text-[#1a1b22] dark:text-[#f1effa] tracking-tight">
-              Classroom Random Picker &amp; Team Engine
+              Classroom Random Picker &amp; Group Maker
             </h1>
             <p className="text-[14px] text-[#767586] dark:text-[#908fa1] max-w-3xl mt-1">
               Purpose-built for teachers, professors, and instructors. Unbiased cold calling, no-repeat turns, instant balanced teams, reading orders, and fullscreen projector display.

@@ -407,3 +407,141 @@ export function stopSpeaking(): void {
     // Ignore
   }
 }
+
+/**
+ * Procedurally synthesizes a crisp, realistic multi-die rolling clatter
+ * Uses Web Audio API with zero external audio assets
+ */
+export function playDiceRollSound(volume = 0.6): void {
+  if (typeof window === 'undefined') return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  const now = ctx.currentTime;
+  const masterGain = ctx.createGain();
+  masterGain.gain.setValueAtTime(Math.max(0.01, Math.min(volume, 1)), now);
+  masterGain.connect(ctx.destination);
+
+  // Generate 6-8 rapid micro-impacts simulating dice bouncing and tumbling
+  const clickCount = 7;
+  for (let i = 0; i < clickCount; i++) {
+    const timeOffset = i * (0.05 + Math.random() * 0.08);
+    const clickTime = now + timeOffset;
+
+    // Resonant body click
+    const osc = ctx.createOscillator();
+    const oscGain = ctx.createGain();
+    const filter = ctx.createBiquadFilter();
+
+    const freq = 450 + Math.random() * 650;
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(freq, clickTime);
+    osc.frequency.exponentialRampToValueAtTime(freq * 0.35, clickTime + 0.04);
+
+    filter.type = 'bandpass';
+    filter.frequency.setValueAtTime(freq * 1.2, clickTime);
+    filter.Q.setValueAtTime(3.5, clickTime);
+
+    const hitVol = (0.2 + Math.random() * 0.35) * (1 - (i / clickCount) * 0.4);
+    oscGain.gain.setValueAtTime(hitVol, clickTime);
+    oscGain.gain.exponentialRampToValueAtTime(0.001, clickTime + 0.045);
+
+    osc.connect(filter);
+    filter.connect(oscGain);
+    oscGain.connect(masterGain);
+
+    osc.start(clickTime);
+    osc.stop(clickTime + 0.05);
+  }
+}
+
+/**
+ * Procedurally synthesizes a solid final die landing/settle impact
+ */
+export function playDiceSettleSound(volume = 0.7): void {
+  if (typeof window === 'undefined') return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  const now = ctx.currentTime;
+  const masterGain = ctx.createGain();
+  masterGain.gain.setValueAtTime(Math.max(0.01, Math.min(volume, 1)), now);
+  masterGain.connect(ctx.destination);
+
+  // Solid wood/acrylic landing thud
+  const osc = ctx.createOscillator();
+  const oscGain = ctx.createGain();
+  const filter = ctx.createBiquadFilter();
+
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(280, now);
+  osc.frequency.exponentialRampToValueAtTime(90, now + 0.08);
+
+  filter.type = 'lowpass';
+  filter.frequency.setValueAtTime(800, now);
+
+  oscGain.gain.setValueAtTime(0.55, now);
+  oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+
+  osc.connect(filter);
+  filter.connect(oscGain);
+  oscGain.connect(masterGain);
+
+  osc.start(now);
+  osc.stop(now + 0.1);
+
+  // High-frequency click accent
+  const clickOsc = ctx.createOscillator();
+  const clickGain = ctx.createGain();
+  clickOsc.type = 'triangle';
+  clickOsc.frequency.setValueAtTime(1400, now);
+  clickOsc.frequency.exponentialRampToValueAtTime(400, now + 0.025);
+
+  clickGain.gain.setValueAtTime(0.3, now);
+  clickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
+
+  clickOsc.connect(clickGain);
+  clickGain.connect(masterGain);
+
+  clickOsc.start(now);
+  clickOsc.stop(now + 0.035);
+}
+
+/**
+ * Synthesizes dynamic collision impact sound based on impact velocity magnitude
+ * Differentiates table felt impacts from sharp dice-to-dice clatters
+ */
+export function playDiceImpactSound(impactSpeed: number, isDieToDie = false, soundEnabled = true, masterVol = 0.8): void {
+  if (!soundEnabled || masterVol <= 0 || impactSpeed < 0.4) return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  const now = ctx.currentTime;
+  const speedNormalized = Math.min(1, Math.max(0.1, impactSpeed / 12));
+  const effectiveVol = masterVol * speedNormalized * (isDieToDie ? 0.6 : 0.75);
+
+  const gain = ctx.createGain();
+  gain.gain.setValueAtTime(effectiveVol, now);
+  gain.gain.exponentialRampToValueAtTime(0.001, now + (isDieToDie ? 0.04 : 0.07));
+  gain.connect(ctx.destination);
+
+  const osc = ctx.createOscillator();
+  if (isDieToDie) {
+    // Sharp gemstone/resin click
+    osc.type = 'triangle';
+    const baseFreq = 800 + Math.random() * 600 + speedNormalized * 400;
+    osc.frequency.setValueAtTime(baseFreq, now);
+    osc.frequency.exponentialRampToValueAtTime(baseFreq * 0.4, now + 0.035);
+  } else {
+    // Felt/wood surface thud
+    osc.type = 'sine';
+    const baseFreq = 180 + Math.random() * 120 + speedNormalized * 150;
+    osc.frequency.setValueAtTime(baseFreq, now);
+    osc.frequency.exponentialRampToValueAtTime(60, now + 0.06);
+  }
+
+  osc.connect(gain);
+  osc.start(now);
+  osc.stop(now + (isDieToDie ? 0.045 : 0.08));
+}
+

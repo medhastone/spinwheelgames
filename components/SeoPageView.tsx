@@ -202,9 +202,9 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
           }
         />
 
-        {/* Header Intro Section */}
-        <section className="space-y-4 max-w-4xl" id="page-header-intro">
-          <div className="flex flex-wrap items-center gap-2.5">
+        {/* Header Intro Section (Minimal: Title & Subheading Only) */}
+        <section className="text-center max-w-3xl mx-auto space-y-4" id="page-header-intro">
+          <div className="flex flex-wrap items-center justify-center gap-2.5">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#4648d4]/10 dark:bg-[#4648d4]/20 text-[#4648d4] dark:text-[#8587ff] border border-[#4648d4]/20 uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
               {page.primaryIntent}
@@ -222,6 +222,35 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
             {page.h1}
           </h1>
 
+          <p className="text-base sm:text-lg text-[#464554] dark:text-[#c7c4d7] leading-relaxed max-w-3xl mx-auto">
+            {page.metaDescription}
+          </p>
+        </section>
+
+        {/* Functioning Interactive Tool Area */}
+        <section className="rounded-3xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] p-4 sm:p-7 shadow-lg relative overflow-hidden transition-colors" id="interactive-tool-section">
+          <div className="flex items-center justify-between border-b border-[#eeedf7] dark:border-[#292a39] pb-3 mb-4">
+            <div className="flex items-center gap-2">
+              <Play className="w-4 h-4 text-[#006c49] dark:text-emerald-400" />
+              <span className="text-sm font-bold text-[#1a1b22] dark:text-[#f1effa]">
+                Interactive {activeWheel.title}
+              </span>
+            </div>
+            <span className="text-xs text-[#767586] dark:text-[#908fa1] font-mono">
+              Provably Fair • CSPRNG
+            </span>
+          </div>
+
+          <StandaloneWheelHost
+            key={`${activeWheel.title}-${activeWheel.items.length}-${activeWheel.items[0]?.text}`}
+            initialTitle={activeWheel.title}
+            initialItems={activeWheel.items}
+            initialPaletteKey={activeWheel.paletteKey}
+          />
+        </section>
+
+        {/* Overview & Detailed Content (Below Wheel Container) */}
+        <section className="space-y-6 max-w-4xl" id="page-overview-details">
           {/* Direct Answer Block */}
           <DirectAnswer
             question={`What is ${page.h1}?`}
@@ -270,28 +299,6 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
               <span>100% Client-Side • Zero Data Transmission</span>
             </div>
           </div>
-        </section>
-
-        {/* Functioning Interactive Tool Area */}
-        <section className="rounded-3xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] p-4 sm:p-7 shadow-lg relative overflow-hidden transition-colors" id="interactive-tool-section">
-          <div className="flex items-center justify-between border-b border-[#eeedf7] dark:border-[#292a39] pb-3 mb-4">
-            <div className="flex items-center gap-2">
-              <Play className="w-4 h-4 text-[#006c49] dark:text-emerald-400" />
-              <span className="text-sm font-bold text-[#1a1b22] dark:text-[#f1effa]">
-                Interactive {activeWheel.title}
-              </span>
-            </div>
-            <span className="text-xs text-[#767586] dark:text-[#908fa1] font-mono">
-              Provably Fair • CSPRNG
-            </span>
-          </div>
-
-          <StandaloneWheelHost
-            key={`${activeWheel.title}-${activeWheel.items.length}-${activeWheel.items[0]?.text}`}
-            initialTitle={activeWheel.title}
-            initialItems={activeWheel.items}
-            initialPaletteKey={activeWheel.paletteKey}
-          />
         </section>
 
         {/* Quick Facts / At a Glance Component */}

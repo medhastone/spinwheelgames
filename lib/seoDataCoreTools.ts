@@ -2181,5 +2181,141 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       { name: 'Games & Classroom', item: 'https://spinwheelgames.org/classroom-wheel' },
       { name: 'Bingo Wheel', item: 'https://spinwheelgames.org/bingo-wheel' }
     ]
+  },
+  'team-generator': {
+    slug: 'team-generator',
+    fullPath: '/team-generator',
+    pageType: 'tool',
+    title: 'Random Team Generator – Free Online Group Maker & Wheel',
+    metaDescription: 'Easily split participants into random, balanced teams or spin the wheel for live drafts. Perfect for classroom groups, sports, hackathons, and game nights.',
+    h1: 'Random Team Generator: Free Online Group Maker & Wheel',
+    introduction: 'Need to divide a group quickly and fairly? Our random team generator splits participant rosters into balanced groups or lets you spin a live draft wheel. Built with client-side cryptographic randomness, it guarantees 100% fair team assignments with zero bias.',
+    primaryIntent: 'transactional/use tool',
+    secondaryIntents: ['classroom', 'sports', 'educational'],
+    categoryKey: 'tools',
+    parentCategoryPath: '/categories',
+    parentCategoryName: 'Tools',
+    featureBadges: [
+      'Instant Balanced Split',
+      'Live Draft Wheel',
+      'Themed Team Names',
+      'CSPRNG Certified Fair',
+      'CSV & Markdown Export'
+    ],
+    defaultWheelData: {
+      title: 'Random Team Picker',
+      description: 'Spin to draft players live to teams',
+      paletteKey: 'arcade',
+      items: [
+        { id: 't1', text: 'Alexander M.', weight: 1 },
+        { id: 't2', text: 'Sophia T.', weight: 1 },
+        { id: 't3', text: 'Liam K.', weight: 1 },
+        { id: 't4', text: 'Emma W.', weight: 1 },
+        { id: 't5', text: 'Noah B.', weight: 1 },
+        { id: 't6', text: 'Olivia R.', weight: 1 },
+        { id: 't7', text: 'Ethan C.', weight: 1 },
+        { id: 't8', text: 'Ava D.', weight: 1 }
+      ]
+    },
+    instructions: [
+      'Enter participant names in the text box (one name per line) or pick a preset roster.',
+      'Select whether to split by Number of Teams or Members per Team.',
+      'Choose a fun team name theme (Animals, Mythical Beasts, Colors, Cyber, Sports).',
+      'Click Generate Fair Random Teams to immediately create balanced squads.',
+      'Optionally switch to Live Wheel Draft to spin for each player draft live.'
+    ],
+    whoItsUsefulFor: [
+      {
+        audience: 'Teachers & Professors',
+        benefit: 'Divides classroom students into project groups and lab partnerships without social tension or favoritism.'
+      },
+      {
+        audience: 'Coaches & Gym Teachers',
+        benefit: 'Creates balanced squads for 5v5 basketball, soccer scrimmages, and dodgeball games in seconds.'
+      },
+      {
+        audience: 'Hackathon & Workshop Hosts',
+        benefit: 'Organizes cross-functional squads with balanced skills and roles for collaborative sprints.'
+      },
+      {
+        audience: 'Gamers & Streamers',
+        benefit: 'Runs live custom lobby drafts for esports tournaments and party game nights.'
+      }
+    ],
+    useCases: [
+      {
+        title: 'Classroom Group Projects',
+        description: 'Randomizes study pods and science lab partners to foster new friendships.'
+      },
+      {
+        title: 'Sports & Pickup Games',
+        description: 'Splits players into 5v5, 3v3, or full tournament squads quickly.'
+      },
+      {
+        title: 'Pub Quiz & Trivia Nights',
+        description: 'Assigns guests into even trivia tables with custom funny team names.'
+      }
+    ],
+    customizationOptions: [
+      {
+        title: 'Split by Team Count or Group Size',
+        description: 'Specify either total desired teams (e.g. 4 teams) or exact members per team (e.g. 5 players/team).'
+      },
+      {
+        title: 'Captain & Leader Assignment',
+        description: 'Automatically designate the first player in each group as the team captain.'
+      },
+      {
+        title: 'Drag-and-Drop & Member Swapping',
+        description: 'Easily adjust players between teams using quick drop-down selectors after generation.'
+      }
+    ],
+    resultExplanation: 'Teams are partitioned using a client-side cryptographic Fisher-Yates shuffle seeded by window.crypto.getRandomValues, ensuring mathematically uniform distribution across all teams.',
+    uniqueExamples: [
+      '5v5 Basketball: Red Vipers vs Blue Blitz',
+      'Classroom Pods: Fierce Tigers, Shadow Wolves, Golden Eagles',
+      'Hackathon Squads: 4 Teams of 3 Developers'
+    ],
+    tips: [
+      'Use the Live Wheel Draft tab during team meetings or classroom sessions for high-energy live reveals.',
+      'Click Copy Markdown to paste beautiful formatted rosters directly into Discord, Slack, or Notion.'
+    ],
+    faqs: [
+      {
+        question: 'How does the random team generator guarantee fair distribution?',
+        answer: 'Our generator uses hardware-seeded cryptographic randomness (Web Cryptography API) to shuffle names, ensuring every participant has equal odds of being placed in any team.'
+      },
+      {
+        question: 'Can I export the teams to Excel or Google Sheets?',
+        answer: 'Yes! Click the CSV button to download a spreadsheet file formatted with teams in columns ready for Excel or Google Sheets.'
+      }
+    ],
+    uniqueContentBlocks: [
+      {
+        heading: '1. Why Cryptographic Random Team Generation Matters',
+        body: [
+          'Manual team picking often results in unfair skill skew or social discomfort for participants picked last.',
+          'A cryptographic random team generator eliminates bias and creates mathematically fair groupings instantly.'
+        ]
+      }
+    ],
+    relatedTools: [
+      { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Student picker and classroom game wheel.' },
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Random name picker with elimination.' }
+    ],
+    relatedWheels: [
+      { name: 'Classroom Wheel', path: '/classroom-wheel', count: 12 },
+      { name: 'Wheel of Names', path: '/wheel-of-names', count: 20 }
+    ],
+    relatedGuides: [],
+    internalLinks: [
+      { label: 'Explore Classroom Hub', href: '/classroom-wheel', context: 'All classroom and student wheels.' }
+    ],
+    breadcrumbs: [
+      { name: 'Home', item: 'https://spinwheelgames.org' },
+      { name: 'Tools', item: 'https://spinwheelgames.org/categories' },
+      { name: 'Random Team Generator', item: 'https://spinwheelgames.org/team-generator' }
+    ]
   }
 };
+

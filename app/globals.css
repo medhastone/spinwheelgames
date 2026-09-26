@@ -85,6 +85,13 @@
     --on-error-container: #ffdad6;
   }
 
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   body {
     background-color: var(--surface);
     color: var(--on-surface);
@@ -113,3 +120,14 @@
 .animate-bounceIn {
   animation: bounceIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+

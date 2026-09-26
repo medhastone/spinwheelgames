@@ -31,13 +31,13 @@ export default function Footer({ onQuickLink }: FooterProps) {
             </Link>
 
             <p className="text-[14px] text-[#464554] dark:text-[#c7c4d7] max-w-md leading-relaxed">
-              Free wheel games and random pickers for everyday decisions, classrooms, parties, teams and giveaways. Engineered with browser-native Web Crypto API random selection.
+              Free wheel games and random pickers for everyday decisions, classrooms, parties, teams and giveaways. Built with browser-native certified fair random selection.
             </p>
 
             <div className="flex flex-wrap items-center gap-2 pt-1">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#6cf8bb]/30 dark:bg-[#005236] text-[#006c49] dark:text-[#4edea3] text-[11px] font-bold">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                Web Crypto API
+                100% Fair Randomness
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#4648d4]/10 dark:bg-[#4648d4]/20 text-[#4648d4] dark:text-[#8587ff] text-[11px] font-bold">
                 No Signup Required

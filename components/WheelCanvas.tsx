@@ -263,10 +263,17 @@ export default function WheelCanvas({
   const isHighDensity = items.length > 36;
   const isExtremeDensity = items.length > 70;
 
+  const lastTapTimeRef = useRef<number>(0);
+
   const handleHubClick = useCallback(
     (e?: React.MouseEvent | React.TouchEvent) => {
-      if (e) {
-        e.preventDefault();
+      const now = Date.now();
+      if (now - lastTapTimeRef.current < 400) {
+        return; // Prevent duplicate rapid touch-to-click bounce
+      }
+      lastTapTimeRef.current = now;
+
+      if (e && 'stopPropagation' in e) {
         e.stopPropagation();
       }
       if (isSpinning || items.length < 2) return;
@@ -281,12 +288,12 @@ export default function WheelCanvas({
 
   return (
     <div
-      className={`relative w-full aspect-square mx-auto flex items-center justify-center select-none transition-all duration-300 ${
+      className={`relative w-full aspect-square mx-auto flex items-center justify-center select-none transition-all duration-300 touch-manipulation ${
         className
           ? className
           : isFullscreen
-          ? 'max-w-[min(90vw,80vh,760px)]'
-          : 'w-full max-w-[clamp(300px,88vw,420px)] sm:max-w-[clamp(400px,56vw,480px)] lg:max-w-[clamp(450px,36vw,560px)] xl:max-w-[560px] 2xl:max-w-[590px]'
+          ? 'max-w-[min(94vw,86vh,840px)]'
+          : 'w-full max-w-[min(92vw,440px)] sm:max-w-[500px] lg:max-w-[620px] xl:max-w-[680px]'
       }`}
     >
       {/* Outer ambient glow and decorative rim */}

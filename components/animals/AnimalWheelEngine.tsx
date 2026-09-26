@@ -750,8 +750,8 @@ export default function AnimalWheelEngine() {
 
               {/* Center Canvas Stage */}
               <div
-                className={`relative w-full aspect-square flex items-center justify-center py-2 transition-all duration-300 ${
-                  isFullscreen ? 'max-w-[min(90vw,74vh,740px)]' : 'max-w-[480px]'
+                className={`relative w-full aspect-square flex items-center justify-center py-2 transition-all duration-300 touch-manipulation ${
+                  isFullscreen ? 'max-w-[min(92vw,76vh,740px)]' : 'max-w-[min(92vw,380px)] sm:max-w-[440px] lg:max-w-[500px]'
                 }`}
               >
                 {/* Top Pointer Needle */}
@@ -763,7 +763,7 @@ export default function AnimalWheelEngine() {
                   ref={canvasRef}
                   width={1200}
                   height={1200}
-                  className="w-full h-full object-contain filter drop-shadow-xl"
+                  className="w-full h-full object-contain filter drop-shadow-xl touch-manipulation"
                 />
               </div>
 

@@ -14,19 +14,27 @@ import {
 } from 'lucide-react';
 
 interface CreateWheelCTAProps {
-  onCreateClick: () => void;
+  onCreateClick?: () => void;
 }
 
 export default function CreateWheelCTA({ onCreateClick }: CreateWheelCTAProps) {
+  const handleClick = () => {
+    if (onCreateClick) {
+      onCreateClick();
+    } else if (typeof window !== 'undefined') {
+      window.location.href = '/?create=true';
+    }
+  };
+
   const features = [
     { icon: Sliders, label: 'Custom Entries', desc: 'Type or paste unlimited choices' },
     { icon: Palette, label: 'Colors', desc: 'Arcade neon, pastel & dark themes' },
     { icon: Scale, label: 'Weights', desc: 'Assign custom probability weights' },
     { icon: RefreshCw, label: 'No Repeat', desc: 'Fair non-duplicating draws' },
     { icon: EyeOff, label: 'Elimination', desc: 'Auto-hide winners after each spin' },
-    { icon: Volume2, label: 'Sounds', desc: 'Engine ticks & TTS winner speech' },
+    { icon: Volume2, label: 'Sounds', desc: 'Spin sounds & Voice winner speech' },
     { icon: Share2, label: 'Share', desc: 'Share your exact wheel via URL' },
-    { icon: FileSpreadsheet, label: 'Import / Export', desc: 'Bulk paste from CSV & TXT' }
+    { icon: FileSpreadsheet, label: 'Import / Export', desc: 'Quick paste from CSV & TXT' }
   ];
 
   return (
@@ -53,7 +61,7 @@ export default function CreateWheelCTA({ onCreateClick }: CreateWheelCTAProps) {
           <div className="pt-2">
             <button
               type="button"
-              onClick={onCreateClick}
+              onClick={handleClick}
               className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-[#0c1424] font-black text-base shadow-lg hover:shadow-xl active:scale-[0.98] transition-all cursor-pointer"
             >
               <PlusCircle className="w-5 h-5 fill-current" />

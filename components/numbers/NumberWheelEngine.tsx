@@ -978,10 +978,10 @@ export default function NumberWheelEngine() {
 
               {/* Canvas Component */}
               <div
-                className={`relative flex items-center justify-center transition-all duration-300 ${
+                className={`relative flex items-center justify-center transition-all duration-300 touch-manipulation ${
                   isFullscreen
-                    ? 'w-full max-w-[min(90vw,74vh,740px)] aspect-square'
-                    : 'w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] lg:w-[420px] lg:h-[420px]'
+                    ? 'w-full max-w-[min(92vw,76vh,740px)] aspect-square'
+                    : 'w-full max-w-[min(92vw,360px)] aspect-square sm:max-w-[420px] lg:max-w-[460px]'
                 }`}
               >
                 <canvas
@@ -989,7 +989,7 @@ export default function NumberWheelEngine() {
                   width={600}
                   height={600}
                   onClick={spinWheel}
-                  className={`w-full h-full cursor-pointer select-none transition-transform duration-200 ${
+                  className={`w-full h-full cursor-pointer select-none transition-transform duration-200 touch-manipulation ${
                     isSpinning ? 'scale-[0.99]' : 'hover:scale-[1.01]'
                   }`}
                 />

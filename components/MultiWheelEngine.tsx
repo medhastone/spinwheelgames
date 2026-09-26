@@ -139,7 +139,7 @@ export default function MultiWheelEngine({
       <div className="w-full bg-white dark:bg-[#181922] rounded-3xl p-6 sm:p-8 border border-[#eeedf7] dark:border-[#292a39] shadow-sm flex flex-col items-center text-center gap-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f4f2fd] dark:bg-[#222330] text-[#4648d4] dark:text-[#8587ff] text-[12px] font-bold">
           <Layers className="w-4 h-4" />
-          <span>Multi-Wheel Synchronization Engine</span>
+          <span>Multi-Wheel Studio</span>
         </div>
 
         <h2 className="font-headline font-extrabold text-[24px] sm:text-[30px] text-[#1a1b22] dark:text-[#f1effa]">

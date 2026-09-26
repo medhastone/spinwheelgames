@@ -14,17 +14,22 @@ export interface StoredWheel {
 const memoryStore = new Map<string, StoredWheel>();
 const FILE_PATH = path.join(process.cwd(), '.shares_store.json');
 
-// Initialize from file store if available
-try {
-  if (fs.existsSync(FILE_PATH)) {
-    const raw = fs.readFileSync(FILE_PATH, 'utf8');
-    const data = JSON.parse(raw);
-    for (const [k, v] of Object.entries(data)) {
-      memoryStore.set(k, v as StoredWheel);
+let storeInitialized = false;
+
+function ensureInitialized() {
+  if (storeInitialized) return;
+  storeInitialized = true;
+  try {
+    if (typeof process !== 'undefined' && fs.existsSync && fs.existsSync(FILE_PATH)) {
+      const raw = fs.readFileSync(FILE_PATH, 'utf8');
+      const data = JSON.parse(raw);
+      for (const [k, v] of Object.entries(data)) {
+        memoryStore.set(k, v as StoredWheel);
+      }
     }
+  } catch {
+    // Ignore filesystem errors in restricted environments
   }
-} catch {
-  // Ignore filesystem errors in restricted environments
 }
 
 function persistStore() {
@@ -59,6 +64,7 @@ export function generateShortCode(data: StoredWheel): string {
 }
 
 export function saveWheelShare(code: string, data: StoredWheel): void {
+  ensureInitialized();
   memoryStore.set(code, {
     ...data,
     created: Date.now()
@@ -67,5 +73,6 @@ export function saveWheelShare(code: string, data: StoredWheel): void {
 }
 
 export function getWheelShare(code: string): StoredWheel | null {
+  ensureInitialized();
   return memoryStore.get(code) || null;
 }

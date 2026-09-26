@@ -655,7 +655,7 @@ export default function ThemeWheelEngine() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
         {/* Canvas & Pointer */}
         <div className="lg:col-span-6 flex flex-col items-center justify-center relative">
-          <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center p-2">
+          <div className="relative w-full max-w-[min(92vw,360px)] sm:max-w-[400px] lg:max-w-[440px] aspect-square flex items-center justify-center p-2 touch-manipulation">
             {/* Pointer / Needle */}
             <div
               className="absolute top-1 z-30 transition-transform duration-75 origin-bottom"
@@ -668,7 +668,7 @@ export default function ThemeWheelEngine() {
               ref={wheelCanvasRef}
               width={480}
               height={480}
-              className="w-full h-full cursor-pointer rounded-full shadow-2xl transition-transform active:scale-[0.99]"
+              className="w-full h-full cursor-pointer rounded-full shadow-2xl transition-transform active:scale-[0.99] touch-manipulation"
               onClick={handleSpin}
             />
           </div>

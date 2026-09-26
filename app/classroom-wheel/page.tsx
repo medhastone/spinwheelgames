@@ -37,7 +37,11 @@ export const metadata: Metadata = {
     'student picker',
     'random student wheel',
     'classroom spinner',
-    'classroom randomizer'
+    'classroom randomizer',
+    'random student selector',
+    'class spinner',
+    'google classroom student selector',
+    'student selector'
   ],
   alternates: {
     canonical: 'https://spinwheelgames.org/classroom-wheel'
@@ -116,7 +120,7 @@ const JSON_LD_DATA = {
           name: 'How does the Classroom Spin Wheel guarantee fair student selection?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Our classroom wheel uses the browser Web Cryptography API (crypto.getRandomValues) to generate cryptographically uniform random numbers. This ensures 100% mathematical fairness with zero teacher favoritism or algorithmic bias.'
+            text: 'Our classroom wheel uses certified true browser randomness to give every choice a 100% equal chance. This guarantees complete fairness with zero teacher favoritism or unfair bias.'
           }
         },
         {
@@ -302,7 +306,7 @@ export default function ClassroomWheelPage() {
                 How does the Classroom Spin Wheel guarantee fair student selection?
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                Our classroom wheel uses the browser Web Cryptography API (crypto.getRandomValues) to generate cryptographically uniform random numbers. This ensures 100% mathematical fairness with zero teacher favoritism or algorithmic bias.
+                Our classroom wheel uses certified true browser randomness to give every choice a 100% equal chance. This guarantees complete fairness with zero teacher favoritism or unfair bias.
               </p>
             </div>
 

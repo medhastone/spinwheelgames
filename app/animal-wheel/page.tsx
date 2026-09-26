@@ -26,9 +26,29 @@ import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Animal Spin the Wheel – Random Animal Picker',
+  title: 'Animal Spin the Wheel – Random Animal Picker & Pokemon Wheel',
   description:
-    'Spin the animal wheel to randomly pick an animal for games, drawing, classroom activities, storytelling, quizzes and creative challenges.',
+    'Spin the animal wheel to randomly pick an animal or pokemon for games, drawing, classroom activities, storytelling, quizzes and creative challenges.',
+  keywords: [
+    'animal spin the wheel',
+    'random animal picker',
+    'animal wheel',
+    'random animal generator',
+    'random pokemon picker',
+    'pokemon roulette',
+    'pokemon type wheel',
+    'pokemon type randomizer',
+    'random pokemon type generator',
+    'poke wheel',
+    'pokemon wheel spinner',
+    'give me a random animal',
+    'animal randomizer',
+    'pick a random animal',
+    'name a random animal',
+    'random fruit',
+    'random cat generator',
+    'random sea creatures'
+  ],
   alternates: {
     canonical: 'https://spinwheelgames.org/animal-wheel'
   },
@@ -161,7 +181,7 @@ export default function AnimalWheelPage() {
         />
 
         {/* Hero Section */}
-        <header className="space-y-4">
+        <header className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4648d4]/10 dark:bg-[#4648d4]/20 text-[#4648d4] dark:text-[#8587ff] text-xs sm:text-sm font-bold border border-[#4648d4]/20">
             <Sparkles className="w-4 h-4" />
             <span>Random Animal Picker &amp; Educational Game</span>
@@ -171,7 +191,7 @@ export default function AnimalWheelPage() {
             Animal Spin the Wheel
           </h1>
 
-          <p className="text-base sm:text-lg text-[#464554] dark:text-[#c7c4d7] leading-relaxed max-w-3xl">
+          <p className="text-base sm:text-lg text-[#464554] dark:text-[#c7c4d7] leading-relaxed max-w-3xl mx-auto">
             Spin the animal wheel to randomly pick an animal for games, drawing, classroom activities, storytelling, quizzes, and creative challenges. Features 8 curated category modes (Mammals, Birds, Marine, Farm, Wild, Pets, Dinosaurs), trivia clues, and biological fun facts.
           </p>
         </header>

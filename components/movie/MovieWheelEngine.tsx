@@ -30,7 +30,10 @@ import {
   Flame,
   Award,
   Clock,
-  Share2
+  Share2,
+  Pencil,
+  FileText,
+  Sliders
 } from 'lucide-react';
 import {
   MOVIE_DATABASE,
@@ -77,12 +80,32 @@ const CINEMA_PALETTE = [
   '#84cc16'  // Lime
 ];
 
+// Popular preset bundles for custom lists
+const POPULAR_CUSTOM_PRESETS = [
+  {
+    name: 'Top Sci-Fi Masterpieces',
+    movies: ['Interstellar', 'Inception', 'Dune: Part Two', 'Blade Runner 2049', 'The Matrix', 'Arrival']
+  },
+  {
+    name: 'Thrilling Murder Mysteries',
+    movies: ['Knives Out', 'Glass Onion', 'Gone Girl', 'Zodiac', 'Shutter Island', 'Prisoners']
+  },
+  {
+    name: 'Animated Gems for All Ages',
+    movies: ['Spider-Man: Into the Spider-Verse', 'Spirited Away', 'Ratatouille', 'Coco', 'Paddington 2', 'WALL-E']
+  },
+  {
+    name: 'Feel-Good Comedies',
+    movies: ['Superbad', 'The Grand Budapest Hotel', 'Crazy Rich Asians', 'Palm Springs', 'School of Rock', 'Ferris Bueller']
+  }
+];
+
 export default function MovieWheelEngine() {
   // Mode selection: Catalog vs Custom List
   const [activeTab, setActiveTab] = useState<'catalog' | 'custom'>('catalog');
 
   // Movie Experience Mode
-  const [selectedMode, setSelectedMode] = useState<MovieMode>('decision');
+  const [selectedMode, setSelectedMode] = useState<MovieMode | 'custom'>('decision');
 
   // Filters
   const [selectedGenre, setSelectedGenre] = useState<MovieGenre | 'all'>('all');
@@ -102,6 +125,7 @@ export default function MovieWheelEngine() {
   ]);
 
   const [newTitleInput, setNewTitleInput] = useState('');
+  const [quickAddInput, setQuickAddInput] = useState('');
   const [bulkInputOpen, setBulkInputOpen] = useState(false);
   const [bulkText, setBulkText] = useState('');
 
@@ -160,7 +184,7 @@ export default function MovieWheelEngine() {
         id: item.id,
         title: item.title,
         color: item.color || CINEMA_PALETTE[idx % CINEMA_PALETTE.length],
-        weight: item.weight,
+        weight: item.weight || 1,
         movie: MOVIE_DATABASE.find(
           (m) => m.title.toLowerCase() === item.title.toLowerCase()
         )
@@ -170,7 +194,7 @@ export default function MovieWheelEngine() {
     let filtered = MOVIE_DATABASE.filter((m) => !eliminatedHistory.includes(m.title));
 
     // Mode filter
-    if (selectedMode !== 'decision') {
+    if (selectedMode !== 'decision' && selectedMode !== 'custom') {
       filtered = filtered.filter((m) => m.modes.includes(selectedMode));
     }
 
@@ -195,7 +219,7 @@ export default function MovieWheelEngine() {
       );
     }
 
-    // If filter returns fewer than 4 movies, fallback to mode subset to keep the wheel exciting
+    // If filter returns fewer than 3 movies, fallback to mode subset
     if (filtered.length < 3) {
       filtered = MOVIE_DATABASE.filter((m) => !eliminatedHistory.includes(m.title)).slice(0, 8);
     }
@@ -242,10 +266,10 @@ export default function MovieWheelEngine() {
       ctx.stroke();
 
       ctx.fillStyle = '#e0e7ff';
-      ctx.font = 'bold 16px sans-serif';
+      ctx.font = 'bold 15px sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText('Add movie titles to spin!', centerX, centerY);
+      ctx.fillText('Add custom movie names to spin!', centerX, centerY);
       return;
     }
 
@@ -253,7 +277,7 @@ export default function MovieWheelEngine() {
     let startAngle = currentAngleRef.current;
 
     // Draw Slices
-    slices.forEach((slice, idx) => {
+    slices.forEach((slice) => {
       const sliceAngle = ((slice.weight || 1) / totalWeight) * (2 * Math.PI);
       const endAngle = startAngle + sliceAngle;
 
@@ -299,42 +323,28 @@ export default function MovieWheelEngine() {
       startAngle = endAngle;
     });
 
-    // Outer Chrome Rim & Lights
+    // Draw Center Peg & Hub
     ctx.beginPath();
-    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    ctx.strokeStyle = '#1e1b4b';
-    ctx.lineWidth = 10;
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, radius + 5, 0, 2 * Math.PI);
-    ctx.strokeStyle = '#fbbf24';
-    ctx.lineWidth = 3;
-    ctx.stroke();
-
-    // Center Hub Button
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, 38, 0, 2 * Math.PI);
+    ctx.arc(centerX, centerY, 32, 0, 2 * Math.PI);
     ctx.fillStyle = '#0f172a';
     ctx.fill();
-    ctx.strokeStyle = '#fbbf24';
+    ctx.strokeStyle = '#ffffff';
     ctx.lineWidth = 4;
     ctx.stroke();
 
-    // Center Hub Text / Clapperboard Icon
-    ctx.fillStyle = '#fef08a';
-    ctx.font = 'bold 13px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('SPIN', centerX, centerY);
+    // Inner center icon / text
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 14, 0, 2 * Math.PI);
+    ctx.fillStyle = '#ef4444';
+    ctx.fill();
   }, [activeSlices]);
 
-  // Redraw on slices/angle change
+  // Redraw when slices or angle change
   useEffect(() => {
     drawWheel();
   }, [drawWheel, rotationAngle]);
 
-  // Spin Physics Engine
+  // Spin Wheel Action
   const spinWheel = useCallback(() => {
     if (isSpinning || activeSlices.length === 0) return;
 
@@ -348,53 +358,59 @@ export default function MovieWheelEngine() {
 
     const slices = activeSlices;
     const totalWeight = slices.reduce((sum, s) => sum + (s.weight || 1), 0);
-    const winningIndex = getRandomIndex(slices.length);
 
-    // Calculate angle where winning slice lands at pointer (top pointer is at 3 * PI / 2 or 270 deg)
-    let accumAngle = 0;
-    for (let i = 0; i < winningIndex; i++) {
-      accumAngle += ((slices[i].weight || 1) / totalWeight) * (2 * Math.PI);
+    // Pick winning slice by random weight (CSPRNG)
+    const randomWeight = (getRandomIndex(10000) / 10000) * totalWeight;
+    let accumulatedWeight = 0;
+    let winningIndex = 0;
+
+    for (let i = 0; i < slices.length; i++) {
+      accumulatedWeight += slices[i].weight || 1;
+      if (accumulatedWeight >= randomWeight) {
+        winningIndex = i;
+        break;
+      }
     }
-    const winningSliceSpan = ((slices[winningIndex].weight || 1) / totalWeight) * (2 * Math.PI);
-    const sliceCenterAngle = accumAngle + winningSliceSpan / 2;
 
-    // Pointer is located at top (3 * Math.PI / 2 rad = 270 deg)
+    // Calculate angles
+    let sliceStartWeight = 0;
+    for (let i = 0; i < winningIndex; i++) {
+      sliceStartWeight += slices[i].weight || 1;
+    }
+    const winSliceWeight = slices[winningIndex].weight || 1;
+    const sliceStartAngle = (sliceStartWeight / totalWeight) * (2 * Math.PI);
+    const sliceAngleSpan = (winSliceWeight / totalWeight) * (2 * Math.PI);
+    const targetSliceCenter = sliceStartAngle + sliceAngleSpan / 2;
+
+    // Pointer is at the top: 3*PI/2 (270 degrees)
     const pointerAngle = (3 * Math.PI) / 2;
-    const currentNorm = currentAngleRef.current % (2 * Math.PI);
-    const targetBase = pointerAngle - sliceCenterAngle;
+    const fullRotations = (5 + getRandomIndex(3)) * 2 * Math.PI;
+    const finalTargetAngle =
+      currentAngleRef.current +
+      fullRotations +
+      (pointerAngle - (targetSliceCenter % (2 * Math.PI)));
 
-    // Add multiple dramatic full rotations (5 to 8 full spins)
-    const extraSpins = 6 + Math.floor(Math.random() * 3);
-    const totalRotationDelta = (2 * Math.PI * extraSpins) + (targetBase - currentNorm + (2 * Math.PI)) % (2 * Math.PI);
-
-    const startTimestamp = performance.now();
-    const durationMs = spinDuration * 1000;
     const startAngle = currentAngleRef.current;
+    const deltaAngle = finalTargetAngle - startAngle;
+    const durationMs = spinDuration * 1000;
+    const startTime = performance.now();
 
-    // Cubic easing out
-    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
-
-    const animate = (now: number) => {
-      const elapsed = now - startTimestamp;
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / durationMs, 1);
-      const easedProgress = easeOutCubic(progress);
 
-      const currentAngle = startAngle + totalRotationDelta * easedProgress;
-      setRotationAngle(currentAngle);
+      // Ease out quartic
+      const easeOut = 1 - Math.pow(1 - progress, 4);
+      const current = startAngle + deltaAngle * easeOut;
 
-      // Sound Tick calculation
+      currentAngleRef.current = current;
+      setRotationAngle(current);
+
+      // Audio tick sound
       if (soundEnabled) {
-        const norm = (pointerAngle - (currentAngle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-        let curSum = 0;
-        let currentSliceIdx = 0;
-        for (let i = 0; i < slices.length; i++) {
-          const sliceSpan = ((slices[i].weight || 1) / totalWeight) * (2 * Math.PI);
-          if (norm >= curSum && norm < curSum + sliceSpan) {
-            currentSliceIdx = i;
-            break;
-          }
-          curSum += sliceSpan;
-        }
+        const normalizedAngle = (pointerAngle - (current % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+        const approxSliceAngle = (2 * Math.PI) / slices.length;
+        const currentSliceIdx = Math.floor(normalizedAngle / approxSliceAngle);
 
         if (currentSliceIdx !== lastTickSliceRef.current) {
           lastTickSliceRef.current = currentSliceIdx;
@@ -458,9 +474,9 @@ export default function MovieWheelEngine() {
     }
   };
 
-  // Add Single Custom Entry
-  const handleAddCustomMovie = () => {
-    const title = newTitleInput.trim();
+  // Add Single Custom Entry from specific input
+  const handleAddMovieByTitle = (titleToAdd: string) => {
+    const title = titleToAdd.trim();
     if (!title) return;
     const newEntry: CustomMovieEntry = {
       id: Date.now().toString(),
@@ -470,7 +486,21 @@ export default function MovieWheelEngine() {
       enabled: true
     };
     setCustomList((prev) => [newEntry, ...prev]);
+    setActiveTab('custom');
+    setSelectedMode('custom');
+    setToastMsg(`🎬 Added "${title}" to Movie Wheel!`);
+    setTimeout(() => setToastMsg(null), 2000);
+  };
+
+  const handleAddCustomMovie = () => {
+    handleAddMovieByTitle(newTitleInput);
     setNewTitleInput('');
+  };
+
+  const handleQuickAddMovie = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleAddMovieByTitle(quickAddInput);
+    setQuickAddInput('');
   };
 
   // Bulk Import Custom Movies
@@ -490,9 +520,13 @@ export default function MovieWheelEngine() {
       enabled: true
     }));
 
-    setCustomList((prev) => [...prev, ...newEntries]);
+    setCustomList((prev) => [...newEntries, ...prev]);
+    setActiveTab('custom');
+    setSelectedMode('custom');
     setBulkText('');
     setBulkInputOpen(false);
+    setToastMsg(`🍿 Added ${newEntries.length} movies to Wheel!`);
+    setTimeout(() => setToastMsg(null), 2200);
   };
 
   // Apply Preset Watchlist
@@ -506,7 +540,10 @@ export default function MovieWheelEngine() {
     }));
     setCustomList(newEntries);
     setActiveTab('custom');
+    setSelectedMode('custom');
     setEliminatedHistory([]);
+    setToastMsg(`Loaded "${presetMovies.length} movies" preset!`);
+    setTimeout(() => setToastMsg(null), 2000);
   };
 
   // Eliminate Selected Winner
@@ -546,7 +583,7 @@ export default function MovieWheelEngine() {
     >
       {toastMsg && (
         <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 px-5 py-2.5 rounded-full bg-slate-900/95 text-white text-xs font-bold shadow-2xl backdrop-blur-md flex items-center gap-2 border border-slate-700/50 animate-in fade-in slide-in-from-top-3 duration-200">
-          <Heart className="w-4 h-4 fill-rose-500 text-rose-500" />
+          <Sparkles className="w-4 h-4 text-amber-400" />
           <span>{toastMsg}</span>
         </div>
       )}
@@ -580,7 +617,7 @@ export default function MovieWheelEngine() {
                 <Heart className={`w-5 h-5 ${isGameFavorited ? 'fill-rose-500 text-rose-500' : ''}`} />
               </button>
               <span className="px-2 py-0.5 rounded-full bg-red-500/10 dark:bg-red-500/20 border border-red-200 dark:border-red-500/30 text-red-600 dark:text-red-400 text-[11px] font-bold">
-                Cinema Engine
+                Movie Picker
               </span>
             </div>
             <p className="text-xs text-slate-500 dark:text-[#94a3b8]">
@@ -626,8 +663,35 @@ export default function MovieWheelEngine() {
         </div>
       </div>
 
-      {/* Experience Mode Selector Tabs */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-6 relative z-10">
+      {/* Prominent Experience Mode Selector Tabs (5 Tabs with Custom Movie List highlighted) */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 pt-6 relative z-10">
+        {/* Custom Movie Watchlist Tab */}
+        <button
+          type="button"
+          onClick={() => {
+            setSelectedMode('custom');
+            setActiveTab('custom');
+          }}
+          className={`p-3 rounded-2xl border text-left transition-all cursor-pointer flex flex-col gap-1 sm:col-span-1 col-span-2 ${
+            activeTab === 'custom'
+              ? 'bg-amber-50 dark:bg-amber-500/15 border-amber-400 dark:border-amber-500/50 text-amber-950 dark:text-white shadow-lg ring-2 ring-amber-500/30'
+              : 'bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/80 dark:border-amber-500/20 text-slate-700 dark:text-[#cbd5e1] hover:border-amber-400 dark:hover:border-amber-400/50 hover:bg-amber-50 dark:hover:bg-amber-950/30'
+          }`}
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-extrabold flex items-center gap-1.5 text-amber-600 dark:text-amber-400">
+              <ListPlus className="w-4 h-4" />
+              Custom Movie List
+            </span>
+            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-amber-500 text-white font-black">
+              {customList.filter((c) => c.enabled).length} Custom
+            </span>
+          </div>
+          <span className="text-[11px] text-slate-600 dark:text-[#cbd5e1] font-medium line-clamp-1">
+            + Add your own movie titles
+          </span>
+        </button>
+
         <button
           type="button"
           onClick={() => {
@@ -713,33 +777,85 @@ export default function MovieWheelEngine() {
         </button>
       </div>
 
-      {/* Mode Switches: Curated Catalog vs Custom List */}
-      <div className="flex items-center gap-2 pt-4 pb-2">
-        <button
-          type="button"
-          onClick={() => setActiveTab('catalog')}
-          className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-2 ${
-            activeTab === 'catalog'
-              ? 'bg-slate-200 dark:bg-[#1e2030] text-slate-900 dark:text-white border border-slate-300 dark:border-[#373a56]'
-              : 'text-slate-600 dark:text-[#94a3b8] hover:text-slate-900 dark:hover:text-white'
-          }`}
+      {/* Direct Universal Quick-Add Bar: Always available to type custom movies */}
+      <div className="pt-4 pb-1">
+        <form
+          onSubmit={handleQuickAddMovie}
+          className="p-2.5 sm:p-3 rounded-2xl bg-gradient-to-r from-red-500/10 via-amber-500/10 to-indigo-500/10 dark:from-red-950/30 dark:via-amber-950/30 dark:to-indigo-950/30 border border-red-200 dark:border-red-500/30 flex flex-wrap sm:flex-nowrap items-center gap-2"
         >
-          <Film className="w-3.5 h-3.5" />
-          Curated Cinema Database ({activeSlices.length} on wheel)
-        </button>
+          <div className="flex items-center gap-2 pl-2 text-xs font-bold text-red-600 dark:text-red-400 whitespace-nowrap">
+            <Plus className="w-4 h-4" />
+            <span className="hidden sm:inline">Add Custom Movie:</span>
+          </div>
+          <input
+            type="text"
+            value={quickAddInput}
+            onChange={(e) => setQuickAddInput(e.target.value)}
+            placeholder="Type any movie title (e.g., Oppenheimer, Dune 2, Gladiator)..."
+            className="flex-1 min-w-[200px] px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 font-medium"
+          />
+          <button
+            type="submit"
+            disabled={!quickAddInput.trim()}
+            className="px-4 py-2 bg-red-600 hover:bg-red-500 disabled:opacity-50 text-white text-xs font-bold rounded-xl transition-all shadow-sm flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+          >
+            <Plus className="w-3.5 h-3.5" />
+            <span>Add to Wheel</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setActiveTab('custom');
+              setSelectedMode('custom');
+              setBulkInputOpen(true);
+            }}
+            className="px-3 py-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 text-xs font-bold rounded-xl transition-all shadow-xs flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+          >
+            <FileText className="w-3.5 h-3.5 text-amber-500" />
+            <span>Bulk Paste</span>
+          </button>
+        </form>
+      </div>
 
-        <button
-          type="button"
-          onClick={() => setActiveTab('custom')}
-          className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-2 ${
-            activeTab === 'custom'
-              ? 'bg-slate-200 dark:bg-[#1e2030] text-slate-900 dark:text-white border border-slate-300 dark:border-[#373a56]'
-              : 'text-slate-600 dark:text-[#94a3b8] hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          <ListPlus className="w-3.5 h-3.5" />
-          My Custom Watchlist ({customList.filter((c) => c.enabled).length})
-        </button>
+      {/* Mode Switch Tabs */}
+      <div className="flex flex-wrap items-center justify-between gap-2 pt-3 pb-2">
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setActiveTab('catalog')}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-2 ${
+              activeTab === 'catalog'
+                ? 'bg-slate-200 dark:bg-[#1e2030] text-slate-900 dark:text-white border border-slate-300 dark:border-[#373a56]'
+                : 'text-slate-600 dark:text-[#94a3b8] hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            <Film className="w-3.5 h-3.5 text-red-500" />
+            Curated Database ({activeSlices.length} on wheel)
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setActiveTab('custom');
+              setSelectedMode('custom');
+            }}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-2 ${
+              activeTab === 'custom'
+                ? 'bg-amber-100 dark:bg-amber-500/20 text-amber-900 dark:text-amber-300 border border-amber-300 dark:border-amber-500/40'
+                : 'text-slate-600 dark:text-[#94a3b8] hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            <ListPlus className="w-3.5 h-3.5 text-amber-500" />
+            My Custom Movie Watchlist ({customList.filter((c) => c.enabled).length})
+          </button>
+        </div>
+
+        {activeTab === 'custom' && (
+          <span className="text-[11px] text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1">
+            <Sparkles className="w-3 h-3" />
+            Spinning your custom movie titles
+          </span>
+        )}
       </div>
 
       {/* Main Grid: Wheel Left / Controls Right */}
@@ -810,9 +926,17 @@ export default function MovieWheelEngine() {
                   <SlidersHorizontal className="w-3.5 h-3.5 text-red-500 dark:text-red-400" />
                   Genre & Streaming Filters
                 </span>
-                <span className="text-[11px] text-slate-500 dark:text-[#64748b]">
-                  {activeSlices.length} options ready
-                </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveTab('custom');
+                    setSelectedMode('custom');
+                  }}
+                  className="text-[11px] font-bold text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1"
+                >
+                  <ListPlus className="w-3 h-3" />
+                  <span>Use Custom Titles</span>
+                </button>
               </div>
 
               {/* Genre Filter Pills */}
@@ -932,19 +1056,20 @@ export default function MovieWheelEngine() {
             </div>
           ) : (
             /* Custom Watchlist Manager */
-            <div className="bg-slate-50 dark:bg-[#12131f] border border-slate-200 dark:border-[#1e2030] rounded-2xl p-5 flex flex-col gap-4">
+            <div className="bg-slate-50 dark:bg-[#12131f] border border-amber-300/60 dark:border-amber-500/30 rounded-2xl p-5 flex flex-col gap-4 shadow-sm">
               <div className="flex items-center justify-between border-b border-slate-200 dark:border-[#1e2030] pb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-[#94a3b8] flex items-center gap-1.5">
-                  <ListPlus className="w-3.5 h-3.5 text-red-500 dark:text-red-400" />
-                  Custom Movie List
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
+                  <ListPlus className="w-4 h-4 text-amber-500" />
+                  Custom Movie Watchlist
                 </span>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => setBulkInputOpen(!bulkInputOpen)}
-                    className="text-xs text-amber-600 dark:text-amber-400 hover:text-amber-500 dark:hover:text-amber-300 transition-colors cursor-pointer font-bold"
+                    className="text-xs text-amber-600 dark:text-amber-400 hover:text-amber-500 dark:hover:text-amber-300 transition-colors cursor-pointer font-bold flex items-center gap-1"
                   >
-                    {bulkInputOpen ? 'Single Add' : 'Bulk Paste'}
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>{bulkInputOpen ? 'Single Add' : 'Bulk Paste'}</span>
                   </button>
                   <button
                     type="button"
@@ -956,22 +1081,33 @@ export default function MovieWheelEngine() {
                 </div>
               </div>
 
-              {/* Add Input */}
+              {/* Add Input Form */}
               {bulkInputOpen ? (
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 p-3 bg-amber-500/5 dark:bg-amber-950/20 border border-amber-500/20 rounded-xl">
+                  <div className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center justify-between">
+                    <span>Paste Multiple Movie Titles:</span>
+                    <button
+                      type="button"
+                      onClick={() => setBulkInputOpen(false)}
+                      className="text-[11px] text-slate-500 hover:text-slate-800"
+                    >
+                      Cancel
+                    </button>
+                  </div>
                   <textarea
                     value={bulkText}
                     onChange={(e) => setBulkText(e.target.value)}
-                    placeholder="Paste movie titles, one per line:&#10;Inception&#10;Interstellar&#10;The Dark Knight"
+                    placeholder="Paste movie titles, one per line:&#10;Oppenheimer&#10;Dune: Part Two&#10;Interstellar&#10;Everything Everywhere All at Once"
                     rows={4}
-                    className="w-full px-3 py-2 bg-white dark:bg-[#1a1b2b] border border-slate-300 dark:border-[#2c2f48] rounded-xl text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-[#64748b] focus:outline-none focus:border-red-500"
+                    className="w-full px-3 py-2 bg-white dark:bg-[#1a1b2b] border border-slate-300 dark:border-[#2c2f48] rounded-xl text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-[#64748b] focus:outline-none focus:border-red-500 font-mono"
                   />
                   <button
                     type="button"
                     onClick={handleBulkImport}
-                    className="w-full py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-bold rounded-xl transition-colors cursor-pointer shadow-md"
+                    className="w-full py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-bold rounded-xl transition-colors cursor-pointer shadow-md flex items-center justify-center gap-1.5"
                   >
-                    Import Movies into Wheel
+                    <Plus className="w-3.5 h-3.5" />
+                    <span>Import All Movies into Wheel</span>
                   </button>
                 </div>
               ) : (
@@ -986,12 +1122,13 @@ export default function MovieWheelEngine() {
                     type="text"
                     value={newTitleInput}
                     onChange={(e) => setNewTitleInput(e.target.value)}
-                    placeholder="Add movie title (e.g. Oppenheimer)..."
+                    placeholder="Add movie title (e.g. Inception)..."
                     className="flex-1 px-3 py-2 bg-white dark:bg-[#1a1b2b] border border-slate-300 dark:border-[#2c2f48] rounded-xl text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-[#64748b] focus:outline-none focus:border-red-500"
                   />
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-bold rounded-xl transition-colors cursor-pointer flex items-center gap-1 shadow-md"
+                    disabled={!newTitleInput.trim()}
+                    className="px-4 py-2 bg-red-600 hover:bg-red-500 disabled:opacity-50 text-white text-xs font-bold rounded-xl transition-colors cursor-pointer flex items-center gap-1 shadow-md"
                   >
                     <Plus className="w-3.5 h-3.5" />
                     Add
@@ -1000,49 +1137,102 @@ export default function MovieWheelEngine() {
               )}
 
               {/* Movie List Items */}
-              <div className="max-h-64 overflow-y-auto flex flex-col gap-1.5 pr-1">
-                {customList.map((item, idx) => (
-                  <div
-                    key={item.id}
-                    className="p-2 rounded-xl bg-white dark:bg-[#171827] border border-slate-200 dark:border-[#24263a] flex items-center justify-between gap-2"
-                  >
-                    <div className="flex items-center gap-2 min-w-0">
-                      <input
-                        type="checkbox"
-                        checked={item.enabled}
-                        onChange={(e) => {
-                          const checked = e.target.checked;
-                          setCustomList((prev) =>
-                            prev.map((m) => (m.id === item.id ? { ...m, enabled: checked } : m))
-                          );
-                        }}
-                        className="rounded accent-red-500 cursor-pointer"
-                      />
-                      <div
-                        className="w-3 h-3 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: item.color }}
-                      />
-                      <span
-                        className={`text-xs truncate font-medium ${
-                          item.enabled ? 'text-slate-900 dark:text-white' : 'text-slate-400 dark:text-[#64748b] line-through'
-                        }`}
-                      >
-                        {item.title}
-                      </span>
-                    </div>
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-medium px-1">
+                  <span>Custom Movies on Wheel ({customList.filter((c) => c.enabled).length}):</span>
+                  <span>Odds / Actions</span>
+                </div>
 
+                <div className="max-h-56 overflow-y-auto flex flex-col gap-1.5 pr-1">
+                  {customList.length === 0 ? (
+                    <div className="p-4 text-center rounded-xl bg-slate-100 dark:bg-slate-800/50 text-xs text-slate-500">
+                      No custom movies added yet. Type a title above or click Bulk Paste!
+                    </div>
+                  ) : (
+                    customList.map((item) => (
+                      <div
+                        key={item.id}
+                        className="p-2 rounded-xl bg-white dark:bg-[#171827] border border-slate-200 dark:border-[#24263a] flex items-center justify-between gap-2 shadow-xs"
+                      >
+                        <div className="flex items-center gap-2 min-w-0 flex-1">
+                          <input
+                            type="checkbox"
+                            checked={item.enabled}
+                            onChange={(e) => {
+                              const checked = e.target.checked;
+                              setCustomList((prev) =>
+                                prev.map((m) => (m.id === item.id ? { ...m, enabled: checked } : m))
+                              );
+                            }}
+                            className="rounded accent-red-500 cursor-pointer"
+                            title="Toggle in wheel"
+                          />
+                          <div
+                            className="w-3 h-3 rounded-full flex-shrink-0"
+                            style={{ backgroundColor: item.color }}
+                          />
+                          <span
+                            className={`text-xs truncate font-medium ${
+                              item.enabled ? 'text-slate-900 dark:text-white' : 'text-slate-400 dark:text-[#64748b] line-through'
+                            }`}
+                          >
+                            {item.title}
+                          </span>
+                        </div>
+
+                        <div className="flex items-center gap-1.5">
+                          {/* Weight multiplier selector */}
+                          <select
+                            value={item.weight || 1}
+                            onChange={(e) => {
+                              const w = parseInt(e.target.value);
+                              setCustomList((prev) =>
+                                prev.map((m) => (m.id === item.id ? { ...m, weight: w } : m))
+                              );
+                            }}
+                            className="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 rounded px-1 py-0.5 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300"
+                            title="Slice probability weight"
+                          >
+                            <option value={1}>1x</option>
+                            <option value={2}>2x</option>
+                            <option value={3}>3x</option>
+                          </select>
+
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setCustomList((prev) => prev.filter((m) => m.id !== item.id))
+                            }
+                            className="text-slate-400 dark:text-[#64748b] hover:text-red-500 dark:hover:text-red-400 transition-colors p-1 cursor-pointer"
+                            title="Remove movie"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+
+              {/* Quick load popular themed bundles */}
+              <div className="pt-2 border-t border-slate-200 dark:border-[#1e2030] space-y-1.5">
+                <span className="text-[11px] font-bold text-slate-600 dark:text-slate-400 block">
+                  Quick Load Popular Custom Lists:
+                </span>
+                <div className="grid grid-cols-2 gap-1.5">
+                  {POPULAR_CUSTOM_PRESETS.map((bundle) => (
                     <button
+                      key={bundle.name}
                       type="button"
-                      onClick={() =>
-                        setCustomList((prev) => prev.filter((m) => m.id !== item.id))
-                      }
-                      className="text-slate-400 dark:text-[#64748b] hover:text-red-500 dark:hover:text-red-400 transition-colors p-1 cursor-pointer"
-                      title="Remove movie"
+                      onClick={() => handleApplyPreset(bundle.movies)}
+                      className="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-amber-50 dark:hover:bg-amber-950/30 border border-slate-200 dark:border-slate-700 text-[11px] font-semibold text-slate-700 dark:text-slate-300 text-left truncate transition-colors"
+                      title={bundle.movies.join(', ')}
                     >
-                      <Trash2 className="w-3.5 h-3.5" />
+                      {bundle.name}
                     </button>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           )}

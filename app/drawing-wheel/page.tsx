@@ -34,7 +34,27 @@ export const metadata: Metadata = {
     'drawing wheel',
     'random drawing generator',
     'random things to draw',
-    'drawing ideas generator'
+    'drawing ideas generator',
+    'random drawing',
+    'random things draw',
+    'random objects to draw',
+    'wheel drawing',
+    'what should i draw wheel',
+    'random drawing ideas',
+    'randomizer drawing ideas',
+    'spinning wheel drawing',
+    'wheel for drawings',
+    'randomizer art',
+    'drawing generator wheel',
+    'random drawing idea',
+    'what character should i draw',
+    'draw a wheel',
+    'art inspo generator',
+    'things to draw wheel',
+    'drawing spinner wheel',
+    'what to draw spin the wheel',
+    'random idea generator for drawing',
+    'drawing ideas randomizer'
   ],
   alternates: {
     canonical: 'https://spinwheelgames.org/drawing-wheel'

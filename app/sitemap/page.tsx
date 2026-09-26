@@ -27,7 +27,8 @@ import {
   Heart,
   MessageSquare,
   Coins,
-  Smile
+  Smile,
+  Dice5
 } from 'lucide-react';
 import Link from 'next/link';
 import { ALL_SEO_PAGES_LIST } from '@/lib/seoData';
@@ -96,10 +97,28 @@ export default function HtmlSitemapPage() {
         description: 'Fantasy draft order pickers, workout routines, and sports team generators.',
         links: []
       },
+      dice: {
+        title: '3D Dice & Tabletop Rollers',
+        icon: <Dice5 className="w-5 h-5 text-indigo-500" />,
+        description: 'Interactive 3D dice rollers, D&D character stat generators, and dice average calculators.',
+        links: [
+          { href: '/dice-collection', label: '3D RPG Dice Collection Showcase', desc: 'Official 8-piece gemstone polyhedra 3D asset pack & physics' },
+          { href: '/dice-roller', label: '3D Dice Roller Engine', desc: 'Main interactive 3D roller for d2 through d100 with notation' },
+          { href: '/roll-4d6', label: 'Roll 4d6 (with Drop Lowest)', desc: 'Roll four 6-sided dice with totals, averages, and stat rules' },
+          { href: '/roll-1d4', label: 'Roll 1d4 (4-Sided Die)', desc: 'Tetrahedron die roller for weapons, spells, and guidance' },
+          { href: '/roll-3d6', label: 'Roll 3d6 Bell Curve Roller', desc: 'Standard 3d6 with bell curve distribution from 3 to 18' },
+          { href: '/roll-5d6', label: 'Roll 5d6 (Yahtzee & Wargaming)', desc: 'Five-dice roller with sums, averages, and combinations' },
+          { href: '/roll-d3', label: 'Roll d3 (3-Sided Randomizer)', desc: 'Fair 3-outcome randomizer for tiebreakers and RPGs' },
+          { href: '/roll-2d12', label: 'Roll 2d12 (Dual 12-Sided)', desc: 'Two 12-sided dice with 2 to 24 triangular distribution' },
+          { href: '/dnd-stat-roller', label: 'D&D 5e Ability Stat Roller', desc: 'Generate complete 6 ability scores with 4d6 drop lowest' },
+          { href: '/dice-average-calculator', label: 'Dice Average Calculator', desc: 'Calculate expected values, formulas, and exact distributions' },
+          { href: '/unusual-dice', label: 'Unusual & Weird Dice Roller', desc: 'Non-standard polyhedra: d2, d5, d7, d14, d16, d24, d30' }
+        ]
+      },
       numbers: {
-        title: 'Numbers & Dice',
+        title: 'Numbers & Wheels',
         icon: <Binary className="w-5 h-5 text-teal-500" />,
-        description: 'Mathematical generators, dice simulators (D6, D20), and raffle wheels.',
+        description: 'Mathematical generators, number wheels, and raffle drawings.',
         links: []
       },
       workout: {
@@ -159,18 +178,18 @@ export default function HtmlSitemapPage() {
       guides: {
         title: 'Educational Guides & Theory',
         icon: <BookOpen className="w-5 h-5 text-cyan-600" />,
-        description: 'In-depth articles on probability, cryptographic randomness, and group psychology.',
+        description: 'In-depth articles on probability, true fair randomness, and group psychology.',
         links: []
       },
       company: {
         title: 'Company, Trust & Legal',
         icon: <Scale className="w-5 h-5 text-amber-600" />,
-        description: 'Cryptographic audit reports, accessibility, privacy, and team info.',
+        description: 'Fairness verification reports, accessibility, privacy, and team info.',
         links: [
           { href: '/about', label: 'About SpinWheelGames', desc: 'Our mission, architecture, and editorial team' },
-          { href: '/fairness', label: 'Fairness & Entropy (CSPRNG)', desc: 'Monte Carlo testing & Web Cryptography API audit' },
+          { href: '/fairness', label: 'Fairness & True Random Selection', desc: 'Equal chance testing & certified randomness verification' },
           { href: '/accessibility', label: 'Accessibility Statement (WCAG 2.1)', desc: 'Keyboard navigation, screen readers, and TTS' },
-          { href: '/privacy', label: 'Privacy Policy', desc: 'Zero-knowledge 100% client-side privacy guarantee' },
+          { href: '/privacy', label: 'Privacy Policy', desc: '100% private browser-based privacy guarantee' },
           { href: '/terms', label: 'Terms of Service', desc: 'Acceptable use, educational embedding, and license' },
           { href: '/contact', label: 'Contact & Support', desc: 'Direct support, bug reports, and educational inquiries' }
         ]
@@ -253,7 +272,7 @@ export default function HtmlSitemapPage() {
             SpinWheelGames HTML Sitemap
           </h1>
           <p className="text-[15px] sm:text-[17px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-            Index of all {totalLinks} curated decision tools, classroom student pickers, giveaway engines, guides, and corporate documentation.
+            Index of all {totalLinks} curated decision tools, classroom student pickers, giveaway spinners, guides, and corporate documentation.
           </p>
 
           {/* Quick Search */}

@@ -30,6 +30,9 @@ import {
   ArrowRight,
   CheckCircle2,
   Dice5,
+  Dices,
+  Shield,
+  Calculator,
   TrendingUp,
   Star
 } from 'lucide-react';
@@ -82,8 +85,9 @@ export default function Navbar({
   const [profileOpen, setProfileOpen] = useState(false);
   const [popularOpen, setPopularOpen] = useState(false);
   const [trendingOpen, setTrendingOpen] = useState(false);
+  const [diceOpen, setDiceOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileTab, setMobileTab] = useState<'popular' | 'trending'>('popular');
+  const [mobileTab, setMobileTab] = useState<'popular' | 'trending' | 'dice'>('popular');
   const [savedModalOpen, setSavedModalOpen] = useState(false);
   const [internalSearchOpen, setInternalSearchOpen] = useState(false);
   const [internalSound, setInternalSound] = useState(true);
@@ -134,6 +138,7 @@ export default function Navbar({
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setPopularOpen(false);
         setTrendingOpen(false);
+        setDiceOpen(false);
         setProfileOpen(false);
       }
     }
@@ -254,6 +259,61 @@ export default function Navbar({
     }
   ];
 
+  // Curated 3D Dice Games & Rollers
+  const diceGames = [
+    {
+      id: 'dice-roller',
+      name: '3D Interactive Dice Roller',
+      desc: 'Interactive 3D customizable dice simulator with physics',
+      icon: Dices,
+      href: '/dice-roller',
+      color: 'text-indigo-600 dark:text-indigo-400 bg-indigo-500/10',
+      badge: '3D Physics'
+    },
+    {
+      id: 'dice-collection',
+      name: '3D RPG Dice Collection',
+      desc: 'Official 8-piece gemstone crystal polyhedra showcase',
+      icon: Sparkles,
+      href: '/dice-collection',
+      color: 'text-amber-600 dark:text-amber-400 bg-amber-500/10',
+      badge: '★ Official Pack'
+    },
+    {
+      id: 'roll-4d6',
+      name: 'Roll 4d6 (Drop Lowest)',
+      desc: 'D&D character stat generator with drop-lowest rule',
+      icon: Shield,
+      href: '/roll-4d6',
+      color: 'text-amber-600 dark:text-amber-400 bg-amber-500/10',
+      badge: 'D&D 5e'
+    },
+    {
+      id: 'dnd-stat-roller',
+      name: 'D&D Stat Roller',
+      desc: 'Full 6-ability score character stat generator',
+      icon: Shield,
+      href: '/dnd-stat-roller',
+      color: 'text-emerald-600 dark:text-emerald-400 bg-emerald-500/10'
+    },
+    {
+      id: 'dice-average-calculator',
+      name: 'Dice Average Calculator',
+      desc: 'Calculate expected value, min/max, & probability charts',
+      icon: Calculator,
+      href: '/dice-average-calculator',
+      color: 'text-blue-600 dark:text-blue-400 bg-blue-500/10'
+    },
+    {
+      id: 'unusual-dice',
+      name: 'Unusual Dice Roller',
+      desc: 'Non-standard polyhedra (d3, d5, d7, d14, d30, d100)',
+      icon: Dices,
+      href: '/unusual-dice',
+      color: 'text-rose-600 dark:text-rose-400 bg-rose-500/10'
+    }
+  ];
+
   return (
     <>
       <header className="fixed top-0 w-full z-50 bg-[#fbf8ff]/95 dark:bg-[#12131a]/95 backdrop-blur-xl border-b border-[#eeedf7] dark:border-[#222330] shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
@@ -301,7 +361,7 @@ export default function Navbar({
                   aria-expanded={popularOpen}
                 >
                   <Star className={`w-4 h-4 ${popularOpen ? 'text-amber-300' : 'text-amber-500'}`} />
-                  <span>Popular Games</span>
+                  <span>Popular</span>
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform ${popularOpen ? 'rotate-180' : ''}`} />
                 </button>
 
@@ -360,7 +420,7 @@ export default function Navbar({
                 )}
               </div>
 
-              {/* 2. TRENDING GAMES DROPDOWN */}
+              {/* 2. TRENDING DROPDOWN */}
               <div className="relative">
                 <button
                   type="button"
@@ -377,7 +437,7 @@ export default function Navbar({
                   aria-expanded={trendingOpen}
                 >
                   <Flame className={`w-4 h-4 ${trendingOpen ? 'text-amber-200 fill-amber-200' : 'text-rose-500'}`} />
-                  <span>Trending Games</span>
+                  <span>Trending</span>
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform ${trendingOpen ? 'rotate-180' : ''}`} />
                 </button>
 
@@ -436,7 +496,84 @@ export default function Navbar({
                 )}
               </div>
 
-              {/* 3. Direct All Games Link */}
+              {/* 3. ROLL DICE DROPDOWN */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setDiceOpen(!diceOpen);
+                    setPopularOpen(false);
+                    setTrendingOpen(false);
+                    setProfileOpen(false);
+                  }}
+                  className={`px-3.5 py-2 rounded-xl text-[13px] font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                    diceOpen
+                      ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm'
+                      : 'text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28]'
+                  }`}
+                  aria-expanded={diceOpen}
+                >
+                  <Dices className={`w-4 h-4 ${diceOpen ? 'text-indigo-200' : 'text-indigo-500'}`} />
+                  <span>Roll Dice</span>
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${diceOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {diceOpen && (
+                  <div className="absolute left-0 top-12 w-[480px] bg-white dark:bg-[#181922] rounded-2xl shadow-2xl border border-[#eeedf7] dark:border-[#292a39] p-3 z-50 animate-fadeIn">
+                    <div className="flex items-center justify-between px-2 pb-2 mb-2 border-b border-[#eeedf7] dark:border-[#222330]">
+                      <div className="flex items-center gap-1.5">
+                        <Dices className="w-3.5 h-3.5 text-indigo-500" />
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
+                          Interactive 3D Dice &amp; RPG Tools
+                        </span>
+                      </div>
+                      <Link
+                        href="/dice-roller"
+                        onClick={() => setDiceOpen(false)}
+                        className="text-[11px] font-bold text-[#4648d4] dark:text-[#8587ff] hover:underline flex items-center gap-1"
+                      >
+                        <span>Open 3D Roller</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-1">
+                      {diceGames.map((game) => {
+                        const Icon = game.icon;
+                        return (
+                          <Link
+                            key={game.id}
+                            href={game.href}
+                            onClick={() => setDiceOpen(false)}
+                            className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#f4f2fd] dark:hover:bg-[#222330] transition-colors group"
+                          >
+                            <div className={`p-2 rounded-xl shrink-0 group-hover:scale-105 transition-transform ${game.color}`}>
+                              <Icon className="w-4 h-4" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2">
+                                <p className="text-[13px] font-bold text-[#1a1b22] dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                  {game.name}
+                                </p>
+                                {game.badge && (
+                                  <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+                                    {game.badge}
+                                  </span>
+                                )}
+                              </div>
+                              <p className="text-[11px] text-[#767586] dark:text-[#908fa1] truncate mt-0.5">
+                                {game.desc}
+                              </p>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* 4. Direct All Games Link */}
               <Link
                 href="/games"
                 className="px-3.5 py-2 rounded-xl text-[13px] font-semibold text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] transition-colors"
@@ -446,7 +583,7 @@ export default function Navbar({
             </nav>
           </div>
 
-          {/* Quick Actions (Search, Create, Sound, Theme, User) */}
+          {/* Quick Actions (Dice, Search, Create, Sound, Theme, User) */}
           <div className="flex items-center gap-1.5 sm:gap-2">
             
             {/* Search Trigger */}
@@ -629,38 +766,51 @@ export default function Navbar({
         {mobileMenuOpen && (
           <div className="md:hidden bg-white dark:bg-[#181922] border-b border-[#eeedf7] dark:border-[#222330] px-4 py-4 flex flex-col gap-3 shadow-xl max-h-[85vh] overflow-y-auto">
             
-            {/* Mobile Segmented Tab: Popular vs Trending */}
-            <div className="flex p-1 bg-[#f4f2fd] dark:bg-[#12131a] rounded-xl border border-[#eeedf7] dark:border-[#292a39]">
+            {/* Mobile Segmented Tab: Popular vs Trending vs Dice */}
+            <div className="flex p-1 bg-[#f4f2fd] dark:bg-[#12131a] rounded-xl border border-[#eeedf7] dark:border-[#292a39] gap-1">
               <button
                 type="button"
                 onClick={() => setMobileTab('popular')}
-                className={`flex-1 py-2 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer min-h-[40px] ${
+                className={`flex-1 py-2 rounded-lg text-xs font-bold flex items-center justify-center gap-1 transition-all cursor-pointer min-h-[40px] ${
                   mobileTab === 'popular'
                     ? 'bg-white dark:bg-[#222330] text-[#4648d4] dark:text-[#8587ff] shadow-xs'
                     : 'text-[#767586] dark:text-[#908fa1]'
                 }`}
               >
                 <Star className="w-3.5 h-3.5 text-amber-500" />
-                <span>Popular Games</span>
+                <span>Popular</span>
               </button>
               
               <button
                 type="button"
                 onClick={() => setMobileTab('trending')}
-                className={`flex-1 py-2 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer min-h-[40px] ${
+                className={`flex-1 py-2 rounded-lg text-xs font-bold flex items-center justify-center gap-1 transition-all cursor-pointer min-h-[40px] ${
                   mobileTab === 'trending'
                     ? 'bg-white dark:bg-[#222330] text-rose-600 dark:text-rose-400 shadow-xs'
                     : 'text-[#767586] dark:text-[#908fa1]'
                 }`}
               >
                 <Flame className="w-3.5 h-3.5 text-rose-500" />
-                <span>Trending Games</span>
+                <span>Trending</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setMobileTab('dice')}
+                className={`flex-1 py-2 rounded-lg text-xs font-bold flex items-center justify-center gap-1 transition-all cursor-pointer min-h-[40px] ${
+                  mobileTab === 'dice'
+                    ? 'bg-white dark:bg-[#222330] text-indigo-600 dark:text-indigo-400 shadow-xs'
+                    : 'text-[#767586] dark:text-[#908fa1]'
+                }`}
+              >
+                <Dices className="w-3.5 h-3.5 text-indigo-500" />
+                <span>Roll Dice</span>
               </button>
             </div>
 
             {/* Mobile Games List with High-Accessibility Touch Targets (>= 44px) */}
             <div className="flex flex-col gap-1">
-              {(mobileTab === 'popular' ? popularGames : trendingGames).map((game) => {
+              {(mobileTab === 'popular' ? popularGames : mobileTab === 'trending' ? trendingGames : diceGames).map((game) => {
                 const Icon = game.icon;
                 return (
                   <Link
@@ -681,7 +831,9 @@ export default function Navbar({
                           <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full ${
                             mobileTab === 'popular'
                               ? 'bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff]'
-                              : 'bg-rose-500/10 text-rose-600 dark:text-rose-400'
+                              : mobileTab === 'trending'
+                              ? 'bg-rose-500/10 text-rose-600 dark:text-rose-400'
+                              : 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400'
                           }`}>
                             {game.badge}
                           </span>

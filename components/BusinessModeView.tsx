@@ -40,9 +40,9 @@ interface BusinessModeViewProps {
 const BUSINESS_PRESETS = [
   {
     id: 'standup-speakers',
-    title: 'Agile Daily Standup Team (8 Engineers)',
+    title: 'Agile Daily Standup Team (8 Teammates)',
     description: 'Determine speaker order for the morning sync without awkward silence.',
-    items: ['Alex (Frontend)', 'Beatriz (Backend)', 'Carlos (DevOps)', 'Deepa (Product)', 'Evan (QA)', 'Fatima (Design)', 'George (Mobile)', 'Hannah (Data)']
+    items: ['Alex (App Builder)', 'Beatriz (Server Lead)', 'Carlos (Operations)', 'Deepa (Product)', 'Evan (Quality)', 'Fatima (Design)', 'George (Mobile)', 'Hannah (Analytics)']
   },
   {
     id: 'sprint-retro',
