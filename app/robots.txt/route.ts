@@ -1,20 +1,75 @@
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   const content = `# Robots.txt for SpinWheelGames.org
+# Certified Fair Random Decision Spinners & 3D Polyhedral Dice
+
+# Standard Search Engine Crawlers
 User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# AI Search & Retrieval Crawlers (ChatGPT, Gemini, Claude, Perplexity, Apple Intelligence)
+User-agent: GPTBot
+Allow: /
+
 User-agent: OAI-SearchBot
 Allow: /
 
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Default for all other crawlers
 User-agent: *
 Allow: /
 
-# Prevent duplicate indexing of search filters and tracking parameters
+# Prevent duplicate indexing of search filters, tracking parameters & internal APIs
 Disallow: /*?*sort=
 Disallow: /*?*filter=
 Disallow: /*?*utm_*
@@ -24,13 +79,19 @@ Disallow: /*?*gclid=
 Disallow: /*?*session=
 Disallow: /api/
 
-# Master Sitemap Index
+# AI Machine-Readable Summary Standard (llmstxt.org)
+# Location: https://spinwheelgames.org/llms.txt
+
+# Master Sitemap Index & Sub-Sitemaps
 Sitemap: https://spinwheelgames.org/sitemap.xml
+Sitemap: https://spinwheelgames.org/sitemaps/tools.xml
+Sitemap: https://spinwheelgames.org/sitemaps/categories.xml
+Sitemap: https://spinwheelgames.org/sitemaps/guides.xml
 `;
 
   return new NextResponse(content, {
     headers: {
-      'Content-Type': 'text/plain',
+      'Content-Type': 'text/plain; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400'
     }
   });

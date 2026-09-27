@@ -3,7 +3,20 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ShieldCheck, Compass, Sparkles, BookOpen, Scale, FileText, Globe, HeartHandshake } from 'lucide-react';
+import {
+  ShieldCheck,
+  Compass,
+  Sparkles,
+  BookOpen,
+  Scale,
+  FileText,
+  Globe,
+  HeartHandshake,
+  Facebook,
+  Instagram,
+  Twitter,
+  Pin
+} from 'lucide-react';
 
 interface FooterProps {
   onQuickLink?: (type: string) => void;
@@ -42,6 +55,59 @@ export default function Footer({ onQuickLink }: FooterProps) {
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#4648d4]/10 dark:bg-[#4648d4]/20 text-[#4648d4] dark:text-[#8587ff] text-[11px] font-bold">
                 No Signup Required
               </span>
+            </div>
+
+            {/* Follow Us Social Media Section */}
+            <div className="flex flex-col gap-2.5 pt-2">
+              <span className="text-xs font-extrabold uppercase tracking-wider text-[#1a1b22] dark:text-white flex items-center gap-1.5">
+                <Globe className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
+                <span>Follow Us</span>
+              </span>
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://www.facebook.com/spinwheelgamesorg/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow SpinWheelGames on Meta / Facebook"
+                  title="Meta (Facebook)"
+                  className="w-10 h-10 rounded-2xl bg-white dark:bg-[#20212d] border border-slate-200 dark:border-slate-800 flex items-center justify-center text-[#464554] dark:text-[#c7c4d7] hover:text-[#1877f2] hover:border-[#1877f2]/50 hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-all shadow-xs hover:scale-105"
+                >
+                  <Facebook className="w-4 h-4" />
+                </a>
+
+                <a
+                  href="https://www.instagram.com/spinwheelgames"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow SpinWheelGames on Instagram"
+                  title="Instagram"
+                  className="w-10 h-10 rounded-2xl bg-white dark:bg-[#20212d] border border-slate-200 dark:border-slate-800 flex items-center justify-center text-[#464554] dark:text-[#c7c4d7] hover:text-[#e4405f] hover:border-[#e4405f]/50 hover:bg-pink-50 dark:hover:bg-pink-950/30 transition-all shadow-xs hover:scale-105"
+                >
+                  <Instagram className="w-4 h-4" />
+                </a>
+
+                <a
+                  href="https://x.com/spinwheelgames"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow SpinWheelGames on X"
+                  title="X (formerly Twitter)"
+                  className="w-10 h-10 rounded-2xl bg-white dark:bg-[#20212d] border border-slate-200 dark:border-slate-800 flex items-center justify-center text-[#464554] dark:text-[#c7c4d7] hover:text-black dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all shadow-xs hover:scale-105"
+                >
+                  <Twitter className="w-4 h-4" />
+                </a>
+
+                <a
+                  href="https://in.pinterest.com/spinwheelgames/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow SpinWheelGames on Pinterest"
+                  title="Pinterest"
+                  className="w-10 h-10 rounded-2xl bg-white dark:bg-[#20212d] border border-slate-200 dark:border-slate-800 flex items-center justify-center text-[#464554] dark:text-[#c7c4d7] hover:text-[#e60023] hover:border-[#e60023]/50 hover:bg-red-50 dark:hover:bg-red-950/30 transition-all shadow-xs hover:scale-105"
+                >
+                  <Pin className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -109,64 +175,100 @@ export default function Footer({ onQuickLink }: FooterProps) {
               </li>
               <li>
                 <Link href="/bingo-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
-                  Bingo Spin Wheel
+                  Bingo Wheel 1-75 Caller
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Hubs & Category Collections */}
+          {/* Specialized Multi-Engine Modes */}
           <div className="flex flex-col gap-3.5">
             <h3 className="text-[12px] font-bold text-[#1a1b22] dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-              <Compass className="w-3.5 h-3.5 text-emerald-500" />
-              Wheel Hubs
+              <Compass className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
+              Special Game Modes
             </h3>
             <ul className="flex flex-col gap-2.5 text-[13px] text-[#464554] dark:text-[#c7c4d7]">
               <li>
-                <Link href="/classroom" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Classroom Student Pickers
+                <Link href="/challenges" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium flex items-center gap-1">
+                  <span>Daily Wheel Challenges</span>
+                  <span className="text-[10px] bg-amber-500/15 text-amber-600 dark:text-amber-400 font-bold px-1.5 py-0.2 rounded-md">New</span>
                 </Link>
               </li>
               <li>
-                <Link href="/giveaways" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Giveaways &amp; Prize Draws
+                <Link href="/dice-collection" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                  3D Polyhedral Dice Collection
                 </Link>
               </li>
               <li>
-                <Link href="/decisions" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Daily Decision Hub
+                <Link href="/dice/d20" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  D20 Critical Hit Roller
                 </Link>
               </li>
               <li>
-                <Link href="/food" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Food &amp; Dining Wheels
+                <Link href="/roll-4d6" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Roll 4d6 Drop Lowest
                 </Link>
               </li>
               <li>
-                <Link href="/party" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Party &amp; Icebreaker Games
+                <Link href="/dnd-stats" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  D&amp;D 5e Stat Roller
                 </Link>
               </li>
               <li>
-                <Link href="/sports" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Sports, Drafts &amp; Teams
+                <Link href="/dice-average" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Dice Average Calculator
                 </Link>
               </li>
               <li>
-                <Link href="/names" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Rosters &amp; Name Generators
+                <Link href="/drawing-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Drawing Prompts Generator
+                </Link>
+              </li>
+              <li>
+                <Link href="/classroom-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Classroom Student Picker
+                </Link>
+              </li>
+              <li>
+                <Link href="/team-generator" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Random Team Generator
+                </Link>
+              </li>
+              <li>
+                <Link href="/song-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Karaoke &amp; Song Picker
+                </Link>
+              </li>
+              <li>
+                <Link href="/question-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Question &amp; Icebreaker Wheel
+                </Link>
+              </li>
+              <li>
+                <Link href="/theme-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Party Theme Chooser
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Trust, Legal & Company Links */}
+          {/* Directory & Policies */}
           <div className="flex flex-col gap-3.5">
             <h3 className="text-[12px] font-bold text-[#1a1b22] dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-              <Scale className="w-3.5 h-3.5 text-amber-500" />
-              Trust &amp; Legal
+              <FileText className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
+              Platform &amp; Legal
             </h3>
             <ul className="flex flex-col gap-2.5 text-[13px] text-[#464554] dark:text-[#c7c4d7]">
+              <li>
+                <Link href="/games" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                  All 180+ Wheel Games Hub
+                </Link>
+              </li>
+              <li>
+                <Link href="/categories" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                  Browse by Category
+                </Link>
+              </li>
               <li>
                 <Link href="/about" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
                   About SpinWheelGames

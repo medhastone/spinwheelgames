@@ -8,12 +8,20 @@ export async function GET() {
 
   const staticRoutes: { path: string; changefreq: string; priority: string }[] = [
     { path: '', changefreq: 'daily', priority: '1.0' },
+    { path: '/challenges', changefreq: 'daily', priority: '0.95' },
+    { path: '/games', changefreq: 'daily', priority: '0.95' },
     { path: '/movie-wheel', changefreq: 'daily', priority: '0.95' },
     { path: '/food-wheel', changefreq: 'daily', priority: '0.95' },
     { path: '/number-wheel', changefreq: 'daily', priority: '0.95' },
     { path: '/bingo-wheel', changefreq: 'daily', priority: '0.95' },
     { path: '/animal-wheel', changefreq: 'daily', priority: '0.95' },
+    { path: '/classroom-wheel', changefreq: 'daily', priority: '0.95' },
+    { path: '/drawing-wheel', changefreq: 'daily', priority: '0.95' },
+    { path: '/question-wheel', changefreq: 'daily', priority: '0.95' },
     { path: '/random-object-generator', changefreq: 'daily', priority: '0.95' },
+    { path: '/song-wheel', changefreq: 'daily', priority: '0.95' },
+    { path: '/team-generator', changefreq: 'daily', priority: '0.95' },
+    { path: '/theme-wheel', changefreq: 'daily', priority: '0.95' },
     { path: '/dice-roller', changefreq: 'daily', priority: '0.95' },
     { path: '/dice-collection', changefreq: 'daily', priority: '0.95' },
     { path: '/dice/d2', changefreq: 'daily', priority: '0.92' },
@@ -33,6 +41,7 @@ export async function GET() {
     { path: '/dnd-stat-roller', changefreq: 'daily', priority: '0.92' },
     { path: '/dice-average-calculator', changefreq: 'daily', priority: '0.90' },
     { path: '/unusual-dice', changefreq: 'daily', priority: '0.90' },
+    { path: '/categories', changefreq: 'weekly', priority: '0.85' },
     { path: '/about', changefreq: 'monthly', priority: '0.6' },
     { path: '/fairness', changefreq: 'monthly', priority: '0.7' },
     { path: '/contact', changefreq: 'monthly', priority: '0.5' },
@@ -86,4 +95,3 @@ ${toolXml}
     }
   });
 }
-
