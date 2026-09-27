@@ -1,0 +1,39 @@
+name: Auto Sync Lockfile for Cloudflare
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Generate Fresh Synchronized Lockfile
+        run: |
+          rm -f package-lock.json
+          npm install
+
+      - name: Commit and Push Synchronized Lockfile
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json package.json
+          if git diff --staged --quiet; then
+            echo "Lockfile is already up to date."
+          else
+            git commit -m "fix(ci): automatically synchronize package-lock.json for Cloudflare Pages"
+            git push
+          fi

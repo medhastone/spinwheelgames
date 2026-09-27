@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { ALL_SEO_PAGES_LIST } from '@/lib/seoData';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   const lastmod = new Date().toISOString().split('T')[0];
 

@@ -1,45 +1,31 @@
-# Implementation Plan: Comprehensive Mobile Device Compatibility Audit & Optimization
+# Implementation Plan: Cloudflare Pages SSR / Edge Worker Deployment
 
-## 1. Goal & Viewport Targets
-Audit and optimize all application pages for seamless mobile device performance (iPhone SE 375px, iPhone 14/15/16 390px-430px, Android 360px-412px, iPad/Tablets 768px-1024px). Guarantee:
-- Zero horizontal screen overflow / scrolling.
-- Responsive canvas scaling with high-DPI crispness.
-- Touch-optimized target heights ($\ge 44\text{px}$) and thumb-friendly button placement.
-- Clean text wrapping, fluid font sizes, and collapsible/scrolling control drawers.
+## 1. Objective
+Ensure the Next.js 15 App Router codebase builds and deploys seamlessly on **Cloudflare Pages with Next.js SSR / Edge Worker** (`.open-next/worker.js` / `.next`).
 
 ---
 
-## 2. Key Areas to Audit & Refine
+## 2. Technical Strategy & Fixes
 
-### A. Homepage & Multiplayer Engines (`app/page.tsx`, `components/`)
-1. **`WheelBattleEngine.tsx`**:
-   - Optimize wheel container scaling: `w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[460px]` with fluid aspect-ratio so both wheels fit cleanly on mobile when stacked.
-   - Mobile score cards: Wrap score counters and action badges seamlessly without truncating.
-   - Customizer drawer: Use 1-column layout on mobile with touch-friendly input fields and weight dropdowns.
-2. **`ClassroomModeView`, `GiveawayModeView`, `MultiWheelEngine`, `TournamentEngine`**:
-   - Verify all tab bars, bracket cards, and control panels wrap or scroll horizontally with `touch-pan-x`.
-   - Ensure sticky action buttons remain accessible without obscuring content.
+### A. Cloudflare OpenNext & Worker Configuration
+1. **`open-next.config.ts`**:
+   - Use `@opennextjs/cloudflare` configuration with `defineCloudflareConfig()`.
+2. **`wrangler.jsonc`**:
+   - Set `"main": ".open-next/worker.js"` with `"nodejs_compat"` flag and `"compatibility_date": "2024-09-23"` (or latest).
+   - Configure asset binding for static files (`.open-next/assets`).
 
-### B. Dedicated Spin Wheel Game Subpages (`app/*-wheel/page.tsx`, `components/food/`, etc.)
-1. **Wheel Engines & Presets**:
-   - Responsive canvas dimensions on mobile viewports.
-   - Preset chips & category tags: Smooth horizontal swiping (`overflow-x-auto no-scrollbar`).
-   - Winner modals & Result cards: Centered popups with `max-w-[92vw]` and scrollable content if text is long.
-2. **Educational Content & FAQ Sections**:
-   - Ensure tables (e.g., probability tables, nutritional breakdowns) use `overflow-x-auto` wrapper with touch scrolling indicator.
-   - Accordions and FAQ entities toggle smoothly on tap.
+### B. Next.js App Router Edge & Server Compatibility
+1. **API Routes (`app/api/*`)**:
+   - Ensure `app/api/contact/route.ts`, `app/api/share/route.ts`, and `app/api/share/[id]/route.ts` are fully Web-Standard compliant (standard `Request` and `NextResponse.json`).
+   - Add explicit dynamic configuration where appropriate so prerendering does not fail.
+2. **Dynamic Route Redirects (`app/w/[id]`)**:
+   - Ensure dynamic params use Next.js 15 async promise resolution cleanly.
 
-### C. Polyhedral 3D Dice Pages (`app/dice/[slug]`, `app/4d6`, `app/dnd-stats`, `app/dice-average`, `app/dice-roller`)
-1. **3D WebGL Canvas (`DiceScene3D.tsx`)**:
-   - Adaptive viewport height (`h-[280px] sm:h-[360px] md:h-[420px]`) so the "ROLL DICE" CTA stays in thumb reach.
-   - Touch drag rotation and tap-to-roll gestures.
-2. **Dice Hub Sticky Navigation (`DiceNavigation.tsx`)**:
-   - Verify drag-to-scroll, touch swipe, and active tab centering work flawlessly on mobile screens.
-3. **Stat Grid & Probability Charts (`DndStatRollerComponent`, `dice-average`)**:
-   - Responsive 2-column or 1-column grid on small phones so ability score cards (STR, DEX, CON, INT, WIS, CHA) render with clear typography.
+### C. Build Command & Verification
+- Test Next.js build locally (`npm run build`) to ensure all 220 routes compile cleanly.
+- Provide step-by-step instructions for Cloudflare Pages dashboard build settings.
 
 ---
 
 ## 3. Verification Plan
-- **Build Verification**: Run `compile_applet` and `lint_applet` to confirm 100% clean build.
-- **Responsive Inspection**: Verify layout across CSS breakpoints (`sm: 640px`, `md: 768px`, `lg: 1024px`, and mobile `<400px`).
+- Run `compile_applet` and `lint_applet` to confirm 0 compilation errors across all 220 routes.
