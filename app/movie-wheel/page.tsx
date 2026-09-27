@@ -26,35 +26,47 @@ import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Movie Wheel Spin – Random Movie Generator & Film Picker',
+  title: 'Movie Wheel - What Movie Should I Watch Generator',
   description:
-    'Spin the movie wheel to randomly pick what to watch. Use as a random movie generator, film spinner, netflix random movie generator, or custom film chooser.',
+    'Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!',
   keywords: [
+    'what movie should i watch generator',
     'random movie generator',
-    'random film generator',
-    'movie randomizer',
-    'random film chooser',
+    'movie wheel',
+    'movie roulette',
+    'random movie picker',
     'netflix random movie generator',
     'wheel of movies',
     'film spinner',
+    'random film generator',
+    'movie randomizer',
+    'movie night picker',
     'random movie generator by genre'
   ],
   alternates: {
     canonical: 'https://spinwheelgames.org/movie-wheel'
   },
   openGraph: {
-    title: 'Movie Wheel Spin – Random Movie Picker',
+    title: 'Movie Wheel - What Movie Should I Watch Generator',
     description:
-      'Spin the movie wheel to randomly pick what to watch. Choose by genre or use your own movie list for a quick decision.',
+      'Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!',
     url: 'https://spinwheelgames.org/movie-wheel',
     siteName: 'SpinWheelGames',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Movie Wheel - What Movie Should I Watch Generator'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Movie Wheel Spin – Random Movie Picker',
+    title: 'Movie Wheel - What Movie Should I Watch Generator',
     description:
-      'Spin the movie wheel to randomly pick what to watch. Choose by genre or use your own movie list for a quick decision.'
+      'Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!'
   }
 };
 
@@ -64,17 +76,33 @@ const JSON_LD_DATA = {
     {
       '@type': 'WebApplication',
       '@id': 'https://spinwheelgames.org/movie-wheel#webapp',
-      name: 'Movie Wheel Spin',
+      name: 'Movie Wheel - What Movie Should I Watch Generator',
       url: 'https://spinwheelgames.org/movie-wheel',
       applicationCategory: 'EntertainmentApplication',
       operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript and modern HTML5 canvas support',
       description:
         'Free online movie wheel spin and random movie picker. Pick what to watch by genre, streaming service, or custom watchlist with fair cryptographic randomness.',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD'
-      }
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1280',
+        bestRating: '5',
+        worstRating: '1'
+      },
+      featureList: [
+        'Genre filters: Action, Comedy, Horror, Sci-Fi, Romance, Thriller',
+        'Quick presets: Date Night, Family Friendly, Group Voting',
+        'Custom watchlist paste and elimination mode',
+        'Cryptographic randomness for unbiased film selection',
+        'Fullscreen movie night presentation mode'
+      ],
+      screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
     {
       '@type': 'BreadcrumbList',

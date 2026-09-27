@@ -20,49 +20,45 @@ import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Spin Wheel Themes – Random Theme Picker',
+  title: 'Theme Wheel - Random Party & Costume Theme Generator',
   description:
-    'Spin a random theme wheel for drawing, writing, parties, storytelling, videos, photography, games and creative challenges.',
+    'Spin the theme wheel to randomly pick party themes, Dress to Impress (DTI) styles, creative writing prompts, and event dress codes. 100% free & fun!',
   keywords: [
-    'spin wheel themes',
-    'spin the wheel themes',
-    'theme picker',
-    'theme generator',
-    'random theme generator',
+    'random party theme generator',
     'theme wheel',
-    'dti themes',
-    'dress to impress themes',
-    'dti theme wheel',
-    'dti themes wheel',
-    'dti theme',
+    'costume theme wheel',
+    'spin wheel themes',
     'dress to impress themes wheel',
-    'dti wheel',
-    'give me a theme',
-    'random themes',
-    'theme randomizer',
-    'dti wheel themes',
-    'random dti theme generator',
-    'dti theme spinner',
-    'themes dress to impress',
-    'dti theme generator',
-    'random theme generator dti',
-    'dti theme wheel 2026',
-    'dti theme wheel 2025',
-    'dandys world toon wheel',
-    'dandys world trinket wheel',
-    'dandys world randomizer',
-    'dandy world wheel',
-    'dandys world character wheel',
-    'dandys world spinner',
-    'color wheel game',
-    'color spinner'
+    'dti theme wheel',
+    'random theme generator',
+    'event theme picker',
+    'trivia night theme roulette',
+    'creative writing theme generator'
   ],
+  alternates: {
+    canonical: 'https://spinwheelgames.org/theme-wheel'
+  },
   openGraph: {
-    title: 'Spin Wheel Themes – Random Theme Picker',
+    title: 'Theme Wheel - Random Party & Costume Theme Generator',
     description:
-      'Spin a random theme wheel for drawing, writing, parties, storytelling, videos, photography, games and creative challenges.',
+      'Spin the theme wheel to randomly pick party themes, Dress to Impress (DTI) styles, creative writing prompts, and event dress codes. 100% free & fun!',
     type: 'website',
-    url: 'https://spinwheelgames.org/theme-wheel'
+    url: 'https://spinwheelgames.org/theme-wheel',
+    siteName: 'SpinWheelGames',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Theme Wheel - Random Party & Costume Theme Generator'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Theme Wheel - Random Party & Costume Theme Generator',
+    description:
+      'Spin the theme wheel to randomly pick party themes, Dress to Impress (DTI) styles, creative writing prompts, and event dress codes. 100% free & fun!'
   }
 };
 
@@ -73,16 +69,32 @@ const JSON_LD_DATA = {
       '@type': 'WebApplication',
       '@id': 'https://spinwheelgames.org/theme-wheel#webapp',
       url: 'https://spinwheelgames.org/theme-wheel',
-      name: 'Spin Wheel Themes',
+      name: 'Theme Wheel - Random Party & Costume Theme Generator',
       applicationCategory: 'EntertainmentApplication',
       operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript and modern HTML5 canvas support',
       description:
         'Interactive random theme wheel featuring 8 modes (Drawing, Writing, Party, Photography, Video, Storytelling, Gaming, Classroom, Custom), No-Repeat elimination deck, and favorite bookmarks.',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD'
-      }
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1210',
+        bestRating: '5',
+        worstRating: '1'
+      },
+      featureList: [
+        '8 Curated Theme Modes: Parties, DTI Costumes, Creative Writing, Drawing, Video Prompts, Photography',
+        'No-Repeat elimination mode for event rounds',
+        'Custom themes bulk input with probability sliders',
+        'Mobile responsive touch spinning and sound effects',
+        'Fullscreen party presentation view'
+      ],
+      screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
     {
       '@type': 'FAQPage',

@@ -227,7 +227,7 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
               '@type': 'ListItem',
               position: 3,
               name: config.dieType.toUpperCase(),
-              item: `https://spinwheelgames.org/${config.dieType}`
+              item: `https://spinwheelgames.org/${config.dieType === '4d6' ? '4d6' : `dice/${config.dieType}`}`
             }
           ]
         }
@@ -262,11 +262,9 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
                   {config.shape}
                 </span>
               </h1>
-              <div className="mt-3 space-y-2 text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
-                {config.introParagraphs.map((p, idx) => (
-                  <p key={idx}>{p}</p>
-                ))}
-              </div>
+              <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
+                {config.introParagraphs[0]}
+              </p>
             </div>
 
             {/* Quick Summary Badge */}
@@ -551,6 +549,48 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
             </div>
           </div>
         </div>
+
+        {/* Full Editorial Guide & Tabletop RPG Context */}
+        <section className="bg-white dark:bg-[#0f1017] rounded-3xl border border-slate-200 dark:border-[#202230] p-6 sm:p-8 space-y-6 shadow-sm dark:shadow-xl">
+          <div className="flex items-center gap-2.5">
+            <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+              <BookOpen className="w-5 h-5" />
+            </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+                About the {config.name}
+              </h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                Tabletop roleplaying context, mechanical significance, and practical gameplay guide.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-3.5 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+            {config.introParagraphs.map((paragraph, idx) => (
+              <p key={idx}>{paragraph}</p>
+            ))}
+          </div>
+
+          {config.howToUse && config.howToUse.length > 0 && (
+            <div className="pt-5 border-t border-slate-100 dark:border-[#1c1d29] space-y-3">
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                <span>How to Roll {config.dieType.toUpperCase()} Online</span>
+              </h3>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+                {config.howToUse.map((step, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 p-3 rounded-2xl bg-slate-50 dark:bg-[#141520] border border-slate-200/60 dark:border-[#202232]">
+                    <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400 shrink-0">
+                      {idx + 1}.
+                    </span>
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </section>
 
         {/* H2: [DX] Results and Probability ("At a glance" + table) */}
         <section className="bg-white dark:bg-[#0f1017] rounded-3xl border border-slate-200 dark:border-[#202230] p-6 sm:p-8 space-y-6 shadow-sm dark:shadow-xl">
@@ -884,7 +924,7 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
               </p>
             </div>
             <Link
-              href="/"
+              href="/dice-roller"
               className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 flex items-center gap-1"
             >
               <span>Launch Full Suite</span>
@@ -907,25 +947,22 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
               { type: 'dice-average', label: 'Dice Average Calc' }
             ]
               .filter((d) => d.type !== config.dieType)
-              .map((d) => (
-                <Link
-                  key={d.type}
-                  href={`/${d.type}`}
-                  className="px-3 py-1.5 rounded-xl bg-white dark:bg-[#13141e] hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white text-xs font-mono font-bold text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#222435] transition-all shadow-2xs"
-                >
-                  {d.label}
-                </Link>
-              ))}
+              .map((d) => {
+                const targetHref = d.type === '4d6' || d.type === 'dnd-stats' || d.type === 'dice-average'
+                  ? `/${d.type}`
+                  : `/dice/${d.type}`;
+                return (
+                  <Link
+                    key={d.type}
+                    href={targetHref}
+                    className="px-3 py-1.5 rounded-xl bg-white dark:bg-[#13141e] hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white text-xs font-mono font-bold text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#222435] transition-all shadow-2xs"
+                  >
+                    {d.label}
+                  </Link>
+                );
+              })}
           </div>
         </section>
-
-        {/* About SpinWheelGames Section */}
-        <footer className="p-6 rounded-3xl bg-slate-100 dark:bg-[#090a10] border border-slate-200 dark:border-[#1b1c28] text-xs text-slate-500 dark:text-slate-400 space-y-2">
-          <h3 className="font-bold text-slate-800 dark:text-slate-200">About SpinWheelGames.org</h3>
-          <p className="leading-relaxed">
-            SpinWheelGames.org provides free, interactive 3D virtual dice rollers and tabletop gaming tools. Our dice rollers give players, educators, and game masters clean, fair, and instant results on any phone, tablet, or computer.
-          </p>
-        </footer>
       </div>
 
       {/* 360° Face Inspector Modal */}

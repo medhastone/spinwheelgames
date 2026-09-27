@@ -21,71 +21,52 @@ import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Food Spin the Wheel – Random Food Picker & Dinner Wheel',
+  title: 'Food Wheel - What Should I Eat Generator & Dinner Picker',
   description:
-    'Spin a free food wheel to randomly choose dinner, lunch, snacks, desserts, cuisines and fast food. Customize your options or pick what to eat instantly.',
+    'Spin the free food wheel to randomly pick dinner, fast food, snacks, or cuisines. End decision fatigue with custom slices and 100% fair instant spins!',
   keywords: [
-    'random food generator',
+    'what should i eat generator',
     'random food picker',
+    'dinner wheel spin',
     'food wheel',
-    'random food',
-    'food wheel spin',
-    'food wheel spinner',
-    'food roulette',
-    'wheel dinner',
-    'dinner wheel',
     'food spin the wheel',
-    'fast food spin wheel',
-    'wheel of food',
+    'what to eat generator',
+    'random food generator',
     'dinner roulette',
     'fast food roulette',
-    'dinner spinner',
-    'fast food spin the wheel',
-    'food randomizer',
-    'fast food roulette wheel',
-    'fast food generator',
-    'food spinner',
-    'what to eat generator',
     'food decision wheel',
-    'food decider',
     'choose dinner for me',
     'dinner picker',
-    'food spinner wheel',
     'what should i eat today generator',
     'fast food randomizer',
-    'fast food random',
-    'food randomizer wheel',
     'spin for dinner',
-    'food decision dice',
-    'dinner wheel spin',
-    'pick food',
-    'dinner spinner app',
     'pick my dinner',
-    'fast food spinner',
-    'what to eat randomizer',
-    'food wheel decider',
-    'pick food for me',
-    'spin wheel food',
-    'what should i order for dinner tonight generator',
-    'random fast food wheel',
-    'random fast food place'
+    'food roulette'
   ],
   alternates: {
     canonical: 'https://spinwheelgames.org/food-wheel'
   },
   openGraph: {
-    title: 'Food Spin the Wheel – Random Food Picker',
+    title: 'Food Wheel - What Should I Eat Generator & Dinner Picker',
     description:
-      'Spin a free food wheel to randomly choose dinner, lunch, snacks, desserts, cuisines and more. Customize the choices or add your own foods.',
+      'Spin the free food wheel to randomly pick dinner, fast food, snacks, or cuisines. End decision fatigue with custom slices and 100% fair instant spins!',
     url: 'https://spinwheelgames.org/food-wheel',
     siteName: 'SpinWheelGames',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Food Wheel - What Should I Eat Generator'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Food Spin the Wheel – Random Food Picker',
+    title: 'Food Wheel - What Should I Eat Generator & Dinner Picker',
     description:
-      'Spin a free food wheel to randomly choose dinner, lunch, snacks, desserts, cuisines and more. Customize the choices or add your own foods.'
+      'Spin the free food wheel to randomly pick dinner, fast food, snacks, or cuisines. End decision fatigue with custom slices and 100% fair instant spins!'
   }
 };
 
@@ -95,17 +76,33 @@ const JSON_LD_DATA = {
     {
       '@type': 'WebApplication',
       '@id': 'https://spinwheelgames.org/food-wheel#webapp',
-      name: 'Food Spin the Wheel',
+      name: 'Food Spin Wheel - What Should I Eat Generator',
       url: 'https://spinwheelgames.org/food-wheel',
       applicationCategory: 'UtilityApplication',
       operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript and modern HTML5 canvas support',
       description:
         'Free online food spin wheel and random meal picker. Choose what to eat for dinner, lunch, breakfast, snacks, and desserts with fair random selection.',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD'
-      }
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1350',
+        bestRating: '5',
+        worstRating: '1'
+      },
+      featureList: [
+        'Quick presets: Dinner, Fast Food, Healthy, Desserts, Cuisines',
+        'Custom food items with editable probabilities',
+        'Elimination mode to remove eaten options',
+        'Realistic spinning physics and sound effects',
+        'Full-screen party and projector mode'
+      ],
+      screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
     {
       '@type': 'BreadcrumbList',

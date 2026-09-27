@@ -12,13 +12,15 @@ import {
 } from 'lucide-react';
 
 const DICE_ROUTES = [
-  { href: '/d2', label: 'd2 (Coin)', short: 'd2', sides: 2 },
+  { href: '/dice/d2', label: 'd2 (Coin)', short: 'd2', sides: 2 },
+  { href: '/dice/d4', label: 'd4', short: 'd4', sides: 4 },
+  { href: '/dice/d6', label: 'd6', short: 'd6', sides: 6 },
   { href: '/4d6', label: '4d6', short: '4d6', sides: 6 },
-  { href: '/d8', label: 'd8', short: 'd8', sides: 8 },
-  { href: '/d10', label: 'd10', short: 'd10', sides: 10 },
-  { href: '/d12', label: 'd12', short: 'd12', sides: 12 },
-  { href: '/d20', label: 'd20', short: 'd20', sides: 20 },
-  { href: '/d100', label: 'd100', short: 'd100', sides: 100 }
+  { href: '/dice/d8', label: 'd8', short: 'd8', sides: 8 },
+  { href: '/dice/d10', label: 'd10', short: 'd10', sides: 10 },
+  { href: '/dice/d12', label: 'd12', short: 'd12', sides: 12 },
+  { href: '/dice/d20', label: 'd20', short: 'd20', sides: 20 },
+  { href: '/dice/d100', label: 'd100', short: 'd100', sides: 100 }
 ];
 
 const TOOL_ROUTES = [

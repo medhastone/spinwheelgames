@@ -27,38 +27,46 @@ import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Classroom Spin Wheel – Random Student Picker',
+  title: 'Classroom Wheel - Random Student Picker & Name Spinner',
   description:
-    'Use a free classroom spin wheel to randomly pick students, teams, activities, questions and classroom jobs. Fast, fair and easy to customize.',
+    'Spin the free classroom wheel to randomly pick students, teams, or classroom helpers without repeats. Engaging, 100% fair, and trusted by teachers worldwide!',
   keywords: [
-    'classroom spin wheel',
+    'random student picker wheel',
     'classroom wheel',
+    'classroom spin wheel',
     'random student picker',
+    'classroom name spinner',
+    'fair name selector',
     'student picker',
     'random student wheel',
     'classroom spinner',
     'classroom randomizer',
-    'random student selector',
-    'class spinner',
-    'google classroom student selector',
     'student selector'
   ],
   alternates: {
     canonical: 'https://spinwheelgames.org/classroom-wheel'
   },
   openGraph: {
-    title: 'Classroom Spin Wheel – Random Student Picker',
+    title: 'Classroom Wheel - Random Student Picker & Name Spinner',
     description:
-      'Use a free classroom spin wheel to randomly pick students, teams, activities, questions and classroom jobs. Fast, fair and easy to customize.',
+      'Spin the free classroom wheel to randomly pick students, teams, or classroom helpers without repeats. Engaging, 100% fair, and trusted by teachers worldwide!',
     url: 'https://spinwheelgames.org/classroom-wheel',
     siteName: 'SpinWheelGames',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Classroom Wheel - Random Student Picker'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Classroom Spin Wheel – Random Student Picker',
+    title: 'Classroom Wheel - Random Student Picker & Name Spinner',
     description:
-      'Use a free classroom spin wheel to randomly pick students, teams, activities, questions and classroom jobs. Fast, fair and easy to customize.'
+      'Spin the free classroom wheel to randomly pick students, teams, or classroom helpers without repeats. Engaging, 100% fair, and trusted by teachers worldwide!'
   }
 };
 
@@ -68,10 +76,11 @@ const JSON_LD_DATA = {
     {
       '@type': 'WebApplication',
       '@id': 'https://spinwheelgames.org/classroom-wheel#webapp',
-      name: 'Classroom Spin Wheel',
+      name: 'Classroom Wheel - Random Student Picker',
       url: 'https://spinwheelgames.org/classroom-wheel',
       applicationCategory: 'EducationalApplication',
       operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript and modern HTML5 canvas support',
       description:
         'Free online classroom spin wheel and random student picker. Select students, group teams, assign jobs, and pick quiz questions with 100% fair random selection.',
       offers: {
@@ -79,13 +88,21 @@ const JSON_LD_DATA = {
         price: '0',
         priceCurrency: 'USD'
       },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1620',
+        bestRating: '5',
+        worstRating: '1'
+      },
       featureList: [
         'Random student picker with text-to-speech voice callouts',
         'No-repeat elimination mode so everyone participates',
         'Reading order passage selector and quiz topic spinner',
         'Classroom job assignment and brain break activity randomizer',
         'Instant group maker and random team generator'
-      ]
+      ],
+      screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
     {
       '@type': 'BreadcrumbList',

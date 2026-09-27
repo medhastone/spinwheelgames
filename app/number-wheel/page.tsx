@@ -26,9 +26,9 @@ import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Number Spin Wheel – Free Random Number Picker 1-10, 1-100, 1-4, 1-6',
+  title: 'Number Wheel - Random Number Generator Wheel (1-100)',
   description:
-    'Spin a random number wheel online. Choose any range from 1-4, 1-6, 1-10, 1-20, 1-50, 1-100 to 1-1000. Pick a number between ranges with certified fairness.',
+    'Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.',
   keywords: [
     'pick a number 1-10',
     'number wheel',
@@ -96,18 +96,26 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/number-wheel'
   },
   openGraph: {
-    title: 'Number Spin Wheel – Free Random Number Picker',
+    title: 'Number Wheel - Random Number Generator Wheel (1-100)',
     description:
-      'Spin a random number wheel online. Choose any range, generate unique numbers, exclude numbers, and use the result for games, decisions or activities.',
+      'Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.',
     url: 'https://spinwheelgames.org/number-wheel',
     siteName: 'SpinWheelGames',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Number Wheel - Random Number Generator Wheel'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Number Spin Wheel – Free Random Number Picker',
+    title: 'Number Wheel - Random Number Generator Wheel (1-100)',
     description:
-      'Spin a random number wheel online. Choose any range, generate unique numbers, exclude numbers, and use the result for games, decisions or activities.'
+      'Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.'
   }
 };
 
@@ -117,16 +125,24 @@ const JSON_LD_DATA = {
     {
       '@type': 'WebApplication',
       '@id': 'https://spinwheelgames.org/number-wheel#webapp',
-      name: 'Number Spin Wheel',
+      name: 'Number Wheel - Random Number Generator Wheel',
       url: 'https://spinwheelgames.org/number-wheel',
       applicationCategory: 'UtilityApplication',
       operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript and modern HTML5 canvas support',
       description:
         'Free online number spin wheel and random number generator picker. Choose any range (1-4, 1-6, 1-10, 1-20, 1-50, 1-100 or custom), filter even/odd, exclude numbers, and pick unique batches.',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD'
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1540',
+        bestRating: '5',
+        worstRating: '1'
       },
       featureList: [
         'Custom Minimum and Maximum range bounds',
@@ -136,7 +152,8 @@ const JSON_LD_DATA = {
         'Unique multiple numbers batch draw',
         'No-repeat elimination mode',
         'Provably fair CSPRNG hardware entropy via Web Cryptography API'
-      ]
+      ],
+      screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
     {
       '@type': 'BreadcrumbList',

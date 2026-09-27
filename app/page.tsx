@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useCallback, Suspense } from 'react';
-import dynamic from 'next/dynamic';
 import Navbar from '@/components/Navbar';
 import HeroBanner from '@/components/HeroBanner';
 import WheelWorkspace from '@/components/WheelWorkspace';
@@ -24,6 +23,15 @@ import SharePanel from '@/components/SharePanel';
 import CreateWheelModal from '@/components/CreateWheelModal';
 import SearchModal from '@/components/SearchModal';
 
+import ClassroomModeView from '@/components/ClassroomModeView';
+import GiveawayModeView from '@/components/GiveawayModeView';
+import BusinessModeView from '@/components/BusinessModeView';
+import MultiWheelEngine from '@/components/MultiWheelEngine';
+import TournamentEngine from '@/components/TournamentEngine';
+import ChallengeEngine from '@/components/ChallengeEngine';
+import WheelBattleEngine from '@/components/WheelBattleEngine';
+import FairnessPanel from '@/components/FairnessPanel';
+
 import {
   WHEEL_PRESETS,
   WheelConfig,
@@ -42,8 +50,7 @@ import {
   GraduationCap,
   Gift,
   Briefcase,
-  ChevronDown,
-  Loader2
+  ChevronDown
 } from 'lucide-react';
 import { WheelMode, SpinLogItem, SoundSettings } from '@/lib/types';
 import { selectWeightedWinner } from '@/lib/random';
@@ -59,62 +66,6 @@ import {
 } from '@/lib/storage';
 import { parseSafeShareConfig, sanitizeString } from '@/lib/security';
 import { fetchWheelByShortCode, decodeCompactWheel } from '@/lib/shortener';
-
-// Skeleton fallback for zero-shift dynamic imports
-function EngineSkeleton({ title }: { title: string }) {
-  return (
-    <div className="w-full min-h-[480px] bg-white dark:bg-[#181922] rounded-3xl border border-[#eeedf7] dark:border-[#222330] p-8 flex flex-col items-center justify-center gap-3 animate-pulse text-center">
-      <Loader2 className="w-8 h-8 text-[#4648d4] dark:text-[#8587ff] animate-spin" />
-      <span className="text-[14px] font-bold text-[#1a1b22] dark:text-[#f1effa]">
-        {title}
-      </span>
-      <span className="text-[12px] text-[#767586] dark:text-[#908fa1]">
-        Initializing Fair Spinner &amp; Wheel Game...
-      </span>
-    </div>
-  );
-}
-
-// Dynamically imported heavy sub-engines to optimize initial bundle & LCP
-const ClassroomModeView = dynamic(() => import('@/components/ClassroomModeView'), {
-  loading: () => <EngineSkeleton title="Loading Classroom Suite..." />,
-  ssr: false
-});
-
-const GiveawayModeView = dynamic(() => import('@/components/GiveawayModeView'), {
-  loading: () => <EngineSkeleton title="Loading Giveaway Suite..." />,
-  ssr: false
-});
-
-const BusinessModeView = dynamic(() => import('@/components/BusinessModeView'), {
-  loading: () => <EngineSkeleton title="Loading Business Suite..." />,
-  ssr: false
-});
-
-const MultiWheelEngine = dynamic(() => import('@/components/MultiWheelEngine'), {
-  loading: () => <EngineSkeleton title="Loading Multi-Wheel Studio..." />,
-  ssr: false
-});
-
-const TournamentEngine = dynamic(() => import('@/components/TournamentEngine'), {
-  loading: () => <EngineSkeleton title="Loading Elimination Tournament..." />,
-  ssr: false
-});
-
-const ChallengeEngine = dynamic(() => import('@/components/ChallengeEngine'), {
-  loading: () => <EngineSkeleton title="Loading Daily Challenge..." />,
-  ssr: false
-});
-
-const WheelBattleEngine = dynamic(() => import('@/components/WheelBattleEngine'), {
-  loading: () => <EngineSkeleton title="Loading Wheel Battle Arena..." />,
-  ssr: false
-});
-
-const FairnessPanel = dynamic(() => import('@/components/FairnessPanel'), {
-  loading: () => <EngineSkeleton title="Loading Fair Chance Verification..." />,
-  ssr: false
-});
 
 type EngineView =
   | 'solo'

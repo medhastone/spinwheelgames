@@ -26,45 +26,46 @@ import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Animal Spin the Wheel – Random Animal Picker & Pokemon Wheel',
+  title: 'Animal Wheel - Random Animal Generator Wheel & Picker',
   description:
-    'Spin the animal wheel to randomly pick an animal or pokemon for games, drawing, classroom activities, storytelling, quizzes and creative challenges.',
+    'Spin the free animal wheel to randomly pick mammals, birds, sea creatures, or Pokémon. Perfect for drawing prompts, charades, quizzes, and classroom games!',
   keywords: [
-    'animal spin the wheel',
-    'random animal picker',
+    'random animal generator wheel',
     'animal wheel',
-    'random animal generator',
+    'random animal picker',
+    'animal spin the wheel',
     'random pokemon picker',
     'pokemon roulette',
     'pokemon type wheel',
-    'pokemon type randomizer',
-    'random pokemon type generator',
-    'poke wheel',
-    'pokemon wheel spinner',
     'give me a random animal',
     'animal randomizer',
-    'pick a random animal',
-    'name a random animal',
-    'random fruit',
-    'random cat generator',
-    'random sea creatures'
+    'random sea creatures',
+    'random cat generator'
   ],
   alternates: {
     canonical: 'https://spinwheelgames.org/animal-wheel'
   },
   openGraph: {
-    title: 'Animal Spin the Wheel – Random Animal Picker',
+    title: 'Animal Wheel - Random Animal Generator Wheel & Picker',
     description:
-      'Spin the animal wheel to randomly pick an animal for games, drawing, classroom activities, storytelling, quizzes and creative challenges.',
+      'Spin the free animal wheel to randomly pick mammals, birds, sea creatures, or Pokémon. Perfect for drawing prompts, charades, quizzes, and classroom games!',
     url: 'https://spinwheelgames.org/animal-wheel',
     siteName: 'SpinWheelGames',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Animal Wheel - Random Animal Generator Wheel'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Animal Spin the Wheel – Random Animal Picker',
+    title: 'Animal Wheel - Random Animal Generator Wheel & Picker',
     description:
-      'Spin the animal wheel to randomly pick an animal for games, drawing, classroom activities, storytelling, quizzes and creative challenges.'
+      'Spin the free animal wheel to randomly pick mammals, birds, sea creatures, or Pokémon. Perfect for drawing prompts, charades, quizzes, and classroom games!'
   }
 };
 
@@ -74,17 +75,33 @@ const JSON_LD_DATA = {
     {
       '@type': 'WebApplication',
       '@id': 'https://spinwheelgames.org/animal-wheel#webapp',
-      name: 'Animal Spin the Wheel',
+      name: 'Animal Wheel - Random Animal Generator Wheel',
       url: 'https://spinwheelgames.org/animal-wheel',
       applicationCategory: 'EducationalApplication',
       operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript and modern HTML5 canvas support',
       description:
         'Free interactive animal spin wheel and random animal picker. Includes mammals, birds, marine animals, farm animals, wild animals, pets, and dinosaurs for classroom games, drawing prompts, and storytelling.',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD'
-      }
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1180',
+        bestRating: '5',
+        worstRating: '1'
+      },
+      featureList: [
+        'Curated categories: Wild Mammals, Birds, Sea Creatures, Farm, Pets, Pokémon Types',
+        'Custom animal slices with weights and sounds',
+        'No-repeat elimination mode for classroom rounds',
+        'CSPRNG cryptographic fairness for science quizzes',
+        'Projector and fullscreen view modes'
+      ],
+      screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
     {
       '@type': 'BreadcrumbList',

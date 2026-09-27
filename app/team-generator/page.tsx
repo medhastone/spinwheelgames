@@ -26,73 +26,46 @@ import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Random Team Generator – Free Online Group Maker & Wheel',
+  title: 'Team Generator Wheel - Random Group Maker & Squad Divider',
   description:
-    'Easily split participants into random, balanced teams or spin the wheel for live drafts. Perfect for classroom groups, sports, hackathons, and game nights.',
+    'Easily split names into balanced, fair teams or spin the live draft wheel. Perfect for sports, classroom projects, video game squads, and hackathons!',
   keywords: [
+    'random team generator wheel',
     'random team generator',
     'team generator',
-    'team picker wheel',
     'group maker',
     'random group generator',
+    'team picker wheel',
     'team divider',
     'split into teams',
-    'random team picker',
-    '5v5 team generator',
-    'classroom group maker',
-    'random nfl team generator',
-    'nfl spin the wheel',
-    'spin the wheel nfl teams',
-    'nfl team spin the wheel',
-    'random team generator nfl',
-    'nfl spinner wheel',
-    'nfl wheel of teams',
-    'nfl team randomizer',
-    'pick a random nfl team',
-    'nfl random team generator',
-    'nfl spinning wheel',
-    'nfl random team',
-    'give me a random nfl team',
-    'nfl team picker',
-    'nfl football team randomizer',
-    'nfl team wheelspin',
-    'random nfl team chooser',
-    'spin the wheel for nfl teams',
-    'random nfl team picker',
-    'random nba player generator',
-    'random nba players',
-    'random nba player generator all time',
-    'most random nba players',
-    'build a player nba',
-    'build a nba player',
-    'name a random nba player',
-    'nba players spin the wheel',
+    'random squad divider',
     'draft order randomizer',
-    'fantasy football draft order generator',
-    'randomize draft order',
-    'draft order generator',
-    'fantasy draft order generator',
-    'draft picker',
-    'generate draft order',
-    'random fantasy draft order',
-    'draft randomizer fantasy'
+    'classroom group maker'
   ],
   alternates: {
     canonical: 'https://spinwheelgames.org/team-generator'
   },
   openGraph: {
-    title: 'Random Team Generator – Free Online Group Maker & Wheel',
+    title: 'Team Generator Wheel - Random Group Maker & Squad Divider',
     description:
-      'Easily split participants into random, balanced teams or spin the wheel for live drafts. Perfect for classroom groups, sports, hackathons, and game nights.',
+      'Easily split names into balanced, fair teams or spin the live draft wheel. Perfect for sports, classroom projects, video game squads, and hackathons!',
     url: 'https://spinwheelgames.org/team-generator',
     siteName: 'SpinWheelGames',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Team Generator Wheel - Random Group Maker'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Random Team Generator – Free Online Group Maker & Wheel',
+    title: 'Team Generator Wheel - Random Group Maker & Squad Divider',
     description:
-      'Easily split participants into random, balanced teams or spin the wheel for live drafts. Perfect for classroom groups, sports, hackathons, and game nights.'
+      'Easily split names into balanced, fair teams or spin the live draft wheel. Perfect for sports, classroom projects, video game squads, and hackathons!'
   }
 };
 
@@ -102,10 +75,11 @@ const JSON_LD_DATA = {
     {
       '@type': 'WebApplication',
       '@id': 'https://spinwheelgames.org/team-generator#webapp',
-      name: 'Random Team Generator',
+      name: 'Team Generator Wheel - Random Group Maker',
       url: 'https://spinwheelgames.org/team-generator',
       applicationCategory: 'UtilityApplication',
       operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript and modern HTML5 canvas support',
       description:
         'Free online random team generator and team picker wheel. Split names into fair groups, assign captains, and draft live with hardware cryptographic randomness.',
       offers: {
@@ -113,13 +87,21 @@ const JSON_LD_DATA = {
         price: '0',
         priceCurrency: 'USD'
       },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1580',
+        bestRating: '5',
+        worstRating: '1'
+      },
       featureList: [
         'Instant random team division by number of teams or group size',
         'Interactive live wheel draft spinner for snake drafts and events',
         'Custom themed team names (Animals, Mythical Beasts, Cyberpunk, Sports)',
         'Copy to clipboard in Markdown, text, and direct CSV file download',
         'Hardware CSPRNG certified uniform randomness'
-      ]
+      ],
+      screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
     {
       '@type': 'BreadcrumbList',

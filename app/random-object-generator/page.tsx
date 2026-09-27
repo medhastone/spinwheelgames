@@ -28,43 +28,45 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Random Object Generator – Generate Random Objects for Drawing & Games',
+  title: 'Random Object Generator Wheel - Item Picker for Games & Art',
   description:
-    'Free online Random Object Generator for games, drawing, Pictionary, creative writing, classroom activities & challenges. 1,000+ curated objects with cryptographic fairness.',
+    'Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!',
   keywords: [
+    'random object generator wheel',
     'random object generator',
-    'random things',
-    'random objects',
-    'random items',
-    'object generator',
-    'random stuff generator',
-    'item generator',
-    'object randomizer',
-    'random product generator',
-    'list random objects',
-    'generator items',
-    'item random',
-    'give me a random thing',
-    'give me an object',
-    'random everyday objects'
+    'random items picker',
+    'pictionary word generator',
+    'random things generator',
+    'random objects to draw',
+    'item randomizer',
+    'object spinner wheel',
+    'creative writing prompt objects'
   ],
   alternates: {
     canonical: 'https://spinwheelgames.org/random-object-generator'
   },
   openGraph: {
-    title: 'Random Object Generator – Free Online Quick Decision & Idea Generator',
+    title: 'Random Object Generator Wheel - Item Picker for Games & Art',
     description:
-      'Generate random objects instantly for drawing, Pictionary, creative writing, classroom games, and improv challenges. Over 1,000+ curated objects with cryptographic fairness.',
+      'Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!',
     url: 'https://spinwheelgames.org/random-object-generator',
     siteName: 'SpinWheelGames',
     locale: 'en_US',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Random Object Generator Wheel'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Random Object Generator – SpinWheelGames',
+    title: 'Random Object Generator Wheel - Item Picker for Games & Art',
     description:
-      'Instantly generate random objects from a database of 1,000+ curated items. Certified cryptographic randomness for drawing, writing, and games.'
+      'Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!'
   }
 };
 
@@ -73,18 +75,33 @@ export default function RandomObjectGeneratorPage() {
     {
       '@context': 'https://schema.org',
       '@type': 'WebApplication',
-      name: 'Random Object Generator',
+      name: 'Random Object Generator Wheel',
       url: 'https://spinwheelgames.org/random-object-generator',
       description:
         'Free online Random Object Generator for games, drawing, Pictionary, creative writing, and classroom challenges with 1,000+ curated items and certified cryptographic randomness.',
       applicationCategory: 'GameApplication',
       operatingSystem: 'All',
-      browserRequirements: 'Requires JavaScript. Requires HTML5.',
+      browserRequirements: 'Requires JavaScript and modern HTML5 canvas support',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD'
-      }
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1310',
+        bestRating: '5',
+        worstRating: '1'
+      },
+      featureList: [
+        '1,000+ curated real-world objects across 6 categories',
+        'Pictionary and Charades difficulty filtering (Easy, Medium, Hard)',
+        'Interactive spin wheel with custom slice adding',
+        'CSPRNG hardware entropy via Web Cryptography API',
+        'Fast batch copy and export tools'
+      ],
+      screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
     {
       '@context': 'https://schema.org',

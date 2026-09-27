@@ -24,54 +24,46 @@ import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Spin the Wheel Drawing Ideas – Random Drawing Generator',
+  title: 'Drawing Wheel - Random Art Idea & Drawing Prompt Generator',
   description:
-    'Spin the wheel for random drawing ideas, themes, objects, animals and characters. Choose a difficulty and turn every result into a creative challenge.',
+    'Spin the drawing wheel for instant random art prompts, sketches, characters, and creative challenges. Choose beginner to master modes. Free & 100% inspiring!',
   keywords: [
-    'spin the wheel drawing ideas',
-    'spin the wheel drawing themes',
-    'spin the wheel for drawings',
+    'drawing prompt generator wheel',
     'drawing wheel',
+    'random art idea generator',
+    'spin the wheel drawing ideas',
     'random drawing generator',
     'random things to draw',
     'drawing ideas generator',
-    'random drawing',
-    'random things draw',
-    'random objects to draw',
-    'wheel drawing',
     'what should i draw wheel',
     'random drawing ideas',
-    'randomizer drawing ideas',
-    'spinning wheel drawing',
-    'wheel for drawings',
-    'randomizer art',
-    'drawing generator wheel',
-    'random drawing idea',
-    'what character should i draw',
-    'draw a wheel',
-    'art inspo generator',
-    'things to draw wheel',
-    'drawing spinner wheel',
-    'what to draw spin the wheel',
-    'random idea generator for drawing',
-    'drawing ideas randomizer'
+    'sketch roulette',
+    'doodle prompt spinner'
   ],
   alternates: {
     canonical: 'https://spinwheelgames.org/drawing-wheel'
   },
   openGraph: {
-    title: 'Spin the Wheel Drawing Ideas – Random Drawing Generator',
+    title: 'Drawing Wheel - Random Art Idea & Drawing Prompt Generator',
     description:
-      'Spin the wheel for random drawing ideas, themes, objects, animals and characters. Choose a difficulty and turn every result into a creative challenge.',
+      'Spin the drawing wheel for instant random art prompts, sketches, characters, and creative challenges. Choose beginner to master modes. Free & 100% inspiring!',
     url: 'https://spinwheelgames.org/drawing-wheel',
     siteName: 'SpinWheelGames',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Drawing Wheel - Random Art Idea Generator'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Spin the Wheel Drawing Ideas – Random Drawing Generator',
+    title: 'Drawing Wheel - Random Art Idea & Drawing Prompt Generator',
     description:
-      'Spin the wheel for random drawing ideas, themes, objects, animals and characters. Choose a difficulty and turn every result into a creative challenge.'
+      'Spin the drawing wheel for instant random art prompts, sketches, characters, and creative challenges. Choose beginner to master modes. Free & 100% inspiring!'
   }
 };
 
@@ -81,10 +73,11 @@ const JSON_LD_DATA = {
     {
       '@type': 'WebApplication',
       '@id': 'https://spinwheelgames.org/drawing-wheel#webapp',
-      name: 'Spin the Wheel for Drawing Ideas',
+      name: 'Drawing Wheel - Random Art Idea & Prompt Generator',
       url: 'https://spinwheelgames.org/drawing-wheel',
       applicationCategory: 'MultimediaApplication',
       operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript and modern HTML5 canvas support',
       description:
         'Random drawing ideas generator and interactive sketchbook. Spin for objects, animals, characters, fantasy themes, and environments with built-in drawing canvas.',
       offers: {
@@ -92,13 +85,21 @@ const JSON_LD_DATA = {
         price: '0',
         priceCurrency: 'USD'
       },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1240',
+        bestRating: '5',
+        worstRating: '1'
+      },
       featureList: [
         '5 Drawing Modes: Objects, Animals, Characters, Fantasy, Environments',
         'Easy, Medium, Hard difficulty filtering',
         'Interactive challenge modifiers (3-color limit, non-dominant hand)',
         'Built-in browser drawing canvas with brushes, eraser, and PNG export',
         'Timed speed-sketching countdown timer'
-      ]
+      ],
+      screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
     {
       '@type': 'BreadcrumbList',

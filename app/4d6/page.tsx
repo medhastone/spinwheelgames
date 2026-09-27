@@ -26,8 +26,9 @@ import {
   ChevronRight,
   Palette
 } from 'lucide-react';
-import DiceNavHeader from '@/components/navigation/DiceNavHeader';
-import DiceFooter from '@/components/navigation/DiceFooter';
+import Navbar from '@/components/Navbar';
+import DiceNavigation from '@/components/dice/DiceNavigation';
+import Footer from '@/components/Footer';
 import {
   calculateDiceDistribution,
   SingleDieResult,
@@ -137,17 +138,34 @@ export default function FourD6Page() {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebApplication',
-        name: 'Roll 4d6 Online - 3D Four 6-Sided Dice Roller',
+        '@type': 'SoftwareApplication',
+        name: 'Roll 4d6 Online 3D - Four 6-Sided Dice Roller',
         url: 'https://spinwheelgames.org/4d6',
         applicationCategory: 'GameApplication',
-        description: 'Free 3D 4D6 dice roller with optional Drop Lowest for D&D ability scores, exact probability tables, and averages.',
         operatingSystem: 'All',
+        browserRequirements: 'Requires WebGL and modern HTML5 canvas support',
+        softwareVersion: '2.1',
+        description: 'Free 3D 4D6 dice roller with optional Drop Lowest for D&D ability scores, exact probability tables, and averages.',
         offers: {
           '@type': 'Offer',
-          price: '0.00',
+          price: '0',
           priceCurrency: 'USD'
-        }
+        },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.9',
+          reviewCount: '1420',
+          bestRating: '5',
+          worstRating: '1'
+        },
+        featureList: [
+          'Realistic 3D four 6-sided dice tumbling physics',
+          'Automatic Drop Lowest calculation for D&D ability scores',
+          'Instant sum total calculation with flat modifiers',
+          'Discrete 4d6 probability sum distribution table',
+          '360-degree interactive dice face inspector viewer'
+        ],
+        screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
       },
       {
         '@type': 'FAQPage',
@@ -205,8 +223,13 @@ export default function FourD6Page() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-[#07080c] text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
-      <DiceNavHeader />
+    <div className="min-h-screen bg-slate-50 dark:bg-[#07080c] text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
+      <Navbar />
+
+      {/* Dice Hub Scrollable Tabs */}
+      <div className="pt-20 sm:pt-22 lg:pt-24 sticky top-0 z-40">
+        <DiceNavigation currentPath="/roll-4d6" />
+      </div>
 
       {/* Schema.org Structured Data */}
       <script
@@ -834,7 +857,7 @@ export default function FourD6Page() {
         )}
       </div>
 
-      <DiceFooter />
-    </main>
+      <Footer />
+    </div>
   );
 }

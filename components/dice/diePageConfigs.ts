@@ -73,8 +73,8 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average value over time is exactly 1.5.'
     ],
     h1Title: 'Roll D2 Online - 3D Dice Roller',
-    metaTitle: 'Roll a D2 Online (Free Realistic 3D Two-Sided Dice Roller & Coin Toss)',
-    metaDescription: 'Roll a D2 online with realistic 3D rolling. Free 2-sided virtual dice roller and coin toss for quick 50/50 decisions, tabletop rulings, and games.',
+    metaTitle: 'Roll D2 Online 3D - 50/50 Coin Flip & Dice Roller | SpinWheel',
+    metaDescription: 'Flip a 3D D2 coin online with authentic metallic bouncing physics. Instant 50/50 decision maker, sports coin toss, and binary probability simulator.',
     primaryKeywords: ['roll a d2', 'd2 roller', '2 sided dice', 'roll 1d2', 'two sided die', 'virtual d2', 'coin flip online'],
     introParagraphs: [
       'Welcome to the SpinWheelGames 3D D2 Roller. Whether you are making a quick 50/50 decision, flipping for the first turn in a board game, or making a quick ruling in your tabletop game, this virtual two-sided die gives you instant, smooth rolling directly in your browser.',
@@ -157,8 +157,8 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average value for a single D4 roll is 2.5.'
     ],
     h1Title: 'Roll D4 Online - 3D Dice Roller',
-    metaTitle: 'Roll a D4 Online (Free Realistic 3D Four-Sided Dice Roller)',
-    metaDescription: 'Roll 1d4, 2d4, 3d4, 4d4, or 5d4 online with realistic 3D rolling. Free four-sided virtual dice roller for D&D Magic Missile, healing potions, and weapon damage.',
+    metaTitle: 'Roll D4 Online 3D - Magic Missile & Heals Dice Roller | SpinWheel',
+    metaDescription: 'Roll a 4-sided D4 pyramid die online with realistic 3D tumbling. Perfect for Magic Missile spells, healing potions, dagger strikes, and live odds.',
     primaryKeywords: ['roll a d4', 'd4 roller', 'roll 1d4', 'four sided dice roller', 'd4 roll', 'virtual d4', 'roll 4 sided dice'],
     introParagraphs: [
       'Welcome to the SpinWheelGames 3D D4 Roller. The four-sided die (D4) is shaped like a small triangle pyramid and is famous in fantasy tabletop games for small weapons, basic spells, and standard healing potions.',
@@ -241,8 +241,8 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The average outcome over many rolls is always 3.5.'
     ],
     h1Title: 'Roll D6 Online - 3D Dice Roller',
-    metaTitle: 'Roll a D6 Online (Free Realistic 3D Six-Sided Dice Roller | 1d6 to 100d6)',
-    metaDescription: 'Roll a D6 online with realistic 3D rolling. Free six-sided virtual dice roller for board games, Yahtzee, D&D Fireball (8d6), Greatsword (2d6), and dice averages.',
+    metaTitle: 'Roll D6 Online 3D - Fireball & Yahtzee Dice Roller | SpinWheel',
+    metaDescription: 'Roll 3D D6 dice online with true random physics. Roll 1 to 100 six-sided dice for board games, Yahtzee, and D&D Fireball spells with live averages.',
     primaryKeywords: ['roll a d6', 'd6 roller', 'why is the average of a d6 3.5', 'roll 1d6', 'six sided die', 'roll 3d6', 'roll 5d6', 'virtual d6', 'roll 6 sided dice'],
     introParagraphs: [
       'Welcome to the SpinWheelGames 3D D6 Roller. The 6-sided die (D6) is the most popular, timeless dice in the world, found in classic board games like Monopoly and Yahtzee, tabletop strategy games, and fantasy roleplaying games.',
@@ -333,8 +333,8 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average total for rolling 4d6 straight is exactly 14.'
     ],
     h1Title: 'Roll 4 D6 Online - 3D Multi-Dice Roller',
-    metaTitle: 'Roll 4d6 Online (Free Realistic 3D Four 6-Sided Dice Roller)',
-    metaDescription: 'Roll 4d6 online with realistic 3D rolling. Track individual dice results, roll 4d6 drop lowest for D&D ability stats, and view probability averages.',
+    metaTitle: 'Roll 4d6 Online 3D - Drop Lowest Stat Dice Roller | SpinWheel',
+    metaDescription: 'Roll four 6-sided dice in 3D with automatic Drop Lowest calculation for D&D ability scores. Track individual faces, modifiers, and probability stats.',
     primaryKeywords: ['roll 4d6', '4d6 roll', '4d6 roller', '4d6 dice', '4d6 average', 'virtual 4d6', 'roll four d6'],
     introParagraphs: [
       'Welcome to the dedicated SpinWheelGames 4D6 Roller. Rolling four 6-sided dice (4d6) is one of the most common dice rolls in tabletop gaming—used for character ability score generation in D&D, powerful spell strikes, and tabletop board game checks.',
@@ -411,8 +411,8 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average result for a single D8 roll is 4.5.'
     ],
     h1Title: 'Roll D8 Online - 3D Dice Roller',
-    metaTitle: 'Roll a D8 Online (Free Realistic 3D Eight-Sided Dice Roller)',
-    metaDescription: 'Roll a D8, 2d8, 4d8, or 8d8 online with realistic 3D rolling. Free 8-sided virtual dice roller for D&D Divine Smite, Longsword, Rapier, and Cure Wounds.',
+    metaTitle: 'Roll D8 Online 3D - Divine Smite & Longsword Roller | SpinWheel',
+    metaDescription: 'Roll an 8-sided D8 online with realistic 3D physics. Free virtual octahedron roller for Paladin Divine Smite, Longswords, Rapiers, and Cure Wounds.',
     primaryKeywords: ['roll a d8', 'd8 roller', 'roll 1d8', 'eight sided die', 'roll 2d8', 'roll 8d8', 'd8 roll', 'virtual d8'],
     introParagraphs: [
       'Welcome to the SpinWheelGames 3D D8 Roller. The 8-sided die (D8) is shaped like two pyramids joined at their bases, creating a classic diamond silhouette. It is one of the most widely used dice in fantasy tabletop games.',
@@ -496,8 +496,8 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average result for a single D10 roll is 5.5.'
     ],
     h1Title: 'Roll D10 Online - 3D Dice Roller',
-    metaTitle: 'Roll a D10 Online (Free Realistic 3D Ten-Sided Dice Roller)',
-    metaDescription: 'Roll a D10, 2d10, 3d10, 4d10, or 10d10 online with realistic 3D rolling. Free 10-sided virtual dice roller for Warlock Eldritch Blast, Heavy Crossbows, and D&D.',
+    metaTitle: 'Roll D10 Online 3D - Eldritch Blast & D&D Die Roller | SpinWheel',
+    metaDescription: 'Roll a 3D D10 online with authentic physics and collision sounds. Perfect for Warlock Eldritch Blast beams, percentile pairs, and heavy weapon damage.',
     primaryKeywords: ['roll d10', 'd10 roller', 'roll 1d10', 'roll 3d10', 'roll 4d10', 'ten sided die', 'virtual d10', 'roll 10 sided dice'],
     introParagraphs: [
       'Welcome to the SpinWheelGames 3D D10 Roller. The ten-sided die (D10) features 10 kite-shaped faces and provides convenient decimal-friendly numbers from 1 to 10.',
@@ -577,8 +577,8 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average result for a single D12 roll is 6.5.'
     ],
     h1Title: 'Roll D12 Online - 3D Dice Roller',
-    metaTitle: 'Roll a D12 Online (Free Realistic 3D Twelve-Sided Dice Roller)',
-    metaDescription: 'Roll a D12, 2d12, 4d12, or 6d12 online with realistic 3D rolling. Compare Greataxe (1d12) vs Greatsword (2d6), Barbarian Hit Die math, and D12 averages.',
+    metaTitle: 'Roll D12 Online 3D - Barbarian Greataxe Dice Roller | SpinWheel',
+    metaDescription: 'Roll a 3D D12 online with realistic rigid-body physics. Ideal for Barbarian Greataxe damage, hit die calculations, and dodecahedron odds tables.',
     primaryKeywords: ['roll a d12', 'd12 roller', 'roll 1d12', 'twelve sided die', 'roll 2d12', '4d12', '6d12', 'virtual d12'],
     introParagraphs: [
       'Welcome to the SpinWheelGames 3D D12 Roller. The 12-sided die (D12) is built from 12 regular pentagon faces, creating a beautifully balanced sphere-like shape.',
@@ -657,8 +657,8 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average result for a standard D20 roll is 10.5.'
     ],
     h1Title: 'Roll D20 Online - 3D Dice Roller',
-    metaTitle: 'Roll a D20 Online (Free Realistic 3D Twenty-Sided Dice Roller with Advantage)',
-    metaDescription: 'Roll a D20 online with realistic 3D rolling. Free 20-sided virtual dice roller with Natural 20 critical detection, Advantage, Disadvantage, and D&D check math.',
+    metaTitle: 'Roll D20 Online 3D - Advantage & Natural 20 Roller | SpinWheel',
+    metaDescription: 'Roll a 3D D20 online with realistic physics, Advantage & Disadvantage toggles, Natural 20 critical detection, and D&D 5e odds. 100% fair and free!',
     primaryKeywords: ['roll a d20', 'd20 roller', '1d20', 'd20 advantage', 'twenty sided die', 'virtual d20', 'roll 20 sided dice'],
     introParagraphs: [
       'Welcome to the SpinWheelGames 3D D20 Roller. The 20-sided die (D20) is the heart of tabletop roleplaying games like Dungeons & Dragons and Pathfinder, deciding the outcome of attack rolls, saving throws, and skill checks.',
@@ -741,8 +741,8 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average value for a D100 roll is 50.5.'
     ],
     h1Title: 'Roll D100 Online - 3D Dice Roller',
-    metaTitle: 'Roll a D100 Online (Free Realistic 3D Percentile Dice Roller)',
-    metaDescription: 'Roll a D100 online with realistic 3D rolling. Free percentile virtual dice roller for D&D Wild Magic Surges, Call of Cthulhu skill checks, and loot tables.',
+    metaTitle: 'Roll D100 Online 3D - Percentile Dice Roller | SpinWheel',
+    metaDescription: 'Roll 3D percentile D100 dice online with authentic tens and units tumbling. Ideal for D&D Wild Magic Surges, Call of Cthulhu, and random loot tables.',
     primaryKeywords: ['roll 1d100', 'd100 roller', 'rolld100', 'percentile dice roller', 'd100 roll', 'virtual d100', 'roll 100 sided dice'],
     introParagraphs: [
       'Welcome to the SpinWheelGames 3D D100 Roller. Percentile dice (D100 or d%) are used in tabletop gaming whenever you need to generate an exact percentage from 1% to 100%.',

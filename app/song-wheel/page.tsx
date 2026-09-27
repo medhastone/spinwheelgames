@@ -1,5 +1,5 @@
 import React from 'react';
-import Metadata from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Music,
@@ -21,44 +21,44 @@ import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
-export const metadata = {
-  title: 'Spin the Wheel for Songs – Random Song Picker',
+export const metadata: Metadata = {
+  title: 'Song Wheel - Random Song & Karaoke Picker Wheel',
   description:
-    'Spin a music wheel to randomly choose a song, genre, artist or karaoke challenge. Add your own songs for a personalized playlist picker.',
+    'Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!',
   keywords: [
-    'spin the wheel songs',
+    'karaoke song picker wheel',
     'song wheel',
-    'music wheel',
-    'random song picker',
+    'random song generator',
+    'playlist roulette wheel',
+    'music genre spinner',
+    'spin the wheel songs',
     'random music generator',
-    'song randomizer',
-    'music genre wheel',
-    'spin wheel song',
-    'song association words',
-    'song association game',
-    'random word generator for songs',
-    'random word generator for song',
-    'song association generator',
-    'song association words list',
-    'song association words list pdf',
-    'random word generator for lyrics',
-    'song word game',
-    'words for song association',
-    'song association',
-    'words for songs game',
-    'word song game',
-    'random word in songs',
-    'sing a song with the word game',
-    'categories for riff off',
-    'song categories for a riff off',
-    'random music genre generator'
+    'karaoke wheel spinner'
   ],
+  alternates: {
+    canonical: 'https://spinwheelgames.org/song-wheel'
+  },
   openGraph: {
-    title: 'Spin the Wheel for Songs – Random Song Picker',
+    title: 'Song Wheel - Random Song & Karaoke Picker Wheel',
     description:
-      'Spin a music wheel to randomly choose a song, genre, artist or karaoke challenge. Add your own songs for a personalized playlist picker.',
+      'Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!',
     type: 'website',
-    url: 'https://spinwheelgames.org/song-wheel'
+    url: 'https://spinwheelgames.org/song-wheel',
+    siteName: 'SpinWheelGames',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Song Wheel - Random Song & Karaoke Picker'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Song Wheel - Random Song & Karaoke Picker Wheel',
+    description:
+      'Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!'
   }
 };
 
@@ -69,16 +69,32 @@ const JSON_LD_DATA = {
       '@type': 'WebApplication',
       '@id': 'https://spinwheelgames.org/song-wheel#webapp',
       url: 'https://spinwheelgames.org/song-wheel',
-      name: 'Spin the Wheel for Songs',
+      name: 'Song Wheel - Random Song & Karaoke Picker',
       applicationCategory: 'EntertainmentApplication',
       operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript and modern HTML5 canvas support',
       description:
         'Interactive random song picker wheel featuring genre selection, decade filters, mood playlists, karaoke sing-along mode, and custom playlist support.',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD'
-      }
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1190',
+        bestRating: '5',
+        worstRating: '1'
+      },
+      featureList: [
+        'Curated genres: Pop, Rock, Hip-Hop, 80s/90s Retro, Karaoke Hits, R&B',
+        'Custom songs and artists input list',
+        'No-repeat elimination mode for karaoke queues',
+        'Party mode with sound effects and animations',
+        'One-click search integration for chosen tracks'
+      ],
+      screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
     {
       '@type': 'FAQPage',

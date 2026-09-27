@@ -20,6 +20,8 @@ export const DICE_NAV_ITEMS = [
   { href: '/dice/d12', label: 'Roll d12', icon: Dices, description: '12-sided dodecahedron' },
   { href: '/dice/d10', label: 'Roll d10', icon: Dices, description: '10-sided trapezohedron' },
   { href: '/dice/d8', label: 'Roll d8', icon: Dices, description: '8-sided octahedron' },
+  { href: '/dice/d6', label: 'Roll d6', icon: Dices, description: '6-sided cubic die' },
+  { href: '/dice/d4', label: 'Roll d4', icon: Dices, description: '4-sided tetrahedron die' },
   { href: '/dice/d2', label: 'Roll d2', icon: Dice5, description: '2-sided coin flip' },
   { href: '/roll-4d6', label: 'Roll 4d6', icon: Dices, description: '4d6 with optional Drop Lowest for stats' },
   { href: '/dnd-stat-roller', label: 'D&D Stat Roller', icon: Shield, description: 'Roll 6 ability scores with transparent math' },

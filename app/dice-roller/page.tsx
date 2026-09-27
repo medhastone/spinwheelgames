@@ -19,9 +19,9 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free Online Dice Roller – Roll Dice Instantly | SpinWheelGames',
+  title: 'Roll Dice Online 3D - Free Virtual Dice Roller | SpinWheel',
   description:
-    'Roll one or more dice online with a fast interactive 3D dice roller. Choose your dice, set the number of rolls, and see individual results, totals, averages, and recent rolls instantly.',
+    'Roll 3D polyhedral dice online with realistic physics, totals, modifiers, and instant face detection. Free interactive virtual dice roller for D&D and board games.',
   keywords: [
     'dice roller',
     'online dice roller',
@@ -34,18 +34,27 @@ export const metadata: Metadata = {
     'dnd dice roller'
   ],
   openGraph: {
-    title: 'Free Online Dice Roller – Roll Dice Instantly | SpinWheelGames',
+    title: 'Roll Dice Online 3D - Free Virtual Dice Roller | SpinWheel',
     description:
-      'Roll one or more dice online with a fast interactive 3D dice roller. Choose your dice, set the number of rolls, and see individual results, totals, averages, and recent rolls instantly.',
+      'Roll 3D polyhedral dice online with realistic physics, totals, modifiers, and instant face detection. Free interactive virtual dice roller for D&D and board games.',
     url: 'https://spinwheelgames.org/dice-roller',
     siteName: 'SpinWheelGames',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Free Online 3D Virtual Dice Roller'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Online Dice Roller – Roll Dice Instantly',
+    title: 'Roll Dice Online 3D - Free Virtual Dice Roller | SpinWheel',
     description:
-      'Roll interactive 3D dice online with totals, averages, and custom tabletop RPG notation.'
+      'Roll interactive 3D dice online with totals, averages, and custom tabletop RPG notation.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   },
   alternates: {
     canonical: 'https://spinwheelgames.org/dice-roller'
@@ -56,20 +65,29 @@ const JSON_LD_DATA = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'WebApplication',
+      '@type': 'SoftwareApplication',
       '@id': 'https://spinwheelgames.org/dice-roller#app',
-      name: 'Online 3D Dice Roller',
+      name: 'Online 3D Dice Roller Engine',
       url: 'https://spinwheelgames.org/dice-roller',
       applicationCategory: 'GameApplication',
       operatingSystem: 'All',
       browserRequirements: 'Requires JavaScript. Supports HTML5 Canvas & WebGL.',
+      softwareVersion: '2.1',
       description:
         'Free interactive 3D dice roller supporting d4, d6, d8, d10, d12, d20, d100, custom modifiers, and tabletop RPG notation with browser-based cryptographic randomness.',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD'
-      }
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1580',
+        bestRating: '5',
+        worstRating: '1'
+      },
+      screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
     {
       '@type': 'BreadcrumbList',

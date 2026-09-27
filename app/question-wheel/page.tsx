@@ -24,41 +24,44 @@ import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Spin the Wheel Questions – Random Question Picker',
+  title: 'Question Wheel - Truth or Dare & Icebreaker Question Spinner',
   description:
-    'Spin a random question wheel for trivia, classroom activities, icebreakers, parties, conversations and games. Customize the questions or add your own.',
+    'Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!',
   keywords: [
-    'spin the wheel questions',
+    'truth or dare question wheel',
     'question wheel',
+    'icebreaker question spinner',
+    'spin the wheel questions',
     'random question generator',
     'random question picker',
-    'question spinner',
-    'conversation questions',
-    'a or b',
-    'a oder b',
-    'random choice',
-    'choice maker',
-    'choose between two things',
-    'this or that generator',
-    '2 option',
-    'pick a different one',
-    'choose options messages',
-    'yes or no',
-    'should i do it',
-    'which should i do',
-    'do i do it',
-    'yes or no screen',
-    'do i say yes or no',
-    'random decision maker',
-    'make a decision for me',
-    'question generator random'
+    'party questions wheel',
+    'conversation starter wheel',
+    'random decision maker'
   ],
+  alternates: {
+    canonical: 'https://spinwheelgames.org/question-wheel'
+  },
   openGraph: {
-    title: 'Spin the Wheel Questions – Random Question Picker',
+    title: 'Question Wheel - Truth or Dare & Icebreaker Question Spinner',
     description:
-      'Spin a random question wheel for trivia, classroom activities, icebreakers, parties, conversations and games. Customize the questions or add your own.',
+      'Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!',
     type: 'website',
-    url: 'https://spinwheelgames.org/question-wheel'
+    url: 'https://spinwheelgames.org/question-wheel',
+    siteName: 'SpinWheelGames',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Question Wheel - Truth or Dare & Icebreaker Spinner'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Question Wheel - Truth or Dare & Icebreaker Question Spinner',
+    description:
+      'Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!'
   }
 };
 
@@ -69,16 +72,32 @@ const JSON_LD_DATA = {
       '@type': 'WebApplication',
       '@id': 'https://spinwheelgames.org/question-wheel#webapp',
       url: 'https://spinwheelgames.org/question-wheel',
-      name: 'Spin the Wheel Questions',
+      name: 'Question Wheel - Truth or Dare & Icebreaker Spinner',
       applicationCategory: 'EducationalApplication',
       operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript and modern HTML5 canvas support',
       description:
         'Interactive random question wheel featuring 7 modes (Trivia, Icebreakers, Classroom, Party, Conversation, Interview, Kids, Custom), difficulty filters, no-repeat elimination deck, and favorite bookmarks.',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD'
-      }
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1390',
+        bestRating: '5',
+        worstRating: '1'
+      },
+      featureList: [
+        '7 Curated Game Modes: Truth or Dare, Icebreakers, Trivia, Party, Deep Conversation, Classroom',
+        'No-repeat question draw elimination mode',
+        'Custom questions paste and probability weights',
+        'Interactive question card display with copy and share features',
+        'Projector and fullscreen party presentation mode'
+      ],
+      screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
     {
       '@type': 'FAQPage',

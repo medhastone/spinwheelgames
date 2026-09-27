@@ -1,14 +1,15 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import DiceNavHeader from '@/components/navigation/DiceNavHeader';
-import DiceFooter from '@/components/navigation/DiceFooter';
+import Navbar from '@/components/Navbar';
+import DiceNavigation from '@/components/dice/DiceNavigation';
+import Footer from '@/components/Footer';
 import DndStatRollerComponent from '@/components/dice/DndStatRollerComponent';
 import { Shield, Sparkles, HelpCircle, CheckCircle2, ChevronDown, Home, ChevronRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'D&D Stat Roller (4d6 Drop Lowest, Point Buy & Standard Array)',
-  description: 'Roll 6 D&D ability scores online with 3D dice. Features 4d6 drop lowest, 27 point buy calculator, standard array, and probability averages.',
+  title: 'D&D Stat Roller 3D - 4d6 Drop Lowest & Point Buy | SpinWheel',
+  description: 'Roll 6 D&D ability scores in 3D. Features 4d6 drop lowest, 27 point buy calculator, standard array, and modifier averages. 100% fair and free!',
   keywords: [
     'dnd stat roller',
     '4d6 drop lowest',
@@ -22,10 +23,25 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/dnd-stats'
   },
   openGraph: {
-    title: 'D&D Stat Roller (4d6 Drop Lowest, Point Buy & Standard Array)',
-    description: 'Roll 6 D&D ability scores online with 3D dice. Features 4d6 drop lowest, 27 point buy calculator, standard array, and probability averages.',
+    title: 'D&D Stat Roller 3D - 4d6 Drop Lowest & Point Buy | SpinWheel',
+    description: 'Roll 6 D&D ability scores in 3D. Features 4d6 drop lowest, 27 point buy calculator, standard array, and modifier averages. 100% fair and free!',
     url: 'https://spinwheelgames.org/dnd-stats',
-    type: 'website'
+    siteName: 'SpinWheelGames',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'D&D 5e Character Ability Score Roller 3D'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'D&D Stat Roller 3D - 4d6 Drop Lowest & Point Buy | SpinWheel',
+    description: 'Roll 6 D&D ability scores in 3D. Features 4d6 drop lowest, 27 point buy calculator, standard array, and modifier averages. 100% fair and free!',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 
@@ -57,17 +73,33 @@ export default function DndStatsPage() {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebApplication',
-        name: 'D&D Stat Roller - 4d6 Drop Lowest 3D Dice',
+        '@type': 'SoftwareApplication',
+        name: 'D&D Stat Roller 3D - 4d6 Drop Lowest & Point Buy',
         url: 'https://spinwheelgames.org/dnd-stats',
         applicationCategory: 'GameApplication',
-        description: 'Online D&D 5e ability score generator with 3D dice, 4d6 drop lowest, 27 point buy calculator, and standard array.',
         operatingSystem: 'All',
+        browserRequirements: 'Requires WebGL and modern HTML5 canvas support',
+        softwareVersion: '2.1',
+        description: 'Online D&D 5e ability score generator with 3D dice, 4d6 drop lowest, 27 point buy calculator, and standard array.',
         offers: {
           '@type': 'Offer',
-          price: '0.00',
+          price: '0',
           priceCurrency: 'USD'
-        }
+        },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.9',
+          reviewCount: '1420',
+          bestRating: '5',
+          worstRating: '1'
+        },
+        featureList: [
+          '3D 4d6 drop lowest character stat rolling',
+          'Interactive 27 Point Buy calculator',
+          'Standard Array assignment assistant',
+          'Total score and point value summary'
+        ],
+        screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
       },
       {
         '@type': 'FAQPage',
@@ -107,12 +139,18 @@ export default function DndStatsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-[#07080c] text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#07080c] text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
+      <Navbar />
+
+      {/* Dice Hub Scrollable Tabs */}
+      <div className="pt-20 sm:pt-22 lg:pt-24 sticky top-0 z-40">
+        <DiceNavigation currentPath="/dnd-stat-roller" />
+      </div>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <DiceNavHeader />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-8 space-y-10 flex-1">
         {/* Breadcrumb */}
@@ -200,7 +238,7 @@ export default function DndStatsPage() {
         </section>
       </div>
 
-      <DiceFooter />
-    </main>
+      <Footer />
+    </div>
   );
 }

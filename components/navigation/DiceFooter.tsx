@@ -47,17 +47,17 @@ export default function DiceFooter() {
             </h3>
             <ul className="grid grid-cols-2 gap-2 text-xs">
               <li>
-                <Link href="/d2" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link href="/dice/d2" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll a d2 (Coin)
                 </Link>
               </li>
               <li>
-                <Link href="/d4" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link href="/dice/d4" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll 1d4 / d4 Roller
                 </Link>
               </li>
               <li>
-                <Link href="/d6" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link href="/dice/d6" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll a D6 (Cube)
                 </Link>
               </li>
@@ -67,27 +67,27 @@ export default function DiceFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/d8" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link href="/dice/d8" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll a d8 / 1d8
                 </Link>
               </li>
               <li>
-                <Link href="/d10" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link href="/dice/d10" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll d10 / Decahedron
                 </Link>
               </li>
               <li>
-                <Link href="/d12" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link href="/dice/d12" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll 1d12 / Dodecahedron
                 </Link>
               </li>
               <li>
-                <Link href="/d20" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link href="/dice/d20" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll 1d20 / Advantage
                 </Link>
               </li>
               <li>
-                <Link href="/d100" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link href="/dice/d100" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll 1d100 / Percentile
                 </Link>
               </li>
@@ -148,17 +148,17 @@ export default function DiceFooter() {
             </h3>
             <div className="flex flex-wrap gap-1.5">
               {[
-                { label: 'roll 4d6', href: '/d6' },
-                { label: '1d20', href: '/d20' },
+                { label: 'roll 4d6', href: '/4d6' },
+                { label: '1d20', href: '/dice/d20' },
                 { label: 'dnd stats', href: '/dnd-stats' },
-                { label: 'roll a d8', href: '/d8' },
-                { label: 'roll d10', href: '/d10' },
-                { label: 'd4 roller', href: '/d4' },
-                { label: 'roll 1d100', href: '/d100' },
-                { label: 'roll 3d6', href: '/d6' },
-                { label: 'roll 10d6', href: '/d6' },
-                { label: 'roll 2d8', href: '/d8' },
-                { label: 'greataxe 1d12', href: '/d12' }
+                { label: 'roll a d8', href: '/dice/d8' },
+                { label: 'roll d10', href: '/dice/d10' },
+                { label: 'd4 roller', href: '/dice/d4' },
+                { label: 'roll 1d100', href: '/dice/d100' },
+                { label: 'roll 3d6', href: '/roll-3d6' },
+                { label: 'roll a d6', href: '/dice/d6' },
+                { label: 'roll 2d8', href: '/dice/d8' },
+                { label: 'greataxe 1d12', href: '/dice/d12' }
               ].map((kw) => (
                 <Link
                   key={kw.label}

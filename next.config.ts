@@ -69,6 +69,18 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      { source: '/d2', destination: '/dice/d2', permanent: true },
+      { source: '/d4', destination: '/dice/d4', permanent: true },
+      { source: '/d6', destination: '/dice/d6', permanent: true },
+      { source: '/d8', destination: '/dice/d8', permanent: true },
+      { source: '/d10', destination: '/dice/d10', permanent: true },
+      { source: '/d12', destination: '/dice/d12', permanent: true },
+      { source: '/d20', destination: '/dice/d20', permanent: true },
+      { source: '/d100', destination: '/dice/d100', permanent: true },
+    ];
+  },
   // output: 'standalone',
   transpilePackages: ['motion'],
   webpack: (config, {dev}) => {

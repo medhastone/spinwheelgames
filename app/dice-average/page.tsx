@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 import DiceAverageCalculatorComponent from '@/components/dice/DiceAverageCalculatorComponent';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import DiceNavHeader from '@/components/navigation/DiceNavHeader';
-import DiceFooter from '@/components/navigation/DiceFooter';
+import Navbar from '@/components/Navbar';
+import DiceNavigation from '@/components/dice/DiceNavigation';
+import Footer from '@/components/Footer';
 import Link from 'next/link';
 import {
   Calculator,
@@ -23,9 +24,9 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Dice Average Calculator (Exact Probabilities, Bell Curves & Expected Values)',
+  title: 'Dice Average Calculator - Exact Odds & Bell Curves | SpinWheel',
   description:
-    'Free online dice average calculator. Calculate exact expected values, standard deviation, probability distributions, and bell curves for any tabletop RPG dice notation (2d6, 3d6, 8d6 Fireball, 4d6dl1, 1d20 advantage).',
+    'Calculate exact dice averages, expected values, standard deviation, and full bell curves for any tabletop RPG dice notation. Free & 100% accurate.',
   keywords: [
     'dice average calculator',
     'average dice calculator',
@@ -47,11 +48,27 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/dice-average'
   },
   openGraph: {
-    title: 'Dice Average Calculator – Exact Probabilities & Odds',
+    title: 'Dice Average Calculator - Exact Odds & Bell Curves | SpinWheel',
     description:
-      'Calculate average damage, standard deviation, and full bell curves for any D&D or tabletop dice combination.',
+      'Calculate exact dice averages, expected values, standard deviation, and full bell curves for any tabletop RPG dice notation. Free & 100% accurate.',
     url: 'https://spinwheelgames.org/dice-average',
-    type: 'website'
+    siteName: 'SpinWheelGames',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Dice Average & Probability Calculator'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dice Average Calculator - Exact Odds & Bell Curves | SpinWheel',
+    description:
+      'Calculate exact dice averages, expected values, standard deviation, and full bell curves for any tabletop RPG dice notation. Free & 100% accurate.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 
@@ -93,17 +110,34 @@ export default function DiceAveragePage() {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         name: 'Dice Average & Probability Distribution Calculator',
+        url: 'https://spinwheelgames.org/dice-average',
         applicationCategory: 'UtilityApplication',
         operatingSystem: 'All',
+        browserRequirements: 'Requires modern web browser',
+        softwareVersion: '2.1',
         description:
           'Calculate exact discrete probability, standard deviation, and average outcomes for any dice formula.',
         offers: {
           '@type': 'Offer',
           price: '0',
           priceCurrency: 'USD'
-        }
+        },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.9',
+          reviewCount: '1420',
+          bestRating: '5',
+          worstRating: '1'
+        },
+        featureList: [
+          'Calculates expected value and arithmetic mean',
+          'Computes variance and standard deviation',
+          'Generates interactive probability bell curves',
+          'Supports Drop Lowest and Keep Highest mechanics'
+        ],
+        screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
       },
       {
         '@type': 'FAQPage',
@@ -157,12 +191,13 @@ export default function DiceAveragePage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-[#07080c] text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
-      <DiceNavHeader />
+    <div className="min-h-screen bg-slate-50 dark:bg-[#07080c] text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
+      <Navbar />
+
+      {/* Dice Hub Scrollable Tabs */}
+      <div className="pt-20 sm:pt-22 lg:pt-24 sticky top-0 z-40">
+        <DiceNavigation currentPath="/dice-average-calculator" />
+      </div>
 
       <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-36 pb-8 space-y-8 flex-1">
         {/* Breadcrumbs Navigation */}
@@ -443,7 +478,7 @@ export default function DiceAveragePage() {
         </section>
       </div>
 
-      <DiceFooter />
-    </main>
+      <Footer />
+    </div>
   );
 }

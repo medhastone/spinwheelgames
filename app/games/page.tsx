@@ -8,25 +8,43 @@ import AllGamesExplorer from '@/components/AllGamesExplorer';
 import { Sparkles, ShieldCheck, Flame, Star, Trophy } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'All 180+ Wheel Games & Decision Spinners | SpinWheelGames',
+  title: 'Wheel Games - 180+ Free Online Decision Spinners & Wheels',
   description:
-    'Explore all 180+ free online wheel games, random name pickers, decision makers, classroom spinners, party games, and raffles by categories and popularity levels.',
+    'Explore 180+ free online wheel games: food pickers, movie choosers, classroom wheels, random team generators, and party games. 100% fair and customizable!',
+  keywords: [
+    'spin the wheel games',
+    'online wheel games',
+    'free wheel spinners',
+    'decision maker wheels',
+    'random picker games',
+    'classroom spinner games',
+    'party wheel games',
+    'wheel of fortune online'
+  ],
   alternates: {
     canonical: 'https://spinwheelgames.org/games'
   },
   openGraph: {
-    title: 'All 180+ Wheel Games & Decision Spinners | SpinWheelGames',
+    title: 'Wheel Games - 180+ Free Online Decision Spinners & Wheels',
     description:
-      'Explore all 180+ free online wheel games, random name pickers, decision makers, classroom spinners, party games, and raffles by categories and popularity levels.',
+      'Explore 180+ free online wheel games: food pickers, movie choosers, classroom wheels, random team generators, and party games. 100% fair and customizable!',
     url: 'https://spinwheelgames.org/games',
     siteName: 'SpinWheelGames',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'All Wheel Games & Decision Spinners'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'All 180+ Wheel Games & Decision Spinners | SpinWheelGames',
+    title: 'Wheel Games - 180+ Free Online Decision Spinners & Wheels',
     description:
-      'Explore all 180+ free online wheel games, random name pickers, decision makers, classroom spinners, party games, and raffles by categories and popularity levels.'
+      'Explore 180+ free online wheel games: food pickers, movie choosers, classroom wheels, random team generators, and party games. 100% fair and customizable!'
   }
 };
 
@@ -36,7 +54,7 @@ export default function AllGamesPage() {
     '@type': 'CollectionPage',
     name: 'All 180+ Wheel Games & Decision Spinners',
     description:
-      'Explore all 180+ free online wheel games, random name pickers, decision makers, classroom spinners, party games, and raffles categorized by topic and trending levels.',
+      'Explore 180+ free online wheel games: food pickers, movie choosers, classroom wheels, random team generators, and party games. 100% fair and customizable!',
     url: 'https://spinwheelgames.org/games',
     inLanguage: 'en',
     isPartOf: {
@@ -47,7 +65,21 @@ export default function AllGamesPage() {
     about: {
       '@type': 'Thing',
       name: 'Random Wheel Games and Decision Spinners'
-    }
+    },
+    hasPart: [
+      { '@type': 'WebApplication', name: 'Food Wheel', url: 'https://spinwheelgames.org/food-wheel' },
+      { '@type': 'WebApplication', name: 'Movie Wheel', url: 'https://spinwheelgames.org/movie-wheel' },
+      { '@type': 'WebApplication', name: 'Number Wheel', url: 'https://spinwheelgames.org/number-wheel' },
+      { '@type': 'WebApplication', name: 'Bingo Wheel', url: 'https://spinwheelgames.org/bingo-wheel' },
+      { '@type': 'WebApplication', name: 'Animal Wheel', url: 'https://spinwheelgames.org/animal-wheel' },
+      { '@type': 'WebApplication', name: 'Classroom Wheel', url: 'https://spinwheelgames.org/classroom-wheel' },
+      { '@type': 'WebApplication', name: 'Drawing Wheel', url: 'https://spinwheelgames.org/drawing-wheel' },
+      { '@type': 'WebApplication', name: 'Question Wheel', url: 'https://spinwheelgames.org/question-wheel' },
+      { '@type': 'WebApplication', name: 'Random Object Generator', url: 'https://spinwheelgames.org/random-object-generator' },
+      { '@type': 'WebApplication', name: 'Song Wheel', url: 'https://spinwheelgames.org/song-wheel' },
+      { '@type': 'WebApplication', name: 'Team Generator', url: 'https://spinwheelgames.org/team-generator' },
+      { '@type': 'WebApplication', name: 'Theme Wheel', url: 'https://spinwheelgames.org/theme-wheel' }
+    ]
   };
 
   return (

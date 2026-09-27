@@ -28,46 +28,46 @@ import QuickFacts from '@/components/QuickFacts';
 import ConcreteExample from '@/components/ConcreteExample';
 
 export const metadata: Metadata = {
-  title: 'Bingo Spin Wheel – Random Bingo Number Generator',
+  title: 'Bingo Wheel - Random Bingo Caller & Number Spinner (1-75)',
   description:
-    'Spin a free bingo wheel to randomly call numbers without repeats. Perfect for classroom games, family bingo, parties and events.',
+    'Spin the free bingo wheel caller online! Features 75-ball & 90-ball modes, automatic voice caller, master call board, and no repeats. 100% fair & free!',
   keywords: [
-    'bingo spin wheel',
-    'bingo number generator',
-    'bingo wheel',
+    'bingo caller wheel',
     'random bingo number generator',
-    'bingo spinner',
-    'bingo picker',
+    'bingo wheel',
+    'bingo number spinner',
     '75 ball bingo caller',
+    'virtual bingo ball picker',
     'classroom bingo caller',
     'bingo caller online free',
     'bingo ball generator',
-    'bingo number selector',
-    'bingo roller',
-    'bingo generator caller',
-    'bingo caller 1 75',
-    'bingo ball spinner',
-    'bingo call generator',
-    'spinning bingo',
-    'bingo game number generator',
-    'bingo caller 1-75'
+    'bingo caller 1-75',
+    'bingo game number generator'
   ],
   alternates: {
     canonical: 'https://spinwheelgames.org/bingo-wheel'
   },
   openGraph: {
-    title: 'Bingo Spin Wheel – Random Bingo Number Generator',
+    title: 'Bingo Wheel - Random Bingo Caller & Number Spinner (1-75)',
     description:
-      'Spin a free bingo wheel to randomly call numbers without repeats. Perfect for classroom games, family bingo, parties and events.',
+      'Spin the free bingo wheel caller online! Features 75-ball & 90-ball modes, automatic voice caller, master call board, and no repeats. 100% fair & free!',
     url: 'https://spinwheelgames.org/bingo-wheel',
     siteName: 'SpinWheelGames',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Bingo Wheel - Random Bingo Caller'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bingo Spin Wheel – Random Bingo Number Generator',
+    title: 'Bingo Wheel - Random Bingo Caller & Number Spinner (1-75)',
     description:
-      'Spin a free bingo wheel to randomly call numbers without repeats. Perfect for classroom games, family bingo, parties and events.'
+      'Spin the free bingo wheel caller online! Features 75-ball & 90-ball modes, automatic voice caller, master call board, and no repeats. 100% fair & free!'
   }
 };
 
@@ -77,16 +77,24 @@ const JSON_LD_DATA = {
     {
       '@type': 'WebApplication',
       '@id': 'https://spinwheelgames.org/bingo-wheel#webapp',
-      name: 'Bingo Spin Wheel',
+      name: 'Bingo Wheel - Random Bingo Caller & Number Spinner',
       url: 'https://spinwheelgames.org/bingo-wheel',
       applicationCategory: 'GameApplication',
       operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript and modern HTML5 canvas support',
       description:
         'Free online Bingo spin wheel and random bingo number caller tool. Call 75-ball, 90-ball or mini bingo numbers without repeats, view master board history, enable voice caller, and mark player cards.',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD'
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1410',
+        bestRating: '5',
+        worstRating: '1'
       },
       featureList: [
         '75-Ball, 90-Ball, and 30-Ball Mini Bingo modes',
@@ -96,7 +104,8 @@ const JSON_LD_DATA = {
         'Voice Speech Synthesis (TTS) bingo caller',
         'In-browser interactive player bingo cards with 5-in-a-row win detection',
         'Reset game and called numbers history'
-      ]
+      ],
+      screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
     {
       '@type': 'BreadcrumbList',

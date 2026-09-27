@@ -1,58 +1,45 @@
-# Action SEO H1 Titles Standardization for All Dice Pages
+# Implementation Plan: Comprehensive Mobile Device Compatibility Audit & Optimization
 
-Standardize all page H1 titles across all single-dice, multi-dice, custom-dice, and specialty dice pages to follow high-intent Action SEO naming conventions (e.g., `Roll D20 Online - 3D Dice Roller`).
+## 1. Goal & Viewport Targets
+Audit and optimize all application pages for seamless mobile device performance (iPhone SE 375px, iPhone 14/15/16 390px-430px, Android 360px-412px, iPad/Tablets 768px-1024px). Guarantee:
+- Zero horizontal screen overflow / scrolling.
+- Responsive canvas scaling with high-DPI crispness.
+- Touch-optimized target heights ($\ge 44\text{px}$) and thumb-friendly button placement.
+- Clean text wrapping, fluid font sizes, and collapsible/scrolling control drawers.
 
-## User Review & Critical Decisions
+---
 
-> [!IMPORTANT]
-> The user confirmed the Action SEO naming convention across all single and multi-dice pages.
+## 2. Key Areas to Audit & Refine
 
-- **Confirmed Choice 1**: Naming format -> Action SEO (e.g. `Roll D20 Online - 3D Dice Roller`, `Roll 2 D6 Online - 3D Multi-Dice Roller`).
-- **Confirmed Choice 2**: Scope -> Applied across all single-dice, multi-dice, custom-dice, and specialty dice pages.
+### A. Homepage & Multiplayer Engines (`app/page.tsx`, `components/`)
+1. **`WheelBattleEngine.tsx`**:
+   - Optimize wheel container scaling: `w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[460px]` with fluid aspect-ratio so both wheels fit cleanly on mobile when stacked.
+   - Mobile score cards: Wrap score counters and action badges seamlessly without truncating.
+   - Customizer drawer: Use 1-column layout on mobile with touch-friendly input fields and weight dropdowns.
+2. **`ClassroomModeView`, `GiveawayModeView`, `MultiWheelEngine`, `TournamentEngine`**:
+   - Verify all tab bars, bracket cards, and control panels wrap or scroll horizontally with `touch-pan-x`.
+   - Ensure sticky action buttons remain accessible without obscuring content.
 
-## 1. Overview & Core Concept
+### B. Dedicated Spin Wheel Game Subpages (`app/*-wheel/page.tsx`, `components/food/`, etc.)
+1. **Wheel Engines & Presets**:
+   - Responsive canvas dimensions on mobile viewports.
+   - Preset chips & category tags: Smooth horizontal swiping (`overflow-x-auto no-scrollbar`).
+   - Winner modals & Result cards: Centered popups with `max-w-[92vw]` and scrollable content if text is long.
+2. **Educational Content & FAQ Sections**:
+   - Ensure tables (e.g., probability tables, nutritional breakdowns) use `overflow-x-auto` wrapper with touch scrolling indicator.
+   - Accordions and FAQ entities toggle smoothly on tap.
 
-- **What It Does**: Updates all `<h1>` title elements across all dice page views to include actionable keywords ("Roll [Dice] Online") and descriptive descriptors ("3D Dice Roller", "3D Multi-Dice Roller").
-- **Target Audience / Persona**: Users searching search engines for specific online dice rollers (e.g., D20, D100, 4d6 drop lowest, DnD stat rollers, 2d12, d3, custom polyhedral dice).
-- **Key Value**: Boosts organic search engine visibility (SEO) while presenting clear, intuitive headings for players.
+### C. Polyhedral 3D Dice Pages (`app/dice/[slug]`, `app/4d6`, `app/dnd-stats`, `app/dice-average`, `app/dice-roller`)
+1. **3D WebGL Canvas (`DiceScene3D.tsx`)**:
+   - Adaptive viewport height (`h-[280px] sm:h-[360px] md:h-[420px]`) so the "ROLL DICE" CTA stays in thumb reach.
+   - Touch drag rotation and tap-to-roll gestures.
+2. **Dice Hub Sticky Navigation (`DiceNavigation.tsx`)**:
+   - Verify drag-to-scroll, touch swipe, and active tab centering work flawlessly on mobile screens.
+3. **Stat Grid & Probability Charts (`DndStatRollerComponent`, `dice-average`)**:
+   - Responsive 2-column or 1-column grid on small phones so ability score cards (STR, DEX, CON, INT, WIS, CHA) render with clear typography.
 
-## 2. User Experience & Visual Design
+---
 
-- **Visual Identity & Theme**:
-  - Headings maintain standard typography hierarchy with styled gradient accents or clear high-contrast text.
-  - Headings remain fully responsive on mobile, tablet, and desktop views without line overflowing.
-- **Interactive Consistency**:
-  - Both dedicated dice routes (e.g. `/d20`, `/d100`, `/roll-4d6`, `/roll-2d12`, `/dice/d20`) and dynamic fallback routes display standardized titles matching their metadata.
-
-## 3. Key Product Decisions & Trade-Offs
-
-- **Standardized H1 Formatting**:
-  - Single dice: `Roll D[X] Online - 3D Dice Roller`
-  - Multi dice: `Roll [N] D[X] Online - 3D Multi-Dice Roller`
-  - Specialty dice (e.g. DnD Stat Roller): `Roll D&D Stats Online - 4d6 Drop Lowest & Point Buy`
-  - Unusual / Custom dice: `Roll Unusual Dice Online - Custom Polyhedral Roller`
-  - Dice Average Calculator: `Dice Average Calculator Online - Probability & Expected Value`
-
-## 4. Technical Architecture & Data Strategy
-
-```
-┌────────────────────────────────────────────────────────┐
-│                      Dice Pages                        │
-│  (Single / Multi / Custom / Specialty Routes & Slugs)  │
-└───────────────────────────┬────────────────────────────┘
-                            │
-                            ▼
-┌────────────────────────────────────────────────────────┐
-│                   H1 Title Provider                    │
-│   (DiePageConfigs / Supported Slugs / Dedicated Views)  │
-└───────────────────────────┬────────────────────────────┘
-                            │
-                            ▼
-┌────────────────────────────────────────────────────────┐
-│                    Rendered Layout                     │
-│    (Action SEO Header: "Roll D20 Online - 3D Roller")  │
-└───────────────────────────┬────────────────────────────┘
-```
-
-- **Data Models**: `diePageConfigs.ts`, `app/dice/[slug]/page.tsx`, and dedicated route page files.
-- **Verification**: Verified via `compile_applet` to ensure type safety and error-free build.
+## 3. Verification Plan
+- **Build Verification**: Run `compile_applet` and `lint_applet` to confirm 100% clean build.
+- **Responsive Inspection**: Verify layout across CSS breakpoints (`sm: 640px`, `md: 768px`, `lg: 1024px`, and mobile `<400px`).
