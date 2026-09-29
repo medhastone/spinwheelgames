@@ -63,7 +63,7 @@ export default function FaqSection({ title = "Frequently Asked Questions", descr
             {title}
           </h2>
           <p className="text-[14px] sm:text-[15px] text-[#464554] dark:text-[#c7c4d7] mt-1">
-            Everything you need to know about entropy, provable fairness, custom odds, and embeds.
+            {description}
           </p>
         </div>
 

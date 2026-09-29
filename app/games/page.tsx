@@ -7,6 +7,10 @@ import FaqSection from '@/components/FaqSection';
 import { Sparkles, Dices, Layers, ShieldCheck } from 'lucide-react';
 import { SITE_CONFIG, SITE_COUNTS } from '@/lib/siteConfig';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: `Wheel Games - ${SITE_COUNTS.wheelsFormatted} Free Online Decision Spinners & Wheels`,
   description:

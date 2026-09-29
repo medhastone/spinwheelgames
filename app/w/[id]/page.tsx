@@ -3,7 +3,10 @@ import { redirect } from 'next/navigation';
 import { getWheelShare } from '@/lib/shortCodeStore';
 import { ALL_SEO_PAGES_MAP } from '@/lib/seoData';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
+
+
+
 
 interface PageProps {
   params: Promise<{ id: string }>;

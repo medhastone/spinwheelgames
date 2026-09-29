@@ -20,6 +20,10 @@ import FoodWheelEngine from '@/components/food/FoodWheelEngine';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: 'Food Wheel - What Should I Eat Generator & Dinner Picker',
   description:

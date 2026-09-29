@@ -23,6 +23,10 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: 'Daily Wheel Challenges - Spin Today’s Global Quest & Streak Picker',
   description:

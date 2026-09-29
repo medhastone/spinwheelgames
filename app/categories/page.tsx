@@ -7,6 +7,7 @@ import DirectAnswer from '@/components/DirectAnswer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { CATEGORY_METADATA } from '@/lib/wheelLibrary';
 import {
+
   Layers,
   Sparkles,
   ArrowRight,
@@ -30,6 +31,9 @@ import {
   Users,
   PiggyBank
 } from 'lucide-react';
+
+export const dynamic = 'force-static';
+
 
 export const metadata: Metadata = {
   title: 'All Wheel Categories & Decision Games | SpinWheelGames',

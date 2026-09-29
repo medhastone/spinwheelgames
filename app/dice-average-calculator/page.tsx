@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import DiceNavigation from '@/components/dice/DiceNavigation';
 import DiceAverageCalculatorComponent from '@/components/dice/DiceAverageCalculatorComponent';
 import {
+
   Calculator,
   BookOpen,
   TrendingUp,
@@ -18,6 +19,9 @@ import {
   Sparkles,
   Award
 } from 'lucide-react';
+
+export const dynamic = 'force-static';
+
 
 export const metadata: Metadata = {
   title: 'Dice Average Calculator | Exact Expected Values, Standard Deviation & Bell Curves',

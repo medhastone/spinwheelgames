@@ -9,6 +9,8 @@ import Footer from '@/components/Footer';
 
 export const dynamic = 'force-static';
 
+
+
 export const metadata: Metadata = {
   title: 'Roll 1d4 Online 3D - 4-Sided Pyramid Die Roller | SpinWheel',
   description:

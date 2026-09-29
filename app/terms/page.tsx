@@ -5,6 +5,10 @@ import Footer from '@/components/Footer';
 import { Scale, Sparkles, ShieldAlert, FileText, CheckCircle2, Building2 } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/siteConfig';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: `Terms of Service - Usage Guidelines & Terms | ${SITE_CONFIG.brandName}`,
   description:

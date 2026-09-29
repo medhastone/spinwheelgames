@@ -25,6 +25,10 @@ import MovieWheelEngine from '@/components/movie/MovieWheelEngine';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: 'Movie Wheel - What Movie Should I Watch Generator',
   description:

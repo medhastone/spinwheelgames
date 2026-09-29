@@ -25,6 +25,10 @@ import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: 'Animal Wheel - Random Animal Generator Wheel & Picker',
   description:

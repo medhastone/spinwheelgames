@@ -7,6 +7,11 @@ import Navbar from '@/components/Navbar';
 import DiceNavigation from '@/components/dice/DiceNavigation';
 import Footer from '@/components/Footer';
 
+export const dynamic = 'force-static';
+export const dynamicParams = false;
+
+
+
 interface DiceSlugPageProps {
   params: Promise<{ slug: string }>;
 }

@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import DiceNavigation from '@/components/dice/DiceNavigation';
 import DiceRollerEngine from '@/components/dice/DiceRollerEngine';
 import {
+
   BookOpen,
   TrendingUp,
   Shield,
@@ -14,6 +15,9 @@ import {
   ArrowRight,
   Calculator
 } from 'lucide-react';
+
+export const dynamic = 'force-static';
+
 
 export const metadata: Metadata = {
   title: 'Roll 3d6 Online | 3D Bell Curve Probability & Tabletop Roller',

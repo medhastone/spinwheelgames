@@ -6,6 +6,10 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import DiceNavigation from '@/components/dice/DiceNavigation';
 import UnusualDiceComponent from '@/components/dice/UnusualDiceComponent';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: 'Unusual Dice Roller | Non-Standard Polyhedral Dice Simulator',
   description:

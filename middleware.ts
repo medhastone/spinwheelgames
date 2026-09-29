@@ -51,10 +51,21 @@ export function middleware(req: NextRequest) {
         status: 404,
         headers: {
           'Content-Type': 'text/plain; charset=utf-8',
-          'Cache-Control': 'public, max-age=86400, s-maxage=604800',
+          'Cache-Control': 'public, max-age=86400, s-maxage=31536000',
           'X-Robots-Tag': 'noindex, nofollow',
         },
       });
+    }
+  }
+
+  // Fast shortcode redirect for /w/[id]
+  if (pathname.startsWith('/w/')) {
+    const shortCode = pathname.substring(3);
+    if (shortCode) {
+      const targetPath = REDIRECT_MAP['/' + shortCode] || (shortCode.length > 20 ? '/categories' : '/?s=' + encodeURIComponent(shortCode));
+      const res = NextResponse.redirect(new URL(targetPath, req.url), 302);
+      res.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=86400');
+      return res;
     }
   }
 
@@ -77,7 +88,7 @@ export function middleware(req: NextRequest) {
   if (req.method === 'GET' && !pathname.startsWith('/api/')) {
     response.headers.set(
       'Cache-Control',
-      'public, max-age=3600, s-maxage=604800, stale-while-revalidate=86400'
+      'public, max-age=3600, s-maxage=31536000, stale-while-revalidate=86400'
     );
   }
 

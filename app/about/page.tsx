@@ -5,6 +5,10 @@ import Footer from '@/components/Footer';
 import { Sparkles, Cpu, EyeOff, Zap, Users, ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/siteConfig';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: `About ${SITE_CONFIG.brandName} - Mission, Randomness & Architecture`,
   description:

@@ -33,6 +33,7 @@ import {
 import Link from 'next/link';
 import { ALL_SEO_PAGES_LIST } from '@/lib/seoData';
 
+
 interface SitemapCategory {
   id: string;
   title: string;
@@ -41,7 +42,7 @@ interface SitemapCategory {
   links: { href: string; label: string; desc?: string }[];
 }
 
-export default function HtmlSitemapPage() {
+export default function SitemapPage() {
   const [searchQuery, setSearchQuery] = useState('');
 
   // Dynamically group all SEO pages by their category

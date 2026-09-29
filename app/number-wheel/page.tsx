@@ -25,6 +25,10 @@ import NumberWheelEngine from '@/components/numbers/NumberWheelEngine';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: 'Number Wheel - Random Number Generator Wheel (1-100)',
   description:

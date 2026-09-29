@@ -5,6 +5,7 @@ import RandomObjectEngine from '@/components/objects/RandomObjectEngine';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 import {
+
   Sparkles,
   ShieldCheck,
   Palette,
@@ -26,6 +27,9 @@ import {
   Compass,
   Table
 } from 'lucide-react';
+
+export const dynamic = 'force-static';
+
 
 export const metadata: Metadata = {
   title: 'Random Object Generator Wheel - Item Picker for Games & Art',

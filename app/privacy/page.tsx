@@ -5,6 +5,10 @@ import Footer from '@/components/Footer';
 import { ShieldCheck, Lock, CheckCircle2, Server, HardDrive, Share2, Mail } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/siteConfig';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: `Privacy Policy - Data Handling & Local Processing | ${SITE_CONFIG.brandName}`,
   description:

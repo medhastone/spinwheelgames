@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import DiceNavigation from '@/components/dice/DiceNavigation';
 import DiceRollerEngine from '@/components/dice/DiceRollerEngine';
 import {
+
   BookOpen,
   TrendingUp,
   Shield,
@@ -15,6 +16,9 @@ import {
   Zap,
   Calculator
 } from 'lucide-react';
+
+export const dynamic = 'force-static';
+
 
 export const metadata: Metadata = {
   title: 'Roll 2d12 Online | 3D Two 12-Sided Dice Roller & Odds',

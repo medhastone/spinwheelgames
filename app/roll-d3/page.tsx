@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import DiceNavigation from '@/components/dice/DiceNavigation';
 import DiceRollerEngine from '@/components/dice/DiceRollerEngine';
 import {
+
   BookOpen,
   TrendingUp,
   Shield,
@@ -14,6 +15,9 @@ import {
   ArrowRight,
   Sparkles
 } from 'lucide-react';
+
+export const dynamic = 'force-static';
+
 
 export const metadata: Metadata = {
   title: 'Roll d3 Online | 3D 3-Sided Die Randomizer',

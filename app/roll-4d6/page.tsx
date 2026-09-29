@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import DiceNavigation from '@/components/dice/DiceNavigation';
 import DiceRollerEngine from '@/components/dice/DiceRollerEngine';
 import {
+
   Shield,
   Calculator,
   TrendingUp,
@@ -19,6 +20,9 @@ import {
   Layers,
   Award
 } from 'lucide-react';
+
+export const dynamic = 'force-static';
+
 
 export const metadata: Metadata = {
   title: 'Roll 4d6 (Drop Lowest) Online | 3D D&D Ability Score Roller',

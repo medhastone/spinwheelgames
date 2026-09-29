@@ -5,6 +5,10 @@ import Footer from '@/components/Footer';
 import { Accessibility, Keyboard, Eye, Volume2, Sparkles, HelpCircle } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/siteConfig';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: `Accessibility Statement - WCAG 2.1 Principles | ${SITE_CONFIG.brandName}`,
   description:

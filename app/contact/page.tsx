@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
+
 export default function ContactPage() {
   const targetEmail = SITE_CONFIG.supportEmail;
 

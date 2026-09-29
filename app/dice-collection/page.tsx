@@ -10,6 +10,10 @@ import PopularWheels from '@/components/PopularWheels';
 import CreateWheelCTA from '@/components/CreateWheelCTA';
 import { Sparkles, Dice5, Shield, ArrowRight, Dices, Layers } from 'lucide-react';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: 'Official 3D RPG Dice Collection & Asset Pack | SpinWheelGames.org',
   description:

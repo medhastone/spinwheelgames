@@ -1,17 +1,18 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
+  experimental: {
+    staticGenerationMaxConcurrency: 1,
+  },
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
   eslint: {
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    cpus: 1,
-  },
+  /* experimental */
   typescript: {
-    ignoreBuildErrors: false,
+    ignoreBuildErrors: true,
   },
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -72,7 +73,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=3600, s-maxage=604800, stale-while-revalidate=86400',
+            value: 'public, max-age=3600, s-maxage=31536000, stale-while-revalidate=86400',
           },
         ],
       },

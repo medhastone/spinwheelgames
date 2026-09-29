@@ -27,6 +27,10 @@ import DirectAnswer from '@/components/DirectAnswer';
 import QuickFacts from '@/components/QuickFacts';
 import ConcreteExample from '@/components/ConcreteExample';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: 'Bingo Wheel - Random Bingo Caller & Number Spinner (1-75)',
   description:

@@ -26,6 +26,10 @@ import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
+export const dynamic = 'force-static';
+
+
+
 export const metadata: Metadata = {
   title: 'Classroom Wheel - Random Student Picker & Name Spinner',
   description:
@@ -297,7 +301,7 @@ export default function ClassroomWheelPage() {
             <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 space-y-2">
               <div className="flex items-center gap-2 font-bold text-slate-900 dark:text-white text-sm">
                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                <span>Local Browser Processing <span>Local Processing Private & FERPA Compliant Minimal Data</span>amp; Minimal Data</span>
+                <span>Local Processing Private & FERPA Compliant Minimal Data</span>
               </div>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                 Roster information remains entirely in local browser storage—no names or student data are ever sent over a server.

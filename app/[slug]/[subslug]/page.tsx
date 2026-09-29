@@ -3,6 +3,11 @@ import { notFound } from 'next/navigation';
 import { getSeoPageByPath, ALL_SEO_PAGES_LIST } from '@/lib/seoData';
 import SeoPageView from '@/components/SeoPageView';
 
+export const dynamic = 'force-static';
+export const dynamicParams = false;
+
+
+
 interface PageProps {
   params: Promise<{
     slug: string;

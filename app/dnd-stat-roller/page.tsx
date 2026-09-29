@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import DiceNavigation from '@/components/dice/DiceNavigation';
 import DndStatRollerComponent from '@/components/dice/DndStatRollerComponent';
 import {
+
   Shield,
   Calculator,
   TrendingUp,
@@ -19,6 +20,9 @@ import {
   Layers,
   Zap
 } from 'lucide-react';
+
+export const dynamic = 'force-static';
+
 
 export const metadata: Metadata = {
   title: 'D&D Stat Roller | 5e Character Ability Score Generator (4d6 Drop Lowest, Point Buy, Standard Array)',

@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import DiceNavigation from '@/components/dice/DiceNavigation';
 import DiceRollerEngine from '@/components/dice/DiceRollerEngine';
 import {
+
   Dice5,
   Dices,
   Calculator,
@@ -17,6 +18,9 @@ import {
   HelpCircle,
   ArrowRight
 } from 'lucide-react';
+
+export const dynamic = 'force-static';
+
 
 export const metadata: Metadata = {
   title: 'Roll Dice Online 3D - Free Virtual Dice Roller | SpinWheel',
