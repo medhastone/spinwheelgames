@@ -7,7 +7,7 @@ export const WHEEL_LIBRARY_PART5: WheelExperience[] = [
   {
     id: 'random-number-wheel',
     name: 'Random Number Wheel',
-    purpose: 'Cryptographically certified random integer generator formatted as an interactive wheel.',
+    purpose: 'Cryptographically secure random integer generator formatted as an interactive wheel.',
     targetAudience: 'Math teachers, statisticians, raffle runners, tabletop gamers.',
     defaultEntries: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
     category: 'NUMBERS',

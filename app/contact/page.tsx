@@ -1,4 +1,5 @@
 'use client';
+import { SITE_CONFIG } from '@/lib/siteConfig';
 
 import React, { useState } from 'react';
 import SubpageHeader from '@/components/SubpageHeader';
@@ -23,7 +24,7 @@ import {
 import Link from 'next/link';
 
 export default function ContactPage() {
-  const targetEmail = 'medhastone@gmail.com';
+  const targetEmail = SITE_CONFIG.supportEmail;
 
   const [formData, setFormData] = useState({
     name: '',
@@ -347,7 +348,7 @@ export default function ContactPage() {
                 <div>
                   <div className="font-bold text-[#1a1b22] dark:text-white">Can I embed this wheel on my site?</div>
                   <p className="text-xs text-[#767586] dark:text-[#908fa1]">
-                    Yes! Click &quot;Share / Embed&quot; on any wheel to generate an ad-free, responsive iframe snippet.
+                    Yes! Click &quot;Share / Embed&quot; on any wheel to generate an clean, responsive iframe snippet.
                   </p>
                 </div>
                 <div>

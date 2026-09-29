@@ -44,7 +44,13 @@ export const FAQS_DATA = [
   }
 ];
 
-export default function FaqSection() {
+interface FaqSectionProps {
+  title?: string;
+  description?: string;
+  faqs?: { question: string; answer: string }[];
+}
+
+export default function FaqSection({ title = "Frequently Asked Questions", description = "Everything you need to know about entropy, provable fairness, custom odds, and embeds.", faqs = FAQS_DATA }: FaqSectionProps) {
   return (
     <section className="w-full px-4 sm:px-6 py-12 sm:py-16 bg-[#f4f2fd] dark:bg-[#181922] transition-colors border-y border-[#eeedf7] dark:border-[#222330]" id="faqs">
       <div className="max-w-4xl mx-auto">
@@ -54,7 +60,7 @@ export default function FaqSection() {
             Knowledge Base
           </div>
           <h2 className="font-headline text-[26px] sm:text-[34px] font-bold text-[#1a1b22] dark:text-white">
-            Frequently Asked Questions
+            {title}
           </h2>
           <p className="text-[14px] sm:text-[15px] text-[#464554] dark:text-[#c7c4d7] mt-1">
             Everything you need to know about entropy, provable fairness, custom odds, and embeds.
@@ -62,7 +68,7 @@ export default function FaqSection() {
         </div>
 
         <div className="flex flex-col gap-3.5" id="faq-container">
-          {FAQS_DATA.map((faq, index) => (
+          {faqs.map((faq, index) => (
             <details
               key={index}
               className="group rounded-2xl bg-white dark:bg-[#1d1e28] p-5 shadow-xs border border-[#eeedf7] dark:border-[#292a39] hover:border-[#4648d4]/40 transition-all cursor-pointer"

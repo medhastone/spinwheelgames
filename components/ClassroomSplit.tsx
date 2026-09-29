@@ -152,10 +152,10 @@ export default function ClassroomSplit({
             <div className="p-3.5 bg-white dark:bg-[#181922] rounded-xl shadow-sm border border-[#eeedf7] dark:border-[#292a39]">
               <ShieldCheck className="w-6 h-6 text-[#006c49] dark:text-[#4edea3]" />
               <div className="text-[13px] font-bold text-[#1a1b22] dark:text-white mt-1">
-                Clean &amp; Ad-Free Mode
+                Clean Classroom Mode
               </div>
               <p className="text-[11px] text-[#464554] dark:text-[#c7c4d7] leading-tight mt-0.5">
-                Zero distracting external trackers, certified COPPA/FERPA compliant.
+                Zero distracting external trackers, designed with student privacy in mind.
               </p>
             </div>
 

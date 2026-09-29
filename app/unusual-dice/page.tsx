@@ -18,7 +18,10 @@ export const metadata: Metadata = {
     'd7 die roller',
     'd30 dice roller',
     'custom n sided die'
-  ]
+  ],
+  alternates: {
+    canonical: 'https://spinwheelgames.org/unusual-dice'
+  }
 };
 
 export default function UnusualDicePage() {

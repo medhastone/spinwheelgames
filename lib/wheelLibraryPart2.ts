@@ -7,7 +7,7 @@ export const WHEEL_LIBRARY_PART2: WheelExperience[] = [
   {
     id: 'random-student-picker',
     name: 'Random Student Picker',
-    purpose: 'Guarantee 100% equitable, non-favoritist classroom participation with instant elimination mode.',
+    purpose: 'Support equitable, non-favoritist classroom participation with instant elimination mode.',
     targetAudience: 'K-12 educators, university lecturers, teaching assistants, corporate trainers.',
     defaultEntries: ['Aiden Cole', 'Brianna Diaz', 'Carter Evans', 'Daisy Flores', 'Ethan Gonzalez', 'Fiona Hayes', 'Gavin Jenkins', 'Hannah Khan', 'Ian Lewis', 'Julia Martinez'],
     category: 'CLASSROOM',

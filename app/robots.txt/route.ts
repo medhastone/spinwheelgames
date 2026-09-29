@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   const content = `# Robots.txt for SpinWheelGames.org
-# Certified Fair Random Decision Spinners & 3D Polyhedral Dice
+# Browser Cryptographic Random Decision Spinners & 3D Polyhedral Dice
 
 # Standard Search Engine Crawlers
 User-agent: Googlebot

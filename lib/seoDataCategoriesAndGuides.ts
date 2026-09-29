@@ -18,7 +18,7 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     featureBadges: [
       'Overcomes Decision Fatigue',
       'Binary & Multi-Choice Tools',
-      'Provably Fair CSPRNG',
+      'Web Crypto CSPRNG',
       'Client-Side Privacy',
       '100% Free'
     ],
@@ -88,7 +88,7 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
         description: 'Choose from pre-built templates for movies, streaming, dinner, chores, workout moves, and study topics.'
       }
     ],
-    resultExplanation: 'All decision wheels on SpinWheelGames use the Web Cryptography API to generate hardware-seeded, mathematically unbiased outcomes.',
+    resultExplanation: 'All decision wheels on SpinWheelGames use the browser Web Cryptography API (crypto.getRandomValues()) to generate unbiased random values directly on your device.',
     uniqueExamples: [
       'Streaming & Watchlist: Movie Wheel Spin (Sci-Fi, Comedy, Action, Horror, Romance, Classic)',
       'Dining & Meals: Food Wheel (Pizza, Sushi, Tacos, Burgers, Thai, Indian, Salad)',
@@ -199,7 +199,7 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       'Bulk Name Import',
       'No-Repeat Elimination',
       'Speech Synthesis TTS',
-      '100% Client-Side Privacy',
+      'Client-Side Processing',
       'Fair Random Drawing'
     ],
     defaultWheelData: {
@@ -244,7 +244,7 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
         description: 'Paste from spreadsheets or text files in one second.'
       }
     ],
-    resultExplanation: 'All names have mathematically identical odds determined by browser hardware entropy.',
+    resultExplanation: 'All names have mathematically identical odds determined by browser Web Crypto cryptographic randomness.',
     uniqueExamples: [
       'Roster: Aiden, Chloe, Daniel, Grace, Henry, Maya, Owen, Zoe'
     ],
@@ -300,7 +300,7 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     parentCategoryPath: '/',
     parentCategoryName: 'Home',
     featureBadges: [
-      'FERPA Compliant Privacy',
+      'Local Classroom Privacy',
       'Smartboard & Whiteboard Ready',
       'Text-to-Speech Announcements',
       'Student Elimination Mode',
@@ -984,9 +984,9 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     slug: 'giveaways',
     fullPath: '/giveaways',
     pageType: 'category',
-    title: 'Giveaway & Raffle Wheels – Provably Fair Winner Pickers',
-    metaDescription: 'Pick contest and raffle winners with 100% transparent fairness. Audited seeds, screen-shareable spins, and weighted ticket drawings.',
-    h1: 'Giveaway & Raffle Wheels: Provably Fair Winner Pickers',
+    title: 'Giveaway & Raffle Wheels – Transparent Winner Pickers',
+    metaDescription: 'Pick contest and raffle winners with transparent randomness. Audited seeds, screen-shareable spins, and weighted ticket drawings.',
+    h1: 'Giveaway & Raffle Wheels: Transparent Winner Pickers',
     introduction: 'Build trust with your audience. When giving away prizes, credibility is everything. Our giveaway wheels combine suspenseful physical animations with verifiable cryptographic randomness and audit logging, so followers know your drawings are genuine.',
     primaryIntent: 'event',
     secondaryIntents: ['transactional/use tool', 'decision'],
@@ -1269,8 +1269,8 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
         body: [
           'Most basic websites generate random numbers using JavaScript\'s built-in Math.random(). While Math.random() is fast, it is a pseudo-random algorithm (often xorshift128+) that begins with an internal seed.',
           'Under rapid sequential calls, pseudo-random generators can display subtle statistical clustering. More importantly, they are not cryptographically secure and fail strict randomness distribution benchmarks.',
-          'SpinWheelGames uses the modern [W3C Web Cryptography API documented on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues): window.crypto.getRandomValues(). This function samples hardware-level entropy from your device\'s operating system (such as thermal sensor variations, mouse movement jitter, and microsecond CPU clock interrupts), guaranteeing true mathematical independence.',
-          'This hardware entropy adheres directly to federal standards outlined in the [NIST SP 800-90A Recommendation for Random Number Generation](https://csrc.nist.gov/publications/detail/sp/800-90a/rev-1/final), which specifies statistical non-predictability across large-scale sampling.'
+          'SpinWheelGames uses the modern [W3C Web Cryptography API documented on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues): window.crypto.getRandomValues(). SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values directly in your browser.',
+          'By generating 32-bit cryptographically secure pseudo-random integers and applying dynamic rejection sampling, our engine guarantees zero positional bias and uniform distribution across all sectors.'
         ]
       },
       {
@@ -1296,7 +1296,7 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Random Wheel', path: '/random-wheel', description: 'Certified cryptographic randomizer.' },
+      { name: 'Random Wheel', path: '/random-wheel', description: 'Browser-based cryptographic randomizer.' },
       { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Audited raffle drawing tool.' }
     ],
     relatedWheels: [
@@ -1397,7 +1397,7 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
         heading: '2. Record the Drawing with Cryptographic Audit Proof',
         body: [
           'Always screen-record the drawing from start to finish. Show the list of entries on screen, click Spin, and let the wheel come to a natural stop without cuts.',
-          'SpinWheelGames adheres to [NIST SP 800-90A statistical randomness guidelines](https://csrc.nist.gov/publications/detail/sp/800-90a/rev-1/final), generating hardware entropy that guarantees every ticket has mathematically uniform odds. Posting the unedited recording silences any accusations of favoritism.'
+          'SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values with uniform probability distribution, ensuring every ticket has equal odds. Posting the unedited recording silences any accusations of favoritism.'
         ]
       },
       {

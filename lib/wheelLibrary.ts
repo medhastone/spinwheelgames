@@ -53,7 +53,7 @@ export const CATEGORY_METADATA: Record<
 > = {
   ALL: {
     label: 'All Wheels',
-    count: ALL_WHEEL_EXPERIENCES.length,
+    count: 118,
     description: 'Explore the complete 106+ vetted wheel games & decision engines.',
     iconKey: 'Layers',
     color: '#4648d4'

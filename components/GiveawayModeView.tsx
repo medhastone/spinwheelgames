@@ -404,7 +404,7 @@ export default function GiveawayModeView({
     if (winnersList.length === 0) return;
     const text = `🎉 OFFICIAL GIVEAWAY WINNERS AUDIT (${new Date().toLocaleDateString()}) - SpinWheelGames.org\n\n` +
       winnersList.map((w) => `🏆 #${w.place} ${w.winnerName} (${w.prizeTitle || 'Prize'})\n   Seed: ${w.entropySeed} | Odds: ${w.oddsPercent}% | Time: ${w.timestamp}`).join('\n\n') +
-      `\n\nProvably Fair CSPRNG Verification: Passed via Web Cryptography API.`;
+      `\n\nWeb Crypto CSPRNG Verification: Generated via browser crypto.getRandomValues().`;
     navigator.clipboard.writeText(text);
     setCopiedAudit(true);
     setTimeout(() => setCopiedAudit(false), 2000);
@@ -426,7 +426,7 @@ export default function GiveawayModeView({
               <span>Giveaway &amp; Raffle Pro Suite</span>
             </div>
             <h1 className="font-headline font-extrabold text-[26px] sm:text-[34px] text-[#1a1b22] dark:text-[#f1effa] tracking-tight">
-              Provably Fair Giveaway &amp; Contest Wheel
+              Cryptographically Fair Giveaway &amp; Contest Wheel
             </h1>
             <p className="text-[14px] text-[#767586] dark:text-[#908fa1] max-w-3xl mt-1">
               Engineered for streamers, event organizers, and brands. Complete with CSV/TXT import, duplicate detection, weighted tickets, multi-winner batch draws, and verifiable cryptographic certificates.
@@ -454,7 +454,7 @@ export default function GiveawayModeView({
               className="px-3.5 py-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-bold flex items-center gap-2 transition-colors cursor-pointer"
             >
               <ShieldCheck className="w-4 h-4" />
-              <span>Provably Fair Certificate</span>
+              <span>Fairness Certificate</span>
             </button>
 
             <button
@@ -718,10 +718,10 @@ export default function GiveawayModeView({
               </div>
               <div>
                 <h3 className="font-headline font-bold text-[18px] text-[#1a1b22] dark:text-white">
-                  Cryptographic Fairness Audit
+                  Cryptographic Randomness Audit
                 </h3>
                 <p className="text-[11px] text-[#767586] dark:text-[#908fa1]">
-                  Hardware entropy verification certificate
+                  Web Cryptography API verification
                 </p>
               </div>
             </div>
@@ -729,10 +729,10 @@ export default function GiveawayModeView({
             <div className="space-y-3 text-xs text-[#464554] dark:text-[#c7c4d7]">
               <div className="p-3 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] border border-[#eeedf7] dark:border-[#292a39] space-y-1">
                 <span className="font-bold text-[#1a1b22] dark:text-white block">
-                  Algorithm Standard: CSPRNG (RFC 4086)
+                  Algorithm Standard: Browser Web Cryptography API
                 </span>
                 <p className="text-[11px]">
-                  All random picks are generated using the browser’s native <code className="font-mono text-[#4648d4]">crypto.getRandomValues()</code> subsystem, drawing entropy from OS thermal noise, hardware interrupts, and timing jitter.
+                  All random picks are generated using the browser’s native <code className="font-mono text-[#4648d4]">crypto.getRandomValues()</code> subsystem for cryptographically secure, uniform random selection.
                 </p>
               </div>
 

@@ -48,8 +48,8 @@ export default function FairnessPanel() {
             How Random Selection Works
           </h2>
           <p className="text-[14px] sm:text-[15px] text-[#767586] dark:text-[#908fa1] max-w-2xl mx-auto">
-            SpinWheelGames uses client-side hardware entropy rather than pseudo-random mathematical
-            formulas. Here is the exact mechanics of every spin.
+            SpinWheelGames uses the browser Web Cryptography API (`crypto.getRandomValues()`) rather than
+            pseudo-random mathematical formulas. Here is the exact mechanics of every spin.
           </p>
         </div>
 
@@ -61,16 +61,16 @@ export default function FairnessPanel() {
               <Lock className="w-5 h-5" />
             </div>
             <h3 className="font-headline font-bold text-[17px] text-[#1a1b22] dark:text-[#f1effa]">
-              1. Secure Hardware Randomness
+              1. Browser Web Cryptography API
             </h3>
             <p className="text-[13px] leading-relaxed text-[#464554] dark:text-[#c7c4d7]">
               Instead of the predictable <code className="font-mono text-[12px]">Math.random()</code>,
-              the engine queries the operating system&apos;s cryptographically secure pseudo-random number
+              the engine queries the browser&apos;s cryptographically secure pseudo-random number
               generator (CSPRNG) via{' '}
               <code className="px-1.5 py-0.5 rounded bg-[#eeedf7] dark:bg-[#12131a] font-mono text-[11px] text-[#4648d4] dark:text-[#8587ff] font-bold">
                 window.crypto.getRandomValues()
               </code>
-              . This draws true entropy from thermal, timing, and hardware noise.
+              . This provides high-entropy uniform random values across every spin.
             </p>
           </div>
 

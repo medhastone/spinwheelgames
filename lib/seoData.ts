@@ -4,6 +4,7 @@ import { USE_CASES_SEO } from './seoDataUseCases';
 import { CATEGORIES_AND_GUIDES_SEO } from './seoDataCategoriesAndGuides';
 import { EXTENDED_PILLARS_SEO } from './seoDataExtendedPillars';
 import { WHEEL_EXPERIENCES_SEO } from './seoDataWheelExperiences';
+import { SITE_CONFIG } from './siteConfig';
 
 export const ALL_SEO_PAGES_MAP: Record<string, SeoPageData> = {
   ...WHEEL_EXPERIENCES_SEO,
@@ -33,7 +34,7 @@ export function getSeoPagesByCategory(categoryKey: string): SeoPageData[] {
 }
 
 /**
- * Generates valid, schema-compliant JSON-LD structured data without fake ratings or unsupported entities.
+ * Generates valid, schema-compliant JSON-LD structured data using SITE_CONFIG metadata.
  */
 export function generatePageJsonLd(page: SeoPageData): object[] {
   const schemas: object[] = [];
@@ -45,28 +46,30 @@ export function generatePageJsonLd(page: SeoPageData): object[] {
     name: page.title,
     headline: page.h1,
     description: page.metaDescription,
-    url: `https://spinwheelgames.org${page.fullPath}`,
+    url: `${SITE_CONFIG.baseUrl}${page.fullPath}`,
     inLanguage: 'en-US',
     datePublished: '2026-01-15T08:00:00Z',
     dateModified: '2026-09-22T08:00:00Z',
     author: {
       '@type': 'Organization',
-      name: page.eeatMeta?.authorName || 'SpinWheelGames Editorial Team',
-      url: 'https://spinwheelgames.org'
+      name: page.eeatMeta?.authorName || `${SITE_CONFIG.brandName} Editorial Team`,
+      url: SITE_CONFIG.baseUrl,
+      email: SITE_CONFIG.supportEmail,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'SpinWheelGames',
-      url: 'https://spinwheelgames.org',
+      name: SITE_CONFIG.brandName,
+      url: SITE_CONFIG.baseUrl,
+      email: SITE_CONFIG.supportEmail,
       logo: {
         '@type': 'ImageObject',
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp'
+        url: `${SITE_CONFIG.baseUrl}/spinwheel-logo.webp`
       }
     },
     isPartOf: {
       '@type': 'WebSite',
-      name: 'SpinWheelGames',
-      url: 'https://spinwheelgames.org'
+      name: SITE_CONFIG.brandName,
+      url: SITE_CONFIG.baseUrl
     }
   };
 
@@ -106,7 +109,7 @@ export function generatePageJsonLd(page: SeoPageData): object[] {
       '@type': 'SoftwareApplication',
       name: page.h1,
       description: page.metaDescription,
-      url: `https://spinwheelgames.org${page.fullPath}`,
+      url: `${SITE_CONFIG.baseUrl}${page.fullPath}`,
       applicationCategory: 'UtilitiesApplication',
       operatingSystem: 'All',
       offers: {

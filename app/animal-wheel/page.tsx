@@ -168,7 +168,7 @@ const JSON_LD_DATA = {
           name: 'Is the randomness fair and unbiased?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. All spins use the W3C Web Cryptography API (crypto.getRandomValues) with hardware-seeded entropy, ensuring mathematically uniform probability across all slices.'
+            text: 'Yes. All spins use the browser Web Cryptography API (crypto.getRandomValues()), ensuring mathematically uniform probability across all slices.'
           }
         }
       ]
@@ -254,9 +254,9 @@ export default function AnimalWheelPage() {
             <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 w-fit">
               <ShieldCheck className="w-5 h-5" />
             </div>
-            <h3 className="font-bold text-base text-[#1a1b22] dark:text-white">CSPRNG Fair Randomness</h3>
+            <h3 className="font-bold text-base text-[#1a1b22] dark:text-white">Web Crypto API Randomness</h3>
             <p className="text-xs text-[#767586] dark:text-[#908fa1] leading-relaxed">
-              Powered by native Web Cryptography hardware entropy. 100% unbiased with zero repeat elimination.
+              Powered by the browser Web Cryptography API (crypto.getRandomValues()) for unbiased slice selection.
             </p>
           </div>
         </section>
@@ -469,7 +469,7 @@ export default function AnimalWheelPage() {
                   Is the Animal Spin Wheel free to use for schools and educators?
                 </h3>
                 <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] leading-relaxed">
-                  Yes, 100% free with no registration, no subscription fees, and no student sign-in required. It complies with student privacy standards by executing all code locally in the browser with zero tracking cookies.
+                  Yes, 100% free with no registration, no subscription fees, and no student sign-in required. Designed to minimize collection of user-provided wheel data by executing code locally in the browser.
                 </p>
               </div>
 

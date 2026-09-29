@@ -28,7 +28,7 @@ export default function HomeEditorialContent() {
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
             <span className="font-semibold text-[#1a1b22] dark:text-white">
-              Hardware-Seeded Web Cryptography (CSPRNG)
+              Browser Web Cryptography API (crypto.getRandomValues)
             </span>
           </div>
           <div className="flex items-center gap-1.5 text-xs text-[#696779] dark:text-slate-400">
@@ -46,13 +46,13 @@ export default function HomeEditorialContent() {
       <div className="space-y-3 max-w-3xl">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 uppercase tracking-wider">
           <ShieldCheck className="w-3.5 h-3.5" />
-          Provable Fairness &amp; Decision Science
+          Cryptographic Randomness &amp; Decision Science
         </div>
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#1a1b22] dark:text-white">
-          The Architecture of Digital Spinners: Cryptographic Entropy &amp; Behavioral Psychology
+          The Architecture of Digital Spinners: Cryptographic Randomness &amp; Behavioral Psychology
         </h2>
         <p className="text-base sm:text-lg text-[#464554] dark:text-slate-300 leading-relaxed">
-          SpinWheelGames.org is engineered for classrooms, live creators, agile product teams, and everyday decision makers who demand verifiable mathematical neutrality rather than simulated toy physics.
+          SpinWheelGames.org is engineered for classrooms, live creators, agile product teams, and everyday decision makers who demand unbiased mathematical neutrality.
         </p>
       </div>
 
@@ -64,7 +64,7 @@ export default function HomeEditorialContent() {
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h3 className="text-xl font-bold text-[#1a1b22] dark:text-white">
-              Why Math.random() Fails True Fairness Standards
+              Why Math.random() Differs From Cryptographic Randomness
             </h3>
           </div>
           <div className="space-y-3 text-sm text-[#464554] dark:text-slate-300 leading-relaxed">
@@ -77,10 +77,10 @@ export default function HomeEditorialContent() {
               <code className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-xs font-mono text-indigo-600 dark:text-indigo-300">
                 Math.random()
               </code>{' '}
-              is a deterministic pseudo-random number generator (PRNG) typically seeded from an internal algorithm (such as xorshift128+). Under high-frequency sequential execution, standard PRNGs are prone to subtle statistical clustering and predictable periodicity.
+              is a non-cryptographic pseudo-random number generator (PRNG).
             </p>
             <p>
-              To eliminate bias, our platform implements the{' '}
+              To ensure uniform probability distribution, our platform implements the{' '}
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues"
                 target="_blank"
@@ -90,24 +90,14 @@ export default function HomeEditorialContent() {
                 <span>W3C Web Cryptography API standards on Mozilla Developer Network (MDN)</span>
                 <ExternalLink className="w-3 h-3 ml-0.5" />
               </a>
-              . By invoking{' '}
+              . SpinWheelGames uses the browser Web Crypto API (
               <code className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-xs font-mono text-indigo-600 dark:text-indigo-300">
-                window.crypto.getRandomValues()
+                crypto.getRandomValues()
               </code>
-              , the engine gathers true hardware entropy directly from your operating system—sampling thermal fluctuations, clock jitter, and peripheral hardware interrupts.
+              ) to generate random values directly in your browser.
             </p>
             <p>
-              This adheres directly to the statistical independence benchmarks defined in the{' '}
-              <a
-                href="https://csrc.nist.gov/publications/detail/sp/800-90a/rev-1/final"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-indigo-600 dark:text-indigo-400 font-semibold underline hover:text-indigo-500 inline-flex items-center gap-0.5"
-              >
-                <span>NIST Special Publication 800-90A Recommendation for Random Number Generation</span>
-                <ExternalLink className="w-3 h-3 ml-0.5" />
-              </a>
-              , guaranteeing zero angular bias across millions of continuous spin trials.
+              By combining high-resolution 53-bit float mantissa mapping with dynamic rejection sampling, every slice has an unbiased chance of being selected on every spin.
             </p>
           </div>
         </div>
@@ -180,7 +170,7 @@ export default function HomeEditorialContent() {
                 </span>
               </div>
               <p className="text-xs text-[#464554] dark:text-slate-300 leading-relaxed">
-                Technical standard for the Web Cryptography API (`Crypto.getRandomValues`), confirming hardware-seeded CSPRNG entropy generation across modern browser engines.
+                Technical standard for the Web Cryptography API (`crypto.getRandomValues()`), specifying cryptographically secure pseudo-random number generation in browsers.
               </p>
             </div>
             <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
@@ -204,27 +194,27 @@ export default function HomeEditorialContent() {
             <div className="space-y-1.5">
               <div className="flex items-center justify-between gap-2">
                 <h4 className="font-bold text-sm text-[#1a1b22] dark:text-white">
-                  NIST Special Publication 800-90A
+                  W3C Web Cryptography API Specification
                 </h4>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-indigo-300 border border-slate-200 dark:border-slate-700">
-                  Federal Guideline
+                  Web Standard
                 </span>
               </div>
               <p className="text-xs text-[#464554] dark:text-slate-300 leading-relaxed">
-                National Institute of Standards and Technology recommendation for random number generation, validating statistical non-predictability and eliminating distributional bias.
+                Official W3C recommendation for client-side cryptographic operations and secure random generation interface across modern web standards.
               </p>
             </div>
             <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
               <span className="text-[11px] text-[#696779] dark:text-slate-400 font-medium">
-                National Institute of Standards and Technology
+                World Wide Web Consortium (W3C)
               </span>
               <a
-                href="https://csrc.nist.gov/publications/detail/sp/800-90a/rev-1/final"
+                href="https://www.w3.org/TR/WebCryptoAPI/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline"
               >
-                <span>View Publication</span>
+                <span>View Specification</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -234,7 +224,7 @@ export default function HomeEditorialContent() {
         <div className="p-3.5 rounded-xl bg-white/70 dark:bg-slate-900/60 border border-indigo-100 dark:border-slate-800 text-xs text-[#464554] dark:text-slate-300 flex items-start gap-2.5">
           <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
           <p className="leading-relaxed">
-            <strong className="text-[#1a1b22] dark:text-white">Empirical Audit Protocol:</strong> The wheel randomizer algorithm is continuously audited against 100,000+ simulated angular trials using standard Chi-square goodness-of-fit testing (p &gt; 0.05), proving uniform distribution across all sectors.
+            <strong className="text-[#1a1b22] dark:text-white">Empirical Audit Protocol:</strong> The wheel randomizer algorithm is continuously audited against 100,000+ simulated angular trials using standard Chi-square goodness-of-fit testing (p &gt; 0.05), verifying uniform distribution across all sectors.
           </p>
         </div>
       </div>
@@ -274,7 +264,7 @@ export default function HomeEditorialContent() {
                 <td className="py-3 px-4 text-emerald-600 dark:text-emerald-400 font-semibold">High (Haptic + Sound)</td>
                 <td className="py-3 px-4">Yes (0.1x to 10x)</td>
                 <td className="py-3 px-4">Yes (1-Click Remove)</td>
-                <td className="py-3 px-4 text-emerald-600 dark:text-emerald-400">Yes (Hardware Entropy)</td>
+                <td className="py-3 px-4 text-emerald-600 dark:text-emerald-400">Yes (Web Crypto API)</td>
               </tr>
               <tr className="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
                 <td className="py-3 px-4 font-medium">Basic RNG Number Picker</td>

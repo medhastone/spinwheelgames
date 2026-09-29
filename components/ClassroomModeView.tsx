@@ -933,7 +933,7 @@ export default function ClassroomModeView({
               <span>Lowering Classroom Anxiety</span>
             </h4>
             <p>
-              When students see that selection is driven by transparent, provably fair algorithms rather than teacher targeting, participation feels like a shared game rather than an interrogation.
+              When students see that selection is driven by transparent, unbiased random algorithms rather than teacher targeting, participation feels like a shared game rather than an interrogation.
             </p>
           </div>
 

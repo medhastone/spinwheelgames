@@ -136,7 +136,7 @@ export default function HtmlSitemapPage() {
       giveaway: {
         title: 'Giveaways & Contests',
         icon: <Gift className="w-5 h-5 text-pink-500" />,
-        description: 'Provably fair prize wheels, raffle stubs, and discount drawers.',
+        description: 'Cryptographically random prize wheels, raffle stubs, and discount drawers.',
         links: []
       },
       creativity: {
@@ -187,9 +187,9 @@ export default function HtmlSitemapPage() {
         description: 'Fairness verification reports, accessibility, privacy, and team info.',
         links: [
           { href: '/about', label: 'About SpinWheelGames', desc: 'Our mission, architecture, and editorial team' },
-          { href: '/fairness', label: 'Fairness & True Random Selection', desc: 'Equal chance testing & certified randomness verification' },
+          { href: '/fairness', label: 'Randomness & Technical Transparency', desc: 'Browser Web Crypto API explanation & live simulation tools' },
           { href: '/accessibility', label: 'Accessibility Statement (WCAG 2.1)', desc: 'Keyboard navigation, screen readers, and TTS' },
-          { href: '/privacy', label: 'Privacy Policy', desc: '100% private browser-based privacy guarantee' },
+          { href: '/privacy', label: 'Privacy Policy', desc: 'Local processing and data transparency' },
           { href: '/terms', label: 'Terms of Service', desc: 'Acceptable use, educational embedding, and license' },
           { href: '/contact', label: 'Contact & Support', desc: 'Direct support, bug reports, and educational inquiries' }
         ]

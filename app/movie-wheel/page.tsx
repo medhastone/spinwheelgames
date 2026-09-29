@@ -159,7 +159,7 @@ const JSON_LD_DATA = {
           name: 'Is the movie selection truly random and fair?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. SpinWheelGames utilizes browser-native Web Cryptography API (CSPRNG) hardware entropy to ensure completely unbiased, provably fair movie spins with no weighted bias.'
+            text: 'Yes. SpinWheelGames uses the browser Web Cryptography API (crypto.getRandomValues()) to generate unbiased random values with no weighted bias.'
           }
         }
       ]
@@ -430,7 +430,7 @@ export default function MovieWheelPage() {
                 Is the wheel truly random?
               </h3>
               <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-                Yes. The engine uses hardware-seeded Web Cryptography API (CSPRNG) entropy to generate certified, unbiased random picks every spin.
+                Yes. SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate unbiased random selections every spin.
               </p>
             </div>
 
@@ -453,7 +453,7 @@ export default function MovieWheelPage() {
                 Explore More Decision Wheels
               </h2>
               <p className="text-sm text-[#464554] dark:text-[#c7c4d7] mt-1">
-                From dinner to team raffles, solve every choice with certified randomness.
+                From dinner to team raffles, solve every choice with cryptographic randomness.
               </p>
             </div>
             <Link

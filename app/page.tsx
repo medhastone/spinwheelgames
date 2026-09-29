@@ -1,4 +1,5 @@
 'use client';
+import { SITE_COUNTS } from "@/lib/siteConfig";
 
 import React, { useState, useEffect, useCallback, Suspense } from 'react';
 import Navbar from '@/components/Navbar';
@@ -678,7 +679,7 @@ export default function HomePage() {
         {/* 8. Create Your Own Wheel CTA */}
         <CreateWheelCTA onCreateClick={() => setCreateWheelOpen(true)} />
 
-        {/* 9. Template Library Preview ("Explore 100+ Wheel Games") */}
+        {/* 9. Template Library Preview ("Explore Wheel Games") */}
         <div id="wheel-catalogs">
           <CategoryGrid />
         </div>

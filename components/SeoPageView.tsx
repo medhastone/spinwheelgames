@@ -151,21 +151,21 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
     page.eeatMeta?.testingMethodology ||
     'Mathematically verified with 100,000+ simulated angular trials using standard Chi-square goodness-of-fit testing (p > 0.05).';
 
-  // Two Trusted External Sources (W3C / MDN & NIST / Standards Bodies)
+  // Trusted Standards Sources (W3C / MDN Web Cryptography)
   const defaultCitations = [
     {
       sourceName: 'W3C & Mozilla Developer Network (MDN)',
       sourceUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues',
       publisher: 'Mozilla Developer Network & W3C Web Cryptography Working Group',
       keyFinding:
-        'Technical specification confirming that Crypto.getRandomValues() generates hardware-seeded, cryptographically secure pseudo-random integers suitable for unbiased digital drawings.'
+        'Technical specification confirming that Crypto.getRandomValues() generates cryptographically secure pseudo-random integers suitable for unbiased digital drawings.'
     },
     {
-      sourceName: 'NIST Special Publication 800-90A',
-      sourceUrl: 'https://csrc.nist.gov/publications/detail/sp/800-90a/rev-1/final',
-      publisher: 'National Institute of Standards and Technology (U.S. Department of Commerce)',
+      sourceName: 'W3C Web Cryptography API Specification',
+      sourceUrl: 'https://www.w3.org/TR/WebCryptoAPI/',
+      publisher: 'World Wide Web Consortium (W3C)',
       keyFinding:
-        'Federal cryptographic standard establishing statistical randomness parameters and deterministic random bit generator guidelines to prevent positional clustering and bias.'
+        'W3C recommendation defining standard interfaces for cryptographic operations and secure random value generation in modern web browsers.'
     }
   ];
 
@@ -237,7 +237,7 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
               </span>
             </div>
             <span className="text-xs text-[#767586] dark:text-[#908fa1] font-mono">
-              Provably Fair • CSPRNG
+              Web Crypto API • CSPRNG
             </span>
           </div>
 
@@ -256,7 +256,7 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
             question={`What is ${page.h1}?`}
             answer={
               page.directAnswer ||
-              `${page.h1} is a free, interactive web-based randomizer engineered for fair decision making, group games, and instant random selection. It runs entirely in your browser using hardware-seeded cryptographic randomness (Web Crypto API) with zero server tracking, instant custom list support, and provably fair outcomes.`
+              `${page.h1} is a free, interactive web-based randomizer engineered for fair decision making, group games, and instant random selection. It runs entirely in your browser using the Web Crypto API (crypto.getRandomValues()) with zero server tracking, instant custom list support, and uniform probability distribution.`
             }
           />
 
@@ -279,14 +279,14 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
             </div>
           )}
 
-          {/* Provable Fairness & Privacy Bar */}
+          {/* Fairness & Privacy Bar */}
           <div className="rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] p-3.5 sm:p-4 mt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[#767586] dark:text-[#908fa1] shadow-xs">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
               <div className="flex items-center gap-1.5 text-[#1a1b22] dark:text-[#f1effa]">
                 <Check className="w-4 h-4 text-[#006c49] dark:text-emerald-400" />
                 <span>
-                  <strong className="text-[#1a1b22] dark:text-white font-semibold">Hardware-Seeded Web Cryptography</strong>{' '}
-                  <span className="text-[#767586] dark:text-[#908fa1] text-[11px]">(Provably Fair CSPRNG)</span>
+                  <strong className="text-[#1a1b22] dark:text-white font-semibold">Web Cryptography API</strong>{' '}
+                  <span className="text-[#767586] dark:text-[#908fa1] text-[11px]">(crypto.getRandomValues)</span>
                 </span>
               </div>
               <div className="flex items-center gap-1.5">
@@ -319,7 +319,7 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
                 ],
               accountRequired: 'No Account Required',
               cost: 'Free Forever',
-              selectionMethod: 'Browser Hardware-Seeded Web Crypto (CSPRNG)'
+              selectionMethod: 'Browser Web Crypto API (crypto.getRandomValues())'
             }
           }
         />

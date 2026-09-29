@@ -1,4 +1,5 @@
 'use client';
+import { SITE_COUNTS } from "@/lib/siteConfig";
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
@@ -31,7 +32,8 @@ import {
   PenTool,
   CheckCircle2,
   Zap,
-  Smile
+  Smile,
+  X
 } from 'lucide-react';
 import { ALL_WHEEL_EXPERIENCES } from '@/lib/wheelLibrary';
 import { ALL_SEO_PAGES_LIST } from '@/lib/seoData';
@@ -77,7 +79,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Smile
 };
 
-// Generate comprehensive dataset of 180+ wheel games
+// Generate comprehensive dataset of interactive wheel games
 function buildAllGamesDataset(): GameItem[] {
   const map = new Map<string, GameItem>();
 
@@ -487,9 +489,11 @@ export default function AllGamesExplorer() {
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-[#767586] hover:text-[#1a1b22] dark:hover:text-white px-2 py-0.5 rounded-lg bg-black/5 dark:bg-white/10"
+                aria-label="Clear search input"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center gap-1 text-xs font-bold text-[#767586] hover:text-[#1a1b22] dark:hover:text-white px-2.5 py-1.5 rounded-xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 transition-all cursor-pointer min-h-[36px]"
               >
-                Clear
+                <X className="w-3.5 h-3.5" />
+                <span>Clear</span>
               </button>
             )}
           </div>
@@ -654,7 +658,7 @@ export default function AllGamesExplorer() {
         )}
       </div>
 
-      {/* Grid of 180+ Wheel Cards */}
+      {/* Grid of Wheel Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredGames.map((game) => {
           const isFavorited = savedWheels.some((w) => w.id === game.id || w.title === game.name);

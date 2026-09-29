@@ -2,21 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
-import {
-  Dice5,
-  Dices,
-  Shield,
-  Calculator,
-  Sparkles,
-  Layers,
-  ArrowRight,
-  RotateCcw,
-  CheckCircle2
-} from 'lucide-react';
+import { Dice5, CheckCircle2, Layers, Shield, Sparkles, ArrowRight } from 'lucide-react';
 
 export default function DiceFooter() {
   return (
-    <footer className="w-full bg-slate-50 dark:bg-[#07080c] border-t border-slate-200 dark:border-[#181a24] text-slate-600 dark:text-slate-400 py-12 px-4 sm:px-6 lg:px-8 mt-16 transition-colors">
+    <footer className="w-full bg-slate-50 dark:bg-[#0c0d14] border-t border-slate-200 dark:border-[#181a24] text-slate-600 dark:text-slate-400 py-12 px-4 sm:px-6 lg:px-8 mt-16 transition-colors">
       <div className="max-w-7xl mx-auto space-y-12">
         {/* Top Grid: Links & Dice Pages */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -31,11 +21,11 @@ export default function DiceFooter() {
               </span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Cryptographically fair 3D physics dice roller for Dungeons & Dragons (D&D 5e), Pathfinder, Warhammer, and tabletop RPGs. Powered by 3D physics and Web Crypto API.
+              Cryptographically fair 3D physics dice roller for Dungeons &amp; Dragons (D&amp;D 5e), Pathfinder, Warhammer, and tabletop RPGs. Powered by 3D physics and Web Crypto API.
             </p>
             <div className="flex items-center gap-2 text-xs text-emerald-600 dark:text-emerald-400 font-mono">
               <CheckCircle2 className="w-4 h-4" />
-              <span>100% Cryptographic Uniformity</span>
+              <span>Cryptographic Uniformity</span>
             </div>
           </div>
 
@@ -62,7 +52,7 @@ export default function DiceFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/4d6" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link href="/roll-4d6" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll 4d6 Online
                 </Link>
               </li>
@@ -98,43 +88,25 @@ export default function DiceFooter() {
           <div className="space-y-3">
             <h3 className="text-xs font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <Shield className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-              <span>D&D 5e &amp; Probability Tools</span>
+              <span>D&amp;D 5e &amp; Probability Tools</span>
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link
-                  href="/dnd-stats"
+                  href="/dnd-stat-roller"
                   className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors flex items-center gap-1"
                 >
                   <ArrowRight className="w-3 h-3 text-indigo-500" />
-                  <span>D&D Stat Roller (4d6 Drop Lowest)</span>
+                  <span>D&amp;D Stat Roller (4d6 Drop Lowest)</span>
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/dice-average"
+                  href="/dice-average-calculator"
                   className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors flex items-center gap-1"
                 >
                   <ArrowRight className="w-3 h-3 text-indigo-500" />
-                  <span>Dice Average &amp; Probability Calculator</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/d6"
-                  className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors flex items-center gap-1"
-                >
-                  <ArrowRight className="w-3 h-3 text-indigo-500" />
-                  <span>Why is the average of a d6 3.5?</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/"
-                  className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors flex items-center gap-1"
-                >
-                  <ArrowRight className="w-3 h-3 text-indigo-500" />
-                  <span>Custom Dice Notation Parser (NdX±M)</span>
+                  <span>Dice Average Calculator</span>
                 </Link>
               </li>
             </ul>
@@ -148,17 +120,16 @@ export default function DiceFooter() {
             </h3>
             <div className="flex flex-wrap gap-1.5">
               {[
-                { label: 'roll 4d6', href: '/4d6' },
+                { label: 'roll 4d6', href: '/roll-4d6' },
                 { label: '1d20', href: '/dice/d20' },
-                { label: 'dnd stats', href: '/dnd-stats' },
+                { label: 'dnd stats', href: '/dnd-stat-roller' },
                 { label: 'roll a d8', href: '/dice/d8' },
                 { label: 'roll d10', href: '/dice/d10' },
                 { label: 'd4 roller', href: '/dice/d4' },
                 { label: 'roll 1d100', href: '/dice/d100' },
                 { label: 'roll 3d6', href: '/roll-3d6' },
                 { label: 'roll a d6', href: '/dice/d6' },
-                { label: 'roll 2d8', href: '/dice/d8' },
-                { label: 'greataxe 1d12', href: '/dice/d12' }
+                { label: 'roll 2d12', href: '/roll-2d12' }
               ].map((kw) => (
                 <Link
                   key={kw.label}
@@ -172,18 +143,24 @@ export default function DiceFooter() {
           </div>
         </div>
 
-        {/* Bottom Copyright & Disclaimer */}
+        {/* Bottom Copyright & Legal Links */}
         <div className="pt-8 border-t border-slate-200 dark:border-[#151620] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
           <p>© {new Date().getFullYear()} 3D Dice Roller &amp; Tabletop Suite. All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <Link href="/" className="hover:text-slate-900 dark:hover:text-white transition-colors">
-              3D Main Table
+          <div className="flex items-center gap-4 flex-wrap">
+            <Link href="/about" className="hover:text-slate-900 dark:hover:text-white font-medium transition-colors">
+              About Us
             </Link>
-            <Link href="/dnd-stats" className="hover:text-slate-900 dark:hover:text-white transition-colors">
-              Character Stats
+            <Link href="/privacy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+              Privacy
             </Link>
-            <Link href="/dice-average" className="hover:text-slate-900 dark:hover:text-white transition-colors">
-              Average Math
+            <Link href="/terms" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+              Terms
+            </Link>
+            <Link href="/accessibility" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+              Accessibility
+            </Link>
+            <Link href="/contact" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+              Contact
             </Link>
           </div>
         </div>

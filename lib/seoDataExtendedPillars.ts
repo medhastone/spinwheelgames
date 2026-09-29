@@ -18,7 +18,7 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       'Zero Equipment Options',
       'HIIT & Circuit Friendly',
       'Custom Reps & Sets',
-      'Provably Fair CSPRNG',
+      'Web Crypto CSPRNG',
       '100% Free'
     ],
     defaultWheelData: {
@@ -146,7 +146,7 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       'Worldwide Destinations',
       'Weekend Getaway Ideas',
       'Road Trip Detours',
-      'Provably Fair CSPRNG',
+      'Web Crypto CSPRNG',
       '100% Free'
     ],
     defaultWheelData: {
@@ -195,7 +195,7 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
         description: 'Customize entries for domestic states, European capitals, or tropical beaches.'
       }
     ],
-    resultExplanation: 'Hardware entropy draws guarantee every city on your shortlist has an unbiased chance.',
+    resultExplanation: 'Browser Web Crypto API draws guarantee every city on your shortlist has an unbiased chance.',
     uniqueExamples: [
       'European Escapes: Lisbon, Prague, Budapest, Amsterdam, Seville, Edinburgh'
     ],
@@ -253,7 +253,7 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       'Story Starters & Tropes',
       'Art & Sketching Prompts',
       'Unexpected Plot Twists',
-      'Provably Fair CSPRNG',
+      'Web Crypto CSPRNG',
       '100% Free'
     ],
     defaultWheelData: {
@@ -366,7 +366,7 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       'Overcomes Procrastination',
       'Pomodoro Break Generator',
       'Declutter Sprint Sorter',
-      'Provably Fair CSPRNG',
+      'Web Crypto CSPRNG',
       '100% Free'
     ],
     defaultWheelData: {
@@ -474,7 +474,7 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       'Guided Breathing Paces',
       'Gratitude Reflections',
       'Somatic Grounding Cues',
-      'Provably Fair CSPRNG',
+      'Web Crypto CSPRNG',
       '100% Free'
     ],
     defaultWheelData: {
@@ -582,7 +582,7 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       'Eliminates Date Stalemate',
       'At-Home & Outbound Ideas',
       'Deep Conversation Prompts',
-      'Provably Fair CSPRNG',
+      'Web Crypto CSPRNG',
       '100% Free'
     ],
     defaultWheelData: {
@@ -690,7 +690,7 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       'Zoom & Teams Screen Share',
       'Non-Awkward Questions',
       'Equal Speaking Order',
-      'Provably Fair CSPRNG',
+      'Web Crypto CSPRNG',
       '100% Free'
     ],
     defaultWheelData: {
@@ -798,7 +798,7 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       'Micro-Savings Sprints',
       'No-Spend Weekend Ideas',
       'Impulse Cooling Off Sorter',
-      'Provably Fair CSPRNG',
+      'Web Crypto CSPRNG',
       '100% Free'
     ],
     defaultWheelData: {

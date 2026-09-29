@@ -173,7 +173,7 @@ export default function WinnerModal({
   const resultCardData: ResultCardData = {
     winner: winner.text,
     streak,
-    challengeName: wheelTitle || 'Provably Fair Wheel',
+    challengeName: wheelTitle || 'Decision Wheel',
     oddsPercent,
     seed,
     brand: 'SpinWheelGames.org',
@@ -197,7 +197,7 @@ export default function WinnerModal({
   return (
     <>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-black/70 backdrop-blur-md animate-fadeIn overflow-y-auto">
-        <div className="relative w-full max-w-2xl bg-white dark:bg-[#0f1016] text-[#1a1b22] dark:text-white rounded-3xl p-5 sm:p-7 border border-[#eeedf7] dark:border-[#292a39] shadow-2xl flex flex-col items-center my-auto animate-bounceIn transition-colors">
+        <div role="dialog" aria-modal="true" aria-labelledby="winner-dialog-title" className="relative w-full max-w-2xl bg-white dark:bg-[#0f1016] text-[#1a1b22] dark:text-white rounded-3xl p-5 sm:p-7 border border-[#eeedf7] dark:border-[#292a39] shadow-2xl flex flex-col items-center my-auto animate-bounceIn transition-colors">
           
           {/* Close Icon Button */}
           <button
@@ -215,7 +215,7 @@ export default function WinnerModal({
               <Sparkles className="w-4 h-4" />
               <span>Woohoo!</span>
             </span>
-            <h3 className="font-headline font-black text-lg sm:text-xl text-[#1a1b22] dark:text-[#f1effa]">
+            <h3 id="winner-dialog-title" className="font-headline font-black text-lg sm:text-xl text-[#1a1b22] dark:text-[#f1effa]">
               {winner.text}
             </h3>
           </div>

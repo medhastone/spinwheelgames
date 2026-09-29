@@ -134,10 +134,10 @@ const JSON_LD_DATA = {
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'How does the Classroom Spin Wheel guarantee fair student selection?',
+          name: 'How does the Classroom Spin Wheel ensure fair student selection?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Our classroom wheel uses certified true browser randomness to give every choice a 100% equal chance. This guarantees complete fairness with zero teacher favoritism or unfair bias.'
+            text: 'Our classroom wheel uses the browser Web Crypto API (crypto.getRandomValues()) to give every student an equal chance. This ensures complete fairness with zero teacher favoritism or bias.'
           }
         },
         {
@@ -161,7 +161,7 @@ const JSON_LD_DATA = {
           name: 'Is student roster data stored securely on the server?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Student rosters are stored 100% locally in your browser session. No student names or attendance lists are ever uploaded to an external server, protecting student privacy (FERPA compliant).'
+            text: 'Designed to minimize collection of user-provided wheel data. Rosters are processed locally in your browser session. Schools, teachers, and organizations are responsible for evaluating their own privacy and compliance requirements.'
           }
         }
       ]
@@ -270,7 +270,7 @@ export default function ClassroomWheelPage() {
                 <span>100% Unbiased Cold-Calling</span>
               </div>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                Hardware-seeded random selection eliminates perceived teacher bias, assuring students that every draw is strictly impartial.
+                Browser Web Crypto API random selection eliminates perceived teacher bias, assuring students that every draw is strictly impartial.
               </p>
             </div>
 
@@ -297,7 +297,7 @@ export default function ClassroomWheelPage() {
             <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 space-y-2">
               <div className="flex items-center gap-2 font-bold text-slate-900 dark:text-white text-sm">
                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                <span>Private & FERPA Compliant</span>
+                <span>Local Browser Processing <span>Local Processing Private & FERPA Compliant Minimal Data</span>amp; Minimal Data</span>
               </div>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                 Roster information remains entirely in local browser storage—no names or student data are ever sent over a server.
@@ -320,10 +320,10 @@ export default function ClassroomWheelPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
             <div className="space-y-2">
               <h3 className="font-bold text-sm text-slate-900 dark:text-white">
-                How does the Classroom Spin Wheel guarantee fair student selection?
+                How does the Classroom Spin Wheel ensure fair student selection?
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                Our classroom wheel uses certified true browser randomness to give every choice a 100% equal chance. This guarantees complete fairness with zero teacher favoritism or unfair bias.
+                Our classroom wheel uses the browser Web Crypto API (crypto.getRandomValues()) to give every student an equal chance. This ensures complete fairness with zero teacher favoritism or bias.
               </p>
             </div>
 
@@ -350,7 +350,7 @@ export default function ClassroomWheelPage() {
                 Is student roster data stored securely on the server?
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                Student rosters are stored 100% locally in your browser session. No student names or attendance lists are ever uploaded to an external server, protecting student privacy (FERPA compliant).
+                Designed to minimize collection of user-provided wheel data. Rosters are processed locally in your browser session. Schools, teachers, and organizations are responsible for evaluating their own privacy and compliance requirements.
               </p>
             </div>
           </div>

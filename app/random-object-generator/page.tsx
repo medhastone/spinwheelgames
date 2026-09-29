@@ -78,7 +78,7 @@ export default function RandomObjectGeneratorPage() {
       name: 'Random Object Generator Wheel',
       url: 'https://spinwheelgames.org/random-object-generator',
       description:
-        'Free online Random Object Generator for games, drawing, Pictionary, creative writing, and classroom challenges with 1,000+ curated items and certified cryptographic randomness.',
+        'Free online Random Object Generator for games, drawing, Pictionary, creative writing, and classroom challenges with 1,000+ curated items and browser-based cryptographic randomness.',
       applicationCategory: 'GameApplication',
       operatingSystem: 'All',
       browserRequirements: 'Requires JavaScript and modern HTML5 canvas support',
@@ -98,7 +98,7 @@ export default function RandomObjectGeneratorPage() {
         '1,000+ curated real-world objects across 6 categories',
         'Pictionary and Charades difficulty filtering (Easy, Medium, Hard)',
         'Interactive spin wheel with custom slice adding',
-        'CSPRNG hardware entropy via Web Cryptography API',
+        'Browser Web Crypto API cryptographic randomness (crypto.getRandomValues)',
         'Fast batch copy and export tools'
       ],
       screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
@@ -206,7 +206,7 @@ export default function RandomObjectGeneratorPage() {
         <section className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border border-indigo-500/20 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-            1,000+ Curated Objects • CSPRNG Certified Fair
+            1,000+ Curated Objects • Web Crypto API CSPRNG
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
@@ -376,7 +376,7 @@ export default function RandomObjectGeneratorPage() {
                 <code className="bg-slate-200/80 dark:bg-slate-800 px-1.5 py-0.5 rounded text-indigo-700 dark:text-indigo-300 text-xs">
                   window.crypto.getRandomValues()
                 </code>
-                . This feeds system hardware entropy into an unbiased Fisher-Yates shuffle,
+                . This powers an unbiased Fisher-Yates shuffle with cryptographic random values,
                 ensuring that every single one of our 1,000+ objects has the exact same mathematical
                 odds of being picked on every turn.
               </p>
@@ -528,7 +528,7 @@ export default function RandomObjectGeneratorPage() {
             <div className="space-y-1">
               <h2 className="text-xl font-bold text-slate-900 dark:text-white">Explore More Random Decision Tools</h2>
               <p className="text-xs text-slate-600 dark:text-slate-400">
-                Discover our full suite of certified fair wheel spinners and lottery pickers.
+                Discover our full suite of cryptographic wheel spinners and decision pickers.
               </p>
             </div>
             <Link

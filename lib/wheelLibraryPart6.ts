@@ -91,7 +91,7 @@ export const WHEEL_LIBRARY_PART6: WheelExperience[] = [
   {
     id: 'giveaway-wheel',
     name: 'Giveaway Wheel',
-    purpose: 'Host transparent, live-streamed social media giveaways with provably fair verification.',
+    purpose: 'Host transparent, live-streamed social media giveaways with cryptographic randomness verification.',
     targetAudience: 'Twitch streamers, YouTubers, Instagram influencers, brand marketers.',
     defaultEntries: ['@streamfan_99', '@coffeelover_x', '@gaming_wizard', '@digital_artist_24', '@tech_reviewer', '@lucky_ducky', '@pixel_master', '@soundwave_pro'],
     category: 'GIVEAWAY',

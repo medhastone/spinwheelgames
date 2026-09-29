@@ -33,7 +33,7 @@ export const WHEEL_LIBRARY_PART1: WheelExperience[] = [
     relatedTools: ['Coin Flipper Alternative', 'Odds Probability Matrix'],
     difficulty: 'Easy',
     shareableResultConcept: 'The Oracle Has Spoken card with large neon Yes or No stamp.',
-    uniqueValueProposition: 'Sub-millisecond spin physics with certified uniform 180° arc distribution.',
+    uniqueValueProposition: 'Sub-millisecond spin physics with uniform 180° arc distribution.',
     paletteKey: 'vibrant'
   },
   {

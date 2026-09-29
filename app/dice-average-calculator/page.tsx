@@ -354,13 +354,13 @@ export default function DiceAverageCalculatorPage() {
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-[#171824]">
                   {[
-                    { die: 'd4', shape: 'Tetrahedron', single: '2.5', d2: '5.0', d3: '7.5', link: '/d4' },
-                    { die: 'd6', shape: 'Cube', single: '3.5', d2: '7.0', d3: '10.5', link: '/d6' },
-                    { die: 'd8', shape: 'Octahedron', single: '4.5', d2: '9.0', d3: '13.5', link: '/d8' },
-                    { die: 'd10', shape: 'Trapezohedron', single: '5.5', d2: '11.0', d3: '16.5', link: '/d10' },
-                    { die: 'd12', shape: 'Dodecahedron', single: '6.5', d2: '13.0', d3: '19.5', link: '/d12' },
-                    { die: 'd20', shape: 'Icosahedron', single: '10.5', d2: '21.0', d3: '31.5', link: '/d20' },
-                    { die: 'd100', shape: 'Percentile', single: '50.5', d2: '101.0', d3: '151.5', link: '/d100' }
+                    { die: 'd4', shape: 'Tetrahedron', single: '2.5', d2: '5.0', d3: '7.5', link: '/roll-1d4' },
+                    { die: 'd6', shape: 'Cube', single: '3.5', d2: '7.0', d3: '10.5', link: '/dice/d6' },
+                    { die: 'd8', shape: 'Octahedron', single: '4.5', d2: '9.0', d3: '13.5', link: '/dice/d8' },
+                    { die: 'd10', shape: 'Trapezohedron', single: '5.5', d2: '11.0', d3: '16.5', link: '/dice/d10' },
+                    { die: 'd12', shape: 'Dodecahedron', single: '6.5', d2: '13.0', d3: '19.5', link: '/dice/d12' },
+                    { die: 'd20', shape: 'Icosahedron', single: '10.5', d2: '21.0', d3: '31.5', link: '/dice/d20' },
+                    { die: 'd100', shape: 'Percentile', single: '50.5', d2: '101.0', d3: '151.5', link: '/dice/d100' }
                   ].map((row) => (
                     <tr key={row.die} className="hover:bg-slate-50 dark:hover:bg-[#141520]">
                       <td className="py-2.5 px-4 font-bold text-indigo-600 dark:text-indigo-400 uppercase">{row.die}</td>

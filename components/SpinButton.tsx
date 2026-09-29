@@ -25,6 +25,13 @@ export default function SpinButton({
         onClick={onSpin}
         disabled={disabled || isSpinning || isCountingDown}
         id="main-spin-button"
+        aria-label={
+          isCountingDown
+            ? `Spinning in ${countdownNumber} seconds`
+            : isSpinning
+            ? 'Wheel is spinning and calculating winner'
+            : 'Spin the wheel'
+        }
         className={`relative w-full py-4 px-8 rounded-2xl font-headline font-bold text-[18px] sm:text-[20px] tracking-wide shadow-xl transition-all flex items-center justify-center gap-3 cursor-pointer select-none ${
           isSpinning || isCountingDown
             ? 'bg-gradient-to-r from-[#5052e4] to-[#7678f5] text-white opacity-90 cursor-not-allowed scale-[0.98]'

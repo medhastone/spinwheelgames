@@ -1,6 +1,7 @@
+import { SITE_COUNTS } from "./siteConfig";
 /**
  * Fast Client-Side Search Index for SpinWheelGames.org
- * Indexed local data for 116+ wheel templates and dedicated tool pages.
+ * Indexed local data for registered wheel templates and dedicated tool pages.
  */
 
 import { ALL_WHEEL_EXPERIENCES, WheelExperience, experienceToWheelConfig } from './wheelLibrary';
@@ -44,7 +45,7 @@ const WHEEL_SEARCH_INDEX: IndexedWheel[] = (() => {
   const map = new Map<string, IndexedWheel>();
 
   // 1. Index ALL_WHEEL_EXPERIENCES
-  for (const exp of ALL_WHEEL_EXPERIENCES) {
+  for (const exp of (ALL_WHEEL_EXPERIENCES || [])) {
     const normName = exp.name.toLowerCase();
     const normCat = exp.category.toLowerCase();
     const normPurp = exp.purpose.toLowerCase();
@@ -137,6 +138,198 @@ const WHEEL_SEARCH_INDEX: IndexedWheel[] = (() => {
         sampleEntries: items.slice(0, 4).map((i) => i.text)
       });
     }
+  }
+
+  // 3. Index Dedicated 3D Dice Tools, Daily Challenges, and Game Directory
+  const DEDICATED_DICE_AND_SPECIAL_TOOLS = [
+    {
+      id: 'dice-roller',
+      name: '3D Interactive Dice Roller',
+      category: 'Dice & RPG Tools',
+      purpose: 'Interactive 3D customizable dice simulator with realistic physics for D&D and tabletop gaming.',
+      uvp: 'Roll any combination of d4, d6, d8, d10, d12, d20, and d100 with realistic 3D rigid-body physics.',
+      fullPath: '/dice-roller',
+      keywords: ['dice', 'dice roller', 'roll dice', '3d dice', 'dnd dice', 'virtual dice', 'polyhedral dice', 'tabletop dice', 'dice simulator', 'die', 'rolling dice', 'd6', 'd20', 'roller'],
+      entries: ['1d20', '2d6', '4d6', '1d100', '1d12', '1d8', '1d4', '1d10']
+    },
+    {
+      id: 'dice-collection',
+      name: '3D RPG Dice Collection',
+      category: 'Dice & RPG Tools',
+      purpose: 'Official 8-piece gemstone crystal polyhedra showcase and 3D dice rollers.',
+      uvp: 'Complete collection of polyhedral tabletop dice with custom materials and colors.',
+      fullPath: '/dice-collection',
+      keywords: ['dice collection', 'rpg dice', 'gemstone dice', 'polyhedra', 'dice set', 'd&d dice set', 'dice'],
+      entries: ['d4', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100', 'd2']
+    },
+    {
+      id: 'dnd-stat-roller',
+      name: 'D&D Stat Roller (4d6 Drop Lowest)',
+      category: 'Dice & RPG Tools',
+      purpose: 'Roll 6 D&D ability scores in 3D using 4d6 drop lowest, 27 point buy, and standard array.',
+      uvp: 'Character creation ability score generator with 4d6 drop-lowest rule and point buy calculator.',
+      fullPath: '/dnd-stat-roller',
+      keywords: ['dnd stat roller', '4d6 drop lowest', 'dnd stats', 'stat generator', 'ability scores', 'point buy calculator', 'character creator', 'dice', 'dnd dice'],
+      entries: ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma']
+    },
+    {
+      id: 'roll-4d6',
+      name: 'Roll 4d6 (Drop Lowest)',
+      category: 'Dice & RPG Tools',
+      purpose: 'Roll 4d6 and automatically drop the lowest die for D&D 5e character generation.',
+      uvp: '3D animated 4d6 ability score roll with automatic sum and drop calculation.',
+      fullPath: '/roll-4d6',
+      keywords: ['roll 4d6', '4d6', '4d6 drop lowest', '4d6dl1', 'stat roller', 'dnd dice roll', 'dice'],
+      entries: ['Die 1', 'Die 2', 'Die 3', 'Die 4 (Lowest Dropped)']
+    },
+    {
+      id: 'dice-average-calculator',
+      name: 'Dice Average Calculator',
+      category: 'Dice & RPG Tools',
+      purpose: 'Calculate theoretical averages, expected values, standard deviation, and bell curves for any dice formula.',
+      uvp: 'Exact probability distributions, bell curves, and expected damage outcomes for RPG dice formulas.',
+      fullPath: '/dice-average-calculator',
+      keywords: ['dice average calculator', 'dice average', 'dice probability', 'bell curve', 'expected value', 'standard deviation', 'dnd average damage', 'dice math'],
+      entries: ['Mean / Average', 'Standard Deviation', 'Min / Max', 'Probability Bell Curve']
+    },
+    {
+      id: 'dice-d20',
+      name: 'D20 Dice Roller (3D)',
+      category: 'Dice & RPG Tools',
+      purpose: 'Roll a 20-sided icosahedron die in 3D for D&D attack rolls, ability checks, and saving throws.',
+      uvp: 'Single and advantage/disadvantage d20 roller with critical hit animations.',
+      fullPath: '/dice/d20',
+      keywords: ['d20', 'd20 roller', 'roll d20', '20 sided die', 'advantage', 'disadvantage', 'critical hit', 'nat 20', 'dnd 20', 'dice'],
+      entries: ['1 to 20', 'Advantage (2d20kh1)', 'Disadvantage (2d20kl1)']
+    },
+    {
+      id: 'dice-d6',
+      name: 'D6 Dice Roller (3D)',
+      category: 'Dice & RPG Tools',
+      purpose: 'Roll 6-sided cubic dice in 3D for tabletop games, Yahtzee, and RPG damage.',
+      uvp: 'Realistic 3D cubic die roller with authentic physics bounce and audio.',
+      fullPath: '/dice/d6',
+      keywords: ['d6', 'd6 roller', 'roll d6', '6 sided die', 'cube die', 'yahtzee dice', 'roll a die', 'six sided dice', 'dice'],
+      entries: ['1', '2', '3', '4', '5', '6']
+    },
+    {
+      id: 'roll-1d4',
+      name: 'Roll 1d4 Dice Roller (3D)',
+      category: 'Dice & RPG Tools',
+      purpose: 'Roll 4-sided tetrahedral dice in 3D for D&D daggers, healing potions, and magic missiles.',
+      uvp: 'Calibrated tetrahedral physics for standard 4-sided gaming dice.',
+      fullPath: '/roll-1d4',
+      keywords: ['roll 1d4', 'roll d4', 'd4', 'd4 roller', '4 sided die', 'tetrahedron', 'dice', '1d4'],
+      entries: ['1', '2', '3', '4']
+    },
+    {
+      id: 'dice-d8',
+      name: 'D8 Dice Roller (3D)',
+      category: 'Dice & RPG Tools',
+      purpose: 'Roll 8-sided octahedral dice in 3D for rapier, longsword, and cure wounds.',
+      uvp: 'Octahedral 3D physics simulation with crisp face detection.',
+      fullPath: '/dice/d8',
+      keywords: ['d8', 'd8 roller', 'roll d8', '8 sided die', 'octahedron', 'dice'],
+      entries: ['1', '2', '3', '4', '5', '6', '7', '8']
+    },
+    {
+      id: 'dice-d10',
+      name: 'D10 Dice Roller (3D)',
+      category: 'Dice & RPG Tools',
+      purpose: 'Roll 10-sided pentagonal trapezohedron dice in 3D for cantrips and percentiles.',
+      uvp: 'Single and double d10 percentile rolls.',
+      fullPath: '/dice/d10',
+      keywords: ['d10', 'd10 roller', 'roll d10', '10 sided die', 'percentile', 'dice'],
+      entries: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    },
+    {
+      id: 'dice-d12',
+      name: 'D12 Dice Roller (3D)',
+      category: 'Dice & RPG Tools',
+      purpose: 'Roll 12-sided dodecahedron dice in 3D for greataxes and barbarian rage damage.',
+      uvp: 'Dodecahedron 12-sided geometry with realistic roll dynamics.',
+      fullPath: '/dice/d12',
+      keywords: ['d12', 'd12 roller', 'roll d12', '12 sided die', 'dodecahedron', 'dice'],
+      entries: ['1 to 12']
+    },
+    {
+      id: 'dice-d100',
+      name: 'D100 Percentile Dice Roller (3D)',
+      category: 'Dice & RPG Tools',
+      purpose: 'Roll percentile dice (d100) in 3D for random encounters, loot tables, and wild magic surges.',
+      uvp: 'Twin d10 percentile roller from 1% to 100%.',
+      fullPath: '/dice/d100',
+      keywords: ['d100', 'd100 roller', 'percentile dice', 'roll 100', 'percentile roller', 'wild magic', 'dice'],
+      entries: ['00 - 90', '0 - 9', '1 to 100']
+    },
+    {
+      id: 'challenges',
+      name: 'Daily Wheel Challenges',
+      category: 'Daily Quests',
+      purpose: 'Global synchronized daily wheel quest and streak builder.',
+      uvp: 'Spin today’s global quest wheel, maintain your daily streak, and unlock milestone badges.',
+      fullPath: '/challenges',
+      keywords: ['daily challenge', 'challenges', 'daily wheel', 'daily quest', 'streak', 'daily streak', 'quest'],
+      entries: ['Today\'s Quest', 'Streak Multiplier', 'Milestone Badges']
+    },
+    {
+      id: 'games',
+      name: 'All Wheel Games Directory',
+      category: 'Game Directory',
+      purpose: 'Browse and filter all decision spinner wheels, classroom pickers, and party games.',
+      uvp: 'Complete searchable catalog of every decision wheel and dice roller on SpinWheelGames.',
+      fullPath: '/games',
+      keywords: ['all games', 'wheel games', 'game directory', 'browse wheels', 'all spinners', 'games'],
+      entries: ['Popular Wheels', 'Trending Games', 'Classroom Pickers', '3D Dice']
+    }
+  ];
+
+  for (const tool of DEDICATED_DICE_AND_SPECIAL_TOOLS) {
+    const normName = tool.name.toLowerCase();
+    const normCat = tool.category.toLowerCase();
+    const normPurp = tool.purpose.toLowerCase();
+    const normUvp = tool.uvp.toLowerCase();
+    const normEntries = tool.entries.map((e) => e.toLowerCase());
+
+    const keywords = Array.from(
+      new Set([
+        ...tool.keywords.map((k) => k.toLowerCase()),
+        ...normName.split(/\s+/),
+        ...normCat.split(/[\s/]+/),
+        ...normPurp.split(/\s+/),
+        ...normEntries,
+        tool.id.toLowerCase(),
+        tool.id.replace(/-/g, ' ')
+      ])
+    ).filter((k) => k.length > 1);
+
+    const diceWheelConfig: WheelConfig = {
+      id: tool.id,
+      title: tool.name,
+      category: tool.category.toUpperCase(),
+      description: tool.purpose,
+      items: tool.entries.map((text, idx) => ({ id: `${tool.id}-${idx}`, text, weight: 1 })),
+      palette: ['#4648d4', '#6366f1', '#8b5cf6', '#ec4899', '#f43f5e', '#f59e0b', '#10b981', '#06b6d4'],
+      themeKey: 'arcade'
+    };
+
+    map.set(tool.id, {
+      id: tool.id,
+      name: tool.name,
+      category: tool.category,
+      purpose: tool.purpose,
+      uvp: tool.uvp,
+      fullPath: tool.fullPath,
+      normalizedName: normName,
+      normalizedCategory: normCat,
+      normalizedPurpose: normPurp,
+      normalizedUvp: normUvp,
+      normalizedEntries: normEntries,
+      keywords,
+      wheelConfig: diceWheelConfig,
+      entriesCount: tool.entries.length,
+      sampleEntries: tool.entries.slice(0, 4)
+    });
   }
 
   return Array.from(map.values());

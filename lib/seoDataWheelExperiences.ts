@@ -1,5 +1,26 @@
 import { SeoPageData, SearchIntentType } from './seoArchitecture';
-import { ALL_WHEEL_EXPERIENCES, WheelExperience } from './wheelLibrary';
+import { WheelExperience } from './wheelLibraryTypes';
+import { WHEEL_LIBRARY_PART1 } from './wheelLibraryPart1';
+import { WHEEL_LIBRARY_PART2 } from './wheelLibraryPart2';
+import { WHEEL_LIBRARY_PART3 } from './wheelLibraryPart3';
+import { WHEEL_LIBRARY_PART4 } from './wheelLibraryPart4';
+import { WHEEL_LIBRARY_PART5 } from './wheelLibraryPart5';
+import { WHEEL_LIBRARY_PART6 } from './wheelLibraryPart6';
+import { WHEEL_LIBRARY_PART7 } from './wheelLibraryPart7';
+import { WHEEL_LIBRARY_PART8 } from './wheelLibraryPart8';
+import { WHEEL_LIBRARY_PART9 } from './wheelLibraryPart9';
+
+const ALL_WHEEL_EXPERIENCES: WheelExperience[] = [
+  ...WHEEL_LIBRARY_PART1,
+  ...WHEEL_LIBRARY_PART2,
+  ...WHEEL_LIBRARY_PART3,
+  ...WHEEL_LIBRARY_PART4,
+  ...WHEEL_LIBRARY_PART5,
+  ...WHEEL_LIBRARY_PART6,
+  ...WHEEL_LIBRARY_PART7,
+  ...WHEEL_LIBRARY_PART8,
+  ...WHEEL_LIBRARY_PART9,
+];
 
 // Domain metadata and category routing
 export const CATEGORY_METADATA: Record<
@@ -140,7 +161,7 @@ export const CATEGORY_METADATA: Record<
       'Use the wheel for squad drop roulettes, mystery agent selections, or RPG build constraints. Streamers can link wheel spins to donation goals or subscriber milestones for high-viewer engagement.',
     proTips: [
       'Run a "Nuzlocke" or challenge run where wheel spins dictate your party composition, perks, or weapon loadout.',
-      'Streamers can use Fullscreen presentation mode (<kbd>F</kbd>) to show provably fair viewer drawings live on Twitch or YouTube.'
+      'Streamers can use Fullscreen presentation mode (<kbd>F</kbd>) to show transparent viewer drawings live on Twitch or YouTube.'
     ],
     comparisonRowToolLabel: 'Dynamic Gaming Variety'
   },
@@ -153,14 +174,14 @@ export const CATEGORY_METADATA: Record<
     psychologicalDilemma:
       'Organizing fantasy sports draft orders, pickup scrimmages, and tournament brackets frequently leads to accusations of bias, favoritism, or the social awkwardness of players being picked last.',
     frictionAnalysis:
-      'Transparent cryptographic lotteries replicate professional sports draft lotteries (such as the NBA Draft Lottery). When team captains and draft positions are determined by a certified wheel, competitive legitimacy is absolute.',
+      'Transparent cryptographic lotteries replicate professional sports draft lotteries (such as the NBA Draft Lottery). When team captains and draft positions are determined by a random wheel, competitive legitimacy is absolute.',
     tacticalGuide:
       'Enter all fantasy league managers into the wheel. Use Elimination mode to draw draft positions in reverse order (from #12 to #1) to generate maximum suspense.',
     proTips: [
       'Screen record the draft lottery spin to share directly in your league Discord or WhatsApp group chat.',
       'For pickup games, assign two top players as anchors and let the wheel assign the remaining squads for competitive parity.'
     ],
-    comparisonRowToolLabel: 'Certified League Draft'
+    comparisonRowToolLabel: 'League Draft Spinner'
   },
   NUMBERS: {
     slug: 'numbers',
@@ -171,14 +192,14 @@ export const CATEGORY_METADATA: Record<
     psychologicalDilemma:
       'Physical dice can become unbalanced over time through manufacturing imperfections, while basic web generators often rely on predictable pseudo-random algorithms (Math.random()) that cluster results.',
     frictionAnalysis:
-      'True statistical independence requires hardware-entropy seeding. Our number wheels utilize the Web Cryptography API (crypto.getRandomValues), mapping high-entropy 32-bit integers to precise geometric sectors with zero positional bias.',
+      'Statistical uniformity requires cryptographic random generation. Our number wheels utilize the Web Cryptography API (crypto.getRandomValues), mapping high-entropy 32-bit integers to precise geometric sectors with zero positional bias.',
     tacticalGuide:
       'Use the range filters or quick presets (1-6 for board games, 1-20 for tabletop RPGs, 1-100 for percentile raffles). Enable No-Repeat mode when drawing raffle ticket stubs or lottery numbers.',
     proTips: [
       'Use the Number Wheel as an unbiased tabletop die for Dungeons & Dragons when playing remotely over Discord.',
       'Check the Audit Log below the wheel to inspect chronological roll histories with exact timestamps.'
     ],
-    comparisonRowToolLabel: 'Hardware-Seeded Entropy'
+    comparisonRowToolLabel: 'Web Crypto CSPRNG'
   },
   WORKOUT: {
     slug: 'workout',
@@ -432,7 +453,7 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
     'student-picker-wheel': {
       title: 'Student Picker Wheel – Random Name Selector for Classrooms',
       h1: 'Student Picker Wheel: Classroom Name Selector',
-      desc: 'Engage students fairly with cold-calling and participation. Eliminate teacher bias with provably fair wheel spins on smartboards.'
+      desc: 'Engage students fairly with cold-calling and participation. Eliminate teacher bias with transparent wheel spins on smartboards.'
     },
     'zoom-icebreaker-wheel': {
       title: 'Zoom Icebreaker Wheel – Team Meeting Warmups & Questions Spinner',
@@ -446,9 +467,9 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
   // Keyword-rich SEO Title & H1 targeting high volume and low KD
   const title = customFlagship?.title || `${baseWheelTitle} – Free Online Random ${meta.name} Picker`;
   const h1 = customFlagship?.h1 || `${baseWheelTitle}: Free Random ${meta.name} Spinner`;
-  const metaDescription = customFlagship?.desc || `Spin the free ${baseWheelTitle} online. ${exp.purpose} Provably fair cryptographic randomness, customizable weights, and elimination mode.`;
+  const metaDescription = customFlagship?.desc || `Spin the free ${baseWheelTitle} online. ${exp.purpose} Browser-based cryptographic randomness, customizable weights, and elimination mode.`;
 
-  const intro = `${exp.purpose} Whether you are seeking a fast resolution, planning an activity, or adding excitement to a group session, the ${baseWheelTitle} provides certified, mathematically unbiased results directly in your web browser.`;
+  const intro = `${exp.purpose} Whether you are seeking a fast resolution, planning an activity, or adding excitement to a group session, the ${baseWheelTitle} provides browser-based cryptographic randomness directly in your web browser.`;
 
   const items = exp.defaultEntries.map((entry, idx) => ({
     id: `${exp.id}-entry-${idx + 1}`,
@@ -488,7 +509,7 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
     {
       title: 'Group & Live Stream Drawings',
       description: 'Display the wheel on a shared projector, monitor, or video call to build genuine visual suspense.',
-      benefit: 'Engaging, transparent, and provably fair for all participants.'
+      benefit: 'Engaging, transparent, and unbiased for all participants.'
     },
     {
       title: 'Sequential Multi-Pick Elimination',
@@ -518,13 +539,13 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
 
   const featureBadges = [
     '100% Free & No Account Required',
-    'Certified CSPRNG Randomness',
+    'Web Crypto CSPRNG Randomness',
     'Custom Slice Weights',
     'No-Repeat Elimination',
     'Web Audio Real-Time Ticking'
   ];
 
-  const resultExplanation = `Every outcome on the ${baseWheelTitle} is computed using the browser's native Web Cryptography API (crypto.getRandomValues). This creates an unbiasable 32-bit hardware entropy value that maps uniformly to the angular sector of each slice, complying with NIST SP 800-90A guidelines.`;
+  const resultExplanation = `Every outcome on the ${baseWheelTitle} is computed using the browser's native Web Cryptography API (crypto.getRandomValues). SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values with uniform probability distribution.`;
 
   const uniqueExamples = [
     `Standard Setup: ${exp.defaultEntries.slice(0, 4).join(', ')}`,
@@ -537,7 +558,7 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
       ['Visual Suspense', 'High (spinning canvas & sound)', 'Low / None', 'None (instant plain text)'],
       ['Custom Probability', 'Yes (1x–10x weight sliders)', 'No (equal only)', 'Requires complex coding'],
       ['Elimination Mode', 'Yes (1-click automatic remove)', 'Manual pencil tracking', 'Manual tracking'],
-      ['Hardware Randomness', 'Yes (Web Cryptography CSPRNG)', 'Prone to human bias', 'Often basic Math.random()'],
+      ['Cryptographic Randomness', 'Yes (Web Cryptography API)', 'Prone to human bias', 'Often basic Math.random()'],
       ['Presentation Mode', 'Yes (Fullscreen & Shareable)', 'No', 'No']
     ]
   };
@@ -561,10 +582,10 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
       ]
     },
     {
-      heading: '3. Cryptographic Integrity: True Hardware Entropy vs. Math.random()',
+      heading: '3. Cryptographic Integrity: Browser Web Crypto vs. Math.random()',
       body: [
-        'Many online randomizers rely on legacy pseudo-random algorithms (such as Math.random() in JavaScript), which use deterministic linear congruential generators that can develop predictable mathematical clustering.',
-        'SpinWheelGames enforces the W3C Web Cryptography API (window.crypto.getRandomValues). Entropy is sampled directly from operating system hardware noise (thermal variance, mouse timing, CPU state), producing cryptographically secure pseudo-random integers (CSPRNG). Each slice possesses an exact, tamper-proof probability matching its designated arc on the wheel.'
+        'Many online randomizers rely on legacy pseudo-random algorithms (such as Math.random() in JavaScript), which use non-cryptographic pseudo-random number generators.',
+        'SpinWheelGames enforces the browser Web Cryptography API (window.crypto.getRandomValues). By generating 32-bit cryptographically secure values and applying dynamic rejection sampling, each slice possesses an exact probability matching its designated arc on the wheel without server bias.'
       ]
     },
     {
@@ -592,7 +613,7 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
     },
     {
       question: 'Is the outcome truly random and fair?',
-      answer: 'Yes. All spins use your browser\'s native Web Cryptography API (crypto.getRandomValues) with hardware-seeded entropy, adhering to NIST SP 800-90A standards for unbiasable randomness.'
+      answer: 'Yes. SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values directly on your device with uniform probability distribution.'
     },
     {
       question: 'Can I use keyboard shortcuts to spin?',
@@ -686,7 +707,7 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
 }
 
 /**
- * Builds SEO page records for all 116 wheel experiences in the library.
+ * Builds SEO page records for all registered wheel experiences in the library.
  */
 export const WHEEL_EXPERIENCES_SEO: Record<string, SeoPageData> = {};
 

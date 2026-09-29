@@ -1,4 +1,5 @@
 'use client';
+import { SITE_COUNTS } from "@/lib/siteConfig";
 
 import React, { useState, useEffect, useRef, useSyncExternalStore } from 'react';
 import Link from 'next/link';
@@ -455,7 +456,7 @@ export default function Navbar({
                         onClick={() => setTrendingOpen(false)}
                         className="text-[11px] font-bold text-[#4648d4] dark:text-[#8587ff] hover:underline flex items-center gap-1"
                       >
-                        <span>All 100+ Games</span>
+                        <span>All {SITE_COUNTS.wheelsFormatted} Games</span>
                         <ArrowRight className="w-3 h-3" />
                       </Link>
                     </div>
@@ -855,7 +856,7 @@ export default function Navbar({
               onClick={() => setMobileMenuOpen(false)}
               className="w-full py-3 px-4 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] text-[#4648d4] dark:text-[#8587ff] text-[13px] font-bold flex items-center justify-between border border-[#eeedf7] dark:border-[#292a39] min-h-[44px]"
             >
-              <span>Explore All 100+ Games &amp; Spinners</span>
+              <span>Explore All {SITE_COUNTS.wheelsFormatted} Games &amp; Spinners</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 

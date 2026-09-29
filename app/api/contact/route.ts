@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { SITE_CONFIG } from '@/lib/siteConfig';
 
 export const dynamic = 'force-dynamic';
 
@@ -14,8 +15,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const targetEmail = 'medhastone@gmail.com';
-    const subject = `[SpinWheelGames Contact] ${(category || 'General').toUpperCase()} - ${name}`;
+    const targetEmail = SITE_CONFIG.supportEmail;
+    const subject = `[${SITE_CONFIG.brandName} Contact] ${(category || 'General').toUpperCase()} - ${name}`;
 
     // 1. Dispatch through FormSubmit HTTP API
     let deliveryStatus = 'queued';
@@ -40,8 +41,7 @@ export async function POST(req: NextRequest) {
         })
       });
 
-      if (response.ok) {
-        serviceResponse = await response.json();
+      if (response.ok) {        serviceResponse = await response.json();
         deliveryStatus = 'dispatched';
       } else {
         const errText = await response.text();

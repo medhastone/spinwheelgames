@@ -172,7 +172,7 @@ const JSON_LD_DATA = {
           name: 'Is the Bingo Spin Wheel free to use for teachers and events?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: '100% free with no registration, no ads, and no limits. You can project it in full-screen mode onto classroom smartboards or party screens.'
+            text: '100% free with no registration, no sign-in required, and no limits. You can project it in full-screen mode onto classroom smartboards or party screens.'
           }
         }
       ]
@@ -250,7 +250,7 @@ export default function BingoWheelPage() {
                 customization: ['Spin Speed (1.5s to 8.5s)', 'Voice TTS Caller', 'Master Board History', 'Card Dabbing'],
                 accountRequired: 'No Account Required',
                 cost: '100% Free Forever',
-                selectionMethod: 'Browser Hardware-Seeded Web Cryptography (CSPRNG)'
+                selectionMethod: 'Browser Web Cryptography API (crypto.getRandomValues)'
               }}
             />
           </div>
@@ -375,7 +375,7 @@ export default function BingoWheelPage() {
                 <div className="p-5 rounded-xl bg-white dark:bg-[#161722] border border-[#eceaf6] dark:border-[#27283c] space-y-2">
                   <span className="font-bold text-sm text-purple-600 dark:text-purple-400 block">Fundraiser & Community Events</span>
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Provably fair CSPRNG hardware randomness guarantees equal odds for charity raffles, church bingo nights, and corporate team-building events.
+                    Browser-based cryptographic randomness (crypto.getRandomValues()) guarantees equal odds for charity raffles, church bingo nights, and corporate team-building events.
                   </p>
                 </div>
               </div>

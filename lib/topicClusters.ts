@@ -179,8 +179,8 @@ export const TOPIC_CLUSTERS: Record<string, TopicCluster> = {
     id: 'giveaways',
     name: 'Giveaways, Contests & Raffles',
     pillarPath: '/giveaways',
-    h1: 'Giveaway Pickers & Provable Raffle Wheels',
-    metaDescription: 'Draw stream winners, contest raffles, and prize giveaways with transparent, provably fair cryptographic RNG and live audit seeds.',
+    h1: 'Giveaway Pickers & Transparent Raffle Wheels',
+    metaDescription: 'Draw stream winners, contest raffles, and prize giveaways with transparent, browser-based cryptographic RNG and live audit seeds.',
     primaryIntent: 'event',
     supportingTools: [
       '/giveaway-wheel',

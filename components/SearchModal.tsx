@@ -1,10 +1,11 @@
 'use client';
+import { SITE_COUNTS } from "@/lib/siteConfig";
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { WheelConfig } from '@/lib/presets';
 import { searchWheelIndex } from '@/lib/searchIndex';
-import { Search, ArrowRight, Sparkles, Tag, Layers, ExternalLink } from 'lucide-react';
+import { Search, ArrowRight, Sparkles, Tag, Layers, ExternalLink, X } from 'lucide-react';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -24,7 +25,9 @@ export default function SearchModal({
 
   const placeholders = [
     'What do you want to choose?',
+    'Roll 3D dice',
     'Who should go first?',
+    'Roll a d20 or d6',
     'What should we eat?',
     'Pick a random student',
     'Choose a movie',
@@ -85,7 +88,7 @@ export default function SearchModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-150">
-      <div className="w-full max-w-xl bg-white dark:bg-[#181922] rounded-2xl shadow-2xl overflow-hidden border border-[#eeedf7] dark:border-[#313345] animate-in zoom-in-95 duration-150">
+      <div role="dialog" aria-modal="true" aria-label="Search Wheels and Tools" className="w-full max-w-xl bg-white dark:bg-[#181922] rounded-2xl shadow-2xl overflow-hidden border border-[#eeedf7] dark:border-[#313345] animate-in zoom-in-95 duration-150">
         {/* Search Input Bar */}
         <div className="flex items-center px-4 py-3 border-b border-[#eeedf7] dark:border-[#222330]">
           <Search className="w-5 h-5 text-[#4648d4] dark:text-[#8587ff] mr-2 shrink-0" />
@@ -101,14 +104,38 @@ export default function SearchModal({
             placeholder={`Search (e.g. "${placeholders[placeholderIndex]}")`}
             className="flex-1 bg-transparent text-[#1a1b22] dark:text-white text-[15px] focus:outline-none placeholder:text-[#767586] dark:placeholder:text-[#6a6b80] transition-all"
           />
-          <kbd className="text-[11px] px-2 py-0.5 rounded bg-[#eeedf7] dark:bg-[#292a39] text-[#767586] font-mono">
-            ESC
-          </kbd>
+          {query && (
+            <button
+              type="button"
+              onClick={() => {
+                setQuery('');
+                setSelectedIndex(0);
+              }}
+              aria-label="Clear search text"
+              className="p-1.5 rounded-lg text-[#767586] hover:text-[#1a1b22] dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#282a3a] mr-1.5 transition-colors cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+
+          {/* Close / Cancel Button for Mobile & Desktop */}
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close search"
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-[#f4f2fd] dark:bg-[#252736] hover:bg-[#eeedf7] dark:hover:bg-[#323447] text-[#464554] dark:text-[#c7c4d7] hover:text-black dark:hover:text-white transition-all cursor-pointer min-h-[36px]"
+          >
+            <X className="w-4 h-4" />
+            <span className="sm:hidden text-xs font-bold">Cancel</span>
+            <kbd className="hidden sm:inline-block text-[10px] px-1.5 py-0.5 rounded bg-white dark:bg-[#181922] text-[#767586] font-mono ml-1 border border-[#eeedf7] dark:border-[#383a4c]">
+              ESC
+            </kbd>
+          </button>
         </div>
 
         {/* Quick Hint Header */}
         <div className="px-4 py-2 bg-[#f4f2fd] dark:bg-[#1d1e28] text-[11px] font-semibold text-[#767586] flex items-center justify-between">
-          <span>{query ? `Matching Results (${searchResults.length})` : 'Instant Wheel Index (116+ Wheels & Tools)'}</span>
+          <span>{query ? `Matching Results (${searchResults.length})` : 'Instant Wheel Index ({SITE_COUNTS.wheelsFormatted} Wheels & Tools)'}</span>
           <span className="flex items-center gap-1 text-[#4648d4] dark:text-[#8587ff]">
             <Sparkles className="w-3 h-3" />
             Instant Search

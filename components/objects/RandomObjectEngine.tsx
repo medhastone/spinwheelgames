@@ -691,7 +691,7 @@ export default function RandomObjectEngine() {
     // Footer Watermark
     ctx.fillStyle = '#94a3b8';
     ctx.font = '14px system-ui, sans-serif';
-    ctx.fillText('Certified Cryptographic Randomness (Web Crypto CSPRNG)', 50, 440);
+    ctx.fillText('Browser-Based Cryptographic Randomness (crypto.getRandomValues)', 50, 440);
 
     // Download PNG
     const link = document.createElement('a');
@@ -1328,7 +1328,7 @@ export default function RandomObjectEngine() {
               <div className="text-center space-y-1">
                 <h3 className="text-2xl font-black text-slate-900 dark:text-white">Random Object Spin Wheel</h3>
                 <p className="text-xs text-slate-600 dark:text-slate-400">
-                  Pre-selected using cryptographic CSPRNG • Certified 100% fair
+                  Pre-selected using browser Web Crypto API (crypto.getRandomValues())
                 </p>
               </div>
 

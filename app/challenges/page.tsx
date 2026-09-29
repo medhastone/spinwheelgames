@@ -1,3 +1,4 @@
+import { SITE_COUNTS } from "@/lib/siteConfig";
 import React from 'react';
 import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
@@ -141,7 +142,7 @@ export default function ChallengesPage() {
             name: 'Can I replay past daily challenges?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'You can practice on custom wheels anytime in our 180+ Wheel Games Hub. However, only spins completed on the active calendar date count towards your verified daily challenge streak.'
+              text: 'You can practice on custom wheels anytime in our Wheel Games Hub. However, only spins completed on the active calendar date count towards your verified daily challenge streak.'
             }
           }
         ]
@@ -281,14 +282,14 @@ export default function ChallengesPage() {
                 Explore More Wheel Game Modes
               </h2>
               <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1]">
-                Want more spins? Check out our 180+ specialized wheels and multiplayer arenas.
+                Want more spins? Check out our specialized wheels and multiplayer arenas.
               </p>
             </div>
             <Link
               href="/games"
               className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold flex items-center gap-1.5 transition-all w-fit"
             >
-              <span>View All 180+ Wheels</span>
+              <span>View All Wheels</span>
               <Sparkles className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -402,7 +403,7 @@ export default function ChallengesPage() {
                 <span className="text-indigo-500 font-extrabold group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                You can practice on custom wheels anytime in our 180+ Wheel Games Hub. However, only spins completed on the active calendar date count towards your verified daily challenge streak.
+                You can practice on custom wheels anytime in our Wheel Games Hub. However, only spins completed on the active calendar date count towards your verified daily challenge streak.
               </p>
             </details>
           </div>

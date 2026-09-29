@@ -114,6 +114,20 @@ export default function WheelWorkspace({
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [bestOfThreeOpen, setBestOfThreeOpen] = useState(false);
   const [savedSuccessToast, setSavedSuccessToast] = useState(false);
+  const [liveAnnouncement, setLiveAnnouncement] = useState("");
+
+  useEffect(() => {
+    if (isSpinning) {
+      setLiveAnnouncement("Wheel is spinning with " + items.length + " options...");
+    }
+  }, [isSpinning, items.length]);
+
+  useEffect(() => {
+    if (winnerModalOpen && winnerItem) {
+      setLiveAnnouncement("Spin complete. Winner selected: " + winnerItem.text);
+    }
+  }, [winnerModalOpen, winnerItem]);
+
 
   // Undo / Redo History Stacks
   const [historyPast, setHistoryPast] = useState<WheelItem[][]>([]);
@@ -369,8 +383,13 @@ export default function WheelWorkspace({
     `A free ${wheelTitle} for fair random name picking, classroom selection, raffles, giveaways, teams, and no-repeat winner draws.`;
 
   return (
+    <>
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        {liveAnnouncement}
+      </div>
     <div
       ref={workspaceRef}
+      aria-label={`Interactive Wheel: ${wheelTitle}`}
       className={`w-full max-w-[1440px] mx-auto flex flex-col gap-4 transition-all ${
         isFullscreen
           ? 'fixed inset-0 z-50 bg-[#fbf8ff] dark:bg-[#0d0e15] p-4 sm:p-6 overflow-y-auto flex items-center justify-center'
@@ -493,10 +512,10 @@ export default function WheelWorkspace({
                 </button>
               </div>
 
-              {/* Mobile Provably Fair Badge */}
+              {/* Mobile Web Crypto Badge */}
               <span className="sm:hidden inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-[#f4f2fd] dark:bg-[#14151e] border border-[#eeedf7] dark:border-[#2e3042] text-[10px] font-bold text-[#006c49] dark:text-emerald-400 font-mono">
                 <ShieldCheck className="w-3 h-3" />
-                <span>Fair</span>
+                <span>Web Crypto</span>
               </span>
             </div>
 
@@ -510,11 +529,11 @@ export default function WheelWorkspace({
               />
             </div>
 
-            {/* Right: Desktop Provably Fair Badge */}
+            {/* Right: Desktop Web Crypto Badge */}
             <div className="hidden sm:flex items-center gap-1.5">
               <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#f4f2fd] dark:bg-[#14151e] border border-[#eeedf7] dark:border-[#2e3042] text-[11px] font-bold text-[#006c49] dark:text-emerald-400 font-mono">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Provably Fair</span>
+                <span>Web Crypto CSPRNG</span>
               </span>
             </div>
           </div>
@@ -811,7 +830,7 @@ export default function WheelWorkspace({
                   <div className="text-center py-8 text-xs text-[#767586] dark:text-[#908fa1] space-y-2">
                     <History className="w-8 h-8 mx-auto text-[#a09eaf] dark:text-[#464554]" />
                     <p>No spins recorded yet this session.</p>
-                    <p className="text-[11px]">Click Spin to generate provably fair results!</p>
+                    <p className="text-[11px]">Click Spin to generate cryptographically fair results!</p>
                   </div>
                 ) : (
                   spinLogs.map((log) => (
@@ -987,5 +1006,6 @@ export default function WheelWorkspace({
         />
       )}
     </div>
+    </>
   );
 }

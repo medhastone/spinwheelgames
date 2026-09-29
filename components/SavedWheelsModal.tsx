@@ -105,6 +105,9 @@ export default function SavedWheelsModal({
       onClick={onClose}
     >
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="My Saved Wheels"
         className="w-full max-w-2xl max-h-[85vh] bg-white dark:bg-[#181922] rounded-3xl shadow-2xl p-5 sm:p-7 relative border border-[#eeedf7] dark:border-[#292a39] flex flex-col gap-4 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >

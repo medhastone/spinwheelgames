@@ -123,7 +123,7 @@ export default function CategoriesIndexPage() {
 
           <DirectAnswer
             question="What is the SpinWheelGames Category Directory?"
-            answer="The SpinWheelGames category directory organizes over 106+ vetted, provably fair spin wheels and randomizer tools across 18 dedicated domains—from classroom student pickers and meal deciders to party icebreakers, raffle drawings, and probability generators."
+            answer="The SpinWheelGames category directory organizes over 106+ vetted, cryptographically random spin wheels and decision tools across 18 dedicated domains—from classroom student pickers and meal deciders to party icebreakers, raffle drawings, and probability generators."
           />
 
           <p className="text-base sm:text-lg text-[#464554] dark:text-[#c7c4d7] leading-relaxed max-w-3xl mx-auto">

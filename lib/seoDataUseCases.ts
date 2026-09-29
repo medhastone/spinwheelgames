@@ -244,7 +244,7 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     comparisonTable: {
       headers: ['Method', 'Equity', 'Student Engagement', 'Setup Effort', 'Privacy'],
       rows: [
-        ['Classroom Wheel', '100% fair (CSPRNG)', 'High (gamified audio/visual)', '5 seconds (copy-paste)', '100% Client-Side'],
+        ['Classroom Wheel', 'Fair (Web Crypto CSPRNG)', 'High (gamified audio/visual)', '5 seconds (copy-paste)', '100% Client-Side'],
         ['Popsicle Sticks', 'Fair if mixed well', 'Medium', 'Writing names on wood', 'Physical'],
         ['Hand Raising', 'Biased toward fast responders', 'Low for introverts', 'None', 'None'],
         ['Calling From Roster', 'Often favors top/bottom of alphabet', 'Low', 'None', 'Paper']
@@ -377,7 +377,7 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
         description: 'Customize squad names and jerseys (e.g. Dragons, Phoenixes, Titans, Griffins).'
       }
     ],
-    resultExplanation: 'Names are shuffled using the Fisher-Yates algorithmic shuffle backed by crypto.getRandomValues hardware entropy, ensuring every possible permutation has identical likelihood.',
+    resultExplanation: 'Names are shuffled using the Fisher-Yates algorithmic shuffle backed by crypto.getRandomValues, ensuring every possible permutation has identical likelihood.',
     uniqueExamples: [
       'Gym Class Scrimmage: Team Alpha, Team Bravo, Team Charlie, Team Delta',
       'Hackathon Pods: Team Matrix, Team Cyber, Team Quantum, Team Nova'
@@ -646,16 +646,16 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     fullPath: '/giveaway-wheel',
     pageType: 'tool',
     title: 'Giveaway Wheel – Random Prize & Raffle Drawing Tool',
-    metaDescription: 'Pick raffle and giveaway winners with 100% provable fairness. Perfect for Instagram, YouTube, Twitch, and live event drawings.',
+    metaDescription: 'Pick raffle and giveaway winners with transparent cryptographic randomness. Perfect for Instagram, YouTube, Twitch, and live event drawings.',
     h1: 'Giveaway Wheel: Random Prize & Raffle Drawing Tool',
-    introduction: 'Running a contest, raffle, or social media giveaway? The Giveaway Wheel provides a visual, exciting, and provably fair drawing that participants can trust completely.',
+    introduction: 'Running a contest, raffle, or social media giveaway? The Giveaway Wheel provides a visual, exciting, and transparent drawing that participants can trust completely.',
     primaryIntent: 'event',
     secondaryIntents: ['transactional/use tool', 'decision'],
     categoryKey: 'giveaways',
     parentCategoryPath: '/giveaways',
     parentCategoryName: 'Giveaways & Raffles',
     featureBadges: [
-      'Provably Fair CSPRNG',
+      'Web Crypto CSPRNG',
       'Confetti Winner Celebration',
       'Audit Seed Verification',
       'Elimination for Multiple Prizes',
@@ -679,8 +679,8 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     instructions: [
       'Paste your list of qualified entrants or ticket numbers into the entry box.',
       'Share your screen on your stream, webinar, or stage projector.',
-      'Click SPIN to run the certified drawing.',
-      'Show the Audit Log to prove the winner was selected via cryptographic hardware entropy.',
+      'Click SPIN to run the drawing.',
+      'Show the Audit Log to demonstrate the winner was selected via browser cryptographic randomness.',
       'Remove the 1st prize winner and spin again for 2nd and 3rd place.'
     ],
     whoItsUsefulFor: [
@@ -756,7 +756,7 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     title: 'Number Spin Wheel – Free Random Number Picker',
     metaDescription: 'Spin a random number wheel online. Choose any range, generate unique numbers, exclude numbers, and use the result for games, decisions or activities.',
     h1: 'Number Spin Wheel',
-    introduction: 'Spin a free random number wheel online or generate unique numbers instantly. Customize your range (1-4, 1-6, 1-10, 1-20, 1-50, 1-100 or custom), filter even or odd numbers, exclude specific digits, and draw single or batch results with certified cryptographic randomness.',
+    introduction: 'Spin a free random number wheel online or generate unique numbers instantly. Customize your range (1-4, 1-6, 1-10, 1-20, 1-50, 1-100 or custom), filter even or odd numbers, exclude specific digits, and draw single or batch results with browser-based cryptographic randomness.',
     primaryIntent: 'transactional/use tool',
     secondaryIntents: ['educational', 'decision', 'entertainment'],
     categoryKey: 'numbers',
@@ -815,7 +815,7 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     useCases: [
       {
         title: 'Digital Dice & Tabletop Gaming',
-        description: 'Use the 1-6 or 1-20 range presets as a 100% fair digital die for Dungeons & Dragons, Settlers of Catan, or Monopoly.',
+        description: 'Use the 1-6 or 1-20 range presets as a digital die for Dungeons & Dragons, Settlers of Catan, or Monopoly.',
         benefit: 'Never get stalled by lost dice or cocked rolls.'
       },
       {
@@ -826,7 +826,7 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
       {
         title: 'Raffle & Door Prize Drawings',
         description: 'Set your range from 1 to the total number of tickets sold, exclude non-eligible tickets, and spin for winners.',
-        benefit: 'Delivers exciting visual suspense with provable hardware randomness.'
+        benefit: 'Delivers exciting visual suspense with browser-based cryptographic randomness.'
       }
     ],
     customizationOptions: [
@@ -847,7 +847,7 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
         description: 'Draw 1, 3, 5, 10 or more distinct numbers at once without replacement.'
       }
     ],
-    resultExplanation: 'All numbers are mapped to equal probability intervals. The winning number is generated using the browser\'s native Web Cryptography API (crypto.getRandomValues) to ensure mathematically certified uniformity.',
+    resultExplanation: 'All numbers are mapped to equal probability intervals. SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values with uniform probability distribution.',
     uniqueExamples: [
       'Standard 6-Sided Die: 1, 2, 3, 4, 5, 6',
       'D20 Tabletop Roll: 1 to 20',
@@ -1251,7 +1251,7 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
       'Cold-Calling Equity',
       'No-Repeat Removal',
       'Text-to-Speech Voice',
-      'FERPA Compliant',
+      'Privacy-Conscious Design',
       'Interactive Smartboard Support'
     ],
     defaultWheelData: {

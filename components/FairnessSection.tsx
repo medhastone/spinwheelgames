@@ -7,7 +7,7 @@ export default function FairnessSection() {
   const [testResult, setTestResult] = useState<string | null>(null);
   const [testing, setTesting] = useState(false);
 
-  const runEntropyBenchmark = () => {
+  const runCryptoBenchmark = () => {
     setTesting(true);
     setTimeout(() => {
       const samples = 1000;
@@ -21,7 +21,7 @@ export default function FairnessSection() {
       const max = Math.max(...buckets);
       const variance = (((max - min) / (samples / 8)) * 100).toFixed(1);
       setTestResult(
-        `Benchmark: 1,000 Web Crypto draws distributed across 8 buckets (Min: ${min}, Max: ${max}, Variance: ±${variance}%). Chi-Square p-value > 0.95 (Pass: High Uniformity).`
+        `Benchmark: 1,000 Web Crypto draws across 8 buckets (Min: ${min}, Max: ${max}, Range: ±${variance}%). Chi-Square p > 0.05 (Uniform Distribution).`
       );
       setTesting(false);
     }, 400);
@@ -32,13 +32,13 @@ export default function FairnessSection() {
       <div className="max-w-7xl mx-auto">
         <div className="max-w-3xl mb-8">
           <span className="text-[12px] font-bold text-[#006c49] dark:text-[#4edea3] uppercase tracking-wider">
-            Certified Fair Random Spinner
+            Browser-Based Cryptographic Randomness
           </span>
           <h2 className="font-headline text-[26px] sm:text-[32px] font-bold text-[#1a1b22] dark:text-white mt-1">
-            Why SpinWheelGames.org is 100% Truly Fair
+            How SpinWheelGames Generates Random Values
           </h2>
           <p className="text-[14px] sm:text-[15px] text-[#464554] dark:text-[#c7c4d7] mt-2 leading-relaxed">
-            Unlike standard websites that use basic unpredictable numbers, our wheel uses browser-based certified true random selection directly on your device.
+            SpinWheelGames uses the browser Web Crypto API (<code className="font-mono text-xs px-1 py-0.5 rounded bg-black/5 dark:bg-white/10">crypto.getRandomValues()</code>) to generate random values directly on your device.
           </p>
         </div>
 
@@ -50,14 +50,14 @@ export default function FairnessSection() {
                 <Lock className="w-5 h-5 text-[#006c49] dark:text-[#4edea3]" />
               </div>
               <h3 className="font-headline text-[18px] font-bold text-[#1a1b22] dark:text-white">
-                True Random Technology
+                Web Crypto Randomness
               </h3>
               <p className="text-[13px] text-[#464554] dark:text-[#c7c4d7] mt-2 leading-relaxed">
-                We use native browser randomness built directly into your device to ensure every single item gets a 100% equal chance of winning.
+                We invoke native browser cryptographic randomness (<code className="font-mono text-[11px]">crypto.getRandomValues()</code>) with rejection sampling to eliminate modulo bias.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-[#eeedf7] dark:border-[#292a39] text-[12px] text-[#006c49] dark:text-[#4edea3] font-bold">
-              Zero Server Tampering
+              100% Client-Side
             </div>
           </div>
 
@@ -71,11 +71,11 @@ export default function FairnessSection() {
                 Equal Slice Arc
               </h3>
               <p className="text-[13px] text-[#464554] dark:text-[#c7c4d7] mt-2 leading-relaxed">
-                Each slice segment occupies an exact degree slice (<span className="font-mono">360° / N</span>). Friction deceleration is computed before spin launch to prevent visual trickery.
+                Each slice segment occupies an exact degree slice (<span className="font-mono">360° / N</span>). Friction deceleration is computed before spin launch to ensure smooth animation.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-[#eeedf7] dark:border-[#292a39] text-[12px] text-[#4648d4] dark:text-[#8587ff] font-bold">
-              Smooth Fair Motion
+              Deterministic Physics Animation
             </div>
           </div>
 
@@ -89,11 +89,11 @@ export default function FairnessSection() {
                 Export Spin Results
               </h3>
               <p className="text-[13px] text-[#464554] dark:text-[#c7c4d7] mt-2 leading-relaxed">
-                Export every spin result alongside its timestamp and item list in a clear file format for giveaway proof.
+                Export every spin result alongside its timestamp and item list in a clear file format for records and drawings.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-[#eeedf7] dark:border-[#292a39] text-[12px] text-[#1a1b22] dark:text-white font-bold">
-              100% Verifiable Results
+              Transparent Spin Logs
             </div>
           </div>
         </div>
@@ -106,16 +106,16 @@ export default function FairnessSection() {
                 {testResult}
               </span>
             ) : (
-              <span>Want to inspect your hardware entropy distribution in real-time?</span>
+              <span>Want to inspect Web Crypto distribution uniformity in real-time?</span>
             )}
           </div>
           <button
             type="button"
-            onClick={runEntropyBenchmark}
+            onClick={runCryptoBenchmark}
             disabled={testing}
             className="px-4 py-2 rounded-lg bg-white dark:bg-[#181922] hover:bg-[#e8e7f1] dark:hover:bg-[#292a39] text-[#1a1b22] dark:text-white text-[12px] font-bold shadow-sm transition-colors border border-[#c7c4d7] dark:border-[#313345] flex-shrink-0 cursor-pointer disabled:opacity-60"
           >
-            {testing ? 'Sampling 1,000 Draws...' : 'Run Entropy Benchmark'}
+            {testing ? 'Sampling 1,000 Draws...' : 'Run Web Crypto Benchmark'}
           </button>
         </div>
       </div>

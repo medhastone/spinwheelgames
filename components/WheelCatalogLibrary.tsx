@@ -1,4 +1,5 @@
 'use client';
+import { SITE_COUNTS } from "@/lib/siteConfig";
 
 import React, { useState, useMemo } from 'react';
 import {
@@ -144,7 +145,7 @@ export default function WheelCatalogLibrary({ onSelectWheel }: WheelCatalogLibra
               <span>The Complete 106+ Wheel Experience Library</span>
             </div>
             <h2 className="font-headline text-[28px] sm:text-[38px] font-extrabold text-[#1a1b22] dark:text-white tracking-tight">
-              100+ Purpose-Built Wheel Games & Pickers
+              {SITE_COUNTS.wheelExperiences} Purpose-Built Wheel Games & Pickers
             </h2>
             <p className="text-[15px] sm:text-[16px] text-[#464554] dark:text-[#c7c4d7] max-w-2xl mt-2 leading-relaxed">
               Every wheel in our taxonomy offers an authentic real-world purpose, unique entry data, game modes, instructions, and verifiable cryptographic fairness. Zero duplicate keyword stuffing.

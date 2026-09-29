@@ -1,4 +1,5 @@
 'use client';
+import { SITE_COUNTS } from "@/lib/siteConfig";
 
 import React from 'react';
 import { Play, Sparkles, LayoutGrid } from 'lucide-react';
@@ -58,7 +59,7 @@ export default function HeroBanner({ onSpinClick, onExploreClick }: HeroBannerPr
             className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#e8e7f1] dark:bg-[#292a39] hover:bg-[#dad9e3] dark:hover:bg-[#313345] text-[#1a1b22] dark:text-white text-[13px] sm:text-[14px] font-bold transition-colors cursor-pointer"
           >
             <LayoutGrid className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
-            <span>Explore 180+ Wheels</span>
+            <span>Explore {SITE_COUNTS.wheelsFormatted} Wheels</span>
           </button>
         </div>
       </div>

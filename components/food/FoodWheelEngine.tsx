@@ -316,7 +316,7 @@ export default function FoodWheelEngine() {
     playClickSound(soundEnabled, 0.8);
 
     const items = currentWheelItems;
-    // 1. Certified fair winner selection via CSPRNG BEFORE animation
+    // 1. Browser Web Crypto API winner selection BEFORE animation
     const winnerIndex = getRandomIndex(items.length);
     const winner = items[winnerIndex];
 

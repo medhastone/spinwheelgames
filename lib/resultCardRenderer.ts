@@ -40,7 +40,7 @@ export async function renderResultCardToBlob(data: ResultCardData): Promise<Blob
   ctx.font = 'bold 24px system-ui, -apple-system, sans-serif';
   ctx.fillText('SPINWHEELGAMES.ORG', 50, 70);
 
-  // Provably Fair Seal Tag
+  // Web Crypto Badge Tag
   ctx.fillStyle = 'rgba(78, 222, 163, 0.15)';
   ctx.strokeStyle = 'rgba(78, 222, 163, 0.4)';
   ctx.lineWidth = 1;
@@ -56,7 +56,7 @@ export async function renderResultCardToBlob(data: ResultCardData): Promise<Blob
   ctx.fillStyle = '#4edea3';
   ctx.font = 'bold 13px system-ui, -apple-system, monospace';
   ctx.textAlign = 'center';
-  ctx.fillText('PROVABLY FAIR • CSPRNG SECURED', tagX + tagW / 2, tagY + 22);
+  ctx.fillText('WEB CRYPTO CSPRNG • CLIENT-SIDE', tagX + tagW / 2, tagY + 22);
 
   // 3. Central Trophy / Badge Emblem
   ctx.textAlign = 'center';
@@ -145,7 +145,7 @@ export async function renderResultCardToBlob(data: ResultCardData): Promise<Blob
   ctx.textAlign = 'center';
   ctx.fillStyle = '#6b7280';
   ctx.font = '14px system-ui, -apple-system, sans-serif';
-  ctx.fillText('Provably Fair Client-Side Randomness • Spin & Challenge Friends at spinwheelgames.org', 600, 560);
+  ctx.fillText('Browser-Based Cryptographic Randomness • Spin & Challenge Friends at spinwheelgames.org', 600, 560);
 
   return new Promise<Blob | null>((resolve) => {
     canvas.toBlob((blob) => resolve(blob), 'image/png');

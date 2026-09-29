@@ -278,7 +278,7 @@ export default function SongWheelPage() {
                 How does the random song picker choose winning items?
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
-                The wheel utilizes client-side Cryptographically Secure Pseudorandom Number Generation (CSPRNG via <code className="text-pink-600 font-mono">crypto.getRandomValues</code>) to guarantee 100% fair and unmanipulated spins every single time.
+                The wheel utilizes client-side Cryptographically Secure Pseudorandom Number Generation (CSPRNG via <code className="text-pink-600 font-mono">crypto.getRandomValues</code>) to provide uniform, unbiased spins every time.
               </p>
             </div>
 

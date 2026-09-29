@@ -1,31 +1,48 @@
-# Implementation Plan: Cloudflare Pages SSR / Edge Worker Deployment
+# Production SEO & Technical QA Audit Plan
 
-## 1. Objective
-Ensure the Next.js 15 App Router codebase builds and deploys seamlessly on **Cloudflare Pages with Next.js SSR / Edge Worker** (`.open-next/worker.js` / `.next`).
-
----
-
-## 2. Technical Strategy & Fixes
-
-### A. Cloudflare OpenNext & Worker Configuration
-1. **`open-next.config.ts`**:
-   - Use `@opennextjs/cloudflare` configuration with `defineCloudflareConfig()`.
-2. **`wrangler.jsonc`**:
-   - Set `"main": ".open-next/worker.js"` with `"nodejs_compat"` flag and `"compatibility_date": "2024-09-23"` (or latest).
-   - Configure asset binding for static files (`.open-next/assets`).
-
-### B. Next.js App Router Edge & Server Compatibility
-1. **API Routes (`app/api/*`)**:
-   - Ensure `app/api/contact/route.ts`, `app/api/share/route.ts`, and `app/api/share/[id]/route.ts` are fully Web-Standard compliant (standard `Request` and `NextResponse.json`).
-   - Add explicit dynamic configuration where appropriate so prerendering does not fail.
-2. **Dynamic Route Redirects (`app/w/[id]`)**:
-   - Ensure dynamic params use Next.js 15 async promise resolution cleanly.
-
-### C. Build Command & Verification
-- Test Next.js build locally (`npm run build`) to ensure all 220 routes compile cleanly.
-- Provide step-by-step instructions for Cloudflare Pages dashboard build settings.
+## Executive Summary
+This plan details a complete technical QA and SEO audit of **SpinWheelGames.org**. We will run an automated audit script against the dev server to verify HTTP status codes, canonical headers, titles, H1s, meta descriptions, robots directives, JSON-LD schemas, and sitemap consistency across all primary canonical endpoints and redirected variants.
 
 ---
 
-## 3. Verification Plan
-- Run `compile_applet` and `lint_applet` to confirm 0 compilation errors across all 220 routes.
+## 1. Audit Scope & Target URLs
+
+### A. Core Target Pages & Redirect Verification
+- **Homepage**: `/`
+- **Primary Dice Engine**: `/dice-roller`
+- **Single/Specialized Dice Landing Pages**: `/roll-1d4`, `/roll-4d6`, `/dnd-stat-roller`, `/dice-average-calculator`, `/unusual-dice`
+- **301 Redirected Dice Variants**: `/roll-3d6`, `/roll-5d6`, `/roll-d3`, `/roll-2d12`
+- **Flagship Wheel Tools**: `/wheel-of-names`, `/random-object-generator`
+- **Crawl & Index Directives**: `/robots.txt`, `/sitemap.xml`, `/sitemaps/tools.xml`, `/sitemaps/categories.xml`, `/sitemaps/guides.xml`
+
+### B. Audit Criteria
+1. **HTTP Status**: 200 OK for canonicals; 301 Moved Permanently for redirected variants.
+2. **Metadata**: Non-empty `<title>`, `<meta name="description">`, `<h1>`, `<link rel="canonical">`.
+3. **Structured Data**: Valid JSON-LD scripts (`WebSite`, `WebApplication`, `BreadcrumbList`, `FAQPage`).
+4. **Directives**: `index, follow` on canonicals; no accidental `noindex` or `disallow`.
+5. **Sitemaps**: Exclusion of redirected/non-canonical URLs; inclusion of all indexable pages.
+
+---
+
+## 2. Execution Steps
+
+1. **Audit Script Execution**:
+   - Run a Node.js verification script against `http://localhost:3000` to fetch and audit all target URLs, headers, canonical tags, and JSON-LD payloads.
+
+2. **Robots & Sitemap Feed Audit**:
+   - Inspect `/robots.txt` and sitemap XML files to ensure only 200 OK indexable canonical URLs are present.
+
+3. **Codebase Remediation**:
+   - Fix any broken internal links, canonical header mismatches, missing schema fields, or sitemap discrepancies identified by the audit script.
+
+4. **Build & Type Safety Verification**:
+   - Run `npx tsc --noEmit` and `lint_applet` to confirm 0 compilation or linting errors.
+
+5. **Generate Final Audit Report**:
+   - Present the required 6-part report detailing:
+     1. Issues found
+     2. Issues fixed
+     3. URLs redirected
+     4. URLs removed/noindexed
+     5. Remaining issues
+     6. Performance improvements

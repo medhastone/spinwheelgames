@@ -6,9 +6,9 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     fullPath: '/spin-the-wheel',
     pageType: 'tool',
     title: 'Spin the Wheel – Free Online Random Decision Wheel Spinner',
-    metaDescription: 'Spin the wheel online for free to make quick decisions, pick random winners, or play games. Fully customizable with colors, weights, and provable fairness.',
+    metaDescription: 'Spin the wheel online for free to make quick decisions, pick random winners, or play games. Fully customizable with colors, weights, and cryptographic fairness.',
     h1: 'Spin the Wheel: Free Online Random Choice Spinner',
-    introduction: 'Can\'t decide? Put your options on the wheel, give it a spin, and let chance make the call. Whether you\'re settling a friendly debate, picking a giveaway winner, or choosing what to do next, our wheel runs entirely in your browser with certified cryptographic randomness.',
+    introduction: 'Can\'t decide? Put your options on the wheel, give it a spin, and let chance make the call. Whether you\'re settling a friendly debate, picking a giveaway winner, or choosing what to do next, our wheel runs entirely in your browser with cryptographic randomness.',
     primaryIntent: 'transactional/use tool',
     secondaryIntents: ['entertainment', 'decision'],
     categoryKey: 'decisions',
@@ -19,7 +19,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       'No Sign-Up Required',
       'Elimination Mode',
       'Weighted Odds',
-      'CSPRNG Certified Fair'
+      'Web Crypto CSPRNG'
     ],
     defaultWheelData: {
       title: 'Spin the Wheel Decider',
@@ -94,7 +94,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
         description: 'Speed up spins to 2 seconds for snappy team meetings, or stretch them to 8 seconds for dramatic raffle reveals.'
       }
     ],
-    resultExplanation: 'Every spin is calculated before the physics animation starts using your browser\'s native Web Cryptography API (crypto.getRandomValues). This generates a cryptographically secure 32-bit integer that maps onto your wheel slices according to their exact angular arc. The animation is a realistic physics simulation designed to decelerate and land perfectly on that certified outcome.',
+    resultExplanation: 'Every spin is calculated before the physics animation starts using your browser\'s native Web Cryptography API (crypto.getRandomValues). SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values with uniform probability distribution. The animation is a realistic physics simulation designed to decelerate and land perfectly on that outcome.',
     uniqueExamples: [
       'Chores: Clean Kitchen, Vacuum Living Room, Fold Laundry, Take Out Trash, Scrub Bathroom',
       'Team Standup: Sarah, Marco, Priya, Devon, Kenji, Elena',
@@ -124,10 +124,10 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
         ]
       },
       {
-        heading: 'True Randomness in Modern Browsers',
+        heading: 'Cryptographic Randomness in Modern Browsers',
         body: [
           'Many older websites relied on simple pseudo-random math formulas (like Math.random()) that could theoretically repeat patterns under rapid clicking or lack uniform distribution.',
-          'SpinWheelGames implements the [W3C Web Cryptography API documented on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues), generating hardware-entropy seeded random 32-bit values directly in your browser. This follows the statistical independence standards defined by the [NIST Special Publication 800-90A standard for Random Number Generation](https://csrc.nist.gov/publications/detail/sp/800-90a/rev-1/final), guaranteeing zero positional bias and zero predictable clustering.'
+          'SpinWheelGames implements the [W3C Web Cryptography API documented on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues), generating random 32-bit values directly in your browser. This guarantees zero positional bias and zero predictable clustering.'
         ]
       }
     ],
@@ -180,7 +180,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     fullPath: '/wheel-of-names',
     pageType: 'tool',
     title: 'Wheel of Names – Free Online Random Name Picker Spinner',
-    metaDescription: 'Enter names and spin the wheel to pick random students, giveaway winners, team captains, or raffle entrants. Simple, free, and provably fair.',
+    metaDescription: 'Enter names and spin the wheel to pick random students, giveaway winners, team captains, or raffle entrants. Simple, free, and unbiased.',
     h1: 'Wheel of Names: Free Random Name Picker',
     introduction: 'Need to pick a person fairly? Enter your roster of names, hit spin, and let the wheel choose. Perfect for teachers calling on students, managers selecting team speakers, or organizers picking raffle winners without any suspicion of favoritism.',
     primaryIntent: 'transactional/use tool',
@@ -354,7 +354,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     title: 'Random Picker – Free Online Choice & Item Selector',
     metaDescription: 'Pick a random choice, name, or item instantly. Free, unbiased random selector with custom weights, spin animations, and no-repeat elimination.',
     h1: 'Random Picker: Unbiased Choice & Item Selector',
-    introduction: 'Stuck between several good options? Add your choices to the Random Picker and let a certified random algorithm decide. Great for choosing projects, allocating raffle prizes, deciding on restaurant orders, or breaking ties.',
+    introduction: 'Stuck between several good options? Add your choices to the Random Picker and let a random algorithm decide. Great for choosing projects, allocating raffle prizes, deciding on restaurant orders, or breaking ties.',
     primaryIntent: 'transactional/use tool',
     secondaryIntents: ['decision', 'entertainment'],
     categoryKey: 'decisions',
@@ -365,7 +365,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       'Weighted Odds Sliders',
       'No-Repeat Mode',
       'Export Results',
-      'Hardware Entropy'
+      'Web Crypto Randomness'
     ],
     defaultWheelData: {
       title: 'Random Choice Selector',
@@ -661,7 +661,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       'Formulate your question clearly in your mind so a Yes or No answer makes sense.',
       'Click the central SPIN button or press Spacebar.',
       'Watch the wheel rotate between alternating green (Yes) and red (No) slices.',
-      'Read the certified result and take immediate action.'
+      'Read the random result and take immediate action.'
     ],
     whoItsUsefulFor: [
       {
@@ -770,7 +770,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     title: 'Picker Wheel – Free Multi-Option Custom Choice Spinner',
     metaDescription: 'Custom picker wheel for decisions, activities, names, and games. Fast, customizable, responsive, and completely fair.',
     h1: 'Picker Wheel: Multi-Option Custom Choice Spinner',
-    introduction: 'Customize your own wheel with names, numbers, or activities and spin to pick one instantly. Clean, responsive, and provably fair for workshops, game nights, and everyday dilemmas.',
+    introduction: 'Customize your own wheel with names, numbers, or activities and spin to pick one instantly. Clean, responsive, and unbiased for workshops, game nights, and everyday dilemmas.',
     primaryIntent: 'transactional/use tool',
     secondaryIntents: ['decision', 'entertainment'],
     categoryKey: 'decisions',
@@ -838,7 +838,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
         description: 'Have the browser speak the winning item aloud through your speakers.'
       }
     ],
-    resultExplanation: 'Hardware-seeded CSPRNG values map directly to slice arcs with zero algorithmic bias.',
+    resultExplanation: 'Web Crypto CSPRNG values map directly to slice arcs with zero algorithmic bias.',
     uniqueExamples: [
       'Board Games: Catan, Ticket to Ride, Wingspan, Pandemic, Codenames, Azul'
     ],
@@ -886,7 +886,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     fullPath: '/random-wheel',
     pageType: 'tool',
     title: 'Random Wheel – Unbiased Random Selection Engine',
-    metaDescription: 'Free random wheel generator powered by Web Crypto API. Certified fair selection for games, raffles, and team choices.',
+    metaDescription: 'Free random wheel generator powered by Web Crypto API. Cryptographic randomness for games, raffles, and team choices.',
     h1: 'Random Wheel: Unbiased Random Selection Engine',
     introduction: 'When true randomness matters, the Random Wheel delivers mathematically unbiased outcomes powered by your browser\'s native cryptographic engine. No pre-set outcomes, no server-side logging, just pure chance.',
     primaryIntent: 'transactional/use tool',
@@ -895,7 +895,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     parentCategoryPath: '/decisions',
     parentCategoryName: 'Decisions',
     featureBadges: [
-      'Provably Fair CSPRNG',
+      'Web Crypto CSPRNG',
       'Client-Side Execution',
       'Audit Log Verification',
       'Custom Slices & Weights',
@@ -903,7 +903,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     ],
     defaultWheelData: {
       title: 'Cryptographic Random Wheel',
-      description: 'Provably fair randomizer',
+      description: 'Browser-based cryptographic randomizer',
       paletteKey: 'cyberpunk',
       items: [
         { id: 'rw-1', text: 'Sector 1', weight: 1 },
@@ -1112,9 +1112,9 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     fullPath: '/random-object-generator',
     pageType: 'tool',
     title: 'Random Object Generator – Free Online Quick Decision & Creative Idea Spinner',
-    metaDescription: 'Generate random objects instantly for drawing, Pictionary, creative writing, classroom games, and improv challenges. Over 1,000+ curated items with certified cryptographic fairness.',
+    metaDescription: 'Generate random objects instantly for drawing, Pictionary, creative writing, classroom games, and improv challenges. Over 1,000+ curated items with browser-based cryptographic randomness.',
     h1: 'Random Object Generator: Instant Object Picker & Creative Challenge Engine',
-    introduction: 'Need a random object for your next sketch, party game, classroom activity, or story plot? Our Random Object Generator draws from over 1,000+ hand-curated objects across 22 categories using certified Web Crypto API randomness. Generate single objects, instant lists, interactive wheel spins, or timed creative challenges with zero sign-up required.',
+    introduction: 'Need a random object for your next sketch, party game, classroom activity, or story plot? Our Random Object Generator draws from over 1,000+ hand-curated objects across 22 categories using browser Web Crypto API randomness. Generate single objects, instant lists, interactive wheel spins, or timed creative challenges with zero sign-up required.',
     primaryIntent: 'transactional/use tool',
     secondaryIntents: ['entertainment', 'decision', 'party', 'educational'],
     categoryKey: 'decisions',
@@ -1122,7 +1122,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     parentCategoryName: 'Decisions',
     featureBadges: [
       '1,000+ Curated Objects',
-      'CSPRNG Certified Fair',
+      'Web Crypto CSPRNG',
       'Drawing & Pictionary Ready',
       'Timed Challenge Mode',
       'No Repeats Memory',
@@ -1447,7 +1447,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       '8 Animal Categories',
       'Guess The Animal Mode',
       'Animal Challenges',
-      'Provably Fair CSPRNG',
+      'Web Crypto CSPRNG',
       'No-Repeat Mode'
     ],
     defaultWheelData: {
@@ -1516,7 +1516,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
         description: 'Generate sound mimicry, charades acting, and sketching sprints.'
       }
     ],
-    resultExplanation: 'All animal selections use hardware-entropy seeds through the W3C Web Cryptography API (crypto.getRandomValues) for certified mathematical fairness.',
+    resultExplanation: 'All animal selections use the W3C Web Cryptography API (crypto.getRandomValues) for uniform probability distribution.',
     uniqueExamples: [
       'Wild Animals: Lion, African Elephant, Bengal Tiger, Giraffe, Gray Wolf',
       'Dinosaurs: T-Rex, Triceratops, Velociraptor, Brachiosaurus, Ankylosaurus'
@@ -1541,7 +1541,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       },
       {
         question: 'Is this tool free for teachers and classrooms?',
-        answer: 'Yes, 100% free with no account or sign-up needed. It runs locally in the browser with zero tracking cookies.'
+        answer: 'Yes, free to use with no account or sign-up needed. Designed to minimize collection of user-provided wheel data by running locally in the browser.'
       }
     ],
     relatedTools: [
@@ -1603,7 +1603,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     instructions: [
       'Choose a drawing category mode (Objects, Animals, Characters, Fantasy, Environments, or All).',
       'Select your difficulty filter (Easy, Medium, Hard).',
-      'Click SPIN to draw a certified random sketching prompt.',
+      'Click SPIN to draw a random sketching prompt.',
       'Use [Draw It] to open the browser canvas, [Start Timer] for speed sketching, or [Challenge Mode] for art constraints.'
     ],
     whoItsUsefulFor: [
@@ -1642,7 +1642,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
         description: 'Add constraints like 3-color palettes, non-dominant hand drawing, or single-line art.'
       }
     ],
-    resultExplanation: 'Uses hardware-seeded Web Cryptography API randomness to ensure every prompt generation is 100% impartial.',
+    resultExplanation: 'Uses Web Cryptography API randomness to ensure every prompt generation is unbiased.',
     uniqueExamples: [
       'Objects: Vintage Camera with Vines, Steampunk Watch, Overgrown Robot',
       'Animals: Owl with Spectacles, Cyberpunk Jellyfish, Stained Glass Chameleon'
@@ -2160,7 +2160,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
         heading: '1. Why Use a Digital Bingo Wheel?',
         body: [
           'A digital bingo spin wheel eliminates lost physical balls, bulky cage spinners, and manual tallying.',
-          'Built with hardware CSPRNG randomness, every spin is provably fair and completely unbiased.'
+          'Built with Web Crypto CSPRNG randomness, every spin generates uniform probabilities without bias.'
         ]
       }
     ],
@@ -2189,7 +2189,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     title: 'Random Team Generator – Free Online Group Maker & Wheel',
     metaDescription: 'Easily split participants into random, balanced teams or spin the wheel for live drafts. Perfect for classroom groups, sports, hackathons, and game nights.',
     h1: 'Random Team Generator: Free Online Group Maker & Wheel',
-    introduction: 'Need to divide a group quickly and fairly? Our random team generator splits participant rosters into balanced groups or lets you spin a live draft wheel. Built with client-side cryptographic randomness, it guarantees 100% fair team assignments with zero bias.',
+    introduction: 'Need to divide a group quickly and fairly? Our random team generator splits participant rosters into balanced groups or lets you spin a live draft wheel. Built with client-side cryptographic randomness, it generates fair team assignments with uniform probability.',
     primaryIntent: 'transactional/use tool',
     secondaryIntents: ['classroom', 'sports', 'educational'],
     categoryKey: 'tools',
@@ -2199,7 +2199,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       'Instant Balanced Split',
       'Live Draft Wheel',
       'Themed Team Names',
-      'CSPRNG Certified Fair',
+      'Web Crypto CSPRNG',
       'CSV & Markdown Export'
     ],
     defaultWheelData: {
@@ -2283,7 +2283,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     faqs: [
       {
         question: 'How does the random team generator guarantee fair distribution?',
-        answer: 'Our generator uses hardware-seeded cryptographic randomness (Web Cryptography API) to shuffle names, ensuring every participant has equal odds of being placed in any team.'
+        answer: 'Our generator uses the browser Web Cryptography API (crypto.getRandomValues()) to shuffle names, ensuring every participant has equal odds of being placed in any team.'
       },
       {
         question: 'Can I export the teams to Excel or Google Sheets?',

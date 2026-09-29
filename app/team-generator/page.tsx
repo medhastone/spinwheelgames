@@ -99,7 +99,7 @@ const JSON_LD_DATA = {
         'Interactive live wheel draft spinner for snake drafts and events',
         'Custom themed team names (Animals, Mythical Beasts, Cyberpunk, Sports)',
         'Copy to clipboard in Markdown, text, and direct CSV file download',
-        'Hardware CSPRNG certified uniform randomness'
+        'Browser Web Crypto API cryptographic randomness'
       ],
       screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
@@ -192,7 +192,7 @@ export default function TeamGeneratorPage() {
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300 text-xs font-bold uppercase tracking-wider">
             <Users className="w-4 h-4" />
-            <span>Provably Fair Group Maker</span>
+            <span>Cryptographically Fair Group Maker</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
             Random Team Generator
@@ -233,9 +233,9 @@ export default function TeamGeneratorPage() {
             <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400 flex items-center justify-center font-bold">
               <ShieldCheck className="w-5 h-5" />
             </div>
-            <h3 className="font-bold text-slate-900 dark:text-white text-base">CSPRNG Certified Fairness</h3>
+            <h3 className="font-bold text-slate-900 dark:text-white text-base">Web Crypto API Randomness</h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Powered by native browser hardware randomness with zero bias or favoritism.
+              Powered by native browser cryptographic randomness (crypto.getRandomValues) with uniform probability.
             </p>
           </div>
 

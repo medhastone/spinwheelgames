@@ -34,7 +34,7 @@ export default function ResultCardModal({
 
   if (!isOpen) return null;
 
-  const shareText = `🎉 Winner: ${data.winner} (${data.challengeName}) | 🔥 ${data.streak}-Day Streak | Spin provably fair wheels at ${data.shareUrl}`;
+  const shareText = `🎉 Winner: ${data.winner} (${data.challengeName}) | 🔥 ${data.streak}-Day Streak | Spin decision wheels at ${data.shareUrl}`;
 
   // 1. Download PNG Card
   const handleDownloadImage = async () => {
@@ -166,7 +166,7 @@ export default function ResultCardModal({
             </span>
             <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono font-semibold">
               <ShieldCheck className="w-3 h-3" />
-              <span>PROVABLY FAIR</span>
+              <span>WEB CRYPTO API</span>
             </div>
           </div>
 
@@ -277,7 +277,7 @@ export default function ResultCardModal({
         </div>
 
         <p className="text-[11px] text-[#767586] dark:text-[#908fa1] text-center">
-          Provably Fair client-side cryptography. Zero tracking, zero fake users.
+          Browser-based cryptographic randomness (crypto.getRandomValues()). Zero tracking, zero ads.
         </p>
       </div>
     </div>

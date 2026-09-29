@@ -1043,7 +1043,7 @@ export default function AnimalWheelEngine() {
                       CSPRNG Verification Log
                     </h4>
                     <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
-                      <CheckCircle2 className="w-3 h-3" /> Hardware Entropy
+                      <CheckCircle2 className="w-3 h-3" /> Web Crypto API
                     </span>
                   </div>
 

@@ -1,28 +1,22 @@
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import Link from 'next/link';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
-import {
-  Sparkles,
-  Keyboard,
-  Eye,
-  Volume2,
-  CheckCircle2,
-  HelpCircle,
-  ArrowRight
-} from 'lucide-react';
+import { Accessibility, Keyboard, Eye, Volume2, Sparkles, HelpCircle } from 'lucide-react';
+import { SITE_CONFIG } from '@/lib/siteConfig';
 
 export const metadata: Metadata = {
-  title: 'Accessibility Statement (WCAG 2.1 AA) | SpinWheelGames',
+  title: `Accessibility Statement - WCAG 2.1 Principles | ${SITE_CONFIG.brandName}`,
   description:
-    'Learn about our accessibility features including full keyboard navigation, screen reader ARIA support, Text-to-Speech winner announcements, and high-contrast wheel rendering.',
+    `Learn about our accessibility commitments. ${SITE_CONFIG.fullBrandName} is designed with WCAG 2.1 accessibility principles including keyboard control, ARIA live announcements, and contrast.`,
   alternates: {
-    canonical: 'https://spinwheelgames.org/accessibility'
+    canonical: `${SITE_CONFIG.baseUrl}/accessibility`
   },
   openGraph: {
-    title: 'Accessibility Statement - SpinWheelGames.org',
-    description: 'Our commitment to inclusive, accessible design for classrooms, educators, and all users.',
-    url: 'https://spinwheelgames.org/accessibility',
+    title: `Accessibility Statement - ${SITE_CONFIG.fullBrandName}`,
+    description:
+      'Engineered with WCAG 2.1 accessibility principles: full keyboard navigation, screen reader live announcements, high contrast, and reduced motion.',
+    url: `${SITE_CONFIG.baseUrl}/accessibility`,
     type: 'website'
   }
 };
@@ -36,13 +30,13 @@ export default function AccessibilityPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://spinwheelgames.org'
+        item: SITE_CONFIG.baseUrl
       },
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Accessibility',
-        item: 'https://spinwheelgames.org/accessibility'
+        name: 'Accessibility Statement',
+        item: `${SITE_CONFIG.baseUrl}/accessibility`
       }
     ]
   };
@@ -56,29 +50,28 @@ export default function AccessibilityPage() {
 
       <SubpageHeader activePage="/accessibility" />
 
-      <main className="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-12">
+      <main className="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-10">
         {/* Header */}
         <section className="space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            Universal Access
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff] text-xs font-bold uppercase tracking-wider">
+            <Accessibility className="w-3.5 h-3.5" />
+            Universal Design &amp; Inclusion
           </div>
           <h1 className="font-headline text-[32px] sm:text-[42px] font-extrabold tracking-tight text-[#1a1b22] dark:text-white leading-tight">
             Accessibility Statement
           </h1>
-          <p className="text-[15px] sm:text-[17px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-            SpinWheelGames.org is engineered with the core belief that every student, educator, presenter, and participant should have equal access to intuitive, accessible decision tools.
+          <p className="text-[14px] text-[#767586] dark:text-[#908fa1]">
+            Last Reviewed: September 2026 • Designed with WCAG 2.1 Accessibility Principles
           </p>
         </section>
 
-        {/* WCAG 2.1 AA Compliance Summary */}
+        {/* Commitment Statement */}
         <section className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] shadow-xs space-y-4">
-          <h2 className="font-headline text-[20px] font-bold text-[#1a1b22] dark:text-white flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-            WCAG 2.1 Level AA Conformity
+          <h2 className="font-headline text-[20px] font-bold text-[#1a1b22] dark:text-white">
+            Our Commitment to Digital Accessibility
           </h2>
-          <p className="text-[14px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-            We actively conform to the <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong> standards and Section 508 guidelines for educational software. Our design ensures that motor, visual, auditory, and cognitive accessibility needs are supported.
+          <p className="text-[15px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
+            At <strong>{SITE_CONFIG.fullBrandName}</strong>, we believe classroom decision tools, team randomizers, and giveaway spinners should be accessible to all users, including those relying on screen readers, keyboard-only navigation, speech output, or custom display settings. We design and iterate our interfaces following Web Content Accessibility Guidelines (WCAG) 2.1 principles.
           </p>
         </section>
 
@@ -89,10 +82,10 @@ export default function AccessibilityPage() {
               <Keyboard className="w-5 h-5" />
             </div>
             <h3 className="font-headline text-[17px] font-bold text-[#1a1b22] dark:text-white">
-              Full Keyboard Operability
+              Keyboard Navigation &amp; Visible Focus
             </h3>
             <p className="text-[13px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-              Every control is accessible without a mouse. Spin with <kbd className="bg-white dark:bg-[#222330] px-1.5 py-0.5 rounded text-xs border border-gray-200 dark:border-gray-700">Space</kbd> or <kbd className="bg-white dark:bg-[#222330] px-1.5 py-0.5 rounded text-xs border border-gray-200 dark:border-gray-700">Enter</kbd>, toggle fullscreen with <kbd className="bg-white dark:bg-[#222330] px-1.5 py-0.5 rounded text-xs border border-gray-200 dark:border-gray-700">F</kbd>, and undo edits with <kbd className="bg-white dark:bg-[#222330] px-1.5 py-0.5 rounded text-xs border border-gray-200 dark:border-gray-700">Ctrl+Z</kbd>.
+              Every interactive control can be navigated via keyboard. Spin with <kbd className="bg-white dark:bg-[#222330] px-1.5 py-0.5 rounded text-xs border border-gray-200 dark:border-gray-700">Space</kbd> or <kbd className="bg-white dark:bg-[#222330] px-1.5 py-0.5 rounded text-xs border border-gray-200 dark:border-gray-700">Enter</kbd>, trigger fullscreen with <kbd className="bg-white dark:bg-[#222330] px-1.5 py-0.5 rounded text-xs border border-gray-200 dark:border-gray-700">F</kbd>, dismiss modals with <kbd className="bg-white dark:bg-[#222330] px-1.5 py-0.5 rounded text-xs border border-gray-200 dark:border-gray-700">Escape</kbd>, and track focus with high-visibility outline rings.
             </p>
           </div>
 
@@ -101,10 +94,10 @@ export default function AccessibilityPage() {
               <Volume2 className="w-5 h-5" />
             </div>
             <h3 className="font-headline text-[17px] font-bold text-[#1a1b22] dark:text-white">
-              Text-to-Speech (TTS) &amp; Sound
+              Screen Reader Announcements &amp; TTS
             </h3>
             <p className="text-[13px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-              Enable synthetic speech readout to hear the winning student or prize announced out loud automatically. Full master mute controls are provided for quiet environments.
+              Polite ARIA live regions (<code className="text-xs">aria-live=&quot;polite&quot;</code>) announce spin state and winning results to screen reader software. Built-in speech synthesis (TTS) can read winning names aloud for classroom presentations.
             </p>
           </div>
 
@@ -113,10 +106,10 @@ export default function AccessibilityPage() {
               <Eye className="w-5 h-5" />
             </div>
             <h3 className="font-headline text-[17px] font-bold text-[#1a1b22] dark:text-white">
-              High Contrast &amp; Dark Mode
+              Contrast &amp; Legibility
             </h3>
             <p className="text-[13px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-              Slice labels utilize dual-tone stroke rendering (<code className="text-xs">paint-order: stroke fill</code>) ensuring maximum text legibility across all custom slice backgrounds.
+              Slice labels use dual-stroke high-contrast outlines to preserve readability across light and dark slice colors. System dark and light themes provide clear visual separation between background and active UI components.
             </p>
           </div>
 
@@ -125,10 +118,10 @@ export default function AccessibilityPage() {
               <Sparkles className="w-5 h-5" />
             </div>
             <h3 className="font-headline text-[17px] font-bold text-[#1a1b22] dark:text-white">
-              Screen Reader ARIA Live Regions
+              Reduced Motion &amp; Animation Controls
             </h3>
             <p className="text-[13px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-              When a wheel starts spinning and halts on a winner, polite ARIA live regions (<code className="text-xs">aria-live=&quot;polite&quot;</code>) notify NVDA, JAWS, and VoiceOver screen reader users instantaneously.
+              Users who prefer reduced motion or instant outcomes can configure faster spin durations or disable unnecessary confetti animations to minimize visual motion fatigue.
             </p>
           </div>
         </section>
@@ -151,27 +144,22 @@ export default function AccessibilityPage() {
                 <tr>
                   <td className="py-2.5 font-mono"><kbd className="bg-[#f4f2fd] dark:bg-[#12131a] px-2 py-0.5 rounded border border-gray-200 dark:border-gray-700">Space</kbd> or <kbd className="bg-[#f4f2fd] dark:bg-[#12131a] px-2 py-0.5 rounded border border-gray-200 dark:border-gray-700">Enter</kbd></td>
                   <td className="py-2.5 font-semibold">Spin Selected Wheel</td>
-                  <td className="py-2.5 text-xs text-[#767586]">Main Canvas</td>
+                  <td className="py-2.5 text-xs text-[#767586]">Main Wheel Workspace</td>
                 </tr>
                 <tr>
                   <td className="py-2.5 font-mono"><kbd className="bg-[#f4f2fd] dark:bg-[#12131a] px-2 py-0.5 rounded border border-gray-200 dark:border-gray-700">F</kbd></td>
                   <td className="py-2.5 font-semibold">Toggle Fullscreen Presentation</td>
-                  <td className="py-2.5 text-xs text-[#767586]">Global</td>
+                  <td className="py-2.5 text-xs text-[#767586]">Wheel Workspace</td>
                 </tr>
                 <tr>
-                  <td className="py-2.5 font-mono"><kbd className="bg-[#f4f2fd] dark:bg-[#12131a] px-2 py-0.5 rounded border border-gray-200 dark:border-gray-700">Ctrl + Z</kbd> (or <kbd className="bg-[#f4f2fd] dark:bg-[#12131a] px-2 py-0.5 rounded border border-gray-200 dark:border-gray-700">Cmd + Z</kbd>)</td>
+                  <td className="py-2.5 font-mono"><kbd className="bg-[#f4f2fd] dark:bg-[#12131a] px-2 py-0.5 rounded border border-gray-200 dark:border-gray-700">Ctrl + Z</kbd> / <kbd className="bg-[#f4f2fd] dark:bg-[#12131a] px-2 py-0.5 rounded border border-gray-200 dark:border-gray-700">Cmd + Z</kbd></td>
                   <td className="py-2.5 font-semibold">Undo Item Mutation</td>
-                  <td className="py-2.5 text-xs text-[#767586]">Editor Panel</td>
-                </tr>
-                <tr>
-                  <td className="py-2.5 font-mono"><kbd className="bg-[#f4f2fd] dark:bg-[#12131a] px-2 py-0.5 rounded border border-gray-200 dark:border-gray-700">Ctrl + Y</kbd> (or <kbd className="bg-[#f4f2fd] dark:bg-[#12131a] px-2 py-0.5 rounded border border-gray-200 dark:border-gray-700">Cmd + Shift + Z</kbd>)</td>
-                  <td className="py-2.5 font-semibold">Redo Item Mutation</td>
-                  <td className="py-2.5 text-xs text-[#767586]">Editor Panel</td>
+                  <td className="py-2.5 text-xs text-[#767586]">Entry Editor</td>
                 </tr>
                 <tr>
                   <td className="py-2.5 font-mono"><kbd className="bg-[#f4f2fd] dark:bg-[#12131a] px-2 py-0.5 rounded border border-gray-200 dark:border-gray-700">Escape</kbd></td>
-                  <td className="py-2.5 font-semibold">Close Dialog / Winner Modal</td>
-                  <td className="py-2.5 text-xs text-[#767586]">Active Modals</td>
+                  <td className="py-2.5 font-semibold">Close Dialog / Modal</td>
+                  <td className="py-2.5 text-xs text-[#767586]">Active Dialogs</td>
                 </tr>
               </tbody>
             </table>
@@ -185,7 +173,14 @@ export default function AccessibilityPage() {
             Accessibility Feedback &amp; Support
           </h2>
           <p className="text-[14px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-            We welcome feedback from assistive technology users and educators. If you encounter any barrier while operating our wheels, please email our accessibility team at <a href="mailto:info@spinwheelgames.org" className="text-[#4648d4] dark:text-[#8587ff] font-bold underline">info@spinwheelgames.org</a> or visit our <Link href="/contact" className="text-[#4648d4] dark:text-[#8587ff] font-bold underline">Contact Page</Link>.
+            We continually test and refine our user experience. If you encounter an accessibility barrier, contrast issue, or keyboard trap on any page, please let us know at{' '}
+            <a href={`mailto:${SITE_CONFIG.supportEmail}`} className="text-[#4648d4] dark:text-[#8587ff] font-bold underline">
+              {SITE_CONFIG.supportEmail}
+            </a>{' '}
+            or submit details through our{' '}
+            <Link href="/contact" className="text-[#4648d4] dark:text-[#8587ff] font-bold underline">
+              Contact Form
+            </Link>. We prioritize resolving accessibility issues promptly.
           </p>
         </section>
       </main>

@@ -934,33 +934,28 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
 
           <div className="flex flex-wrap gap-2">
             {[
-              { type: 'd2', label: 'D2 (Coin Flip)' },
-              { type: 'd4', label: 'D4 (Tetrahedron)' },
-              { type: 'd6', label: 'D6 (Six-Sided Cube)' },
-              { type: '4d6', label: '4D6 Roller' },
-              { type: 'd8', label: 'D8 (Octahedron)' },
-              { type: 'd10', label: 'D10 (Decahedron)' },
-              { type: 'd12', label: 'D12 (Dodecahedron)' },
-              { type: 'd20', label: 'D20 (Icosahedron)' },
-              { type: 'd100', label: 'D100 (Percentile)' },
-              { type: 'dnd-stats', label: 'D&D Stat Roller' },
-              { type: 'dice-average', label: 'Dice Average Calc' }
+              { type: 'd2', label: 'D2 (Coin Flip)', href: '/dice/d2' },
+              { type: 'd4', label: 'D4 (Tetrahedron)', href: '/roll-1d4' },
+              { type: 'd6', label: 'D6 (Six-Sided Cube)', href: '/dice/d6' },
+              { type: '4d6', label: '4D6 Roller', href: '/roll-4d6' },
+              { type: 'd8', label: 'D8 (Octahedron)', href: '/dice/d8' },
+              { type: 'd10', label: 'D10 (Decahedron)', href: '/dice/d10' },
+              { type: 'd12', label: 'D12 (Dodecahedron)', href: '/dice/d12' },
+              { type: 'd20', label: 'D20 (Icosahedron)', href: '/dice/d20' },
+              { type: 'd100', label: 'D100 (Percentile)', href: '/dice/d100' },
+              { type: 'dnd-stat-roller', label: 'D&D Stat Roller', href: '/dnd-stat-roller' },
+              { type: 'dice-average-calculator', label: 'Dice Average Calc', href: '/dice-average-calculator' }
             ]
               .filter((d) => d.type !== config.dieType)
-              .map((d) => {
-                const targetHref = d.type === '4d6' || d.type === 'dnd-stats' || d.type === 'dice-average'
-                  ? `/${d.type}`
-                  : `/dice/${d.type}`;
-                return (
-                  <Link
-                    key={d.type}
-                    href={targetHref}
-                    className="px-3 py-1.5 rounded-xl bg-white dark:bg-[#13141e] hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white text-xs font-mono font-bold text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#222435] transition-all shadow-2xs"
-                  >
-                    {d.label}
-                  </Link>
-                );
-              })}
+              .map((d) => (
+                <Link
+                  key={d.type}
+                  href={d.href}
+                  className="px-3 py-1.5 rounded-xl bg-white dark:bg-[#13141e] hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white text-xs font-mono font-bold text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#222435] transition-all shadow-2xs"
+                >
+                  {d.label}
+                </Link>
+              ))}
           </div>
         </section>
       </div>

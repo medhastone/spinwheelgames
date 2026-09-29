@@ -1,4 +1,5 @@
 'use client';
+import { SITE_COUNTS } from "@/lib/siteConfig";
 
 import React from 'react';
 import Link from 'next/link';
@@ -144,7 +145,7 @@ export default function CategoryGrid() {
             Template Library Preview
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-[#1a1b22] dark:text-white tracking-tight mt-1">
-            Explore 100+ Wheel Games
+            Explore {SITE_COUNTS.wheelsFormatted} Wheel Games
           </h2>
         </div>
 

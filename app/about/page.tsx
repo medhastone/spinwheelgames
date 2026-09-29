@@ -1,35 +1,22 @@
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import Link from 'next/link';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
-import Breadcrumbs from '@/components/Breadcrumbs';
-import {
-  ShieldCheck,
-  Cpu,
-  Zap,
-  Users,
-  EyeOff,
-  Sparkles,
-  Award,
-  BookOpen,
-  ArrowRight,
-  Code,
-  CheckCircle2,
-  Lock
-} from 'lucide-react';
+import { Sparkles, Cpu, EyeOff, Zap, Users, ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { SITE_CONFIG } from '@/lib/siteConfig';
 
 export const metadata: Metadata = {
-  title: 'About Us - Our Mission & Cryptographic Architecture | SpinWheelGames',
+  title: `About ${SITE_CONFIG.brandName} - Mission, Randomness & Architecture`,
   description:
-    'Learn about SpinWheelGames.org, our mission to provide ad-free, 100% client-side, provably fair random decision wheels with hardware-seeded Web Cryptography.',
+    `Learn about ${SITE_CONFIG.fullBrandName}: our commitment to client-side randomness, minimal data collection, accessible design, and classroom utilities.`,
   alternates: {
-    canonical: 'https://spinwheelgames.org/about'
+    canonical: `${SITE_CONFIG.baseUrl}/about`
   },
   openGraph: {
-    title: 'About SpinWheelGames.org - Mission & Technology',
+    title: `About ${SITE_CONFIG.fullBrandName} - Mission & Technology`,
     description:
-      'Search-first, ad-free random decision engine powered by the Web Cryptography API (CSPRNG).',
-    url: 'https://spinwheelgames.org/about',
+      'Engineered for teachers, streamers, and organizers who value client-side randomness and minimal data collection.',
+    url: `${SITE_CONFIG.baseUrl}/about`,
     type: 'website'
   }
 };
@@ -43,36 +30,15 @@ export default function AboutPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://spinwheelgames.org'
+        item: SITE_CONFIG.baseUrl
       },
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'About',
-        item: 'https://spinwheelgames.org/about'
+        name: 'About Us',
+        item: `${SITE_CONFIG.baseUrl}/about`
       }
     ]
-  };
-
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'AboutPage',
-    mainEntity: {
-      '@type': 'Organization',
-      name: 'SpinWheelGames.org',
-      url: 'https://spinwheelgames.org',
-      logo: 'https://spinwheelgames.org/spinwheel-logo.webp',
-      description:
-        'A browser-native random decision wheel engine built on modern Web Cryptography API (CSPRNG), providing ad-free tools for education, giveaways, and decision making.',
-      foundingDate: '2024',
-      knowsAbout: [
-        'Web Cryptography API (CSPRNG)',
-        'Random Number Generation',
-        'Classroom Student Management',
-        'Decision Theory',
-        'Client-Side Privacy'
-      ]
-    }
   };
 
   return (
@@ -81,41 +47,35 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
 
       <SubpageHeader activePage="/about" />
 
-      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-12">
-        <Breadcrumbs items={[{ label: 'About Us' }]} />
-
-        {/* Hero Section */}
-        <section className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4648d4]/10 dark:bg-[#4648d4]/20 text-[#4648d4] dark:text-[#8587ff] text-xs font-bold uppercase tracking-wider">
+      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-12">
+        {/* Header Section */}
+        <section className="space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff] text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
-            Design &amp; Philosophy
+            Engineering &amp; Values
           </div>
-          <h1 className="font-headline text-[32px] sm:text-[44px] font-extrabold tracking-tight text-[#1a1b22] dark:text-white leading-tight">
-            Building the Open Web’s Most Reliable Fair Decision Spinner
+          <h1 className="font-headline text-[32px] sm:text-[46px] font-extrabold tracking-tight text-[#1a1b22] dark:text-white leading-tight">
+            Built for Transparent Randomness &amp; Privacy
           </h1>
           <p className="text-[16px] sm:text-[18px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-            SpinWheelGames was created to replace bloated, ad-cluttered spinner websites with a fast, private, 100% browser-based decision wheel backed by true device randomness.
+            {SITE_CONFIG.brandName} was created to provide teachers, presenters, content creators, and teams with responsive, unbiased decision tools designed to minimize data collection and run smoothly in any modern web browser.
           </p>
         </section>
 
-        {/* Core Values / 4 Pillar Cards */}
+        {/* 4 Pillars Grid */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] shadow-xs space-y-3">
             <div className="w-12 h-12 rounded-2xl bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff] flex items-center justify-center font-bold">
               <Cpu className="w-6 h-6" />
             </div>
             <h2 className="font-headline text-[20px] font-bold text-[#1a1b22] dark:text-white">
-              1. Truly Fair Random Selection
+              1. Hardware-Grade Cryptographic RNG
             </h2>
             <p className="text-[14px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-              Unlike legacy wheels that use outdated pseudorandom algorithms, every spin on our platform uses certified native device randomness to guarantee every option gets a 100% equal chance.
+              Spins utilize the W3C Web Cryptography API (<code className="text-xs">crypto.getRandomValues</code>) to derive unbiased pseudorandom angles from operating system entropy sources, providing statistically uniform odds without server manipulation.
             </p>
           </div>
 
@@ -124,10 +84,10 @@ export default function AboutPage() {
               <EyeOff className="w-6 h-6" />
             </div>
             <h2 className="font-headline text-[20px] font-bold text-[#1a1b22] dark:text-white">
-              2. Zero-Knowledge / 100% Client-Side Privacy
+              2. Local Browser Processing
             </h2>
             <p className="text-[14px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-              Your classroom student rosters, giveaway participant names, raffle entries, and confidential team votes never leave your device. All calculations, physics rendering, and storage occur directly in your browser.
+              Designed to minimize collection of user-provided wheel data. Custom participant lists, classroom rosters, raffle entries, and spin physics run locally inside your browser session without unnecessary remote transmission.
             </p>
           </div>
 
@@ -136,10 +96,10 @@ export default function AboutPage() {
               <Zap className="w-6 h-6" />
             </div>
             <h2 className="font-headline text-[20px] font-bold text-[#1a1b22] dark:text-white">
-              3. Zero-Lag 60 FPS Physics
+              3. Fluid Canvas Rendering
             </h2>
             <p className="text-[14px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-              Whether you have 2 options or 500 entries, our vector SVG and HTML5 Canvas rendering engine uses quintic deceleration curves and dynamic radial label packing to ensure zero dropped frames on laptops, interactive smartboards, and mobile phones.
+              Whether you have 2 options or 200 entries, our vector-optimized HTML5 Canvas rendering engine employs physics-inspired deceleration curves, legible radial text layouts, and smooth animations across desktop, tablet, and mobile screens.
             </p>
           </div>
 
@@ -148,10 +108,10 @@ export default function AboutPage() {
               <Users className="w-6 h-6" />
             </div>
             <h2 className="font-headline text-[20px] font-bold text-[#1a1b22] dark:text-white">
-              4. Built for Teachers, Streamers &amp; Teams
+              4. Built for Classrooms, Streamers &amp; Teams
             </h2>
             <p className="text-[14px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-              From classroom student splitters and winner elimination to tournament brackets, synchronized multi-wheels, and live battle simulators, our tools are tailored for real-world workflows without requiring accounts or sign-ins.
+              From classroom student splitters and elimination modes to tournament brackets, synchronized multi-wheels, and casual battle simulators, our tools support practical everyday activities without requiring user accounts or sign-ins.
             </p>
           </div>
         </section>
@@ -159,17 +119,17 @@ export default function AboutPage() {
         {/* Narrative Section */}
         <section className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] shadow-xs space-y-6">
           <h2 className="font-headline text-[24px] sm:text-[28px] font-bold text-[#1a1b22] dark:text-white">
-            Why We Built SpinWheelGames
+            Why We Built {SITE_CONFIG.brandName}
           </h2>
           <div className="space-y-4 text-[15px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
             <p>
-              When teachers pick students in classrooms or creators run live prize giveaways on Twitch and YouTube, fair randomness is critical. Unfortunately, the vast majority of online spinner tools are loaded with disruptive popup ads, slow tracking scripts, and outdated pseudorandom algorithms that can be easily predicted or manipulated.
+              When teachers pick students in classrooms or creators run prize giveaways on live streams, straightforward and fair random selection is essential. Many legacy spinner sites are cluttered with aggressive tracking scripts and outdated pseudorandom generators.
             </p>
             <p>
-              We founded <strong>SpinWheelGames.org</strong> with a simple mission: create a fast, ad-free, mathematically verified random decision platform that respects user privacy and works flawlessly on any screen.
+              We built <strong>{SITE_CONFIG.fullBrandName}</strong> to provide a fast, responsive, privacy-conscious alternative focused on user privacy, mathematical clarity, and smooth accessibility across all devices.
             </p>
             <p>
-              By encoding custom wheels into URL hashes and local browser storage, you can create, share, and embed interactive wheels anywhere without ever sending personal data or class rosters across external networks.
+              By utilizing local browser storage and optional URL hash compression, you can create, share, and embed interactive wheels while keeping participant rosters in your local session.
             </p>
           </div>
 
@@ -180,11 +140,11 @@ export default function AboutPage() {
             </div>
             <div className="flex items-center gap-2.5 text-xs font-semibold text-[#1a1b22] dark:text-white">
               <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-              <span>Offline-Capable Architecture</span>
+              <span>Client-Side Execution Model</span>
             </div>
             <div className="flex items-center gap-2.5 text-xs font-semibold text-[#1a1b22] dark:text-white">
               <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-              <span>Free for Commercial &amp; School Use</span>
+              <span>Free for Educational &amp; Community Use</span>
             </div>
           </div>
         </section>
@@ -197,10 +157,10 @@ export default function AboutPage() {
             </div>
             <div>
               <h2 className="font-headline text-[20px] font-bold text-[#1a1b22] dark:text-white">
-                Technical Specifications &amp; Compliance
+                Technical Specifications &amp; Design Principles
               </h2>
               <p className="text-xs text-[#767586] dark:text-[#908fa1]">
-                Grounded in industry cryptography and web accessibility standards
+                Grounded in web standards, cryptographic randomness, and WCAG accessibility principles
               </p>
             </div>
           </div>
@@ -209,21 +169,21 @@ export default function AboutPage() {
             <div className="bg-white dark:bg-[#181922] p-4 rounded-2xl border border-[#eeedf7] dark:border-[#222330]">
               <div className="font-bold text-[#1a1b22] dark:text-white mb-1">CSPRNG Entropy</div>
               <div className="text-[#464554] dark:text-[#c7c4d7]">
-                IEEE-754 53-bit uniform float conversion from 64-bit hardware entropy array.
+                53-bit uniform float conversion derived from native browser cryptographic entropy arrays.
               </div>
             </div>
 
             <div className="bg-white dark:bg-[#181922] p-4 rounded-2xl border border-[#eeedf7] dark:border-[#222330]">
-              <div className="font-bold text-[#1a1b22] dark:text-white mb-1">A11y (WCAG 2.1 AA)</div>
+              <div className="font-bold text-[#1a1b22] dark:text-white mb-1">Accessibility Principles</div>
               <div className="text-[#464554] dark:text-[#c7c4d7]">
-                Keyboard shortcuts (<kbd>Space</kbd>, <kbd>F</kbd>), ARIA live announcements &amp; Web Speech TTS.
+                Designed with WCAG 2.1 accessibility principles, keyboard shortcuts (<kbd className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-xs">Space</kbd>, <kbd className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-xs">F</kbd>), ARIA live announcements, and contrast legibility.
               </div>
             </div>
 
             <div className="bg-white dark:bg-[#181922] p-4 rounded-2xl border border-[#eeedf7] dark:border-[#222330]">
-              <div className="font-bold text-[#1a1b22] dark:text-white mb-1">Zero Tracking</div>
+              <div className="font-bold text-[#1a1b22] dark:text-white mb-1">Minimal Data Model</div>
               <div className="text-[#464554] dark:text-[#c7c4d7]">
-                No third-party advertising cookies, behavioral tracking pixels, or data collection.
+                Designed to minimize collection of user-provided wheel data with local browser processing.
               </div>
             </div>
           </div>
@@ -233,8 +193,14 @@ export default function AboutPage() {
               href="/fairness"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#4648d4] text-white text-[13px] font-semibold hover:bg-[#3b3dbb] transition-all"
             >
-              Audit Our Cryptographic Algorithm
+              Review Randomness Architecture
               <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/accessibility"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] text-[#1a1b22] dark:text-white text-[13px] font-semibold hover:bg-[#eeedf7] dark:hover:bg-[#222330] transition-all"
+            >
+              Accessibility Details
             </Link>
             <Link
               href="/contact"

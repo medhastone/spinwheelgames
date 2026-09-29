@@ -21,9 +21,9 @@ export const KEYWORD_CONTENT_MATRIX: KeywordContentMatrixItem[] = [
     ],
     searchIntent: 'tool / discovery',
     targetAudience: 'Everyone seeking random decisions, teachers, event hosts, gamers',
-    problemSolved: 'Provides instant, provably fair random selection with custom presets and rich features',
+    problemSolved: 'Provides instant, cryptographically fair random selection with custom presets and rich features',
     toolType: 'Interactive Full-Featured Wheel Engine',
-    uniqueValue: 'Hardware-seeded Web Crypto CSPRNG, zero ads, elimination mode, bulk paste',
+    uniqueValue: 'Web Crypto API CSPRNG, zero ads, elimination mode, bulk paste',
     internalLinks: [
       '/spin-the-wheel',
       '/wheel-of-names',
@@ -33,7 +33,7 @@ export const KEYWORD_CONTENT_MATRIX: KeywordContentMatrixItem[] = [
       '/food-wheel',
       '/number-wheel'
     ],
-    sourceRequirements: ['W3C Web Cryptography API', 'NIST SP 800-90A'],
+    sourceRequirements: ['W3C Web Cryptography API'],
     indexable: true
   },
   {
@@ -127,7 +127,7 @@ export const KEYWORD_CONTENT_MATRIX: KeywordContentMatrixItem[] = [
       '/team-generator',
       '/spin-the-wheel'
     ],
-    sourceRequirements: ['NIST SP 800-90A'],
+    sourceRequirements: ['W3C Web Cryptography API'],
     indexable: true
   },
   {

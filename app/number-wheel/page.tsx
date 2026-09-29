@@ -151,7 +151,7 @@ const JSON_LD_DATA = {
         'Exclude number blacklist',
         'Unique multiple numbers batch draw',
         'No-repeat elimination mode',
-        'Provably fair CSPRNG hardware entropy via Web Cryptography API'
+        'Browser-based cryptographic randomness via Web Crypto API (crypto.getRandomValues)'
       ],
       screenshot: 'https://spinwheelgames.org/spinwheel-logo.webp'
     },
@@ -212,7 +212,7 @@ const JSON_LD_DATA = {
           name: 'Can I use this as a replacement for board game dice (D6, D20)?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes! Click the 1-6 preset for a standard 6-sided die or the 1-20 preset for tabletop RPGs and Dungeons & Dragons D20 rolls. Every face has an exact, provably equal probability.'
+            text: 'Yes! Click the 1-6 preset for a standard 6-sided die or the 1-20 preset for tabletop RPGs and Dungeons & Dragons D20 rolls. Every face has an exact, uniform equal probability.'
           }
         },
         {
@@ -419,7 +419,7 @@ export default function NumberWheelPage() {
                     </span>
                   </div>
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Built for Dungeons & Dragons, Pathfinder, and tabletop roleplaying games. Delivers high-tension natural 20 critical hits and natural 1 fumbles on a certified wheel.
+                    Built for Dungeons & Dragons, Pathfinder, and tabletop roleplaying games. Delivers high-tension natural 20 critical hits and natural 1 fumbles on a cryptographic wheel.
                   </p>
                 </div>
 
@@ -470,11 +470,11 @@ export default function NumberWheelPage() {
                   </ul>
                 </div>
                 <div className="p-4 rounded-xl bg-indigo-50/60 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-900/50 text-xs">
-                  <h3 className="font-bold text-indigo-900 dark:text-indigo-200 mb-1">Our CSPRNG Web Cryptography API</h3>
+                  <h3 className="font-bold text-indigo-900 dark:text-indigo-200 mb-1">Our Web Crypto API (crypto.getRandomValues)</h3>
                   <ul className="space-y-1 text-indigo-800 dark:text-indigo-300 list-disc list-inside">
-                    <li>Hardware thermal noise & OS system entropy</li>
-                    <li>NIST SP 800-90A statistical compliance</li>
-                    <li>Zero predictability, bias, or repeating loops</li>
+                    <li>Browser-based cryptographic randomness</li>
+                    <li>Rejection sampling to eliminate modulo bias</li>
+                    <li>Uniform probability distribution across all numbers</li>
                   </ul>
                 </div>
               </div>

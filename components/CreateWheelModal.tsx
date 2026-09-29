@@ -56,7 +56,7 @@ export default function CreateWheelModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-      <div className="w-full max-w-lg bg-white dark:bg-[#181922] rounded-2xl shadow-2xl p-6 relative border border-[#eeedf7] dark:border-[#313345] animate-bounceIn">
+      <div role="dialog" aria-modal="true" aria-label="Create Custom Wheel" className="w-full max-w-lg bg-white dark:bg-[#181922] rounded-2xl shadow-2xl p-6 relative border border-[#eeedf7] dark:border-[#313345] animate-bounceIn">
         <div className="flex items-center justify-between pb-3 border-b border-[#eeedf7] dark:border-[#222330]">
           <div className="flex items-center gap-2">
             <PlusCircle className="w-5 h-5 text-[#4648d4] dark:text-[#8587ff]" />

@@ -1,20 +1,21 @@
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import Link from 'next/link';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
-import { Scale, CheckCircle2, AlertCircle, Sparkles, ShieldAlert, Code } from 'lucide-react';
+import { Scale, Sparkles, ShieldAlert, FileText, CheckCircle2, Building2 } from 'lucide-react';
+import { SITE_CONFIG } from '@/lib/siteConfig';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - Usage Guidelines & License | SpinWheelGames',
+  title: `Terms of Service - Usage Guidelines & Terms | ${SITE_CONFIG.brandName}`,
   description:
-    'Read the Terms of Service for SpinWheelGames.org. Learn about acceptable use, classroom embedding licenses, commercial giveaway usage, and software disclaimers.',
+    `Read the Terms of Service for ${SITE_CONFIG.fullBrandName}. Guidelines for personal, classroom, broadcast, and community usage, licensing, and liability limitations.`,
   alternates: {
-    canonical: 'https://spinwheelgames.org/terms'
+    canonical: `${SITE_CONFIG.baseUrl}/terms`
   },
   openGraph: {
-    title: 'Terms of Service - SpinWheelGames.org',
+    title: `Terms of Service - ${SITE_CONFIG.fullBrandName}`,
     description: 'Guidelines and conditions for using SpinWheelGames tools and embedding services.',
-    url: 'https://spinwheelgames.org/terms',
+    url: `${SITE_CONFIG.baseUrl}/terms`,
     type: 'website'
   }
 };
@@ -28,13 +29,13 @@ export default function TermsPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://spinwheelgames.org'
+        item: SITE_CONFIG.baseUrl
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Terms of Service',
-        item: 'https://spinwheelgames.org/terms'
+        item: `${SITE_CONFIG.baseUrl}/terms`
       }
     ]
   };
@@ -53,13 +54,13 @@ export default function TermsPage() {
         <section className="space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
             <Scale className="w-3.5 h-3.5" />
-            Legal Agreement
+            Terms &amp; Usage Conditions
           </div>
           <h1 className="font-headline text-[32px] sm:text-[42px] font-extrabold tracking-tight text-[#1a1b22] dark:text-white leading-tight">
             Terms of Service
           </h1>
           <p className="text-[14px] text-[#767586] dark:text-[#908fa1]">
-            Last Updated: September 22, 2026
+            Last Reviewed &amp; Updated: September 2026
           </p>
         </section>
 
@@ -70,75 +71,88 @@ export default function TermsPage() {
             Permitted Use Summary
           </h2>
           <p className="text-[14px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-            SpinWheelGames is completely free to use for personal, educational, streaming, and business purposes. You are welcome to embed our wheels in school portals, live-stream your prize draws on YouTube/Twitch, and create custom wheels for team meetings.
+            {SITE_CONFIG.brandName} is available to use for personal decision-making, classroom instruction, live streaming, team icebreakers, and casual prize drawings. You may embed wheels in web pages and share custom wheel links freely according to these terms.
           </p>
         </section>
 
         {/* Terms Sections */}
         <section className="prose dark:prose-invert max-w-none space-y-8 text-[15px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
           <div className="space-y-3">
-            <h2 className="font-headline text-[22px] font-bold text-[#1a1b22] dark:text-white">
+            <h2 className="font-headline text-[22px] font-bold text-[#1a1b22] dark:text-white flex items-center gap-2">
+              <FileText className="w-5 h-5 text-[#4648d4] dark:text-[#8587ff]" />
               1. Acceptance of Terms
             </h2>
             <p>
-              By accessing, browsing, embedding, or using <strong>SpinWheelGames.org</strong> (&quot;the Service&quot;), you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Service.
+              By accessing, browsing, embedding, or using <strong>{SITE_CONFIG.fullBrandName}</strong> (&quot;the Service&quot;), you acknowledge that you have read, understood, and agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree to these terms, please discontinue use of the Service.
             </p>
           </div>
 
           <div className="space-y-3">
-            <h2 className="font-headline text-[22px] font-bold text-[#1a1b22] dark:text-white">
-              2. Permitted Uses &amp; Embedding License
+            <h2 className="font-headline text-[22px] font-bold text-[#1a1b22] dark:text-white flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-[#4648d4] dark:text-[#8587ff]" />
+              2. Permitted Uses &amp; Embedding
             </h2>
             <p>
-              You are granted a non-exclusive, revocable, worldwide royalty-free license to use the Service for:
+              You are granted a non-exclusive, revocable license to use the Service for legitimate purposes:
             </p>
             <ul className="list-disc pl-5 space-y-1">
-              <li><strong>Educational Classrooms:</strong> Picking students, group assignments, quiz games, and classroom activities on smartboards or student devices.</li>
-              <li><strong>Live Streaming &amp; Events:</strong> Broadcasting wheel spins on Twitch, YouTube, Kick, Discord, or in-person conferences.</li>
-              <li><strong>Promotional Giveaways:</strong> Selecting winners for social media, community, or company raffles in compliance with local giveaway laws.</li>
-              <li><strong>Website Embeds:</strong> Integrating responsive iframes of our wheels into educational websites, intranet dashboards, or blogs.</li>
+              <li><strong>Classroom &amp; Academic Activities:</strong> Student selection, team divisions, math probability demonstrations, and classroom games on interactive displays or student devices.</li>
+              <li><strong>Streaming &amp; Content Creation:</strong> Broadcasting wheel spins during online streams on platforms such as YouTube, Twitch, Kick, or social feeds.</li>
+              <li><strong>Team &amp; Community Events:</strong> Meeting icebreakers, chores, workout randomized routines, and social game nights.</li>
+              <li><strong>Website Embeds:</strong> Embedding interactive wheel iframes on educational portals, blogs, or community sites.</li>
             </ul>
           </div>
 
           <div className="space-y-3">
-            <h2 className="font-headline text-[22px] font-bold text-[#1a1b22] dark:text-white">
-              3. User Content &amp; Intellectual Property
+            <h2 className="font-headline text-[22px] font-bold text-[#1a1b22] dark:text-white flex items-center gap-2">
+              <Building2 className="w-5 h-5 text-[#4648d4] dark:text-[#8587ff]" />
+              3. User Responsibilities &amp; Compliance Requirements
             </h2>
             <p>
-              You retain all ownership and copyright to any custom text, participant names, or image labels you input into the wheel generator. SpinWheelGames.org does not claim any intellectual property rights over user-created lists.
+              You retain ownership of any custom labels, text, or names you enter into our tools. By using the Service, you agree:
             </p>
-            <p>
-              You agree not to input content that is defamatory, harassing, promotes illegal acts, or infringes upon third-party trademarks.
-            </p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Not to submit unlawful, harassing, defamatory, or abusive content into shared wheels or contact messages.</li>
+              <li>Not to attempt to disrupt or abuse the service infrastructure or API endpoints.</li>
+              <li>
+                <strong>Institutional &amp; Regulatory Responsibility:</strong> Schools, teachers, contest organizers, and organizations are responsible for evaluating their own privacy, regulatory, sweepstakes, and compliance requirements (including local raffle laws, COPPA, FERPA, and accessibility standards) before deploying wheels in official settings.
+              </li>
+            </ul>
           </div>
 
           <div className="space-y-3">
-            <h2 className="font-headline text-[22px] font-bold text-[#1a1b22] dark:text-white">
-              4. Disclaimer Regarding Real-Money Gambling &amp; Casino Use
+            <h2 className="font-headline text-[22px] font-bold text-[#1a1b22] dark:text-white flex items-center gap-2">
+              <ShieldAlert className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+              4. Disclaimer Regarding Gambling &amp; Sweepstakes
             </h2>
-            <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-[#1a1b22] dark:text-[#f1effa] text-[14px] flex items-start gap-3">
-              <ShieldAlert className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-              <div>
-                <strong>Not a Licensed Gambling Platform:</strong> SpinWheelGames.org is a decision-support, educational, and casual entertainment tool. While our engine uses hardware-grade CSPRNG (<code className="text-xs">crypto.getRandomValues</code>), the Service is NOT certified or licensed as a real-money gaming, casino roulette, or regulated gambling machine. We disclaim all liability for any real-money wagers or financial disputes conducted using the Service.
-              </div>
+            <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-[#1a1b22] dark:text-[#f1effa] text-[14px]">
+              <p className="font-bold text-amber-900 dark:text-amber-200 mb-1">
+                Not a Licensed Gambling System:
+              </p>
+              <p className="text-xs leading-relaxed text-[#464554] dark:text-[#c7c4d7]">
+                {SITE_CONFIG.brandName} is a decision-support, casual gaming, and educational tool. While random calculations use standard browser cryptographic functions (<code className="text-xs">crypto.getRandomValues</code>), the platform is not licensed as a commercial gaming machine, casino roulette, or regulated lottery system. We disclaim all liability for any financial stakes, commercial bets, or legal disputes arising from user-run contests.
+              </p>
             </div>
           </div>
 
           <div className="space-y-3">
             <h2 className="font-headline text-[22px] font-bold text-[#1a1b22] dark:text-white">
-              5. Limitation of Liability
+              5. Disclaimer of Warranties &amp; Limitation of Liability
             </h2>
             <p>
-              The Service is provided on an &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; basis without warranties of any kind, whether express or implied. In no event shall SpinWheelGames.org, its creators, or contributors be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use the Service.
+              The Service is provided on an &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; basis without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
+            </p>
+            <p>
+              To the maximum extent permitted by applicable law, {SITE_CONFIG.fullBrandName} and its operators shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use the platform.
             </p>
           </div>
 
           <div className="space-y-3">
             <h2 className="font-headline text-[22px] font-bold text-[#1a1b22] dark:text-white">
-              6. Modifications to the Service
+              6. Modifications to the Service and Terms
             </h2>
             <p>
-              We reserve the right to update, enhance, or modify features of the platform at any time without prior notice. Continued use of the platform after updates constitutes acceptance of revised terms.
+              We reserve the right to modify, update, or discontinue features of the Service at any time. Continued use of the platform after updates indicates acceptance of modified terms.
             </p>
           </div>
 
@@ -147,7 +161,14 @@ export default function TermsPage() {
               7. Contact Information
             </h2>
             <p>
-              For legal inquiries, licensing requests, or terms clarification, please contact <a href="mailto:info@spinwheelgames.org" className="text-[#4648d4] dark:text-[#8587ff] font-semibold underline">info@spinwheelgames.org</a> or visit our <Link href="/contact" className="text-[#4648d4] dark:text-[#8587ff] font-semibold underline">Contact Page</Link>.
+              For legal inquiries, licensing questions, or terms clarification, please email{' '}
+              <a href={`mailto:${SITE_CONFIG.supportEmail}`} className="text-[#4648d4] dark:text-[#8587ff] font-semibold underline">
+                {SITE_CONFIG.supportEmail}
+              </a>{' '}
+              or visit our{' '}
+              <Link href="/contact" className="text-[#4648d4] dark:text-[#8587ff] font-semibold underline">
+                Contact Page
+              </Link>.
             </p>
           </div>
         </section>
