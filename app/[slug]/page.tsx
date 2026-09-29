@@ -4,7 +4,7 @@ import { ALL_SEO_PAGES_MAP, getSeoPageByPath, ALL_SEO_PAGES_LIST } from '@/lib/s
 import SeoPageView from '@/components/SeoPageView';
 
 export const dynamic = 'force-static';
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 
 
