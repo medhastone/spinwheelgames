@@ -14,10 +14,48 @@ interface PageProps {
   }>;
 }
 
+const PHYSICAL_STATIC_ROUTES = new Set([
+  'about',
+  'accessibility',
+  'animal-wheel',
+  'bingo-wheel',
+  'challenges',
+  'classroom-wheel',
+  'contact',
+  'dice',
+  'dice-average-calculator',
+  'dice-collection',
+  'dice-roller',
+  'dnd-stat-roller',
+  'drawing-wheel',
+  'fairness',
+  'food-wheel',
+  'games',
+  'movie-wheel',
+  'number-wheel',
+  'privacy',
+  'question-wheel',
+  'random-object-generator',
+  'roll-1d4',
+  'roll-2d12',
+  'roll-3d6',
+  'roll-4d6',
+  'roll-5d6',
+  'roll-d3',
+  'sitemap',
+  'song-wheel',
+  'team-generator',
+  'terms',
+  'theme-wheel',
+  'unusual-dice',
+  'categories',
+  'category'
+]);
+
 export async function generateStaticParams() {
-  // Only 1-segment routes
+  // Only 1-segment routes that are not physical static folders
   return ALL_SEO_PAGES_LIST.filter(
-    (p) => !p.fullPath.includes('/', 1) // e.g. /food-wheel is 1-segment, /food-wheel/dinner is not
+    (p) => !p.fullPath.includes('/', 1) && !PHYSICAL_STATIC_ROUTES.has(p.slug)
   ).map((p) => ({
     slug: p.slug
   }));

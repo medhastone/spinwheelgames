@@ -1134,6 +1134,204 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ]
   },
 
+  'food-wheel/breakfast': {
+    slug: 'breakfast',
+    fullPath: '/food-wheel/breakfast',
+    pageType: 'subtool',
+    title: 'Breakfast Wheel – Free Random Breakfast & Brunch Decider',
+    metaDescription: 'Can\'t decide what to eat for breakfast? Spin our Breakfast Wheel to randomly choose breakfast, brunch, toppings, or healthy recipes in seconds.',
+    h1: 'Breakfast Wheel: Random Breakfast & Brunch Decider',
+    introduction: 'Start your morning with a fun spin. Whether you are craving a healthy quick bite, a heavy weekend brunch, or custom pancake toppings, our Breakfast Wheel makes the choice simple and decisive.',
+    primaryIntent: 'decision',
+    secondaryIntents: ['entertainment', 'transactional/use tool'],
+    categoryKey: 'food',
+    parentCategoryPath: '/food-wheel',
+    parentCategoryName: 'Food Wheel',
+    featureBadges: [
+      'Morning Decision Maker',
+      'Healthy vs Sweet Weighting',
+      'Brunch Friendly',
+      'Instant Spin',
+      'No Account Needed'
+    ],
+    defaultWheelData: {
+      title: 'Breakfast Decider',
+      description: 'Start your day with a surprise meal',
+      paletteKey: 'ocean',
+      items: [
+        { id: 'b-1', text: 'Classic Pancakes & Syrup', weight: 1 },
+        { id: 'b-2', text: 'Avocado Toast & Poached Egg', weight: 1 },
+        { id: 'b-3', text: 'Healthy Oatmeal & Berries', weight: 1 },
+        { id: 'b-4', text: 'Breakfast Burrito', weight: 1 },
+        { id: 'b-5', text: 'Greek Yogurt & Granola Parfait', weight: 1 },
+        { id: 'b-6', text: 'Bacon, Eggs & Hashbrowns', weight: 1 }
+      ]
+    },
+    instructions: [
+      'Think about how much prep time you have.',
+      'Spin the Breakfast Wheel to pick your morning meal.',
+      'Enjoy a stress-free start to your morning!'
+    ],
+    whoItsUsefulFor: [
+      {
+        audience: 'Busy Morning Commuters',
+        benefit: 'Speeds up early morning routines.'
+      }
+    ],
+    useCases: [
+      {
+        title: 'Brunch & Weekend Planning',
+        benefit: 'Fun way to choose a heavy family brunch.'
+      }
+    ],
+    customizationOptions: [
+      {
+        title: 'Prep Time Filtering',
+        description: 'Filter options for <5 mins vs full stovetop cooking.'
+      }
+    ],
+    resultExplanation: 'A random choice generator picks a cryptographically fair recipe slice.',
+    uniqueExamples: [
+      'Quick Breakfasts: Smoothies, Fruit Parfaits, Toast, Chia Pudding'
+    ],
+    tips: [
+      'If you get a heavy meal on a busy workday, spin again for a quick cereal or oatmeal option!'
+    ],
+    uniqueContentBlocks: [
+      {
+        heading: 'The Importance of a Decisive Morning Routine',
+        body: [
+          'Making decisions early in the morning drains your prefrontal cortex\'s focus reserve for the day. Automating breakfast choices keeps you sharper for your work.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Can I add dietary filters?',
+        answer: 'Yes! Type your own gluten-free or low-sugar foods in the entries list.'
+      }
+    ],
+    relatedTools: [
+      { name: 'Food Wheel', path: '/food-wheel', description: 'General cuisine decider.' },
+      { name: 'Dinner Wheel', path: '/food-wheel/dinner', description: 'Evening dinner decider.' }
+    ],
+    relatedWheels: [
+      { name: 'Food Wheel', path: '/food-wheel', count: 8 }
+    ],
+    relatedGuides: [
+      { name: 'How to Use a Wheel for Decisions', path: '/how-to-use-a-wheel', readingTime: '4 min' }
+    ],
+    internalLinks: [
+      { label: 'Back to Food Wheel', href: '/food-wheel', context: 'General cuisine decider.' },
+      { label: 'Explore Food Pillar', href: '/food', context: 'All culinary wheels.' }
+    ],
+    breadcrumbs: [
+      { name: 'Home', item: 'https://spinwheelgames.org' },
+      { name: 'Food', item: 'https://spinwheelgames.org/food' },
+      { name: 'Food Wheel', item: 'https://spinwheelgames.org/food-wheel' },
+      { name: 'Breakfast', item: 'https://spinwheelgames.org/food-wheel/breakfast' }
+    ]
+  },
+
+  'food-wheel/lunch': {
+    slug: 'lunch',
+    fullPath: '/food-wheel/lunch',
+    pageType: 'subtool',
+    title: 'Lunch Wheel – Free Random Lunch, Salad & Sandwich Decider',
+    metaDescription: 'Stuck on what to eat for lunch? Spin our Lunch Wheel to randomly pick sandwiches, salads, leftovers, or local restaurant takeout.',
+    h1: 'Lunch Wheel: Random Lunch & Midday Meal Decider',
+    introduction: 'Break out of your repetitive lunch routine. Spin our Lunch Wheel to choose between healthy home-cooked salads, local diner sandwiches, or quick pantry snacks.',
+    primaryIntent: 'decision',
+    secondaryIntents: ['entertainment', 'transactional/use tool'],
+    categoryKey: 'food',
+    parentCategoryPath: '/food-wheel',
+    parentCategoryName: 'Food Wheel',
+    featureBadges: [
+      'Midday Meal Decider',
+      'Takeout vs Home Weighting',
+      'Fast & Reliable',
+      'Instant Spin',
+      'No Account Needed'
+    ],
+    defaultWheelData: {
+      title: 'Lunch Decider',
+      description: 'Quick midday meal decider',
+      paletteKey: 'sunset',
+      items: [
+        { id: 'l-1', text: 'Chicken Caesar Salad', weight: 1 },
+        { id: 'l-2', text: 'Turkey & Swiss Sandwich', weight: 1 },
+        { id: 'l-3', text: 'Warm Leftovers', weight: 1 },
+        { id: 'l-4', text: 'Local Cafe Soup & Panini', weight: 1 },
+        { id: 'l-5', text: 'Sushi Roll Run', weight: 1 },
+        { id: 'l-6', text: 'Hummus & Veggie Wrap', weight: 1 }
+      ]
+    },
+    instructions: [
+      'Check your lunchbox or nearby local options.',
+      'Spin the Lunch Wheel to decide your meal in seconds.',
+      'Commit to the winner and fuel your afternoon!'
+    ],
+    whoItsUsefulFor: [
+      {
+        audience: 'Office Workers & Remote Staff',
+        benefit: 'Saves precious lunch break minutes spent arguing.'
+      }
+    ],
+    useCases: [
+      {
+        title: 'Corporate Lunch Orders',
+        benefit: 'Impartially picks the lunch restaurant for team outings.'
+      }
+    ],
+    customizationOptions: [
+      {
+        title: 'Budget Filters',
+        description: 'Filter options into $ (cheap fast food) vs $$$ (sit-down lunch).'
+      }
+    ],
+    resultExplanation: 'A secure RNG ensures unbiased midday decision selections.',
+    uniqueExamples: [
+      'Lunch Options: Quinoa Bowls, Ramen, Grilled Paninis, Meal Prep Boxes'
+    ],
+    tips: [
+      'Add your top 5 favorite nearby lunch spots to save time during busy shifts.'
+    ],
+    uniqueContentBlocks: [
+      {
+        heading: 'Overcoming the Lunchtime Slump',
+        body: [
+          'Midday exhaustion often pairs with dinner-level decision fatigue. Automating lunch selection keeps your productivity high without wasting midday willpower.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'How do I add my custom office favorites?',
+        answer: 'Paste them using the bulk editor on the entries panel.'
+      }
+    ],
+    relatedTools: [
+      { name: 'Food Wheel', path: '/food-wheel', description: 'General cuisine decider.' },
+      { name: 'Dinner Wheel', path: '/food-wheel/dinner', description: 'Evening dinner decider.' }
+    ],
+    relatedWheels: [
+      { name: 'Food Wheel', path: '/food-wheel', count: 8 }
+    ],
+    relatedGuides: [
+      { name: 'How to Use a Wheel for Decisions', path: '/how-to-use-a-wheel', readingTime: '4 min' }
+    ],
+    internalLinks: [
+      { label: 'Back to Food Wheel', href: '/food-wheel', context: 'General cuisine decider.' },
+      { label: 'Explore Food Pillar', href: '/food', context: 'All culinary wheels.' }
+    ],
+    breadcrumbs: [
+      { name: 'Home', item: 'https://spinwheelgames.org' },
+      { name: 'Food', item: 'https://spinwheelgames.org/food' },
+      { name: 'Food Wheel', item: 'https://spinwheelgames.org/food-wheel' },
+      { name: 'Lunch', item: 'https://spinwheelgames.org/food-wheel/lunch' }
+    ]
+  },
+
   'food-wheel/pizza': {
     slug: 'pizza',
     fullPath: '/food-wheel/pizza',

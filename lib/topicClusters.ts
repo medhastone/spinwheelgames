@@ -94,6 +94,8 @@ export const TOPIC_CLUSTERS: Record<string, TopicCluster> = {
       '/food-wheel',
       '/food-wheel/dinner',
       '/food-wheel/pizza',
+      '/food-wheel/breakfast',
+      '/food-wheel/lunch',
       '/decision-wheel'
     ],
     supportingGuides: [
@@ -101,7 +103,9 @@ export const TOPIC_CLUSTERS: Record<string, TopicCluster> = {
     ],
     subpages: [
       '/food-wheel/dinner',
-      '/food-wheel/pizza'
+      '/food-wheel/pizza',
+      '/food-wheel/breakfast',
+      '/food-wheel/lunch'
     ],
     clusterSummary: 'Caters to dinner disputes, takeout indecision, office lunch runs, and gourmet cooking inspiration.'
   },
