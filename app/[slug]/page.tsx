@@ -43,6 +43,7 @@ const PHYSICAL_STATIC_ROUTES = new Set([
   'roll-5d6',
   'roll-d3',
   'sitemap',
+  'sitemap-directory',
   'song-wheel',
   'team-generator',
   'terms',
