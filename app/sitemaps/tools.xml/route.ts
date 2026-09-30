@@ -44,6 +44,7 @@ export async function GET() {
     { path: '/terms', changefreq: 'monthly', priority: '0.4' },
     { path: '/accessibility', changefreq: 'monthly', priority: '0.5' },
     { path: '/sitemap', changefreq: 'weekly', priority: '0.6' },
+    { path: '/sitemap-directory', changefreq: 'weekly', priority: '0.6' },
   ];
 
   const existingPaths = new Set(staticRoutes.map((r) => r.path));

@@ -1,10 +1,38 @@
-node_modules/
-.next/
-coverage/
-.DS_Store
-*.log
-.env*
-!.env.example
-bun.lock*
-.open-next/
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
 
+# Testing & Coverage
+/coverage
+
+# Next.js build output
+/.next/
+/out/
+/build
+/dist
+
+# OpenNext / Cloudflare build output
+/.open-next/
+/.wrangler/
+
+# Misc
+.DS_Store
+Thumbs.db
+*.pem
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local environment files
+.env*.local
+.env
+!.env.example
+
+# Vercel / Turbopack
+.vercel
+.turbo
+*.tsbuildinfo
