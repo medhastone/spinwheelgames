@@ -173,7 +173,7 @@ const JSON_LD_DATA = {
 
 export default function MovieWheelPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#0c0d14] text-[#1a1b22] dark:text-[#eeedf7]">
+    <div className="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#0c0d14] text-[#1a1b22] dark:text-[#eeedf7] w-full max-w-full overflow-x-clip">
       <SubpageHeader activePage="/movie-wheel" />
 
       {/* Structured Data */}
@@ -182,7 +182,7 @@ export default function MovieWheelPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_DATA) }}
       />
 
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 lg:pt-32 pb-10 space-y-12">
+      <main className="flex-1 max-w-7xl mx-auto px-3.5 sm:px-6 pt-20 sm:pt-24 lg:pt-28 pb-10 space-y-8 sm:space-y-12 w-full max-w-full overflow-x-clip">
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-[#64748b]">
           <Link href="/" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">

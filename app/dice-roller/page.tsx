@@ -154,7 +154,7 @@ const JSON_LD_DATA = {
 
 export default function DiceRollerPage() {
   return (
-    <div className="min-h-screen bg-[#faf8ff] dark:bg-[#0b0c10] text-[#1a1b22] dark:text-[#f1effa] flex flex-col">
+    <div className="min-h-screen bg-[#faf8ff] dark:bg-[#0b0c10] text-[#1a1b22] dark:text-[#f1effa] flex flex-col w-full max-w-full overflow-x-clip">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_DATA) }}
@@ -162,11 +162,11 @@ export default function DiceRollerPage() {
 
       <Navbar />
 
-      <div className="pt-20 sm:pt-22 lg:pt-24">
+      <div className="pt-20 sm:pt-22 lg:pt-24 w-full max-w-full overflow-x-clip">
         <DiceNavigation />
       </div>
 
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-10">
+      <main className="flex-1 w-full max-w-7xl max-w-full overflow-x-clip mx-auto px-3.5 sm:px-6 py-6 space-y-8 sm:space-y-10">
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

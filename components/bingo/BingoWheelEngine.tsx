@@ -414,26 +414,26 @@ export default function BingoWheelEngine() {
     ];
 
     return (
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4 w-full max-w-full">
         {columns.map((col) => (
-          <div key={col.letter} className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+          <div key={col.letter} className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5 sm:gap-2 w-full max-w-full">
             <div
-              className={`w-10 h-10 rounded-xl border flex items-center justify-center font-black text-lg ${col.color} shrink-0`}
+              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl border flex items-center justify-center font-black text-sm sm:text-lg ${col.color} shrink-0`}
             >
               {col.letter}
             </div>
-            <div className="flex-1 grid grid-cols-5 sm:grid-cols-15 gap-1.5 w-full">
+            <div className="flex-1 grid grid-cols-5 min-[480px]:grid-cols-8 sm:grid-cols-[repeat(15,minmax(0,1fr))] gap-1 sm:gap-1.5 w-full">
               {Array.from({ length: col.max - col.min + 1 }, (_, i) => col.min + i).map((num) => {
                 const isCalled = calledNumbers.includes(num);
                 const isLatest = currentCall?.num === num;
                 return (
                   <div
                     key={num}
-                    className={`aspect-square sm:aspect-auto sm:h-9 rounded-lg flex items-center justify-center text-xs font-bold border transition-all ${
+                    className={`aspect-square sm:aspect-auto sm:h-9 rounded-lg flex items-center justify-center text-[11px] sm:text-xs font-bold border transition-all ${
                       isLatest
-                        ? 'bg-amber-500 text-white font-extrabold border-amber-300 shadow-lg scale-110 animate-bounce'
+                        ? 'bg-amber-500 text-white font-extrabold border-amber-300 shadow-lg scale-105 animate-bounce'
                         : isCalled
-                        ? 'bg-indigo-600 text-white border-indigo-400 font-extrabold shadow-sm'
+                        ? 'bg-indigo-600 text-white border-indigo-400 font-extrabold shadow-xs'
                         : 'bg-slate-100 dark:bg-[#1f202f] text-slate-400 dark:text-slate-500 border-slate-200 dark:border-slate-800'
                     }`}
                   >
@@ -452,8 +452,8 @@ export default function BingoWheelEngine() {
     <div
       className={`transition-all duration-300 ${
         isFullscreen
-          ? 'fixed inset-0 z-50 overflow-y-auto bg-slate-950 text-white p-4 sm:p-8 flex flex-col justify-between'
-          : 'bg-white dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#292a39] shadow-xl rounded-3xl p-4 sm:p-6 lg:p-8'
+          ? 'fixed inset-0 z-50 overflow-y-auto bg-slate-950 text-white p-4 sm:p-8 flex flex-col justify-between w-full max-w-full'
+          : 'bg-white dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#292a39] shadow-xl rounded-2xl sm:rounded-3xl p-3 sm:p-6 lg:p-8 w-full max-w-full overflow-hidden'
       }`}
     >
       {/* Toast Notification */}
@@ -464,47 +464,108 @@ export default function BingoWheelEngine() {
       )}
 
       {/* Header & Controls Bar */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold mb-1 border border-rose-500/20">
-            <Radio className="w-3.5 h-3.5 animate-pulse text-rose-500" />
-            <span>Live Bingo Caller &amp; Game</span>
+      <div className="flex flex-col gap-3 pb-4 sm:pb-6 border-b border-slate-200 dark:border-slate-800">
+        {/* Top Row: Title, Live Badge, and Icon Actions */}
+        <div className="flex items-center justify-between gap-1.5 sm:gap-2 w-full">
+          <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+            <div className="p-1.5 sm:p-2 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 shrink-0">
+              <Radio className="w-3.5 h-3.5 sm:w-5 sm:h-5 animate-pulse" />
+            </div>
+            <div className="min-w-0">
+              <h2 className="text-sm sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-1.5 truncate">
+                <span className="truncate">Bingo Wheel</span>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 shrink-0 capitalize">
+                  {bingoMode}
+                </span>
+              </h2>
+            </div>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
-            <span>Bingo Spin Wheel</span>
+
+          {/* Quick Utility Icon Cluster */}
+          <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+            {/* Favorite */}
             <button
               type="button"
               onClick={handleFavoriteGame}
-              aria-label={isGameFavorited ? 'Remove bingo wheel from profile favorites' : 'Save bingo wheel to profile favorites'}
-              title={isGameFavorited ? 'Saved in Profile Favorites' : 'Save Bingo Wheel to Profile Favorites'}
-              className={`p-1.5 rounded-full transition-all cursor-pointer ${
+              aria-label={isGameFavorited ? 'Remove bingo wheel from favorites' : 'Save bingo wheel to favorites'}
+              className={`p-1.5 sm:p-2 rounded-xl transition-all cursor-pointer min-h-[36px] min-w-[36px] sm:min-h-[38px] sm:min-w-[38px] flex items-center justify-center border ${
                 isGameFavorited
-                  ? 'bg-rose-500/10 text-rose-500 scale-105'
-                  : 'bg-slate-200/80 dark:bg-slate-800 text-slate-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30'
+                  ? 'bg-rose-500/10 text-rose-500 border-rose-300 dark:border-rose-900/50'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-400 border-slate-200 dark:border-slate-700 hover:text-rose-500'
               }`}
             >
-              <Heart className={`w-5 h-5 ${isGameFavorited ? 'fill-rose-500 text-rose-500' : ''}`} />
+              <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isGameFavorited ? 'fill-rose-500 text-rose-500' : ''}`} />
             </button>
-          </h2>
+
+            {/* Sound Toggle */}
+            <button
+              type="button"
+              onClick={() => setSoundEnabled(!soundEnabled)}
+              title={soundEnabled ? 'Mute sound FX' : 'Enable sound FX'}
+              className={`p-1.5 sm:p-2 rounded-xl border transition-all cursor-pointer min-h-[36px] min-w-[36px] sm:min-h-[38px] sm:min-w-[38px] flex items-center justify-center ${
+                soundEnabled
+                  ? 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/30'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-400 border-slate-200 dark:border-slate-700'
+              }`}
+            >
+              {soundEnabled ? <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
+            </button>
+
+            {/* Voice Toggle */}
+            <button
+              type="button"
+              onClick={() => setTtsEnabled(!ttsEnabled)}
+              title={ttsEnabled ? 'Mute Voice Caller' : 'Enable Voice Caller (TTS)'}
+              className={`p-1.5 sm:px-3 sm:py-2 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer min-h-[36px] sm:min-h-[38px] ${
+                ttsEnabled
+                  ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/30'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-400 border-slate-200 dark:border-slate-700'
+              }`}
+            >
+              <Radio className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">{ttsEnabled ? 'Voice ON' : 'Voice OFF'}</span>
+            </button>
+
+            {/* Fullscreen */}
+            <button
+              type="button"
+              onClick={() => setIsFullscreen(!isFullscreen)}
+              title={isFullscreen ? 'Exit Fullscreen Mode' : 'Fullscreen'}
+              className="p-1.5 sm:p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer min-h-[36px] min-w-[36px] sm:min-h-[38px] sm:min-w-[38px] flex items-center justify-center"
+            >
+              {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
+            </button>
+
+            {/* Reset */}
+            <button
+              type="button"
+              onClick={handleResetGame}
+              title="Reset Bingo Game"
+              className="p-1.5 sm:px-3 sm:py-2 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 hover:bg-rose-500/20 font-bold text-xs border border-rose-500/30 flex items-center gap-1.5 transition-all cursor-pointer min-h-[36px] sm:min-h-[38px]"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Reset</span>
+            </button>
+          </div>
         </div>
 
-        {/* Action Controls & Navigation */}
-        <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-          {/* Mode Selector */}
-          <div className="bg-slate-100 dark:bg-[#1a1b26] p-1 rounded-xl flex items-center gap-1 border border-slate-200 dark:border-slate-800 text-xs font-semibold">
+        {/* Second Row: Mode Selector + Spin Speed */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 w-full">
+          {/* Mode Selector Tabs */}
+          <div className="bg-slate-100 dark:bg-[#1a1b26] p-1 rounded-xl flex items-center gap-1 border border-slate-200 dark:border-slate-800 text-xs font-semibold w-full sm:w-auto">
             <button
               type="button"
               onClick={() => {
                 setBingoMode('75-ball');
                 handleResetGame();
               }}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
+              className={`flex-1 sm:flex-initial px-2 sm:px-3 py-1.5 rounded-lg transition-all min-h-[34px] text-[11px] sm:text-xs flex items-center justify-center cursor-pointer ${
                 bingoMode === '75-ball'
                   ? 'bg-indigo-600 text-white shadow-sm font-bold'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              75-Ball
+              75-Ball (US)
             </button>
             <button
               type="button"
@@ -512,13 +573,13 @@ export default function BingoWheelEngine() {
                 setBingoMode('90-ball');
                 handleResetGame();
               }}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
+              className={`flex-1 sm:flex-initial px-2 sm:px-3 py-1.5 rounded-lg transition-all min-h-[34px] text-[11px] sm:text-xs flex items-center justify-center cursor-pointer ${
                 bingoMode === '90-ball'
                   ? 'bg-indigo-600 text-white shadow-sm font-bold'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              90-Ball
+              90-Ball (UK)
             </button>
             <button
               type="button"
@@ -526,174 +587,101 @@ export default function BingoWheelEngine() {
                 setBingoMode('30-ball');
                 handleResetGame();
               }}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
+              className={`flex-1 sm:flex-initial px-2 sm:px-3 py-1.5 rounded-lg transition-all min-h-[34px] text-[11px] sm:text-xs flex items-center justify-center cursor-pointer ${
                 bingoMode === '30-ball'
                   ? 'bg-indigo-600 text-white shadow-sm font-bold'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              30-Ball
+              30-Ball (Mini)
             </button>
           </div>
 
-          {/* Spin Duration / Speed Selector */}
-          <div className="bg-slate-100 dark:bg-[#1a1b26] p-1 rounded-xl flex flex-wrap items-center gap-1 border border-slate-200 dark:border-slate-800 text-xs font-semibold">
-            <button
-              type="button"
-              onClick={() => setSpinSpeed('fast')}
-              title="Fast 1.5s spin speed"
-              className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1 cursor-pointer min-h-[36px] ${
-                spinSpeed === 'fast'
-                  ? 'bg-indigo-600 text-white shadow-sm font-bold'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              <Zap className="w-3.5 h-3.5" />
-              <span>Fast (1.5s)</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setSpinSpeed('standard')}
-              title="Standard 3.5s realistic spin"
-              className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1 cursor-pointer min-h-[36px] ${
-                spinSpeed === 'standard'
-                  ? 'bg-indigo-600 text-white shadow-sm font-bold'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              <span>Standard (3.5s)</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setSpinSpeed('dramatic')}
-              title="Dramatic 5.5s suspense spin"
-              className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1 cursor-pointer min-h-[36px] ${
-                spinSpeed === 'dramatic'
-                  ? 'bg-amber-600 text-white shadow-sm font-bold'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              <span>Dramatic (5.5s)</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setSpinSpeed('epic')}
-              title="Epic 8.5s maximum suspense spin"
-              className={`px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1 cursor-pointer min-h-[36px] ${
-                spinSpeed === 'epic'
-                  ? 'bg-rose-600 text-white shadow-sm font-bold'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              <Flame className="w-3.5 h-3.5" />
-              <span>Epic (8.5s)</span>
-            </button>
+          {/* Spin Speed Selector Chips */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 text-xs font-semibold scrollbar-none w-full sm:w-auto">
+            {(['fast', 'standard', 'dramatic', 'epic'] as const).map((spd) => {
+              const labels = {
+                fast: 'Fast (1.5s)',
+                standard: '3.5s',
+                dramatic: '5.5s',
+                epic: '8.5s'
+              };
+              return (
+                <button
+                  key={spd}
+                  type="button"
+                  onClick={() => setSpinSpeed(spd)}
+                  className={`shrink-0 px-2 sm:px-2.5 py-1 rounded-lg transition-all cursor-pointer min-h-[32px] text-[10px] sm:text-[11px] font-bold ${
+                    spinSpeed === spd
+                      ? 'bg-indigo-600 text-white shadow-xs'
+                      : 'bg-slate-100 dark:bg-[#1a1b26] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800'
+                  }`}
+                >
+                  {labels[spd]}
+                </button>
+              );
+            })}
+            <span className="text-[10px] sm:text-[11px] text-slate-400 dark:text-slate-500 font-medium ml-1 shrink-0">
+              {remainingNumbers.length}/{totalNumbers} balls
+            </span>
           </div>
-
-          {/* Sound & Audio Toggles */}
-          <button
-            type="button"
-            onClick={() => setSoundEnabled(!soundEnabled)}
-            title={soundEnabled ? 'Mute sound FX' : 'Enable sound FX'}
-            className={`p-2.5 rounded-xl border transition-all ${
-              soundEnabled
-                ? 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/30'
-                : 'bg-slate-100 dark:bg-slate-800 text-slate-400 border-slate-200 dark:border-slate-700'
-            }`}
-          >
-            {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setTtsEnabled(!ttsEnabled)}
-            title={ttsEnabled ? 'Mute Voice Caller' : 'Enable Voice Caller (TTS)'}
-            className={`px-3 py-2 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-all ${
-              ttsEnabled
-                ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/30'
-                : 'bg-slate-100 dark:bg-slate-800 text-slate-400 border-slate-200 dark:border-slate-700'
-            }`}
-          >
-            <Radio className="w-3.5 h-3.5" />
-            <span>{ttsEnabled ? 'Voice ON' : 'Voice OFF'}</span>
-          </button>
-
-          {/* Fullscreen Classroom Mode Toggle */}
-          <button
-            type="button"
-            onClick={() => setIsFullscreen(!isFullscreen)}
-            title={isFullscreen ? 'Exit Fullscreen Mode' : 'Enter Fullscreen Classroom Mode'}
-            className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700"
-          >
-            {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-          </button>
-
-          {/* Reset Game Button */}
-          <button
-            type="button"
-            onClick={handleResetGame}
-            className="px-3.5 py-2 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 hover:bg-rose-500/20 font-bold text-xs border border-rose-500/30 flex items-center gap-1.5 transition-all cursor-pointer"
-          >
-            <RotateCcw className="w-3.5 h-3.5" />
-            <span>Reset Game</span>
-          </button>
         </div>
       </div>
 
       {/* Main View Switcher Tabs */}
-      <div className="flex items-center gap-2 mt-6 mb-6 border-b border-slate-200 dark:border-slate-800 pb-2 overflow-x-auto">
+      <div className="flex items-center gap-1.5 sm:gap-2 mt-4 sm:mt-6 mb-4 sm:mb-6 border-b border-slate-200 dark:border-slate-800 pb-2 overflow-x-auto scrollbar-none w-full max-w-full">
         <button
           type="button"
           onClick={() => setActiveTab('caller')}
-          className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all cursor-pointer whitespace-nowrap ${
+          className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 sm:gap-2 transition-all cursor-pointer whitespace-nowrap shrink-0 ${
             activeTab === 'caller'
               ? 'bg-indigo-600 text-white shadow-md'
               : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
           }`}
         >
-          <Play className="w-4 h-4" />
+          <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           <span>Bingo Caller Wheel</span>
         </button>
 
         <button
           type="button"
           onClick={() => setActiveTab('board')}
-          className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all cursor-pointer whitespace-nowrap ${
+          className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 sm:gap-2 transition-all cursor-pointer whitespace-nowrap shrink-0 ${
             activeTab === 'board'
               ? 'bg-indigo-600 text-white shadow-md'
               : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
           }`}
         >
-          <Grid className="w-4 h-4" />
+          <Grid className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           <span>Master Call Board ({calledNumbers.length}/{totalNumbers})</span>
         </button>
 
         <button
           type="button"
           onClick={() => setActiveTab('cards')}
-          className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all cursor-pointer whitespace-nowrap ${
+          className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 sm:gap-2 transition-all cursor-pointer whitespace-nowrap shrink-0 ${
             activeTab === 'cards'
               ? 'bg-indigo-600 text-white shadow-md'
               : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
           }`}
         >
-          <Gamepad2 className="w-4 h-4" />
+          <Gamepad2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           <span>Player Cards ({playerCards.length})</span>
         </button>
       </div>
 
       {/* TAB 1: BINGO CALLER & WHEEL */}
       {activeTab === 'caller' && (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center w-full max-w-full">
           {/* Wheel & Animation Column */}
-          <div className="lg:col-span-7 flex flex-col items-center justify-center relative">
+          <div className="lg:col-span-7 flex flex-col items-center justify-center relative w-full max-w-full">
             {/* Visual Pointer */}
-            <div className="z-20 -mb-5 flex flex-col items-center">
-              <div className="w-0 h-0 border-l-[14px] border-l-transparent border-r-[14px] border-r-transparent border-t-[28px] border-t-rose-500 filter drop-shadow-md animate-pulse" />
+            <div className="z-20 -mb-4 sm:-mb-5 flex flex-col items-center">
+              <div className="w-0 h-0 border-l-[10px] sm:border-l-[14px] border-l-transparent border-r-[10px] sm:border-r-[14px] border-r-transparent border-t-[22px] sm:border-t-[28px] border-t-rose-500 filter drop-shadow-md animate-pulse" />
             </div>
 
             {/* Spinning Wheel Graphic */}
-            <div className="relative w-full max-w-[min(92vw,380px)] aspect-square sm:max-w-[420px] lg:max-w-[460px] rounded-full p-2 bg-gradient-to-tr from-indigo-600 via-purple-600 to-rose-500 shadow-2xl flex items-center justify-center touch-manipulation">
+            <div className="relative w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[400px] lg:max-w-[460px] aspect-square rounded-full p-2 bg-gradient-to-tr from-indigo-600 via-purple-600 to-rose-500 shadow-2xl flex items-center justify-center touch-manipulation">
               <div
                 className="w-full h-full rounded-full relative overflow-hidden transition-all ease-out cursor-pointer"
                 onClick={spinAndCallNumber}
@@ -745,7 +733,7 @@ export default function BingoWheelEngine() {
                   return (
                     <div
                       key={`label-${num}-${i}`}
-                      className="absolute inset-0 flex flex-col items-center justify-start pt-3 pointer-events-none text-white font-extrabold text-[10px] sm:text-xs"
+                      className="absolute inset-0 flex flex-col items-center justify-start pt-2 sm:pt-3 pointer-events-none text-white font-extrabold text-[9px] sm:text-xs"
                       style={{
                         transform: `rotate(${middleAngle}deg)`,
                         transformOrigin: '50% 50%'
@@ -765,23 +753,23 @@ export default function BingoWheelEngine() {
                 onClick={spinAndCallNumber}
                 disabled={isSpinning || remainingNumbers.length === 0}
                 aria-label="Spin Bingo Caller"
-                className="absolute w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-slate-900 border-4 border-white dark:border-slate-800 shadow-2xl flex flex-col items-center justify-center text-center z-10 cursor-pointer active:scale-95 transition-transform"
+                className="absolute w-24 h-24 xs:w-28 xs:h-28 sm:w-36 sm:h-36 rounded-full bg-slate-900 border-2 sm:border-4 border-white dark:border-slate-800 shadow-2xl flex flex-col items-center justify-center text-center z-10 cursor-pointer active:scale-95 transition-transform"
               >
                 {currentCall ? (
                   <div className="animate-in zoom-in-50 duration-300">
                     {currentCall.letter && (
-                      <span className="text-sm font-black text-rose-400 uppercase tracking-widest block leading-none">
+                      <span className="text-xs sm:text-sm font-black text-rose-400 uppercase tracking-widest block leading-none">
                         {currentCall.letter}
                       </span>
                     )}
-                    <span className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-none">
+                    <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-white tracking-tight leading-none">
                       {currentCall.num}
                     </span>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center">
-                    <Sparkles className="w-6 h-6 text-indigo-400 mb-1 animate-pulse" />
-                    <span className="text-[11px] font-bold text-slate-300 uppercase tracking-wider">
+                    <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-400 mb-0.5 sm:mb-1 animate-pulse" />
+                    <span className="text-[10px] sm:text-[11px] font-bold text-slate-300 uppercase tracking-wider">
                       Ready!
                     </span>
                   </div>
@@ -790,12 +778,12 @@ export default function BingoWheelEngine() {
             </div>
 
             {/* Spin CTA Button */}
-            <div className="mt-8 flex flex-col items-center gap-3">
+            <div className="mt-6 sm:mt-8 flex flex-col items-center gap-2.5 sm:gap-3 w-full max-w-full px-2">
               <button
                 type="button"
                 onClick={spinAndCallNumber}
                 disabled={isSpinning || remainingNumbers.length === 0}
-                className={`px-8 py-4 rounded-2xl text-lg font-black tracking-wide shadow-2xl transition-all transform active:scale-95 flex items-center gap-3 cursor-pointer ${
+                className={`w-full max-w-xs sm:max-w-md py-3.5 sm:py-4 px-4 sm:px-8 rounded-2xl text-sm sm:text-lg font-black tracking-wide shadow-2xl transition-all transform active:scale-95 flex items-center justify-center gap-2.5 sm:gap-3 cursor-pointer text-center ${
                   isSpinning
                     ? 'bg-slate-700 text-slate-400 cursor-not-allowed'
                     : remainingNumbers.length === 0
@@ -803,20 +791,20 @@ export default function BingoWheelEngine() {
                     : 'bg-gradient-to-r from-rose-500 via-purple-600 to-indigo-600 hover:from-rose-600 hover:to-indigo-700 text-white shadow-rose-500/25 hover:scale-105'
                 }`}
               >
-                <Shuffle className={`w-6 h-6 ${isSpinning ? 'animate-spin' : ''}`} />
-                <span>{isSpinning ? 'SPINNING BINGO WHEEL...' : 'CALL NEXT BINGO NUMBER'}</span>
+                <Shuffle className={`w-5 h-5 sm:w-6 sm:h-6 shrink-0 ${isSpinning ? 'animate-spin' : ''}`} />
+                <span className="truncate">{isSpinning ? 'SPINNING BINGO WHEEL...' : 'CALL NEXT BINGO NUMBER'}</span>
               </button>
 
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-semibold">
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-semibold text-center">
                 {remainingNumbers.length} of {totalNumbers} Numbers Remaining in Cage
               </span>
             </div>
           </div>
 
           {/* Current Call Details & Recent Call Log Panel */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-4 sm:space-y-6 w-full max-w-full">
             {/* Big Screen Display Box */}
-            <div className="bg-slate-900 text-white rounded-3xl p-6 border border-slate-800 shadow-2xl flex flex-col items-center justify-center text-center relative overflow-hidden">
+            <div className="bg-slate-900 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-slate-800 shadow-2xl flex flex-col items-center justify-center text-center relative overflow-hidden w-full max-w-full">
               <div className="absolute -right-8 -top-8 w-32 h-32 bg-rose-500/10 rounded-full blur-2xl" />
               <div className="absolute -left-8 -bottom-8 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl" />
 
@@ -827,11 +815,11 @@ export default function BingoWheelEngine() {
               {currentCall ? (
                 <div className="my-2 flex items-center justify-center gap-3">
                   {currentCall.letter && (
-                    <span className="text-5xl sm:text-6xl font-black text-rose-500 tracking-tight">
+                    <span className="text-4xl sm:text-6xl font-black text-rose-500 tracking-tight">
                       {currentCall.letter}
                     </span>
                   )}
-                  <span className="text-6xl sm:text-7xl font-black text-white tracking-tight drop-shadow-md">
+                  <span className="text-5xl sm:text-7xl font-black text-white tracking-tight drop-shadow-md">
                     {currentCall.num}
                   </span>
                 </div>
@@ -850,7 +838,7 @@ export default function BingoWheelEngine() {
             </div>
 
             {/* Recent Call Sequence Log */}
-            <div className="bg-slate-50 dark:bg-[#181924] rounded-2xl p-5 border border-slate-200 dark:border-slate-800">
+            <div className="bg-slate-50 dark:bg-[#181924] rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800 w-full max-w-full">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
                   <History className="w-4 h-4 text-indigo-500" />
@@ -862,14 +850,14 @@ export default function BingoWheelEngine() {
               </div>
 
               {calledNumbers.length > 0 ? (
-                <div className="flex flex-wrap gap-2 max-h-48 overflow-y-auto pr-1">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 max-h-48 overflow-y-auto pr-1">
                   {calledNumbers.map((num, idx) => {
                     const info = getBingoLetterAndColor(num, bingoMode);
                     const isLatest = idx === 0;
                     return (
                       <div
                         key={`recent-${num}-${idx}`}
-                        className={`px-3 py-1.5 rounded-xl text-xs font-black flex items-center gap-1 border transition-all ${
+                        className={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl text-xs font-black flex items-center gap-1 border transition-all ${
                           isLatest
                             ? 'bg-rose-500 text-white border-rose-400 shadow-md scale-105'
                             : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-700'
@@ -893,10 +881,10 @@ export default function BingoWheelEngine() {
 
       {/* TAB 2: MASTER CALL BOARD */}
       {activeTab === 'board' && (
-        <div className="space-y-6">
-          <div className="flex items-center justify-between">
+        <div className="space-y-4 sm:space-y-6 w-full max-w-full">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <div>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 <span>Master Bingo Board</span>
                 <span className="text-xs px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
                   {calledNumbers.length} / {totalNumbers} Called
@@ -908,20 +896,20 @@ export default function BingoWheelEngine() {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-[#161722] p-4 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div className="bg-white dark:bg-[#161722] p-3 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm w-full max-w-full overflow-hidden">
             {bingoMode === '75-ball' ? (
               renderMasterBoard75()
             ) : (
-              <div className="grid grid-cols-5 sm:grid-cols-10 gap-2">
+              <div className="grid grid-cols-5 min-[480px]:grid-cols-6 sm:grid-cols-10 gap-1.5 sm:gap-2 w-full max-w-full">
                 {Array.from({ length: totalNumbers }, (_, i) => i + 1).map((num) => {
                   const isCalled = calledNumbers.includes(num);
                   const isLatest = currentCall?.num === num;
                   return (
                     <div
                       key={num}
-                      className={`h-10 rounded-xl flex items-center justify-center text-xs font-bold border transition-all ${
+                      className={`h-9 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center text-[11px] sm:text-xs font-bold border transition-all ${
                         isLatest
-                          ? 'bg-amber-500 text-white border-amber-300 shadow-lg scale-110 font-black animate-pulse'
+                          ? 'bg-amber-500 text-white border-amber-300 shadow-lg scale-105 font-black animate-pulse'
                           : isCalled
                           ? 'bg-indigo-600 text-white border-indigo-400 font-black'
                           : 'bg-slate-100 dark:bg-[#1f202f] text-slate-400 border-slate-200 dark:border-slate-800'
@@ -939,10 +927,10 @@ export default function BingoWheelEngine() {
 
       {/* TAB 3: PLAYER CARDS & DAUBER */}
       {activeTab === 'cards' && (
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6 w-full max-w-full">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 <span>Interactive Player Bingo Cards</span>
                 <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
                   Interactive Marker
@@ -956,28 +944,28 @@ export default function BingoWheelEngine() {
             <button
               type="button"
               onClick={addPlayerCard}
-              className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md transition-all cursor-pointer"
+              className="px-3.5 sm:px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md transition-all cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               <span>Add Player Card</span>
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full max-w-full">
             {playerCards.map((card, cardIdx) => {
               const hasBingo = checkCardBingo(card);
 
               return (
                 <div
                   key={card.id}
-                  className={`bg-white dark:bg-[#161722] p-5 rounded-2xl border transition-all relative ${
+                  className={`bg-white dark:bg-[#161722] p-3.5 sm:p-5 rounded-2xl border transition-all relative w-full max-w-full overflow-hidden ${
                     hasBingo
                       ? 'border-emerald-500 shadow-2xl ring-2 ring-emerald-500/30'
                       : 'border-slate-200 dark:border-slate-800 shadow-sm'
                   }`}
                 >
                   {/* Card Header */}
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4 gap-2">
                     <input
                       type="text"
                       value={card.name}
@@ -989,19 +977,19 @@ export default function BingoWheelEngine() {
                           return updated;
                         });
                       }}
-                      className="text-base font-extrabold bg-transparent text-slate-900 dark:text-white focus:outline-none border-b border-transparent hover:border-slate-300 dark:hover:border-slate-700"
+                      className="text-sm sm:text-base font-extrabold bg-transparent text-slate-900 dark:text-white focus:outline-none border-b border-transparent hover:border-slate-300 dark:hover:border-slate-700 min-w-0"
                     />
 
                     {hasBingo && (
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500 text-white text-xs font-black shadow-lg animate-bounce">
+                      <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-emerald-500 text-white text-[11px] sm:text-xs font-black shadow-lg animate-bounce shrink-0">
                         <Trophy className="w-3.5 h-3.5" />
-                        <span>BINGO WINNER!</span>
+                        <span>BINGO!</span>
                       </div>
                     )}
                   </div>
 
                   {/* 5x5 Bingo Grid Header */}
-                  <div className="grid grid-cols-5 gap-1.5 mb-1.5 text-center font-black text-sm text-slate-700 dark:text-slate-300 uppercase">
+                  <div className="grid grid-cols-5 gap-1 sm:gap-1.5 mb-1 sm:mb-1.5 text-center font-black text-xs sm:text-sm text-slate-700 dark:text-slate-300 uppercase">
                     <span className="text-blue-600">B</span>
                     <span className="text-rose-600">I</span>
                     <span className="text-purple-600">N</span>
@@ -1010,7 +998,7 @@ export default function BingoWheelEngine() {
                   </div>
 
                   {/* Grid Cells */}
-                  <div className="grid grid-cols-5 gap-1.5">
+                  <div className="grid grid-cols-5 gap-1 sm:gap-1.5">
                     {card.grid.map((rowArr, r) =>
                       rowArr.map((cellVal, c) => {
                         const isDaubed = card.daubed[r][c];
@@ -1021,14 +1009,14 @@ export default function BingoWheelEngine() {
                             key={`cell-${r}-${c}`}
                             type="button"
                             onClick={() => toggleDaub(cardIdx, r, c)}
-                            className={`aspect-square rounded-xl flex items-center justify-center font-bold text-xs transition-all cursor-pointer ${
+                            className={`aspect-square rounded-lg sm:rounded-xl flex items-center justify-center font-bold text-[11px] sm:text-xs transition-all cursor-pointer ${
                               isDaubed
                                 ? 'bg-rose-500 text-white font-extrabold scale-95 shadow-inner'
                                 : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700'
                             }`}
                           >
                             {isFree ? (
-                              <span className="text-[10px] font-black text-amber-500">FREE</span>
+                              <span className="text-[9px] sm:text-[10px] font-black text-amber-500">FREE</span>
                             ) : (
                               cellVal
                             )}

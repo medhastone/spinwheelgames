@@ -317,24 +317,24 @@ export default function Navbar({
 
   return (
     <>
-      <header className="fixed top-0 w-full z-50 bg-[#fbf8ff]/95 dark:bg-[#12131a]/95 backdrop-blur-xl border-b border-[#eeedf7] dark:border-[#222330] shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-        <div ref={navRef} className="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-22 lg:h-24 flex items-center justify-between gap-3">
+      <header className="fixed top-0 w-full max-w-full overflow-x-clip z-50 bg-[#fbf8ff]/95 dark:bg-[#12131a]/95 backdrop-blur-xl border-b border-[#eeedf7] dark:border-[#222330] shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+        <div ref={navRef} className="max-w-7xl mx-auto px-3 sm:px-6 h-14 sm:h-20 lg:h-24 flex items-center justify-between gap-2 sm:gap-3 w-full">
           
           {/* Brand Logo */}
-          <div className="flex items-center gap-4 lg:gap-8">
+          <div className="flex items-center gap-2 sm:gap-4 lg:gap-8 min-w-0">
             <button
               type="button"
               onClick={handleLogoClick}
-              className="flex items-center gap-2 group text-left cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98]"
+              className="flex items-center gap-2 group text-left cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98] shrink-0"
               aria-label="SpinWheelGames Home"
             >
-              <div className="relative h-14 sm:h-16 lg:h-18 w-auto flex items-center">
+              <div className="relative h-9 sm:h-14 lg:h-18 w-auto flex items-center">
                 <Image
                   src="/spinwheel-logo-v2.webp"
                   alt="SpinWheelGames Logo"
                   width={280}
                   height={72}
-                  className="h-13 sm:h-15 lg:h-17 w-auto object-contain max-h-[68px] dark:drop-shadow-[0_0_16px_rgba(133,135,255,0.45)] dark:brightness-110"
+                  className="h-8 sm:h-13 lg:h-17 w-auto object-contain max-h-[68px] dark:drop-shadow-[0_0_16px_rgba(133,135,255,0.45)] dark:brightness-110"
                   priority
                   unoptimized
                   referrerPolicy="no-referrer"
@@ -585,7 +585,7 @@ export default function Navbar({
           </div>
 
           {/* Quick Actions (Dice, Search, Create, Sound, Theme, User) */}
-          <div className="flex items-center gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             
             {/* Search Trigger */}
             <button
@@ -593,7 +593,7 @@ export default function Navbar({
               type="button"
               onClick={handleOpenSearch}
               aria-label="Search wheels"
-              className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] hover:bg-[#eae8f7] dark:hover:bg-[#282937] text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white transition-colors border border-[#eeedf7] dark:border-[#292a39] text-xs sm:text-[13px] font-semibold cursor-pointer"
+              className="flex items-center gap-2 p-2 sm:px-3 sm:py-2 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] hover:bg-[#eae8f7] dark:hover:bg-[#282937] text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white transition-colors border border-[#eeedf7] dark:border-[#292a39] text-xs sm:text-[13px] font-semibold cursor-pointer"
             >
               <Search className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
               <span className="hidden sm:inline">Search</span>
@@ -618,7 +618,7 @@ export default function Navbar({
               type="button"
               onClick={handleToggleSound}
               aria-label={isSoundActive ? 'Mute sound effects' : 'Enable sound effects'}
-              className="p-2 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white border border-[#eeedf7] dark:border-[#292a39] transition-colors cursor-pointer"
+              className="hidden sm:flex p-2 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white border border-[#eeedf7] dark:border-[#292a39] transition-colors cursor-pointer"
               title={isSoundActive ? 'Sound On' : 'Sound Off'}
             >
               {isSoundActive ? (
@@ -645,7 +645,7 @@ export default function Navbar({
             </button>
 
             {/* User Profile / Saved Wheels */}
-            <div className="relative flex items-center">
+            <div className="relative hidden sm:flex items-center">
               <button
                 type="button"
                 onClick={() => {
@@ -876,6 +876,16 @@ export default function Navbar({
 
               <button
                 type="button"
+                onClick={handleToggleSound}
+                className="py-2.5 px-3 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] text-[#464554] dark:text-[#c7c4d7] text-xs font-bold flex items-center justify-center gap-1.5 min-h-[44px]"
+                title={isSoundActive ? 'Sound On' : 'Sound Off'}
+              >
+                {isSoundActive ? <Volume2 className="w-4 h-4 text-[#4648d4] dark:text-[#8587ff]" /> : <VolumeX className="w-4 h-4 text-[#767586]" />}
+                <span>{isSoundActive ? 'Sound' : 'Muted'}</span>
+              </button>
+
+              <button
+                type="button"
                 onClick={() => {
                   handleOpenCreateWheel();
                   setMobileMenuOpen(false);
@@ -883,7 +893,7 @@ export default function Navbar({
                 className="flex-1 py-2.5 px-3 rounded-xl bg-[#4648d4] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm min-h-[44px]"
               >
                 <Plus className="w-4 h-4" />
-                <span>Create Wheel</span>
+                <span>Create</span>
               </button>
             </div>
           </div>

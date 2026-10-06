@@ -19,7 +19,9 @@ export const viewport: Viewport = {
   themeColor: '#4648d4',
   width: 'device-width',
   initialScale: 1,
+  minimumScale: 1,
   maximumScale: 5,
+  userScalable: true,
 };
 
 export const metadata: Metadata = {
@@ -180,7 +182,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body suppressHydrationWarning className="antialiased bg-[#fbf8ff] dark:bg-[#0c0d14] text-[#1a1b22] dark:text-[#eeedf7]">
+      <body suppressHydrationWarning className="antialiased bg-[#fbf8ff] dark:bg-[#0c0d14] text-[#1a1b22] dark:text-[#eeedf7] w-full max-w-full overflow-x-clip">
         {children}
         <ScrollToTop />
       </body>

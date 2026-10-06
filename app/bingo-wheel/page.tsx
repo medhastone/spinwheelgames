@@ -192,46 +192,46 @@ export default function BingoWheelPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_DATA) }}
       />
 
-      <div className="min-h-screen flex flex-col bg-[#faf8fd] dark:bg-[#0c0d14] text-[#1a1b22] dark:text-[#eeedf7]">
+      <div className="min-h-screen flex flex-col bg-[#faf8fd] dark:bg-[#0c0d14] text-[#1a1b22] dark:text-[#eeedf7] w-full max-w-full overflow-x-clip">
         {/* Global Header */}
         <SubpageHeader activePage="/bingo-wheel" />
 
-        {/* Breadcrumb Navigation */}
+        {/* Breadcrumb Navigation - fully visible on mobile & desktop */}
         <nav
           aria-label="Breadcrumbs"
-          className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 lg:pt-32 pb-2 text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1.5 w-full"
+          className="flex flex-wrap items-center gap-1.5 max-w-7xl mx-auto px-3.5 sm:px-6 pt-16 sm:pt-20 lg:pt-24 pb-1 sm:pb-2 text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 w-full"
         >
           <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
+          <ChevronRight className="w-3.5 h-3.5 text-gray-400 shrink-0" />
           <Link href="/classroom-wheel" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
             Games & Classroom
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
+          <ChevronRight className="w-3.5 h-3.5 text-gray-400 shrink-0" />
           <span className="font-semibold text-gray-800 dark:text-gray-200" aria-current="page">
             Bingo Wheel
           </span>
         </nav>
 
         {/* Hero Section */}
-        <main className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
-          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-700 dark:text-rose-400 text-xs font-bold mb-3 border border-rose-500/20">
+        <main className="max-w-7xl mx-auto px-3 sm:px-6 pt-2 sm:pt-3 pb-6 w-full max-w-full overflow-x-clip">
+          <div className="text-center max-w-3xl mx-auto mb-2 sm:mb-6 px-1">
+            <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-rose-500/10 text-rose-700 dark:text-rose-400 text-[11px] sm:text-xs font-bold mb-2 sm:mb-3 border border-rose-500/20">
               <Dices className="w-3.5 h-3.5" />
               <span>Random Bingo Number Generator & Live Caller</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-headline tracking-tight text-gray-900 dark:text-white mb-3">
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-black font-headline tracking-tight text-gray-900 dark:text-white mb-1.5 sm:mb-2">
               Bingo Spin Wheel
             </h1>
 
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-xs sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
               Spin a free bingo wheel to randomly call numbers without repeats. Perfect for classroom games, family bingo, parties and events.
             </p>
           </div>
 
           {/* Interactive Bingo Wheel Engine Tool */}
-          <div className="mb-10">
+          <div className="mb-6 sm:mb-12 w-full max-w-full">
             <BingoWheelEngine />
           </div>
 

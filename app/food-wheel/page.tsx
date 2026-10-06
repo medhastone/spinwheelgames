@@ -173,7 +173,7 @@ const JSON_LD_DATA = {
 
 export default function FoodWheelPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#fcfbfe] dark:bg-[#0f1017] text-[#1f2029] dark:text-[#e4e1ed] transition-colors">
+    <div className="min-h-screen flex flex-col bg-[#fcfbfe] dark:bg-[#0f1017] text-[#1f2029] dark:text-[#e4e1ed] transition-colors w-full max-w-full overflow-x-clip">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_DATA) }}
@@ -182,7 +182,7 @@ export default function FoodWheelPage() {
       {/* Global Header */}
       <SubpageHeader activePage="/food-wheel" />
 
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 lg:pt-32 pb-16 flex-1 w-full">
+      <main className="max-w-7xl mx-auto px-3.5 sm:px-6 pt-20 sm:pt-24 lg:pt-28 pb-16 flex-1 w-full max-w-full overflow-x-clip">
           {/* Breadcrumb Navigation */}
           <div className="mb-4">
             <nav aria-label="Breadcrumbs" className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">

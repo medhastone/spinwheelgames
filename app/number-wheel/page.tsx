@@ -240,46 +240,46 @@ export default function NumberWheelPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_DATA) }}
       />
 
-      <div className="min-h-screen flex flex-col bg-[#faf8fd] dark:bg-[#0c0d14] text-[#1a1b22] dark:text-[#eeedf7]">
+      <div className="min-h-screen flex flex-col bg-[#faf8fd] dark:bg-[#0c0d14] text-[#1a1b22] dark:text-[#eeedf7] w-full max-w-full overflow-x-clip">
         {/* Global Header */}
         <SubpageHeader activePage="/number-wheel" />
 
-        {/* Breadcrumb Navigation */}
+        {/* Breadcrumb Navigation - fully visible on mobile & desktop */}
         <nav
           aria-label="Breadcrumbs"
-          className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 lg:pt-32 pb-2 text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1.5 w-full"
+          className="flex flex-wrap items-center gap-1.5 max-w-7xl mx-auto px-3.5 sm:px-6 pt-16 sm:pt-20 lg:pt-24 pb-1 sm:pb-2 text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 w-full"
         >
           <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
+          <ChevronRight className="w-3.5 h-3.5 text-gray-400 shrink-0" />
           <Link href="/numbers" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
             Numbers & Dice
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
+          <ChevronRight className="w-3.5 h-3.5 text-gray-400 shrink-0" />
           <span className="font-semibold text-gray-800 dark:text-gray-200" aria-current="page">
             Number Spin Wheel
           </span>
         </nav>
 
         {/* Hero Section */}
-        <main className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
-          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 text-xs font-semibold mb-3 border border-indigo-500/20">
+        <main className="max-w-7xl mx-auto px-3.5 sm:px-6 pt-2 sm:pt-3 pb-6 w-full max-w-full overflow-x-clip">
+          <div className="text-center max-w-3xl mx-auto mb-3 sm:mb-6 px-1">
+            <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 text-[11px] sm:text-xs font-semibold mb-2 sm:mb-3 border border-indigo-500/20">
               <Binary className="w-3.5 h-3.5" />
               <span>CSPRNG Cryptographically Fair Number Picker</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-headline tracking-tight text-gray-900 dark:text-white mb-3">
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-black font-headline tracking-tight text-gray-900 dark:text-white mb-1.5 sm:mb-2">
               Number Spin Wheel
             </h1>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-xs sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
               Spin a random number wheel online. Choose any range (1-4, 1-6, 1-10, 1-20, 1-50, 1-100 or custom),
               generate unique numbers, exclude numbers, and use the result for games, decisions, or classroom activities.
             </p>
           </div>
 
           {/* Interactive Tool Engine */}
-          <div className="mb-14">
+          <div className="mb-6 sm:mb-14 w-full max-w-full">
             <NumberWheelEngine />
           </div>
 
@@ -484,52 +484,102 @@ export default function NumberWheelPage() {
               </div>
             </div>
 
-            {/* Comparison Table */}
-            <div className="bg-white dark:bg-[#161722] p-6 rounded-2xl border border-[#eceaf6] dark:border-[#27283c] overflow-x-auto">
-              <h2 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-4">
+            {/* Comparison Section: Mobile Cards (< sm) and Desktop Table (sm+) */}
+            <div className="bg-white dark:bg-[#161722] p-4 sm:p-6 rounded-2xl border border-[#eceaf6] dark:border-[#27283c] w-full max-w-full">
+              <h2 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
                 Comparison: Number Spin Wheel vs Other Random Selection Methods
               </h2>
-              <table className="w-full text-left text-xs border-collapse min-w-[550px]">
-                <thead>
-                  <tr className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#1f202f]">
-                    <th className="p-3 font-bold text-gray-700 dark:text-gray-300">Method</th>
-                    <th className="p-3 font-bold text-gray-700 dark:text-gray-300">Visual Suspense</th>
-                    <th className="p-3 font-bold text-gray-700 dark:text-gray-300">Custom Range</th>
-                    <th className="p-3 font-bold text-gray-700 dark:text-gray-300">No-Repeat Mode</th>
-                    <th className="p-3 font-bold text-gray-700 dark:text-gray-300">Batch Draws</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
-                  <tr>
-                    <td className="p-3 font-bold text-indigo-600 dark:text-indigo-400">Number Spin Wheel</td>
-                    <td className="p-3 text-emerald-600 font-semibold">High (Wheel animation & audio)</td>
-                    <td className="p-3 text-emerald-600 font-semibold">Yes (Any Min/Max)</td>
-                    <td className="p-3 text-emerald-600 font-semibold">Yes (Elimination)</td>
-                    <td className="p-3 text-emerald-600 font-semibold">Yes (1 to 50 unique)</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-medium text-gray-700 dark:text-gray-300">Physical Dice (D6/D20)</td>
-                    <td className="p-3 text-gray-500">Medium (Table roll)</td>
-                    <td className="p-3 text-red-500 font-semibold">Fixed (6 or 20 only)</td>
-                    <td className="p-3 text-red-500 font-semibold">No (Can repeat)</td>
-                    <td className="p-3 text-gray-500">Requires multiple dice</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-medium text-gray-700 dark:text-gray-300">Drawing Slips from a Hat</td>
-                    <td className="p-3 text-gray-500">Low to Medium</td>
-                    <td className="p-3 text-gray-500">Manual setup required</td>
-                    <td className="p-3 text-emerald-600 font-semibold">Yes (Discard slip)</td>
-                    <td className="p-3 text-gray-500">Slow manual draws</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-medium text-gray-700 dark:text-gray-300">Basic Text RNG</td>
-                    <td className="p-3 text-red-500 font-semibold">None (Plain text)</td>
-                    <td className="p-3 text-emerald-600 font-semibold">Yes</td>
-                    <td className="p-3 text-gray-500">Rarely supported</td>
-                    <td className="p-3 text-emerald-600 font-semibold">Yes</td>
-                  </tr>
-                </tbody>
-              </table>
+
+              {/* Mobile Card Grid (< sm) */}
+              <div className="grid grid-cols-1 gap-2.5 sm:hidden">
+                <div className="p-3 rounded-xl bg-indigo-50/60 dark:bg-indigo-950/30 border border-indigo-200/80 dark:border-indigo-900/50">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="font-bold text-xs text-indigo-700 dark:text-indigo-400">Number Spin Wheel</span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">Recommended</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-1.5 text-[11px]">
+                    <div><span className="text-gray-400">Suspense:</span> <span className="font-semibold text-emerald-600">High (Wheel & Audio)</span></div>
+                    <div><span className="text-gray-400">Custom Range:</span> <span className="font-semibold text-emerald-600">Yes (Any Bounds)</span></div>
+                    <div><span className="text-gray-400">No-Repeat:</span> <span className="font-semibold text-emerald-600">Yes (Eliminate)</span></div>
+                    <div><span className="text-gray-400">Batch Draws:</span> <span className="font-semibold text-emerald-600">1 to 50 Unique</span></div>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-gray-50 dark:bg-[#1a1b28] border border-gray-200/80 dark:border-gray-800">
+                  <div className="font-bold text-xs text-gray-800 dark:text-gray-200 mb-1.5">Physical Dice (D6/D20)</div>
+                  <div className="grid grid-cols-2 gap-1.5 text-[11px] text-gray-600 dark:text-gray-400">
+                    <div><span>Suspense:</span> Medium</div>
+                    <div><span>Custom Range:</span> Fixed (6/20)</div>
+                    <div><span>No-Repeat:</span> No (Repeats)</div>
+                    <div><span>Batch Draws:</span> Multi-dice</div>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-gray-50 dark:bg-[#1a1b28] border border-gray-200/80 dark:border-gray-800">
+                  <div className="font-bold text-xs text-gray-800 dark:text-gray-200 mb-1.5">Drawing Slips from a Hat</div>
+                  <div className="grid grid-cols-2 gap-1.5 text-[11px] text-gray-600 dark:text-gray-400">
+                    <div><span>Suspense:</span> Low to Medium</div>
+                    <div><span>Custom Range:</span> Manual Setup</div>
+                    <div><span>No-Repeat:</span> Yes (Discard)</div>
+                    <div><span>Batch Draws:</span> Slow Manual</div>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-gray-50 dark:bg-[#1a1b28] border border-gray-200/80 dark:border-gray-800">
+                  <div className="font-bold text-xs text-gray-800 dark:text-gray-200 mb-1.5">Basic Text RNG</div>
+                  <div className="grid grid-cols-2 gap-1.5 text-[11px] text-gray-600 dark:text-gray-400">
+                    <div><span>Suspense:</span> None (Static)</div>
+                    <div><span>Custom Range:</span> Yes</div>
+                    <div><span>No-Repeat:</span> Rare</div>
+                    <div><span>Batch Draws:</span> Yes</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop Scrollable Table (sm+) */}
+              <div className="hidden sm:block overflow-x-auto">
+                <table className="w-full text-left text-xs border-collapse">
+                  <thead>
+                    <tr className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#1f202f]">
+                      <th className="p-3 font-bold text-gray-700 dark:text-gray-300">Method</th>
+                      <th className="p-3 font-bold text-gray-700 dark:text-gray-300">Visual Suspense</th>
+                      <th className="p-3 font-bold text-gray-700 dark:text-gray-300">Custom Range</th>
+                      <th className="p-3 font-bold text-gray-700 dark:text-gray-300">No-Repeat Mode</th>
+                      <th className="p-3 font-bold text-gray-700 dark:text-gray-300">Batch Draws</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
+                    <tr>
+                      <td className="p-3 font-bold text-indigo-600 dark:text-indigo-400">Number Spin Wheel</td>
+                      <td className="p-3 text-emerald-600 font-semibold">High (Wheel animation & audio)</td>
+                      <td className="p-3 text-emerald-600 font-semibold">Yes (Any Min/Max)</td>
+                      <td className="p-3 text-emerald-600 font-semibold">Yes (Elimination)</td>
+                      <td className="p-3 text-emerald-600 font-semibold">Yes (1 to 50 unique)</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-medium text-gray-700 dark:text-gray-300">Physical Dice (D6/D20)</td>
+                      <td className="p-3 text-gray-500">Medium (Table roll)</td>
+                      <td className="p-3 text-red-500 font-semibold">Fixed (6 or 20 only)</td>
+                      <td className="p-3 text-red-500 font-semibold">No (Can repeat)</td>
+                      <td className="p-3 text-gray-500">Requires multiple dice</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-medium text-gray-700 dark:text-gray-300">Drawing Slips from a Hat</td>
+                      <td className="p-3 text-gray-500">Low to Medium</td>
+                      <td className="p-3 text-gray-500">Manual setup required</td>
+                      <td className="p-3 text-emerald-600 font-semibold">Yes (Discard slip)</td>
+                      <td className="p-3 text-gray-500">Slow manual draws</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-medium text-gray-700 dark:text-gray-300">Basic Text RNG</td>
+                      <td className="p-3 text-red-500 font-semibold">None (Plain text)</td>
+                      <td className="p-3 text-emerald-600 font-semibold">Yes</td>
+                      <td className="p-3 text-gray-500">Rarely supported</td>
+                      <td className="p-3 text-emerald-600 font-semibold">Yes</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             {/* Frequently Asked Questions */}

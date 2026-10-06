@@ -215,8 +215,8 @@ export default function TournamentEngine({
       )}
 
       {/* Interactive Visual Bracket */}
-      <div className="w-full overflow-x-auto pb-4">
-        <div className="min-w-[760px] grid grid-cols-3 gap-6 items-center">
+      <div className="w-full max-w-full overflow-x-auto pb-4">
+        <div className="min-w-[720px] sm:min-w-[760px] grid grid-cols-3 gap-6 items-center">
           {/* Round 1: Quarterfinals (4 matches) */}
           <div className="flex flex-col gap-4">
             <h4 className="text-[13px] font-bold uppercase tracking-wider text-[#767586] dark:text-[#908fa1] text-center">

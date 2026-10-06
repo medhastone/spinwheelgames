@@ -135,7 +135,7 @@ const JSON_LD_DATA = {
 
 export default function ThemeWheelPage() {
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col w-full max-w-full overflow-x-clip">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_DATA) }}
@@ -143,7 +143,7 @@ export default function ThemeWheelPage() {
 
       <SubpageHeader />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-12">
+      <main className="flex-1 max-w-7xl w-full max-w-full overflow-x-clip mx-auto px-3.5 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-12">
         <div className="mb-6 py-2 px-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 w-fit">
           <Breadcrumbs
             items={[

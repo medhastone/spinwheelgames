@@ -182,7 +182,7 @@ const JSON_LD_DATA = {
 
 export default function AnimalWheelPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#0e0f15] text-[#1a1b22] dark:text-[#f1effa] transition-colors">
+    <div className="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#0e0f15] text-[#1a1b22] dark:text-[#f1effa] transition-colors w-full max-w-full overflow-x-clip">
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
@@ -192,7 +192,7 @@ export default function AnimalWheelPage() {
       {/* Global Header */}
       <SubpageHeader activePage="/animal-wheel" />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 lg:pt-32 pb-12 space-y-10 flex-1 w-full">
+      <main className="max-w-7xl mx-auto px-3.5 sm:px-6 pt-20 sm:pt-24 lg:pt-28 pb-12 space-y-8 sm:space-y-10 flex-1 w-full max-w-full overflow-x-clip">
         {/* Breadcrumb Navigation */}
         <Breadcrumbs
           items={[

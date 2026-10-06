@@ -153,8 +153,8 @@ export default function WheelCatalogLibrary({ onSelectWheel }: WheelCatalogLibra
           </div>
 
           {/* Quick Search & Count */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-            <div className="relative min-w-[280px]">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full">
+            <div className="relative w-full sm:w-auto sm:min-w-[280px]">
               <Search className="w-4 h-4 text-[#767586] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"

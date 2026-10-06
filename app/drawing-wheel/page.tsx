@@ -172,7 +172,7 @@ const JSON_LD_DATA = {
 
 export default function DrawingWheelPage() {
   return (
-    <div className="min-h-screen bg-[#faf8ff] dark:bg-[#0b0c10] text-[#1a1b22] dark:text-[#f1effa]">
+    <div className="min-h-screen bg-[#faf8ff] dark:bg-[#0b0c10] text-[#1a1b22] dark:text-[#f1effa] w-full max-w-full overflow-x-clip">
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
@@ -181,7 +181,7 @@ export default function DrawingWheelPage() {
 
       <SubpageHeader />
 
-      <main className="px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32 pb-12 max-w-7xl mx-auto space-y-12 w-full flex-1">
+      <main className="px-3.5 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-12 max-w-7xl mx-auto space-y-8 sm:space-y-12 w-full max-w-full overflow-x-clip flex-1">
         {/* Breadcrumb Header */}
         <Breadcrumbs
           items={[

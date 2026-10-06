@@ -633,7 +633,7 @@ export default function WheelBattleEngine({
             </span>
           </div>
 
-          <div className="w-full max-w-[320px] xs:max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] aspect-square relative flex items-center justify-center p-1 sm:p-2 rounded-full transition-all duration-300">
+          <div className="w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[460px] aspect-square relative flex items-center justify-center p-1 sm:p-2 rounded-full transition-all duration-300">
             {/* Spinning Glow Effect */}
             {spinningBlue && (
               <div className="absolute inset-0 rounded-full bg-blue-500/20 blur-2xl animate-pulse" />
@@ -672,7 +672,7 @@ export default function WheelBattleEngine({
             </span>
           </div>
 
-          <div className="w-full max-w-[320px] xs:max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] aspect-square relative flex items-center justify-center p-1 sm:p-2 rounded-full transition-all duration-300">
+          <div className="w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[460px] aspect-square relative flex items-center justify-center p-1 sm:p-2 rounded-full transition-all duration-300">
             {/* Spinning Glow Effect */}
             {spinningRed && (
               <div className="absolute inset-0 rounded-full bg-red-500/20 blur-2xl animate-pulse" />
@@ -700,7 +700,7 @@ export default function WheelBattleEngine({
             type="button"
             onClick={handleSpinSimultaneous}
             disabled={isAnySpinning}
-            className="w-full sm:w-auto min-w-[280px] sm:min-w-[320px] py-3.5 sm:py-4 px-6 sm:px-10 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-red-600 hover:brightness-110 active:scale-98 text-white font-headline font-black text-base sm:text-lg tracking-wide shadow-xl flex items-center justify-center gap-2.5 transition-all cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed min-h-[48px]"
+            className="w-full sm:w-auto sm:min-w-[320px] max-w-full py-3.5 sm:py-4 px-4 sm:px-10 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-red-600 hover:brightness-110 active:scale-98 text-white font-headline font-black text-sm sm:text-lg tracking-wide shadow-xl flex items-center justify-center gap-2.5 transition-all cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed min-h-[48px]"
           >
             <Swords className={`w-5 h-5 sm:w-6 sm:h-6 ${isAnySpinning ? 'animate-spin' : 'animate-bounce'}`} />
             <span>{isAnySpinning ? 'DUEL IN PROGRESS...' : 'SPIN CLASH (BOTH TEAMS)'}</span>
