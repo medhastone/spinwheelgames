@@ -162,22 +162,56 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.addEventListener('error', function(event) {
-                var message = (event && event.message) || '';
-                if (
-                  message.indexOf('ChunkLoadError') !== -1 ||
-                  message.indexOf('Loading chunk') !== -1 ||
-                  message.indexOf('Failed to fetch dynamically imported module') !== -1
-                ) {
-                  var storageKey = 'swg_chunk_reload_' + window.location.pathname;
-                  var now = Date.now();
-                  var lastReload = parseInt(sessionStorage.getItem(storageKey) || '0', 10);
-                  if (now - lastReload > 8000) {
-                    sessionStorage.setItem(storageKey, String(now));
-                    window.location.reload();
+              (function() {
+                try {
+                  var origFetch = window.fetch;
+                  Object.defineProperty(window, 'fetch', {
+                    get: function() { return origFetch; },
+                    set: function(newFetch) { origFetch = newFetch; },
+                    configurable: true,
+                    enumerable: true
+                  });
+                } catch (e) {}
+
+                window.addEventListener('error', function(event) {
+                  var message = (event && event.message) || '';
+                  var filename = (event && event.filename) || '';
+                  if (
+                    filename.indexOf('chrome-extension://') !== -1 ||
+                    message.indexOf('Cannot set property fetch') !== -1
+                  ) {
+                    if (event.preventDefault) event.preventDefault();
+                    if (event.stopPropagation) event.stopPropagation();
+                    return true;
                   }
-                }
-              });
+
+                  if (
+                    message.indexOf('ChunkLoadError') !== -1 ||
+                    message.indexOf('Loading chunk') !== -1 ||
+                    message.indexOf('Failed to fetch dynamically imported module') !== -1
+                  ) {
+                    var storageKey = 'swg_chunk_reload_' + window.location.pathname;
+                    var now = Date.now();
+                    var lastReload = parseInt(sessionStorage.getItem(storageKey) || '0', 10);
+                    if (now - lastReload > 8000) {
+                      sessionStorage.setItem(storageKey, String(now));
+                      window.location.reload();
+                    }
+                  }
+                }, true);
+
+                window.addEventListener('unhandledrejection', function(event) {
+                  var reason = (event && event.reason) || {};
+                  var msg = reason.message || String(reason || '');
+                  var stack = reason.stack || '';
+                  if (
+                    stack.indexOf('chrome-extension://') !== -1 ||
+                    msg.indexOf('Cannot set property fetch') !== -1
+                  ) {
+                    if (event.preventDefault) event.preventDefault();
+                  }
+                });
+              })();
             `
           }}
         />

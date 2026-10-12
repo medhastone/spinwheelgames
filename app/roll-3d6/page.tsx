@@ -143,7 +143,7 @@ export default function Roll3d6Page() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32 pb-8 space-y-10">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
         {/* Breadcrumbs Navigation */}
         <Breadcrumbs
           items={[
@@ -154,20 +154,20 @@ export default function Roll3d6Page() {
         />
 
         {/* Hero */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-400 dark:border-indigo-500/20 font-mono font-bold uppercase tracking-wider">
+        <div className="text-center space-y-2 max-w-2xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-1.5">
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-400 dark:border-indigo-500/20 font-mono uppercase tracking-wider">
               Bell Curve Standard
             </span>
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20 font-mono font-bold uppercase tracking-wider">
-              Average: 10.5 (Range 3–18)
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20 font-mono uppercase tracking-wider">
+              Avg: 10.5 (Range 3–18)
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
             Roll 3 D6 Online - 3D Multi-Dice Roller
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
             Roll three 6-sided dice with 3D physics. Used extensively in GURPS, Fantasy AGE, Dragon Age RPG, and classic D&amp;D attribute generation.
           </p>
         </div>
@@ -176,8 +176,6 @@ export default function Roll3d6Page() {
         <DiceRollerEngine
           initialCount={3}
           initialSides={6}
-          pageTitle="3d6 3D Dice Roller"
-          pageSubtitle="Interactive 3D WebGL simulator for three 6-sided dice."
           suggestedPresets={[
             { label: 'Standard 3d6 (Sum 3–18)', count: 3, sides: 6 },
             { label: '3d6 + 2 Modifier', count: 3, sides: 6, modifier: 2 },
@@ -186,30 +184,30 @@ export default function Roll3d6Page() {
         />
 
         {/* Master Long-Form Educational Content */}
-        <article className="space-y-10 border-t border-slate-200 dark:border-[#1e2030] pt-10">
-          <section className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-6 shadow-sm dark:shadow-xl">
-            <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+        <article className="space-y-6 border-t border-slate-200 dark:border-[#1e2030] pt-6">
+          <section className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-3.5 shadow-xs">
+            <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span>3d6 Bell Curve Probability Distribution (216 Total Combinations)</span>
             </h2>
 
-            <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-[#1e202c]">
+            <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-[#1e202c]">
               <table className="w-full text-xs font-mono text-left">
                 <thead>
                   <tr className="bg-slate-100 dark:bg-[#151622] text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-[#1e202c]">
-                    <th className="py-2.5 px-4 font-bold">Sum Result</th>
-                    <th className="py-2.5 px-4 font-bold">Combinations / 216</th>
-                    <th className="py-2.5 px-4 font-bold">Exact Probability</th>
-                    <th className="py-2.5 px-4 font-bold">Cumulative (≤ X)</th>
+                    <th className="py-2 px-3 font-bold">Sum Result</th>
+                    <th className="py-2 px-3 font-bold">Combinations / 216</th>
+                    <th className="py-2 px-3 font-bold">Exact Probability</th>
+                    <th className="py-2 px-3 font-bold">Cumulative (≤ X)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-[#171824]">
                   {PROBABILITY_3D6.map((row) => (
                     <tr key={row.score} className="hover:bg-slate-50 dark:hover:bg-[#141520]">
-                      <td className="py-2 px-4 font-bold text-slate-900 dark:text-white">{row.score}</td>
-                      <td className="py-2 px-4 text-slate-600 dark:text-slate-400">{row.ways}</td>
-                      <td className="py-2 px-4 font-bold text-indigo-600 dark:text-indigo-400">{row.probability}</td>
-                      <td className="py-2 px-4 text-slate-500 dark:text-slate-400">{row.cumulative}</td>
+                      <td className="py-1.5 px-3 font-bold text-slate-900 dark:text-white">{row.score}</td>
+                      <td className="py-1.5 px-3 text-slate-600 dark:text-slate-400">{row.ways}</td>
+                      <td className="py-1.5 px-3 font-bold text-indigo-600 dark:text-indigo-400">{row.probability}</td>
+                      <td className="py-1.5 px-3 text-slate-500 dark:text-slate-400">{row.cumulative}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -217,9 +215,9 @@ export default function Roll3d6Page() {
             </div>
           </section>
 
-          <section className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-4 shadow-sm dark:shadow-xl">
-            <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
-              <HelpCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+          <section className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-3.5 shadow-xs">
+            <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+              <HelpCircle className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
               <span>Frequently Asked Questions (Roll 3d6)</span>
             </h2>
             <div className="space-y-3">

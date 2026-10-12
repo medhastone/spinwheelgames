@@ -6,7 +6,7 @@ import { TOURNAMENT_PRESET_ITEMS } from '@/lib/presets';
 import { selectWeightedWinner } from '@/lib/random';
 import { recordTournamentWin, loadUserStats } from '@/lib/storage';
 import WheelCanvas from './WheelCanvas';
-import confetti from 'canvas-confetti';
+import confetti from '@/lib/confetti';
 import { Trophy, RotateCcw, Check, Crown, X, Swords, Share2 } from 'lucide-react';
 import ResultCardModal from './ResultCardModal';
 

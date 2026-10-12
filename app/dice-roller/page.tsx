@@ -162,11 +162,11 @@ export default function DiceRollerPage() {
 
       <Navbar />
 
-      <div className="pt-20 sm:pt-22 lg:pt-24 w-full max-w-full overflow-x-clip">
+      <div className="pt-20 sm:pt-24 lg:pt-28 w-full max-w-full overflow-x-clip">
         <DiceNavigation />
       </div>
 
-      <main className="flex-1 w-full max-w-7xl max-w-full overflow-x-clip mx-auto px-3.5 sm:px-6 py-6 space-y-8 sm:space-y-10">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-6">
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
@@ -180,57 +180,57 @@ export default function DiceRollerPage() {
             initialCount={2}
             initialSides={6}
             pageTitle="Roll Dice Online - 3D Dice Roller"
-            pageSubtitle="Roll one or more dice online with a fast interactive 3D dice roller. Choose your dice, set the number of rolls, and see individual results, totals, averages, and recent rolls instantly."
+            pageSubtitle="Roll one or more dice online with a fast interactive 3D dice roller. Choose your dice, set rolls, and see instant totals and averages."
           />
         </section>
 
         {/* Deep Informative Editorial & Educational Content */}
-        <article className="space-y-10 border-t border-[#eeedf7] dark:border-[#222330] pt-10">
+        <article className="space-y-6 sm:space-y-8 border-t border-[#eeedf7] dark:border-[#222330] pt-6 sm:pt-8">
           
           {/* Quick Direct Answer */}
-          <div className="p-6 rounded-3xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] shadow-xs space-y-3">
-            <h2 className="text-xl sm:text-2xl font-black text-[#1a1b22] dark:text-white">
+          <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] shadow-xs space-y-2">
+            <h2 className="text-lg sm:text-xl font-black text-[#1a1b22] dark:text-white">
               About This Online Dice Roller
             </h2>
-            <p className="text-sm sm:text-base text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
               Whether you are running an evening tabletop roleplaying game, playing classic board games like Monopoly or Yahtzee, settling classroom turn orders, or teaching probability math, this free digital dice roller gives you authentic 3D dice rolling on any device. Every throw calculates individual results, total sums, arithmetic averages, and minimum/maximum ranges with local cryptographic randomness.
             </p>
           </div>
 
           {/* Feature Grid */}
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-3xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] shadow-xs space-y-2.5">
-              <div className="w-10 h-10 rounded-2xl bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff] flex items-center justify-center">
-                <Dices className="w-5 h-5" />
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] shadow-xs space-y-2">
+              <div className="w-8 h-8 rounded-xl bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff] flex items-center justify-center">
+                <Dices className="w-4 h-4" />
               </div>
-              <h3 className="font-headline text-lg font-bold text-[#1a1b22] dark:text-white">
+              <h3 className="font-headline text-base font-bold text-[#1a1b22] dark:text-white">
                 All Standard Polyhedral Dice
               </h3>
-              <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] leading-relaxed">
+              <p className="text-xs text-[#767586] dark:text-[#908fa1] leading-relaxed">
                 Full 3D geometric modeling for d2 coins, d3, d4 tetrahedrons, d6 cubes, d8 octahedrons, d10 trapezohedrons, d12 dodecahedrons, d20 icosahedrons, and dual d100 percentile dice.
               </p>
             </div>
 
-            <div className="p-6 rounded-3xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] shadow-xs space-y-2.5">
-              <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                <Shield className="w-5 h-5" />
+            <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] shadow-xs space-y-2">
+              <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                <Shield className="w-4 h-4" />
               </div>
-              <h3 className="font-headline text-lg font-bold text-[#1a1b22] dark:text-white">
+              <h3 className="font-headline text-base font-bold text-[#1a1b22] dark:text-white">
                 Unbiased Cryptographic Math
               </h3>
-              <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] leading-relaxed">
-                Uses browser-based cryptographic randomness via <code className="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">window.crypto.getRandomValues</code> for uniform outcome distribution before rendering smooth 3D motion.
+              <p className="text-xs text-[#767586] dark:text-[#908fa1] leading-relaxed">
+                Uses browser-based cryptographic randomness via <code className="text-[11px] font-mono bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">window.crypto.getRandomValues</code> for uniform outcome distribution before rendering smooth 3D motion.
               </p>
             </div>
 
-            <div className="p-6 rounded-3xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] shadow-xs space-y-2.5">
-              <div className="w-10 h-10 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
-                <Calculator className="w-5 h-5" />
+            <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] shadow-xs space-y-2">
+              <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                <Calculator className="w-4 h-4" />
               </div>
-              <h3 className="font-headline text-lg font-bold text-[#1a1b22] dark:text-white">
+              <h3 className="font-headline text-base font-bold text-[#1a1b22] dark:text-white">
                 RPG Formulas &amp; Modifiers
               </h3>
-              <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] leading-relaxed">
+              <p className="text-xs text-[#767586] dark:text-[#908fa1] leading-relaxed">
                 Supports drop lowest (4d6dl1), keep highest (4d6kh3), advantage (2d20kh1), disadvantage (2d20kl1), exploding dice, reroll 1s, and arithmetic modifiers (+5, -2).
               </p>
             </div>

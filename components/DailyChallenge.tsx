@@ -22,7 +22,7 @@ export default function DailyChallenge({ soundEnabled = true }: DailyChallengePr
                 <span className="text-xs font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400">
                   Daily Habit Booster
                 </span>
-                <span className="text-xs text-[#767586] dark:text-[#908fa1] flex items-center gap-1 font-mono">
+                <span className="text-xs text-[#767586] dark:text-[#908fa1] flex items-center gap-1 font-mono" suppressHydrationWarning>
                   <Calendar className="w-3.5 h-3.5" />
                   {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </span>

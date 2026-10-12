@@ -282,6 +282,20 @@ function buildAllGamesDataset(): GameItem[] {
       viewsScore: 85
     },
     {
+      id: 'pokemon-wheel',
+      name: 'Random Pokémon Generator & Wheel',
+      category: 'Gaming & Pop Culture',
+      categoryGroup: 'party',
+      purpose: 'Spin across all 9 generations with type filters, 6-mon team builder, and Nuzlocke roulette.',
+      entriesCount: 150,
+      sampleEntries: ['Pikachu', 'Charizard', 'Lucario', 'Greninja', 'Meowscarada'],
+      href: '/pokemon-wheel',
+      level: 'hot',
+      iconKey: 'Flame',
+      gradient: 'from-rose-500 to-amber-600',
+      viewsScore: 98
+    },
+    {
       id: 'question-wheel',
       name: 'Deep Question & Icebreaker',
       category: 'Party & Social',

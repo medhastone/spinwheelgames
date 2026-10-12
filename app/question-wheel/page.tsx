@@ -138,7 +138,7 @@ export default function QuestionWheelPage() {
 
       <SubpageHeader />
 
-      <main className="flex-1 max-w-7xl w-full max-w-full overflow-x-clip mx-auto px-3.5 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-12">
+      <main className="flex-1 max-w-7xl w-full max-w-full overflow-x-clip mx-auto px-3.5 sm:px-6 lg:px-8 pt-20 sm:pt-28 lg:pt-32 pb-12">
         <div className="mb-6 py-2 px-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 w-fit">
           <Breadcrumbs
             items={[

@@ -13,7 +13,8 @@ export const TOPIC_CLUSTERS: Record<string, TopicCluster> = {
       '/yes-or-no-wheel',
       '/random-picker',
       '/picker-wheel',
-      '/random-wheel'
+      '/random-wheel',
+      '/random-app-picker'
     ],
     supportingGuides: [
       '/how-to-use-a-wheel',

@@ -5,7 +5,7 @@ import { WheelItem, BestOfThreeSeries, ResultCardData } from '@/lib/types';
 import { selectWeightedWinner } from '@/lib/random';
 import { playWinnerFanfare, playTickSound } from '@/lib/sound';
 import { recordBestOf3Win, loadUserStats } from '@/lib/storage';
-import confetti from 'canvas-confetti';
+import confetti from '@/lib/confetti';
 import {
   Trophy,
   RotateCcw,

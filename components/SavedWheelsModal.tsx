@@ -238,7 +238,7 @@ export default function SavedWheelsModal({
                           {wheel.items.length} options
                         </span>
                         {wheel.savedAt && (
-                          <span className="flex items-center gap-1">
+                          <span className="flex items-center gap-1" suppressHydrationWarning>
                             <Calendar className="w-3 h-3" />
                             {new Date(wheel.savedAt).toLocaleDateString()}
                           </span>

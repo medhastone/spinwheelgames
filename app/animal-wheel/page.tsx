@@ -32,19 +32,17 @@ export const dynamic = 'force-static';
 export const metadata: Metadata = {
   title: 'Animal Wheel - Random Animal Generator Wheel & Picker',
   description:
-    'Spin the free animal wheel to randomly pick mammals, birds, sea creatures, or Pokémon. Perfect for drawing prompts, charades, quizzes, and classroom games!',
+    'Spin the free animal wheel to randomly pick mammals, birds, reptiles, sea creatures, and mythical beasts. Perfect for drawing prompts, charades, quizzes, and classroom games!',
   keywords: [
     'random animal generator wheel',
     'animal wheel',
     'random animal picker',
     'animal spin the wheel',
-    'random pokemon picker',
-    'pokemon roulette',
-    'pokemon type wheel',
     'give me a random animal',
     'animal randomizer',
     'random sea creatures',
-    'random cat generator'
+    'random cat generator',
+    'random dog breed generator'
   ],
   alternates: {
     canonical: 'https://spinwheelgames.org/animal-wheel'
@@ -192,7 +190,7 @@ export default function AnimalWheelPage() {
       {/* Global Header */}
       <SubpageHeader activePage="/animal-wheel" />
 
-      <main className="max-w-7xl mx-auto px-3.5 sm:px-6 pt-20 sm:pt-24 lg:pt-28 pb-12 space-y-8 sm:space-y-10 flex-1 w-full max-w-full overflow-x-clip">
+      <main className="max-w-7xl mx-auto px-3.5 sm:px-6 pt-20 sm:pt-28 lg:pt-32 pb-12 space-y-8 sm:space-y-10 flex-1 w-full max-w-full overflow-x-clip">
         {/* Breadcrumb Navigation */}
         <Breadcrumbs
           items={[

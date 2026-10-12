@@ -289,7 +289,7 @@ export default function DiceRollerEngine({
   ];
 
   return (
-    <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 py-4 space-y-6">
+    <div className="w-full space-y-4">
       {/* Live Region for Screen Readers */}
       <div className="sr-only" aria-live="polite" aria-atomic="true">
         {currentResult && !isRolling
@@ -299,27 +299,27 @@ export default function DiceRollerEngine({
           : ''}
       </div>
 
-      {/* Hero Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#eeedf7] dark:border-[#222330]">
+      {/* Hero Header - Compact & Clean */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-2.5 border-b border-[#eeedf7] dark:border-[#222330]">
         <div>
-          <h1 className="font-headline text-2xl sm:text-3xl lg:text-4xl font-black text-[#1a1b22] dark:text-white tracking-tight flex items-center gap-2.5">
-            <span className="p-2 rounded-2xl bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff]">
-              <Dice5 className="w-6 h-6" />
+          <h1 className="font-headline text-lg sm:text-2xl font-black text-[#1a1b22] dark:text-white tracking-tight flex items-center gap-2">
+            <span className="p-1.5 rounded-xl bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff]">
+              <Dice5 className="w-5 h-5" />
             </span>
             <span>{pageTitle}</span>
           </h1>
-          <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] mt-1 max-w-2xl">
+          <p className="text-xs text-[#767586] dark:text-[#908fa1] mt-0.5 max-w-2xl">
             {pageSubtitle}
           </p>
         </div>
 
         {/* Ambient Settings Bar (Sound, Theme, Developer Telemetry) */}
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-1.5 shrink-0 flex-wrap">
           {/* Sound Toggle */}
           <button
             type="button"
             onClick={() => setSoundEnabled(!soundEnabled)}
-            className={`p-2 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer ${
+            className={`p-1.5 px-2.5 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer ${
               soundEnabled
                 ? 'bg-[#6cf8bb]/20 border-emerald-500/30 text-emerald-600 dark:text-emerald-400'
                 : 'bg-slate-100 dark:bg-[#1f202e] border-slate-200 dark:border-slate-800 text-slate-400'
@@ -327,7 +327,7 @@ export default function DiceRollerEngine({
             title={soundEnabled ? 'Mute Dice Sound' : 'Enable Dice Sound'}
             aria-label={soundEnabled ? 'Mute sound' : 'Enable sound'}
           >
-            {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+            {soundEnabled ? <Volume2 className="w-3.5 h-3.5" /> : <VolumeX className="w-3.5 h-3.5" />}
             <span className="hidden sm:inline">{soundEnabled ? 'Sound On' : 'Muted'}</span>
           </button>
 
@@ -337,7 +337,7 @@ export default function DiceRollerEngine({
               value={theme}
               onChange={(e) => handleThemeChange(e.target.value as DiceTheme)}
               aria-label="Select dice visual theme"
-              className="px-2.5 py-1.5 rounded-xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] text-xs font-bold text-[#1a1b22] dark:text-white cursor-pointer hover:border-[#4648d4]"
+              className="px-2 py-1.5 rounded-xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] text-xs font-bold text-[#1a1b22] dark:text-white cursor-pointer hover:border-[#4648d4]"
             >
               {Object.entries(DICE_THEMES).map(([k, t]) => (
                 <option key={k} value={k}>
@@ -354,36 +354,36 @@ export default function DiceRollerEngine({
               setInspectorDieIndex(0);
               setInspectorOpen(true);
             }}
-            className="p-2 px-3 rounded-xl border border-indigo-500/30 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
+            className="p-1.5 px-2.5 rounded-xl border border-indigo-500/30 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs font-bold flex items-center gap-1 transition-colors cursor-pointer"
             title="Inspect All Sides & Hidden Numbers 360°"
             aria-label="Inspect All Sides"
           >
-            <Eye className="w-4 h-4" />
-            <span className="hidden sm:inline">Inspect All Sides</span>
+            <Eye className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Inspect 360°</span>
           </button>
 
           {/* Developer Physics Inspector Button */}
           <button
             type="button"
             onClick={() => setDevModalOpen(true)}
-            className="p-2 rounded-xl border border-indigo-500/30 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
+            className="p-1.5 px-2 rounded-xl border border-indigo-500/30 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs font-bold flex items-center gap-1 transition-colors cursor-pointer"
             title="Open Physics Telemetry & Monte Carlo Tests"
             aria-label="Open Developer Physics Suite"
           >
-            <Terminal className="w-4 h-4" />
-            <span className="hidden md:inline">Physics &amp; Tests</span>
+            <Terminal className="w-3.5 h-3.5" />
+            <span className="hidden md:inline">Physics</span>
           </button>
         </div>
       </div>
 
-      {/* Two-Column Desktop Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      {/* Two-Column Responsive Layout - Compact */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
         
-        {/* Left Column: Dominant 3D Rigid-Body Arena (67-70%) */}
-        <div className="lg:col-span-8 flex flex-col gap-4">
+        {/* Left Column: Dominant 3D Rigid-Body Arena */}
+        <div className="lg:col-span-8 flex flex-col gap-3">
           
-          {/* 3D Dice Stage */}
-          <div className="relative w-full h-[360px] sm:h-[460px] lg:h-[500px]">
+          {/* 3D Dice Stage - Compact & Viewport-Friendly */}
+          <div className="relative w-full h-[270px] sm:h-[330px] lg:h-[360px] rounded-2xl overflow-hidden border border-[#eeedf7] dark:border-[#222330]">
             <DiceScene3D
               dice={currentResult ? currentResult.dice : []}
               sides={sides}
@@ -397,16 +397,16 @@ export default function DiceRollerEngine({
             />
 
             {/* In-Arena Roll Button Overlay */}
-            <div className="absolute bottom-5 inset-x-0 flex items-center justify-center pointer-events-auto px-4">
+            <div className="absolute bottom-3.5 inset-x-0 flex items-center justify-center pointer-events-auto px-4">
               <button
                 type="button"
                 onClick={handleRoll}
                 disabled={isRolling}
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#4648d4] via-[#5c5ee8] to-[#4648d4] hover:brightness-110 text-white font-headline text-lg sm:text-xl font-black shadow-2xl active:scale-95 transition-all cursor-pointer disabled:opacity-50"
+                className="inline-flex items-center gap-2 px-6 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-[#4648d4] via-[#5c5ee8] to-[#4648d4] hover:brightness-110 text-white font-headline text-sm sm:text-base font-bold shadow-lg shadow-indigo-500/25 active:scale-95 transition-all cursor-pointer disabled:opacity-50"
               >
-                <Play className={`w-5 h-5 fill-current ${isRolling ? 'animate-spin' : ''}`} />
+                <Play className={`w-4 h-4 fill-current ${isRolling ? 'animate-spin' : ''}`} />
                 <span>{isRolling ? 'Rolling...' : `Roll ${count}d${sides}`}</span>
-                <kbd className="hidden sm:inline-block text-[11px] font-mono px-2 py-0.5 rounded bg-white/20 text-white">
+                <kbd className="hidden sm:inline-block text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/20 text-white">
                   Space
                 </kbd>
               </button>
@@ -415,36 +415,36 @@ export default function DiceRollerEngine({
 
           {/* Result Showcase Card */}
           {currentResult && (
-            <div className="w-full bg-white dark:bg-[#181922] rounded-3xl p-5 sm:p-6 border border-[#eeedf7] dark:border-[#222330] shadow-sm flex flex-col md:flex-row items-center justify-between gap-5">
+            <div className="w-full bg-white dark:bg-[#181922] rounded-2xl p-3 sm:p-4 border border-[#eeedf7] dark:border-[#222330] shadow-xs flex flex-col md:flex-row items-center justify-between gap-3">
               
               {/* Left: Total & Breakdown */}
-              <div className="flex flex-col sm:flex-row items-center gap-5 w-full md:w-auto text-center sm:text-left">
-                <div className="flex flex-col items-center justify-center p-3.5 px-6 rounded-2xl bg-[#f4f2fd] dark:bg-[#222330] border border-[#eeedf7] dark:border-[#292a39] shrink-0 min-w-[140px] min-h-[92px]">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
+              <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto text-center sm:text-left">
+                <div className="flex flex-col items-center justify-center p-2.5 px-4 rounded-xl bg-[#f4f2fd] dark:bg-[#222330] border border-[#eeedf7] dark:border-[#292a39] shrink-0 min-w-[110px] min-h-[72px]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
                     Total Score
                   </span>
                   {isRolling ? (
-                    <div className="flex items-center gap-2 py-1 text-amber-500 font-headline font-black text-xl sm:text-2xl animate-pulse">
-                      <Sparkles className="w-5 h-5 animate-spin text-amber-400" />
+                    <div className="flex items-center gap-1.5 py-0.5 text-amber-500 font-headline font-black text-lg animate-pulse">
+                      <Sparkles className="w-4 h-4 animate-spin text-amber-400" />
                       <span>Rolling...</span>
                     </div>
                   ) : (
-                    <span className="font-headline text-4xl sm:text-5xl font-black text-[#4648d4] dark:text-[#8587ff]">
+                    <span className="font-headline text-3xl sm:text-4xl font-black text-[#4648d4] dark:text-[#8587ff]">
                       {currentResult.total}
                     </span>
                   )}
                 </div>
 
                 {/* Individual Dice & Physical Stats */}
-                <div className="space-y-1.5 min-w-0">
+                <div className="space-y-1 min-w-0">
                   {isRolling ? (
-                    <div className="flex items-center gap-2 text-xs font-medium text-[#767586] dark:text-[#908fa1]">
-                      <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping" />
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-[#767586] dark:text-[#908fa1]">
+                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
                       <span>Rolling {count} {count === 1 ? 'die' : 'dice'}...</span>
                     </div>
                   ) : (
                     <>
-                      <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5">
+                      <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1">
                         {currentResult.dice.map((die, i) => (
                           <button
                             type="button"
@@ -453,27 +453,27 @@ export default function DiceRollerEngine({
                               setInspectorDieIndex(i);
                               setInspectorOpen(true);
                             }}
-                            className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs sm:text-sm font-bold font-mono border transition-all cursor-pointer hover:border-indigo-500 hover:scale-105 active:scale-95 ${
+                            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-xs font-bold font-mono border transition-all cursor-pointer hover:border-indigo-500 ${
                               die.isDropped
                                 ? 'opacity-35 line-through bg-slate-100 dark:bg-slate-800 text-slate-400 border-slate-200 dark:border-slate-700'
-                                : 'bg-white dark:bg-[#1e2030] text-[#1a1b22] dark:text-white border-[#eeedf7] dark:border-[#292a39] shadow-2xs hover:shadow-md'
+                                : 'bg-white dark:bg-[#1e2030] text-[#1a1b22] dark:text-white border-[#eeedf7] dark:border-[#292a39] shadow-2xs'
                             }`}
-                            title={`Die #${i + 1} rolled ${die.value}. Click to inspect all sides 360°`}
+                            title={`Die #${i + 1} rolled ${die.value}. Click to inspect 360°`}
                           >
                             <span>{die.value}</span>
-                            <Eye className="w-3 h-3 text-slate-400 opacity-60 group-hover:opacity-100" />
+                            <Eye className="w-3 h-3 text-slate-400 opacity-60" />
                           </button>
                         ))}
                         {currentResult.modifier !== 0 && (
-                          <span className="px-2 py-0.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 font-bold text-xs">
+                          <span className="px-1.5 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 font-bold text-xs">
                             {currentResult.modifier > 0 ? `+${currentResult.modifier}` : `${currentResult.modifier}`}
                           </span>
                         )}
                       </div>
 
-                      <p className="text-xs text-[#767586] dark:text-[#908fa1]">
+                      <p className="text-[11px] text-[#767586] dark:text-[#908fa1]">
                         <span>Average: <strong className="text-[#1a1b22] dark:text-white">{currentResult.average}</strong></span>
-                        <span className="mx-2">·</span>
+                        <span className="mx-1.5">·</span>
                         <span>Range: <strong className="text-[#1a1b22] dark:text-white">{currentResult.minPossible} – {currentResult.maxPossible}</strong></span>
                       </p>
                     </>
@@ -482,7 +482,7 @@ export default function DiceRollerEngine({
               </div>
 
               {/* Right: Quick Result Actions */}
-              <div className="flex items-center gap-2 w-full md:w-auto justify-center md:justify-end shrink-0">
+              <div className="flex items-center gap-1.5 w-full md:w-auto justify-center md:justify-end shrink-0">
                 <button
                   type="button"
                   disabled={isRolling}
@@ -490,40 +490,40 @@ export default function DiceRollerEngine({
                     setInspectorDieIndex(0);
                     setInspectorOpen(true);
                   }}
-                  className="px-3.5 py-2 rounded-xl border border-indigo-500/30 bg-indigo-50 dark:bg-indigo-950/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 text-xs font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5 transition-colors cursor-pointer disabled:opacity-50"
+                  className="px-2.5 py-1.5 rounded-lg border border-indigo-500/30 bg-indigo-50 dark:bg-indigo-950/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 text-xs font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-50"
                   title="Inspect All Sides & Numbers 360°"
                 >
                   <Eye className="w-3.5 h-3.5" />
-                  <span>Inspect 360°</span>
+                  <span>Inspect</span>
                 </button>
 
                 <button
                   type="button"
                   disabled={isRolling}
                   onClick={handleCopyResult}
-                  className="px-3.5 py-2 rounded-xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#1e2030] hover:bg-[#f4f2fd] dark:hover:bg-[#25273a] text-xs font-bold text-[#1a1b22] dark:text-white flex items-center gap-1.5 transition-colors cursor-pointer disabled:opacity-50"
+                  className="px-2.5 py-1.5 rounded-lg border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#1e2030] hover:bg-[#f4f2fd] dark:hover:bg-[#25273a] text-xs font-bold text-[#1a1b22] dark:text-white flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-50"
                   title="Copy roll summary"
                 >
                   {copiedNotification ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5 text-slate-400" />}
-                  <span>{copiedNotification ? 'Copied!' : 'Copy'}</span>
+                  <span>{copiedNotification ? 'Copied' : 'Copy'}</span>
                 </button>
 
                 <button
                   type="button"
                   disabled={isRolling}
                   onClick={() => setShareModalOpen(true)}
-                  className="px-4 py-2 rounded-xl bg-[#4648d4] hover:bg-[#3b3dbb] text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer disabled:opacity-50"
+                  className="px-3 py-1.5 rounded-lg bg-[#4648d4] hover:bg-[#3b3dbb] text-white text-xs font-bold flex items-center gap-1 shadow-2xs transition-colors cursor-pointer disabled:opacity-50"
                 >
                   <Share2 className="w-3.5 h-3.5" />
-                  <span>Share Card</span>
+                  <span>Share</span>
                 </button>
               </div>
             </div>
           )}
 
-          {/* Quick Preset Chips */}
-          <div className="flex flex-wrap items-center gap-1.5 pt-1">
-            <span className="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] uppercase tracking-wider mr-1">
+          {/* Quick Preset Chips - Compact */}
+          <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+            <span className="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] uppercase tracking-wider mr-0.5">
               Presets:
             </span>
             {presets.map((preset) => (
@@ -539,7 +539,7 @@ export default function DiceRollerEngine({
                   setKeepLowest(0);
                   setModifier(preset.modifier || 0);
                 }}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   count === preset.count && sides === preset.sides && dropLowest === (preset.dropLowest || 0)
                     ? 'bg-[#4648d4] text-white shadow-xs'
                     : 'bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] text-[#464554] dark:text-[#c7c4d7] hover:border-[#4648d4]'
@@ -551,23 +551,23 @@ export default function DiceRollerEngine({
           </div>
         </div>
 
-        {/* Right Column: Controls, Modifiers, Advanced Drop/Keep, History (30-33%) */}
-        <div className="lg:col-span-4 flex flex-col gap-5 w-full">
+        {/* Right Column: Controls, Modifiers, Advanced Drop/Keep, History */}
+        <div className="lg:col-span-4 flex flex-col gap-3.5 w-full">
           
           {/* Main Controls Card */}
-          <div className="w-full bg-white dark:bg-[#181922] rounded-3xl p-5 sm:p-6 border border-[#eeedf7] dark:border-[#222330] shadow-sm space-y-5">
-            <h2 className="font-headline font-bold text-base text-[#1a1b22] dark:text-white flex items-center gap-2">
+          <div className="w-full bg-white dark:bg-[#181922] rounded-2xl p-3.5 sm:p-4 border border-[#eeedf7] dark:border-[#222330] shadow-xs space-y-3.5">
+            <h2 className="font-headline font-bold text-sm text-[#1a1b22] dark:text-white flex items-center gap-1.5">
               <SlidersHorizontal className="w-4 h-4 text-[#4648d4] dark:text-[#8587ff]" />
               <span>Dice Configuration</span>
             </h2>
 
             {/* 1. Die Type Selector (if not locked) */}
             {!lockSides && (
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
                   Die Type
                 </label>
-                <div className="grid grid-cols-4 gap-1.5">
+                <div className="grid grid-cols-4 gap-1">
                   {(['d4', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100', 'd2'] as DieType[]).map((dt) => {
                     const cfg = DIE_DEFINITIONS[dt];
                     const active = sides === cfg.sides;
@@ -576,7 +576,7 @@ export default function DiceRollerEngine({
                         key={dt}
                         type="button"
                         onClick={() => setSides(cfg.sides)}
-                        className={`py-2 px-1 rounded-xl text-xs font-black transition-all cursor-pointer text-center ${
+                        className={`py-1.5 px-1 rounded-lg text-xs font-black transition-all cursor-pointer text-center ${
                           active
                             ? 'bg-[#4648d4] text-white shadow-xs'
                             : 'bg-[#f4f2fd] dark:bg-[#1e2030] text-[#464554] dark:text-[#c7c4d7] hover:bg-[#eae8f7]'
@@ -591,17 +591,17 @@ export default function DiceRollerEngine({
             )}
 
             {/* 2. Quantity & Modifier Grid */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2.5">
               {/* Quantity */}
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
                   Quantity (1–20)
                 </label>
-                <div className="flex items-center rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-[#fbf8ff] dark:bg-[#12131a] p-1">
+                <div className="flex items-center rounded-xl border border-[#eeedf7] dark:border-[#292a39] bg-[#fbf8ff] dark:bg-[#12131a] p-0.5">
                   <button
                     type="button"
                     onClick={() => setCount((c) => Math.max(1, c - 1))}
-                    className="w-8 h-8 rounded-xl bg-white dark:bg-[#1e2030] text-[#1a1b22] dark:text-white font-black hover:bg-slate-100 flex items-center justify-center cursor-pointer"
+                    className="w-7 h-7 rounded-lg bg-white dark:bg-[#1e2030] text-[#1a1b22] dark:text-white font-black hover:bg-slate-100 flex items-center justify-center cursor-pointer text-xs"
                   >
                     -
                   </button>
@@ -611,12 +611,12 @@ export default function DiceRollerEngine({
                     max={20}
                     value={count}
                     onChange={(e) => setCount(Math.max(1, Math.min(20, parseInt(e.target.value, 10) || 1)))}
-                    className="w-full text-center font-bold text-sm bg-transparent text-[#1a1b22] dark:text-white focus:outline-hidden"
+                    className="w-full text-center font-bold text-xs bg-transparent text-[#1a1b22] dark:text-white focus:outline-hidden"
                   />
                   <button
                     type="button"
                     onClick={() => setCount((c) => Math.min(20, c + 1))}
-                    className="w-8 h-8 rounded-xl bg-white dark:bg-[#1e2030] text-[#1a1b22] dark:text-white font-black hover:bg-slate-100 flex items-center justify-center cursor-pointer"
+                    className="w-7 h-7 rounded-lg bg-white dark:bg-[#1e2030] text-[#1a1b22] dark:text-white font-black hover:bg-slate-100 flex items-center justify-center cursor-pointer text-xs"
                   >
                     +
                   </button>
@@ -624,15 +624,15 @@ export default function DiceRollerEngine({
               </div>
 
               {/* Modifier */}
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
                   Modifier (+/-)
                 </label>
-                <div className="flex items-center rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-[#fbf8ff] dark:bg-[#12131a] p-1">
+                <div className="flex items-center rounded-xl border border-[#eeedf7] dark:border-[#292a39] bg-[#fbf8ff] dark:bg-[#12131a] p-0.5">
                   <button
                     type="button"
                     onClick={() => setModifier((m) => m - 1)}
-                    className="w-8 h-8 rounded-xl bg-white dark:bg-[#1e2030] text-[#1a1b22] dark:text-white font-black hover:bg-slate-100 flex items-center justify-center cursor-pointer"
+                    className="w-7 h-7 rounded-lg bg-white dark:bg-[#1e2030] text-[#1a1b22] dark:text-white font-black hover:bg-slate-100 flex items-center justify-center cursor-pointer text-xs"
                   >
                     -
                   </button>
@@ -640,12 +640,12 @@ export default function DiceRollerEngine({
                     type="number"
                     value={modifier}
                     onChange={(e) => setModifier(parseInt(e.target.value, 10) || 0)}
-                    className="w-full text-center font-bold text-sm bg-transparent text-[#1a1b22] dark:text-white focus:outline-hidden"
+                    className="w-full text-center font-bold text-xs bg-transparent text-[#1a1b22] dark:text-white focus:outline-hidden"
                   />
                   <button
                     type="button"
                     onClick={() => setModifier((m) => m + 1)}
-                    className="w-8 h-8 rounded-xl bg-white dark:bg-[#1e2030] text-[#1a1b22] dark:text-white font-black hover:bg-slate-100 flex items-center justify-center cursor-pointer"
+                    className="w-7 h-7 rounded-lg bg-white dark:bg-[#1e2030] text-[#1a1b22] dark:text-white font-black hover:bg-slate-100 flex items-center justify-center cursor-pointer text-xs"
                   >
                     +
                   </button>
@@ -774,12 +774,12 @@ export default function DiceRollerEngine({
             </div>
           </div>
 
-          {/* Roll History Card */}
-          <div className="w-full bg-white dark:bg-[#181922] rounded-3xl p-5 sm:p-6 border border-[#eeedf7] dark:border-[#222330] shadow-sm space-y-4">
+          {/* Roll History Card - Compact */}
+          <div className="w-full bg-white dark:bg-[#181922] rounded-2xl p-3 sm:p-3.5 border border-[#eeedf7] dark:border-[#222330] shadow-xs space-y-2">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <History className="w-4 h-4 text-indigo-500" />
-                <h3 className="font-headline font-bold text-sm text-[#1a1b22] dark:text-white">
+              <div className="flex items-center gap-1.5">
+                <History className="w-3.5 h-3.5 text-indigo-500" />
+                <h3 className="font-headline font-bold text-xs text-[#1a1b22] dark:text-white">
                   Recent Physical Rolls
                 </h3>
               </div>
@@ -787,34 +787,34 @@ export default function DiceRollerEngine({
                 <button
                   type="button"
                   onClick={handleClearHistory}
-                  className="text-[11px] font-bold text-red-500 hover:underline flex items-center gap-1 cursor-pointer"
+                  className="text-[10px] font-bold text-red-500 hover:underline flex items-center gap-0.5 cursor-pointer"
                 >
-                  <Trash2 className="w-3 h-3" />
+                  <Trash2 className="w-2.5 h-2.5" />
                   <span>Clear</span>
                 </button>
               )}
             </div>
 
             {history.length === 0 ? (
-              <p className="text-xs text-[#767586] dark:text-[#908fa1] text-center py-4">
-                Roll or drag-and-flick dice in the 3D canvas to record physics history.
+              <p className="text-[11px] text-[#767586] dark:text-[#908fa1] text-center py-2">
+                Roll dice to record physics history.
               </p>
             ) : (
-              <div className="space-y-2 max-h-56 overflow-y-auto pr-1">
-                {history.slice(0, 8).map((h, i) => (
+              <div className="space-y-1 max-h-36 overflow-y-auto pr-0.5">
+                {history.slice(0, 6).map((h, i) => (
                   <div
                     key={i}
-                    className="flex items-center justify-between p-2 rounded-xl bg-[#fbf8ff] dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#292a39] text-xs"
+                    className="flex items-center justify-between p-1.5 px-2 rounded-lg bg-[#fbf8ff] dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#292a39] text-xs"
                   >
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1.5">
                       <span className="font-mono font-bold text-[#4648d4] dark:text-[#8587ff]">
                         {h.notation}
                       </span>
-                      <span className="text-[#767586] dark:text-[#908fa1] text-[11px]">
+                      <span className="text-[#767586] dark:text-[#908fa1] text-[10px]">
                         ({h.dice.map((d) => (d.isDropped ? `[${d.value}]` : `${d.value}`)).join(',')})
                       </span>
                     </div>
-                    <span className="font-headline font-black text-sm text-[#1a1b22] dark:text-white">
+                    <span className="font-headline font-black text-xs text-[#1a1b22] dark:text-white">
                       {h.total}
                     </span>
                   </div>
@@ -823,14 +823,14 @@ export default function DiceRollerEngine({
             )}
           </div>
 
-          {/* Randomness & Fairness Transparency Note */}
-          <div className="p-4 rounded-2xl bg-slate-50 dark:bg-[#151620] border border-slate-200/80 dark:border-slate-800 text-xs text-[#767586] dark:text-[#908fa1] space-y-1">
-            <div className="flex items-center gap-1.5 text-[#1a1b22] dark:text-slate-200 font-bold">
+          {/* Randomness Transparency Note - Compact */}
+          <div className="p-3 rounded-xl bg-slate-50 dark:bg-[#151620] border border-slate-200/80 dark:border-slate-800 text-[11px] text-[#767586] dark:text-[#908fa1] space-y-0.5">
+            <div className="flex items-center gap-1.5 text-[#1a1b22] dark:text-slate-200 font-bold text-xs">
               <Info className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
               <span>Fair Rolls &amp; Clear Results</span>
             </div>
-            <p className="text-[11px] leading-relaxed">
-              Every roll starts with a fresh, unbiased toss and rolls naturally across the tray. When the dice come to a stop, the system automatically reads the winning face number and calculates your total score.
+            <p className="leading-relaxed">
+              Every roll starts with an unbiased toss and rolls naturally across the tray, automatically reading the winning face.
             </p>
           </div>
         </div>

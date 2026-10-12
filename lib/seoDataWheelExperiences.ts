@@ -421,9 +421,9 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
       desc: 'Torn between two choices? Spin the A or B Wheel to resolve dilemmas and this-or-that disputes with cryptographic fairness.'
     },
     'truth-or-dare-wheel': {
-      title: 'Truth or Dare Wheel – Fun Party Game Spinner & Dares Generator',
-      h1: 'Truth or Dare Wheel: Random Party Game Spinner',
-      desc: 'Spin the online Truth or Dare Wheel for sleepovers, parties, and hangouts. Features clean and spicy prompts with elimination mode.'
+      title: 'Truth or Dare Wheel & Generator – Free Truths, Dares & Party Spinner',
+      h1: 'Truth or Dare Wheel: Random Truth & Dare Generator',
+      desc: 'Spin the online Truth or Dare Wheel for parties, sleepovers, and game nights. Features clean family, friends, and party modes with two-stage spin and timer.'
     },
     'd20-dice-roller': {
       title: 'D20 Dice Roller Wheel – Virtual 20-Sided Die Spinner for D&D',

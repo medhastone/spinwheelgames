@@ -29,7 +29,7 @@ import {
   ListPlus,
   X
 } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import confetti from '@/lib/confetti';
 import { useSavedWheels, toggleWheelFavorite } from '@/lib/storage';
 import {
   QUESTION_DATABASE,

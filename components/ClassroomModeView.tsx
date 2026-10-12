@@ -6,7 +6,7 @@ import SoundControls from './SoundControls';
 import { WheelItem, SoundSettings } from '@/lib/types';
 import { selectWeightedWinner } from '@/lib/random';
 import { playWinnerFanfare, playTickSound, announceWinnerTTS } from '@/lib/sound';
-import confetti from 'canvas-confetti';
+import confetti from '@/lib/confetti';
 import {
   GraduationCap,
   Users,

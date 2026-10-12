@@ -1,7 +1,7 @@
 'use client';
 import { SITE_COUNTS } from "@/lib/siteConfig";
 
-import React, { useState, useEffect, useRef, useSyncExternalStore } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -38,11 +38,9 @@ import {
   Star
 } from 'lucide-react';
 import {
-  subscribeTheme,
-  getThemeSnapshot,
-  getThemeServerSnapshot,
   toggleTheme,
-  applySavedTheme
+  applySavedTheme,
+  useIsDarkTheme
 } from '@/lib/theme';
 import {
   useSavedWheels,
@@ -73,11 +71,7 @@ export default function Navbar({
   onSelectPreset
 }: NavbarProps) {
   const router = useRouter();
-  const isDark = useSyncExternalStore(
-    subscribeTheme,
-    getThemeSnapshot,
-    getThemeServerSnapshot
-  );
+  const isDark = useIsDarkTheme();
 
   const savedWheels = useSavedWheels();
   const userStats = useUserStats();

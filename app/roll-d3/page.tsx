@@ -125,7 +125,7 @@ export default function RollD3Page() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32 pb-8 space-y-10">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
         {/* Breadcrumb Navigation */}
         <Breadcrumbs
           items={[
@@ -136,20 +136,20 @@ export default function RollD3Page() {
         />
 
         {/* Hero */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-400 dark:border-indigo-500/20 font-mono font-bold uppercase tracking-wider">
+        <div className="text-center space-y-2 max-w-2xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-1.5">
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-400 dark:border-indigo-500/20 font-mono uppercase tracking-wider">
               3-Sided Randomizer
             </span>
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20 font-mono font-bold uppercase tracking-wider">
-              Expected Average: 2.0 (Odds: 33.33% each)
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20 font-mono uppercase tracking-wider">
+              Expected Average: 2.0
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
             Roll D3 Online - 3D Dice Roller
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
             Roll a 3-sided virtual die with 3D physics. Perfect for Warhammer damage charts, 3-option decision making, and tabletop RPG weapon profiles.
           </p>
         </div>
@@ -158,8 +158,6 @@ export default function RollD3Page() {
         <DiceRollerEngine
           initialCount={1}
           initialSides={3}
-          pageTitle="d3 3D Dice Roller"
-          pageSubtitle="Interactive 3D WebGL simulator for 3-sided dice."
           suggestedPresets={[
             { label: '1d3 (Single 3-Sided Die)', count: 1, sides: 3 },
             { label: '2d3 (Sum 2–6, Avg 4.0)', count: 2, sides: 3 },
@@ -169,10 +167,10 @@ export default function RollD3Page() {
         />
 
         {/* Master Long-Form Educational Content */}
-        <article className="space-y-10 border-t border-slate-200 dark:border-[#1e2030] pt-10">
-          <section className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-4 shadow-sm dark:shadow-xl">
-            <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
-              <BookOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+        <article className="space-y-6 border-t border-slate-200 dark:border-[#1e2030] pt-6">
+          <section className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-3 shadow-xs">
+            <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
               <span>How a 3-Sided Die (d3) Works</span>
             </h2>
             <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">

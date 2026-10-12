@@ -12,7 +12,7 @@ import {
   getDailyChallengeServerSnapshot
 } from '@/lib/storage';
 import WheelCanvas from './WheelCanvas';
-import confetti from 'canvas-confetti';
+import confetti from '@/lib/confetti';
 import { Globe, Flame, CheckCircle2, Play, Share2 } from 'lucide-react';
 import ResultCardModal from './ResultCardModal';
 

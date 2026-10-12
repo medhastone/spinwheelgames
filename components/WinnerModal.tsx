@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import confetti from 'canvas-confetti';
+import confetti from '@/lib/confetti';
 import { WheelItem, WheelMode, ResultCardData, SurpriseModifier } from '@/lib/types';
 import { playWinnerFanfare, announceWinnerTTS, stopSpeaking } from '@/lib/sound';
 import { getRandomSurpriseModifier } from '@/lib/gamification';

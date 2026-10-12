@@ -27,6 +27,7 @@ SpinWheelGames.org is an open, high-performance web platform featuring ${SITE_CO
 - [Number Wheel](https://spinwheelgames.org/number-wheel): Numerical random picker (1-100+).
 - [Bingo Caller Wheel](https://spinwheelgames.org/bingo-wheel): 75-ball & 90-ball lottery caller.
 - [Animal Wheel](https://spinwheelgames.org/animal-wheel): Safari, ocean, birds & mythical beasts.
+- [Random Pokémon Generator](https://spinwheelgames.org/pokemon-wheel): Gens 1–9 picker, 6-mon team builder & Nuzlocke roulette.
 - [Classroom Wheel](https://spinwheelgames.org/classroom-wheel): Student name picker with elimination.
 - [Drawing Wheel](https://spinwheelgames.org/drawing-wheel): Creative art prompt spinner.
 - [Question Wheel](https://spinwheelgames.org/question-wheel): Icebreakers, trivia, and conversation starters.

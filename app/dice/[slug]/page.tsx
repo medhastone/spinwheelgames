@@ -189,11 +189,11 @@ export default async function DiceSlugPage({ params }: DiceSlugPageProps) {
         <Navbar />
 
         {/* Dice Hub Scrollable Tabs */}
-        <div className="pt-20 sm:pt-22 lg:pt-24 sticky top-0 z-40">
+        <div className="pt-20 sm:pt-24 lg:pt-28 w-full max-w-full overflow-x-clip">
           <DiceNavigation currentPath={`/dice/${normalizedSlug}`} />
         </div>
 
-        <main className="flex-1">
+        <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <DedicatedDiePageComponent config={config} />
         </main>
         <Footer />

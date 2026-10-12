@@ -2,6 +2,7 @@ import { SITE_COUNTS } from "@/lib/siteConfig";
 import React from 'react';
 import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
+import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import DirectAnswer from '@/components/DirectAnswer';
@@ -155,8 +156,8 @@ export default function ChallengesPage() {
   };
 
   const breadcrumbItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Daily Challenges' }
+    { label: 'Games & Challenges', href: '/categories' },
+    { label: 'Daily Wheel Challenge' }
   ];
 
   return (
@@ -167,9 +168,9 @@ export default function ChallengesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <Navbar />
+      <SubpageHeader activePage="/challenges" />
 
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 w-full flex flex-col gap-8">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32 pb-12 w-full flex flex-col gap-4 sm:gap-6">
         <Breadcrumbs items={breadcrumbItems} />
 
         {/* Hero Banner */}

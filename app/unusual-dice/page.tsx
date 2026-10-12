@@ -52,7 +52,7 @@ export default function UnusualDicePage() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-36 pb-8 space-y-8">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
@@ -62,14 +62,14 @@ export default function UnusualDicePage() {
         />
 
         {/* Hero */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-400 dark:border-indigo-500/20 font-bold">
+        <div className="text-center space-y-2 max-w-2xl mx-auto">
+          <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-400 dark:border-indigo-500/20 font-bold uppercase tracking-wider">
             DCC RPG &amp; Non-Standard Polyhedra
           </span>
-          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
             Roll Unusual Dice Online - Custom Polyhedral Roller
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
             Roll non-standard polyhedral dice like d3, d5, d7, d14, d16, d24, and d30 with fair 3D physics or simulate any custom N-sided die.
           </p>
         </div>
@@ -78,8 +78,8 @@ export default function UnusualDicePage() {
         <UnusualDiceComponent />
 
         {/* Guide */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-6 shadow-sm dark:shadow-xl">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+        <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-4 shadow-xs">
+          <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
             What Are Unusual Dice and How Are They Used?
           </h2>
 

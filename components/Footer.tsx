@@ -23,10 +23,18 @@ export default function Footer({ onQuickLink }: { onQuickLink?: (type: string) =
             <p className="text-[13px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
               Fast, accessible, client-side random decision tools for teachers, streamers, teams, and organizers. Designed to minimize data collection with browser Web Crypto entropy.
             </p>
-
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-semibold border border-emerald-500/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Web Crypto CSPRNG
+              </span>
+              <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff] text-[11px] font-semibold border border-[#4648d4]/20">
+                100% Client-Side
+              </span>
+            </div>
           </div>
 
-          {/* Popular Wheel Categories */}
+          {/* Popular Wheel Categories (8 items) */}
           <div className="flex flex-col gap-3.5">
             <h3 className="text-[12px] font-bold text-[#1a1b22] dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <Layers className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
@@ -44,6 +52,11 @@ export default function Footer({ onQuickLink }: { onQuickLink?: (type: string) =
                 </Link>
               </li>
               <li>
+                <Link href="/pokemon-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Random Pokémon Generator
+                </Link>
+              </li>
+              <li>
                 <Link href="/food-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
                   Food &amp; Dining Chooser
                 </Link>
@@ -54,19 +67,24 @@ export default function Footer({ onQuickLink }: { onQuickLink?: (type: string) =
                 </Link>
               </li>
               <li>
-                <Link href="/bingo-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Bingo Number Caller
+                <Link href="/classroom-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Classroom Student Picker
                 </Link>
               </li>
               <li>
-                <Link href="/random-object-generator" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Random Object Generator
+                <Link href="/team-generator" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Random Team Generator
+                </Link>
+              </li>
+              <li>
+                <Link href="/bingo-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Bingo Number Caller
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Tabletop & Utilities */}
+          {/* Tabletop & Utilities (8 items) */}
           <div className="flex flex-col gap-3.5">
             <h3 className="text-[12px] font-bold text-[#1a1b22] dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <Dices className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
@@ -79,13 +97,8 @@ export default function Footer({ onQuickLink }: { onQuickLink?: (type: string) =
                 </Link>
               </li>
               <li>
-                <Link href="/roll-1d4" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  D20 Critical Hit Roller
-                </Link>
-              </li>
-              <li>
                 <Link href="/roll-4d6" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Roll 4d6 Drop Lowest
+                  Roll 4d6 (Drop Lowest)
                 </Link>
               </li>
               <li>
@@ -104,13 +117,8 @@ export default function Footer({ onQuickLink }: { onQuickLink?: (type: string) =
                 </Link>
               </li>
               <li>
-                <Link href="/classroom-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Classroom Student Picker
-                </Link>
-              </li>
-              <li>
-                <Link href="/team-generator" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Random Team Generator
+                <Link href="/question-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Question &amp; Icebreaker Wheel
                 </Link>
               </li>
               <li>
@@ -119,68 +127,58 @@ export default function Footer({ onQuickLink }: { onQuickLink?: (type: string) =
                 </Link>
               </li>
               <li>
-                <Link href="/question-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Question &amp; Icebreaker Wheel
-                </Link>
-              </li>
-              <li>
-                <Link href="/theme-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-                  Party Theme Chooser
+                <Link href="/birthday-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Birthday Wheel &amp; Party Decider
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Directory & Policies */}
+          {/* Directory & Policies (8 items) */}
           <div className="flex flex-col gap-3.5">
             <h3 className="text-[12px] font-bold text-[#1a1b22] dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <FileText className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
               Platform &amp; Legal
             </h3>
-            <ul className="flex flex-col gap-2.5 text-[13px] text-[#464554] dark:text-[#c7c4d7]">
+            <ul className="flex flex-col gap-2 text-[13px] text-[#464554] dark:text-[#c7c4d7]">
               <li>
-                <Link href="/about" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-semibold text-[#1a1b22] dark:text-white">
+                <Link href="/about" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
                   About {SITE_CONFIG.brandName}
                 </Link>
               </li>
               <li>
-                <Link href="/games" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                <Link href="/games" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
                   All {SITE_CONFIG.counts.wheelsFormatted} Wheel Games Hub
                 </Link>
               </li>
               <li>
-                <Link href="/categories" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                <Link href="/categories" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
                   Browse by Category ({SITE_CONFIG.counts.categories})
                 </Link>
               </li>
               <li>
-                <Link href="/fairness" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium flex items-center gap-1">
-                  <span>Fairness &amp; Randomness (Web Crypto API)</span>
+                <Link href="/fairness" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+                  Fairness &amp; Randomness (CSPRNG)
                 </Link>
               </li>
               <li>
-                <Link href="/accessibility" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                <Link href="/accessibility" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
                   Accessibility Statement
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                <Link href="/privacy" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                <Link href="/terms" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
+                <Link href="/contact" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
                   Contact &amp; Support
-                </Link>
-              </li>
-              <li>
-                <Link href="/sitemap" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors font-medium">
-                  HTML Directory Sitemap
                 </Link>
               </li>
             </ul>
@@ -238,6 +236,9 @@ export default function Footer({ onQuickLink }: { onQuickLink?: (type: string) =
               </Link>
               <Link href="/contact" className="text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff]">
                 Contact
+              </Link>
+              <Link href="/sitemap" className="text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff]">
+                Sitemap
               </Link>
             </div>
           </div>

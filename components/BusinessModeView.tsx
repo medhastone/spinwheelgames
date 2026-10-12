@@ -6,7 +6,7 @@ import WinnerModal from './WinnerModal';
 import { WheelItem, SoundSettings } from '@/lib/types';
 import { selectWeightedWinner } from '@/lib/random';
 import { playWinnerFanfare, playTickSound, playCountdownBeep, announceWinnerTTS } from '@/lib/sound';
-import confetti from 'canvas-confetti';
+import confetti from '@/lib/confetti';
 import {
   Briefcase,
   Mic,

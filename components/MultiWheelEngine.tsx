@@ -6,7 +6,7 @@ import { MULTI_WHEEL_DEFAULT_PRESETS } from '@/lib/presets';
 import { selectWeightedWinner } from '@/lib/random';
 import { recordSpinInStats, loadUserStats } from '@/lib/storage';
 import WheelCanvas from './WheelCanvas';
-import confetti from 'canvas-confetti';
+import confetti from '@/lib/confetti';
 import { Layers, RotateCw, Loader2, Share2 } from 'lucide-react';
 import ResultCardModal from './ResultCardModal';
 

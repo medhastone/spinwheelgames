@@ -99,10 +99,11 @@ const nextConfig: NextConfig = {
       { source: '/roll-d3', destination: '/dice-roller', permanent: true },
       { source: '/fair-randomness', destination: '/fairness', permanent: true },
       { source: '/4d6', destination: '/roll-4d6', permanent: true },
+      { source: '/bingo-spin-wheel', destination: '/bingo-wheel', permanent: true },
     ];
   },
   // output: 'standalone',
-  transpilePackages: ['motion'],
+  transpilePackages: ['motion', 'canvas-confetti'],
   webpack: (config, {dev}) => {
     if (dev && process.env.DISABLE_HMR === 'true') {
       config.watchOptions = {

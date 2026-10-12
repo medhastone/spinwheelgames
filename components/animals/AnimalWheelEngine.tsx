@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import confetti from 'canvas-confetti';
+import confetti from '@/lib/confetti';
 import {
   Sparkles,
   RotateCw,

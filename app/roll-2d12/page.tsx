@@ -126,7 +126,7 @@ export default function Roll2d12Page() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32 pb-8 space-y-10">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
         {/* Breadcrumbs Navigation */}
         <Breadcrumbs
           items={[
@@ -137,20 +137,20 @@ export default function Roll2d12Page() {
         />
 
         {/* Hero */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-400 dark:border-indigo-500/20 font-mono font-bold uppercase tracking-wider">
-              Dodecahedrons (Two 12-Sided Dice)
+        <div className="text-center space-y-2 max-w-2xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-1.5">
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-400 dark:border-indigo-500/20 font-mono uppercase tracking-wider">
+              Two 12-Sided Dice
             </span>
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20 font-mono font-bold uppercase tracking-wider">
-              Expected Average: 13.0 (Range 2–24)
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20 font-mono uppercase tracking-wider">
+              Avg: 13.0 (Range 2–24)
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
             Roll 2 D12 Online - 3D Multi-Dice Roller
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
             Roll two 12-sided dodecahedron dice simultaneously with 3D physics. See individual faces, subtotal sums, arithmetic averages, and triangular probability charts.
           </p>
         </div>
@@ -159,8 +159,6 @@ export default function Roll2d12Page() {
         <DiceRollerEngine
           initialCount={2}
           initialSides={12}
-          pageTitle="2d12 3D Dice Roller"
-          pageSubtitle="Interactive 3D WebGL simulator for two 12-sided dodecahedron dice."
           suggestedPresets={[
             { label: 'Standard 2d12 (Sum 2–24)', count: 2, sides: 12 },
             { label: '1d12 Single Greataxe', count: 1, sides: 12 },
@@ -170,13 +168,13 @@ export default function Roll2d12Page() {
         />
 
         {/* Master Long-Form Educational Content */}
-        <article className="space-y-10 border-t border-slate-200 dark:border-[#1e2030] pt-10">
-          <section className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-4 shadow-sm dark:shadow-xl">
-            <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
-              <BookOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+        <article className="space-y-6 border-t border-slate-200 dark:border-[#1e2030] pt-6">
+          <section className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-3 shadow-xs">
+            <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
               <span>2d12 Triangular Probability Mechanics</span>
             </h2>
-            <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+            <div className="space-y-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
               <p>
                 When rolling two 12-sided dice (<strong>2d12</strong>), there are $12 \times 12 = 144$ possible outcomes. Unlike a single 1d12 or 1d24 which has uniform probabilities across all numbers, 2d12 creates a triangular bell curve where central numbers occur much more frequently than the outer extremes.
               </p>
@@ -186,8 +184,8 @@ export default function Roll2d12Page() {
             </div>
           </section>
 
-          <section className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-4 shadow-sm dark:shadow-xl">
-            <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+          <section className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-3.5 shadow-xs">
+            <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
               <HelpCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
               <span>Frequently Asked Questions (Roll 2d12)</span>
             </h2>

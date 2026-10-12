@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import confetti from 'canvas-confetti';
+import confetti from '@/lib/confetti';
 import {
   Users,
   Shuffle,
@@ -514,20 +514,20 @@ export default function TeamGeneratorEngine() {
   return (
     <div
       ref={containerRef}
-      className={`w-full rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden transition-all ${
-        fullscreen ? 'fixed inset-0 z-50 rounded-none overflow-y-auto p-4 sm:p-8' : ''
+      className={`w-full rounded-2xl bg-white dark:bg-[#151620] border border-[#eeedf7] dark:border-[#222330] shadow-sm overflow-hidden transition-all ${
+        fullscreen ? 'fixed inset-0 z-50 rounded-none overflow-y-auto p-3.5 sm:p-6' : ''
       }`}
     >
       {/* Top Toolbar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-6 py-4 bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-800">
+      <div className="flex flex-wrap items-center justify-between gap-2.5 px-3.5 sm:px-5 py-3 bg-[#fbf8ff] dark:bg-[#12131a] border-b border-[#eeedf7] dark:border-[#222330]">
         <div className="flex items-center gap-2">
-          <div className="flex bg-slate-200/80 dark:bg-slate-700/80 p-1 rounded-xl text-xs font-bold">
+          <div className="flex bg-[#f0ecf9] dark:bg-[#1a1b28] p-1 rounded-xl text-xs font-bold">
             <button
               onClick={() => setActiveTab('generator')}
               className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
                 activeTab === 'generator'
-                  ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-sm'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                  ? 'bg-white dark:bg-[#151620] text-blue-600 dark:text-blue-400 shadow-xs font-black'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <Users className="w-3.5 h-3.5" />
@@ -537,8 +537,8 @@ export default function TeamGeneratorEngine() {
               onClick={() => setActiveTab('wheelDraft')}
               className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
                 activeTab === 'wheelDraft'
-                  ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-sm'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                  ? 'bg-white dark:bg-[#151620] text-blue-600 dark:text-blue-400 shadow-xs font-black'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
@@ -548,8 +548,8 @@ export default function TeamGeneratorEngine() {
               onClick={() => setActiveTab('presets')}
               className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
                 activeTab === 'presets'
-                  ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-sm'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                  ? 'bg-white dark:bg-[#151620] text-blue-600 dark:text-blue-400 shadow-xs font-black'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
@@ -559,24 +559,24 @@ export default function TeamGeneratorEngine() {
         </div>
 
         {/* Action icons */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           <button
             onClick={() => setSoundEnabled(!soundEnabled)}
-            className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 shadow-sm"
+            className="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#181924] text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 shadow-xs"
             title={soundEnabled ? 'Mute Sound' : 'Enable Sound'}
           >
             {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
           </button>
           <button
             onClick={handlePrint}
-            className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 shadow-sm"
+            className="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#181924] text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 shadow-xs"
             title="Print Team Cards"
           >
             <Printer className="w-4 h-4" />
           </button>
           <button
             onClick={() => setFullscreen(!fullscreen)}
-            className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 shadow-sm"
+            className="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#181924] text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 shadow-xs"
             title={fullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
           >
             {fullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
@@ -586,20 +586,20 @@ export default function TeamGeneratorEngine() {
 
       {/* TAB 1: INSTANT GENERATOR */}
       {activeTab === 'generator' && (
-        <div className="p-4 sm:p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="p-3 sm:p-4 lg:p-5 grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5">
           {/* Left Column: Configuration & Roster Input (5 Cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="space-y-4">
+          <div className="lg:col-span-5 space-y-3">
+            <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <label className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                  <Users className="w-4 h-4 text-blue-500" />
-                  <span>Participant Names ({rawMembers.length})</span>
+                <label className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5 uppercase tracking-wide">
+                  <Users className="w-3.5 h-3.5 text-blue-500" />
+                  <span>Participant Roster ({rawMembers.length})</span>
                 </label>
                 <button
                   onClick={() => setInputText('')}
-                  className="text-xs text-rose-500 hover:underline flex items-center gap-1"
+                  className="text-[11px] text-rose-500 hover:underline flex items-center gap-1 font-semibold"
                 >
-                  <Trash2 className="w-3.5 h-3.5" />
+                  <Trash2 className="w-3 h-3" />
                   <span>Clear</span>
                 </button>
               </div>
@@ -608,23 +608,23 @@ export default function TeamGeneratorEngine() {
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder="Paste names here, one per line..."
-                rows={9}
-                className="w-full p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 text-sm font-mono text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none leading-relaxed resize-y"
+                rows={5}
+                className="w-full p-2.5 rounded-xl bg-[#faf9fe] dark:bg-[#181924] border border-[#eeedf7] dark:border-[#222330] text-xs font-mono text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none leading-relaxed resize-y"
               />
             </div>
 
             {/* Split Settings */}
-            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 space-y-4">
+            <div className="p-3 rounded-xl bg-[#faf9fe] dark:bg-[#181924] border border-[#eeedf7] dark:border-[#222330] space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+                <span className="text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                   Division Rule
                 </span>
-                <div className="flex bg-slate-200/80 dark:bg-slate-700/80 p-0.5 rounded-lg text-xs font-bold">
+                <div className="flex bg-[#f0ecf9] dark:bg-[#12131a] p-0.5 rounded-lg text-xs font-bold">
                   <button
                     onClick={() => setSplitMode('numTeams')}
-                    className={`px-2.5 py-1 rounded-md transition-all ${
+                    className={`px-2 py-0.5 rounded-md text-[11px] transition-all ${
                       splitMode === 'numTeams'
-                        ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-sm'
+                        ? 'bg-white dark:bg-[#1d1e2b] text-blue-600 dark:text-blue-400 shadow-2xs font-bold'
                         : 'text-slate-600 dark:text-slate-400'
                     }`}
                   >
@@ -632,9 +632,9 @@ export default function TeamGeneratorEngine() {
                   </button>
                   <button
                     onClick={() => setSplitMode('perTeam')}
-                    className={`px-2.5 py-1 rounded-md transition-all ${
+                    className={`px-2 py-0.5 rounded-md text-[11px] transition-all ${
                       splitMode === 'perTeam'
-                        ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-sm'
+                        ? 'bg-white dark:bg-[#1d1e2b] text-blue-600 dark:text-blue-400 shadow-2xs font-bold'
                         : 'text-slate-600 dark:text-slate-400'
                     }`}
                   >
@@ -644,10 +644,10 @@ export default function TeamGeneratorEngine() {
               </div>
 
               {splitMode === 'numTeams' ? (
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-sm">
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between text-xs">
                     <span className="text-slate-700 dark:text-slate-300 font-medium">Number of Teams:</span>
-                    <span className="font-black text-blue-600 dark:text-blue-400 text-base">{numTeams} Teams</span>
+                    <span className="font-black text-blue-600 dark:text-blue-400 text-xs">{numTeams} Teams</span>
                   </div>
                   <input
                     type="range"
@@ -655,19 +655,19 @@ export default function TeamGeneratorEngine() {
                     max={Math.max(2, Math.min(12, rawMembers.length || 12))}
                     value={numTeams}
                     onChange={(e) => setNumTeams(parseInt(e.target.value))}
-                    className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                    className="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
                   />
-                  <div className="flex justify-between text-[11px] text-slate-600 dark:text-slate-400 font-mono">
+                  <div className="flex justify-between text-[10px] text-slate-500 dark:text-slate-400 font-mono">
                     <span>2 Teams</span>
                     <span>6 Teams</span>
                     <span>12 Teams</span>
                   </div>
                 </div>
               ) : (
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-sm">
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between text-xs">
                     <span className="text-slate-700 dark:text-slate-300 font-medium">Members per Team:</span>
-                    <span className="font-black text-blue-600 dark:text-blue-400 text-base">{membersPerTeam} Members</span>
+                    <span className="font-black text-blue-600 dark:text-blue-400 text-xs">{membersPerTeam} Members</span>
                   </div>
                   <input
                     type="range"
@@ -675,9 +675,9 @@ export default function TeamGeneratorEngine() {
                     max={Math.max(2, Math.min(10, rawMembers.length || 10))}
                     value={membersPerTeam}
                     onChange={(e) => setMembersPerTeam(parseInt(e.target.value))}
-                    className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                    className="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
                   />
-                  <div className="flex justify-between text-[11px] text-slate-600 dark:text-slate-400 font-mono">
+                  <div className="flex justify-between text-[10px] text-slate-500 dark:text-slate-400 font-mono">
                     <span>1 / Team</span>
                     <span>5 / Team</span>
                     <span>10 / Team</span>
@@ -686,31 +686,31 @@ export default function TeamGeneratorEngine() {
               )}
 
               {/* Team Name Themes */}
-              <div className="space-y-1.5 pt-2 border-t border-slate-200 dark:border-slate-700">
-                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+              <div className="space-y-1 pt-1.5 border-t border-slate-200/80 dark:border-slate-800">
+                <label className="text-[10px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wide">
                   Team Name Theme:
                 </label>
                 <select
                   value={teamNameTheme}
                   onChange={(e) => setTeamNameTheme(e.target.value)}
-                  className="w-full p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-1.5 rounded-lg bg-white dark:bg-[#12131a] border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="animals">🦁 Animals & Predators (Fierce Tigers, Wolves)</option>
+                  <option value="animals">🦁 Animals &amp; Predators (Fierce Tigers, Wolves)</option>
                   <option value="mythical">🐉 Mythical Beasts (Phoenix, Dragons, Titans)</option>
                   <option value="colors">🎨 Vibrant Colors (Crimson, Sapphire, Emerald)</option>
-                  <option value="cyber">⚡ Cyber & High-Tech (Quantum Core, Neon Glitch)</option>
-                  <option value="sports">🏆 Sports & Competitions (Vipers, Blitz, Strikers)</option>
+                  <option value="cyber">⚡ Cyber &amp; High-Tech (Quantum Core, Neon Glitch)</option>
+                  <option value="sports">🏆 Sports &amp; Competitions (Vipers, Blitz, Strikers)</option>
                 </select>
               </div>
 
               {/* Advanced Options */}
-              <div className="flex items-center justify-between pt-2">
-                <label className="text-xs font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2 cursor-pointer">
+              <div className="flex items-center justify-between pt-0.5">
+                <label className="text-xs font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={assignCaptains}
                     onChange={(e) => setAssignCaptains(e.target.checked)}
-                    className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-4 h-4"
+                    className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5"
                   />
                   <span>Designate 1st Member as Captain 👑</span>
                 </label>
@@ -721,89 +721,89 @@ export default function TeamGeneratorEngine() {
             <button
               onClick={handleGenerateTeams}
               disabled={rawMembers.length === 0}
-              className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black text-base shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all transform active:scale-[0.99] flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-xs sm:text-sm shadow-sm shadow-blue-500/20 transition-all transform active:scale-[0.99] flex items-center justify-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <Shuffle className="w-5 h-5" />
+              <Shuffle className="w-3.5 h-3.5" />
               <span>Generate Fair Random Teams</span>
             </button>
           </div>
 
           {/* Right Column: Generated Teams Output Board (7 Cols) */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="lg:col-span-7 space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <div>
-                <h3 className="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
-                  <Award className="w-5 h-5 text-amber-500" />
+                <h3 className="text-sm sm:text-base font-black text-slate-900 dark:text-white flex items-center gap-1.5">
+                  <Award className="w-4 h-4 text-amber-500" />
                   <span>Generated Teams ({teams.length})</span>
                 </h3>
-                <p className="text-xs text-slate-600 dark:text-slate-400">
-                  Total {rawMembers.length} participants split across {teams.length} groups
+                <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                  {rawMembers.length} participants split into {teams.length} groups
                 </p>
               </div>
 
               {/* Copy & Export Toolbar */}
-              <div className="flex items-center gap-2 flex-wrap">
+              <div className="flex items-center gap-1 flex-wrap">
                 <button
                   onClick={() => handleCopyTeams('text')}
-                  className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-200 hover:border-blue-500 flex items-center gap-1.5 shadow-sm"
+                  className="px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#181924] text-[11px] font-bold text-slate-700 dark:text-slate-200 hover:border-blue-500 flex items-center gap-1 shadow-2xs"
                 >
-                  {copied && copiedFormat === 'text' ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span>Copy Text</span>
+                  {copied && copiedFormat === 'text' ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
+                  <span>Text</span>
                 </button>
                 <button
                   onClick={() => handleCopyTeams('markdown')}
-                  className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-200 hover:border-blue-500 flex items-center gap-1.5 shadow-sm"
+                  className="px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#181924] text-[11px] font-bold text-slate-700 dark:text-slate-200 hover:border-blue-500 flex items-center gap-1 shadow-2xs"
                 >
-                  {copied && copiedFormat === 'markdown' ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <FileText className="w-3.5 h-3.5" />}
-                  <span>Markdown</span>
+                  {copied && copiedFormat === 'markdown' ? <Check className="w-3 h-3 text-emerald-500" /> : <FileText className="w-3 h-3" />}
+                  <span>MD</span>
                 </button>
                 <button
                   onClick={handleDownloadCsv}
-                  className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-200 hover:border-blue-500 flex items-center gap-1.5 shadow-sm"
+                  className="px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#181924] text-[11px] font-bold text-slate-700 dark:text-slate-200 hover:border-blue-500 flex items-center gap-1 shadow-2xs"
                 >
-                  <Download className="w-3.5 h-3.5" />
+                  <Download className="w-3 h-3" />
                   <span>CSV</span>
                 </button>
               </div>
             </div>
 
             {/* Teams Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[580px] overflow-y-auto pr-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[420px] sm:max-h-[460px] overflow-y-auto pr-1">
               {teams.map((team, tIdx) => {
                 const palette = TEAM_PALETTES[tIdx % TEAM_PALETTES.length];
                 return (
                   <div
                     key={team.id}
-                    className={`p-4 rounded-2xl border ${palette.border} ${palette.bg} transition-all space-y-3 relative group`}
+                    className={`p-3 rounded-xl border ${palette.border} ${palette.bg} transition-all space-y-2 relative group`}
                   >
                     {/* Team Header */}
-                    <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center justify-between gap-1.5">
                       <input
                         type="text"
                         value={team.name}
                         onChange={(e) => handleRenameTeam(tIdx, e.target.value)}
-                        className="font-black text-sm text-slate-900 dark:text-white bg-transparent border-b border-transparent hover:border-slate-400 focus:border-blue-500 focus:outline-none px-1 py-0.5 w-full rounded"
+                        className="font-extrabold text-xs text-slate-900 dark:text-white bg-transparent border-b border-transparent hover:border-slate-400 focus:border-blue-500 focus:outline-none px-1 py-0.5 w-full rounded"
                       />
-                      <span className={`text-[11px] font-black px-2 py-0.5 rounded-full ${palette.badge} flex-shrink-0`}>
+                      <span className={`text-[10px] font-black px-1.5 py-0.5 rounded-full ${palette.badge} flex-shrink-0`}>
                         {team.members.length}
                       </span>
                     </div>
 
                     {/* Member List */}
-                    <div className="space-y-1.5 min-h-[90px]">
+                    <div className="space-y-0.5 min-h-[60px]">
                       {team.members.length === 0 ? (
-                        <p className="text-xs text-slate-600 dark:text-slate-400 italic py-2">No members assigned yet.</p>
+                        <p className="text-[11px] text-slate-500 dark:text-slate-400 italic py-1.5">No members assigned yet.</p>
                       ) : (
                         team.members.map((member, mIdx) => (
                           <div
                             key={mIdx}
-                            className="flex items-center justify-between px-2.5 py-1.5 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 text-xs text-slate-800 dark:text-slate-200 shadow-xs"
+                            className="flex items-center justify-between px-2 py-0.5 rounded-md bg-white/80 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 text-xs text-slate-800 dark:text-slate-200 shadow-2xs"
                           >
-                            <span className="flex items-center gap-1.5 font-medium truncate">
+                            <span className="flex items-center gap-1 font-medium truncate text-[11px]">
                               {assignCaptains && mIdx === 0 && (
-                                <Crown className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
+                                <Crown className="w-3 h-3 text-amber-500 flex-shrink-0" />
                               )}
-                              <span className="text-slate-600 dark:text-slate-400 font-mono text-[11px] w-4">
+                              <span className="text-slate-400 dark:text-slate-500 font-mono text-[9px] w-3">
                                 {mIdx + 1}.
                               </span>
                               <span className="truncate">{member}</span>
@@ -814,7 +814,7 @@ export default function TeamGeneratorEngine() {
                               <select
                                 onChange={(e) => handleMoveMember(tIdx, mIdx, parseInt(e.target.value))}
                                 value={tIdx}
-                                className="opacity-0 group-hover:opacity-100 focus:opacity-100 text-[10px] bg-slate-100 dark:bg-slate-700 rounded px-1 py-0.5 border border-slate-300 dark:border-slate-600 cursor-pointer transition-opacity"
+                                className="opacity-0 group-hover:opacity-100 focus:opacity-100 text-[9px] bg-slate-100 dark:bg-slate-700 rounded px-1 py-0.5 border border-slate-300 dark:border-slate-600 cursor-pointer transition-opacity"
                                 title="Move member to another team"
                               >
                                 {teams.map((otherTeam, oIdx) => (
@@ -834,13 +834,13 @@ export default function TeamGeneratorEngine() {
             </div>
 
             {/* Quick Reshuffle Button */}
-            <div className="flex items-center justify-end gap-3 pt-2">
+            <div className="flex items-center justify-end gap-2 pt-0.5">
               <button
                 onClick={handleGenerateTeams}
-                className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold text-slate-700 dark:text-slate-200 flex items-center gap-1.5 transition-all"
+                className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-[#181924] hover:bg-slate-200 dark:hover:bg-slate-800 text-[11px] font-bold text-slate-700 dark:text-slate-200 flex items-center gap-1 transition-all"
               >
-                <RefreshCw className="w-3.5 h-3.5" />
-                <span>Re-Shuffle All Teams</span>
+                <RefreshCw className="w-3 h-3" />
+                <span>Re-Shuffle Teams</span>
               </button>
             </div>
           </div>
@@ -849,55 +849,55 @@ export default function TeamGeneratorEngine() {
 
       {/* TAB 2: LIVE WHEEL DRAFT */}
       {activeTab === 'wheelDraft' && (
-        <div className="p-4 sm:p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="p-3 sm:p-4 lg:p-5 grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
           {/* Wheel Canvas Column (6 Cols) */}
-          <div className="lg:col-span-6 flex flex-col items-center justify-center space-y-4">
+          <div className="lg:col-span-6 flex flex-col items-center justify-center space-y-2.5">
             <div className="relative">
               {/* Top Pointer Indicator */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 z-10 w-0 h-0 border-l-[14px] border-l-transparent border-r-[14px] border-r-transparent border-t-[24px] border-t-rose-500 drop-shadow-md" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 z-10 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[18px] border-t-rose-500 drop-shadow-xs" />
 
               <canvas
                 ref={canvasRef}
-                width={360}
-                height={360}
-                className="w-full max-w-[min(90vw,360px)] aspect-square sm:max-w-[400px] rounded-full shadow-2xl cursor-pointer touch-manipulation"
+                width={300}
+                height={300}
+                className="w-full max-w-[min(80vw,300px)] aspect-square sm:max-w-[310px] rounded-full shadow-md cursor-pointer touch-manipulation"
                 onClick={handleSpinDraft}
               />
             </div>
 
-            <div className="text-center space-y-2">
+            <div className="text-center space-y-1">
               <button
                 onClick={handleSpinDraft}
                 disabled={isSpinning || undraftedMembers.length === 0}
-                className="py-3 px-8 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black text-sm shadow-lg shadow-blue-500/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-95 flex items-center gap-2 mx-auto"
+                className="py-2 px-5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black text-xs shadow-sm shadow-blue-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-95 flex items-center gap-1.5 mx-auto"
               >
-                <Sparkles className="w-4 h-4" />
+                <Sparkles className="w-3.5 h-3.5" />
                 <span>{isSpinning ? 'Drafting Player...' : 'SPIN TO DRAFT NEXT PLAYER'}</span>
               </button>
-              <p className="text-xs text-slate-600 dark:text-slate-400">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                 {undraftedMembers.length} players remaining in draft pool
               </p>
             </div>
           </div>
 
           {/* Live Draft Board Column (6 Cols) */}
-          <div className="lg:col-span-6 space-y-4">
+          <div className="lg:col-span-6 space-y-2.5">
             {lastDraftedMember && (
-              <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center gap-3">
-                <Crown className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+              <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center gap-2">
+                <Crown className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <div>
                   <div className="text-xs font-bold text-emerald-800 dark:text-emerald-300">
-                    Just Drafted: <span className="font-black text-sm">{lastDraftedMember.member}</span>
+                    Just Drafted: <span className="font-black">{lastDraftedMember.member}</span>
                   </div>
-                  <div className="text-[11px] text-emerald-600 dark:text-emerald-400">
+                  <div className="text-[10px] text-emerald-600 dark:text-emerald-400">
                     Assigned to {lastDraftedMember.team}
                   </div>
                 </div>
               </div>
             )}
 
-            <div className="space-y-3 max-h-[420px] overflow-y-auto pr-1">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
+            <div className="space-y-2 max-h-[360px] overflow-y-auto pr-1">
+              <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
                 Live Draft Status: Drafting for{' '}
                 <span className="text-blue-600 dark:text-blue-400 font-bold">
                   {teams[draftTargetTeam % (teams.length || 1)]?.name}
@@ -907,24 +907,24 @@ export default function TeamGeneratorEngine() {
               {teams.map((t, idx) => (
                 <div
                   key={t.id}
-                  className={`p-3 rounded-xl border ${
+                  className={`p-2 rounded-lg border ${
                     draftTargetTeam % teams.length === idx
                       ? 'border-blue-500 ring-2 ring-blue-500/20 bg-blue-500/5'
-                      : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50'
+                      : 'border-slate-200 dark:border-slate-800 bg-[#faf9fe] dark:bg-[#181924]'
                   }`}
                 >
-                  <div className="flex items-center justify-between text-xs font-bold mb-1.5">
+                  <div className="flex items-center justify-between text-xs font-bold mb-0.5">
                     <span className="text-slate-900 dark:text-white">{t.name}</span>
-                    <span className="text-slate-600 dark:text-slate-400">{t.members.length} drafted</span>
+                    <span className="text-slate-500 dark:text-slate-400 text-[10px]">{t.members.length} drafted</span>
                   </div>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-1">
                     {t.members.length === 0 ? (
-                      <span className="text-[11px] text-slate-600 dark:text-slate-400 italic">Waiting for picks...</span>
+                      <span className="text-[10px] text-slate-500 dark:text-slate-400 italic">Waiting for picks...</span>
                     ) : (
                       t.members.map((m, mIdx) => (
                         <span
                           key={mIdx}
-                          className="px-2 py-0.5 rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-[11px] font-medium text-slate-800 dark:text-slate-200"
+                          className="px-1.5 py-0.5 rounded bg-white dark:bg-[#12131a] border border-slate-200 dark:border-slate-800 text-[10px] font-medium text-slate-800 dark:text-slate-200"
                         >
                           {m}
                         </span>
@@ -940,35 +940,35 @@ export default function TeamGeneratorEngine() {
 
       {/* TAB 3: READY-TO-USE PRESETS */}
       {activeTab === 'presets' && (
-        <div className="p-4 sm:p-6 lg:p-8 space-y-6">
+        <div className="p-3 sm:p-4 lg:p-5 space-y-3">
           <div>
-            <h3 className="text-base font-black text-slate-900 dark:text-white">
+            <h3 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white">
               Instant Roster Presets
             </h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400">
               Click any template to prefill the roster and generate balanced groups immediately.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5">
             {ROSTER_PRESETS.map((p) => (
               <div
                 key={p.id}
                 onClick={() => handleLoadPreset(p)}
-                className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 hover:bg-white dark:bg-slate-800/50 dark:hover:bg-slate-800 hover:border-blue-500 dark:hover:border-blue-500 cursor-pointer transition-all space-y-2 group shadow-xs"
+                className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-[#faf9fe] hover:bg-white dark:bg-[#181924] dark:hover:bg-[#1c1d2b] hover:border-blue-500 dark:hover:border-blue-500 cursor-pointer transition-all space-y-1 group shadow-2xs"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">
+                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">
                     {p.category}
                   </span>
-                  <span className="text-xs text-slate-600 dark:text-slate-400 font-mono">
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono">
                     {p.members.length} Members
                   </span>
                 </div>
-                <h4 className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h4 className="font-bold text-xs text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {p.title}
                 </h4>
-                <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-2">
+                <p className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-2">
                   {p.members.slice(0, 5).join(', ')}...
                 </p>
               </div>

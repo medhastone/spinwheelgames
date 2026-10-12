@@ -222,6 +222,43 @@ export const KEYWORD_CONTENT_MATRIX: KeywordContentMatrixItem[] = [
     indexable: true
   },
   {
+    url: '/random-number-wheel',
+    pageName: 'Random Number Wheel – Pick a Number Spinner (1-10, 1-20, 1-50, 1-100)',
+    primaryKeyword: 'random number wheel',
+    secondaryKeywords: [
+      'picking a number',
+      'number spinner',
+      'spinner with numbers',
+      'number spin wheel',
+      'random number picker',
+      'pick a number 1-10',
+      'pick a number 1-20',
+      'pick a number 1-50',
+      'pick a number 1-100'
+    ],
+    semanticTerms: [
+      'random number picker',
+      'number spinner with audio',
+      'no-repeat number elimination',
+      'even odd number filter',
+      'multiple number drawer',
+      'custom range integers'
+    ],
+    searchIntent: 'tool / numbers / RNG',
+    targetAudience: 'Teachers, gamers, raffle hosts, giveaway organizers, decision makers',
+    problemSolved: 'Picks truly fair random numbers online with custom ranges (1-10, 1-20, 1-50, 1-100), no-repeat mode, parity filters, and batch drawing',
+    toolType: 'Hardware CSPRNG Number Spin Wheel & Picker',
+    uniqueValue: 'Sub-millisecond Web Crypto RNG, instant & wheel modes, even/odd filters, no-repeat elimination, batch draw',
+    internalLinks: [
+      '/number-wheel',
+      '/bingo-wheel',
+      '/dice-roller',
+      '/fairness'
+    ],
+    sourceRequirements: ['W3C Web Cryptography API (crypto.getRandomValues)'],
+    indexable: true
+  },
+  {
     url: '/random-object-generator',
     pageName: 'Random Object Generator – Drawing & Pictionary Prompts',
     primaryKeyword: 'random object generator',
@@ -281,6 +318,149 @@ export const KEYWORD_CONTENT_MATRIX: KeywordContentMatrixItem[] = [
       '/random-object-generator'
     ],
     sourceRequirements: ['W3C Web Cryptography API', 'Fisher-Yates Shuffle Algorithm'],
+    indexable: true
+  },
+  {
+    url: '/comment-picker',
+    pageName: 'Random Comment Picker – Giveaway Winner Generator',
+    primaryKeyword: 'comment picker',
+    secondaryKeywords: [
+      'random comment picker',
+      'free comment picker',
+      'youtube comment picker',
+      'instagram comment picker',
+      'giveaway comment picker',
+      'random winner generator'
+    ],
+    semanticTerms: [
+      'duplicate removal',
+      'blank line cleaner',
+      'exclusion filters',
+      'hardware CSPRNG',
+      'browser privacy',
+      'winner history'
+    ],
+    searchIntent: 'tool / giveaway / social media',
+    targetAudience: 'Content creators, YouTubers, streamers, social media managers, event hosts',
+    problemSolved: 'Picks unbiased random winners from pasted comments with duplicate removal and exclusions with zero paid APIs',
+    toolType: 'Browser-Based Random Comment Picker & Giveaway Generator',
+    uniqueValue: '100% in-browser Web Crypto API randomness, zero social media API keys needed, audit seed tracking',
+    internalLinks: [
+      '/wheel-of-names',
+      '/team-generator',
+      '/random-game-picker',
+      '/drawing-wheel'
+    ],
+    sourceRequirements: ['W3C Web Cryptography API (crypto.getRandomValues)'],
+    indexable: true
+  },
+  {
+    url: '/birthday-wheel',
+    pageName: 'Birthday Wheel – Fun Decision Wheel for Party Activities, Gifts, Food & Themes',
+    primaryKeyword: 'birthday wheel',
+    secondaryKeywords: [
+      'birthday decision wheel',
+      'birthday party wheel',
+      'birthday spinner',
+      'birthday person picker',
+      'birthday activity wheel',
+      'birthday food wheel',
+      'birthday gift ideas wheel',
+      'birthday party games spinner'
+    ],
+    semanticTerms: [
+      'birthday person picker',
+      'birthday activity',
+      'birthday food',
+      'birthday gift ideas',
+      'birthday party games',
+      'birthday theme',
+      'no-repeat elimination'
+    ],
+    searchIntent: 'tool / party / decision',
+    targetAudience: 'Birthday planners, party hosts, friends, parents, event organizers',
+    problemSolved: 'Solves birthday decision paralysis for activities, dinner spots, gift ideas, games, and party spotlights',
+    toolType: 'Interactive Birthday Decision Wheel',
+    uniqueValue: '6 dedicated celebration modes, custom bulk list editing, sound fanfare, confetti celebration, provably fair CSPRNG',
+    internalLinks: [
+      '/theme-wheel',
+      '/random-game-picker',
+      '/food-wheel',
+      '/comment-picker',
+      '/wheel-of-names'
+    ],
+    sourceRequirements: ['W3C Web Cryptography API (crypto.getRandomValues)'],
+    indexable: true
+  },
+  {
+    url: '/random-category-generator',
+    pageName: 'Category Generator – Instant Random Categories & Scattergories Tool',
+    primaryKeyword: 'category generator',
+    secondaryKeywords: [
+      'random categories',
+      'random category generator',
+      'scattergories category generator',
+      'random category picker',
+      'game category generator'
+    ],
+    semanticTerms: [
+      'one category mode',
+      'multiple categories mode',
+      'no-repeat elimination',
+      'Scattergories letter generator',
+      'creative writing prompts',
+      'classroom bell ringers',
+      'ideation brainstorming'
+    ],
+    searchIntent: 'tool / games / brainstorming',
+    targetAudience: 'Game night players, teachers, writers, creative teams, content creators',
+    problemSolved: 'Instantly draws unbiased random categories for party games, Scattergories rounds, brainstorming sprints, and writing prompts',
+    toolType: 'Instant Random Category Generator & Scattergories Tool',
+    uniqueValue: '12 curated categories + custom creation, 3 generation modes, hardware CSPRNG, round timer, letter roller',
+    internalLinks: [
+      '/random-game-picker',
+      '/drawing-wheel',
+      '/theme-wheel',
+      '/birthday-wheel',
+      '/comment-picker'
+    ],
+    sourceRequirements: ['W3C Web Cryptography API (crypto.getRandomValues)'],
+    indexable: true
+  },
+  {
+    url: '/word-spinner',
+    pageName: 'Word Spinner – Random Word Spinner for Writing, Games & Learning',
+    primaryKeyword: 'word spinner',
+    secondaryKeywords: [
+      'random word spinner',
+      'word wheel',
+      'random word wheel',
+      'noun generator',
+      'verb spinner',
+      'adjective generator',
+      'vocabulary wheel'
+    ],
+    semanticTerms: [
+      'random word selection',
+      'nouns verbs adjectives',
+      'easy words advanced words',
+      'creative writing mode',
+      'classroom vocabulary drill',
+      'custom word list',
+      'no-repeat elimination'
+    ],
+    searchIntent: 'tool / education / writing',
+    targetAudience: 'Writers, educators, students, game night hosts, ESL learners',
+    problemSolved: 'Spins fair random words across parts of speech and difficulty tiers for writing prompts, vocabulary drills, and games',
+    toolType: 'Interactive Word Spinner & Vocabulary Wheel',
+    uniqueValue: 'Nouns, verbs, adjectives, easy, and advanced lexicons, TTS audio pronunciation, writing prompt seeds, and custom word list support',
+    internalLinks: [
+      '/random-category-generator',
+      '/classroom-wheel',
+      '/drawing-wheel',
+      '/wheel-of-names'
+    ],
+    sourceRequirements: ['W3C Web Cryptography API (crypto.getRandomValues)'],
     indexable: true
   }
 ];

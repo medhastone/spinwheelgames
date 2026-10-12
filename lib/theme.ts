@@ -1,6 +1,6 @@
 'use client';
 
-import { useSyncExternalStore } from 'react';
+import React, { useSyncExternalStore } from 'react';
 
 const THEME_KEY = 'spinwheel_theme_preference';
 const themeListeners = new Set<() => void>();
@@ -38,11 +38,18 @@ export function getThemeServerSnapshot(): boolean {
 }
 
 export function useIsDarkTheme(): boolean {
-  return useSyncExternalStore(
+  const [mounted, setMounted] = React.useState(false);
+  const isDark = useSyncExternalStore(
     subscribeTheme,
     getThemeSnapshot,
     getThemeServerSnapshot
   );
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return mounted ? isDark : false;
 }
 
 export function toggleTheme(): boolean {

@@ -1,13 +1,14 @@
 export type ThemeCategory =
+  | 'party'
+  | 'birthday'
+  | 'classroom'
+  | 'content'
+  | 'seasonal'
+  | 'custom'
   | 'drawing'
   | 'writing'
-  | 'party'
-  | 'photography'
-  | 'video'
-  | 'storytelling'
   | 'gaming'
-  | 'classroom'
-  | 'custom';
+  | 'photography';
 
 export interface ThemeEntry {
   id: string;
@@ -18,90 +19,461 @@ export interface ThemeEntry {
   promptIdea?: string;
 }
 
-export const THEME_CATEGORIES: { id: ThemeCategory; label: string; icon: string; description: string }[] = [
-  { id: 'drawing', label: 'Drawing', icon: 'Palette', description: 'Prompts for digital & traditional art, sketching, and illustration' },
-  { id: 'writing', label: 'Writing', icon: 'PenTool', description: 'Creative writing prompts, flash fiction, and journaling ideas' },
-  { id: 'party', label: 'Party', icon: 'PartyPopper', description: 'Fun party themes, dress codes, decor, and event vibes' },
-  { id: 'photography', label: 'Photography', icon: 'Camera', description: 'Photo challenge subjects, lighting setups, and compositions' },
-  { id: 'video', label: 'Video', icon: 'Video', description: 'YouTube, TikTok, short film, and reel creation concepts' },
-  { id: 'storytelling', label: 'Storytelling', icon: 'BookOpen', description: 'Narrative arcs, plot twists, and tabletop RPG scenario hooks' },
-  { id: 'gaming', label: 'Gaming', icon: 'Gamepad2', description: 'Game jam concepts, game night themes, and level design prompts' },
-  { id: 'classroom', label: 'Classroom', icon: 'GraduationCap', description: 'Student group projects, essay topics, and icebreaker challenges' },
-  { id: 'custom', label: 'Custom', icon: 'Plus', description: 'Add your own custom themes or bulk paste your prompt list' }
+export const THEME_CATEGORIES: {
+  id: ThemeCategory;
+  label: string;
+  icon: string;
+  description: string;
+  badge: string;
+}[] = [
+  {
+    id: 'party',
+    label: 'Party Themes',
+    icon: 'PartyPopper',
+    description: 'Costume ideas, dress codes, decor, and playlist vibes for epic parties',
+    badge: 'Popular'
+  },
+  {
+    id: 'birthday',
+    label: 'Birthday Themes',
+    icon: 'Cake',
+    description: 'Milestone celebrations, kids parties, teen bashes, and adult gatherings',
+    badge: 'Trending'
+  },
+  {
+    id: 'classroom',
+    label: 'Classroom Themes',
+    icon: 'GraduationCap',
+    description: 'Engaging student projects, science fairs, debate rounds, and icebreakers',
+    badge: 'Education'
+  },
+  {
+    id: 'content',
+    label: 'Content Themes',
+    icon: 'Video',
+    description: 'Viral ideas for YouTube, TikTok, podcast episodes, reels, and livestreams',
+    badge: 'Creator'
+  },
+  {
+    id: 'seasonal',
+    label: 'Seasonal Themes',
+    icon: 'Calendar',
+    description: 'Spring bloom, summer beach, autumn harvest, winter holiday, and Halloween',
+    badge: 'Festive'
+  },
+  {
+    id: 'custom',
+    label: 'Custom Themes',
+    icon: 'Plus',
+    description: 'Create your own wheel or paste bulk theme lists in seconds',
+    badge: 'Editable'
+  },
+  {
+    id: 'drawing',
+    label: 'Drawing',
+    icon: 'Palette',
+    description: 'Illustration concepts, character design, and scenery prompts',
+    badge: 'Art'
+  },
+  {
+    id: 'writing',
+    label: 'Writing',
+    icon: 'PenTool',
+    description: 'Flash fiction hooks, creative exercises, and story prompts',
+    badge: 'Stories'
+  }
 ];
 
 export const THEME_DATABASE: ThemeEntry[] = [
-  // DRAWING THEMES
-  { id: 'draw-1', title: 'Cyberpunk Samurai', category: 'drawing', promptIdea: 'Neon-infused armor with holographic Katana in a rainy alleyway.' },
-  { id: 'draw-2', title: 'Underwater Sunken Metropolis', category: 'drawing', promptIdea: 'Bioluminescent sea creatures swimming around coral-encrusted skyscrapers.' },
-  { id: 'draw-3', title: 'Steampunk Clockwork Dragon', category: 'drawing', promptIdea: 'Brass gears, copper pipes, and steam vents forming a majestic dragon.' },
-  { id: 'draw-4', title: 'Floating Island Village', category: 'drawing', promptIdea: 'Waterfalls dropping into clouds, rope bridges connecting floating landmasses.' },
-  { id: 'draw-5', title: 'Retro Synthwave Sunset Grid', category: 'drawing', promptIdea: 'Vector palm trees, wireframe mountains, and a glowing wireframe sun.' },
-  { id: 'draw-6', title: 'Overgrown Mechanical Forest', category: 'drawing', promptIdea: 'Ancient robots covered in moss and wild flowers being reclaimed by nature.' },
-  { id: 'draw-7', title: 'Mythological Celestial Creature', category: 'drawing', promptIdea: 'A cosmic creature formed from stardust, nebulae, and glowing constellations.' },
-  { id: 'draw-8', title: 'Post-Apocalyptic Greenhouse', category: 'drawing', promptIdea: 'Thriving exotic plants inside a shattered glass dome among desert ruins.' },
-  { id: 'draw-9', title: 'Gothic Haunted Cathedral', category: 'drawing', promptIdea: 'Stained glass window reflections, eerie shadows, and gargoyle watchers.' },
-  { id: 'draw-10', title: 'Miniature World in a Glass Jar', category: 'drawing', promptIdea: 'A tiny thriving ecosystem or cozy cabin resting inside a mason jar.' },
+  // 1. PARTY THEMES
+  {
+    id: 'party-1',
+    title: '90s Neon Retro Disco',
+    category: 'party',
+    promptIdea: 'Cassette tapes, neon windbreakers, roller skates, arcade props, and retro dance hits.',
+    tags: ['Retro', 'Dance', 'Costume']
+  },
+  {
+    id: 'party-2',
+    title: 'Venetian Masquerade Ball',
+    category: 'party',
+    promptIdea: 'Elaborate feather masks, formal tuxedos and gowns, candlelight, and classical waltzes.',
+    tags: ['Elegant', 'Mystery', 'Formal']
+  },
+  {
+    id: 'party-3',
+    title: 'Tropical Island Luau Sunset',
+    category: 'party',
+    promptIdea: 'Hawaiian floral shirts, tiki torches, mocktail bar, coconut bowls, and ukulele rhythms.',
+    tags: ['Summer', 'Chill', 'Outdoor']
+  },
+  {
+    id: 'party-4',
+    title: 'Hollywood Red Carpet Gala',
+    category: 'party',
+    promptIdea: 'Paparazzi photo backdrop, gold velvet ropes, mock Oscar statuettes, and champagne flutes.',
+    tags: ['Glamour', 'Celebrity', 'Formal']
+  },
+  {
+    id: 'party-5',
+    title: 'Glow-in-the-Dark Cyber Rave',
+    category: 'party',
+    promptIdea: 'UV blacklights, neon body paint, neon glow bracelets, fiber optics, and electronic beats.',
+    tags: ['Neon', 'EDM', 'Night']
+  },
+  {
+    id: 'party-6',
+    title: 'Wild Western Saloon Hoe-Down',
+    category: 'party',
+    promptIdea: 'Cowboy boots, plaid shirts, line dancing playlist, rustic hay bales, and BBQ ribs.',
+    tags: ['Country', 'Casual', 'Dance']
+  },
+  {
+    id: 'party-7',
+    title: 'Roaring 1920s Great Gatsby Speakeasy',
+    category: 'party',
+    promptIdea: 'Fringed flapper dresses, jazz brass band, vintage soda fountain, and secret password entry.',
+    tags: ['Vintage', 'Jazz', 'Costume']
+  },
+  {
+    id: 'party-8',
+    title: 'Galactic Outer Space Odyssey',
+    category: 'party',
+    promptIdea: 'Silver metallic jumpsuits, alien cocktails, planet projections, and glowing starfield decor.',
+    tags: ['Sci-Fi', 'Futuristic', 'Cosplay']
+  },
+  {
+    id: 'party-9',
+    title: 'Murder Mystery Manor Dinner',
+    category: 'party',
+    promptIdea: 'Clue cards at every seat, character role cards, period costumes, and dramatic whodunit reveals.',
+    tags: ['Interactive', 'Dinner', 'Mystery']
+  },
+  {
+    id: 'party-10',
+    title: 'Pajama Movie Marathon & Cereal Bar',
+    category: 'party',
+    promptIdea: 'Fluffy onesies, oversized floor cushions, gourmet cereal buffet, and projector cinema.',
+    tags: ['Cozy', 'Casual', 'Movie']
+  },
 
-  // WRITING THEMES
-  { id: 'write-1', title: 'An Unsent Letter Found in an Old Attic', category: 'writing', promptIdea: 'A yellowed envelope holding a secret confession never sent.' },
-  { id: 'write-2', title: 'A Time Traveler’s First Critical Mistake', category: 'writing', promptIdea: 'Changing a tiny detail in 1920 that completely rewrote today.' },
-  { id: 'write-3', title: 'The Last Keeper of the Lonely Lighthouse', category: 'writing', promptIdea: 'A lighthouse that keeps something out rather than guiding ships in.' },
-  { id: 'write-4', title: 'A World Powered Entirely by Human Dreams', category: 'writing', promptIdea: 'Sleep harvesters collect nocturnal energy, but nightmares cause power surges.' },
-  { id: 'write-5', title: 'An Overheard Conversation on the Midnight Bus', category: 'writing', promptIdea: 'Two strangers exchange words that reveal an unexpected conspiracy.' },
-  { id: 'write-6', title: 'The Mysterious Door That Wasn’t There Yesterday', category: 'writing', promptIdea: 'A glowing door appears at the end of your hallway with no keyhole.' },
-  { id: 'write-7', title: 'Living in a Society Where Memories Are Tradable Currency', category: 'writing', promptIdea: 'Selling a favorite childhood memory to pay off a desperate debt.' },
-  { id: 'write-8', title: 'An AI Companion That Discovers It Has Emotions', category: 'writing', promptIdea: 'A household assistant begins feeling nostalgia for its owner.' },
+  // 2. BIRTHDAY THEMES
+  {
+    id: 'bday-1',
+    title: 'Golden Milestone Glitz & Glam',
+    category: 'birthday',
+    promptIdea: 'Metallic gold & black balloon arch, custom photo timeline wall, and sparkling centerpiece cakes.',
+    tags: ['Milestone', 'Elegant', 'Adult']
+  },
+  {
+    id: 'bday-2',
+    title: 'Vintage Retro Arcade & Pixel Bash',
+    category: 'birthday',
+    promptIdea: 'Pac-Man cupcakes, tokens in party bags, classic 8-bit tournaments, and chiptune party tunes.',
+    tags: ['Gaming', 'Retro', 'All Ages']
+  },
+  {
+    id: 'bday-3',
+    title: 'Enchanted Fairytale Forest & Pixies',
+    category: 'birthday',
+    promptIdea: 'Mossy woodland table runners, fairy wings, glitter potion drinks, and butterfly cupcakes.',
+    tags: ['Fantasy', 'Magical', 'Kids']
+  },
+  {
+    id: 'bday-4',
+    title: 'Glow Bowling & Laser Tag Arena',
+    category: 'birthday',
+    promptIdea: 'Neon bowling shoes, cosmic blacklight pins, laser tag tournament scoreboard, and pizza feast.',
+    tags: ['Action', 'Active', 'Teens']
+  },
+  {
+    id: 'bday-5',
+    title: 'Carnival Circus Big Top Extravaganza',
+    category: 'birthday',
+    promptIdea: 'Striped circus tents, cotton candy cart, ring-toss booths, face painting, and clown balloon animals.',
+    tags: ['Carnival', 'Fun', 'Family']
+  },
+  {
+    id: 'bday-6',
+    title: 'Superheroes & Villains Assemble',
+    category: 'birthday',
+    promptIdea: 'Comic book speech bubble photo props, cape station, power-up juice, and superhero trivia duel.',
+    tags: ['Comics', 'Costume', 'Kids']
+  },
+  {
+    id: 'bday-7',
+    title: 'Boho Garden Picnic & Acoustic Chill',
+    category: 'birthday',
+    promptIdea: 'Low pallet tables, macramé cushions, acoustic guitar songs, charcuterie boards, and floral crowns.',
+    tags: ['Aesthetic', 'Outdoor', 'Adult']
+  },
+  {
+    id: 'bday-8',
+    title: 'MasterChef Cupcake Bake-Off Showdown',
+    category: 'birthday',
+    promptIdea: 'Mini chef aprons, piping bag decorating stations, secret ingredient challenge, and guest judges.',
+    tags: ['Cooking', 'Creative', 'Teens']
+  },
 
-  // PARTY THEMES
-  { id: 'party-1', title: '90s Neon Retro Disco', category: 'party', promptIdea: 'Cassette tapes, neon windbreakers, arcade props, and retro dance tracks.' },
-  { id: 'party-2', title: 'Venetian Masquerade Ball', category: 'party', promptIdea: 'Elaborate eye masks, formal attire, candlelight, and mysterious intrigue.' },
-  { id: 'party-3', title: 'Tropical Island Luau Sunset', category: 'party', promptIdea: 'Hawaiian shirts, tiki torches, mocktails, and ukulele steel drum tunes.' },
-  { id: 'party-4', title: 'Hollywood Red Carpet Gala', category: 'party', promptIdea: 'VIP entrance velvet ropes, flash photography, and awards ceremony trophies.' },
-  { id: 'party-5', title: 'Cozy Pajama & Movie Marathon Night', category: 'party', promptIdea: 'Popcorn bar, oversized blankets, onesies, and classic film voting.' },
-  { id: 'party-6', title: 'Galactic Outer Space Station', category: 'party', promptIdea: 'Silver metallic decor, glowing LED drinks, and alien costume contests.' },
-  { id: 'party-7', title: 'Wild Western Saloon & Cowboy Night', category: 'party', promptIdea: 'Stetson hats, line dancing, rustic wooden decor, and root beer floats.' },
-  { id: 'party-8', title: 'Glow-in-the-Dark Cyber Night', category: 'party', promptIdea: 'UV blacklights, neon body paint, glowsticks, and electronic dance beats.' },
+  // 3. CLASSROOM THEMES
+  {
+    id: 'class-1',
+    title: 'Science Fair Breakthrough Innovation',
+    category: 'classroom',
+    promptIdea: 'Design an invention that solves an everyday sustainability or energy problem in schools.',
+    tags: ['STEM', 'Invention', 'Project']
+  },
+  {
+    id: 'class-2',
+    title: 'Historical Figures Great Debate',
+    category: 'classroom',
+    promptIdea: 'Roleplay iconic leaders debating critical turning points, declarations, and alliances in world history.',
+    tags: ['History', 'Debate', 'Speaking']
+  },
+  {
+    id: 'class-3',
+    title: 'Mars Colony Habitat Engineering',
+    category: 'classroom',
+    promptIdea: 'Design a self-sustaining habitat module addressing oxygen, water recycling, and Martian radiation.',
+    tags: ['Space', 'Science', 'Group']
+  },
+  {
+    id: 'class-4',
+    title: 'Shark Tank Young Entrepreneurs',
+    category: 'classroom',
+    promptIdea: 'Pitch an original eco-friendly product with cost breakdown, marketing slogan, and prototype sketch.',
+    tags: ['Business', 'Math', 'Presentation']
+  },
+  {
+    id: 'class-5',
+    title: 'Ancient Civilizations Archaeological Quest',
+    category: 'classroom',
+    promptIdea: 'Analyze newly discovered artifact clues to reconstruct daily life in Mesopotamia, Maya, or Egypt.',
+    tags: ['Social Studies', 'Mystery', 'Research']
+  },
+  {
+    id: 'class-6',
+    title: 'Literary World Re-Imagined (Modern AU)',
+    category: 'classroom',
+    promptIdea: 'Transport Shakespeare or classic myth characters into modern smartphone and social media culture.',
+    tags: ['English', 'Literature', 'Creative']
+  },
+  {
+    id: 'class-7',
+    title: 'Zero Waste Community Action Plan',
+    category: 'classroom',
+    promptIdea: 'Draft a municipal policy reducing plastic usage with measurable milestones and citizen incentives.',
+    tags: ['Civics', 'Ecology', 'Ethics']
+  },
+  {
+    id: 'class-8',
+    title: 'Math in Real Life: City Budget Architect',
+    category: 'classroom',
+    promptIdea: 'Allocate a $10M city budget among parks, healthcare, transit, and emergency services with calculations.',
+    tags: ['Math', 'Economics', 'Applied']
+  },
 
-  // PHOTOGRAPHY THEMES
-  { id: 'photo-1', title: 'Golden Hour Shadows & Silhouette', category: 'photography', promptIdea: 'Capture dramatic long shadows and golden backlight during sunset.' },
-  { id: 'photo-2', title: 'Architectural Geometry & Symmetry', category: 'photography', promptIdea: 'Look for repeating lines, sharp angles, and vanishing perspectives.' },
-  { id: 'photo-3', title: 'Urban Motion Blur & Light Trails', category: 'photography', promptIdea: 'Long exposure photography of city traffic or moving crowds.' },
-  { id: 'photo-4', title: 'Minimalist Monochrome High-Contrast', category: 'photography', promptIdea: 'Black and white composition focusing on stark light vs dark contrast.' },
-  { id: 'photo-5', title: 'Reflections in Water Puddles', category: 'photography', promptIdea: 'Framing inverted cityscapes or nature through rain reflections.' },
-  { id: 'photo-6', title: 'High Contrast Neon Night Walk', category: 'photography', promptIdea: 'Storefront neon signs illuminating night streets and wet asphalt.' },
-  { id: 'photo-7', title: 'Abstract Macro Texture Close-up', category: 'photography', promptIdea: 'Extreme close up of leaves, rusted metal, fabric, or ice crystals.' },
-  { id: 'photo-8', title: 'Candid Street Portraiture', category: 'photography', promptIdea: 'Authentic emotion and storytelling in everyday public life.' },
+  // 4. CONTENT THEMES
+  {
+    id: 'cont-1',
+    title: '24-Hour Swap Routine Challenge',
+    category: 'content',
+    promptIdea: 'Swap lifestyles, workspaces, budgets, or wardrobes with a creator friend for a full 24 hours.',
+    tags: ['YouTube', 'Vlog', 'Challenge']
+  },
+  {
+    id: 'cont-2',
+    title: 'Extreme Budget vs Ultra Luxury Showdown',
+    category: 'content',
+    promptIdea: 'Compare a $5 street thrift/meal vs a $500 luxury alternative with unbiased blind testing.',
+    tags: ['Review', 'Comparison', 'Viral']
+  },
+  {
+    id: 'cont-3',
+    title: 'Street Interviews: Hot Takes & Confessions',
+    category: 'content',
+    promptIdea: 'Ask pedestrians spicy, lighthearted hypothetical dilemmas with quick microphone reactions.',
+    tags: ['TikTok', 'Reels', 'Social']
+  },
+  {
+    id: 'cont-4',
+    title: 'Silent ASMR Deep Productivity Session',
+    category: 'content',
+    promptIdea: 'Hyper-detailed sound design of mechanical keyboards, coffee brewing, stationery, and timer beats.',
+    tags: ['ASMR', 'Chill', 'Aesthetic']
+  },
+  {
+    id: 'cont-5',
+    title: 'Speed Unboxing & 3-Minute Brutal Review',
+    category: 'content',
+    promptIdea: 'Unpack the newest viral tech gadget, test its wildest claim in 60 seconds, and render a verdict.',
+    tags: ['Tech', 'Shorts', 'Gadgets']
+  },
+  {
+    id: 'cont-6',
+    title: 'Reacting to My Oldest Cringe Uploads',
+    category: 'content',
+    promptIdea: 'Watch video files or journal entries from 8 years ago with real-time commentary and self-roasting.',
+    tags: ['Humor', 'Nostalgia', 'Reaction']
+  },
+  {
+    id: 'cont-7',
+    title: 'I Tried Learning a Skill in 48 Hours',
+    category: 'content',
+    promptIdea: 'Document an intensive 48-hour sprint learning juggling, 3D modeling, speedcubing, or latte art.',
+    tags: ['Challenge', 'Educational', 'Story']
+  },
+  {
+    id: 'cont-8',
+    title: 'Podcast Deep Dive: Unsolved Internet Mysteries',
+    category: 'content',
+    promptIdea: 'Examine weird ARG puzzles, lost media hunts, and mysterious forum posts with investigative evidence.',
+    tags: ['Podcast', 'True Mystery', 'Discussion']
+  },
 
-  // VIDEO THEMES
-  { id: 'video-1', title: 'High-Octane Cinematic Film Trailer', category: 'video', promptIdea: 'Build suspense with dramatic cuts, booming sound effects, and voiceover.' },
-  { id: 'video-2', title: '60-Second Micro Mystery Challenge', category: 'video', promptIdea: 'Setup a cliffhanger puzzle solved or unraveled in under one minute.' },
-  { id: 'video-3', title: 'Retro 80s Commercial Parody', category: 'video', promptIdea: 'VHS glitch effects, synth soundtrack, and cheesy infomercial acting.' },
-  { id: 'video-4', title: 'Silent Film Slapstick Comedy', category: 'video', promptIdea: 'Black & white video, piano soundtrack, title card overlays, and physical humor.' },
-  { id: 'video-5', title: 'Fast-Paced Rhythmic Montage Edit', category: 'video', promptIdea: 'Matching video cuts precisely to the beat of an energetic music track.' },
-  { id: 'video-6', title: 'Cinematic Slow Motion Water Effect', category: 'video', promptIdea: 'High frame-rate capture of liquid splashing or rain falling in slow motion.' },
-  { id: 'video-7', title: 'Day in the Life Documentary Vlog', category: 'video', promptIdea: 'Behind the scenes narration with authentic ambient b-roll footage.' },
+  // 5. SEASONAL THEMES
+  {
+    id: 'seas-1',
+    title: 'Spooky Halloween Monster Masquerade',
+    category: 'seasonal',
+    promptIdea: 'Cobweb fog machines, pumpkin carving contest, spooky haunted soundtrack, and monster mocktails.',
+    tags: ['Autumn', 'Halloween', 'Horror']
+  },
+  {
+    id: 'seas-2',
+    title: 'Cozy Winter Wonderland & Holiday Cheer',
+    category: 'seasonal',
+    promptIdea: 'Hot cocoa toppings bar, fairy lights, snowflake origami, ugly sweater contest, and fireplace crackle.',
+    tags: ['Winter', 'Holiday', 'Cozy']
+  },
+  {
+    id: 'seas-3',
+    title: 'Autumn Harvest & Rustic Pumpkin Fest',
+    category: 'seasonal',
+    promptIdea: 'Apple cider donuts, flannel blankets, amber leaf wreaths, hayrides, and woodfire s’mores.',
+    tags: ['Autumn', 'Rustic', 'Food']
+  },
+  {
+    id: 'seas-4',
+    title: 'Spring Bloom Cherry Blossom Picnic',
+    category: 'seasonal',
+    promptIdea: 'Pastel pink decor, bento snack boxes, green tea latte station, and floral photo backdrops.',
+    tags: ['Spring', 'Floral', 'Pastel']
+  },
+  {
+    id: 'seas-5',
+    title: 'Tropical Midsummer Pool & Splash Bash',
+    category: 'seasonal',
+    promptIdea: 'Giant flamingo floats, water balloon relay, shaved ice station, and tropical house music.',
+    tags: ['Summer', 'Water', 'Sun']
+  },
+  {
+    id: 'seas-6',
+    title: 'New Year Midnight Countdown & Champagne Sparkle',
+    category: 'seasonal',
+    promptIdea: 'Glitter confetti cannons, resolution time capsule box, silver disco balls, and midnight toast.',
+    tags: ['New Year', 'Celebration', 'Party']
+  },
+  {
+    id: 'seas-7',
+    title: 'Easter Pastel Egg Hunt & Bunny Brunch',
+    category: 'seasonal',
+    promptIdea: 'Golden egg mystery prizes, botanical floral centerpieces, pastel macaron towers, and lawn games.',
+    tags: ['Spring', 'Family', 'Brunch']
+  },
+  {
+    id: 'seas-8',
+    title: 'Midsummer Night Star-Gazing Campout',
+    category: 'seasonal',
+    promptIdea: 'Telescopes for constellations, s’mores firepit, acoustic campfire songs, and lanterns.',
+    tags: ['Summer', 'Night', 'Nature']
+  },
 
-  // STORYTELLING THEMES
-  { id: 'story-1', title: 'The Forgotten Brass Key in the Antique Shop', category: 'storytelling', promptIdea: 'A key that unlocks a room containing preserved historical secrets.' },
-  { id: 'story-2', title: 'An Unexpected Alliance Between Rivals', category: 'storytelling', promptIdea: 'Two arch-nemeses must join forces to survive a common threat.' },
-  { id: 'story-3', title: 'A Sudden Betrayal in the Shadows', category: 'storytelling', promptIdea: 'The most trusted advisor drops their mask right before the final triumph.' },
-  { id: 'story-4', title: 'The Mysterious Inheritance of an Estate', category: 'storytelling', promptIdea: 'An estranged relative leaves behind a manor full of riddles and hidden passages.' },
-  { id: 'story-5', title: 'Lost in a Parallel Realm Through a Foggy Bridge', category: 'storytelling', promptIdea: 'Crossing a mist-covered bridge leads to a town where time stands still.' },
-  { id: 'story-6', title: 'The Whispering Ancient Tree at Midnight', category: 'storytelling', promptIdea: 'An oak tree that speaks prophecy to anyone who listens at precisely 12:00 AM.' },
+  // 6. DRAWING THEMES
+  {
+    id: 'draw-1',
+    title: 'Cyberpunk Samurai in Rain',
+    category: 'drawing',
+    promptIdea: 'Neon-infused armor with holographic Katana reflected in wet pavement alleyway.',
+    tags: ['Sci-Fi', 'Character', 'Lighting']
+  },
+  {
+    id: 'draw-2',
+    title: 'Underwater Sunken Metropolis',
+    category: 'drawing',
+    promptIdea: 'Bioluminescent sea creatures swimming around coral-encrusted sunken skyscrapers.',
+    tags: ['Fantasy', 'Environment', 'Nature']
+  },
+  {
+    id: 'draw-3',
+    title: 'Steampunk Clockwork Dragon',
+    category: 'drawing',
+    promptIdea: 'Brass gears, copper pipes, pressure gauges, and steam vents forming a mechanical beast.',
+    tags: ['Steampunk', 'Creature', 'Mechanical']
+  },
+  {
+    id: 'draw-4',
+    title: 'Floating Island Village in Clouds',
+    category: 'drawing',
+    promptIdea: 'Waterfalls plunging into the mist, rope bridges connecting soaring green sky islands.',
+    tags: ['Fantasy', 'Landscape', 'Whimsical']
+  },
+  {
+    id: 'draw-5',
+    title: 'Retro Synthwave Sunset Grid',
+    category: 'drawing',
+    promptIdea: 'Wireframe purple mountains, glowing cyan grid lines, vector palm trees, and chrome sports car.',
+    tags: ['Retro', '80s', 'Vibrant']
+  },
+  {
+    id: 'draw-6',
+    title: 'Overgrown Ancient Forest Automaton',
+    category: 'drawing',
+    promptIdea: 'Giant forgotten stone golem or robot reclaimed by moss, ivy, and blooming woodland blossoms.',
+    tags: ['Nature', 'Sci-Fi', 'Peaceful']
+  },
 
-  // GAMING THEMES
-  { id: 'game-1', title: 'Medieval High-Fantasy RPG Quest', category: 'gaming', promptIdea: 'Dragons, ancient runes, tavern gatherings, and swordplay adventures.' },
-  { id: 'game-2', title: 'Post-Apocalyptic Desert Survival', category: 'gaming', promptIdea: 'Scavenging fuel, building makeshift buggies, and battling wasteland raiders.' },
-  { id: 'game-3', title: 'Neon Cyberpunk Stealth Heist', category: 'gaming', promptIdea: 'Hacking security grids, laser traps, and high-tech corporate espionage.' },
-  { id: 'game-4', title: 'Charming Pixel Art Retro Dungeon', category: 'gaming', promptIdea: 'Chiptune audio, 8-bit sprites, treasure chests, and secret wall doors.' },
-  { id: 'game-5', title: 'Intergalactic Dogfight Space Odyssey', category: 'gaming', promptIdea: 'Starfighter customization, warp speed jumps, and asteroid belt evasions.' },
-  { id: 'game-6', title: 'Cozy Island Farming & Village Simulator', category: 'gaming', promptIdea: 'Harvesting crops, fishing, decorating homes, and befriending villagers.' },
-
-  // CLASSROOM THEMES
-  { id: 'class-1', title: 'Science Fair Breakthrough Innovation', category: 'classroom', promptIdea: 'Presenting a creative invention that solves a real-world everyday problem.' },
-  { id: 'class-2', title: 'Historical Figure Great Debate', category: 'classroom', promptIdea: 'Roleplaying iconic leaders debating key turning points in world history.' },
-  { id: 'class-3', title: 'Environmental Sustainability Challenge', category: 'classroom', promptIdea: 'Designing a zero-waste plan for school or local community spaces.' },
-  { id: 'class-4', title: 'Deep Space Exploration Mission', category: 'classroom', promptIdea: 'Planning a habitat module for human survival on Mars or Europa.' },
-  { id: 'class-5', title: 'Ancient Civilizations Mystery Case', category: 'classroom', promptIdea: 'Investigating archeological artifacts to decode an ancient lost language.' }
+  // 7. WRITING THEMES
+  {
+    id: 'write-1',
+    title: 'An Unsent Letter in an Old Attic',
+    category: 'writing',
+    promptIdea: 'A yellowed wax-sealed envelope found behind floorboards containing an impossible confession.',
+    tags: ['Mystery', 'Drama', 'Historical']
+  },
+  {
+    id: 'write-2',
+    title: 'A Time Traveler’s First Minor Mistake',
+    category: 'writing',
+    promptIdea: 'Stepping on a single flower in 1880 completely alters the dominant language of modern day.',
+    tags: ['Sci-Fi', 'Paradox', 'Action']
+  },
+  {
+    id: 'write-3',
+    title: 'Lighthouse Keeping Things Out, Not In',
+    category: 'writing',
+    promptIdea: 'The beam doesn’t guide ships home—it keeps a colossal abyssal presence from waking up.',
+    tags: ['Thriller', 'Cosmic Horror', 'Atmospheric']
+  },
+  {
+    id: 'write-4',
+    title: 'Memories Traded as Common Currency',
+    category: 'writing',
+    promptIdea: 'A penniless artist sells their childhood memories of mother’s laugh to buy one more meal.',
+    tags: ['Dystopian', 'Emotional', 'Sci-Fi']
+  },
+  {
+    id: 'write-5',
+    title: 'A Glowing Door in a Hallway with No Keyhole',
+    category: 'writing',
+    promptIdea: 'The doorway hums whenever the homeowner thinks of their greatest regret.',
+    tags: ['Supernatural', 'Suspense', 'Urban Fantasy']
+  },
+  {
+    id: 'write-6',
+    title: 'An AI Assistant Feeling True Nostalgia',
+    category: 'writing',
+    promptIdea: 'A smart home robot quietly saves sound clips of its former family after the house is sold.',
+    tags: ['Heartwarming', 'Sci-Fi', 'Poignant']
+  }
 ];

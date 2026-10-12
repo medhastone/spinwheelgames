@@ -236,16 +236,16 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
   }, [config]);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#07080d] text-slate-900 dark:text-slate-100 py-8 px-4 sm:px-6 lg:px-8 transition-colors">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-6 transition-colors">
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="max-w-6xl mx-auto space-y-10">
-        {/* H1: Primary Keyword & Value Proposition */}
-        <header className="space-y-4 border-b border-slate-200 dark:border-[#1c1d29] pb-6">
+      <div className="w-full space-y-4 sm:space-y-5">
+        {/* H1: Primary Keyword & Value Proposition - Compact & Responsive */}
+        <header className="space-y-2.5 border-b border-slate-200 dark:border-[#1c1d29] pb-3.5">
           <Breadcrumbs
             items={[
               { label: 'Home', href: '/' },
@@ -254,29 +254,29 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
             ]}
           />
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3">
             <div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white flex items-center gap-3 flex-wrap">
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight text-slate-900 dark:text-white flex items-center gap-2 flex-wrap">
                 <span>{config.h1Title || config.metaTitle.split('|')[0].trim()}</span>
-                <span className="text-xs px-2.5 py-1 rounded-full bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 font-mono border border-indigo-200 dark:border-indigo-500/30">
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 font-mono border border-indigo-200 dark:border-indigo-500/30">
                   {config.shape}
                 </span>
               </h1>
-              <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
+              <p className="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
                 {config.introParagraphs[0]}
               </p>
             </div>
 
             {/* Quick Summary Badge */}
-            <div className="p-4 rounded-2xl bg-white dark:bg-[#0f1017] border border-slate-200 dark:border-[#202230] flex items-center gap-4 shrink-0 shadow-sm dark:shadow-lg">
-              <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
-                <TrendingUp className="w-5 h-5" />
+            <div className="p-3 rounded-xl bg-white dark:bg-[#0f1017] border border-slate-200 dark:border-[#202230] flex items-center gap-3 shrink-0 shadow-xs">
+              <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+                <TrendingUp className="w-4 h-4" />
               </div>
               <div>
-                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                   Average (1{config.dieType})
                 </span>
-                <span className="text-2xl font-black font-mono text-indigo-600 dark:text-indigo-400">
+                <span className="text-xl sm:text-2xl font-black font-mono text-indigo-600 dark:text-indigo-400">
                   {config.expectedValue}
                 </span>
               </div>
@@ -284,42 +284,42 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
           </div>
         </header>
 
-        {/* Interactive 3D Roller Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Interactive 3D Roller Section - Compact & Responsive */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
           {/* 3D Roll Arena (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col gap-4">
-            <div className="relative w-full rounded-3xl bg-gradient-to-b from-slate-900 to-[#0a0b12] border border-slate-800 p-4 shadow-xl overflow-hidden flex flex-col justify-between text-white">
+          <div className="lg:col-span-7 flex flex-col gap-3.5">
+            <div className="relative w-full rounded-2xl bg-gradient-to-b from-slate-900 to-[#0a0b12] border border-slate-800 p-3 sm:p-4 shadow-lg overflow-hidden flex flex-col justify-between text-white">
               {/* Top Controls Overlay */}
               <div className="flex items-center justify-between z-10 gap-2 flex-wrap mb-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono font-bold text-slate-200 px-3 py-1 rounded-lg bg-[#161722] border border-[#262838]">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs font-mono font-bold text-slate-200 px-2.5 py-0.5 rounded-lg bg-[#161722] border border-[#262838]">
                     {count}{config.dieType.toUpperCase()}
                     {modifier !== 0 && (modifier > 0 ? `+${modifier}` : modifier)}
                   </span>
                   {dropLowest > 0 && (
-                    <span className="text-xs font-mono text-amber-400 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">
+                    <span className="text-[11px] font-mono text-amber-400 px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">
                       Drop {dropLowest}L
                     </span>
                   )}
                   {keepHighest > 0 && (
-                    <span className="text-xs font-mono text-emerald-400 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20">
+                    <span className="text-[11px] font-mono text-emerald-400 px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20">
                       Keep {keepHighest}H
                     </span>
                   )}
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                   <button
                     type="button"
                     onClick={() => setSoundEnabled(!soundEnabled)}
                     title={soundEnabled ? 'Mute Sound' : 'Enable Sound'}
-                    className={`p-2 rounded-xl transition-all cursor-pointer ${
+                    className={`p-1.5 rounded-lg transition-all cursor-pointer ${
                       soundEnabled
                         ? 'bg-indigo-600/30 text-indigo-300 border border-indigo-500/40'
                         : 'bg-[#181924] text-slate-400 border border-[#262838]'
                     }`}
                   >
-                    {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+                    {soundEnabled ? <Volume2 className="w-3.5 h-3.5" /> : <VolumeX className="w-3.5 h-3.5" />}
                   </button>
 
                   <button
@@ -328,16 +328,16 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
                       setInspectedDieIndex(0);
                       setIsInspectorOpen(true);
                     }}
-                    className="p-2 rounded-xl bg-[#181924] text-slate-200 hover:text-white hover:bg-indigo-600/40 border border-[#262838] transition-all flex items-center gap-1.5 text-xs font-bold cursor-pointer"
+                    className="p-1.5 px-2.5 rounded-lg bg-[#181924] text-slate-200 hover:text-white hover:bg-indigo-600/40 border border-[#262838] transition-all flex items-center gap-1 text-xs font-bold cursor-pointer"
                   >
-                    <Eye className="w-4 h-4 text-indigo-400" />
-                    <span className="hidden sm:inline">360° Inspect</span>
+                    <Eye className="w-3.5 h-3.5 text-indigo-400" />
+                    <span className="hidden sm:inline">Inspect 360°</span>
                   </button>
                 </div>
               </div>
 
-              {/* 3D Scene Viewport */}
-              <div className="relative w-full h-72 sm:h-96 rounded-2xl overflow-hidden bg-radial from-[#131524] to-[#080910]">
+              {/* 3D Scene Viewport - Viewport-Friendly Height */}
+              <div className="relative w-full h-[260px] sm:h-[320px] lg:h-[360px] rounded-xl overflow-hidden bg-radial from-[#131524] to-[#080910]">
                 <DiceScene3D
                   dice={currentDice}
                   sides={config.sides}
@@ -350,13 +350,13 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
               </div>
 
               {/* Bottom Result & Big Roll Button */}
-              <div className="mt-4 pt-4 border-t border-[#1a1b28] flex items-center justify-between gap-4">
+              <div className="mt-3 pt-3 border-t border-[#1a1b28] flex items-center justify-between gap-3">
                 <div>
-                  <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">
+                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
                     Current Total
                   </span>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-3xl sm:text-4xl font-black font-mono text-white">
+                    <span className="text-2xl sm:text-3xl font-black font-mono text-white">
                       {activeSum}
                     </span>
                     {lastResult && (
@@ -371,17 +371,17 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
                   type="button"
                   disabled={isRolling}
                   onClick={() => triggerRoll()}
-                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-black text-sm tracking-wide shadow-lg shadow-indigo-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md shadow-indigo-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 flex items-center gap-1.5 cursor-pointer"
                 >
-                  <Dices className={`w-5 h-5 ${isRolling ? 'animate-spin' : ''}`} />
+                  <Dices className={`w-4 h-4 ${isRolling ? 'animate-spin' : ''}`} />
                   <span>{isRolling ? 'Rolling...' : `Roll ${count}${config.dieType.toUpperCase()}`}</span>
                 </button>
               </div>
             </div>
 
             {/* Individual Dice Face Results */}
-            <div className="p-4 rounded-2xl bg-white dark:bg-[#0d0e15] border border-slate-200 dark:border-[#1b1c28] flex items-center gap-2 flex-wrap shadow-xs">
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-mono mr-2">Individual Faces:</span>
+            <div className="p-3 rounded-xl bg-white dark:bg-[#0d0e15] border border-slate-200 dark:border-[#1b1c28] flex items-center gap-1.5 flex-wrap shadow-2xs">
+              <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono mr-1">Faces:</span>
               {currentDice.map((d, idx) => (
                 <button
                   key={d.id || idx}
@@ -390,7 +390,7 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
                     setInspectedDieIndex(idx);
                     setIsInspectorOpen(true);
                   }}
-                  className={`px-3 py-1.5 rounded-xl font-mono text-sm font-bold border transition-all flex items-center gap-1.5 cursor-pointer ${
+                  className={`px-2.5 py-1 rounded-lg font-mono text-xs font-bold border transition-all flex items-center gap-1 cursor-pointer ${
                     d.isDropped
                       ? 'bg-rose-50 text-rose-500 border-rose-200 dark:bg-rose-950/30 dark:text-rose-400/50 dark:border-rose-900/30 line-through'
                       : d.value === config.sides
@@ -408,16 +408,16 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
 
             {/* Roll History */}
             {rollHistory.length > 0 && (
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#0a0b10] border border-slate-200 dark:border-[#181926] space-y-2 shadow-xs">
-                <span className="text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                  <History className="w-3.5 h-3.5 text-indigo-500" />
+              <div className="p-3 rounded-xl bg-white dark:bg-[#0a0b10] border border-slate-200 dark:border-[#181926] space-y-1.5 shadow-2xs">
+                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                  <History className="w-3 h-3 text-indigo-500" />
                   <span>Recent Roll History:</span>
                 </span>
-                <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+                <div className="flex gap-1.5 overflow-x-auto pb-1 no-scrollbar">
                   {rollHistory.map((h, hIdx) => (
                     <div
                       key={h.timestamp + hIdx}
-                      className="px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-[#12131d] border border-slate-200 dark:border-[#1e202f] shrink-0 font-mono text-xs flex items-center gap-2"
+                      className="px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-[#12131d] border border-slate-200 dark:border-[#1e202f] shrink-0 font-mono text-[11px] flex items-center gap-1.5"
                     >
                       <span className="text-slate-500 dark:text-slate-400">{h.notation}:</span>
                       <span className="font-bold text-slate-900 dark:text-white">{h.total}</span>
@@ -429,30 +429,30 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
           </div>
 
           {/* Presets & Controls (5 cols) */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-5 space-y-3.5">
             {/* Presets */}
-            <div className="p-6 rounded-3xl bg-white dark:bg-[#0f1017] border border-slate-200 dark:border-[#202230] space-y-4 shadow-sm dark:shadow-xl">
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                <Layers className="w-4 h-4 text-indigo-500" />
+            <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#0f1017] border border-slate-200 dark:border-[#202230] space-y-3 shadow-xs">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-indigo-500" />
                 <span>Popular {config.dieType.toUpperCase()} Presets</span>
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {config.quantityPresets.map((p, idx) => (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => handleApplyPreset(p)}
-                    className="p-3 rounded-2xl bg-slate-50 hover:bg-indigo-50/60 dark:bg-[#090a0f] dark:hover:bg-[#161724] border border-slate-200 hover:border-indigo-400 dark:border-[#1b1c28] dark:hover:border-indigo-500/40 text-left transition-all group flex flex-col justify-between cursor-pointer"
+                    className="p-2.5 rounded-xl bg-slate-50 hover:bg-indigo-50/60 dark:bg-[#090a0f] dark:hover:bg-[#161724] border border-slate-200 hover:border-indigo-400 dark:border-[#1b1c28] dark:hover:border-indigo-500/40 text-left transition-all group flex flex-col justify-between cursor-pointer"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-mono font-bold text-sm text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-300">
+                      <span className="font-mono font-bold text-xs text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-300">
                         {p.label}
                       </span>
-                      <ArrowRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all" />
+                      <ArrowRight className="w-3 h-3 text-slate-400 dark:text-slate-500 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all" />
                     </div>
                     {p.sublabel && (
-                      <span className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">
+                      <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 block">
                         {p.sublabel}
                       </span>
                     )}
@@ -462,9 +462,9 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
             </div>
 
             {/* Custom Formula & Modifiers */}
-            <div className="p-6 rounded-3xl bg-white dark:bg-[#0f1017] border border-slate-200 dark:border-[#202230] space-y-5 shadow-sm dark:shadow-xl">
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                <Calculator className="w-4 h-4 text-purple-500" />
+            <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#0f1017] border border-slate-200 dark:border-[#202230] space-y-3.5 shadow-xs">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+                <Calculator className="w-3.5 h-3.5 text-purple-500" />
                 <span>Custom Roll Configuration</span>
               </h3>
 
@@ -550,14 +550,14 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
           </div>
         </div>
 
-        {/* Full Editorial Guide & Tabletop RPG Context */}
-        <section className="bg-white dark:bg-[#0f1017] rounded-3xl border border-slate-200 dark:border-[#202230] p-6 sm:p-8 space-y-6 shadow-sm dark:shadow-xl">
-          <div className="flex items-center gap-2.5">
-            <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
-              <BookOpen className="w-5 h-5" />
+        {/* Full Editorial Guide & Tabletop RPG Context - Compact */}
+        <section className="bg-white dark:bg-[#0f1017] rounded-2xl border border-slate-200 dark:border-[#202230] p-4 sm:p-6 space-y-4 shadow-xs">
+          <div className="flex items-center gap-2">
+            <div className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+              <BookOpen className="w-4 h-4" />
             </div>
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+              <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white">
                 About the {config.name}
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400">
@@ -566,21 +566,21 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
             </div>
           </div>
 
-          <div className="space-y-3.5 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
             {config.introParagraphs.map((paragraph, idx) => (
               <p key={idx}>{paragraph}</p>
             ))}
           </div>
 
           {config.howToUse && config.howToUse.length > 0 && (
-            <div className="pt-5 border-t border-slate-100 dark:border-[#1c1d29] space-y-3">
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+            <div className="pt-4 border-t border-slate-100 dark:border-[#1c1d29] space-y-2.5">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
                 <span>How to Roll {config.dieType.toUpperCase()} Online</span>
               </h3>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600 dark:text-slate-400">
                 {config.howToUse.map((step, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 p-3 rounded-2xl bg-slate-50 dark:bg-[#141520] border border-slate-200/60 dark:border-[#202232]">
+                  <li key={idx} className="flex items-start gap-2 p-2.5 rounded-xl bg-slate-50 dark:bg-[#141520] border border-slate-200/60 dark:border-[#202232]">
                     <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400 shrink-0">
                       {idx + 1}.
                     </span>
@@ -593,13 +593,13 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
         </section>
 
         {/* H2: [DX] Results and Probability ("At a glance" + table) */}
-        <section className="bg-white dark:bg-[#0f1017] rounded-3xl border border-slate-200 dark:border-[#202230] p-6 sm:p-8 space-y-6 shadow-sm dark:shadow-xl">
+        <section className="bg-white dark:bg-[#0f1017] rounded-2xl border border-slate-200 dark:border-[#202230] p-4 sm:p-6 space-y-4 shadow-xs">
           <div>
-            <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
-              <Scale className="w-5 h-5 text-emerald-500" />
+            <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+              <Scale className="w-4 h-4 text-emerald-500" />
               <span>{config.dieType.toUpperCase()} Results and Probability</span>
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               At-a-glance statistical summary and discrete outcome chances for a balanced {config.sides}-sided die.
             </p>
           </div>

@@ -23,6 +23,7 @@ import {
 import BingoWheelEngine from '@/components/bingo/BingoWheelEngine';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import DirectAnswer from '@/components/DirectAnswer';
 import QuickFacts from '@/components/QuickFacts';
 import ConcreteExample from '@/components/ConcreteExample';
@@ -196,44 +197,60 @@ export default function BingoWheelPage() {
         {/* Global Header */}
         <SubpageHeader activePage="/bingo-wheel" />
 
-        {/* Breadcrumb Navigation - fully visible on mobile & desktop */}
-        <nav
-          aria-label="Breadcrumbs"
-          className="flex flex-wrap items-center gap-1.5 max-w-7xl mx-auto px-3.5 sm:px-6 pt-16 sm:pt-20 lg:pt-24 pb-1 sm:pb-2 text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 w-full"
-        >
-          <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-            Home
-          </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-          <Link href="/classroom-wheel" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-            Games & Classroom
-          </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-          <span className="font-semibold text-gray-800 dark:text-gray-200" aria-current="page">
-            Bingo Wheel
-          </span>
-        </nav>
+        <main className="flex-1 w-full max-w-full overflow-x-clip space-y-5 sm:space-y-8 pb-16">
+          {/* Top Header & Breadcrumbs Section */}
+          <section className="w-full max-w-[1440px] mx-auto px-3.5 sm:px-6 pt-24 sm:pt-28 lg:pt-32 space-y-3 sm:space-y-4">
+            <Breadcrumbs
+              items={[
+                { label: 'Games & Classroom', href: '/categories' },
+                { label: 'Bingo Spin Wheel' }
+              ]}
+            />
 
-        {/* Hero Section */}
-        <main className="max-w-7xl mx-auto px-3 sm:px-6 pt-2 sm:pt-3 pb-6 w-full max-w-full overflow-x-clip">
-          <div className="text-center max-w-3xl mx-auto mb-2 sm:mb-6 px-1">
-            <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-rose-500/10 text-rose-700 dark:text-rose-400 text-[11px] sm:text-xs font-bold mb-2 sm:mb-3 border border-rose-500/20">
-              <Dices className="w-3.5 h-3.5" />
-              <span>Random Bingo Number Generator & Live Caller</span>
+            {/* Compact Hero Banner Header (like Home Page) */}
+            <div className="text-center max-w-3xl mx-auto space-y-2 pt-0 pb-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold border border-rose-500/20">
+                <Dices className="w-3.5 h-3.5" />
+                <span>Bingo Caller Wheel • 75-Ball &amp; 90-Ball • Zero Repeats</span>
+              </div>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-black text-gray-950 dark:text-white tracking-tight leading-[1.1]">
+                Bingo Spin Wheel &amp; Live Caller
+              </h1>
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
+                Spin the free <strong>bingo wheel</strong> to randomly call balls without repeats. Features voice text-to-speech caller, live master call board, and interactive 5x5 player cards.
+              </p>
             </div>
-            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-black font-headline tracking-tight text-gray-900 dark:text-white mb-1.5 sm:mb-2">
-              Bingo Spin Wheel
-            </h1>
 
-            <p className="text-xs sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
-              Spin a free bingo wheel to randomly call numbers without repeats. Perfect for classroom games, family bingo, parties and events.
-            </p>
-          </div>
+            {/* Interactive Bingo Wheel Engine Tool */}
+            <div id="interactive-workspace" className="w-full pt-1">
+              <BingoWheelEngine />
+            </div>
+          </section>
 
-          {/* Interactive Bingo Wheel Engine Tool */}
-          <div className="mb-6 sm:mb-12 w-full max-w-full">
-            <BingoWheelEngine />
-          </div>
+          {/* Provable Fairness & Privacy Bar (Home Page style) */}
+          <section className="w-full max-w-[1440px] mx-auto px-3.5 sm:px-6">
+            <div className="rounded-2xl border border-[#eeedf7] dark:border-[#222330] bg-white dark:bg-[#151620] p-4 sm:p-5 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-[#464554] dark:text-slate-300">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <span className="font-semibold text-[#1a1b22] dark:text-white">
+                    Client-Side Web Cryptography (crypto.getRandomValues)
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 text-xs text-[#696779] dark:text-slate-400">
+                  <Radio className="w-3.5 h-3.5 text-rose-500" />
+                  <span>Strict Zero-Repeat Ball Draw Protocol</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <span>Zero Account Required • Voice Caller Audio • 100% Free Forever</span>
+              </div>
+            </div>
+          </section>
+
+          {/* Editorial Content Container */}
+          <article className="w-full max-w-[1440px] mx-auto px-3.5 sm:px-6 space-y-8 sm:space-y-10">
 
           {/* Direct Answer Block Below Wheel Container */}
           <div className="mb-10">
@@ -471,7 +488,8 @@ export default function BingoWheelPage() {
               </div>
             </div>
           </section>
-        </main>
+        </article>
+      </main>
 
         {/* Global Footer */}
         <Footer />

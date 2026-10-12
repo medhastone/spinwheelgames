@@ -178,6 +178,30 @@ export function playCountdownBeep(finalBeep = false, soundEnabled = true, volume
   }
 }
 
+export function playBuzzerAlert(soundEnabled = true, volume = 0.8) {
+  if (!soundEnabled || volume <= 0) return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  try {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(150, ctx.currentTime);
+    osc.frequency.linearRampToValueAtTime(110, ctx.currentTime + 0.45);
+
+    gain.gain.setValueAtTime(0.2 * volume, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.5);
+  } catch {
+    // Ignore audio interruption
+  }
+}
+
 export function playWinnerFanfare(soundEnabled = true, soundPack = 'carnival', volume = 0.8) {
   if (!soundEnabled || volume <= 0) return;
   const ctx = getAudioContext();

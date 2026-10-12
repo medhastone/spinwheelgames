@@ -4,30 +4,24 @@ import Link from 'next/link';
 import {
   Film,
   Sparkles,
-  CheckCircle2,
   HelpCircle,
   Users,
   Compass,
   ArrowRight,
-  ShieldCheck,
   ChevronRight,
+  Home,
   Clapperboard,
-  Tv,
   Heart,
   Smile,
   Popcorn,
   Flame,
-  Zap,
-  Clock,
-  Shuffle
+  Zap
 } from 'lucide-react';
 import MovieWheelEngine from '@/components/movie/MovieWheelEngine';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 
 export const dynamic = 'force-static';
-
-
 
 export const metadata: Metadata = {
   title: 'Movie Wheel - What Movie Should I Watch Generator',
@@ -155,7 +149,7 @@ const JSON_LD_DATA = {
           name: 'Can I add my own Netflix or Disney+ watchlist to the movie wheel?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes! Click the "My Custom Watchlist" tab and paste your movie titles using the Bulk Paste button. You can adjust weights, toggle specific movies on or off, and spin exclusively with your personal watchlist.'
+            text: 'Yes! Click the "Custom List" tab and paste your movie titles using the Bulk Paste button. You can adjust weights, toggle specific movies on or off, and spin exclusively with your personal watchlist.'
           }
         },
         {
@@ -182,32 +176,35 @@ export default function MovieWheelPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_DATA) }}
       />
 
-      <main className="flex-1 max-w-7xl mx-auto px-3.5 sm:px-6 pt-20 sm:pt-24 lg:pt-28 pb-10 space-y-8 sm:space-y-12 w-full max-w-full overflow-x-clip">
-        {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-[#64748b]">
-          <Link href="/" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-            Home
-          </Link>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <Link href="/decisions" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
-            Decisions
-          </Link>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <span className="font-semibold text-[#1a1b22] dark:text-white">Movie Wheel Spin</span>
-        </nav>
+      <main className="flex-1 w-full max-w-[1440px] mx-auto px-4 sm:px-6 pt-20 sm:pt-26 lg:pt-30 pb-24 sm:pb-12 flex flex-col gap-4 sm:gap-6">
+        {/* Compact Breadcrumb & Mode Meta */}
+        <div className="flex flex-wrap items-center justify-between gap-2.5 text-xs text-[#767586] dark:text-[#908fa1]">
+          <nav aria-label="Breadcrumb" className="inline-flex items-center gap-1.5 font-medium py-1 px-3 rounded-xl bg-slate-200/70 dark:bg-[#181924]/85 backdrop-blur-xs border border-slate-300/60 dark:border-slate-800/70">
+            <Link href="/" className="inline-flex items-center gap-1 text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+              <Home className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
+              <span>Home</span>
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 opacity-50" />
+            <Link href="/categories" className="text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
+              Decisions
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 opacity-50" />
+            <span className="font-bold text-[#1a1b22] dark:text-white">Movie Wheel</span>
+          </nav>
 
-        {/* Hero Section */}
-        <div className="space-y-4 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 dark:bg-red-500/20 border border-red-500/20 text-red-600 dark:text-red-400 text-xs font-bold">
-            <Film className="w-4 h-4" />
-            Random Movie Picker & Generator
+          <div className="inline-flex items-center gap-1.5 text-xs text-rose-600 dark:text-rose-400 font-bold py-1 px-3 rounded-xl bg-rose-500/10 border border-rose-500/20">
+            <Film className="w-3.5 h-3.5" />
+            <span>Random Movie Picker &amp; Decision Wheel</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black text-[#1a1b22] dark:text-white tracking-tight">
+        </div>
+
+        {/* Compact Hero Headline */}
+        <div className="text-center max-w-2xl mx-auto flex flex-col gap-1.5 pt-1">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#1a1b22] dark:text-white tracking-tight leading-tight">
             Movie Wheel Spin
           </h1>
-          <p className="text-sm sm:text-base text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-            End the debate and stop endless scrolling across Netflix, Disney+, and Prime. Spin the
-            movie randomizer wheel to instantly pick what to watch by genre, mood, or your custom watchlist.
+          <p className="text-xs sm:text-sm text-[#464554] dark:text-[#c7c4d7] leading-relaxed max-w-lg mx-auto">
+            Stop endless scrolling. Spin the wheel to decide what movie to watch tonight by genre, mood, streaming platform, or your custom watchlist in seconds.
           </p>
         </div>
 
@@ -216,303 +213,158 @@ export default function MovieWheelPage() {
           <MovieWheelEngine />
         </section>
 
-        {/* How It Solves "What Should We Watch Tonight?" */}
-        <section className="bg-white dark:bg-[#12131a] rounded-3xl p-6 sm:p-10 border border-[#eeedf7] dark:border-[#222330] shadow-sm space-y-8">
-          <div className="max-w-3xl space-y-3">
-            <h2 className="text-2xl sm:text-3xl font-black text-[#1a1b22] dark:text-white tracking-tight flex items-center gap-2.5">
-              <Popcorn className="w-6 h-6 text-red-500" />
-              What Should We Watch Tonight? Solving Movie Night Indecision
+        {/* Information Cards Matching Home Page Style */}
+        <section className="bg-white dark:bg-[#0f1017] rounded-3xl border border-[#eeedf7] dark:border-[#20212f] shadow-lg dark:shadow-xl p-5 sm:p-6 lg:p-7 flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-base sm:text-lg font-black text-[#1a1b22] dark:text-white tracking-tight flex items-center gap-2">
+              <Popcorn className="w-4 h-4 text-rose-500" />
+              <span>What Should We Watch Tonight?</span>
             </h2>
-            <p className="text-sm text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-              The average person spends over <strong>18 minutes scrolling through streaming platforms</strong> before
-              settling on a title or giving up entirely. The <strong>Movie Wheel Spin</strong> replaces endless previews
-              and analysis paralysis with an exciting, fair, and decisive choice in under 10 seconds.
+            <p className="text-xs sm:text-sm text-[#464554] dark:text-[#c7c4d7]">
+              Replace streaming indecision with four distinct movie selection experiences:
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-5 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-red-500/10 dark:bg-red-500/20 text-red-500 flex items-center justify-center font-bold">
-                <Compass className="w-5 h-5" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="p-4 rounded-2xl bg-[#f4f2fd] dark:bg-[#151622] border border-[#eeedf7] dark:border-[#20212f] flex flex-col gap-1.5">
+              <div className="w-7 h-7 rounded-xl bg-rose-500/10 dark:bg-rose-500/20 text-rose-500 flex items-center justify-center font-bold">
+                <Compass className="w-4 h-4" />
               </div>
-              <h3 className="text-base font-bold text-[#1a1b22] dark:text-white">
-                Movie Decision Mode
+              <h3 className="text-sm font-bold text-[#1a1b22] dark:text-white">
+                Decision Mode
               </h3>
               <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-                Universal mode curated with award winners, modern sensations, and timeless classics across all major streaming services.
+                Curated blend of critical darlings, timeless classics, and top-tier blockbusters.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-green-500/10 dark:bg-green-500/20 text-green-500 flex items-center justify-center font-bold">
-                <Smile className="w-5 h-5" />
+            <div className="p-4 rounded-2xl bg-[#f4f2fd] dark:bg-[#151622] border border-[#eeedf7] dark:border-[#20212f] flex flex-col gap-1.5">
+              <div className="w-7 h-7 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-500 flex items-center justify-center font-bold">
+                <Smile className="w-4 h-4" />
               </div>
-              <h3 className="text-base font-bold text-[#1a1b22] dark:text-white">
-                Family Movie Mode
+              <h3 className="text-sm font-bold text-[#1a1b22] dark:text-white">
+                Family Mode
               </h3>
               <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-                Filter exclusively for wholesome G and PG rated family favorites, Pixar animation, and heartwarming adventures.
+                Wholesome G and PG rated favorites, animated gems, and all-ages adventures.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-pink-500/10 dark:bg-pink-500/20 text-pink-500 flex items-center justify-center font-bold">
-                <Heart className="w-5 h-5" />
+            <div className="p-4 rounded-2xl bg-[#f4f2fd] dark:bg-[#151622] border border-[#eeedf7] dark:border-[#20212f] flex flex-col gap-1.5">
+              <div className="w-7 h-7 rounded-xl bg-pink-500/10 dark:bg-pink-500/20 text-pink-500 flex items-center justify-center font-bold">
+                <Heart className="w-4 h-4" />
               </div>
-              <h3 className="text-base font-bold text-[#1a1b22] dark:text-white">
-                Date-Night Mode
+              <h3 className="text-sm font-bold text-[#1a1b22] dark:text-white">
+                Date Night
               </h3>
               <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-                Sparks engaging conversations with charming rom-coms, stylish thrillers, and captivating romantic dramas.
+                Witty rom-coms, edge-of-your-seat thrillers, and heartfelt romantic dramas for two.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 text-purple-500 flex items-center justify-center font-bold">
-                <Users className="w-5 h-5" />
+            <div className="p-4 rounded-2xl bg-[#f4f2fd] dark:bg-[#151622] border border-[#eeedf7] dark:border-[#20212f] flex flex-col gap-1.5">
+              <div className="w-7 h-7 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 text-purple-500 flex items-center justify-center font-bold">
+                <Users className="w-4 h-4" />
               </div>
-              <h3 className="text-base font-bold text-[#1a1b22] dark:text-white">
-                Group Movie Mode
+              <h3 className="text-sm font-bold text-[#1a1b22] dark:text-white">
+                Group Mode
               </h3>
               <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-                High-octane blockbusters and side-splitting comedies with built-in veto elimination for democratic group consensus.
+                Crowd-pleasers with Veto &amp; Eliminate functionality to resolve group disputes fairly.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Supported Movie Genres Breakdown */}
-        <section className="bg-white dark:bg-[#12131a] rounded-3xl p-6 sm:p-10 border border-[#eeedf7] dark:border-[#222330] shadow-sm space-y-8">
-          <div className="space-y-3">
-            <h2 className="text-2xl sm:text-3xl font-black text-[#1a1b22] dark:text-white tracking-tight flex items-center gap-2.5">
-              <Clapperboard className="w-6 h-6 text-amber-500" />
-              Filter by Film Genre & Mood
-            </h2>
-            <p className="text-sm text-[#464554] dark:text-[#c7c4d7] leading-relaxed max-w-3xl">
-              Whether you want edge-of-your-seat suspense or a lighthearted laugh, customize the movie randomizer wheel with your favorite genre:
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="p-4 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] flex items-start gap-3">
-              <div className="p-2.5 rounded-xl bg-sky-500/10 text-sky-500 font-bold">
-                <Sparkles className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-[#1a1b22] dark:text-white">Animation</h4>
-                <p className="text-xs text-[#464554] dark:text-[#c7c4d7] mt-1">
-                  Pixar, Studio Ghibli, and groundbreaking visual spectacles like <em>Spider-Man: Into the Spider-Verse</em> and <em>Spirited Away</em>.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] flex items-start gap-3">
-              <div className="p-2.5 rounded-xl bg-yellow-500/10 text-yellow-500 font-bold">
-                <Smile className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-[#1a1b22] dark:text-white">Comedy</h4>
-                <p className="text-xs text-[#464554] dark:text-[#c7c4d7] mt-1">
-                  Witty satires, cult favorites, and riotous belly laughs like <em>Superbad</em>, <em>Knives Out</em>, and <em>The Grand Budapest Hotel</em>.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] flex items-start gap-3">
-              <div className="p-2.5 rounded-xl bg-red-500/10 text-red-500 font-bold">
-                <Zap className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-[#1a1b22] dark:text-white">Action & Sci-Fi</h4>
-                <p className="text-xs text-[#464554] dark:text-[#c7c4d7] mt-1">
-                  Pulse-pounding blockbusters like <em>Top Gun: Maverick</em>, <em>Mad Max: Fury Road</em>, and <em>Interstellar</em>.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] flex items-start gap-3">
-              <div className="p-2.5 rounded-xl bg-purple-500/10 text-purple-500 font-bold">
-                <Flame className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-[#1a1b22] dark:text-white">Horror & Thriller</h4>
-                <p className="text-xs text-[#464554] dark:text-[#c7c4d7] mt-1">
-                  Atmospheric dread, psychological twists, and heart-racing jumps like <em>Get Out</em>, <em>A Quiet Place</em>, and <em>Parasite</em>.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] flex items-start gap-3">
-              <div className="p-2.5 rounded-xl bg-green-500/10 text-green-500 font-bold">
-                <Heart className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-[#1a1b22] dark:text-white">Family</h4>
-                <p className="text-xs text-[#464554] dark:text-[#c7c4d7] mt-1">
-                  Crowd-approved generational gems like <em>Paddington 2</em>, <em>Home Alone</em>, and <em>Harry Potter</em>.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] flex items-start gap-3">
-              <div className="p-2.5 rounded-xl bg-orange-500/10 text-orange-500 font-bold">
-                <Film className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-[#1a1b22] dark:text-white">Classic Legends</h4>
-                <p className="text-xs text-[#464554] dark:text-[#c7c4d7] mt-1">
-                  Golden age cinema and essential masterpieces like <em>Casablanca</em>, <em>Back to the Future</em>, and <em>Jurassic Park</em>.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Step-by-Step Guide */}
-        <section className="bg-white dark:bg-[#12131a] rounded-3xl p-6 sm:p-10 border border-[#eeedf7] dark:border-[#222330] shadow-sm space-y-6">
-          <h2 className="text-2xl sm:text-3xl font-black text-[#1a1b22] dark:text-white tracking-tight">
-            How to Use the Random Movie Selector Wheel
+        {/* How It Works Steps */}
+        <section className="bg-white dark:bg-[#0f1017] rounded-3xl border border-[#eeedf7] dark:border-[#20212f] shadow-lg dark:shadow-xl p-5 sm:p-6 lg:p-7 flex flex-col gap-4">
+          <h2 className="text-base sm:text-lg font-black text-[#1a1b22] dark:text-white tracking-tight flex items-center gap-2">
+            <Zap className="w-4 h-4 text-amber-500" />
+            <span>3 Simple Steps to Stop Scrolling &amp; Start Watching</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="space-y-2">
-              <div className="text-xs font-bold text-red-500 uppercase tracking-wider">Step 1</div>
-              <h3 className="text-base font-bold text-[#1a1b22] dark:text-white">Choose Mood or Custom List</h3>
-              <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-                Select from Decision Mode, Family, Date Night, or Group, or paste your own streaming watchlist directly into the Custom List tab.
-              </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="flex items-start gap-3 p-4 rounded-2xl bg-[#f4f2fd] dark:bg-[#151622] border border-[#eeedf7] dark:border-[#20212f]">
+              <div className="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-black flex items-center justify-center flex-shrink-0">
+                1
+              </div>
+              <div className="flex flex-col gap-1">
+                <h3 className="text-sm font-bold text-[#1a1b22] dark:text-white">Choose Vibe or Watchlist</h3>
+                <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
+                  Select Decision, Family, Date Night, or Group, or paste your personal streaming watchlist.
+                </p>
+              </div>
             </div>
-            <div className="space-y-2">
-              <div className="text-xs font-bold text-red-500 uppercase tracking-wider">Step 2</div>
-              <h3 className="text-base font-bold text-[#1a1b22] dark:text-white">Filter by Genre & Runtime</h3>
-              <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-                Dial in your preferences: filter for quick sub-105-minute movies or full epics, and restrict to your subscribed streaming platforms.
-              </p>
+
+            <div className="flex items-start gap-3 p-4 rounded-2xl bg-[#f4f2fd] dark:bg-[#151622] border border-[#eeedf7] dark:border-[#20212f]">
+              <div className="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-black flex items-center justify-center flex-shrink-0">
+                2
+              </div>
+              <div className="flex flex-col gap-1">
+                <h3 className="text-sm font-bold text-[#1a1b22] dark:text-white">Filter Genre &amp; Streaming App</h3>
+                <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
+                  Narrow down to Netflix, Prime Video, Disney+, Max, specific genres, or target runtime.
+                </p>
+              </div>
             </div>
-            <div className="space-y-2">
-              <div className="text-xs font-bold text-red-500 uppercase tracking-wider">Step 3</div>
-              <h3 className="text-base font-bold text-[#1a1b22] dark:text-white">Spin & Settle the Debate</h3>
-              <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-                Click <strong>SPIN MOVIE WHEEL</strong>. Grab the popcorn and start watching, or use the Veto button if you want to eliminate and spin again!
-              </p>
+
+            <div className="flex items-start gap-3 p-4 rounded-2xl bg-[#f4f2fd] dark:bg-[#151622] border border-[#eeedf7] dark:border-[#20212f]">
+              <div className="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-black flex items-center justify-center flex-shrink-0">
+                3
+              </div>
+              <div className="flex flex-col gap-1">
+                <h3 className="text-sm font-bold text-[#1a1b22] dark:text-white">Spin &amp; Enjoy Movie Night</h3>
+                <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
+                  Hit Spin or Quick Pick to let unbiased Web Cryptography choose your winner instantly.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section className="bg-white dark:bg-[#12131a] rounded-3xl p-6 sm:p-10 border border-[#eeedf7] dark:border-[#222330] shadow-sm space-y-6">
-          <div className="space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-black text-[#1a1b22] dark:text-white tracking-tight flex items-center gap-2">
-              <HelpCircle className="w-6 h-6 text-red-500" />
-              Frequently Asked Questions
-            </h2>
-            <p className="text-sm text-[#464554] dark:text-[#c7c4d7]">
-              Everything you need to know about the movie wheel spin and random movie generator.
-            </p>
-          </div>
+        <section className="bg-white dark:bg-[#0f1017] rounded-3xl border border-[#eeedf7] dark:border-[#20212f] shadow-lg dark:shadow-xl p-5 sm:p-6 lg:p-7 flex flex-col gap-4">
+          <h2 className="text-base sm:text-lg font-black text-[#1a1b22] dark:text-white tracking-tight flex items-center gap-2">
+            <HelpCircle className="w-4 h-4 text-[#4648d4] dark:text-[#8587ff]" />
+            <span>Frequently Asked Questions</span>
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-5 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] space-y-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="p-4 rounded-2xl bg-[#f4f2fd] dark:bg-[#151622] border border-[#eeedf7] dark:border-[#20212f] flex flex-col gap-1">
               <h3 className="text-sm font-bold text-[#1a1b22] dark:text-white">
                 How do I decide what movie to watch tonight?
               </h3>
               <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-                Select your vibe mode (Date Night, Family, or Group) or filter by genres like Animation, Action, Comedy, or Horror. If you already have a watchlist on Netflix or Prime, paste it into the Custom List tab and let the wheel make the final call.
+                Select your vibe, filter by genre or streaming service, or paste your watchlist and click Spin.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] space-y-2">
+            <div className="p-4 rounded-2xl bg-[#f4f2fd] dark:bg-[#151622] border border-[#eeedf7] dark:border-[#20212f] flex flex-col gap-1">
               <h3 className="text-sm font-bold text-[#1a1b22] dark:text-white">
-                Can we use this for group movie tournament voting?
+                How does Group Movie Mode work?
               </h3>
               <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-                Yes! When a movie is selected, anyone with veto power can click <strong>&quot;Veto &amp; Spin Again&quot;</strong> to eliminate that title from the wheel. You can keep spinning until everyone agrees on the winner.
+                Puts crowd-pleasers on the wheel. If someone vetoes the winner, click Veto &amp; Spin to eliminate it and pick again among remaining candidates.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] space-y-2">
+            <div className="p-4 rounded-2xl bg-[#f4f2fd] dark:bg-[#151622] border border-[#eeedf7] dark:border-[#20212f] flex flex-col gap-1">
               <h3 className="text-sm font-bold text-[#1a1b22] dark:text-white">
-                Is the wheel truly random?
+                Can I add my personal Netflix or Disney+ watchlist?
               </h3>
               <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-                Yes. SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate unbiased random selections every spin.
+                Yes! Switch to the Custom Watchlist tab and paste movie titles. You can adjust weights, toggle specific titles on or off, and spin exclusively with your personal watchlist.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#f8f7fd] dark:bg-[#171824] border border-[#eeedf7] dark:border-[#222330] space-y-2">
+            <div className="p-4 rounded-2xl bg-[#f4f2fd] dark:bg-[#151622] border border-[#eeedf7] dark:border-[#20212f] flex flex-col gap-1">
               <h3 className="text-sm font-bold text-[#1a1b22] dark:text-white">
-                Is this movie picker completely free?
+                Is the wheel fair and random?
               </h3>
               <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
-                100% free with zero paywalls, no forced account signups, and unlimited spins across mobile, tablet, and desktop devices.
+                Yes. SpinWheelGames utilizes the browser Web Cryptography API (`crypto.getRandomValues()`) to ensure unbiased, cryptographically uniform selections.
               </p>
             </div>
-          </div>
-        </section>
-
-        {/* Explore Other Decision Wheels */}
-        <section className="bg-gradient-to-br from-[#4648d4]/10 via-[#6cf8bb]/10 to-transparent p-6 sm:p-10 rounded-3xl border border-[#eeedf7] dark:border-[#222330] space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <h2 className="text-2xl font-black text-[#1a1b22] dark:text-white tracking-tight">
-                Explore More Decision Wheels
-              </h2>
-              <p className="text-sm text-[#464554] dark:text-[#c7c4d7] mt-1">
-                From dinner to team raffles, solve every choice with cryptographic randomness.
-              </p>
-            </div>
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#4648d4] text-white font-bold text-xs hover:bg-[#3b3dbb] transition-colors self-start sm:self-auto"
-            >
-              <span>View All 106+ Wheels</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <Link
-              href="/food-wheel"
-              className="p-4 rounded-2xl bg-white dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#222330] hover:border-[#4648d4] dark:hover:border-[#8587ff] transition-all hover:-translate-y-0.5 group"
-            >
-              <div className="text-lg">🍕</div>
-              <div className="text-xs font-bold text-[#1a1b22] dark:text-white mt-2 group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors">
-                Food Wheel
-              </div>
-              <div className="text-[11px] text-[#64748b]">Pick dinner &amp; cuisine</div>
-            </Link>
-
-            <Link
-              href="/number-wheel"
-              className="p-4 rounded-2xl bg-white dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#222330] hover:border-[#4648d4] dark:hover:border-[#8587ff] transition-all hover:-translate-y-0.5 group"
-            >
-              <div className="text-lg">🔢</div>
-              <div className="text-xs font-bold text-[#1a1b22] dark:text-white mt-2 group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors">
-                Number Wheel
-              </div>
-              <div className="text-[11px] text-[#64748b]">RNG 1-100 &amp; Custom</div>
-            </Link>
-
-            <Link
-              href="/animal-wheel"
-              className="p-4 rounded-2xl bg-white dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#222330] hover:border-[#4648d4] dark:hover:border-[#8587ff] transition-all hover:-translate-y-0.5 group"
-            >
-              <div className="text-lg">🦁</div>
-              <div className="text-xs font-bold text-[#1a1b22] dark:text-white mt-2 group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors">
-                Animal Wheel
-              </div>
-              <div className="text-[11px] text-[#64748b]">Habitats &amp; Zoo games</div>
-            </Link>
-
-            <Link
-              href="/random-object-generator"
-              className="p-4 rounded-2xl bg-white dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#222330] hover:border-[#4648d4] dark:hover:border-[#8587ff] transition-all hover:-translate-y-0.5 group"
-            >
-              <div className="text-lg">🎲</div>
-              <div className="text-xs font-bold text-[#1a1b22] dark:text-white mt-2 group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors">
-                Random Object
-              </div>
-              <div className="text-[11px] text-[#64748b]">Creative inspiration</div>
-            </Link>
           </div>
         </section>
       </main>

@@ -87,6 +87,16 @@ export default function GamesPage() {
           <p className="text-[15px] sm:text-[17px] text-[#464554] dark:text-[#c7c4d7] max-w-3xl leading-relaxed">
             Search, filter, and discover our full directory of interactive wheel pickers, classroom student callouts, tabletop dice generators, and decision spinners.
           </p>
+
+          <div className="pt-2 flex flex-wrap gap-3">
+            <Link
+              href="/random-game-picker"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md transition-all hover:-translate-y-0.5"
+            >
+              <Dices className="w-4 h-4" />
+              <span>Launch Random Game Picker (Party, Board &amp; Card)</span>
+            </Link>
+          </div>
         </section>
 
         {/* Dynamic Games Explorer Component */}

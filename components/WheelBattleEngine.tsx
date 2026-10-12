@@ -6,7 +6,7 @@ import { selectWeightedWinner } from '@/lib/random';
 import { playWinnerFanfare, playTickSound } from '@/lib/sound';
 import { recordBattleWin, loadUserStats } from '@/lib/storage';
 import WheelCanvas from './WheelCanvas';
-import confetti from 'canvas-confetti';
+import confetti from '@/lib/confetti';
 import {
   Swords,
   RotateCcw,

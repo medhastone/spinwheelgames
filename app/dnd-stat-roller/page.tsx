@@ -177,32 +177,32 @@ export default function DndStatRollerPage() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32 pb-8 space-y-10">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
         {/* Breadcrumb Navigation */}
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
             { label: 'Dice Roller', href: '/dice-roller' },
-            { label: 'D&D Stat Roller & Ability Score Generator' }
+            { label: 'D&D Stat Roller' }
           ]}
         />
 
         {/* Hero Section */}
-        <div className="text-center space-y-4 max-w-4xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-400 dark:border-indigo-500/20 font-mono font-bold uppercase tracking-wider">
+        <div className="text-center space-y-2 max-w-2xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-1.5">
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-400 dark:border-indigo-500/20 font-mono uppercase tracking-wider">
               D&amp;D 5e Character Creation Suite
             </span>
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20 font-mono font-bold uppercase tracking-wider">
-              4d6 Drop 1 • 27 Point Buy • Standard Array
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20 font-mono uppercase tracking-wider">
+              4d6 Drop 1 • Point Buy • Standard Array
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
             Roll D&amp;D Stats Online - 4d6 Drop Lowest &amp; Point Buy
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl mx-auto">
-            Generate full 6-ability score character stat blocks with 3D physics. Switch seamlessly between official rulesets: <strong>4d6 Drop Lowest</strong>, <strong>Standard Array (15, 14, 13, 12, 10, 8)</strong>, <strong>27-Point Buy</strong>, or <strong>Classic 3d6</strong>.
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto">
+            Generate full 6-ability score character stat blocks with 3D physics. Switch seamlessly between official rulesets: <strong>4d6 Drop Lowest</strong>, <strong>Standard Array</strong>, or <strong>27-Point Buy</strong>.
           </p>
         </div>
 
@@ -210,10 +210,10 @@ export default function DndStatRollerPage() {
         <DndStatRollerComponent />
 
         {/* Master Long-Form Educational Content */}
-        <article className="space-y-12 border-t border-slate-200 dark:border-[#1e2030] pt-10">
+        <article className="space-y-6 border-t border-slate-200 dark:border-[#1e2030] pt-6">
           
           {/* Section 1: The Six Core Ability Scores */}
-          <section className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-6 shadow-sm dark:shadow-xl">
+          <section className="p-4 sm:p-6 rounded-2xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-4 shadow-xs">
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
                 <Shield className="w-6 h-6" />

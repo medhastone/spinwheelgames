@@ -158,7 +158,7 @@ export default function DiceAverageCalculatorPage() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-36 pb-8 space-y-8">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
         {/* Breadcrumbs Navigation */}
         <Breadcrumbs
           items={[
@@ -169,19 +169,19 @@ export default function DiceAverageCalculatorPage() {
         />
 
         {/* Hero */}
-        <div className="space-y-4 max-w-4xl">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20 font-mono font-bold uppercase tracking-wider">
+        <div className="space-y-2 max-w-3xl">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20 font-mono uppercase tracking-wider">
               Exact Mathematics Engine
             </span>
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 font-mono font-bold uppercase tracking-wider">
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 font-mono uppercase tracking-wider">
               Discrete Probability &amp; Standard Deviation
             </span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
             Dice Average Calculator Online - Probability &amp; Expected Value
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
             Determine exact mathematical averages, expected damage values, standard deviation, and full discrete probability distribution curves for any tabletop RPG dice combination.
           </p>
         </div>
@@ -190,10 +190,10 @@ export default function DiceAverageCalculatorPage() {
         <DiceAverageCalculatorComponent />
 
         {/* Master Long-Form Educational Content */}
-        <article className="space-y-12 border-t border-slate-200 dark:border-[#1e2030] pt-10">
+        <article className="space-y-6 border-t border-slate-200 dark:border-[#1e2030] pt-6">
           
           {/* Section 1: Core Mathematical Formulas */}
-          <section className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-6 shadow-sm dark:shadow-xl">
+          <section className="p-4 sm:p-6 rounded-2xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-4 shadow-xs">
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
                 <BookOpen className="w-6 h-6" />
