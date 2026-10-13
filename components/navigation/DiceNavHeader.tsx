@@ -15,7 +15,7 @@ const DICE_ROUTES = [
   { href: '/dice/d2', label: 'd2 (Coin)', short: 'd2', sides: 2 },
   { href: '/dice/d4', label: 'd4', short: 'd4', sides: 4 },
   { href: '/dice/d6', label: 'd6', short: 'd6', sides: 6 },
-  { href: '/4d6', label: '4d6', short: '4d6', sides: 6 },
+  { href: '/roll-4d6', label: '4d6', short: '4d6', sides: 6 },
   { href: '/dice/d8', label: 'd8', short: 'd8', sides: 8 },
   { href: '/dice/d10', label: 'd10', short: 'd10', sides: 10 },
   { href: '/dice/d12', label: 'd12', short: 'd12', sides: 12 },
@@ -24,8 +24,8 @@ const DICE_ROUTES = [
 ];
 
 const TOOL_ROUTES = [
-  { href: '/dnd-stats', label: 'D&D Stat Roller', icon: Shield, badge: '5e' },
-  { href: '/dice-average', label: 'Dice Average Calc', icon: Calculator, badge: 'Math' }
+  { href: '/dnd-stat-roller', label: 'D&D Stat Roller', icon: Shield, badge: '5e' },
+  { href: '/dice-average-calculator', label: 'Dice Average Calc', icon: Calculator, badge: 'Math' }
 ];
 
 export default function DiceNavHeader() {

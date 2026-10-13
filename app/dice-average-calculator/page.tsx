@@ -358,7 +358,7 @@ export default function DiceAverageCalculatorPage() {
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-[#171824]">
                   {[
-                    { die: 'd4', shape: 'Tetrahedron', single: '2.5', d2: '5.0', d3: '7.5', link: '/roll-1d4' },
+                    { die: 'd4', shape: 'Tetrahedron', single: '2.5', d2: '5.0', d3: '7.5', link: '/dice/d4' },
                     { die: 'd6', shape: 'Cube', single: '3.5', d2: '7.0', d3: '10.5', link: '/dice/d6' },
                     { die: 'd8', shape: 'Octahedron', single: '4.5', d2: '9.0', d3: '13.5', link: '/dice/d8' },
                     { die: 'd10', shape: 'Trapezohedron', single: '5.5', d2: '11.0', d3: '16.5', link: '/dice/d10' },

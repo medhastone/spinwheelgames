@@ -20,7 +20,7 @@ export default function HomeDicePromo() {
       id: 'dnd-stats',
       title: 'D&D Stat Roller (4d6dl1)',
       desc: 'Heroic 4d6 Drop Lowest roller with realistic 3D dice, Point Buy, and Standard Array.',
-      href: '/dnd-stats',
+      href: '/dnd-stat-roller',
       badge: 'D&D 5e',
       icon: <Shield className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
       color: 'from-indigo-500/5 dark:from-indigo-500/10 via-purple-500/5 dark:via-purple-500/10 to-transparent border-indigo-200/80 dark:border-indigo-500/20'
@@ -29,7 +29,7 @@ export default function HomeDicePromo() {
       id: 'dice-average',
       title: 'Dice Average Calculator',
       desc: 'Calculate exact averages, variance, and discrete probability bell curves for any NdX formula.',
-      href: '/dice-average',
+      href: '/dice-average-calculator',
       badge: 'Dice Math',
       icon: <Calculator className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
       color: 'from-emerald-500/5 dark:from-emerald-500/10 via-teal-500/5 dark:via-teal-500/10 to-transparent border-emerald-200/80 dark:border-emerald-500/20'
@@ -38,7 +38,7 @@ export default function HomeDicePromo() {
       id: 'd20-roller',
       title: '1d20 Advantage Roller',
       desc: 'Roll 1d20 with Advantage, Disadvantage, Natural 20 critical detection, and DC check analytics.',
-      href: '/d20',
+      href: '/dice/d20',
       badge: '20-Sided',
       icon: <Sparkles className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
       color: 'from-amber-500/5 dark:from-amber-500/10 via-orange-500/5 dark:via-orange-500/10 to-transparent border-amber-200/80 dark:border-amber-500/20'
@@ -47,7 +47,7 @@ export default function HomeDicePromo() {
       id: 'd6-suite',
       title: 'D6 & Fireball Roller',
       desc: 'Roll 1d6, 3d6, 4d6, 8d6 (Fireball), or 10d6 with full mathematical proof of why D6 average is 3.5.',
-      href: '/d6',
+      href: '/dice/d6',
       badge: '6-Sided',
       icon: <Dice5 className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
       color: 'from-cyan-500/5 dark:from-cyan-500/10 via-blue-500/5 dark:via-blue-500/10 to-transparent border-cyan-200/80 dark:border-cyan-500/20'
@@ -56,7 +56,7 @@ export default function HomeDicePromo() {
 
   const polyhedralPills = [
     { name: 'Roll d2 (Coin)', href: '/dice/d2', desc: '50/50 decisions' },
-    { name: 'Roll 1d4 (Tetrahedron)', href: '/dice/d4', desc: 'Magic Missile, Heals' },
+    { name: 'Roll d4 (Tetrahedron)', href: '/dice/d4', desc: 'Magic Missile, Heals' },
     { name: 'Roll 3d6 / 4d6 (Cube)', href: '/dice/d6', desc: 'Stats, Fireball' },
     { name: 'Roll a d8 (Octahedron)', href: '/dice/d8', desc: 'Divine Smite, Longswords' },
     { name: 'Roll d10 (Decahedron)', href: '/dice/d10', desc: 'Eldritch Blast' },

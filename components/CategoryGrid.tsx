@@ -11,13 +11,16 @@ import {
   Utensils,
   Trophy,
   Gamepad2,
-  Film,
   Hash,
   Palette,
-  Dumbbell,
-  Gift,
   ArrowRight,
-  Heart
+  Heart,
+  Plane,
+  DollarSign,
+  Clock,
+  Sparkles,
+  MessageSquare,
+  Swords
 } from 'lucide-react';
 import { useSavedWheels, toggleWheelFavorite } from '@/lib/storage';
 
@@ -38,43 +41,12 @@ export default function CategoryGrid() {
       ]
     });
   };
+
   const categories = [
     {
-      name: 'Decisions',
+      name: 'Food & Dining',
       count: '14 Wheels',
-      description: 'Yes/No, A vs B, priority sorters & dilemma deciders.',
-      icon: HelpCircle,
-      color: 'text-indigo-500 bg-indigo-500/10',
-      path: '/decisions'
-    },
-    {
-      name: 'Names & Rosters',
-      count: '16 Wheels',
-      description: 'Wheel of Names, student callers & raffle drafters.',
-      icon: Users,
-      color: 'text-purple-500 bg-purple-500/10',
-      path: '/names'
-    },
-    {
-      name: 'Classroom',
-      count: '12 Wheels',
-      description: 'Cold-calling, student grouping & lesson icebreakers.',
-      icon: GraduationCap,
-      color: 'text-blue-500 bg-blue-500/10',
-      path: '/classroom'
-    },
-    {
-      name: 'Party & Games',
-      count: '18 Wheels',
-      description: 'Truth or Dare, Would You Rather & drinking games.',
-      icon: PartyPopper,
-      color: 'text-pink-500 bg-pink-500/10',
-      path: '/party'
-    },
-    {
-      name: 'Food & Meals',
-      count: '12 Wheels',
-      description: 'Dinner, takeout, fast food, cuisines & snack pickers.',
+      description: 'Dinner, takeout, restaurant deciders, pizza & meal spinners.',
       icon: Utensils,
       color: 'text-orange-500 bg-orange-500/10',
       path: '/food'
@@ -82,58 +54,114 @@ export default function CategoryGrid() {
     {
       name: 'Sports & Teams',
       count: '10 Wheels',
-      description: 'Team generators, draft order & sports challenges.',
+      description: 'NBA, NFL, football clubs, draft lotteries & tournament seeds.',
       icon: Trophy,
       color: 'text-emerald-500 bg-emerald-500/10',
       path: '/sports'
     },
     {
-      name: 'Gaming & Stream',
+      name: 'Travel & Trips',
+      count: '8 Wheels',
+      description: 'Vacation spots, weekend getaways, city pickers & destinations.',
+      icon: Plane,
+      color: 'text-sky-500 bg-sky-500/10',
+      path: '/travel'
+    },
+    {
+      name: 'Finance & Budget',
+      count: '6 Wheels',
+      description: 'Savings challenges, splurge-or-save deciders & micro-goals.',
+      icon: DollarSign,
+      color: 'text-green-600 bg-green-500/10',
+      path: '/finance'
+    },
+    {
+      name: 'Classroom & School',
+      count: '12 Wheels',
+      description: 'Fair student callers, reading turns, chore wheels & activities.',
+      icon: GraduationCap,
+      color: 'text-blue-500 bg-blue-500/10',
+      path: '/classroom'
+    },
+    {
+      name: 'Party & Social',
+      count: '16 Wheels',
+      description: 'Truth or Dare, party tasks, social dares & drinking games.',
+      icon: PartyPopper,
+      color: 'text-pink-500 bg-pink-500/10',
+      path: '/party'
+    },
+    {
+      name: 'Decisions & Choices',
+      count: '18 Wheels',
+      description: 'Yes or No, A vs B, dilemma resolvers & deadlock breakers.',
+      icon: HelpCircle,
+      color: 'text-indigo-500 bg-indigo-500/10',
+      path: '/decisions'
+    },
+    {
+      name: 'Games & Challenges',
       count: '15 Wheels',
-      description: 'Gamer roles, loadouts & streamer audience participation.',
+      description: 'Minecraft, Fortnite, RPG character wheels & esports helpers.',
       icon: Gamepad2,
       color: 'text-cyan-500 bg-cyan-500/10',
       path: '/games'
     },
     {
-      name: 'Entertainment',
-      count: '11 Wheels',
-      description: 'Movie Wheel Spin, TV genres, anime & books.',
-      icon: Film,
-      color: 'text-rose-500 bg-rose-500/10',
-      path: '/entertainment'
-    },
-    {
       name: 'Numbers & RNG',
-      count: '8 Wheels',
-      description: 'Random numbers, 1-100 drawings & lotteries.',
+      count: '10 Wheels',
+      description: 'Random numbers 1-50, 1-100, dice wheels & raffle drawings.',
       icon: Hash,
       color: 'text-teal-500 bg-teal-500/10',
       path: '/numbers'
     },
     {
-      name: 'Drawing & Art',
-      count: '6 Wheels',
-      description: 'Drawing challenges, color generators & prompt tools.',
+      name: 'Wellness & Mindfulness',
+      count: '8 Wheels',
+      description: 'Self-care rituals, gratitude prompts, breathwork & calm pauses.',
+      icon: Sparkles,
+      color: 'text-violet-500 bg-violet-500/10',
+      path: '/wellness'
+    },
+    {
+      name: 'Productivity & Habits',
+      count: '7 Wheels',
+      description: 'Pomodoro breaks, task triage, decluttering & streak keepers.',
+      icon: Clock,
+      color: 'text-amber-600 bg-amber-500/10',
+      path: '/productivity'
+    },
+    {
+      name: 'Creativity & Writing',
+      count: '9 Wheels',
+      description: 'Art sketching ideas, story starters, poetry meter & songs.',
       icon: Palette,
-      color: 'text-amber-500 bg-amber-500/10',
+      color: 'text-purple-500 bg-purple-500/10',
       path: '/creativity'
     },
     {
-      name: 'Workout & Fitness',
-      count: '7 Wheels',
-      description: 'HIIT moves, exercise randomizers & gym routines.',
-      icon: Dumbbell,
-      color: 'text-red-500 bg-red-500/10',
-      path: '/workout'
+      name: 'Daily Challenges',
+      count: '8 Wheels',
+      description: 'Spontaneous 24-hour dares, micro-quests & battle spinners.',
+      icon: Swords,
+      color: 'text-rose-600 bg-rose-500/10',
+      path: '/challenges'
     },
     {
-      name: 'Giveaways',
-      count: '9 Wheels',
-      description: 'Fair prize spinners & verifiable promo pickers.',
-      icon: Gift,
-      color: 'text-yellow-500 bg-yellow-500/10',
-      path: '/giveaways'
+      name: 'Date Night & Couples',
+      count: '7 Wheels',
+      description: 'Romantic evening deciders, conversation starters & fun dates.',
+      icon: Heart,
+      color: 'text-rose-500 bg-rose-500/10',
+      path: '/date-night'
+    },
+    {
+      name: 'Icebreakers & Meetings',
+      count: '8 Wheels',
+      description: 'Zoom warmup questions, water-cooler topics & standup order.',
+      icon: MessageSquare,
+      color: 'text-yellow-600 bg-yellow-500/10',
+      path: '/icebreakers'
     }
   ];
 

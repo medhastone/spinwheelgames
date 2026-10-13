@@ -28,7 +28,6 @@ const staticRoutes: { path: string; changefreq: SitemapEntry['changefreq']; prio
   { path: '/question-wheel', changefreq: 'daily', priority: '0.95' },
   { path: '/random-object-generator', changefreq: 'daily', priority: '0.95' },
   { path: '/song-wheel', changefreq: 'daily', priority: '0.95' },
-  { path: '/team-generator', changefreq: 'daily', priority: '0.95' },
   { path: '/theme-wheel', changefreq: 'daily', priority: '0.95' },
   { path: '/dice-roller', changefreq: 'daily', priority: '0.95' },
   { path: '/dice-collection', changefreq: 'daily', priority: '0.95' },
@@ -40,7 +39,7 @@ const staticRoutes: { path: string; changefreq: SitemapEntry['changefreq']; prio
   { path: '/dice/d20', changefreq: 'daily', priority: '0.95' },
   { path: '/dice/d100', changefreq: 'daily', priority: '0.92' },
   { path: '/roll-4d6', changefreq: 'daily', priority: '0.92' },
-  { path: '/roll-1d4', changefreq: 'daily', priority: '0.90' },
+  { path: '/dice/d4', changefreq: 'daily', priority: '0.92' },
   { path: '/roll-3d6', changefreq: 'daily', priority: '0.92' },
   { path: '/roll-5d6', changefreq: 'daily', priority: '0.92' },
   { path: '/roll-d3', changefreq: 'daily', priority: '0.90' },
@@ -50,10 +49,6 @@ const staticRoutes: { path: string; changefreq: SitemapEntry['changefreq']; prio
   { path: '/unusual-dice', changefreq: 'daily', priority: '0.90' },
   { path: '/about', changefreq: 'monthly', priority: '0.6' },
   { path: '/fairness', changefreq: 'monthly', priority: '0.7' },
-  { path: '/contact', changefreq: 'monthly', priority: '0.5' },
-  { path: '/privacy', changefreq: 'monthly', priority: '0.4' },
-  { path: '/terms', changefreq: 'monthly', priority: '0.4' },
-  { path: '/accessibility', changefreq: 'monthly', priority: '0.5' },
 ];
 
 const urlMap = new Map<string, SitemapEntry>();

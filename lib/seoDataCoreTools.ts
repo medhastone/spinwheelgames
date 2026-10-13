@@ -1111,7 +1111,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     slug: 'random-object-generator',
     fullPath: '/random-object-generator',
     pageType: 'tool',
-    title: 'Random Object Generator – Free Online Quick Decision & Creative Idea Spinner',
+    title: 'Random Object Generator – Creative Idea Spinner',
     metaDescription: 'Generate random objects instantly for drawing, Pictionary, creative writing, classroom games, and improv challenges. Over 1,000+ curated items with browser-based cryptographic randomness.',
     h1: 'Random Object Generator: Instant Object Picker & Creative Challenge Engine',
     introduction: 'Need a random object for your next sketch, party game, classroom activity, or story plot? Our Random Object Generator draws from over 1,000+ hand-curated objects across 22 categories using browser Web Crypto API randomness. Generate single objects, instant lists, interactive wheel spins, or timed creative challenges with zero sign-up required.',

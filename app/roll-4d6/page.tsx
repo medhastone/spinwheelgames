@@ -466,10 +466,10 @@ export default function Roll4d6Page() {
               {[
                 { href: '/dnd-stat-roller', label: 'Full D&D Stat Roller' },
                 { href: '/dice-average-calculator', label: 'Dice Average Calculator' },
-                { href: '/d6', label: '1D6 Roller' },
+                { href: '/dice/d6', label: '1D6 Roller' },
                 { href: '/roll-3d6', label: 'Roll 3d6' },
                 { href: '/roll-5d6', label: 'Roll 5d6' },
-                { href: '/d20', label: 'D20 Roller' },
+                { href: '/dice/d20', label: 'D20 Roller' },
                 { href: '/dice-collection', label: '3D Dice Collection' }
               ].map((link) => (
                 <Link

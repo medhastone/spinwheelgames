@@ -6,13 +6,30 @@ import { EXTENDED_PILLARS_SEO } from './seoDataExtendedPillars';
 import { WHEEL_EXPERIENCES_SEO } from './seoDataWheelExperiences';
 import { SITE_CONFIG } from './siteConfig';
 
-export const ALL_SEO_PAGES_MAP: Record<string, SeoPageData> = {
+const RAW_PAGES_MAP: Record<string, SeoPageData> = {
   ...WHEEL_EXPERIENCES_SEO,
   ...CORE_TOOLS_SEO,
   ...USE_CASES_SEO,
   ...CATEGORIES_AND_GUIDES_SEO,
   ...EXTENDED_PILLARS_SEO
 };
+
+// Exclude consolidated duplicate URLs that 301 redirect to primary canonical targets
+const CONSOLIDATED_REDIRECT_KEYS = new Set([
+  'food-wheel/dinner',
+  'food-wheel/breakfast',
+  'random-student-picker',
+  'random-number-wheel',
+  'winner-picker',
+  'contest-picker',
+  'raffle-wheel',
+  'party-wheel/truth-or-dare',
+  'team-generator'
+]);
+
+export const ALL_SEO_PAGES_MAP: Record<string, SeoPageData> = Object.fromEntries(
+  Object.entries(RAW_PAGES_MAP).filter(([key]) => !CONSOLIDATED_REDIRECT_KEYS.has(key))
+);
 
 export const ALL_SEO_PAGES_LIST: SeoPageData[] = Object.values(ALL_SEO_PAGES_MAP);
 

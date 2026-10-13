@@ -127,7 +127,7 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
           { href: '/dice/d20', label: 'Roll d20 (Icosahedron Die)', desc: 'Iconic 20-sided die for skill checks, attacks, and critical hits' },
           { href: '/dice/d100', label: 'Roll d100 (Zocchihedron / Percentile)', desc: 'Percentile 1-100 random outcome roller' },
           { href: '/roll-4d6', label: 'Roll 4d6 (with Drop Lowest)', desc: 'Roll four 6-sided dice with totals, averages, and stat rules' },
-          { href: '/roll-1d4', label: 'Roll 1d4 (4-Sided Die)', desc: 'Tetrahedron die roller for weapons, spells, and guidance' },
+          { href: '/dice/d4', label: 'Roll d4 (4-Sided Die)', desc: 'Tetrahedron die roller for weapons, spells, and guidance' },
           { href: '/roll-3d6', label: 'Roll 3d6 Bell Curve Roller', desc: 'Standard 3d6 with bell curve distribution from 3 to 18' },
           { href: '/roll-5d6', label: 'Roll 5d6 (Yahtzee & Wargaming)', desc: 'Five-dice roller with sums, averages, and combinations' },
           { href: '/roll-d3', label: 'Roll d3 (3-Sided Randomizer)', desc: 'Fair 3-outcome randomizer for tiebreakers and RPGs' },

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { notFound, redirect } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { DIE_PAGE_CONFIGS } from '@/components/dice/diePageConfigs';
 import DedicatedDiePageComponent from '@/components/dice/DedicatedDiePageComponent';
 import Navbar from '@/components/Navbar';
@@ -16,7 +16,7 @@ interface DiceSlugPageProps {
   params: Promise<{ slug: string }>;
 }
 
-const SUPPORTED_DICE = ['d2', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100'];
+const SUPPORTED_DICE = ['d2', 'd4', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100'];
 
 export async function generateStaticParams() {
   return SUPPORTED_DICE.map((slug) => ({ slug }));
@@ -26,13 +26,6 @@ export async function generateMetadata({ params }: DiceSlugPageProps): Promise<M
   const { slug } = await params;
   const normalizedSlug = slug.toLowerCase();
 
-  if (normalizedSlug === 'd4') {
-    return {
-      alternates: {
-        canonical: 'https://spinwheelgames.org/roll-1d4'
-      }
-    };
-  }
 
   if (normalizedSlug === '4d6') {
     return {
@@ -88,12 +81,9 @@ export default async function DiceSlugPage({ params }: DiceSlugPageProps) {
   const { slug } = await params;
   const normalizedSlug = slug.toLowerCase();
 
-  if (normalizedSlug === 'd4') {
-    redirect('/roll-1d4');
-  }
 
   if (normalizedSlug === '4d6') {
-    redirect('/roll-4d6');
+    permanentRedirect('/roll-4d6');
   }
 
   const config = DIE_PAGE_CONFIGS[normalizedSlug];

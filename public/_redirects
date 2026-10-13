@@ -1,0 +1,4 @@
+# Netlify / Cloudflare Pages rule: redirect www and http to https://spinwheelgames.org
+https://www.spinwheelgames.org/* https://spinwheelgames.org/:splat 301!
+http://www.spinwheelgames.org/* https://spinwheelgames.org/:splat 301!
+http://spinwheelgames.org/* https://spinwheelgames.org/:splat 301!

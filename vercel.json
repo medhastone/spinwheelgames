@@ -1,0 +1,75 @@
+{
+  "redirects": [
+    {
+      "source": "/d2",
+      "destination": "https://spinwheelgames.org/dice/d2",
+      "permanent": true
+    },
+    {
+      "source": "/d4",
+      "destination": "https://spinwheelgames.org/dice/d4",
+      "permanent": true
+    },
+    {
+      "source": "/roll-1d4",
+      "destination": "https://spinwheelgames.org/dice/d4",
+      "permanent": true
+    },
+    {
+      "source": "/d6",
+      "destination": "https://spinwheelgames.org/dice/d6",
+      "permanent": true
+    },
+    {
+      "source": "/d8",
+      "destination": "https://spinwheelgames.org/dice/d8",
+      "permanent": true
+    },
+    {
+      "source": "/d10",
+      "destination": "https://spinwheelgames.org/dice/d10",
+      "permanent": true
+    },
+    {
+      "source": "/d12",
+      "destination": "https://spinwheelgames.org/dice/d12",
+      "permanent": true
+    },
+    {
+      "source": "/d20",
+      "destination": "https://spinwheelgames.org/dice/d20",
+      "permanent": true
+    },
+    {
+      "source": "/d100",
+      "destination": "https://spinwheelgames.org/dice/d100",
+      "permanent": true
+    },
+    {
+      "source": "/4d6",
+      "destination": "https://spinwheelgames.org/roll-4d6",
+      "permanent": true
+    },
+    {
+      "source": "/dice/4d6",
+      "destination": "https://spinwheelgames.org/roll-4d6",
+      "permanent": true
+    },
+    {
+      "source": "/dice-average",
+      "destination": "https://spinwheelgames.org/dice-average-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.spinwheelgames.org"
+        }
+      ],
+      "destination": "https://spinwheelgames.org/$1",
+      "permanent": true
+    }
+  ]
+}

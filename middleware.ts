@@ -31,18 +31,54 @@ const REDIRECT_MAP: Record<string, string> = {
   '/4d6': '/roll-4d6',
   '/dice/4d6': '/roll-4d6',
   '/d2': '/dice/d2',
-  '/d4': '/roll-1d4',
-  '/dice/d4': '/roll-1d4',
+  '/d4': '/dice/d4',
+  '/roll-1d4': '/dice/d4',
   '/d6': '/dice/d6',
   '/d8': '/dice/d8',
   '/d10': '/dice/d10',
   '/d12': '/dice/d12',
   '/d20': '/dice/d20',
   '/d100': '/dice/d100',
+  '/category': '/categories',
+  '/category/entertainment': '/entertainment',
+  '/bingo-spin-wheel': '/bingo-wheel',
+  // Duplicate clusters consolidation redirects (301)
+  '/food-wheel/dinner': '/dinner-wheel',
+  '/food-wheel/breakfast': '/breakfast-wheel',
+  '/random-student-picker': '/classroom-wheel/random-student',
+  '/random-number-wheel': '/number-wheel',
+  '/winner-picker': '/giveaway-wheel',
+  '/contest-picker': '/giveaway-wheel',
+  '/raffle-wheel': '/giveaway-wheel',
+  '/party-wheel/truth-or-dare': '/truth-or-dare-wheel',
+  '/team-generator': '/team-picker',
 };
 
 export function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
+  const host = (
+    req.headers.get('x-forwarded-host') ||
+    req.headers.get('host') ||
+    req.nextUrl.host ||
+    ''
+  ).toLowerCase();
+
+  // Parse protocol taking into account edge proxy headers (Cloudflare, AWS, Nginx, GCP)
+  let proto = (req.headers.get('x-forwarded-proto') || '').toLowerCase();
+  if (!proto) {
+    const cfVisitor = req.headers.get('cf-visitor');
+    if (cfVisitor) {
+      try {
+        const parsed = JSON.parse(cfVisitor);
+        if (parsed.scheme) proto = parsed.scheme.toLowerCase();
+      } catch {
+        // ignore parse error
+      }
+    }
+  }
+  if (!proto) {
+    proto = req.nextUrl.protocol.replace(':', '').toLowerCase();
+  }
 
   // 1. Ultra-fast Bot & Scanner shield: Immediately return 404 in < 0.1ms without React SSR
   for (const pattern of MALICIOUS_PATTERNS) {
@@ -58,6 +94,24 @@ export function middleware(req: NextRequest) {
     }
   }
 
+  // Normalize path without trailing slash (except root '/')
+  const normalizedPath = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+  const redirectedPath = REDIRECT_MAP[normalizedPath];
+
+  // 2. Canonical Host Enforcement: Single-hop 301 for http://, www., and any non-canonical host variants
+  const isProdHost = host.includes('spinwheelgames.org');
+  const isWww = host.startsWith('www.');
+  const isHttp = proto === 'http';
+
+  if (isProdHost && (isWww || isHttp)) {
+    // Determine the absolute final target path to guarantee 1 hop
+    const finalPath = redirectedPath || normalizedPath;
+    const finalUrl = new URL(finalPath + req.nextUrl.search, 'https://spinwheelgames.org');
+    const res = NextResponse.redirect(finalUrl, 301);
+    res.headers.set('Cache-Control', 'public, max-age=31536000, s-maxage=31536000, immutable');
+    return res;
+  }
+
   // Fast shortcode redirect for /w/[id]
   if (pathname.startsWith('/w/')) {
     const shortCode = pathname.substring(3);
@@ -69,12 +123,11 @@ export function middleware(req: NextRequest) {
     }
   }
 
-  // 2. Instant Edge Redirects: avoid executing heavy Node/Edge Next.js redirect runtime
-  const target = REDIRECT_MAP[pathname];
-  if (target) {
-    const url = req.nextUrl.clone();
-    url.pathname = target;
-    const res = NextResponse.redirect(url, 301);
+  // 3. Instant Edge 301 Redirects: Single-hop permanent redirect
+  if (redirectedPath) {
+    const targetBase = isProdHost ? 'https://spinwheelgames.org' : req.nextUrl.origin;
+    const targetUrl = new URL(redirectedPath + req.nextUrl.search, targetBase);
+    const res = NextResponse.redirect(targetUrl, 301);
     res.headers.set(
       'Cache-Control',
       'public, max-age=31536000, s-maxage=31536000, immutable'
@@ -82,9 +135,8 @@ export function middleware(req: NextRequest) {
     return res;
   }
 
-  // 3. Normal Request Pipeline with Cloudflare Edge Cache headers
+  // 4. Normal Request Pipeline with Edge Cache headers
   const response = NextResponse.next();
-
   if (req.method === 'GET' && !pathname.startsWith('/api/')) {
     response.headers.set(
       'Cache-Control',

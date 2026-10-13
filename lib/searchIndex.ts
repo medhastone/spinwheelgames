@@ -213,12 +213,12 @@ const WHEEL_SEARCH_INDEX: IndexedWheel[] = (() => {
       entries: ['1', '2', '3', '4', '5', '6']
     },
     {
-      id: 'roll-1d4',
-      name: 'Roll 1d4 Dice Roller (3D)',
+      id: 'dice-d4',
+      name: 'Roll d4 Dice Roller (3D)',
       category: 'Dice & RPG Tools',
       purpose: 'Roll 4-sided tetrahedral dice in 3D for D&D daggers, healing potions, and magic missiles.',
       uvp: 'Calibrated tetrahedral physics for standard 4-sided gaming dice.',
-      fullPath: '/roll-1d4',
+      fullPath: '/dice/d4',
       keywords: ['roll 1d4', 'roll d4', 'd4', 'd4 roller', '4 sided die', 'tetrahedron', 'dice', '1d4'],
       entries: ['1', '2', '3', '4']
     },

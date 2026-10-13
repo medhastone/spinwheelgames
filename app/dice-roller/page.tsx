@@ -258,12 +258,12 @@ export default function DiceRollerPage() {
               </Link>
 
               <Link
-                href="/roll-1d4"
+                href="/dice/d4"
                 className="p-5 rounded-2xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] hover:border-[#4648d4] dark:hover:border-[#8587ff] transition-all group shadow-2xs"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-sm text-[#1a1b22] dark:text-white group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff]">
-                    Roll 1d4 Online
+                    Roll d4 Online
                   </span>
                   <ArrowRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />
                 </div>

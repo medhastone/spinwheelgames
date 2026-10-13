@@ -181,13 +181,19 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
 
   // Schema.org Structured Data
   const jsonLd = useMemo(() => {
+    const canonicalPath =
+      config.dieType === '4d6'
+        ? '/roll-4d6'
+        : `/dice/${config.dieType}`;
+    const fullCanonicalUrl = `https://spinwheelgames.org${canonicalPath}`;
+
     return {
       '@context': 'https://schema.org',
       '@graph': [
         {
           '@type': 'WebApplication',
           name: `${config.name} - 3D Dice Roller`,
-          url: `https://spinwheelgames.org/${config.dieType}`,
+          url: fullCanonicalUrl,
           applicationCategory: 'GameApplication',
           description: config.metaDescription,
           operatingSystem: 'All',
@@ -227,7 +233,7 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
               '@type': 'ListItem',
               position: 3,
               name: config.dieType.toUpperCase(),
-              item: `https://spinwheelgames.org/${config.dieType === '4d6' ? '4d6' : `dice/${config.dieType}`}`
+              item: fullCanonicalUrl
             }
           ]
         }
@@ -935,7 +941,7 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
           <div className="flex flex-wrap gap-2">
             {[
               { type: 'd2', label: 'D2 (Coin Flip)', href: '/dice/d2' },
-              { type: 'd4', label: 'D4 (Tetrahedron)', href: '/roll-1d4' },
+              { type: 'd4', label: 'D4 (Tetrahedron)', href: '/dice/d4' },
               { type: 'd6', label: 'D6 (Six-Sided Cube)', href: '/dice/d6' },
               { type: '4d6', label: '4D6 Roller', href: '/roll-4d6' },
               { type: 'd8', label: 'D8 (Octahedron)', href: '/dice/d8' },

@@ -81,8 +81,9 @@ export default function Navbar({
   const [popularOpen, setPopularOpen] = useState(false);
   const [trendingOpen, setTrendingOpen] = useState(false);
   const [diceOpen, setDiceOpen] = useState(false);
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileTab, setMobileTab] = useState<'popular' | 'trending' | 'dice'>('popular');
+  const [mobileTab, setMobileTab] = useState<'popular' | 'trending' | 'dice' | 'categories'>('popular');
   const [savedModalOpen, setSavedModalOpen] = useState(false);
   const [internalSearchOpen, setInternalSearchOpen] = useState(false);
   const [internalSound, setInternalSound] = useState(true);
@@ -134,6 +135,7 @@ export default function Navbar({
         setPopularOpen(false);
         setTrendingOpen(false);
         setDiceOpen(false);
+        setCategoriesOpen(false);
         setProfileOpen(false);
       }
     }
@@ -568,7 +570,84 @@ export default function Navbar({
                 )}
               </div>
 
-              {/* 4. Direct All Games Link */}
+              {/* 4. CATEGORIES DROPDOWN (15 Category Hubs) */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCategoriesOpen(!categoriesOpen);
+                    setPopularOpen(false);
+                    setTrendingOpen(false);
+                    setDiceOpen(false);
+                    setProfileOpen(false);
+                  }}
+                  className={`px-3.5 py-2 rounded-xl text-[13px] font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                    categoriesOpen
+                      ? 'bg-[#4648d4] text-white shadow-sm'
+                      : 'text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28]'
+                  }`}
+                  aria-expanded={categoriesOpen}
+                >
+                  <Sparkles className={`w-4 h-4 ${categoriesOpen ? 'text-amber-200' : 'text-[#4648d4] dark:text-[#8587ff]'}`} />
+                  <span>Categories</span>
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${categoriesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {categoriesOpen && (
+                  <div className="absolute left-0 top-12 w-[540px] bg-white dark:bg-[#181922] rounded-2xl shadow-2xl border border-[#eeedf7] dark:border-[#292a39] p-3 z-50 animate-fadeIn">
+                    <div className="flex items-center justify-between px-2 pb-2 mb-2 border-b border-[#eeedf7] dark:border-[#222330]">
+                      <div className="flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
+                          15 Category Topic Hubs
+                        </span>
+                      </div>
+                      <Link
+                        href="/categories"
+                        onClick={() => setCategoriesOpen(false)}
+                        className="text-[11px] font-bold text-[#4648d4] dark:text-[#8587ff] hover:underline flex items-center gap-1"
+                      >
+                        <span>All Categories</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </div>
+                    <div className="grid grid-cols-2 gap-1.5 max-h-[360px] overflow-y-auto pr-1">
+                      {[
+                        { name: 'Food & Dining', path: '/food', desc: 'Dinner, lunch & restaurant wheels' },
+                        { name: 'Sports & Teams', path: '/sports', desc: 'NBA, NFL, squads & draft lotteries' },
+                        { name: 'Travel & Trips', path: '/travel', desc: 'Vacations, road trips & destinations' },
+                        { name: 'Finance & Budget', path: '/finance', desc: 'Savings & budget decisions' },
+                        { name: 'Classroom & School', path: '/classroom', desc: 'Student callers & teacher tools' },
+                        { name: 'Party & Social', path: '/party', desc: 'Truth or Dare & group games' },
+                        { name: 'Decisions', path: '/decisions', desc: 'Yes/No & everyday choice solvers' },
+                        { name: 'Games & Esports', path: '/games', desc: 'Minecraft, Fortnite & RPG wheels' },
+                        { name: 'Numbers & RNG', path: '/numbers', desc: 'Random integers & dice wheels' },
+                        { name: 'Wellness & Calm', path: '/wellness', desc: 'Self-care & mindfulness pauses' },
+                        { name: 'Productivity', path: '/productivity', desc: 'Task deciders & Pomodoro breaks' },
+                        { name: 'Creativity & Art', path: '/creativity', desc: 'Story starters & drawing prompts' },
+                        { name: 'Daily Challenges', path: '/challenges', desc: 'Micro-quests & dare battles' },
+                        { name: 'Date Night', path: '/date-night', desc: 'Romantic couples deciders' },
+                        { name: 'Icebreakers', path: '/icebreakers', desc: 'Meeting warmups & remote team games' },
+                      ].map((cat, idx) => (
+                        <Link
+                          key={idx}
+                          href={cat.path}
+                          onClick={() => setCategoriesOpen(false)}
+                          className="flex flex-col p-2 rounded-xl hover:bg-[#f4f2fd] dark:hover:bg-[#222330] transition-colors group"
+                        >
+                          <span className="text-[13px] font-bold text-[#1a1b22] dark:text-white group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors">
+                            {cat.name}
+                          </span>
+                          <span className="text-[11px] text-[#767586] dark:text-[#908fa1] truncate">
+                            {cat.desc}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* 5. Direct All Games Link */}
               <Link
                 href="/games"
                 className="px-3.5 py-2 rounded-xl text-[13px] font-semibold text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] transition-colors"

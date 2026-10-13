@@ -43,7 +43,7 @@ export default function DiceFooter() {
               </li>
               <li>
                 <Link href="/dice/d4" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
-                  Roll 1d4 / d4 Roller
+                  Roll a d4 (Tetrahedron)
                 </Link>
               </li>
               <li>

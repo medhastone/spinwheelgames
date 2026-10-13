@@ -1,12 +1,9 @@
-import { Metadata } from 'next';
-import { notFound, redirect } from 'next/navigation';
-import { ALL_SEO_PAGES_MAP, getSeoPageByPath, ALL_SEO_PAGES_LIST } from '@/lib/seoData';
+import { notFound, permanentRedirect } from 'next/navigation';
+import { ALL_SEO_PAGES_MAP, ALL_SEO_PAGES_LIST } from '@/lib/seoData';
 import SeoPageView from '@/components/SeoPageView';
 
 export const dynamic = 'force-static';
 export const dynamicParams = true;
-
-
 
 interface PageProps {
   params: Promise<{
@@ -65,6 +62,10 @@ export default async function CategorySubPage({ params }: PageProps) {
 
   if (!page) {
     notFound();
+  }
+
+  if (page.fullPath && page.fullPath !== `/category/${slug}`) {
+    permanentRedirect(page.fullPath);
   }
 
   return <SeoPageView page={page} />;

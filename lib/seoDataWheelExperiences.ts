@@ -398,10 +398,10 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
   const cleanName = exp.name.replace(/\?$/, '').trim();
   const baseWheelTitle = cleanName.toLowerCase().endsWith('wheel') ? cleanName : `${cleanName} Wheel`;
 
-  // Custom high-volume keyword mappings for flagship tools
+  // Custom high-volume keyword mappings for flagship tools (strictly <= 60 chars)
   const FLAGSHIP_TITLES: Record<string, { title: string; h1: string; desc: string }> = {
     'what-should-i-eat': {
-      title: 'What Should I Eat Wheel – Free Random Food & Dinner Decider',
+      title: 'What Should I Eat Wheel – Random Food Decider',
       h1: 'What Should I Eat Wheel: Random Dinner & Food Decider',
       desc: 'Can\'t decide what to eat? Spin the What Should I Eat Wheel to pick random dinner, lunch, takeout, or cuisine options in seconds.'
     },
@@ -411,22 +411,22 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
       desc: 'Stop scrolling streaming menus for hours. Spin the What Should I Watch Wheel to randomly select movies, anime, and TV shows.'
     },
     'what-should-i-do': {
-      title: 'What Should I Do Wheel – Random Activity & Boredom Buster',
+      title: 'What Should I Do Wheel – Random Activity Picker',
       h1: 'What Should I Do Wheel: Random Activity & Fun Picker',
       desc: 'Feeling bored or indecisive? Spin the What Should I Do Wheel to find spontaneous activities, productive hobbies, and fun ideas.'
     },
     'a-or-b-wheel': {
-      title: 'A or B Wheel – Random Decision Picker & This or That Decider',
+      title: 'A or B Wheel – Random Decision & Choice Decider',
       h1: 'A or B Wheel: Two-Option Decision Decider',
       desc: 'Torn between two choices? Spin the A or B Wheel to resolve dilemmas and this-or-that disputes with cryptographic fairness.'
     },
     'truth-or-dare-wheel': {
-      title: 'Truth or Dare Wheel & Generator – Free Truths, Dares & Party Spinner',
+      title: 'Truth or Dare Wheel – Random Truth & Dare Generator',
       h1: 'Truth or Dare Wheel: Random Truth & Dare Generator',
       desc: 'Spin the online Truth or Dare Wheel for parties, sleepovers, and game nights. Features clean family, friends, and party modes with two-stage spin and timer.'
     },
     'd20-dice-roller': {
-      title: 'D20 Dice Roller Wheel – Virtual 20-Sided Die Spinner for D&D',
+      title: 'D20 Dice Roller Wheel – Virtual 20-Sided Die Spinner',
       h1: 'D20 Dice Roller Wheel: Virtual 20-Sided RPG Spinner',
       desc: 'Roll a virtual 20-sided die with realistic physics. Unbiased cryptographic randomness for Dungeons & Dragons and tabletop RPGs.'
     },
@@ -436,27 +436,27 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
       desc: 'Find the perfect baby name without stress. Spin curated classic, modern, and unique boy and girl names with customizable lists.'
     },
     'drawing-prompts-wheel': {
-      title: 'Drawing Prompts Wheel – Random Art Ideas & Sketching Spinner',
+      title: 'Drawing Prompts Wheel – Random Art & Sketching Ideas',
       h1: 'Drawing Prompts Wheel: Art Ideas & Sketching Prompts',
       desc: 'Unblock your creative sketching. Spin random drawing ideas, character prompts, and art challenges with provable variety.'
     },
     'character-name-wheel': {
-      title: 'Character Name Generator Wheel – Random Fiction & RPG Names',
+      title: 'Character Name Generator – Fiction & RPG Names',
       h1: 'Character Name Generator Wheel: Fiction & RPG Picker',
       desc: 'Generate unique fictional character names for novels, screenplays, DnD campaigns, and gaming avatars with one spin.'
     },
     'team-name-wheel': {
-      title: 'Team Name Wheel – Random Squad, Trivia & Fantasy League Names',
+      title: 'Team Name Wheel – Random Squad & Trivia Names',
       h1: 'Team Name Wheel: Random Squad & Group Name Picker',
       desc: 'Need a team name for pub trivia, fantasy football, or hackathons? Spin creative, funny, and competitive team names online.'
     },
     'student-picker-wheel': {
-      title: 'Student Picker Wheel – Random Name Selector for Classrooms',
+      title: 'Student Picker Wheel – Random Classroom Name Selector',
       h1: 'Student Picker Wheel: Classroom Name Selector',
       desc: 'Engage students fairly with cold-calling and participation. Eliminate teacher bias with transparent wheel spins on smartboards.'
     },
     'zoom-icebreaker-wheel': {
-      title: 'Zoom Icebreaker Wheel – Team Meeting Warmups & Questions Spinner',
+      title: 'Zoom Icebreaker Wheel – Team Meeting Warmup Questions',
       h1: 'Zoom Icebreaker Wheel: Meeting Warmup & Social Spinner',
       desc: 'Break awkward silences on video calls. Spin engaging, non-awkward icebreaker questions for remote standups and team meetings.'
     }
@@ -464,8 +464,19 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
 
   const customFlagship = FLAGSHIP_TITLES[exp.id];
 
-  // Keyword-rich SEO Title & H1 targeting high volume and low KD
-  const title = customFlagship?.title || `${baseWheelTitle} – Free Online Random ${meta.name} Picker`;
+  // Helper to ensure clean, non-repetitive titles under 60 chars
+  const generateCleanTitle = (baseTitle: string, _catName: string): string => {
+    const candidate1 = `${baseTitle} – Free Online Spinner`;
+    if (candidate1.length <= 60) return candidate1;
+    const candidate2 = `${baseTitle} – Free Picker`;
+    if (candidate2.length <= 60) return candidate2;
+    const candidate3 = `${baseTitle} Spinner`;
+    if (candidate3.length <= 60) return candidate3;
+    return baseTitle.slice(0, 60);
+  };
+
+  // Keyword-rich SEO Title (< 60 chars) & H1 targeting specific search intent
+  const title = customFlagship?.title || generateCleanTitle(baseWheelTitle, meta.name);
   const h1 = customFlagship?.h1 || `${baseWheelTitle}: Free Random ${meta.name} Spinner`;
   const metaDescription = customFlagship?.desc || `Spin the free ${baseWheelTitle} online. ${exp.purpose} Browser-based cryptographic randomness, customizable weights, and elimination mode.`;
 
@@ -621,12 +632,28 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
     }
   ];
 
-  const relatedTools = [
-    { name: 'Decision Wheel', path: '/decision-wheel', description: 'Quick everyday choice decider.' },
-    { name: 'Number Wheel', path: '/number-wheel', description: 'Random number spinner with range filters.' },
-    { name: 'Food Wheel', path: '/food-wheel', description: 'Meal, cuisine, and dinner decider.' },
-    { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Student & giveaway winner picker.' }
-  ];
+  // Select 3-5 sibling tools from the same category or adjacent clusters with descriptive text
+  const siblingExperiences = ALL_WHEEL_EXPERIENCES.filter(
+    (e) => e.category === exp.category && e.id !== exp.id
+  ).slice(0, 4);
+
+  const relatedTools = siblingExperiences.length >= 3
+    ? siblingExperiences.map((s) => {
+        const sName = s.name.toLowerCase().includes('wheel') || s.name.toLowerCase().includes('picker')
+          ? s.name
+          : `${s.name} Wheel`;
+        return {
+          name: sName,
+          path: `/${s.id}`,
+          description: s.purpose.length > 70 ? `${s.purpose.slice(0, 67)}...` : s.purpose
+        };
+      })
+    : [
+        { name: `${meta.name} Category Hub`, path: `/${meta.slug}`, description: `Explore all ${meta.name.toLowerCase()} wheels and decision generators.` },
+        { name: 'Decision Wheel', path: '/decision-wheel', description: 'Fast everyday choice decider with weighted options.' },
+        { name: 'Number Wheel', path: '/number-wheel', description: 'Random number spinner with range filters.' },
+        { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Fair participant and student roster picker.' }
+      ];
 
   const relatedWheels = (exp.relatedWheels || []).map((w) => {
     const matched = ALL_WHEEL_EXPERIENCES.find((e) => e.id === w || e.name.toLowerCase() === w.toLowerCase());
@@ -650,8 +677,9 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
   ];
 
   const internalLinks = [
-    { label: `Explore ${meta.name} Category`, href: `/${meta.slug}`, context: `Browse all ${meta.name.toLowerCase()} wheels.` },
-    { label: 'Try Decision Wheel', href: '/decision-wheel', context: 'Fast binary and choice decider.' }
+    { label: `Browse All ${meta.name} Wheels`, href: `/${meta.slug}`, context: `${meta.name} category hub with all tools and presets.` },
+    { label: 'Decision Wheel Hub', href: '/decisions', context: 'Universal decision tools and dead-lock breakers.' },
+    { label: 'Fairness & RNG Engine', href: '/fairness', context: 'Audit verifiable cryptographic random distributions.' }
   ];
 
   const breadcrumbs = [
