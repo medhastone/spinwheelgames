@@ -30,46 +30,31 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Drawing Wheel - Random Art Idea & Drawing Prompt Generator',
-  description:
-    'Spin the drawing wheel for instant random art prompts, sketches, characters, animals, and nature ideas. Choose Easy to Hard, 30s/60s challenge sprints, and no-repeat mode!',
-  keywords: [
-    'drawing prompt generator wheel',
-    'drawing wheel',
-    'random art idea generator',
-    'spin the wheel drawing ideas',
-    'random drawing generator',
-    'random things to draw',
-    'drawing ideas generator',
-    'what should i draw wheel',
-    'random drawing ideas',
-    'sketch roulette',
-    'doodle prompt spinner'
-  ],
+  title: 'Drawing Wheel & Art Idea Generator | SpinWheelGames',
+  description: 'Spin the drawing wheel for instant random art prompts, sketches, characters, animals, and nature ideas. Choose Easy to Hard, 30s/60s challenge sprints, and no-repeat mode!',
   alternates: {
     canonical: 'https://spinwheelgames.org/drawing-wheel'
   },
   openGraph: {
-    title: 'Drawing Wheel - Random Art Idea & Drawing Prompt Generator',
-    description:
-      'Spin the drawing wheel for instant random art prompts, sketches, characters, animals, and nature ideas. Choose Easy to Hard, 30s/60s challenge sprints, and no-repeat mode!',
+    title: 'Drawing Wheel & Art Idea Generator | SpinWheelGames',
+    description: 'Spin the drawing wheel for instant random art prompts, sketches, characters, animals, and nature ideas. Choose Easy to Hard, 30s/60s challenge sprints, and no-repeat mode!',
     url: 'https://spinwheelgames.org/drawing-wheel',
     siteName: 'SpinWheelGames',
     type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Drawing Wheel - Random Art Idea Generator'
+        alt: 'Drawing Wheel & Art Idea Generator | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Drawing Wheel - Random Art Idea & Drawing Prompt Generator',
-    description:
-      'Spin the drawing wheel for instant random art prompts, sketches, characters, animals, and nature ideas. Choose Easy to Hard, 30s/60s challenge sprints, and no-repeat mode!'
+    title: 'Drawing Wheel & Art Idea Generator | SpinWheelGames',
+    description: 'Spin the drawing wheel for instant random art prompts, sketches, characters, animals, and nature ideas. Choose Easy to Hard, 30s/60s challenge sprints, and no-repeat mode!',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -191,9 +176,9 @@ export default function DrawingWheelPage() {
 
       <SubpageHeader activePage="/drawing-wheel" />
 
-      <main className="flex-1 w-full max-w-full overflow-x-clip space-y-6 sm:space-y-10 pb-16">
+      <main className="flex-1 w-full max-w-full overflow-x-clip space-y-5 sm:space-y-8 pb-12 sm:pb-16">
         {/* Top Header & Interactive Wheel Section Above the Fold */}
-        <section className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-20 sm:pt-28 lg:pt-32 space-y-4">
+        <section className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 space-y-3 sm:space-y-4">
           <Breadcrumbs
             items={[
               { label: 'Creative Wheels', href: '/categories' },

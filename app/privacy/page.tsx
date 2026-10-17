@@ -10,18 +10,31 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: `Privacy Policy - Data Handling & Local Processing | ${SITE_CONFIG.brandName}`,
-  description:
-    `Learn how ${SITE_CONFIG.fullBrandName} handles data. Designed to minimize collection of user-provided wheel data with local browser processing and transparent practices.`,
+  title: 'Privacy Policy & Data Security | SpinWheelGames',
+  description: 'Designed to minimize collection of user-provided wheel data with local browser processing and transparent practices.',
   alternates: {
-    canonical: `${SITE_CONFIG.baseUrl}/privacy`
+    canonical: 'https://spinwheelgames.org/privacy'
   },
   openGraph: {
-    title: `Privacy Policy - ${SITE_CONFIG.brandName}`,
-    description:
-      'Designed to minimize collection of user-provided wheel data with local browser processing and transparent practices.',
-    url: `${SITE_CONFIG.baseUrl}/privacy`,
-    type: 'website'
+    title: 'Privacy Policy & Data Security | SpinWheelGames',
+    description: 'Designed to minimize collection of user-provided wheel data with local browser processing and transparent practices.',
+    url: 'https://spinwheelgames.org/privacy',
+    siteName: 'SpinWheelGames',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Privacy Policy & Data Security | SpinWheelGames'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy & Data Security | SpinWheelGames',
+    description: 'Designed to minimize collection of user-provided wheel data with local browser processing and transparent practices.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -54,7 +67,7 @@ export default function PrivacyPage() {
 
       <SubpageHeader activePage="/privacy" />
 
-      <main className="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-10">
+      <main className="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-22 pb-12 sm:pb-16 space-y-8 sm:space-y-10">
         {/* Header */}
         <section className="space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 text-[#006c49] dark:text-[#4edea3] text-xs font-bold uppercase tracking-wider">

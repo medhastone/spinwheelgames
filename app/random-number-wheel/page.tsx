@@ -27,7 +27,7 @@ import Footer from '@/components/Footer';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Random Number Wheel – Pick a Number Spinner (1-10, 1-20, 1-50, 1-100)',
+  title: 'Random Number Wheel | SpinWheelGames',
   description:
     'Spin the random number wheel online for any range: 1–10, 1–20, 1–50, 1–100, or custom bounds. Features picking multiple numbers, no-repeat mode, even/odd filters, and 100% fair CSPRNG.',
   keywords: [
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/random-number-wheel'
   },
   openGraph: {
-    title: 'Random Number Wheel – Pick a Number Spinner (1-10, 1-20, 1-50, 1-100)',
+    title: 'Random Number Wheel | SpinWheelGames',
     description:
       'The strongest pick a number tool online. Spin a random number wheel with 1-10, 1-20, 1-50, 1-100 presets, custom ranges, multiple numbers, no-repeat elimination, and even/odd options.',
     url: 'https://spinwheelgames.org/random-number-wheel',
@@ -66,15 +66,16 @@ export const metadata: Metadata = {
         url: 'https://spinwheelgames.org/spinwheel-logo.webp',
         width: 1200,
         height: 630,
-        alt: 'Random Number Wheel – Pick a Number Spinner'
+        alt: 'Random Number Wheel | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Random Number Wheel – Pick a Number Spinner (1-10, 1-20, 1-50, 1-100)',
+    title: 'Random Number Wheel | SpinWheelGames',
     description:
-      'Spin the random number wheel online for 1–10, 1–20, 1–50, 1–100, or custom ranges. Features multiple numbers, no-repeat mode, even/odd options & CSPRNG fairness.'
+      'Spin the random number wheel online for 1–10, 1–20, 1–50, 1–100, or custom ranges. Features multiple numbers, no-repeat mode, even/odd options & CSPRNG fairness.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 

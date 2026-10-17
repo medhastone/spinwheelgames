@@ -148,7 +148,7 @@ export const TOPIC_CLUSTERS: Record<string, TopicCluster> = {
   entertainment: {
     id: 'entertainment',
     name: 'Entertainment & Media',
-    pillarPath: '/entertainment',
+    pillarPath: '/movie-wheel',
     h1: 'Movie, TV Show & Book Picker Wheels',
     metaDescription: 'Stop endlessly scrolling Netflix and streaming queues. Spin for movie genres, TV series, anime, and book recommendations.',
     primaryIntent: 'entertainment',

@@ -24,9 +24,9 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Dice Average Calculator | Exact Expected Values, Standard Deviation & Bell Curves',
+  title: 'Dice Average Calculator | SpinWheelGames',
   description:
-    'Free online dice average calculator. Calculate theoretical expected averages, standard deviation, discrete probability distributions, and bell curves for any tabletop RPG dice formula (e.g., 2d6, 3d6, 8d6 Fireball, 4d6dl1, 1d20 advantage).',
+    'Calculate theoretical expected averages, standard deviation, discrete probability distributions, and bell curves for any tabletop RPG dice formula.',
   keywords: [
     'dice average calculator',
     'average dice roll calculator',
@@ -43,11 +43,26 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/dice-average-calculator'
   },
   openGraph: {
-    title: 'Dice Average Calculator – Exact Expected Values & Bell Curves',
+    title: 'Dice Average Calculator | SpinWheelGames',
     description:
-      'Determine theoretical averages, minimums, maximums, variance, and probability distributions for any tabletop RPG dice notation.',
+      'Calculate theoretical expected averages, standard deviation, discrete probability distributions, and bell curves for any tabletop RPG dice formula.',
     url: 'https://spinwheelgames.org/dice-average-calculator',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Dice Average Calculator Online'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dice Average Calculator | SpinWheelGames',
+    description:
+      'Calculate theoretical expected averages, standard deviation, discrete probability distributions, and bell curves for any tabletop RPG dice formula.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 
@@ -158,7 +173,7 @@ export default function DiceAverageCalculatorPage() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 pb-8 space-y-6">
         {/* Breadcrumbs Navigation */}
         <Breadcrumbs
           items={[

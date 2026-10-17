@@ -5,24 +5,31 @@ import { SITE_CONFIG } from '@/lib/siteConfig';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: `HTML Sitemap | ${SITE_CONFIG.brandName} - Full Directory of Wheels & Tools`,
-  description:
-    `Browse all ${SITE_CONFIG.counts.totalToolsFormatted} decision wheels, classroom randomizers, 3D dice rollers, and guides on ${SITE_CONFIG.fullBrandName}.`,
+  title: 'HTML Sitemap & Directory | SpinWheelGames',
+  description: 'Interactive random wheel and decision tool on SpinWheelGames.',
   alternates: {
-    canonical: `${SITE_CONFIG.baseUrl}/sitemap`
+    canonical: 'https://spinwheelgames.org/sitemap'
   },
   openGraph: {
-    title: `HTML Sitemap - ${SITE_CONFIG.fullBrandName}`,
-    description: `Complete catalog of all ${SITE_CONFIG.counts.totalToolsFormatted} interactive decision tools, games, and resources.`,
-    url: `${SITE_CONFIG.baseUrl}/sitemap`,
-    siteName: SITE_CONFIG.brandName,
-    locale: 'en_US',
-    type: 'website'
+    title: 'HTML Sitemap & Directory | SpinWheelGames',
+    description: 'Interactive random wheel and decision tool on SpinWheelGames.',
+    url: 'https://spinwheelgames.org/sitemap',
+    siteName: 'SpinWheelGames',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel.webp',
+        width: 1200,
+        height: 630,
+        alt: 'HTML Sitemap & Directory | SpinWheelGames'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: `HTML Sitemap - ${SITE_CONFIG.fullBrandName}`,
-    description: `Complete catalog of all ${SITE_CONFIG.counts.totalToolsFormatted} interactive decision tools, games, and resources.`
+    title: 'HTML Sitemap & Directory | SpinWheelGames',
+    description: 'Interactive random wheel and decision tool on SpinWheelGames.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 

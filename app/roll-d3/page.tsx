@@ -20,7 +20,7 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Roll d3 Online | 3D 3-Sided Die Randomizer',
+  title: 'Roll d3 Online | SpinWheelGames',
   description:
     'Free online 3D d3 dice roller. Roll a 3-sided die with realistic physics for Warhammer, tabletop RPG damage, 3-way choices, and random table lookups.',
   keywords: [
@@ -36,11 +36,26 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/roll-d3'
   },
   openGraph: {
-    title: 'Roll d3 Online – 3D 3-Sided Die Randomizer',
+    title: 'Roll d3 Online | SpinWheelGames',
     description:
       'Free interactive 3D 3-sided die roller for Warhammer, tabletop RPG damage, and 3-way decisions.',
     url: 'https://spinwheelgames.org/roll-d3',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Roll d3 Online'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Roll d3 Online | SpinWheelGames',
+    description:
+      'Free online 3D d3 dice roller. Roll a 3-sided die with realistic physics for Warhammer, tabletop RPG damage, 3-way choices, and random table lookups.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 
@@ -125,7 +140,7 @@ export default function RollD3Page() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 pb-8 space-y-6">
         {/* Breadcrumb Navigation */}
         <Breadcrumbs
           items={[

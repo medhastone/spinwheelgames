@@ -24,47 +24,31 @@ import Footer from '@/components/Footer';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Movie Wheel - What Movie Should I Watch Generator',
-  description:
-    'Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!',
-  keywords: [
-    'what movie should i watch generator',
-    'random movie generator',
-    'movie wheel',
-    'movie roulette',
-    'random movie picker',
-    'netflix random movie generator',
-    'wheel of movies',
-    'film spinner',
-    'random film generator',
-    'movie randomizer',
-    'movie night picker',
-    'random movie generator by genre'
-  ],
+  title: 'Movie Wheel – What Movie to Watch | SpinWheelGames',
+  description: 'Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!',
   alternates: {
     canonical: 'https://spinwheelgames.org/movie-wheel'
   },
   openGraph: {
-    title: 'Movie Wheel - What Movie Should I Watch Generator',
-    description:
-      'Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!',
+    title: 'Movie Wheel – What Movie to Watch | SpinWheelGames',
+    description: 'Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!',
     url: 'https://spinwheelgames.org/movie-wheel',
     siteName: 'SpinWheelGames',
     type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Movie Wheel - What Movie Should I Watch Generator'
+        alt: 'Movie Wheel – What Movie to Watch | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Movie Wheel - What Movie Should I Watch Generator',
-    description:
-      'Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!'
+    title: 'Movie Wheel – What Movie to Watch | SpinWheelGames',
+    description: 'Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -176,7 +160,7 @@ export default function MovieWheelPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_DATA) }}
       />
 
-      <main className="flex-1 w-full max-w-[1440px] mx-auto px-4 sm:px-6 pt-20 sm:pt-26 lg:pt-30 pb-24 sm:pb-12 flex flex-col gap-4 sm:gap-6">
+      <main className="flex-1 w-full max-w-[1440px] mx-auto px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-22 pb-12 sm:pb-16 flex flex-col gap-4 sm:gap-6">
         {/* Compact Breadcrumb & Mode Meta */}
         <div className="flex flex-wrap items-center justify-between gap-2.5 text-xs text-[#767586] dark:text-[#908fa1]">
           <nav aria-label="Breadcrumb" className="inline-flex items-center gap-1.5 font-medium py-1 px-3 rounded-xl bg-slate-200/70 dark:bg-[#181924]/85 backdrop-blur-xs border border-slate-300/60 dark:border-slate-800/70">

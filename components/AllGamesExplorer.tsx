@@ -800,6 +800,73 @@ export default function AllGamesExplorer() {
           </button>
         </div>
       )}
+
+      {/* Specialized Spinners & 3D Polyhedral Dice Directory */}
+      <div className="bg-white dark:bg-[#151620] rounded-3xl border border-[#eeedf7] dark:border-[#252636] p-6 sm:p-8 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h2 className="text-lg font-headline font-bold text-[#1a1b22] dark:text-white">
+              3D Polyhedral Dice Rollers &amp; Specialized Randomizers
+            </h2>
+            <p className="text-xs sm:text-sm text-[#464554] dark:text-[#c7c4d7]">
+              Direct access to our dedicated tabletop RPG dice simulators, probability calculators, and niche decision wheels.
+            </p>
+          </div>
+          <Link
+            href="/categories"
+            className="text-xs font-bold text-[#4648d4] dark:text-[#8587ff] hover:underline shrink-0"
+          >
+            Browse All 18 Categories →
+          </Link>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {[
+            { href: '/dice-roller', label: '3D Online Dice Roller' },
+            { href: '/roll-4d6', label: 'Roll 4d6 Drop Lowest Calculator' },
+            { href: '/dnd-stat-roller', label: 'D&D 5e Ability Score Stat Roller' },
+            { href: '/dice-average-calculator', label: 'Dice Average & Probability Calculator' },
+            { href: '/roll-3d6', label: 'Roll 3d6 Bell Curve Simulator' },
+            { href: '/roll-5d6', label: 'Roll 5d6 Yahtzee Dice Roller' },
+            { href: '/roll-2d12', label: 'Roll 2d12 Hope & Fear Dice' },
+            { href: '/roll-d3', label: 'Roll d3 Three-Sided Die' },
+            { href: '/dice-collection', label: '3D RPG Polyhedral Dice Collection' },
+            { href: '/unusual-dice', label: 'Unusual & Non-Standard Dice (d3-d60)' },
+            { href: '/dice/d20', label: 'Roll d20 Icosahedron Die' },
+            { href: '/dice/d12', label: 'Roll d12 Dodecahedron Die' },
+            { href: '/dice/d10', label: 'Roll d10 Ten-Sided Die' },
+            { href: '/dice/d8', label: 'Roll d8 Octahedron Die' },
+            { href: '/dice/d6', label: 'Roll d6 Standard Cube Die' },
+            { href: '/dice/d4', label: 'Roll d4 Tetrahedron Die' },
+            { href: '/dice/d2', label: 'Roll d2 Coin Flip Simulator' },
+            { href: '/dice/d100', label: 'Roll d100 Percentile Dice' },
+            { href: '/random-number-wheel', label: 'Random Number Wheel Spinner' },
+            { href: '/team-generator', label: 'Random Team Generator Wheel' },
+            { href: '/color-wheel', label: 'Random Color Wheel & Palette Generator' },
+            { href: '/theme-wheel', label: 'Random Theme & Aesthetic Wheel' },
+            { href: '/birthday-wheel', label: 'Birthday Activity & Gift Wheel' },
+            { href: '/word-spinner', label: 'Random Word Spinner & Vocabulary Game' },
+            { href: '/pokemon-wheel', label: 'Random Pokémon Starter & Type Wheel' },
+            { href: '/random-app-picker', label: 'Random App & Challenge Picker' },
+            { href: '/random-game-picker', label: 'Random Video Game & Board Game Picker' },
+            { href: '/random-category-generator', label: 'Random Category Generator for Trivia' },
+            { href: '/random-object-generator', label: 'Random Everyday Object Generator' },
+            { href: '/comment-picker', label: 'Random Comment & Giveaway Winner Picker' },
+            { href: '/truth-or-dare-wheel', label: 'Truth or Dare Party Spinner Wheel' },
+            { href: '/animal-wheel', label: 'Random Animal Generator Wheel' },
+            { href: '/drawing-wheel', label: 'Drawing Idea & Art Prompt Wheel' },
+            { href: '/question-wheel', label: 'Random Icebreaker Question Wheel' },
+            { href: '/song-wheel', label: 'Random Song & Karaoke Genre Wheel' }
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="px-3 py-1.5 rounded-xl bg-[#fbf8ff] dark:bg-[#1c1d29] border border-[#eeedf7] dark:border-[#292a39] hover:border-[#4648d4] dark:hover:border-[#8587ff] text-xs font-medium text-[#1a1b22] dark:text-[#e2e0f5] hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

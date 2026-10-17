@@ -38,7 +38,7 @@ export async function GET() {
     { path: '/dice/d20', changefreq: 'daily', priority: '0.95' },
     { path: '/dice/d100', changefreq: 'daily', priority: '0.92' },
     { path: '/roll-4d6', changefreq: 'daily', priority: '0.92' },
-    { path: '/dice/d4', changefreq: 'daily', priority: '0.92' },
+    { path: '/dice/d4', changefreq: 'daily', priority: '0.90' },
     { path: '/roll-3d6', changefreq: 'daily', priority: '0.90' },
     { path: '/roll-5d6', changefreq: 'daily', priority: '0.90' },
     { path: '/roll-2d12', changefreq: 'daily', priority: '0.90' },

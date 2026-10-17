@@ -30,44 +30,31 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Animal Wheel - Random Animal Generator Wheel & Picker',
-  description:
-    'Spin the free animal wheel to randomly pick mammals, birds, reptiles, sea creatures, and mythical beasts. Perfect for drawing prompts, charades, quizzes, and classroom games!',
-  keywords: [
-    'random animal generator wheel',
-    'animal wheel',
-    'random animal picker',
-    'animal spin the wheel',
-    'give me a random animal',
-    'animal randomizer',
-    'random sea creatures',
-    'random cat generator',
-    'random dog breed generator'
-  ],
+  title: 'Animal Wheel – Random Animal Generator | SpinWheelGames',
+  description: 'Spin the free animal wheel to randomly pick mammals, birds, reptiles, sea creatures, and mythical beasts. Perfect for drawing prompts, charades, quizzes, and classroom games!',
   alternates: {
     canonical: 'https://spinwheelgames.org/animal-wheel'
   },
   openGraph: {
-    title: 'Animal Wheel - Random Animal Generator Wheel & Picker',
-    description:
-      'Spin the free animal wheel to randomly pick mammals, birds, sea creatures, or Pokémon. Perfect for drawing prompts, charades, quizzes, and classroom games!',
+    title: 'Animal Wheel – Random Animal Generator | SpinWheelGames',
+    description: 'Spin the free animal wheel to randomly pick mammals, birds, reptiles, sea creatures, and mythical beasts. Perfect for drawing prompts, charades, quizzes, and classroom games!',
     url: 'https://spinwheelgames.org/animal-wheel',
     siteName: 'SpinWheelGames',
     type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Animal Wheel - Random Animal Generator Wheel'
+        alt: 'Animal Wheel – Random Animal Generator | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Animal Wheel - Random Animal Generator Wheel & Picker',
-    description:
-      'Spin the free animal wheel to randomly pick mammals, birds, sea creatures, or Pokémon. Perfect for drawing prompts, charades, quizzes, and classroom games!'
+    title: 'Animal Wheel – Random Animal Generator | SpinWheelGames',
+    description: 'Spin the free animal wheel to randomly pick mammals, birds, reptiles, sea creatures, and mythical beasts. Perfect for drawing prompts, charades, quizzes, and classroom games!',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -190,7 +177,7 @@ export default function AnimalWheelPage() {
       {/* Global Header */}
       <SubpageHeader activePage="/animal-wheel" />
 
-      <main className="max-w-7xl mx-auto px-3.5 sm:px-6 pt-20 sm:pt-28 lg:pt-32 pb-12 space-y-8 sm:space-y-10 flex-1 w-full max-w-full overflow-x-clip">
+      <main className="max-w-7xl mx-auto px-3.5 sm:px-6 pt-16 sm:pt-20 lg:pt-22 pb-12 space-y-8 sm:space-y-10 flex-1 w-full max-w-full overflow-x-clip">
         {/* Breadcrumb Navigation */}
         <Breadcrumbs
           items={[

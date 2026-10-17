@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: DiceSlugPageProps): Promise<M
   const normalizedSlug = slug.toLowerCase();
 
 
+
   if (normalizedSlug === '4d6') {
     return {
       alternates: {
@@ -80,6 +81,7 @@ export async function generateMetadata({ params }: DiceSlugPageProps): Promise<M
 export default async function DiceSlugPage({ params }: DiceSlugPageProps) {
   const { slug } = await params;
   const normalizedSlug = slug.toLowerCase();
+
 
 
   if (normalizedSlug === '4d6') {
@@ -179,7 +181,7 @@ export default async function DiceSlugPage({ params }: DiceSlugPageProps) {
         <Navbar />
 
         {/* Dice Hub Scrollable Tabs */}
-        <div className="pt-20 sm:pt-24 lg:pt-28 w-full max-w-full overflow-x-clip">
+        <div className="pt-16 sm:pt-18 lg:pt-20 w-full max-w-full overflow-x-clip">
           <DiceNavigation currentPath={`/dice/${normalizedSlug}`} />
         </div>
 

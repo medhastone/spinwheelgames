@@ -30,45 +30,31 @@ import { POKEMON_GENERATIONS, POKEMON_TYPE_CONFIG } from '@/lib/pokemonData';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Random Pokémon Generator - Spin Wheel & Picker (All Gens 1–9)',
-  description:
-    'Free random pokemon generator and picker wheel. Spin across all 9 generations with type filters, 6-Pokemon team builder, and Nuzlocke challenge mode without duplicates.',
-  keywords: [
-    'random pokemon generator',
-    'random pokemon picker',
-    'pokemon wheel',
-    'pokemon spin wheel',
-    'pokemon roulette',
-    'random pokemon team generator',
-    'nuzlocke encounter picker',
-    'all generations pokemon randomizer',
-    'pokemon picker wheel',
-    'random pokemon team builder'
-  ],
+  title: 'Random Pokémon Spinner Wheel | SpinWheelGames',
+  description: 'Free random pokemon generator and picker wheel. Spin across all 9 generations with type filters, 6-Pokemon team builder, and Nuzlocke challenge mode without duplicates.',
   alternates: {
     canonical: 'https://spinwheelgames.org/pokemon-wheel'
   },
   openGraph: {
-    title: 'Random Pokémon Generator - Spin Wheel & Picker (All Gens 1–9)',
-    description:
-      'Free random pokemon generator and picker wheel. Spin across all 9 generations with type filters, 6-Pokemon team builder, and Nuzlocke challenge mode without duplicates.',
+    title: 'Random Pokémon Spinner Wheel | SpinWheelGames',
+    description: 'Free random pokemon generator and picker wheel. Spin across all 9 generations with type filters, 6-Pokemon team builder, and Nuzlocke challenge mode without duplicates.',
     url: 'https://spinwheelgames.org/pokemon-wheel',
     siteName: 'SpinWheelGames',
     type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Random Pokémon Generator and Picker Wheel'
+        alt: 'Random Pokémon Spinner Wheel | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Random Pokémon Generator - Spin Wheel & Picker (All Gens 1–9)',
-    description:
-      'Free random pokemon generator and picker wheel. Spin across all 9 generations with type filters, 6-Pokemon team builder, and Nuzlocke challenge mode without duplicates.'
+    title: 'Random Pokémon Spinner Wheel | SpinWheelGames',
+    description: 'Free random pokemon generator and picker wheel. Spin across all 9 generations with type filters, 6-Pokemon team builder, and Nuzlocke challenge mode without duplicates.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -185,7 +171,7 @@ export default function PokemonWheelPage() {
         <SubpageHeader activePage="/pokemon-wheel" />
 
         {/* Main Content Container matching Home Page rhythm */}
-        <main className="w-full pt-20 sm:pt-22 lg:pt-24 flex-1 flex flex-col">
+        <main className="w-full pt-16 sm:pt-18 lg:pt-20 flex-1 flex flex-col">
           {/* Compact Hero Banner Section (styled identically to Home Page HeroBanner) */}
           <section className="relative w-full px-4 sm:px-6 pt-3 sm:pt-4 pb-2 sm:pb-3 overflow-hidden bg-[#fbf8ff] dark:bg-[#12131a] transition-colors">
             {/* Subtle Ambient Background Glows */}

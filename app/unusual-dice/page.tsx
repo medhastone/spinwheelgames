@@ -11,7 +11,7 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Unusual Dice Roller | Non-Standard Polyhedral Dice Simulator',
+  title: 'Unusual Dice Roller | SpinWheelGames',
   description:
     'Free online unusual dice roller. Simulate odd-sided polyhedra like d3, d5, d7, d14, d16, d24, d30, and custom N-sided dice with 3D WebGL physics.',
   keywords: [
@@ -25,6 +25,28 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://spinwheelgames.org/unusual-dice'
+  },
+  openGraph: {
+    title: 'Unusual Dice Roller | SpinWheelGames',
+    description:
+      'Free online unusual dice roller. Simulate odd-sided polyhedra like d3, d5, d7, d14, d16, d24, d30, and custom N-sided dice with 3D WebGL physics.',
+    url: 'https://spinwheelgames.org/unusual-dice',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Unusual Dice Roller Online'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Unusual Dice Roller | SpinWheelGames',
+    description:
+      'Free online unusual dice roller. Simulate odd-sided polyhedra like d3, d5, d7, d14, d16, d24, d30, and custom N-sided dice with 3D WebGL physics.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 
@@ -52,7 +74,7 @@ export default function UnusualDicePage() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 pb-8 space-y-6">
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

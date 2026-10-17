@@ -10,18 +10,31 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: `About ${SITE_CONFIG.brandName} - Mission, Randomness & Architecture`,
-  description:
-    `Learn about ${SITE_CONFIG.fullBrandName}: our commitment to client-side randomness, minimal data collection, accessible design, and classroom utilities.`,
+  title: 'About Us & Editorial Mission | SpinWheelGames',
+  description: 'Engineered for teachers, streamers, and organizers who value client-side randomness and minimal data collection.',
   alternates: {
-    canonical: `${SITE_CONFIG.baseUrl}/about`
+    canonical: 'https://spinwheelgames.org/about'
   },
   openGraph: {
-    title: `About ${SITE_CONFIG.fullBrandName} - Mission & Technology`,
-    description:
-      'Engineered for teachers, streamers, and organizers who value client-side randomness and minimal data collection.',
-    url: `${SITE_CONFIG.baseUrl}/about`,
-    type: 'website'
+    title: 'About Us & Editorial Mission | SpinWheelGames',
+    description: 'Engineered for teachers, streamers, and organizers who value client-side randomness and minimal data collection.',
+    url: 'https://spinwheelgames.org/about',
+    siteName: 'SpinWheelGames',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel.webp',
+        width: 1200,
+        height: 630,
+        alt: 'About Us & Editorial Mission | SpinWheelGames'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Us & Editorial Mission | SpinWheelGames',
+    description: 'Engineered for teachers, streamers, and organizers who value client-side randomness and minimal data collection.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -54,7 +67,7 @@ export default function AboutPage() {
 
       <SubpageHeader activePage="/about" />
 
-      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-12">
+      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-22 pb-12 sm:pb-16 space-y-8 sm:space-y-10">
         {/* Header Section */}
         <section className="space-y-4 max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff] text-xs font-bold uppercase tracking-wider">

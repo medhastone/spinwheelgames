@@ -29,42 +29,31 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Daily Wheel Challenges - Spin Today’s Global Quest & Streak Picker',
-  description:
-    'Take on today’s global synchronized daily wheel challenge! Earn daily streaks, unlock community badges, and share your result with verifiable cryptographic seeds.',
-  keywords: [
-    'daily wheel challenge',
-    'daily spin the wheel',
-    'global wheel quest',
-    'daily streak wheel',
-    'random daily challenge generator',
-    'community wheel games',
-    'daily decision challenge'
-  ],
+  title: 'Daily Wheel Challenges & Quests | SpinWheelGames',
+  description: 'Take on today’s global synchronized daily wheel challenge! Earn daily streaks, unlock community badges, and share your result with verifiable cryptographic seeds.',
   alternates: {
     canonical: 'https://spinwheelgames.org/challenges'
   },
   openGraph: {
-    title: 'Daily Wheel Challenges - Spin Today’s Global Quest',
-    description:
-      'Take on today’s global synchronized daily wheel challenge! Earn daily streaks, unlock community badges, and share your result.',
+    title: 'Daily Wheel Challenges & Quests | SpinWheelGames',
+    description: 'Take on today’s global synchronized daily wheel challenge! Earn daily streaks, unlock community badges, and share your result with verifiable cryptographic seeds.',
     url: 'https://spinwheelgames.org/challenges',
     siteName: 'SpinWheelGames',
     type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Daily Wheel Challenge Arena'
+        alt: 'Daily Wheel Challenges & Quests | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Daily Wheel Challenges - Spin Today’s Global Quest',
-    description:
-      'Take on today’s global synchronized daily wheel challenge! Earn daily streaks and share your results.'
+    title: 'Daily Wheel Challenges & Quests | SpinWheelGames',
+    description: 'Take on today’s global synchronized daily wheel challenge! Earn daily streaks, unlock community badges, and share your result with verifiable cryptographic seeds.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -170,7 +159,7 @@ export default function ChallengesPage() {
 
       <SubpageHeader activePage="/challenges" />
 
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32 pb-12 w-full flex flex-col gap-4 sm:gap-6">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 pb-12 w-full flex flex-col gap-4 sm:gap-6">
         <Breadcrumbs items={breadcrumbItems} />
 
         {/* Hero Banner */}

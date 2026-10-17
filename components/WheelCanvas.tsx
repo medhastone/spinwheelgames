@@ -293,7 +293,7 @@ export default function WheelCanvas({
           ? className
           : isFullscreen
           ? 'max-w-[min(94vw,86vh,840px)]'
-          : 'w-full max-w-[min(92vw,440px)] sm:max-w-[500px] lg:max-w-[620px] xl:max-w-[680px]'
+          : 'w-full max-w-[min(88vw,360px)] sm:max-w-[420px] lg:max-w-[480px] xl:max-w-[520px]'
       }`}
     >
       {/* Outer ambient glow and decorative rim */}

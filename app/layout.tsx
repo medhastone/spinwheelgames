@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://spinwheelgames.org'),
   title: {
     default: 'Spin the Wheel & See What Happens | SpinWheelGames',
-    template: '%s | SpinWheelGames'
+    template: '%s'
   },
   description:
     'Not sure what to choose? Give the wheel a spin and let the result surprise you. Play free wheel games, pick names and make decisions.',
@@ -58,12 +58,21 @@ export const metadata: Metadata = {
     siteName: 'SpinWheelGames',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'SpinWheelGames'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Spin the Wheel & See What Happens | SpinWheelGames',
     description:
       'Free wheel games and random pickers for decisions, names, teams, food, classrooms, parties and giveaways.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   },
   icons: {
     icon: [

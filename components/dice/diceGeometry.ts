@@ -204,7 +204,8 @@ export function buildDieGeometryDefinition(sides: number): DieGeometryDefinition
         const v2 = new THREE.Vector3(pos.getX(i + 1), pos.getY(i + 1), pos.getZ(i + 1));
         const v3 = new THREE.Vector3(pos.getX(i + 2), pos.getY(i + 2), pos.getZ(i + 2));
         const centroid = new THREE.Vector3().add(v1).add(v2).add(v3).divideScalar(3);
-        const norm = centroid.clone().normalize();
+        // Invert tetrahedron face normal so that when bottom face rests on tray floor, upward apex is tracked
+        const norm = centroid.clone().normalize().negate();
 
         const val = faceIdx + 1;
         faces.push({

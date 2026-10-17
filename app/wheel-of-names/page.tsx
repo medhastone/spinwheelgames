@@ -23,7 +23,7 @@ import Footer from '@/components/Footer';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Wheel of Names – Free Online Random Name Picker & Wheel Generator',
+  title: 'Wheel of Names | SpinWheelGames',
   description:
     'Spin the free Wheel of Names generator to randomly pick names, classroom students, or giveaway raffle winners. Fast CSV import, no-repeat elimination, and 100% fair randomness.',
   keywords: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/wheel-of-names'
   },
   openGraph: {
-    title: 'Wheel of Names – Free Online Random Name Picker & Wheel Generator',
+    title: 'Wheel of Names | SpinWheelGames',
     description:
       'Spin the free Wheel of Names generator to randomly pick names, classroom students, or giveaway raffle winners. Fast CSV import, no-repeat elimination, and 100% fair randomness.',
     url: 'https://spinwheelgames.org/wheel-of-names',
@@ -59,9 +59,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Wheel of Names – Free Online Random Name Picker & Wheel Generator',
+    title: 'Wheel of Names | SpinWheelGames',
     description:
-      'Spin the free Wheel of Names generator to randomly pick names, classroom students, or giveaway raffle winners. Fast CSV import, no-repeat elimination, and 100% fair randomness.'
+      'Spin the free Wheel of Names generator to randomly pick names, classroom students, or giveaway raffle winners. Fast CSV import, no-repeat elimination, and 100% fair randomness.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 
@@ -153,7 +154,7 @@ export default function WheelOfNamesPage() {
       <Navbar activeNav="wheel-of-names" />
 
       {/* Main Container - Padded for Fixed Navbar like Homepage */}
-      <main className="w-full pt-20 sm:pt-22 lg:pt-24 flex-1 flex flex-col relative z-10">
+      <main className="w-full pt-16 sm:pt-18 lg:pt-20 flex-1 flex flex-col relative z-10">
         {/* Subtle Ambient Background Glows matching Homepage */}
         <div className="absolute top-10 left-1/4 -translate-x-1/2 w-[34rem] h-[34rem] rounded-full bg-[#4648d4]/10 dark:bg-[#8587ff]/10 blur-3xl pointer-events-none -z-10" />
         <div className="absolute top-48 right-10 w-[28rem] h-[28rem] rounded-full bg-[#00a86b]/10 dark:bg-[#005236]/15 blur-3xl pointer-events-none -z-10" />

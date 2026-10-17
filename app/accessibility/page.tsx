@@ -10,18 +10,31 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: `Accessibility Statement - WCAG 2.1 Principles | ${SITE_CONFIG.brandName}`,
-  description:
-    `Learn about our accessibility commitments. ${SITE_CONFIG.fullBrandName} is designed with WCAG 2.1 accessibility principles including keyboard control, ARIA live announcements, and contrast.`,
+  title: 'Accessibility Statement | SpinWheelGames',
+  description: 'Engineered with WCAG 2.1 accessibility principles: full keyboard navigation, screen reader live announcements, high contrast, and reduced motion.',
   alternates: {
-    canonical: `${SITE_CONFIG.baseUrl}/accessibility`
+    canonical: 'https://spinwheelgames.org/accessibility'
   },
   openGraph: {
-    title: `Accessibility Statement - ${SITE_CONFIG.fullBrandName}`,
-    description:
-      'Engineered with WCAG 2.1 accessibility principles: full keyboard navigation, screen reader live announcements, high contrast, and reduced motion.',
-    url: `${SITE_CONFIG.baseUrl}/accessibility`,
-    type: 'website'
+    title: 'Accessibility Statement | SpinWheelGames',
+    description: 'Engineered with WCAG 2.1 accessibility principles: full keyboard navigation, screen reader live announcements, high contrast, and reduced motion.',
+    url: 'https://spinwheelgames.org/accessibility',
+    siteName: 'SpinWheelGames',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Accessibility Statement | SpinWheelGames'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Accessibility Statement | SpinWheelGames',
+    description: 'Engineered with WCAG 2.1 accessibility principles: full keyboard navigation, screen reader live announcements, high contrast, and reduced motion.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -54,7 +67,7 @@ export default function AccessibilityPage() {
 
       <SubpageHeader activePage="/accessibility" />
 
-      <main className="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-10">
+      <main className="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-22 pb-12 sm:pb-16 space-y-8 sm:space-y-10">
         {/* Header */}
         <section className="space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff] text-xs font-bold uppercase tracking-wider">

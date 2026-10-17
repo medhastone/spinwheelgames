@@ -34,7 +34,7 @@ export default function GuideCards() {
       title: 'How Weighted Wheels Work',
       description: 'Understand slice angles, probability distribution, and custom weight multipliers.',
       category: 'Mathematics',
-      path: '/fair-randomness'
+      path: '/fairness'
     },
     {
       title: 'How to Make a Decision With a Wheel',

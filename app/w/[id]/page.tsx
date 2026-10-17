@@ -23,6 +23,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: page.metaDescription,
       alternates: {
         canonical: `https://spinwheelgames.org/${shortCode}`
+      },
+      openGraph: {
+        title: page.title,
+        description: page.metaDescription,
+        url: `https://spinwheelgames.org/${shortCode}`,
+        siteName: 'SpinWheelGames',
+        type: 'website',
+        images: [
+          {
+            url: 'https://spinwheelgames.org/spinwheel.webp',
+            width: 1200,
+            height: 630,
+            alt: page.title
+          }
+        ]
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: page.title,
+        description: page.metaDescription,
+        images: ['https://spinwheelgames.org/spinwheel.webp']
       }
     };
   }
@@ -30,7 +51,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const wheelData = getWheelShare(shortCode);
 
   if (wheelData) {
-    const title = `${wheelData.title} - Spin Wheel Games`;
+    const title = `${wheelData.title.slice(0, 38)} | SpinWheelGames`;
     const description = `Spin the interactive ${wheelData.title} custom wheel with ${wheelData.items.length} options! Safe, fair, and instant random decision maker.`;
     return {
       title,
@@ -38,19 +59,49 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       openGraph: {
         title,
         description,
-        type: 'website'
+        type: 'website',
+        images: [
+          {
+            url: 'https://spinwheelgames.org/spinwheel.webp',
+            width: 1200,
+            height: 630,
+            alt: title
+          }
+        ]
       },
       twitter: {
         card: 'summary_large_image',
         title,
-        description
+        description,
+        images: ['https://spinwheelgames.org/spinwheel.webp']
       }
     };
   }
 
+  const defaultTitle = 'Shared Spin Wheel | SpinWheelGames';
+  const defaultDesc = 'Spin interactive custom decision wheels on SpinWheelGames.org.';
   return {
-    title: 'Shared Spin Wheel - SpinWheelGames.org',
-    description: 'Spin interactive custom decision wheels on SpinWheelGames.org'
+    title: defaultTitle,
+    description: defaultDesc,
+    openGraph: {
+      title: defaultTitle,
+      description: defaultDesc,
+      type: 'website',
+      images: [
+        {
+          url: 'https://spinwheelgames.org/spinwheel.webp',
+          width: 1200,
+          height: 630,
+          alt: defaultTitle
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: defaultTitle,
+      description: defaultDesc,
+      images: ['https://spinwheelgames.org/spinwheel.webp']
+    }
   };
 }
 

@@ -597,7 +597,7 @@ export default function WheelOfNamesEngine() {
           {/* ========================================================================= */}
           {/* LEFT COLUMN: Large Centered Wheel Stage (Dominant, responsive, matching homepage) */}
           {/* ========================================================================= */}
-          <div className="flex-1 w-full lg:min-w-0 bg-white dark:bg-[#0f1017] rounded-3xl border border-[#eeedf7] dark:border-[#20212f] p-3.5 sm:p-6 lg:p-7 flex flex-col justify-between items-center shadow-lg dark:shadow-xl relative min-h-[480px] sm:min-h-[640px] lg:min-h-[720px] xl:min-h-[760px] transition-colors overflow-hidden">
+          <div className="flex-1 w-full lg:min-w-0 bg-white dark:bg-[#0f1017] rounded-3xl border border-[#eeedf7] dark:border-[#20212f] p-3.5 sm:p-5 lg:p-6 flex flex-col justify-between items-center shadow-lg dark:shadow-xl relative min-h-[auto] sm:min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] transition-colors overflow-hidden">
             {/* Top Stage Bar */}
             <div className="w-full flex items-center justify-between z-10 gap-2">
               <div className="flex items-center gap-1.5 flex-wrap">

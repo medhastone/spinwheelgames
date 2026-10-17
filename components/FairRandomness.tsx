@@ -33,7 +33,7 @@ export default function FairRandomness() {
 
             <div className="pt-1">
               <Link
-                href="/fair-randomness"
+                href="/fairness"
                 className="inline-flex items-center gap-2 text-xs font-bold text-[#4648d4] dark:text-[#8587ff] hover:underline"
               >
                 <span>How Random Selection Works →</span>

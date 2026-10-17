@@ -28,48 +28,31 @@ import Footer from '@/components/Footer';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Truth or Dare Wheel & Generator - Spin Truths & Dares Online',
-  description:
-    'Spin the free Truth or Dare wheel & generator for parties, sleepovers, and game nights. Features clean family, friends, and party modes, two-stage spin, difficulty ratings, and timer.',
-  keywords: [
-    'truth or dare wheel',
-    'truth or dare generator',
-    'truth generator',
-    'dare generator',
-    'truth or dare spin',
-    'random truth or dare',
-    'online truth or dare',
-    'truth or dare for parties',
-    'clean truth or dare',
-    'truth or dare questions generator',
-    'dare generator for friends',
-    'random dare picker',
-    'party game wheel'
-  ],
+  title: 'Truth or Dare Wheel & Generator | SpinWheelGames',
+  description: 'Spin the free Truth or Dare wheel & generator for parties, sleepovers, and game nights. Features clean family, friends, and party modes, two-stage spin, difficulty ratings, and timer.',
   alternates: {
     canonical: 'https://spinwheelgames.org/truth-or-dare-wheel'
   },
   openGraph: {
-    title: 'Truth or Dare Wheel & Generator - Spin Truths & Dares Online',
-    description:
-      'Spin the free Truth or Dare wheel & generator for parties, sleepovers, and game nights. Features clean family, friends, and party modes, two-stage spin, difficulty ratings, and timer.',
+    title: 'Truth or Dare Wheel & Generator | SpinWheelGames',
+    description: 'Spin the free Truth or Dare wheel & generator for parties, sleepovers, and game nights. Features clean family, friends, and party modes, two-stage spin, difficulty ratings, and timer.',
     url: 'https://spinwheelgames.org/truth-or-dare-wheel',
     siteName: 'SpinWheelGames',
     type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Truth or Dare Wheel & Generator'
+        alt: 'Truth or Dare Wheel & Generator | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Truth or Dare Wheel & Generator - Spin Truths & Dares Online',
-    description:
-      'Spin the free Truth or Dare wheel & generator for parties, sleepovers, and game nights. Features clean family, friends, and party modes, two-stage spin, difficulty ratings, and timer.'
+    title: 'Truth or Dare Wheel & Generator | SpinWheelGames',
+    description: 'Spin the free Truth or Dare wheel & generator for parties, sleepovers, and game nights. Features clean family, friends, and party modes, two-stage spin, difficulty ratings, and timer.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -191,7 +174,7 @@ export default function TruthOrDareWheelPage() {
       {/* Global Header */}
       <SubpageHeader activePage="/truth-or-dare-wheel" />
 
-      <main className="max-w-7xl mx-auto px-3.5 sm:px-6 pt-20 sm:pt-28 lg:pt-32 pb-16 flex-1 w-full max-w-full overflow-x-clip">
+      <main className="max-w-7xl mx-auto px-3.5 sm:px-6 pt-16 sm:pt-20 lg:pt-22 pb-16 flex-1 w-full max-w-full overflow-x-clip">
         {/* Breadcrumb Navigation */}
         <div className="mb-4">
           <nav aria-label="Breadcrumbs" className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">

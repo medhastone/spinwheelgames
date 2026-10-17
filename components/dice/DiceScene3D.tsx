@@ -506,12 +506,14 @@ export default function DiceScene3D({
       isSimulatingRef.current = true;
       hasSettledPhysicsRef.current = false;
       lastTimeRef.current = performance.now();
+      const rollStartTime = performance.now();
 
       const loop = (now: number) => {
         const dt = Math.min((now - lastTimeRef.current) / 1000, 0.05);
         lastTimeRef.current = now;
 
-        const allSettled = physics.step(dt);
+        const isTimeout = (now - rollStartTime) > 3500;
+        const allSettled = physics.step(dt) || isTimeout;
 
         bodies.forEach((dInst, idx) => {
           const mesh = diceMeshesRef.current[idx];

@@ -10,17 +10,31 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: `Terms of Service - Usage Guidelines & Terms | ${SITE_CONFIG.brandName}`,
-  description:
-    `Read the Terms of Service for ${SITE_CONFIG.fullBrandName}. Guidelines for personal, classroom, broadcast, and community usage, licensing, and liability limitations.`,
+  title: 'Terms of Service | SpinWheelGames',
+  description: 'Guidelines and conditions for using SpinWheelGames tools and embedding services.',
   alternates: {
-    canonical: `${SITE_CONFIG.baseUrl}/terms`
+    canonical: 'https://spinwheelgames.org/terms'
   },
   openGraph: {
-    title: `Terms of Service - ${SITE_CONFIG.fullBrandName}`,
+    title: 'Terms of Service | SpinWheelGames',
     description: 'Guidelines and conditions for using SpinWheelGames tools and embedding services.',
-    url: `${SITE_CONFIG.baseUrl}/terms`,
-    type: 'website'
+    url: 'https://spinwheelgames.org/terms',
+    siteName: 'SpinWheelGames',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Terms of Service | SpinWheelGames'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Service | SpinWheelGames',
+    description: 'Guidelines and conditions for using SpinWheelGames tools and embedding services.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -53,7 +67,7 @@ export default function TermsPage() {
 
       <SubpageHeader activePage="/terms" />
 
-      <main className="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-10">
+      <main className="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-22 pb-12 sm:pb-16 space-y-8 sm:space-y-10">
         {/* Header */}
         <section className="space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">

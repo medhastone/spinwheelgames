@@ -23,7 +23,7 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Roll Dice Online 3D - Free Virtual Dice Roller | SpinWheel',
+  title: 'Roll Dice Online 3D | SpinWheelGames',
   description:
     'Roll 3D polyhedral dice online with realistic physics, totals, modifiers, and instant face detection. Free interactive virtual dice roller for D&D and board games.',
   keywords: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     'dnd dice roller'
   ],
   openGraph: {
-    title: 'Roll Dice Online 3D - Free Virtual Dice Roller | SpinWheel',
+    title: 'Roll Dice Online 3D | SpinWheelGames',
     description:
       'Roll 3D polyhedral dice online with realistic physics, totals, modifiers, and instant face detection. Free interactive virtual dice roller for D&D and board games.',
     url: 'https://spinwheelgames.org/dice-roller',
@@ -55,9 +55,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Roll Dice Online 3D - Free Virtual Dice Roller | SpinWheel',
+    title: 'Roll Dice Online 3D | SpinWheelGames',
     description:
-      'Roll interactive 3D dice online with totals, averages, and custom tabletop RPG notation.',
+      'Roll 3D polyhedral dice online with realistic physics, totals, modifiers, and instant face detection. Free interactive virtual dice roller for D&D and board games.',
     images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   },
   alternates: {
@@ -162,7 +162,7 @@ export default function DiceRollerPage() {
 
       <Navbar />
 
-      <div className="pt-20 sm:pt-24 lg:pt-28 w-full max-w-full overflow-x-clip">
+      <div className="pt-16 sm:pt-18 lg:pt-20 w-full max-w-full overflow-x-clip">
         <DiceNavigation />
       </div>
 
@@ -174,13 +174,22 @@ export default function DiceRollerPage() {
           ]}
         />
 
+        <header className="space-y-2">
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+            Roll Dice Online — 3D Polyhedral Dice Roller
+          </h1>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
+            Roll one or more dice online with realistic 3D physics, cryptographic fairness, and instant probability calculations for d4, d6, d8, d10, d12, d20, and d100.
+          </p>
+        </header>
+
         {/* Master Interactive 3D Dice Tool */}
         <section id="dice-tool-workspace" aria-label="Interactive 3D Dice Roller">
           <DiceRollerEngine
             initialCount={2}
             initialSides={6}
-            pageTitle="Roll Dice Online - 3D Dice Roller"
-            pageSubtitle="Roll one or more dice online with a fast interactive 3D dice roller. Choose your dice, set rolls, and see instant totals and averages."
+            pageTitle="Online 3D Dice Workspace"
+            pageSubtitle="Choose your dice, customize counts and modifiers, and see instant totals and averages."
           />
         </section>
 
@@ -263,7 +272,7 @@ export default function DiceRollerPage() {
               >
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-sm text-[#1a1b22] dark:text-white group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff]">
-                    Roll d4 Online
+                    Roll 1d4 Online
                   </span>
                   <ArrowRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />
                 </div>

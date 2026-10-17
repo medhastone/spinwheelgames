@@ -314,7 +314,7 @@ export default function Navbar({
   return (
     <>
       <header className="fixed top-0 w-full max-w-full overflow-x-clip z-50 bg-[#fbf8ff]/95 dark:bg-[#12131a]/95 backdrop-blur-xl border-b border-[#eeedf7] dark:border-[#222330] shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-        <div ref={navRef} className="max-w-7xl mx-auto px-3 sm:px-6 h-14 sm:h-20 lg:h-24 flex items-center justify-between gap-2 sm:gap-3 w-full">
+        <div ref={navRef} className="max-w-7xl mx-auto px-3 sm:px-6 h-14 sm:h-16 lg:h-16 flex items-center justify-between gap-2 sm:gap-3 w-full">
           
           {/* Brand Logo */}
           <div className="flex items-center gap-2 sm:gap-4 lg:gap-8 min-w-0">
@@ -324,13 +324,13 @@ export default function Navbar({
               className="flex items-center gap-2 group text-left cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98] shrink-0"
               aria-label="SpinWheelGames Home"
             >
-              <div className="relative h-9 sm:h-14 lg:h-18 w-auto flex items-center">
+              <div className="relative h-8 sm:h-9 lg:h-10 w-auto flex items-center">
                 <Image
                   src="/spinwheel-logo-v2.webp"
                   alt="SpinWheelGames Logo"
-                  width={280}
-                  height={72}
-                  className="h-8 sm:h-13 lg:h-17 w-auto object-contain max-h-[68px] dark:drop-shadow-[0_0_16px_rgba(133,135,255,0.45)] dark:brightness-110"
+                  width={240}
+                  height={60}
+                  className="h-7 sm:h-8 lg:h-9 w-auto object-contain max-h-[36px] sm:max-h-[40px] dark:drop-shadow-[0_0_16px_rgba(133,135,255,0.45)] dark:brightness-110"
                   priority
                   unoptimized
                   referrerPolicy="no-referrer"
@@ -363,7 +363,7 @@ export default function Navbar({
                 </button>
 
                 {popularOpen && (
-                  <div className="absolute left-0 top-12 w-[480px] bg-white dark:bg-[#181922] rounded-2xl shadow-2xl border border-[#eeedf7] dark:border-[#292a39] p-3 z-50 animate-fadeIn">
+                  <div className="absolute left-0 top-12 w-[480px] max-w-[calc(100vw-1.5rem)] bg-white dark:bg-[#181922] rounded-2xl shadow-2xl border border-[#eeedf7] dark:border-[#292a39] p-3 z-50 animate-fadeIn">
                     <div className="flex items-center justify-between px-2 pb-2 mb-2 border-b border-[#eeedf7] dark:border-[#222330]">
                       <div className="flex items-center gap-1.5">
                         <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
@@ -439,7 +439,7 @@ export default function Navbar({
                 </button>
 
                 {trendingOpen && (
-                  <div className="absolute left-0 top-12 w-[480px] bg-white dark:bg-[#181922] rounded-2xl shadow-2xl border border-[#eeedf7] dark:border-[#292a39] p-3 z-50 animate-fadeIn">
+                  <div className="absolute left-0 top-12 w-[480px] max-w-[calc(100vw-1.5rem)] bg-white dark:bg-[#181922] rounded-2xl shadow-2xl border border-[#eeedf7] dark:border-[#292a39] p-3 z-50 animate-fadeIn">
                     <div className="flex items-center justify-between px-2 pb-2 mb-2 border-b border-[#eeedf7] dark:border-[#222330]">
                       <div className="flex items-center gap-1.5">
                         <Flame className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
@@ -516,7 +516,7 @@ export default function Navbar({
                 </button>
 
                 {diceOpen && (
-                  <div className="absolute left-0 top-12 w-[480px] bg-white dark:bg-[#181922] rounded-2xl shadow-2xl border border-[#eeedf7] dark:border-[#292a39] p-3 z-50 animate-fadeIn">
+                  <div className="absolute left-0 top-12 w-[480px] max-w-[calc(100vw-1.5rem)] bg-white dark:bg-[#181922] rounded-2xl shadow-2xl border border-[#eeedf7] dark:border-[#292a39] p-3 z-50 animate-fadeIn">
                     <div className="flex items-center justify-between px-2 pb-2 mb-2 border-b border-[#eeedf7] dark:border-[#222330]">
                       <div className="flex items-center gap-1.5">
                         <Dices className="w-3.5 h-3.5 text-indigo-500" />
@@ -593,7 +593,7 @@ export default function Navbar({
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform ${categoriesOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {categoriesOpen && (
-                  <div className="absolute left-0 top-12 w-[540px] bg-white dark:bg-[#181922] rounded-2xl shadow-2xl border border-[#eeedf7] dark:border-[#292a39] p-3 z-50 animate-fadeIn">
+                  <div className="absolute left-0 top-12 w-[540px] max-w-[calc(100vw-1.5rem)] bg-white dark:bg-[#181922] rounded-2xl shadow-2xl border border-[#eeedf7] dark:border-[#292a39] p-3 z-50 animate-fadeIn">
                     <div className="flex items-center justify-between px-2 pb-2 mb-2 border-b border-[#eeedf7] dark:border-[#222330]">
                       <div className="flex items-center gap-1.5">
                         <Sparkles className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />

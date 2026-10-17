@@ -250,7 +250,8 @@ export default function DiceAverageCalculatorComponent() {
           </span>
         </div>
 
-        <div className="h-64 sm:h-72 w-full pt-4 pb-2 flex items-end gap-1 sm:gap-2 border-b border-slate-200 dark:border-[#202234]">
+        <div className="overflow-x-auto pb-1 -mx-2 px-2">
+          <div className="h-64 sm:h-72 w-full min-w-[280px] sm:min-w-0 pt-4 pb-2 flex items-end gap-1 sm:gap-2 border-b border-slate-200 dark:border-[#202234]">
           {distributionData.map((item) => {
             const heightPercent = (item.probability / maxProbVal) * 100;
             const isPeak = item.adjustedValue === stats.mostLikelyValue;
@@ -284,6 +285,7 @@ export default function DiceAverageCalculatorComponent() {
           })}
         </div>
       </div>
+    </div>
 
       {/* Detailed Distribution Table */}
       <div className="p-5 sm:p-7 rounded-3xl bg-white dark:bg-[#11121c] border border-slate-200 dark:border-[#222436] space-y-4 shadow-sm dark:shadow-xl transition-colors">

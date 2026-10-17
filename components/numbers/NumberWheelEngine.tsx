@@ -1061,9 +1061,9 @@ export default function NumberWheelEngine() {
             {/* Title & Short Description */}
             <div className="space-y-1 border-b border-[#eeedf7] dark:border-[#1e1f2d] pb-3">
               <div className="flex items-center justify-between gap-2">
-                <h1 className="font-headline font-black text-xl sm:text-2xl text-[#1a1b22] dark:text-white tracking-tight">
+                <h2 className="font-headline font-black text-xl sm:text-2xl text-[#1a1b22] dark:text-white tracking-tight">
                   Random Number Wheel
-                </h1>
+                </h2>
                 <button
                   type="button"
                   onClick={handleFavoriteGame}

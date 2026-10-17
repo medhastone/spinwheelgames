@@ -302,12 +302,12 @@ export default function DiceRollerEngine({
       {/* Hero Header - Compact & Clean */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-2.5 border-b border-[#eeedf7] dark:border-[#222330]">
         <div>
-          <h1 className="font-headline text-lg sm:text-2xl font-black text-[#1a1b22] dark:text-white tracking-tight flex items-center gap-2">
+          <h2 className="font-headline text-lg sm:text-2xl font-black text-[#1a1b22] dark:text-white tracking-tight flex items-center gap-2">
             <span className="p-1.5 rounded-xl bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff]">
               <Dice5 className="w-5 h-5" />
             </span>
             <span>{pageTitle}</span>
-          </h1>
+          </h2>
           <p className="text-xs text-[#767586] dark:text-[#908fa1] mt-0.5 max-w-2xl">
             {pageSubtitle}
           </p>

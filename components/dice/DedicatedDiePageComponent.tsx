@@ -43,6 +43,7 @@ import {
 } from './diceMath';
 import { DiceTheme, DICE_THEMES } from './DiceScene3D';
 import DiceInspectorModal from './DiceInspectorModal';
+import confetti from '@/lib/confetti';
 
 // Dynamically import 3D scene (client-only WebGL)
 const DiceScene3D = dynamic(() => import('./DiceScene3D'), {
@@ -97,65 +98,86 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
     return calculateDiceStatistics(count, config.sides, modifier);
   }, [count, config.sides, modifier]);
 
-  // Roll execution
+  // Roll execution: Launch physics without pre-generating premature results
   const triggerRoll = useCallback(() => {
     if (isRolling) return;
     setIsRolling(true);
+  }, [isRolling]);
 
-    // Generate outcome
-    const rolls: number[] = [];
-    for (let i = 0; i < count; i++) {
-      rolls.push(Math.floor(Math.random() * config.sides) + 1);
-    }
+  // Synchronize result strictly from 3D physics settled face normal
+  const handlePhysicsComplete = useCallback(
+    (settledResults: SingleDieResult[]) => {
+      const rawValues =
+        settledResults && settledResults.length > 0
+          ? settledResults.map((r) => r.value)
+          : Array.from({ length: count }, () => Math.floor(Math.random() * config.sides) + 1);
 
-    let effectiveRolls = [...rolls];
-    let droppedIndices: number[] = [];
+      let droppedIndices: number[] = [];
+      if (dropLowest > 0 && rawValues.length > dropLowest) {
+        const indexed = rawValues.map((val, idx) => ({ val, idx }));
+        indexed.sort((a, b) => a.val - b.val);
+        droppedIndices = indexed.slice(0, dropLowest).map((item) => item.idx);
+      } else if (keepHighest > 0 && rawValues.length > keepHighest) {
+        const indexed = rawValues.map((val, idx) => ({ val, idx }));
+        indexed.sort((a, b) => b.val - a.val);
+        const keepIndices = new Set(indexed.slice(0, keepHighest).map((item) => item.idx));
+        droppedIndices = indexed.filter((item) => !keepIndices.has(item.idx)).map((item) => item.idx);
+      }
 
-    if (dropLowest > 0 && rolls.length > dropLowest) {
-      const indexed = rolls.map((val, idx) => ({ val, idx }));
-      indexed.sort((a, b) => a.val - b.val);
-      droppedIndices = indexed.slice(0, dropLowest).map((item) => item.idx);
-    } else if (keepHighest > 0 && rolls.length > keepHighest) {
-      const indexed = rolls.map((val, idx) => ({ val, idx }));
-      indexed.sort((a, b) => b.val - a.val);
-      const keepIndices = new Set(indexed.slice(0, keepHighest).map((item) => item.idx));
-      droppedIndices = indexed.filter((item) => !keepIndices.has(item.idx)).map((item) => item.idx);
-    }
+      const newDice: SingleDieResult[] = rawValues.map((val, idx) => ({
+        id: `die-${Date.now()}-${idx}`,
+        value: val,
+        originalValue: val,
+        isDropped: droppedIndices.includes(idx)
+      }));
 
-    const newDice: SingleDieResult[] = rolls.map((val, idx) => ({
-      id: `die-${Date.now()}-${idx}`,
-      value: val,
-      originalValue: val,
-      isDropped: droppedIndices.includes(idx)
-    }));
+      setCurrentDice(newDice);
 
-    setCurrentDice(newDice);
+      const keptRolls = newDice.filter((d) => !d.isDropped).map((d) => d.value);
+      const sumKept = keptRolls.reduce((a, b) => a + b, 0);
+      const total = sumKept + modifier;
 
-    const keptRolls = newDice.filter((d) => !d.isDropped).map((d) => d.value);
-    const sumKept = keptRolls.reduce((a, b) => a + b, 0);
-    const total = sumKept + modifier;
+      const resultObj: RollResult = {
+        dice: newDice,
+        activeCount: count,
+        sides: config.sides,
+        modifier,
+        subtotal: sumKept,
+        total,
+        average: stats.theoreticalAverage,
+        minPossible: stats.min,
+        maxPossible: stats.max,
+        notation: `${count}${config.dieType}${modifier !== 0 ? (modifier > 0 ? `+${modifier}` : modifier) : ''}`,
+        timestamp: Date.now()
+      };
 
-    const resultObj: RollResult = {
-      dice: newDice,
-      activeCount: count,
-      sides: config.sides,
-      modifier,
-      subtotal: sumKept,
-      total,
-      average: stats.theoreticalAverage,
-      minPossible: stats.min,
-      maxPossible: stats.max,
-      notation: `${count}${config.dieType}${modifier !== 0 ? (modifier > 0 ? `+${modifier}` : modifier) : ''}`,
-      timestamp: Date.now()
+      setLastResult(resultObj);
+      setRollHistory((prev) => [resultObj, ...prev.slice(0, 19)]);
+      setIsRolling(false);
+
+      // Natural 20 Celebration (Critical Hit)
+      if (config.sides === 20 && keptRolls.some((v) => v === 20)) {
+        confetti({
+          particleCount: 85,
+          spread: 75,
+          origin: { y: 0.6 }
+        });
+      }
+    },
+    [count, config.sides, config.dieType, dropLowest, keepHighest, modifier, stats]
+  );
+
+  // Spacebar hotkey to roll dice
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.code === 'Space' && !['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement)?.tagName)) {
+        e.preventDefault();
+        triggerRoll();
+      }
     };
-
-    setLastResult(resultObj);
-    setRollHistory((prev) => [resultObj, ...prev.slice(0, 19)]);
-  }, [count, config.sides, config.dieType, dropLowest, keepHighest, modifier, stats, isRolling]);
-
-  const handlePhysicsComplete = useCallback(() => {
-    setIsRolling(false);
-  }, []);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [triggerRoll]);
 
   // Quick Preset Handler
   const handleApplyPreset = (preset: QuantityPreset) => {
@@ -362,13 +384,22 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
                     Current Total
                   </span>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-2xl sm:text-3xl font-black font-mono text-white">
-                      {activeSum}
-                    </span>
-                    {lastResult && (
-                      <span className="text-xs text-slate-400 font-mono">
-                        (Avg: {lastResult.average})
+                    {isRolling ? (
+                      <span className="text-xl sm:text-2xl font-black font-mono text-indigo-400 flex items-center gap-2 animate-pulse">
+                        <span className="inline-block w-2.5 h-2.5 rounded-full bg-indigo-500 animate-ping" />
+                        Rolling...
                       </span>
+                    ) : (
+                      <>
+                        <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+                          {activeSum}
+                        </span>
+                        {lastResult && (
+                          <span className="text-xs text-slate-400 font-mono">
+                            (Avg: {lastResult.average})
+                          </span>
+                        )}
+                      </>
                     )}
                   </div>
                 </div>
@@ -388,29 +419,65 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
             {/* Individual Dice Face Results */}
             <div className="p-3 rounded-xl bg-white dark:bg-[#0d0e15] border border-slate-200 dark:border-[#1b1c28] flex items-center gap-1.5 flex-wrap shadow-2xs">
               <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono mr-1">Faces:</span>
-              {currentDice.map((d, idx) => (
-                <button
-                  key={d.id || idx}
-                  type="button"
-                  onClick={() => {
-                    setInspectedDieIndex(idx);
-                    setIsInspectorOpen(true);
-                  }}
-                  className={`px-2.5 py-1 rounded-lg font-mono text-xs font-bold border transition-all flex items-center gap-1 cursor-pointer ${
-                    d.isDropped
-                      ? 'bg-rose-50 text-rose-500 border-rose-200 dark:bg-rose-950/30 dark:text-rose-400/50 dark:border-rose-900/30 line-through'
-                      : d.value === config.sides
-                      ? 'bg-amber-100 text-amber-900 border-amber-300 dark:bg-amber-500/20 dark:text-amber-300 dark:border-amber-500/40 shadow-xs'
-                      : d.value === 1
-                      ? 'bg-slate-100 text-slate-700 border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700'
-                      : 'bg-slate-50 text-slate-900 border-slate-200 hover:border-indigo-400 dark:bg-[#181a26] dark:text-white dark:border-[#27293d] dark:hover:border-indigo-500/50'
-                  }`}
-                >
-                  <span>{d.value}</span>
-                  {d.value === config.sides && <Sparkles className="w-3 h-3 text-amber-500" />}
-                </button>
-              ))}
+              {isRolling ? (
+                <div className="flex items-center gap-2 py-0.5 text-xs text-indigo-500 dark:text-indigo-400 font-mono animate-pulse">
+                  <Dices className="w-3.5 h-3.5 animate-spin" />
+                  <span>Simulating physics on felt bed...</span>
+                </div>
+              ) : (
+                currentDice.map((d, idx) => (
+                  <button
+                    key={d.id || idx}
+                    type="button"
+                    onClick={() => {
+                      setInspectedDieIndex(idx);
+                      setIsInspectorOpen(true);
+                    }}
+                    className={`px-2.5 py-1 rounded-lg font-mono text-xs font-bold border transition-all flex items-center gap-1 cursor-pointer ${
+                      d.isDropped
+                        ? 'bg-rose-50 text-rose-500 border-rose-200 dark:bg-rose-950/30 dark:text-rose-400/50 dark:border-rose-900/30 line-through'
+                        : d.value === config.sides
+                        ? 'bg-amber-100 text-amber-900 border-amber-300 dark:bg-amber-500/20 dark:text-amber-300 dark:border-amber-500/40 shadow-xs'
+                        : d.value === 1
+                        ? 'bg-slate-100 text-slate-700 border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700'
+                        : 'bg-slate-50 text-slate-900 border-slate-200 hover:border-indigo-400 dark:bg-[#181a26] dark:text-white dark:border-[#27293d] dark:hover:border-indigo-500/50'
+                    }`}
+                  >
+                    <span>{d.value}</span>
+                    {d.value === config.sides && <Sparkles className="w-3 h-3 text-amber-500" />}
+                  </button>
+                ))
+              )}
             </div>
+
+            {/* Critical Hit / Fumble Celebration Banner for D20 */}
+            {!isRolling && lastResult && config.sides === 20 && lastResult.dice.some((d) => !d.isDropped && d.value === 20) && (
+              <div className="p-3 rounded-xl bg-gradient-to-r from-amber-500/20 via-yellow-500/15 to-amber-500/20 border-2 border-amber-400/60 flex items-center justify-between text-amber-300 dark:text-amber-200 shadow-lg shadow-amber-500/10">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-amber-400 animate-spin" />
+                  <span className="font-extrabold text-sm tracking-wide uppercase text-amber-300">
+                    Natural 20! Critical Hit!
+                  </span>
+                </div>
+                <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-md bg-amber-400/30 text-amber-100 border border-amber-300/40">
+                  Max Roll
+                </span>
+              </div>
+            )}
+
+            {!isRolling && lastResult && config.sides === 20 && lastResult.dice.length === 1 && lastResult.dice[0].value === 1 && (
+              <div className="p-3 rounded-xl bg-gradient-to-r from-rose-500/20 via-red-500/15 to-rose-500/20 border-2 border-rose-500/60 flex items-center justify-between text-rose-300 dark:text-rose-200 shadow-lg shadow-rose-500/10">
+                <div className="flex items-center gap-2">
+                  <span className="text-base">💀</span>
+                  <span className="font-extrabold text-sm tracking-wide uppercase text-rose-300">
+                    Natural 1 — Critical Fumble!
+                  </span>
+                </div>
+                <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-md bg-rose-500/30 text-rose-100 border border-rose-400/40">
+                  Min Roll
+                </span>
+              </div>
+            )}
 
             {/* Roll History */}
             {rollHistory.length > 0 && (
@@ -940,19 +1007,24 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
 
           <div className="flex flex-wrap gap-2">
             {[
-              { type: 'd2', label: 'D2 (Coin Flip)', href: '/dice/d2' },
-              { type: 'd4', label: 'D4 (Tetrahedron)', href: '/dice/d4' },
-              { type: 'd6', label: 'D6 (Six-Sided Cube)', href: '/dice/d6' },
-              { type: '4d6', label: '4D6 Roller', href: '/roll-4d6' },
-              { type: 'd8', label: 'D8 (Octahedron)', href: '/dice/d8' },
-              { type: 'd10', label: 'D10 (Decahedron)', href: '/dice/d10' },
-              { type: 'd12', label: 'D12 (Dodecahedron)', href: '/dice/d12' },
-              { type: 'd20', label: 'D20 (Icosahedron)', href: '/dice/d20' },
-              { type: 'd100', label: 'D100 (Percentile)', href: '/dice/d100' },
-              { type: 'dnd-stat-roller', label: 'D&D Stat Roller', href: '/dnd-stat-roller' },
-              { type: 'dice-average-calculator', label: 'Dice Average Calc', href: '/dice-average-calculator' }
+              { type: 'd2', label: 'Roll d2 (Coin Flip)', href: '/dice/d2' },
+              { type: 'd3', label: 'Roll d3 (3-Sided)', href: '/roll-d3' },
+              { type: 'd4', label: 'Roll d4 (Tetrahedron)', href: '/dice/d4' },
+              { type: 'd6', label: 'Roll d6 (Six-Sided Cube)', href: '/dice/d6' },
+              { type: '3d6', label: 'Roll 3d6 (Bell Curve)', href: '/roll-3d6' },
+              { type: '4d6', label: 'Roll 4d6 Drop Lowest', href: '/roll-4d6' },
+              { type: '5d6', label: 'Roll 5d6 (Yahtzee Pool)', href: '/roll-5d6' },
+              { type: 'd8', label: 'Roll d8 (Octahedron)', href: '/dice/d8' },
+              { type: 'd10', label: 'Roll d10 (Decahedron)', href: '/dice/d10' },
+              { type: 'd12', label: 'Roll d12 (Dodecahedron)', href: '/dice/d12' },
+              { type: '2d12', label: 'Roll 2d12 (Hope & Fear)', href: '/roll-2d12' },
+              { type: 'd20', label: 'Roll d20 (Icosahedron)', href: '/dice/d20' },
+              { type: 'd100', label: 'Roll d100 (Percentile)', href: '/dice/d100' },
+              { type: 'dnd-stat-roller', label: 'D&D 5e Stat Roller', href: '/dnd-stat-roller' },
+              { type: 'dice-average-calculator', label: 'Dice Average Calculator', href: '/dice-average-calculator' }
             ]
               .filter((d) => d.type !== config.dieType)
+              .slice(0, 7)
               .map((d) => (
                 <Link
                   key={d.type}

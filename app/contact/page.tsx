@@ -99,7 +99,7 @@ export default function ContactPage() {
     <div className="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#12131a] text-[#1a1b22] dark:text-[#f1effa] transition-colors">
       <SubpageHeader activePage="/contact" />
 
-      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-12">
+      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-22 pb-12 sm:pb-16 space-y-6 sm:space-y-8">
         <Breadcrumbs items={[{ label: 'Contact Support' }]} />
 
         {/* Header */}

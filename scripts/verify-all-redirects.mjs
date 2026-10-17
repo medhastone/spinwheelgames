@@ -1,131 +1,100 @@
 import http from 'http';
 
 const testCases = [
-  // Old /dX URLs
-  { path: '/d2', name: '/d2' },
-  { path: '/d4', name: '/d4' },
-  { path: '/roll-1d4', name: '/roll-1d4' },
-  { path: '/d6', name: '/d6' },
-  { path: '/d8', name: '/d8' },
-  { path: '/d10', name: '/d10' },
-  { path: '/d12', name: '/d12' },
-  { path: '/d20', name: '/d20' },
-  { path: '/d100', name: '/d100' },
-  // 4d6 duplicate URLs
-  { path: '/4d6', name: '/4d6' },
-  { path: '/dice/4d6', name: '/dice/4d6' },
-  // Dice average duplicate URLs
-  { path: '/dice-average', name: '/dice-average' },
-  // Canonical URLs (should be 200 directly)
-  { path: '/dice/d2', name: '/dice/d2' },
-  { path: '/dice/d4', name: '/dice/d4' },
-  { path: '/dice/d6', name: '/dice/d6' },
-  { path: '/dice/d8', name: '/dice/d8' },
-  { path: '/dice/d10', name: '/dice/d10' },
-  { path: '/dice/d12', name: '/dice/d12' },
-  { path: '/dice/d20', name: '/dice/d20' },
-  { path: '/dice/d100', name: '/dice/d100' },
-  { path: '/roll-4d6', name: '/roll-4d6' },
-  { path: '/dice-average-calculator', name: '/dice-average-calculator' }
+  // Short die URLs on canonical host
+  { name: 'https://spinwheelgames.org/d2', host: 'spinwheelgames.org', proto: 'https', path: '/d2' },
+  { name: 'https://spinwheelgames.org/d4', host: 'spinwheelgames.org', proto: 'https', path: '/d4' },
+  { name: 'https://spinwheelgames.org/roll-1d4', host: 'spinwheelgames.org', proto: 'https', path: '/roll-1d4' },
+  { name: 'https://spinwheelgames.org/d6', host: 'spinwheelgames.org', proto: 'https', path: '/d6' },
+  { name: 'https://spinwheelgames.org/d8', host: 'spinwheelgames.org', proto: 'https', path: '/d8' },
+  { name: 'https://spinwheelgames.org/d10', host: 'spinwheelgames.org', proto: 'https', path: '/d10' },
+  { name: 'https://spinwheelgames.org/d12', host: 'spinwheelgames.org', proto: 'https', path: '/d12' },
+  { name: 'https://spinwheelgames.org/d20', host: 'spinwheelgames.org', proto: 'https', path: '/d20' },
+  { name: 'https://spinwheelgames.org/d100', host: 'spinwheelgames.org', proto: 'https', path: '/d100' },
+  { name: 'https://spinwheelgames.org/4d6', host: 'spinwheelgames.org', proto: 'https', path: '/4d6' },
+  { name: 'https://spinwheelgames.org/dice/4d6', host: 'spinwheelgames.org', proto: 'https', path: '/dice/4d6' },
+  { name: 'https://spinwheelgames.org/dice-average', host: 'spinwheelgames.org', proto: 'https', path: '/dice-average' },
+
+  // HTTP and WWW non-canonical variants
+  { name: 'http://spinwheelgames.org/d10', host: 'spinwheelgames.org', proto: 'http', path: '/d10' },
+  { name: 'http://www.spinwheelgames.org/d10', host: 'www.spinwheelgames.org', proto: 'http', path: '/d10' },
+  { name: 'https://www.spinwheelgames.org/d10', host: 'www.spinwheelgames.org', proto: 'https', path: '/d10' },
+  { name: 'http://www.spinwheelgames.org/d4', host: 'www.spinwheelgames.org', proto: 'http', path: '/d4' },
+  { name: 'http://www.spinwheelgames.org/roll-1d4', host: 'www.spinwheelgames.org', proto: 'http', path: '/roll-1d4' },
+  { name: 'http://www.spinwheelgames.org/4d6', host: 'www.spinwheelgames.org', proto: 'http', path: '/4d6' },
+  { name: 'http://www.spinwheelgames.org/dice-average', host: 'www.spinwheelgames.org', proto: 'http', path: '/dice-average' },
+  { name: 'http://www.spinwheelgames.org/dice/d20', host: 'www.spinwheelgames.org', proto: 'http', path: '/dice/d20' },
+  { name: 'https://www.spinwheelgames.org/dice/d20', host: 'www.spinwheelgames.org', proto: 'https', path: '/dice/d20' },
 ];
 
-const hostVariants = [
-  { proto: 'https', host: 'spinwheelgames.org', label: 'https://spinwheelgames.org' },
-  { proto: 'http', host: 'spinwheelgames.org', label: 'http://spinwheelgames.org' },
-  { proto: 'https', host: 'www.spinwheelgames.org', label: 'https://www.spinwheelgames.org' },
-  { proto: 'http', host: 'www.spinwheelgames.org', label: 'http://www.spinwheelgames.org' }
-];
-
-function fetchStep(urlStr, hostHeader, protoHeader) {
+function requestSingle(host, proto, path) {
   return new Promise((resolve, reject) => {
-    const url = new URL(urlStr);
-    const options = {
-      hostname: '127.0.0.1',
-      port: 3000,
-      path: url.pathname + url.search,
-      method: 'GET',
-      headers: {
-        'Host': hostHeader,
-        'x-forwarded-proto': protoHeader,
-        'x-forwarded-host': hostHeader
-      }
-    };
-    const req = http.request(options, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
+    const req = http.request(
+      {
+        hostname: 'localhost',
+        port: 3000,
+        path: path,
+        method: 'GET',
+        headers: {
+          'Host': host,
+          'x-forwarded-host': host,
+          'x-forwarded-proto': proto,
+          'User-Agent': 'curl/8.5.0'
+        }
+      },
+      (res) => {
         resolve({
           statusCode: res.statusCode,
-          location: res.headers['location'],
-          body: data
+          location: res.headers.location || null
         });
-      });
-    });
+      }
+    );
     req.on('error', reject);
     req.end();
   });
 }
 
-async function traceUrl(initialUrl, hostHeader, protoHeader) {
-  const chain = [];
-  let currentUrl = initialUrl;
-  let currentHost = hostHeader;
-  let currentProto = protoHeader;
+async function traceChain(initial) {
+  let curHost = initial.host;
+  let curProto = initial.proto;
+  let curPath = initial.path;
+  const statusCodes = [];
   let hops = 0;
-  const maxHops = 10;
+  let finalUrl = initial.name;
 
-  while (hops < maxHops) {
-    const res = await fetchStep(currentUrl, currentHost, currentProto);
-    chain.push(res.statusCode);
+  while (hops < 6) {
+    const res = await requestSingle(curHost, curProto, curPath);
+    statusCodes.push(res.statusCode);
+
     if (res.statusCode >= 300 && res.statusCode < 400 && res.location) {
       hops++;
-      const nextLocation = res.location;
-      if (nextLocation.startsWith('http://') || nextLocation.startsWith('https://')) {
-        const parsed = new URL(nextLocation);
-        currentHost = parsed.host;
-        currentProto = parsed.protocol.replace(':', '');
-        currentUrl = nextLocation;
+      finalUrl = res.location;
+      // Parse location for next hop
+      if (res.location.startsWith('http')) {
+        const u = new URL(res.location);
+        curHost = u.host;
+        curProto = u.protocol.replace(':', '');
+        curPath = u.pathname + u.search;
       } else {
-        currentUrl = `${currentProto}://${currentHost}${nextLocation}`;
+        curPath = res.location;
       }
     } else {
-      currentUrl = currentUrl;
-      return {
-        chain: chain.join(' -> '),
-        finalUrl: currentUrl,
-        hops,
-        statusCode: res.statusCode,
-        body: res.body
-      };
-    }
-  }
-  return { chain: chain.join(' -> '), finalUrl: currentUrl, hops, error: 'Too many hops' };
-}
-
-async function run() {
-  console.log('Testing old duplicate URLs across all host/protocol variants:\n');
-  const results = [];
-
-  for (const tc of testCases) {
-    for (const hv of hostVariants) {
-      const fullUrl = `${hv.label}${tc.path}`;
-      const trace = await traceUrl(fullUrl, hv.host, hv.proto);
-      results.push({
-        requestedUrl: fullUrl,
-        chain: trace.chain,
-        finalUrl: trace.finalUrl,
-        hops: trace.hops,
-        statusCode: trace.statusCode
-      });
+      break;
     }
   }
 
-  // Print results table
-  console.log('| Requested URL | Status Chain | Final URL | Hops |');
-  console.log('|---|---|---|:---:|');
-  for (const r of results) {
-    console.log(`| \`${r.requestedUrl}\` | ${r.chain} | \`${r.finalUrl}\` | ${r.hops} |`);
-  }
+  return {
+    url: initial.name,
+    statusChain: statusCodes.join(' -> '),
+    finalUrl,
+    hops
+  };
 }
 
-run();
+console.log('| URL | Status Chain | Final URL | Hops |');
+console.log('|---|---|---|:---:|');
+
+for (const tc of testCases) {
+  const result = await traceChain(tc);
+  console.log(`| \`${result.url}\` | \`${result.statusChain}\` | \`${result.finalUrl}\` | **${result.hops}** |`);
+}

@@ -21,7 +21,7 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Roll 2d12 Online | 3D Two 12-Sided Dice Roller & Odds',
+  title: 'Roll 2d12 Online | SpinWheelGames',
   description:
     'Roll 2d12 online with realistic 3D WebGL physics. View two 12-sided dodecahedron dice sums (2 to 24), triangular probability distributions, and expected averages.',
   keywords: [
@@ -37,11 +37,26 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/roll-2d12'
   },
   openGraph: {
-    title: 'Roll 2d12 Online – 3D Two 12-Sided Dice Roller',
+    title: 'Roll 2d12 Online | SpinWheelGames',
     description:
       'Free interactive 3D 2d12 dice roller with triangular probability distributions and damage averages.',
     url: 'https://spinwheelgames.org/roll-2d12',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Roll 2d12 Online'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Roll 2d12 Online | SpinWheelGames',
+    description:
+      'Roll 2d12 online with realistic 3D WebGL physics. View two 12-sided dodecahedron dice sums (2 to 24), triangular probability distributions, and expected averages.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 
@@ -126,7 +141,7 @@ export default function Roll2d12Page() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 pb-8 space-y-6">
         {/* Breadcrumbs Navigation */}
         <Breadcrumbs
           items={[

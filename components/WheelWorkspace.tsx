@@ -405,7 +405,7 @@ export default function WheelWorkspace({
         {/* ------------------------------------------------------------------------- */}
         {/* LEFT COLUMN: Large Centered Wheel Stage (~800–960px on Desktop)          */}
         {/* ------------------------------------------------------------------------- */}
-        <div className="flex-1 w-full lg:min-w-0 bg-white dark:bg-[#0f1017] rounded-3xl border border-[#eeedf7] dark:border-[#20212f] p-3.5 sm:p-6 lg:p-7 flex flex-col justify-between items-center shadow-lg dark:shadow-xl relative min-h-[auto] sm:min-h-[640px] lg:min-h-[720px] xl:min-h-[760px] transition-colors overflow-hidden">
+        <div className="flex-1 w-full lg:min-w-0 bg-white dark:bg-[#0f1017] rounded-3xl border border-[#eeedf7] dark:border-[#20212f] p-3.5 sm:p-5 lg:p-6 flex flex-col justify-between items-center shadow-lg dark:shadow-xl relative min-h-[auto] sm:min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] transition-colors overflow-hidden">
           
           {/* Top Stage Bar: Pointer label indicator + Top-Right Action buttons */}
           <div className="w-full flex items-center justify-between z-10">
@@ -560,9 +560,9 @@ export default function WheelWorkspace({
             {/* Title & Short Description */}
             <div className="space-y-1 border-b border-[#eeedf7] dark:border-[#1e1f2d] pb-3">
               <div className="flex items-center justify-between gap-2">
-                <h1 className="font-headline font-black text-xl sm:text-2xl text-[#1a1b22] dark:text-white tracking-tight">
+                <h2 className="font-headline font-black text-xl sm:text-2xl text-[#1a1b22] dark:text-white tracking-tight">
                   {wheelTitle}
-                </h1>
+                </h2>
                 <button
                   type="button"
                   onClick={handleToggleFavorite}

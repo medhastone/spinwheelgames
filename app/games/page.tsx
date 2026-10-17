@@ -12,18 +12,31 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: `Wheel Games - ${SITE_COUNTS.wheelsFormatted} Free Online Decision Spinners & Wheels`,
-  description:
-    `Explore ${SITE_COUNTS.wheelsFormatted} free online wheel games: food pickers, movie choosers, classroom wheels, random team generators, and party games. Fair and customizable!`,
+  title: 'Spin Wheel Games & Random Pickers | SpinWheelGames',
+  description: 'Interactive random wheel and decision tool on SpinWheelGames.',
   alternates: {
-    canonical: `${SITE_CONFIG.baseUrl}/games`
+    canonical: 'https://spinwheelgames.org/games'
   },
   openGraph: {
-    title: `Wheel Games - ${SITE_COUNTS.wheelsFormatted} Free Online Decision Spinners & Wheels`,
-    description:
-      `Explore ${SITE_COUNTS.wheelsFormatted} free online wheel games: food pickers, movie choosers, classroom wheels, random team generators, and party games. Fair and customizable!`,
-    url: `${SITE_CONFIG.baseUrl}/games`,
-    type: 'website'
+    title: 'Spin Wheel Games & Random Pickers | SpinWheelGames',
+    description: 'Interactive random wheel and decision tool on SpinWheelGames.',
+    url: 'https://spinwheelgames.org/games',
+    siteName: 'SpinWheelGames',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Spin Wheel Games & Random Pickers | SpinWheelGames'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Spin Wheel Games & Random Pickers | SpinWheelGames',
+    description: 'Interactive random wheel and decision tool on SpinWheelGames.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -74,7 +87,7 @@ export default function GamesPage() {
         breadcrumbs={[{ label: `All ${SITE_COUNTS.wheelsFormatted} Wheel Games` }]}
       />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-18 sm:pt-20 lg:pt-22 pb-12 space-y-8 sm:space-y-10">
         {/* Hero Section */}
         <section className="space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff] text-xs font-bold uppercase tracking-wider">

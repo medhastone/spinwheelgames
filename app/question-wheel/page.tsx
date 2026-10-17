@@ -28,44 +28,31 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Question Wheel - Truth or Dare & Icebreaker Question Spinner',
-  description:
-    'Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!',
-  keywords: [
-    'truth or dare question wheel',
-    'question wheel',
-    'icebreaker question spinner',
-    'spin the wheel questions',
-    'random question generator',
-    'random question picker',
-    'party questions wheel',
-    'conversation starter wheel',
-    'random decision maker'
-  ],
+  title: 'Question Wheel & Icebreaker Spinner | SpinWheelGames',
+  description: 'Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!',
   alternates: {
     canonical: 'https://spinwheelgames.org/question-wheel'
   },
   openGraph: {
-    title: 'Question Wheel - Truth or Dare & Icebreaker Question Spinner',
-    description:
-      'Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!',
-    type: 'website',
+    title: 'Question Wheel & Icebreaker Spinner | SpinWheelGames',
+    description: 'Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!',
     url: 'https://spinwheelgames.org/question-wheel',
     siteName: 'SpinWheelGames',
+    type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Question Wheel - Truth or Dare & Icebreaker Spinner'
+        alt: 'Question Wheel & Icebreaker Spinner | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Question Wheel - Truth or Dare & Icebreaker Question Spinner',
-    description:
-      'Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!'
+    title: 'Question Wheel & Icebreaker Spinner | SpinWheelGames',
+    description: 'Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -138,8 +125,8 @@ export default function QuestionWheelPage() {
 
       <SubpageHeader />
 
-      <main className="flex-1 max-w-7xl w-full max-w-full overflow-x-clip mx-auto px-3.5 sm:px-6 lg:px-8 pt-20 sm:pt-28 lg:pt-32 pb-12">
-        <div className="mb-6 py-2 px-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 w-fit">
+      <main className="flex-1 max-w-7xl w-full max-w-full overflow-x-clip mx-auto px-3.5 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 pb-12">
+        <div className="mb-4 py-1.5 px-3.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 w-fit">
           <Breadcrumbs
             items={[
               { label: 'Classroom & Games', href: '/sitemap' },
@@ -149,15 +136,15 @@ export default function QuestionWheelPage() {
         </div>
 
         {/* Hero Header */}
-        <div className="text-center max-w-3xl mx-auto my-8 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider">
-            <HelpCircle className="w-4 h-4" />
+        <div className="text-center max-w-3xl mx-auto my-4 sm:my-6 space-y-2 sm:space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider">
+            <HelpCircle className="w-3.5 h-3.5" />
             Random Question Generator
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 dark:text-slate-100">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">
             Spin the Wheel Questions
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-400 font-medium leading-relaxed max-w-2xl mx-auto">
             Spin a random question wheel for trivia, classroom activities, icebreakers, parties, conversations and games. Filter by difficulty, mode, and topic or add your own custom questions.
           </p>
         </div>

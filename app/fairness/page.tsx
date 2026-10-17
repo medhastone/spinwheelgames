@@ -17,26 +17,31 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Browser-Based Cryptographic Randomness | SpinWheelGames',
-  description:
-    'SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values. Learn how our client-side algorithms ensure uniform probability distributions.',
-  keywords: [
-    'browser cryptographic randomness',
-    'web crypto api random',
-    'crypto getrandomvalues',
-    'unbiased wheel of fortune',
-    'csprng wheel spinner',
-    'client side random picker'
-  ],
+  title: 'Cryptographic Randomness & Fairness | SpinWheelGames',
+  description: 'SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values. Learn how our client-side algorithms ensure uniform probability distributions.',
   alternates: {
     canonical: 'https://spinwheelgames.org/fairness'
   },
   openGraph: {
-    title: 'Browser-Based Cryptographic Randomness | SpinWheelGames',
-    description:
-      'SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values with uniform probability distribution.',
+    title: 'Cryptographic Randomness & Fairness | SpinWheelGames',
+    description: 'SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values. Learn how our client-side algorithms ensure uniform probability distributions.',
     url: 'https://spinwheelgames.org/fairness',
-    type: 'website'
+    siteName: 'SpinWheelGames',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Cryptographic Randomness & Fairness | SpinWheelGames'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cryptographic Randomness & Fairness | SpinWheelGames',
+    description: 'SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values. Learn how our client-side algorithms ensure uniform probability distributions.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -68,7 +73,7 @@ export default function FairnessPage() {
       />
       <SubpageHeader activePage="/fairness" />
 
-      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-12">
+      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-22 pb-12 sm:pb-16 space-y-8 sm:space-y-10">
         {/* Hero Section */}
         <section className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 text-[#006c49] dark:text-[#4edea3] text-xs font-bold uppercase tracking-wider">

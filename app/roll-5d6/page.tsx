@@ -20,9 +20,9 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Roll 5d6 Online | Yahtzee, Farkle & Tabletop Dice Simulator',
+  title: 'Roll 5d6 Online | SpinWheelGames',
   description:
-    'Free online 5d6 dice roller. Roll 5 six-sided dice in realistic 3D WebGL physics. View totals (5 to 30), averages (17.5), and outcome probabilities for Yahtzee, Farkle, and Shadowrun.',
+    'Free online 5d6 dice roller. Roll 5 six-sided dice in realistic 3D WebGL physics. View totals (5 to 30), averages (17.5), and outcome probabilities for Yahtzee and Farkle.',
   keywords: [
     'roll 5d6',
     '5d6 roller',
@@ -35,11 +35,26 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/roll-5d6'
   },
   openGraph: {
-    title: 'Roll 5d6 Online – Yahtzee & Board Game Simulator',
+    title: 'Roll 5d6 Online | SpinWheelGames',
     description:
       'Roll 5 six-sided dice online with 3D physics. Perfect for Yahtzee, Farkle, Shadowrun pools, and board games.',
     url: 'https://spinwheelgames.org/roll-5d6',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Roll 5d6 Online'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Roll 5d6 Online | SpinWheelGames',
+    description:
+      'Free online 5d6 dice roller. Roll 5 six-sided dice in realistic 3D WebGL physics. View totals (5 to 30), averages (17.5), and outcome probabilities for Yahtzee and Farkle.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 
@@ -123,7 +138,7 @@ export default function Roll5d6Page() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 pb-8 space-y-6">
         {/* Breadcrumbs Navigation */}
         <Breadcrumbs
           items={[

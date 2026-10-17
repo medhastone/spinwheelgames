@@ -1,4 +1,33 @@
-# Netlify / Cloudflare Pages rule: redirect www and http to https://spinwheelgames.org
+# Single-hop path consolidation rules (evaluated before wildcard host/protocol rules)
+/d2 https://spinwheelgames.org/dice/d2 301!
+/d4 https://spinwheelgames.org/dice/d4 301!
+/roll-1d4 https://spinwheelgames.org/dice/d4 301!
+/d6 https://spinwheelgames.org/dice/d6 301!
+/d8 https://spinwheelgames.org/dice/d8 301!
+/d10 https://spinwheelgames.org/dice/d10 301!
+/d12 https://spinwheelgames.org/dice/d12 301!
+/d20 https://spinwheelgames.org/dice/d20 301!
+/d100 https://spinwheelgames.org/dice/d100 301!
+/4d6 https://spinwheelgames.org/roll-4d6 301!
+/dice/4d6 https://spinwheelgames.org/roll-4d6 301!
+/dice-average https://spinwheelgames.org/dice-average-calculator 301!
+/dnd-stats https://spinwheelgames.org/dnd-stat-roller 301!
+/fair-randomness https://spinwheelgames.org/fairness 301!
+/team-generator https://spinwheelgames.org/team-picker 301!
+/category https://spinwheelgames.org/categories 301!
+/entertainment https://spinwheelgames.org/movie-wheel 301!
+/category/entertainment https://spinwheelgames.org/movie-wheel 301!
+/bingo-spin-wheel https://spinwheelgames.org/bingo-wheel 301!
+/food-wheel/dinner https://spinwheelgames.org/dinner-wheel 301!
+/food-wheel/breakfast https://spinwheelgames.org/breakfast-wheel 301!
+/random-student-picker https://spinwheelgames.org/classroom-wheel/random-student 301!
+/random-number-wheel https://spinwheelgames.org/number-wheel 301!
+/winner-picker https://spinwheelgames.org/giveaway-wheel 301!
+/contest-picker https://spinwheelgames.org/giveaway-wheel 301!
+/raffle-wheel https://spinwheelgames.org/giveaway-wheel 301!
+/party-wheel/truth-or-dare https://spinwheelgames.org/truth-or-dare-wheel 301!
+
+# Canonical host & HTTPS enforcement
 https://www.spinwheelgames.org/* https://spinwheelgames.org/:splat 301!
 http://www.spinwheelgames.org/* https://spinwheelgames.org/:splat 301!
 http://spinwheelgames.org/* https://spinwheelgames.org/:splat 301!

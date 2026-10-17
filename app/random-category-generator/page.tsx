@@ -36,45 +36,31 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Category Generator – Instant Random Categories & Scattergories Tool',
-  description:
-    'Free instant category generator. Pick random categories for games, brainstorming, Scattergories, creative writing, classroom activities, and content creation with single, multiple, and no-repeat modes.',
-  keywords: [
-    'category generator',
-    'random categories',
-    'random category generator',
-    'scattergories category generator',
-    'random category picker',
-    'game category generator',
-    'brainstorming category generator',
-    'writing prompt categories',
-    'classroom category picker',
-    'trivia categories generator'
-  ],
+  title: 'Random Category Generator Wheel | SpinWheelGames',
+  description: 'Free instant category generator. Pick random categories for games, brainstorming, Scattergories, creative writing, classroom activities, and content creation with single, multiple, and no-repeat modes.',
   alternates: {
     canonical: 'https://spinwheelgames.org/random-category-generator'
   },
   openGraph: {
-    title: 'Category Generator – Instant Random Categories & Scattergories Tool',
-    description:
-      'Free instant category generator. Pick random categories for games, brainstorming, Scattergories, creative writing, classroom activities, and content creation.',
+    title: 'Random Category Generator Wheel | SpinWheelGames',
+    description: 'Free instant category generator. Pick random categories for games, brainstorming, Scattergories, creative writing, classroom activities, and content creation with single, multiple, and no-repeat modes.',
     url: 'https://spinwheelgames.org/random-category-generator',
     siteName: 'SpinWheelGames',
     type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Random Category Generator & Scattergories Picker'
+        alt: 'Random Category Generator Wheel | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Category Generator – Instant Random Categories & Scattergories Tool',
-    description:
-      'Free instant category generator. Pick random categories for games, brainstorming, Scattergories, creative writing, classroom activities, and content creation.'
+    title: 'Random Category Generator Wheel | SpinWheelGames',
+    description: 'Free instant category generator. Pick random categories for games, brainstorming, Scattergories, creative writing, classroom activities, and content creation with single, multiple, and no-repeat modes.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -204,9 +190,9 @@ export default function RandomCategoryGeneratorPage() {
 
       <SubpageHeader activePage="/random-category-generator" />
 
-      <main className="flex-1 w-full max-w-full overflow-x-clip space-y-8 sm:space-y-12 pb-16">
+      <main className="flex-1 w-full max-w-full overflow-x-clip space-y-5 sm:space-y-8 pb-12 sm:pb-16">
         {/* Top Header & Interactive Tool Section Above the Fold */}
-        <section className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-18 sm:pt-24 lg:pt-28 space-y-4">
+        <section className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 space-y-3 sm:space-y-4">
           <Breadcrumbs
             items={[
               { label: 'All Tools', href: '/categories' },

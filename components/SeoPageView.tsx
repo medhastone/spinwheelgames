@@ -186,7 +186,7 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
       <Navbar activeNav={page.fullPath} />
 
       {/* Main Content Area */}
-      <main className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-18 sm:pt-24 lg:pt-28 pb-16 space-y-6 sm:space-y-8 w-full flex-1">
+      <main className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 pb-12 sm:pb-16 space-y-5 sm:space-y-7 w-full flex-1">
         {/* Breadcrumb Navigation */}
         <Breadcrumbs
           items={

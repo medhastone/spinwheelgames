@@ -14,7 +14,7 @@ const RAW_PAGES_MAP: Record<string, SeoPageData> = {
   ...EXTENDED_PILLARS_SEO
 };
 
-// Exclude consolidated duplicate URLs that 301 redirect to primary canonical targets
+// Exclude consolidated duplicate URLs and legacy URL forms that should not appear in sitemap or internal links
 const CONSOLIDATED_REDIRECT_KEYS = new Set([
   'food-wheel/dinner',
   'food-wheel/breakfast',
@@ -24,11 +24,92 @@ const CONSOLIDATED_REDIRECT_KEYS = new Set([
   'contest-picker',
   'raffle-wheel',
   'party-wheel/truth-or-dare',
-  'team-generator'
+  'team-generator',
+  'entertainment'
 ]);
 
+const LEGACY_PATH_REPLACEMENTS: Record<string, string> = {
+  '/d2': '/dice/d2',
+  '/d4': '/dice/d4',
+  '/roll-1d4': '/dice/d4',
+  '/d6': '/dice/d6',
+  '/d8': '/dice/d8',
+  '/d10': '/dice/d10',
+  '/d12': '/dice/d12',
+  '/d20': '/dice/d20',
+  '/d100': '/dice/d100',
+  '/4d6': '/roll-4d6',
+  '/dice/4d6': '/roll-4d6',
+  '/dice-average': '/dice-average-calculator',
+  '/dnd-stats': '/dnd-stat-roller',
+  '/entertainment': '/movie-wheel',
+  '/category/entertainment': '/movie-wheel',
+  '/fair-randomness': '/fairness',
+  '/food-wheel/dinner': '/dinner-wheel',
+  '/food-wheel/breakfast': '/breakfast-wheel',
+  '/random-student-picker': '/classroom-wheel/random-student',
+  '/winner-picker': '/giveaway-wheel',
+  '/contest-picker': '/giveaway-wheel',
+  '/raffle-wheel': '/giveaway-wheel',
+  '/party-wheel/truth-or-dare': '/truth-or-dare-wheel'
+};
+
+function sanitizePath(p: string): string {
+  return LEGACY_PATH_REPLACEMENTS[p] || p;
+}
+
+/**
+ * Formats page titles to "<Primary keyword> | SpinWheelGames" under 60 characters
+ * with no duplicate brand suffixes.
+ */
+export function formatSeoTitle(rawTitle: string, fallbackH1?: string): string {
+  const suffix = ' | SpinWheelGames';
+  const maxKeywordLen = 59 - suffix.length; // 42 chars max so total <= 59 (< 60)
+
+  let cleaned = rawTitle
+    .replace(/\s*\|\s*SpinWheelGames(\.org)?/gi, '')
+    .replace(/\s*\|\s*SpinWheel/gi, '')
+    .replace(/\s*[-–—]\s*Spin\s*Wheel\s*Games(\.org)?/gi, '')
+    .replace(/\s*[-–—]\s*SpinWheelGames(\.org)?/gi, '')
+    .trim();
+
+  if (cleaned.length > maxKeywordLen) {
+    const splitParts = cleaned.split(/\s*[-–—:|]\s*/);
+    if (splitParts[0] && splitParts[0].trim().length >= 8 && splitParts[0].trim().length <= maxKeywordLen) {
+      cleaned = splitParts[0].trim();
+    } else if (fallbackH1) {
+      const h1Short = fallbackH1.split(/\s*[-–—:|]\s*/)[0].trim();
+      if (h1Short.length >= 6 && h1Short.length <= maxKeywordLen) {
+        cleaned = h1Short;
+      }
+    }
+  }
+
+  if (cleaned.length > maxKeywordLen) {
+    const truncated = cleaned.slice(0, maxKeywordLen);
+    const lastSpace = truncated.lastIndexOf(' ');
+    cleaned = (lastSpace > 15 ? truncated.slice(0, lastSpace) : truncated).replace(/[,;&–—-]+$/, '').trim();
+  }
+
+  return `${cleaned}${suffix}`;
+}
+
+function normalizeSeoPage(page: SeoPageData): SeoPageData {
+  return {
+    ...page,
+    title: formatSeoTitle(page.title, page.h1),
+    parentCategoryPath: page.parentCategoryPath ? sanitizePath(page.parentCategoryPath) : page.parentCategoryPath,
+    relatedTools: page.relatedTools?.map((t) => ({ ...t, path: sanitizePath(t.path) })),
+    relatedWheels: page.relatedWheels?.map((w) => ({ ...w, path: sanitizePath(w.path) })),
+    relatedGuides: page.relatedGuides?.map((g) => ({ ...g, path: sanitizePath(g.path) })),
+    internalLinks: page.internalLinks?.map((l) => ({ ...l, href: sanitizePath(l.href) }))
+  };
+}
+
 export const ALL_SEO_PAGES_MAP: Record<string, SeoPageData> = Object.fromEntries(
-  Object.entries(RAW_PAGES_MAP).filter(([key]) => !CONSOLIDATED_REDIRECT_KEYS.has(key))
+  Object.entries(RAW_PAGES_MAP)
+    .filter(([key]) => !CONSOLIDATED_REDIRECT_KEYS.has(key))
+    .map(([key, page]) => [key, normalizeSeoPage(page)])
 );
 
 export const ALL_SEO_PAGES_LIST: SeoPageData[] = Object.values(ALL_SEO_PAGES_MAP);

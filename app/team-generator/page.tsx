@@ -30,7 +30,7 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Team Generator Wheel - Random Group Maker & Squad Divider',
+  title: 'Team Generator Wheel | SpinWheelGames',
   description:
     'Easily split names into balanced, fair teams or spin the live draft wheel. Perfect for sports, classroom projects, video game squads, and hackathons!',
   keywords: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/team-generator'
   },
   openGraph: {
-    title: 'Team Generator Wheel - Random Group Maker & Squad Divider',
+    title: 'Team Generator Wheel | SpinWheelGames',
     description:
       'Easily split names into balanced, fair teams or spin the live draft wheel. Perfect for sports, classroom projects, video game squads, and hackathons!',
     url: 'https://spinwheelgames.org/team-generator',
@@ -61,15 +61,16 @@ export const metadata: Metadata = {
         url: 'https://spinwheelgames.org/spinwheel-logo.webp',
         width: 1200,
         height: 630,
-        alt: 'Team Generator Wheel - Random Group Maker'
+        alt: 'Team Generator Wheel | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Team Generator Wheel - Random Group Maker & Squad Divider',
+    title: 'Team Generator Wheel | SpinWheelGames',
     description:
-      'Easily split names into balanced, fair teams or spin the live draft wheel. Perfect for sports, classroom projects, video game squads, and hackathons!'
+      'Easily split names into balanced, fair teams or spin the live draft wheel. Perfect for sports, classroom projects, video game squads, and hackathons!',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 
@@ -185,7 +186,7 @@ export default function TeamGeneratorPage() {
 
       <main className="flex-1 w-full max-w-full overflow-x-clip space-y-4 sm:space-y-5 pb-12">
         {/* Top Header & Breadcrumbs Section */}
-        <section className="w-full max-w-[1440px] mx-auto px-3.5 sm:px-6 pt-20 sm:pt-24 lg:pt-28 space-y-2 sm:space-y-3">
+        <section className="w-full max-w-[1440px] mx-auto px-3.5 sm:px-6 pt-16 sm:pt-20 lg:pt-22 space-y-2 sm:space-y-3">
           <Breadcrumbs
             items={[
               { label: 'Group Tools', href: '/categories' },

@@ -15,9 +15,9 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Official 3D RPG Dice Collection & Asset Pack | SpinWheelGames.org',
+  title: '3D RPG Dice Collection | SpinWheelGames',
   description:
-    'Explore the official 3D RPG gemstone dice collection for SpinWheelGames.org. Features hyper-realistic WebGL 3D physics, crystal glass materials, and metallic gold numerals for D2, D4, D6, D8, D10, D12, D20, and D100.',
+    'Explore the official 3D RPG gemstone dice collection for SpinWheelGames. Features realistic WebGL 3D physics, crystal glass materials, and gold numerals for D2 through D100.',
   keywords: [
     '3d rpg dice collection',
     '3d dice set',
@@ -33,11 +33,26 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/dice-collection'
   },
   openGraph: {
-    title: '3D RPG Gemstone Dice Collection | SpinWheelGames.org',
+    title: '3D RPG Dice Collection | SpinWheelGames',
     description:
       'Complete 8-piece 3D RPG dice collection with WebGL physics, crystal glass materials, and metallic gold engraved numerals.',
     url: 'https://spinwheelgames.org/dice-collection',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: '3D RPG Dice Collection'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '3D RPG Dice Collection | SpinWheelGames',
+    description:
+      'Explore the official 3D RPG gemstone dice collection for SpinWheelGames. Features realistic WebGL 3D physics, crystal glass materials, and gold numerals for D2 through D100.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 
@@ -91,7 +106,7 @@ export default function DiceCollectionPage() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 pb-8 space-y-6">
         {/* Breadcrumb Navigation */}
         <Breadcrumbs
           items={[

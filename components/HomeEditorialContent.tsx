@@ -502,7 +502,7 @@ export default function HomeEditorialContent() {
               { name: 'Party Games', path: '/party', desc: 'Truth or dare & icebreakers' },
               { name: 'Sports & Teams', path: '/sports', desc: 'Squad splits & tournament brackets' },
               { name: 'Board Games', path: '/games', desc: 'Turn order & digital dice' },
-              { name: 'Entertainment', path: '/entertainment', desc: 'Movies, streaming & video games' },
+              { name: 'Entertainment', path: '/movie-wheel', desc: 'Movies, streaming & video games' },
               { name: 'Numbers & Math', path: '/numbers', desc: 'Probability & number generators' },
               { name: 'Giveaways', path: '/giveaways', desc: 'Audited raffle prize drawings' }
             ].map((cat, idx) => (

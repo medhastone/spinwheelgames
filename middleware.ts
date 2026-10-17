@@ -40,7 +40,8 @@ const REDIRECT_MAP: Record<string, string> = {
   '/d20': '/dice/d20',
   '/d100': '/dice/d100',
   '/category': '/categories',
-  '/category/entertainment': '/entertainment',
+  '/entertainment': '/movie-wheel',
+  '/category/entertainment': '/movie-wheel',
   '/bingo-spin-wheel': '/bingo-wheel',
   // Duplicate clusters consolidation redirects (301)
   '/food-wheel/dinner': '/dinner-wheel',
@@ -125,8 +126,9 @@ export function middleware(req: NextRequest) {
 
   // 3. Instant Edge 301 Redirects: Single-hop permanent redirect
   if (redirectedPath) {
-    const targetBase = isProdHost ? 'https://spinwheelgames.org' : req.nextUrl.origin;
-    const targetUrl = new URL(redirectedPath + req.nextUrl.search, targetBase);
+    const targetUrl = isProdHost
+      ? new URL(redirectedPath + req.nextUrl.search, 'https://spinwheelgames.org')
+      : new URL(redirectedPath + req.nextUrl.search, req.url);
     const res = NextResponse.redirect(targetUrl, 301);
     res.headers.set(
       'Cache-Control',

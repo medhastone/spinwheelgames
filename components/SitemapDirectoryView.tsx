@@ -54,25 +54,42 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
         title: 'Decisions & Choices',
         icon: <Sparkles className="w-5 h-5 text-[#4648d4] dark:text-[#8587ff]" />,
         description: 'Resolve analysis paralysis, binary dilemmas, and micro-choices.',
-        links: []
+        links: [
+          { href: '/random-app-picker', label: 'Random App Picker Decision Wheel', desc: 'Instant decision wheel for phone, tablet, and streaming apps' },
+          { href: '/picker-wheel', label: 'Interactive Picker Wheel', desc: 'General-purpose custom choice spinner and decision maker' },
+          { href: '/random-wheel', label: 'Random Wheel Spinner', desc: 'Fast cryptographic wheel spinner for everyday choices' }
+        ]
       },
       names: {
         title: 'Names & Roll Calls',
         icon: <Users className="w-5 h-5 text-indigo-500" />,
         description: 'Baby names, fictional characters, gamertags, and universal name pickers.',
-        links: []
+        links: [
+          { href: '/wheel-of-names', label: 'Wheel of Names Random Picker', desc: 'Draw fair random names, students, and giveaway winners' },
+          { href: '/random-name-picker', label: 'Random Name Picker Tool', desc: 'Quick roster and participant name selector' }
+        ]
       },
       classroom: {
         title: 'Classroom & Education',
         icon: <School className="w-5 h-5 text-emerald-500" />,
         description: 'Equitable student pickers, station rotations, quiz rounds, and job boards.',
-        links: []
+        links: [
+          { href: '/classroom-wheel', label: 'Classroom Wheel & Student Spinner', desc: 'Interactive teacher spinner for calling on students fairly' },
+          { href: '/classroom-wheel/random-student', label: 'Random Student Picker Wheel', desc: 'No-repeat classroom participation and cold-call wheel' },
+          { href: '/word-spinner', label: 'Random Word Spinner for Learning', desc: 'Vocabulary, spelling, and creative writing word wheel' },
+          { href: '/letter-wheel', label: 'Alphabet Letter Wheel (A–Z)', desc: 'Random letter generator for phonics and Scattergories' },
+          { href: '/animal-wheel', label: 'Random Animal Generator Wheel', desc: 'Educational animal picker for biology games and trivia' }
+        ]
       },
       party: {
         title: 'Party & Social Games',
         icon: <Flame className="w-5 h-5 text-rose-500" />,
         description: 'Truth or dare, would you rather, charades, and social mixers.',
-        links: []
+        links: [
+          { href: '/truth-or-dare-wheel', label: 'Truth or Dare Generator Wheel', desc: 'Spin clean, teen, or party truth questions and dares online' },
+          { href: '/birthday-wheel', label: 'Birthday Activity & Gift Wheel', desc: 'Fun birthday party game, activity, and gift idea spinner' },
+          { href: '/random-category-generator', label: 'Random Category Generator Wheel', desc: 'Instant categories for Scattergories, trivia, and word games' }
+        ]
       },
       food: {
         title: 'Food & Dining',
@@ -80,9 +97,9 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
         description: 'Dinner deciders, cuisines, restaurants, breakfasts, and snack picks.',
         links: [
           { href: '/food-wheel', label: 'Food Wheel Decision Tool', desc: 'Random meal decider and restaurant picker' },
-          { href: '/food-wheel/breakfast', label: 'Breakfast Picker Wheel', desc: 'Morning meal decider with quick recipes' },
-          { href: '/food-wheel/lunch', label: 'Lunch Idea Wheel', desc: 'Midday meal randomizer for quick breaks' },
-          { href: '/food-wheel/dinner', label: 'Dinner Wheel Spinner', desc: 'Evening meal decider for families and couples' },
+          { href: '/breakfast-wheel', label: 'Breakfast Picker Wheel', desc: 'Morning meal decider with quick recipes' },
+          { href: '/food-wheel/lunch', label: 'Lunch Idea Picker Wheel', desc: 'Midday meal randomizer for quick breaks' },
+          { href: '/dinner-wheel', label: 'Dinner Wheel Spinner', desc: 'Evening meal decider for families and couples' },
           { href: '/food-wheel/pizza', label: 'Pizza Topping Wheel', desc: 'Custom pizza topping selector and combos' }
         ]
       },
@@ -91,8 +108,9 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
         icon: <Tv className="w-5 h-5 text-purple-500" />,
         description: 'Streaming movies, anime genres, music playlists, and book deciders.',
         links: [
-          { href: '/movie-wheel', label: 'Movie Wheel Spin', desc: 'Random movie picker & decision tool by genre and streaming service' },
-          { href: '/song-wheel', label: 'Song & Music Wheel', desc: 'Random track and playlist prompt spinner' }
+          { href: '/movie-wheel', label: 'Movie Wheel – What to Watch Picker', desc: 'Random movie picker & decision tool by genre and streaming service' },
+          { href: '/song-wheel', label: 'Song & Karaoke Picker Wheel', desc: 'Random track and playlist prompt spinner' },
+          { href: '/theme-wheel', label: 'Theme Wheel for Parties & Events', desc: 'Curated party, spirit week, and creative event themes' }
         ]
       },
       gaming: {
@@ -100,8 +118,10 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
         icon: <Gamepad2 className="w-5 h-5 text-cyan-500" />,
         description: 'Battle royale drop pickers, agent selectors, and RPG class wheels.',
         links: [
-          { href: '/games', label: 'Interactive Games Hub', desc: 'Party games, icebreakers, and casual minigames' },
-          { href: '/challenges', label: 'Spin Wheel Challenges', desc: 'Fun interactive games, challenges, and random tasks' }
+          { href: '/games', label: 'Interactive Wheel Games Hub', desc: 'Complete directory of wheel games, dice rollers, and pickers' },
+          { href: '/random-game-picker', label: 'Random Game Picker Wheel', desc: 'Choose board games, party games, and video game backlogs' },
+          { href: '/pokemon-wheel', label: 'Random Pokémon Spinner Wheel', desc: 'All Gens 1–9 Pokémon picker for Nuzlocke and draft teams' },
+          { href: '/challenges', label: 'Daily Spin Wheel Challenges', desc: 'Fun interactive games, challenges, and random tasks' }
         ]
       },
       sports: {
@@ -109,7 +129,8 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
         icon: <Trophy className="w-5 h-5 text-blue-500" />,
         description: 'Fantasy draft order pickers, workout routines, and sports team generators.',
         links: [
-          { href: '/team-generator', label: 'Team Generator & Group Randomizer', desc: 'Split players into fair, balanced teams automatically' }
+          { href: '/team-generator', label: 'Random Team Generator Wheel', desc: 'Split players into fair, balanced teams automatically' },
+          { href: '/workout', label: 'Workout & Fitness Exercise Wheel', desc: 'HIIT circuits, bodyweight exercises, and daily fitness challenges' }
         ]
       },
       dice: {
@@ -118,7 +139,7 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
         description: 'Interactive 3D dice rollers, D&D character stat generators, and dice average calculators.',
         links: [
           { href: '/dice-collection', label: '3D RPG Dice Collection Showcase', desc: 'Official 8-piece gemstone polyhedra 3D asset pack & physics' },
-          { href: '/dice-roller', label: '3D Dice Roller Engine', desc: 'Main interactive 3D roller for d2 through d100 with notation' },
+          { href: '/dice-roller', label: 'Online 3D Dice Roller Engine', desc: 'Main interactive 3D roller for d2 through d100 with notation' },
           { href: '/dice/d2', label: 'Roll d2 (Coin Flip / 2-Sided Die)', desc: 'Digital coin flip and binary 2-sided randomizer' },
           { href: '/dice/d6', label: 'Roll d6 (Standard 6-Sided Cube)', desc: 'Classic 6-sided cubic die with physics' },
           { href: '/dice/d8', label: 'Roll d8 (Octahedron Die)', desc: '8-sided polyhedral die for weapons and damage rolls' },
@@ -126,15 +147,15 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
           { href: '/dice/d12', label: 'Roll d12 (Dodecahedron Die)', desc: '12-sided die with pentagonal faces' },
           { href: '/dice/d20', label: 'Roll d20 (Icosahedron Die)', desc: 'Iconic 20-sided die for skill checks, attacks, and critical hits' },
           { href: '/dice/d100', label: 'Roll d100 (Zocchihedron / Percentile)', desc: 'Percentile 1-100 random outcome roller' },
-          { href: '/roll-4d6', label: 'Roll 4d6 (with Drop Lowest)', desc: 'Roll four 6-sided dice with totals, averages, and stat rules' },
-          { href: '/dice/d4', label: 'Roll d4 (4-Sided Die)', desc: 'Tetrahedron die roller for weapons, spells, and guidance' },
-          { href: '/roll-3d6', label: 'Roll 3d6 Bell Curve Roller', desc: 'Standard 3d6 with bell curve distribution from 3 to 18' },
-          { href: '/roll-5d6', label: 'Roll 5d6 (Yahtzee & Wargaming)', desc: 'Five-dice roller with sums, averages, and combinations' },
-          { href: '/roll-d3', label: 'Roll d3 (3-Sided Randomizer)', desc: 'Fair 3-outcome randomizer for tiebreakers and RPGs' },
-          { href: '/roll-2d12', label: 'Roll 2d12 (Dual 12-Sided)', desc: 'Two 12-sided dice with 2 to 24 triangular distribution' },
-          { href: '/dnd-stat-roller', label: 'D&D 5e Ability Stat Roller', desc: 'Generate complete 6 ability scores with 4d6 drop lowest' },
-          { href: '/dice-average-calculator', label: 'Dice Average Calculator', desc: 'Calculate expected values, formulas, and exact distributions' },
-          { href: '/unusual-dice', label: 'Unusual & Weird Dice Roller', desc: 'Non-standard polyhedra: d2, d5, d7, d14, d16, d24, d30' }
+          { href: '/roll-4d6', label: 'Roll 4d6 Drop Lowest Stat Roller', desc: 'Roll four 6-sided dice with totals, averages, and stat rules' },
+          { href: '/dice/d4', label: 'Roll d4 (4-Sided Tetrahedron Die)', desc: 'Tetrahedron die roller for weapons, spells, and guidance' },
+          { href: '/roll-3d6', label: 'Roll 3d6 Bell Curve Dice Roller', desc: 'Standard 3d6 with bell curve distribution from 3 to 18' },
+          { href: '/roll-5d6', label: 'Roll 5d6 Yahtzee & Wargaming Roller', desc: 'Five-dice roller with sums, averages, and combinations' },
+          { href: '/roll-d3', label: 'Roll d3 (3-Sided Die Roller)', desc: 'Fair 3-outcome randomizer for tiebreakers and RPGs' },
+          { href: '/roll-2d12', label: 'Roll 2d12 Dual 12-Sided Dice Roller', desc: 'Two 12-sided dice with 2 to 24 triangular distribution' },
+          { href: '/dnd-stat-roller', label: 'D&D 5e Ability Score Stat Roller', desc: 'Generate complete 6 ability scores with 4d6 drop lowest' },
+          { href: '/dice-average-calculator', label: 'Dice Average & Probability Calculator', desc: 'Calculate expected values, formulas, and exact distributions' },
+          { href: '/unusual-dice', label: 'Unusual & Non-Standard Dice Roller', desc: 'Non-standard polyhedra: d3, d5, d7, d14, d16, d24, d30' }
         ]
       },
       numbers: {
@@ -142,7 +163,8 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
         icon: <Binary className="w-5 h-5 text-teal-500" />,
         description: 'Mathematical generators, number wheels, and raffle drawings.',
         links: [
-          { href: '/number-wheel', label: 'Number Wheel Randomizer', desc: 'Spin random numbers in custom ranges 1-10, 1-50, 1-100' },
+          { href: '/number-wheel', label: 'Number Wheel Randomizer (1–100)', desc: 'Spin random numbers in custom ranges 1-10, 1-50, 1-100' },
+          { href: '/random-number-wheel', label: 'Random Number Picker Spinner', desc: 'Custom range number spinner with even/odd and no-repeat filters' },
           { href: '/bingo-wheel', label: 'Bingo Wheel & Ball Caller', desc: '75-ball and 90-ball digital bingo caller' }
         ]
       },
@@ -150,7 +172,9 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
         title: 'Workout & Fitness',
         icon: <Trophy className="w-5 h-5 text-orange-500" />,
         description: 'HIIT circuits, calisthenics, yoga flows, and workout routines.',
-        links: []
+        links: [
+          { href: '/workout', label: 'Workout & HIIT Routine Wheel', desc: 'Spin custom fitness circuits and daily exercise challenges' }
+        ]
       },
       travel: {
         title: 'Travel & Exploration',
@@ -162,15 +186,18 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
         title: 'Giveaways & Contests',
         icon: <Gift className="w-5 h-5 text-pink-500" />,
         description: 'Cryptographically random prize wheels, raffle stubs, and discount drawers.',
-        links: []
+        links: [
+          { href: '/comment-picker', label: 'Random Comment Picker for Giveaways', desc: 'Free giveaway winner generator with no API login required' }
+        ]
       },
       creativity: {
         title: 'Creativity & Writing',
         icon: <Palette className="w-5 h-5 text-violet-500" />,
         description: 'Writing prompts, plot twists, character archetypes, and art mediums.',
         links: [
-          { href: '/drawing-wheel', label: 'Drawing Idea Wheel', desc: 'Art prompts and creative inspiration spinner' },
-          { href: '/random-object-generator', label: 'Random Object Generator', desc: 'Over 500 everyday objects for drawing, charades, and writing' }
+          { href: '/drawing-wheel', label: 'Drawing Idea & Art Prompt Wheel', desc: 'Art prompts and creative inspiration spinner' },
+          { href: '/color-wheel', label: 'Random Color Wheel & Palette Picker', desc: 'Spin complementary, analogous, and triadic color harmonies' },
+          { href: '/random-object-generator', label: 'Random Object Generator Wheel', desc: 'Over 500 everyday objects for drawing, charades, and writing' }
         ]
       },
       productivity: {
@@ -293,7 +320,7 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
     <div className="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#12131a] text-[#1a1b22] dark:text-[#f1effa] transition-colors">
       <SubpageHeader activePage={activePath} />
 
-      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-12">
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-22 pb-12 sm:pb-16 space-y-6 sm:space-y-8">
         <Breadcrumbs items={[{ label: 'Sitemap Directory' }]} />
 
         {/* Header */}

@@ -34,48 +34,31 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Classroom Wheel - Class Spinner & Random Student Picker',
-  description:
-    'Spin the free classroom wheel and class spinner. Includes dedicated modes for random student picker, classroom jobs, group maker, presentation order, activity wheel, and review games with no-repeat elimination.',
-  keywords: [
-    'classroom wheel',
-    'class spinner',
-    'classroom spinner',
-    'classroom activity wheel',
-    'random student picker',
-    'classroom name spinner',
-    'random student wheel',
-    'classroom randomizer',
-    'group maker for teachers',
-    'presentation order generator',
-    'classroom jobs spinner',
-    'review game wheel',
-    'fair student selector'
-  ],
+  title: 'Classroom Wheel & Student Picker | SpinWheelGames',
+  description: 'Spin the free classroom wheel and class spinner. Includes dedicated modes for random student picker, classroom jobs, group maker, presentation order, activity wheel, and review games with no-repeat elimination.',
   alternates: {
     canonical: 'https://spinwheelgames.org/classroom-wheel'
   },
   openGraph: {
-    title: 'Classroom Wheel - Class Spinner & Random Student Picker',
-    description:
-      'Spin the free classroom wheel and class spinner. Includes dedicated modes for random student picker, classroom jobs, group maker, presentation order, activity wheel, and review games with no-repeat elimination.',
+    title: 'Classroom Wheel & Student Picker | SpinWheelGames',
+    description: 'Spin the free classroom wheel and class spinner. Includes dedicated modes for random student picker, classroom jobs, group maker, presentation order, activity wheel, and review games with no-repeat elimination.',
     url: 'https://spinwheelgames.org/classroom-wheel',
     siteName: 'SpinWheelGames',
     type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Classroom Wheel - Random Student Picker & Class Spinner'
+        alt: 'Classroom Wheel & Student Picker | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Classroom Wheel - Class Spinner & Random Student Picker',
-    description:
-      'Spin the free classroom wheel and class spinner. Includes dedicated modes for random student picker, classroom jobs, group maker, presentation order, activity wheel, and review games with no-repeat elimination.'
+    title: 'Classroom Wheel & Student Picker | SpinWheelGames',
+    description: 'Spin the free classroom wheel and class spinner. Includes dedicated modes for random student picker, classroom jobs, group maker, presentation order, activity wheel, and review games with no-repeat elimination.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -244,7 +227,7 @@ export default function ClassroomWheelPage() {
 
       <main className="flex-1 w-full max-w-full overflow-x-clip space-y-6 sm:space-y-10 pb-12">
         {/* Top Header & Interactive Wheel Section */}
-        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 pt-20 sm:pt-28 lg:pt-32 space-y-4">
+        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-22 space-y-4">
           <Breadcrumbs
             items={[
               { label: 'Classroom Tools', href: '/classroom-wheel' },

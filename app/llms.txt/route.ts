@@ -38,7 +38,7 @@ SpinWheelGames.org is an open, high-performance web platform featuring ${SITE_CO
 
 ## 3D Dice Tools
 - [3D Dice Roller](https://spinwheelgames.org/dice-roller): Full 3D tabletop dice physics simulator.
-- [Roll d4 Pyramid Die](https://spinwheelgames.org/dice/d4): 3D 4-sided pyramid die roller.
+- [Roll 1d4 Pyramid Die](https://spinwheelgames.org/dice/d4): 3D 4-sided pyramid die roller.
 - [Roll 4d6 (Drop Lowest)](https://spinwheelgames.org/roll-4d6): 4d6 ability score roller with drop-lowest calculation.
 - [D&D 5e Stat Roller](https://spinwheelgames.org/dnd-stat-roller): 4d6 drop-lowest ability score generator and point buy calculator.
 - [Dice Average Calculator](https://spinwheelgames.org/dice-average-calculator): Probability distribution, expected values, and bell curve calculator.

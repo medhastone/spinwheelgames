@@ -340,7 +340,7 @@ export default function HomePage() {
       />
 
       {/* Main Container */}
-      <main className="w-full pt-20 sm:pt-22 lg:pt-24 flex-1 flex flex-col">
+      <main className="w-full pt-16 sm:pt-18 lg:pt-20 flex-1 flex flex-col">
         {/* Top Hero Banner */}
         <HeroBanner
           onSpinClick={() => {

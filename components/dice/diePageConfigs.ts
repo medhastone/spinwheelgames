@@ -73,7 +73,7 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average value over time is exactly 1.5.'
     ],
     h1Title: 'Roll D2 Online - 3D Dice Roller',
-    metaTitle: 'Roll D2 Online 3D - 50/50 Coin Flip & Dice Roller | SpinWheel',
+    metaTitle: 'Roll D2 Online 3D | SpinWheelGames',
     metaDescription: 'Flip a 3D D2 coin online with authentic metallic bouncing physics. Instant 50/50 decision maker, sports coin toss, and binary probability simulator.',
     primaryKeywords: ['roll a d2', 'd2 roller', '2 sided dice', 'roll 1d2', 'two sided die', 'virtual d2', 'coin flip online'],
     introParagraphs: [
@@ -157,7 +157,7 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average value for a single D4 roll is 2.5.'
     ],
     h1Title: 'Roll D4 Online - 3D Dice Roller',
-    metaTitle: 'Roll D4 Online 3D - Magic Missile & Heals Dice Roller | SpinWheel',
+    metaTitle: 'Roll D4 Online 3D | SpinWheelGames',
     metaDescription: 'Roll a 4-sided D4 pyramid die online with realistic 3D tumbling. Perfect for Magic Missile spells, healing potions, dagger strikes, and live odds.',
     primaryKeywords: ['roll a d4', 'd4 roller', 'roll 1d4', 'four sided dice roller', 'd4 roll', 'virtual d4', 'roll 4 sided dice'],
     introParagraphs: [
@@ -241,7 +241,7 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The average outcome over many rolls is always 3.5.'
     ],
     h1Title: 'Roll D6 Online - 3D Dice Roller',
-    metaTitle: 'Roll D6 Online 3D - Fireball & Yahtzee Dice Roller | SpinWheel',
+    metaTitle: 'Roll D6 Online 3D | SpinWheelGames',
     metaDescription: 'Roll 3D D6 dice online with true random physics. Roll 1 to 100 six-sided dice for board games, Yahtzee, and D&D Fireball spells with live averages.',
     primaryKeywords: ['roll a d6', 'd6 roller', 'why is the average of a d6 3.5', 'roll 1d6', 'six sided die', 'roll 3d6', 'roll 5d6', 'virtual d6', 'roll 6 sided dice'],
     introParagraphs: [
@@ -333,7 +333,7 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average total for rolling 4d6 straight is exactly 14.'
     ],
     h1Title: 'Roll 4 D6 Online - 3D Multi-Dice Roller',
-    metaTitle: 'Roll 4d6 Online 3D - Drop Lowest Stat Dice Roller | SpinWheel',
+    metaTitle: 'Roll 4d6 Drop Lowest | SpinWheelGames',
     metaDescription: 'Roll four 6-sided dice in 3D with automatic Drop Lowest calculation for D&D ability scores. Track individual faces, modifiers, and probability stats.',
     primaryKeywords: ['roll 4d6', '4d6 roll', '4d6 roller', '4d6 dice', '4d6 average', 'virtual 4d6', 'roll four d6'],
     introParagraphs: [
@@ -411,7 +411,7 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average result for a single D8 roll is 4.5.'
     ],
     h1Title: 'Roll D8 Online - 3D Dice Roller',
-    metaTitle: 'Roll D8 Online 3D - Divine Smite & Longsword Roller | SpinWheel',
+    metaTitle: 'Roll D8 Online 3D | SpinWheelGames',
     metaDescription: 'Roll an 8-sided D8 online with realistic 3D physics. Free virtual octahedron roller for Paladin Divine Smite, Longswords, Rapiers, and Cure Wounds.',
     primaryKeywords: ['roll a d8', 'd8 roller', 'roll 1d8', 'eight sided die', 'roll 2d8', 'roll 8d8', 'd8 roll', 'virtual d8'],
     introParagraphs: [
@@ -496,7 +496,7 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average result for a single D10 roll is 5.5.'
     ],
     h1Title: 'Roll D10 Online - 3D Dice Roller',
-    metaTitle: 'Roll D10 Online 3D - Eldritch Blast & D&D Die Roller | SpinWheel',
+    metaTitle: 'Roll D10 Online 3D | SpinWheelGames',
     metaDescription: 'Roll a 3D D10 online with authentic physics and collision sounds. Perfect for Warlock Eldritch Blast beams, percentile pairs, and heavy weapon damage.',
     primaryKeywords: ['roll d10', 'd10 roller', 'roll 1d10', 'roll 3d10', 'roll 4d10', 'ten sided die', 'virtual d10', 'roll 10 sided dice'],
     introParagraphs: [
@@ -577,7 +577,7 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average result for a single D12 roll is 6.5.'
     ],
     h1Title: 'Roll D12 Online - 3D Dice Roller',
-    metaTitle: 'Roll D12 Online 3D - Barbarian Greataxe Dice Roller | SpinWheel',
+    metaTitle: 'Roll D12 Online 3D | SpinWheelGames',
     metaDescription: 'Roll a 3D D12 online with realistic rigid-body physics. Ideal for Barbarian Greataxe damage, hit die calculations, and dodecahedron odds tables.',
     primaryKeywords: ['roll a d12', 'd12 roller', 'roll 1d12', 'twelve sided die', 'roll 2d12', '4d12', '6d12', 'virtual d12'],
     introParagraphs: [
@@ -657,7 +657,7 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average result for a standard D20 roll is 10.5.'
     ],
     h1Title: 'Roll D20 Online - 3D Dice Roller',
-    metaTitle: 'Roll D20 Online 3D - Advantage & Natural 20 Roller | SpinWheel',
+    metaTitle: 'Roll D20 Online 3D | SpinWheelGames',
     metaDescription: 'Roll a 3D D20 online with realistic physics, Advantage & Disadvantage toggles, Natural 20 critical detection, and D&D 5e odds. 100% fair and free!',
     primaryKeywords: ['roll a d20', 'd20 roller', '1d20', 'd20 advantage', 'twenty sided die', 'virtual d20', 'roll 20 sided dice'],
     introParagraphs: [
@@ -741,7 +741,7 @@ export const DIE_PAGE_CONFIGS: Record<string, DiePageConfig> = {
       'The expected average value for a D100 roll is 50.5.'
     ],
     h1Title: 'Roll D100 Online - 3D Dice Roller',
-    metaTitle: 'Roll D100 Online 3D - Percentile Dice Roller | SpinWheel',
+    metaTitle: 'Roll D100 Online 3D | SpinWheelGames',
     metaDescription: 'Roll 3D percentile D100 dice online with authentic tens and units tumbling. Ideal for D&D Wild Magic Surges, Call of Cthulhu, and random loot tables.',
     primaryKeywords: ['roll 1d100', 'd100 roller', 'rolld100', 'percentile dice roller', 'd100 roll', 'virtual d100', 'roll 100 sided dice'],
     introParagraphs: [

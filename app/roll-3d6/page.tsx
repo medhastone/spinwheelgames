@@ -20,9 +20,9 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Roll 3d6 Online | 3D Bell Curve Probability & Tabletop Roller',
+  title: 'Roll 3d6 Online | SpinWheelGames',
   description:
-    'Free online 3d6 dice roller with 3D WebGL physics. View symmetric bell curve probability tables (range 3 to 18, average 10.5) for GURPS, Dragon Age RPG, and classic D&D.',
+    'Free online 3d6 dice roller with 3D WebGL physics. View symmetric bell curve probability tables (range 3 to 18, average 10.5) for GURPS and tabletop RPGs.',
   keywords: [
     'roll 3d6',
     '3d6 roller',
@@ -36,11 +36,26 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/roll-3d6'
   },
   openGraph: {
-    title: 'Roll 3d6 Online – 3D Bell Curve Dice Roller',
+    title: 'Roll 3d6 Online | SpinWheelGames',
     description:
       'Free 3D 3d6 dice simulator and bell curve probability distribution for classic tabletop RPGs.',
     url: 'https://spinwheelgames.org/roll-3d6',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Roll 3d6 Online'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Roll 3d6 Online | SpinWheelGames',
+    description:
+      'Free online 3d6 dice roller with 3D WebGL physics. View symmetric bell curve probability tables (range 3 to 18, average 10.5) for GURPS and tabletop RPGs.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 
@@ -143,7 +158,7 @@ export default function Roll3d6Page() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 pb-8 space-y-6">
         {/* Breadcrumbs Navigation */}
         <Breadcrumbs
           items={[

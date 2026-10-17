@@ -56,7 +56,7 @@ export default function HomeDicePromo() {
 
   const polyhedralPills = [
     { name: 'Roll d2 (Coin)', href: '/dice/d2', desc: '50/50 decisions' },
-    { name: 'Roll d4 (Tetrahedron)', href: '/dice/d4', desc: 'Magic Missile, Heals' },
+    { name: 'Roll 1d4 (Tetrahedron)', href: '/dice/d4', desc: 'Magic Missile, Heals' },
     { name: 'Roll 3d6 / 4d6 (Cube)', href: '/dice/d6', desc: 'Stats, Fireball' },
     { name: 'Roll a d8 (Octahedron)', href: '/dice/d8', desc: 'Divine Smite, Longswords' },
     { name: 'Roll d10 (Decahedron)', href: '/dice/d10', desc: 'Eldritch Blast' },

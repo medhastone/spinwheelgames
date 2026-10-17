@@ -425,9 +425,9 @@ export default function GiveawayModeView({
               <Gift className="w-4 h-4" />
               <span>Giveaway &amp; Raffle Pro Suite</span>
             </div>
-            <h1 className="font-headline font-extrabold text-[26px] sm:text-[34px] text-[#1a1b22] dark:text-[#f1effa] tracking-tight">
+            <h2 className="font-headline font-extrabold text-[26px] sm:text-[34px] text-[#1a1b22] dark:text-[#f1effa] tracking-tight">
               Cryptographically Fair Giveaway &amp; Contest Wheel
-            </h1>
+            </h2>
             <p className="text-[14px] text-[#767586] dark:text-[#908fa1] max-w-3xl mt-1">
               Engineered for streamers, event organizers, and brands. Complete with CSV/TXT import, duplicate detection, weighted tickets, multi-winner batch draws, and verifiable cryptographic certificates.
             </p>

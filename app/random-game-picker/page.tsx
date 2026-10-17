@@ -29,45 +29,31 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Random Game Picker & Generator Wheel - Custom Lists, Party & Board Games',
-  description:
-    'Spin the random game generator wheel to choose what to play! Features custom game lists, Party games, Board games, Card games, Two-Player duels, Group energizers, and 5-minute quick games.',
-  keywords: [
-    'random game picker',
-    'random game generator',
-    'custom game list wheel',
-    'game night wheel',
-    'party game generator',
-    'board game picker wheel',
-    'card game randomizer',
-    'two player game picker',
-    'what game should we play wheel',
-    'classroom game spinner'
-  ],
+  title: 'Random Game Picker & Spinner Wheel | SpinWheelGames',
+  description: 'Spin the random game generator wheel to choose what to play! Features custom game lists, Party games, Board games, Card games, Two-Player duels, Group energizers, and 5-minute quick games.',
   alternates: {
     canonical: 'https://spinwheelgames.org/random-game-picker'
   },
   openGraph: {
-    title: 'Random Game Picker & Generator Wheel - Custom Lists, Party & Board Games',
-    description:
-      'Spin the random game generator wheel to choose what to play! Features custom game lists, Party games, Board games, Card games, Two-Player duels, Group energizers, and 5-minute quick games.',
+    title: 'Random Game Picker & Spinner Wheel | SpinWheelGames',
+    description: 'Spin the random game generator wheel to choose what to play! Features custom game lists, Party games, Board games, Card games, Two-Player duels, Group energizers, and 5-minute quick games.',
     url: 'https://spinwheelgames.org/random-game-picker',
     siteName: 'SpinWheelGames',
     type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Random Game Picker Wheel'
+        alt: 'Random Game Picker & Spinner Wheel | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Random Game Picker & Generator Wheel - Custom Lists, Party & Board Games',
-    description:
-      'Spin the random game generator wheel to choose what to play! Features custom game lists, Party games, Board games, Card games, Two-Player duels, Group energizers, and 5-minute quick games.'
+    title: 'Random Game Picker & Spinner Wheel | SpinWheelGames',
+    description: 'Spin the random game generator wheel to choose what to play! Features custom game lists, Party games, Board games, Card games, Two-Player duels, Group energizers, and 5-minute quick games.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -181,9 +167,9 @@ export default function RandomGamePickerPage() {
 
       <SubpageHeader activePage="/random-game-picker" />
 
-      <main className="flex-1 w-full max-w-full overflow-x-clip space-y-6 sm:space-y-10 pb-12">
+      <main className="flex-1 w-full max-w-full overflow-x-clip space-y-5 sm:space-y-8 pb-12">
         {/* Top Header & Interactive Wheel Section */}
-        <section className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-18 sm:pt-24 lg:pt-28 space-y-4">
+        <section className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 space-y-3 sm:space-y-4">
           <Breadcrumbs
             items={[
               { label: 'All Wheel Games', href: '/games' },

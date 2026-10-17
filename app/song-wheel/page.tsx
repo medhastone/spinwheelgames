@@ -26,43 +26,31 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Song Wheel - Random Song & Karaoke Picker Wheel',
-  description:
-    'Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!',
-  keywords: [
-    'karaoke song picker wheel',
-    'song wheel',
-    'random song generator',
-    'playlist roulette wheel',
-    'music genre spinner',
-    'spin the wheel songs',
-    'random music generator',
-    'karaoke wheel spinner'
-  ],
+  title: 'Song Wheel – Karaoke & Music Picker | SpinWheelGames',
+  description: 'Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!',
   alternates: {
     canonical: 'https://spinwheelgames.org/song-wheel'
   },
   openGraph: {
-    title: 'Song Wheel - Random Song & Karaoke Picker Wheel',
-    description:
-      'Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!',
-    type: 'website',
+    title: 'Song Wheel – Karaoke & Music Picker | SpinWheelGames',
+    description: 'Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!',
     url: 'https://spinwheelgames.org/song-wheel',
     siteName: 'SpinWheelGames',
+    type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Song Wheel - Random Song & Karaoke Picker'
+        alt: 'Song Wheel – Karaoke & Music Picker | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Song Wheel - Random Song & Karaoke Picker Wheel',
-    description:
-      'Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!'
+    title: 'Song Wheel – Karaoke & Music Picker | SpinWheelGames',
+    description: 'Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -144,7 +132,7 @@ export default function SongWheelPage() {
 
       <SubpageHeader />
 
-      <main className="px-3.5 sm:px-6 lg:px-8 pt-20 sm:pt-28 lg:pt-32 pb-12 max-w-7xl mx-auto space-y-8 sm:space-y-12 w-full max-w-full overflow-x-clip flex-1">
+      <main className="px-3.5 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 pb-12 max-w-7xl mx-auto space-y-6 sm:space-y-8 w-full max-w-full overflow-x-clip flex-1">
         {/* Breadcrumb Header */}
         <Breadcrumbs
           items={[
@@ -154,15 +142,15 @@ export default function SongWheelPage() {
         />
 
         {/* Hero Title Section */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-950/80 dark:text-pink-300 text-xs font-bold uppercase tracking-wider">
-            <Music className="w-4 h-4" />
+        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-950/80 dark:text-pink-300 text-xs font-bold uppercase tracking-wider">
+            <Music className="w-3.5 h-3.5" />
             <span>Random Song & Music Randomizer</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Spin the Wheel for Songs
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
             Spin a music wheel to randomly choose a song, genre, artist or karaoke challenge. Add your own songs for a personalized playlist picker.
           </p>
         </div>

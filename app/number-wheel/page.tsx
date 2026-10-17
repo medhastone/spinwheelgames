@@ -30,96 +30,31 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Number Wheel - Random Number Generator Wheel (1-100)',
-  description:
-    'Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.',
-  keywords: [
-    'pick a number 1-10',
-    'number wheel',
-    'number randomiser 1 10',
-    'random number generator 1-4',
-    'number randomizer 1-4',
-    'random number from 1-4',
-    'pick a number 1-100',
-    'number generator 1-100',
-    'choose a number between 1 to 10',
-    'number generator 1 100',
-    'android number spinner',
-    'pick a number between 1 and 100',
-    'random number 1-4',
-    'random number 1-6',
-    'pick a number between 1 and 4',
-    '1-4 random number generator',
-    'pick a number 1-6',
-    'random number 1 to 4',
-    'random number picker 1-100',
-    '1-6 random number generator',
-    'pick a number 1 to 10',
-    'rng 1 to 4',
-    'pick a number 1 through 100',
-    'pick a number between 1 and 6',
-    'pick a number 1 100',
-    'random number between 1 and 10',
-    'choose a number from 1 to 100',
-    'random number generator 1 to 4',
-    'random number 1 to 6',
-    'pick a number from 1-100',
-    'rng 1-4',
-    'number randomizer 1-1000',
-    'random number generator 1 6',
-    'random number generator 1-20',
-    'pick a number from 1 through 100',
-    'pick a number between 1-10',
-    'random number 1-50',
-    'random number generator 1 4',
-    'rng 1-6',
-    'choose a number between 1 and 10',
-    'random number generator 1 to 6',
-    'number generator 1 20',
-    'pick a number 1-20',
-    'spinner with numbers',
-    'random number from 1 to 10',
-    '1-6 number generator',
-    'pick a number 1-11',
-    'random number generator 1-9',
-    'pick a number 1 to 4',
-    'pick a number between 1 and 50',
-    'pick a number 1 50',
-    'random number 1 to 50',
-    'number generator 1-6',
-    'random number generator 1 1000',
-    'pick a number 1 9',
-    '1 30 random number generator',
-    'random number from 1 to 30',
-    'random number 1 to 9',
-    'random number 1 50',
-    'pick a number 1 - 10',
-    '1 30 number generator'
-  ],
+  title: 'Number Wheel – Random Number Picker | SpinWheelGames',
+  description: 'Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.',
   alternates: {
     canonical: 'https://spinwheelgames.org/number-wheel'
   },
   openGraph: {
-    title: 'Number Wheel - Random Number Generator Wheel (1-100)',
-    description:
-      'Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.',
+    title: 'Number Wheel – Random Number Picker | SpinWheelGames',
+    description: 'Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.',
     url: 'https://spinwheelgames.org/number-wheel',
     siteName: 'SpinWheelGames',
     type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Number Wheel - Random Number Generator Wheel'
+        alt: 'Number Wheel – Random Number Picker | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Number Wheel - Random Number Generator Wheel (1-100)',
-    description:
-      'Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.'
+    title: 'Number Wheel – Random Number Picker | SpinWheelGames',
+    description: 'Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -247,7 +182,7 @@ export default function NumberWheelPage() {
         {/* Breadcrumb Navigation - fully visible on mobile & desktop */}
         <nav
           aria-label="Breadcrumbs"
-          className="flex flex-wrap items-center gap-1.5 max-w-[1440px] mx-auto px-4 sm:px-6 pt-20 sm:pt-28 lg:pt-32 pb-1 sm:pb-2 text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 w-full"
+          className="flex flex-wrap items-center gap-1.5 max-w-[1440px] mx-auto px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-22 pb-1 sm:pb-2 text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 w-full"
         >
           <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
             Home

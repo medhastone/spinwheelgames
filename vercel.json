@@ -3,62 +3,137 @@
     {
       "source": "/d2",
       "destination": "https://spinwheelgames.org/dice/d2",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/d4",
       "destination": "https://spinwheelgames.org/dice/d4",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/roll-1d4",
       "destination": "https://spinwheelgames.org/dice/d4",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/d6",
       "destination": "https://spinwheelgames.org/dice/d6",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/d8",
       "destination": "https://spinwheelgames.org/dice/d8",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/d10",
       "destination": "https://spinwheelgames.org/dice/d10",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/d12",
       "destination": "https://spinwheelgames.org/dice/d12",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/d20",
       "destination": "https://spinwheelgames.org/dice/d20",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/d100",
       "destination": "https://spinwheelgames.org/dice/d100",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/4d6",
       "destination": "https://spinwheelgames.org/roll-4d6",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/dice/4d6",
       "destination": "https://spinwheelgames.org/roll-4d6",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/dice-average",
       "destination": "https://spinwheelgames.org/dice-average-calculator",
-      "permanent": true
+      "statusCode": 301
+    },
+    {
+      "source": "/dnd-stats",
+      "destination": "https://spinwheelgames.org/dnd-stat-roller",
+      "statusCode": 301
+    },
+    {
+      "source": "/fair-randomness",
+      "destination": "https://spinwheelgames.org/fairness",
+      "statusCode": 301
+    },
+    {
+      "source": "/team-generator",
+      "destination": "https://spinwheelgames.org/team-picker",
+      "statusCode": 301
+    },
+    {
+      "source": "/category",
+      "destination": "https://spinwheelgames.org/categories",
+      "statusCode": 301
+    },
+    {
+      "source": "/entertainment",
+      "destination": "https://spinwheelgames.org/movie-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/entertainment",
+      "destination": "https://spinwheelgames.org/movie-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/bingo-spin-wheel",
+      "destination": "https://spinwheelgames.org/bingo-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/food-wheel/dinner",
+      "destination": "https://spinwheelgames.org/dinner-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/food-wheel/breakfast",
+      "destination": "https://spinwheelgames.org/breakfast-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/random-student-picker",
+      "destination": "https://spinwheelgames.org/classroom-wheel/random-student",
+      "statusCode": 301
+    },
+    {
+      "source": "/random-number-wheel",
+      "destination": "https://spinwheelgames.org/number-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/winner-picker",
+      "destination": "https://spinwheelgames.org/giveaway-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/contest-picker",
+      "destination": "https://spinwheelgames.org/giveaway-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/raffle-wheel",
+      "destination": "https://spinwheelgames.org/giveaway-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/party-wheel/truth-or-dare",
+      "destination": "https://spinwheelgames.org/truth-or-dare-wheel",
+      "statusCode": 301
     },
     {
       "source": "/(.*)",
@@ -69,7 +144,19 @@
         }
       ],
       "destination": "https://spinwheelgames.org/$1",
-      "permanent": true
+      "statusCode": 301
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-forwarded-proto",
+          "value": "http"
+        }
+      ],
+      "destination": "https://spinwheelgames.org/$1",
+      "statusCode": 301
     }
   ]
 }

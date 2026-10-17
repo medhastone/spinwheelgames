@@ -697,7 +697,7 @@ export default function TruthOrDareWheelEngine() {
       ref={containerRef}
       id="truth-dare-wheel-section"
       className={`relative w-full rounded-2xl bg-slate-900 border border-slate-800 text-white shadow-2xl overflow-hidden transition-all duration-300 ${
-        isFullscreen ? 'fixed inset-0 z-50 rounded-none bg-slate-950 p-6 flex flex-col justify-center' : 'p-4 sm:p-6 lg:p-8'
+        isFullscreen ? 'fixed inset-0 z-50 rounded-none bg-slate-950 p-4 sm:p-6 flex flex-col justify-center' : 'p-3.5 sm:p-5 lg:p-6'
       }`}
     >
       {/* Toast Notification */}
@@ -981,7 +981,7 @@ export default function TruthOrDareWheelEngine() {
             width={540}
             height={540}
             onClick={spinWheel}
-            className={`w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] md:w-[480px] md:h-[480px] rounded-full shadow-2xl transition-transform duration-200 cursor-pointer ${
+            className={`w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] md:w-[420px] md:h-[420px] max-w-[min(88vw,420px)] aspect-square rounded-full shadow-2xl transition-transform duration-200 cursor-pointer ${
               isSpinning ? 'pointer-events-none cursor-default' : 'hover:scale-[1.01]'
             }`}
           />

@@ -25,9 +25,9 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'D&D Stat Roller | 5e Character Ability Score Generator (4d6 Drop Lowest, Point Buy, Standard Array)',
+  title: 'D&D Stat Roller 5e | SpinWheelGames',
   description:
-    'Free online D&D 5e stat roller for character creation. Roll all 6 ability scores using 4d6 drop lowest, 27 point buy calculator, standard array (15,14,13,12,10,8), or classic 3d6 with 3D dice physics.',
+    'Free online D&D 5e stat roller for character creation. Roll all 6 ability scores using 4d6 drop lowest, 27 point buy calculator, or standard array.',
   keywords: [
     'dnd stat roller',
     'dnd 5e character stat generator',
@@ -43,11 +43,26 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/dnd-stat-roller'
   },
   openGraph: {
-    title: 'D&D Stat Roller – 5e Character Ability Score Generator',
+    title: 'D&D Stat Roller 5e | SpinWheelGames',
     description:
-      'Interactive 3D D&D 5e character ability score generator supporting 4d6 drop lowest, 27 point buy, standard array, and modifier tables.',
+      'Free online D&D 5e stat roller for character creation. Roll all 6 ability scores using 4d6 drop lowest, 27 point buy calculator, or standard array.',
     url: 'https://spinwheelgames.org/dnd-stat-roller',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'D&D Stat Roller 5e Online'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'D&D Stat Roller 5e | SpinWheelGames',
+    description:
+      'Free online D&D 5e stat roller for character creation. Roll all 6 ability scores using 4d6 drop lowest, 27 point buy calculator, or standard array.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 
@@ -177,7 +192,7 @@ export default function DndStatRollerPage() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 pb-8 space-y-6">
         {/* Breadcrumb Navigation */}
         <Breadcrumbs
           items={[

@@ -32,45 +32,31 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Random Object Generator Wheel - Item Picker for Games & Art',
-  description:
-    'Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!',
-  keywords: [
-    'random object generator wheel',
-    'random object generator',
-    'random items picker',
-    'pictionary word generator',
-    'random things generator',
-    'random objects to draw',
-    'item randomizer',
-    'object spinner wheel',
-    'creative writing prompt objects'
-  ],
+  title: 'Random Object Generator Wheel | SpinWheelGames',
+  description: 'Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!',
   alternates: {
     canonical: 'https://spinwheelgames.org/random-object-generator'
   },
   openGraph: {
-    title: 'Random Object Generator Wheel - Item Picker for Games & Art',
-    description:
-      'Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!',
+    title: 'Random Object Generator Wheel | SpinWheelGames',
+    description: 'Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!',
     url: 'https://spinwheelgames.org/random-object-generator',
     siteName: 'SpinWheelGames',
-    locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Random Object Generator Wheel'
+        alt: 'Random Object Generator Wheel | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Random Object Generator Wheel - Item Picker for Games & Art',
-    description:
-      'Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!'
+    title: 'Random Object Generator Wheel | SpinWheelGames',
+    description: 'Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -191,7 +177,7 @@ export default function RandomObjectGeneratorPage() {
       <SubpageHeader activePage="/random-object-generator" />
 
       {/* Breadcrumb Navigation */}
-      <div className="bg-white/60 dark:bg-slate-900/60 border-b border-slate-200/80 dark:border-slate-800/60 pt-24 sm:pt-28 lg:pt-32 pb-2.5">
+      <div className="bg-white/60 dark:bg-slate-900/60 border-b border-slate-200/80 dark:border-slate-800/60 pt-16 sm:pt-20 lg:pt-22 pb-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
           <Link href="/" className="hover:text-slate-900 dark:hover:text-slate-200 transition">
             Home
@@ -205,19 +191,19 @@ export default function RandomObjectGeneratorPage() {
         </div>
       </div>
 
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12 sm:space-y-16">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 space-y-6 sm:space-y-8">
         {/* Hero Section */}
-        <section className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border border-indigo-500/20 shadow-xs">
+        <section className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border border-indigo-500/20 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
             1,000+ Curated Objects • Web Crypto API CSPRNG
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
             Random Object Generator
           </h1>
 
-          <p className="text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Generate random objects and random things instantly for drawing, Pictionary, creative writing, classroom
             games, and improv challenges. Use our item generator and object randomizer to list random objects, discover random everyday objects, or quickly ask give me an object for creative inspiration.
           </p>

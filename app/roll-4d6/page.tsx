@@ -25,7 +25,7 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Roll 4d6 (Drop Lowest) Online | 3D D&D Ability Score Roller',
+  title: 'Roll 4d6 Drop Lowest | SpinWheelGames',
   description:
     'Roll 4d6 online with realistic 3D WebGL physics. Automatically calculates 4d6 Drop Lowest for D&D character stats, discrete probability distributions, and expected averages.',
   keywords: [
@@ -42,11 +42,26 @@ export const metadata: Metadata = {
     canonical: 'https://spinwheelgames.org/roll-4d6'
   },
   openGraph: {
-    title: 'Roll 4d6 (Drop Lowest) Online – 3D Dice Roller',
+    title: 'Roll 4d6 Drop Lowest | SpinWheelGames',
     description:
-      'Interactive 3D WebGL 4d6 dice roller with automatic Drop Lowest calculation for D&D 5e character ability score generation.',
+      'Roll 4d6 online with realistic 3D WebGL physics. Automatically calculates 4d6 Drop Lowest for D&D character stats, discrete probability distributions, and expected averages.',
     url: 'https://spinwheelgames.org/roll-4d6',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Roll 4d6 Drop Lowest Online'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Roll 4d6 Drop Lowest | SpinWheelGames',
+    description:
+      'Roll 4d6 online with realistic 3D WebGL physics. Automatically calculates 4d6 Drop Lowest for D&D character stats, discrete probability distributions, and expected averages.',
+    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
   }
 };
 
@@ -165,7 +180,7 @@ export default function Roll4d6Page() {
       />
       <Navbar />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 space-y-6">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-22 pb-8 space-y-6">
         {/* Breadcrumbs Navigation */}
         <Breadcrumbs
           items={[

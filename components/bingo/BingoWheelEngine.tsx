@@ -747,7 +747,7 @@ export default function BingoWheelEngine() {
             </div>
 
             {/* Spinning Wheel Graphic - Roomy & Responsive */}
-            <div className="relative w-full max-w-[320px] xs:max-w-[360px] sm:max-w-[440px] md:max-w-[480px] lg:max-w-[500px] xl:max-w-[530px] aspect-square rounded-full p-2 bg-gradient-to-tr from-rose-500 via-purple-600 to-indigo-600 shadow-2xl flex items-center justify-center touch-manipulation">
+            <div className="relative w-full max-w-[min(88vw,320px)] xs:max-w-[340px] sm:max-w-[400px] md:max-w-[440px] lg:max-w-[460px] xl:max-w-[480px] aspect-square rounded-full p-2 bg-gradient-to-tr from-rose-500 via-purple-600 to-indigo-600 shadow-2xl flex items-center justify-center touch-manipulation">
               <div
                 className="w-full h-full rounded-full relative overflow-hidden transition-all ease-out cursor-pointer"
                 onClick={spinAndCallNumber}

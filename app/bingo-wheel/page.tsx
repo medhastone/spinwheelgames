@@ -33,46 +33,31 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Bingo Wheel - Random Bingo Caller & Number Spinner (1-75)',
-  description:
-    'Spin the free bingo wheel caller online! Features 75-ball & 90-ball modes, automatic voice caller, master call board, and no repeats. 100% fair & free!',
-  keywords: [
-    'bingo caller wheel',
-    'random bingo number generator',
-    'bingo wheel',
-    'bingo number spinner',
-    '75 ball bingo caller',
-    'virtual bingo ball picker',
-    'classroom bingo caller',
-    'bingo caller online free',
-    'bingo ball generator',
-    'bingo caller 1-75',
-    'bingo game number generator'
-  ],
+  title: 'Bingo Wheel – Caller & Number Spinner | SpinWheelGames',
+  description: 'Spin the free bingo wheel caller online! Features 75-ball & 90-ball modes, automatic voice caller, master call board, and no repeats. 100% fair & free!',
   alternates: {
     canonical: 'https://spinwheelgames.org/bingo-wheel'
   },
   openGraph: {
-    title: 'Bingo Wheel - Random Bingo Caller & Number Spinner (1-75)',
-    description:
-      'Spin the free bingo wheel caller online! Features 75-ball & 90-ball modes, automatic voice caller, master call board, and no repeats. 100% fair & free!',
+    title: 'Bingo Wheel – Caller & Number Spinner | SpinWheelGames',
+    description: 'Spin the free bingo wheel caller online! Features 75-ball & 90-ball modes, automatic voice caller, master call board, and no repeats. 100% fair & free!',
     url: 'https://spinwheelgames.org/bingo-wheel',
     siteName: 'SpinWheelGames',
     type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: 'https://spinwheelgames.org/spinwheel.webp',
         width: 1200,
         height: 630,
-        alt: 'Bingo Wheel - Random Bingo Caller'
+        alt: 'Bingo Wheel – Caller & Number Spinner | SpinWheelGames'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bingo Wheel - Random Bingo Caller & Number Spinner (1-75)',
-    description:
-      'Spin the free bingo wheel caller online! Features 75-ball & 90-ball modes, automatic voice caller, master call board, and no repeats. 100% fair & free!'
+    title: 'Bingo Wheel – Caller & Number Spinner | SpinWheelGames',
+    description: 'Spin the free bingo wheel caller online! Features 75-ball & 90-ball modes, automatic voice caller, master call board, and no repeats. 100% fair & free!',
+    images: ['https://spinwheelgames.org/spinwheel.webp']
   }
 };
 
@@ -199,7 +184,7 @@ export default function BingoWheelPage() {
 
         <main className="flex-1 w-full max-w-full overflow-x-clip space-y-5 sm:space-y-8 pb-16">
           {/* Top Header & Breadcrumbs Section */}
-          <section className="w-full max-w-[1440px] mx-auto px-3.5 sm:px-6 pt-24 sm:pt-28 lg:pt-32 space-y-3 sm:space-y-4">
+          <section className="w-full max-w-[1440px] mx-auto px-3.5 sm:px-6 pt-16 sm:pt-20 lg:pt-22 space-y-3 sm:space-y-4">
             <Breadcrumbs
               items={[
                 { label: 'Games & Classroom', href: '/categories' },

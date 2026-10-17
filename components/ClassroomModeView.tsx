@@ -364,18 +364,18 @@ export default function ClassroomModeView({
   };
 
   return (
-    <div className={`w-full flex flex-col gap-8 transition-all ${projectorMode ? 'fixed inset-0 z-50 bg-[#0f111a] text-white p-6 overflow-y-auto' : ''}`}>
+    <div className={`w-full flex flex-col gap-5 sm:gap-6 transition-all ${projectorMode ? 'fixed inset-0 z-50 bg-[#0f111a] text-white p-4 sm:p-6 overflow-y-auto' : ''}`}>
       {/* Top Header & Mode Navigation */}
-      <div className="w-full bg-white dark:bg-[#181922] rounded-3xl p-6 sm:p-8 border border-[#eeedf7] dark:border-[#292a39] shadow-sm flex flex-col gap-6">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#eeedf7] dark:border-[#292a39] pb-6">
+      <div className="w-full bg-white dark:bg-[#181922] rounded-3xl p-4 sm:p-6 lg:p-7 border border-[#eeedf7] dark:border-[#292a39] shadow-sm flex flex-col gap-4 sm:gap-5">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 sm:gap-4 border-b border-[#eeedf7] dark:border-[#292a39] pb-4 sm:pb-5">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[12px] font-bold mb-2">
               <GraduationCap className="w-4 h-4" />
               <span>Classroom &amp; Educator Suite</span>
             </div>
-            <h1 className="font-headline font-extrabold text-[26px] sm:text-[34px] text-[#1a1b22] dark:text-[#f1effa] tracking-tight">
+            <h2 className="font-headline font-extrabold text-[26px] sm:text-[34px] text-[#1a1b22] dark:text-[#f1effa] tracking-tight">
               Classroom Random Picker &amp; Group Maker
-            </h1>
+            </h2>
             <p className="text-[14px] text-[#767586] dark:text-[#908fa1] max-w-3xl mt-1">
               Purpose-built for teachers, professors, and instructors. Unbiased cold calling, no-repeat turns, instant balanced teams, reading orders, and fullscreen projector display.
             </p>
@@ -447,9 +447,9 @@ export default function ClassroomModeView({
 
       {/* TAB 1: RANDOM STUDENT PICKER WHEEL */}
       {activeTab === 'picker' && (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-start">
           {/* Wheel Stage (7 Cols) */}
-          <div className="lg:col-span-7 bg-white dark:bg-[#181922] rounded-3xl p-6 sm:p-8 border border-[#eeedf7] dark:border-[#292a39] shadow-sm flex flex-col items-center gap-6">
+          <div className="lg:col-span-7 bg-white dark:bg-[#181922] rounded-3xl p-4 sm:p-6 lg:p-7 border border-[#eeedf7] dark:border-[#292a39] shadow-sm flex flex-col items-center gap-4 sm:gap-6">
             {/* Roster Status Bar */}
             <div className="w-full flex items-center justify-between flex-wrap gap-3 bg-[#f4f2fd] dark:bg-[#1d1e28] p-3 rounded-2xl border border-[#eeedf7] dark:border-[#292a39]">
               <div className="flex items-center gap-4 text-xs font-semibold">
