@@ -10,31 +10,34 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'About Us & Editorial Mission | SpinWheelGames',
-  description: 'Engineered for teachers, streamers, and organizers who value client-side randomness and minimal data collection.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/about'
+  "title": "About Us & Editorial Mission | SpinWheelGames",
+  "description": "Engineered for teachers, streamers, and organizers who value client-side randomness and minimal data collection.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/about"
   },
-  openGraph: {
-    title: 'About Us & Editorial Mission | SpinWheelGames',
-    description: 'Engineered for teachers, streamers, and organizers who value client-side randomness and minimal data collection.',
-    url: 'https://spinwheelgames.org/about',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "About Us & Editorial Mission | SpinWheelGames",
+    "description": "Engineered for teachers, streamers, and organizers who value client-side randomness and minimal data collection.",
+    "url": "https://spinwheelgames.org/about",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'About Us & Editorial Mission | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fabout&title=About+Us+%26+Editorial+Mission+%7C+SpinWheelGames&desc=Engineered+for+teachers%2C+streamers%2C+and+organizers+who+value+client-side+randomness+and+minimal+data+collection.",
+        "width": 1200,
+        "height": 630,
+        "alt": "About Us & Editorial Mission | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'About Us & Editorial Mission | SpinWheelGames',
-    description: 'Engineered for teachers, streamers, and organizers who value client-side randomness and minimal data collection.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "About Us & Editorial Mission | SpinWheelGames",
+    "description": "Engineered for teachers, streamers, and organizers who value client-side randomness and minimal data collection.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fabout&title=About+Us+%26+Editorial+Mission+%7C+SpinWheelGames&desc=Engineered+for+teachers%2C+streamers%2C+and+organizers+who+value+client-side+randomness+and+minimal+data+collection."
+    ]
   }
 };
 

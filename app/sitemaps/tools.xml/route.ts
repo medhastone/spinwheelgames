@@ -49,6 +49,7 @@ export async function GET() {
     { path: '/categories', changefreq: 'weekly', priority: '0.85' },
     { path: '/about', changefreq: 'monthly', priority: '0.6' },
     { path: '/fairness', changefreq: 'monthly', priority: '0.7' },
+    { path: '/stream-wheel', changefreq: 'weekly', priority: '0.88' },
     { path: '/sitemap', changefreq: 'weekly', priority: '0.6' },
     { path: '/sitemap-directory', changefreq: 'weekly', priority: '0.6' },
   ];

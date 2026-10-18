@@ -41,8 +41,15 @@ import {
   Volume2,
   VolumeX,
   Heart,
-  UserX
+  UserX,
+  Code2,
+  Tv
 } from 'lucide-react';
+import {
+  setActiveViralWheel,
+  openViralEmbedModal,
+  openViralStreamerMode
+} from '@/lib/viralToolsData';
 
 // Preset lists for fast entry
 const POPULAR_PRESETS: Record<string, { title: string; names: string[] }> = {
@@ -635,6 +642,40 @@ export default function WheelOfNamesEngine() {
                   aria-label="Redo"
                 >
                   <Redo2 className="w-4 h-4" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    openViralEmbedModal({
+                      title: 'Wheel of Names',
+                      items,
+                      paletteKey: activePalette,
+                      palette: activePaletteColors
+                    })
+                  }
+                  className="px-2.5 py-1.5 rounded-xl bg-[#f4f2fd] dark:bg-[#1b1c28] text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-white border border-[#eeedf7] dark:border-[#2e3042] text-xs font-bold flex items-center gap-1 transition-colors cursor-pointer"
+                  title="Embed this wheel on any website (<iframe>)"
+                >
+                  <Code2 className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
+                  <span className="hidden sm:inline">Embed</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    openViralStreamerMode({
+                      title: 'Wheel of Names',
+                      items,
+                      paletteKey: activePalette,
+                      palette: activePaletteColors
+                    })
+                  }
+                  className="px-2.5 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1 transition-colors cursor-pointer"
+                  title="OBS Streamer Mode (?stream=1) - Transparent background & hotkey spin"
+                >
+                  <Tv className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Stream</span>
                 </button>
 
                 <button

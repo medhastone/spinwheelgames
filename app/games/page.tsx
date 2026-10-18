@@ -12,31 +12,34 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Spin Wheel Games & Random Pickers | SpinWheelGames',
-  description: 'Interactive random wheel and decision tool on SpinWheelGames.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/games'
+  "title": "Spin Wheel Games & Random Pickers | SpinWheelGames",
+  "description": "Interactive random wheel and decision tool on SpinWheelGames.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/games"
   },
-  openGraph: {
-    title: 'Spin Wheel Games & Random Pickers | SpinWheelGames',
-    description: 'Interactive random wheel and decision tool on SpinWheelGames.',
-    url: 'https://spinwheelgames.org/games',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Spin Wheel Games & Random Pickers | SpinWheelGames",
+    "description": "Interactive random wheel and decision tool on SpinWheelGames.",
+    "url": "https://spinwheelgames.org/games",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Spin Wheel Games & Random Pickers | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fgames&title=Spin+Wheel+Games+%26+Random+Pickers+%7C+SpinWheelGames&desc=Interactive+random+wheel+and+decision+tool+on+SpinWheelGames.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Spin Wheel Games & Random Pickers | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Spin Wheel Games & Random Pickers | SpinWheelGames',
-    description: 'Interactive random wheel and decision tool on SpinWheelGames.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Spin Wheel Games & Random Pickers | SpinWheelGames",
+    "description": "Interactive random wheel and decision tool on SpinWheelGames.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fgames&title=Spin+Wheel+Games+%26+Random+Pickers+%7C+SpinWheelGames&desc=Interactive+random+wheel+and+decision+tool+on+SpinWheelGames."
+    ]
   }
 };
 
@@ -108,6 +111,13 @@ export default function GamesPage() {
             >
               <Dices className="w-4 h-4" />
               <span>Launch Random Game Picker (Party, Board &amp; Card)</span>
+            </Link>
+            <Link
+              href="/stream-wheel"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition-all hover:-translate-y-0.5"
+            >
+              <Sparkles className="w-4 h-4" />
+              <span>OBS Streamer Mode &amp; Overlay Guide (/stream-wheel)</span>
             </Link>
           </div>
         </section>

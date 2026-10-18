@@ -29,31 +29,34 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Random App Picker Decision Wheel | SpinWheelGames',
-  description: 'Spin the random app picker to decide what mobile app, casual game, streaming service, or study tool to open. Features preset app categories, custom app lists, and no-repeat mode.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/random-app-picker'
+  "title": "Random App Picker Decision Wheel | SpinWheelGames",
+  "description": "Spin the random app picker to decide what mobile app, casual game, streaming service, or study tool to open. Features preset app categories, custom app lists, and no-repeat mode.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/random-app-picker"
   },
-  openGraph: {
-    title: 'Random App Picker Decision Wheel | SpinWheelGames',
-    description: 'Spin the random app picker to decide what mobile app, casual game, streaming service, or study tool to open. Features preset app categories, custom app lists, and no-repeat mode.',
-    url: 'https://spinwheelgames.org/random-app-picker',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Random App Picker Decision Wheel | SpinWheelGames",
+    "description": "Spin the random app picker to decide what mobile app, casual game, streaming service, or study tool to open. Features preset app categories, custom app lists, and no-repeat mode.",
+    "url": "https://spinwheelgames.org/random-app-picker",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Random App Picker Decision Wheel | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Frandom-app-picker&title=Random+App+Picker+Decision+Wheel+%7C+SpinWheelGames&desc=Spin+the+random+app+picker+to+decide+what+mobile+app%2C+casual+game%2C+streaming+service%2C+or+study+tool+to+open.+Features+preset+app+categories%2C+custom+app+lists%2C+and+no-repeat+mode.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Random App Picker Decision Wheel | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Random App Picker Decision Wheel | SpinWheelGames',
-    description: 'Spin the random app picker to decide what mobile app, casual game, streaming service, or study tool to open. Features preset app categories, custom app lists, and no-repeat mode.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Random App Picker Decision Wheel | SpinWheelGames",
+    "description": "Spin the random app picker to decide what mobile app, casual game, streaming service, or study tool to open. Features preset app categories, custom app lists, and no-repeat mode.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Frandom-app-picker&title=Random+App+Picker+Decision+Wheel+%7C+SpinWheelGames&desc=Spin+the+random+app+picker+to+decide+what+mobile+app%2C+casual+game%2C+streaming+service%2C+or+study+tool+to+open.+Features+preset+app+categories%2C+custom+app+lists%2C+and+no-repeat+mode."
+    ]
   }
 };
 

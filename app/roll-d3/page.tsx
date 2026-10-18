@@ -20,42 +20,43 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Roll d3 Online | SpinWheelGames',
-  description:
-    'Free online 3D d3 dice roller. Roll a 3-sided die with realistic physics for Warhammer, tabletop RPG damage, 3-way choices, and random table lookups.',
-  keywords: [
-    'roll d3',
-    'd3 dice roller',
-    '3 sided die',
-    'roll d3 online',
-    'd3 randomizer',
-    'virtual d3',
-    'dnd d3 roller'
+  "title": "Roll d3 Online | SpinWheelGames",
+  "description": "Free online 3D d3 dice roller. Roll a 3-sided die with realistic physics for Warhammer, tabletop RPG damage, 3-way choices, and random table lookups.",
+  "keywords": [
+    "roll d3",
+    "d3 dice roller",
+    "3 sided die",
+    "roll d3 online",
+    "d3 randomizer",
+    "virtual d3",
+    "dnd d3 roller"
   ],
-  alternates: {
-    canonical: 'https://spinwheelgames.org/roll-d3'
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/roll-d3"
   },
-  openGraph: {
-    title: 'Roll d3 Online | SpinWheelGames',
-    description:
-      'Free interactive 3D 3-sided die roller for Warhammer, tabletop RPG damage, and 3-way decisions.',
-    url: 'https://spinwheelgames.org/roll-d3',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Roll d3 Online | SpinWheelGames",
+    "description": "Free online 3D d3 dice roller. Roll a 3-sided die with realistic physics for Warhammer, tabletop RPG damage, 3-way choices, and random table lookups.",
+    "url": "https://spinwheelgames.org/roll-d3",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Roll d3 Online'
+        "url": "https://spinwheelgames.org/api/og?path=%2Froll-d3&title=Roll+d3+Online+%7C+SpinWheelGames&desc=Free+online+3D+d3+dice+roller.+Roll+a+3-sided+die+with+realistic+physics+for+Warhammer%2C+tabletop+RPG+damage%2C+3-way+choices%2C+and+random+table+lookups.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Roll d3 Online | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Roll d3 Online | SpinWheelGames',
-    description:
-      'Free online 3D d3 dice roller. Roll a 3-sided die with realistic physics for Warhammer, tabletop RPG damage, 3-way choices, and random table lookups.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Roll d3 Online | SpinWheelGames",
+    "description": "Free online 3D d3 dice roller. Roll a 3-sided die with realistic physics for Warhammer, tabletop RPG damage, 3-way choices, and random table lookups.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Froll-d3&title=Roll+d3+Online+%7C+SpinWheelGames&desc=Free+online+3D+d3+dice+roller.+Roll+a+3-sided+die+with+realistic+physics+for+Warhammer%2C+tabletop+RPG+damage%2C+3-way+choices%2C+and+random+table+lookups."
+    ]
   }
 };
 

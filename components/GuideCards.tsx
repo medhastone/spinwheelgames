@@ -41,6 +41,12 @@ export default function GuideCards() {
       description: 'Overcome choice fatigue and settle group arguments quickly using structured random pickers.',
       category: 'Decisions',
       path: '/decisions'
+    },
+    {
+      title: 'OBS Streamer Mode & Browser Source Guide',
+      description: 'Add a transparent wheel or 3D dice overlay (?stream=1) to OBS Studio and Streamlabs with live remote control.',
+      category: 'Streaming',
+      path: '/stream-wheel'
     }
   ];
 

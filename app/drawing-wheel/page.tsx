@@ -30,31 +30,34 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Drawing Wheel & Art Idea Generator | SpinWheelGames',
-  description: 'Spin the drawing wheel for instant random art prompts, sketches, characters, animals, and nature ideas. Choose Easy to Hard, 30s/60s challenge sprints, and no-repeat mode!',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/drawing-wheel'
+  "title": "Drawing Wheel & Art Idea Generator | SpinWheelGames",
+  "description": "Spin the drawing wheel for instant random art prompts, sketches, characters, animals, and nature ideas. Choose Easy to Hard, 30s/60s challenge sprints, and no-repeat mode!",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/drawing-wheel"
   },
-  openGraph: {
-    title: 'Drawing Wheel & Art Idea Generator | SpinWheelGames',
-    description: 'Spin the drawing wheel for instant random art prompts, sketches, characters, animals, and nature ideas. Choose Easy to Hard, 30s/60s challenge sprints, and no-repeat mode!',
-    url: 'https://spinwheelgames.org/drawing-wheel',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Drawing Wheel & Art Idea Generator | SpinWheelGames",
+    "description": "Spin the drawing wheel for instant random art prompts, sketches, characters, animals, and nature ideas. Choose Easy to Hard, 30s/60s challenge sprints, and no-repeat mode!",
+    "url": "https://spinwheelgames.org/drawing-wheel",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Drawing Wheel & Art Idea Generator | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fdrawing-wheel&title=Drawing+Wheel+%26+Art+Idea+Generator+%7C+SpinWheelGames&desc=Spin+the+drawing+wheel+for+instant+random+art+prompts%2C+sketches%2C+characters%2C+animals%2C+and+nature+ideas.+Choose+Easy+to+Hard%2C+30s%2F60s+challenge+sprints%2C+and+no-repeat+mode%21",
+        "width": 1200,
+        "height": 630,
+        "alt": "Drawing Wheel & Art Idea Generator | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Drawing Wheel & Art Idea Generator | SpinWheelGames',
-    description: 'Spin the drawing wheel for instant random art prompts, sketches, characters, animals, and nature ideas. Choose Easy to Hard, 30s/60s challenge sprints, and no-repeat mode!',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Drawing Wheel & Art Idea Generator | SpinWheelGames",
+    "description": "Spin the drawing wheel for instant random art prompts, sketches, characters, animals, and nature ideas. Choose Easy to Hard, 30s/60s challenge sprints, and no-repeat mode!",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fdrawing-wheel&title=Drawing+Wheel+%26+Art+Idea+Generator+%7C+SpinWheelGames&desc=Spin+the+drawing+wheel+for+instant+random+art+prompts%2C+sketches%2C+characters%2C+animals%2C+and+nature+ideas.+Choose+Easy+to+Hard%2C+30s%2F60s+challenge+sprints%2C+and+no-repeat+mode%21"
+    ]
   }
 };
 

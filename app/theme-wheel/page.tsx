@@ -26,31 +26,34 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Theme Wheel – Party & Event Spinner | SpinWheelGames',
-  description: 'Spin the free theme wheel to generate random party themes, birthday party ideas, classroom activities, content creator concepts, seasonal festivals, and custom themes.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/theme-wheel'
+  "title": "Theme Wheel – Party & Event Spinner | SpinWheelGames",
+  "description": "Spin the free theme wheel to generate random party themes, birthday party ideas, classroom activities, content creator concepts, seasonal festivals, and custom themes.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/theme-wheel"
   },
-  openGraph: {
-    title: 'Theme Wheel – Party & Event Spinner | SpinWheelGames',
-    description: 'Spin the free theme wheel to generate random party themes, birthday party ideas, classroom activities, content creator concepts, seasonal festivals, and custom themes.',
-    url: 'https://spinwheelgames.org/theme-wheel',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Theme Wheel – Party & Event Spinner | SpinWheelGames",
+    "description": "Spin the free theme wheel to generate random party themes, birthday party ideas, classroom activities, content creator concepts, seasonal festivals, and custom themes.",
+    "url": "https://spinwheelgames.org/theme-wheel",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Theme Wheel – Party & Event Spinner | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Ftheme-wheel&title=Theme+Wheel+%E2%80%93+Party+%26+Event+Spinner+%7C+SpinWheelGames&desc=Spin+the+free+theme+wheel+to+generate+random+party+themes%2C+birthday+party+ideas%2C+classroom+activities%2C+content+creator+concepts%2C+seasonal+festivals%2C+and+custom+themes.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Theme Wheel – Party & Event Spinner | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Theme Wheel – Party & Event Spinner | SpinWheelGames',
-    description: 'Spin the free theme wheel to generate random party themes, birthday party ideas, classroom activities, content creator concepts, seasonal festivals, and custom themes.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Theme Wheel – Party & Event Spinner | SpinWheelGames",
+    "description": "Spin the free theme wheel to generate random party themes, birthday party ideas, classroom activities, content creator concepts, seasonal festivals, and custom themes.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Ftheme-wheel&title=Theme+Wheel+%E2%80%93+Party+%26+Event+Spinner+%7C+SpinWheelGames&desc=Spin+the+free+theme+wheel+to+generate+random+party+themes%2C+birthday+party+ideas%2C+classroom+activities%2C+content+creator+concepts%2C+seasonal+festivals%2C+and+custom+themes."
+    ]
   }
 };
 

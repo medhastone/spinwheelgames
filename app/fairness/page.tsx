@@ -17,31 +17,34 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Cryptographic Randomness & Fairness | SpinWheelGames',
-  description: 'SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values. Learn how our client-side algorithms ensure uniform probability distributions.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/fairness'
+  "title": "Cryptographic Randomness & Fairness | SpinWheelGames",
+  "description": "SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values. Learn how our client-side algorithms ensure uniform probability distributions.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/fairness"
   },
-  openGraph: {
-    title: 'Cryptographic Randomness & Fairness | SpinWheelGames',
-    description: 'SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values. Learn how our client-side algorithms ensure uniform probability distributions.',
-    url: 'https://spinwheelgames.org/fairness',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Cryptographic Randomness & Fairness | SpinWheelGames",
+    "description": "SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values. Learn how our client-side algorithms ensure uniform probability distributions.",
+    "url": "https://spinwheelgames.org/fairness",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Cryptographic Randomness & Fairness | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Ffairness&title=Cryptographic+Randomness+%26+Fairness+%7C+SpinWheelGames&desc=SpinWheelGames+uses+the+browser+Web+Crypto+API+%28crypto.getRandomValues%28%29%29+to+generate+random+values.+Learn+how+our+client-side+algorithms+ensure+uniform+probability+distributions.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Cryptographic Randomness & Fairness | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Cryptographic Randomness & Fairness | SpinWheelGames',
-    description: 'SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values. Learn how our client-side algorithms ensure uniform probability distributions.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Cryptographic Randomness & Fairness | SpinWheelGames",
+    "description": "SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values. Learn how our client-side algorithms ensure uniform probability distributions.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Ffairness&title=Cryptographic+Randomness+%26+Fairness+%7C+SpinWheelGames&desc=SpinWheelGames+uses+the+browser+Web+Crypto+API+%28crypto.getRandomValues%28%29%29+to+generate+random+values.+Learn+how+our+client-side+algorithms+ensure+uniform+probability+distributions."
+    ]
   }
 };
 

@@ -27,55 +27,55 @@ import Footer from '@/components/Footer';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Random Number Wheel | SpinWheelGames',
-  description:
-    'Spin the random number wheel online for any range: 1–10, 1–20, 1–50, 1–100, or custom bounds. Features picking multiple numbers, no-repeat mode, even/odd filters, and 100% fair CSPRNG.',
-  keywords: [
-    'picking a number',
-    'number spinner',
-    'spinner with numbers',
-    'number spin wheel',
-    'random number picker',
-    'pick a number',
-    'pick a number 1-10',
-    'pick a number 1-20',
-    'pick a number 1-50',
-    'pick a number 1-100',
-    'random number generator 1-10',
-    'random number generator 1-20',
-    'random number generator 1-50',
-    'random number generator 1-100',
-    'random number picker 1-100',
-    'pick multiple numbers',
-    'no repeat number generator',
-    'even odd number wheel',
-    'custom range number spinner'
+  "title": "Random Number Wheel | SpinWheelGames",
+  "description": "Spin the random number wheel online for any range: 1–10, 1–20, 1–50, 1–100, or custom bounds. Features picking multiple numbers, no-repeat mode, even/odd filters, and 100% fair CSPRNG.",
+  "keywords": [
+    "picking a number",
+    "number spinner",
+    "spinner with numbers",
+    "number spin wheel",
+    "random number picker",
+    "pick a number",
+    "pick a number 1-10",
+    "pick a number 1-20",
+    "pick a number 1-50",
+    "pick a number 1-100",
+    "random number generator 1-10",
+    "random number generator 1-20",
+    "random number generator 1-50",
+    "random number generator 1-100",
+    "random number picker 1-100",
+    "pick multiple numbers",
+    "no repeat number generator",
+    "even odd number wheel",
+    "custom range number spinner"
   ],
-  alternates: {
-    canonical: 'https://spinwheelgames.org/random-number-wheel'
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/random-number-wheel"
   },
-  openGraph: {
-    title: 'Random Number Wheel | SpinWheelGames',
-    description:
-      'The strongest pick a number tool online. Spin a random number wheel with 1-10, 1-20, 1-50, 1-100 presets, custom ranges, multiple numbers, no-repeat elimination, and even/odd options.',
-    url: 'https://spinwheelgames.org/random-number-wheel',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Random Number Wheel | SpinWheelGames",
+    "description": "Spin the random number wheel online for any range: 1–10, 1–20, 1–50, 1–100, or custom bounds. Features picking multiple numbers, no-repeat mode, even/odd filters, and 100% fair CSPRNG.",
+    "url": "https://spinwheelgames.org/random-number-wheel",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Random Number Wheel | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Frandom-number-wheel&title=Random+Number+Wheel+%7C+SpinWheelGames&desc=Spin+the+random+number+wheel+online+for+any+range%3A+1%E2%80%9310%2C+1%E2%80%9320%2C+1%E2%80%9350%2C+1%E2%80%93100%2C+or+custom+bounds.+Features+picking+multiple+numbers%2C+no-repeat+mode%2C+even%2Fodd+filters%2C+and+100%25+fair+CSP",
+        "width": 1200,
+        "height": 630,
+        "alt": "Random Number Wheel | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Random Number Wheel | SpinWheelGames',
-    description:
-      'Spin the random number wheel online for 1–10, 1–20, 1–50, 1–100, or custom ranges. Features multiple numbers, no-repeat mode, even/odd options & CSPRNG fairness.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Random Number Wheel | SpinWheelGames",
+    "description": "Spin the random number wheel online for any range: 1–10, 1–20, 1–50, 1–100, or custom bounds. Features picking multiple numbers, no-repeat mode, even/odd filters, and 100% fair CSPRNG.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Frandom-number-wheel&title=Random+Number+Wheel+%7C+SpinWheelGames&desc=Spin+the+random+number+wheel+online+for+any+range%3A+1%E2%80%9310%2C+1%E2%80%9320%2C+1%E2%80%9350%2C+1%E2%80%93100%2C+or+custom+bounds.+Features+picking+multiple+numbers%2C+no-repeat+mode%2C+even%2Fodd+filters%2C+and+100%25+fair+CSP"
+    ]
   }
 };
 

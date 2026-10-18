@@ -1,4 +1,12 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
+import { createPageMetadata } from '@/lib/pageMetadata';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Page Not Found (404) | SpinWheelGames',
+  description: 'The requested spin wheel or dice roller page could not be found. Explore 145+ free interactive wheels and randomizers on SpinWheelGames.org.',
+  path: '/404'
+});
 
 export default function NotFound() {
   return (

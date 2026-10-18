@@ -30,31 +30,34 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Number Wheel – Random Number Picker | SpinWheelGames',
-  description: 'Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/number-wheel'
+  "title": "Number Wheel – Random Number Picker | SpinWheelGames",
+  "description": "Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/number-wheel"
   },
-  openGraph: {
-    title: 'Number Wheel – Random Number Picker | SpinWheelGames',
-    description: 'Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.',
-    url: 'https://spinwheelgames.org/number-wheel',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Number Wheel – Random Number Picker | SpinWheelGames",
+    "description": "Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.",
+    "url": "https://spinwheelgames.org/number-wheel",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Number Wheel – Random Number Picker | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fnumber-wheel&title=Number+Wheel+%E2%80%93+Random+Number+Picker+%7C+SpinWheelGames&desc=Spin+the+random+number+wheel+online+for+any+custom+range%3A+1-10%2C+1-20%2C+1-50%2C+1-100%2C+or+1-1000.+Features+even%2Fodd+filters%2C+no-repeat+mode+%26+100%25+fair+RNG.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Number Wheel – Random Number Picker | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Number Wheel – Random Number Picker | SpinWheelGames',
-    description: 'Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Number Wheel – Random Number Picker | SpinWheelGames",
+    "description": "Spin the random number wheel online for any custom range: 1-10, 1-20, 1-50, 1-100, or 1-1000. Features even/odd filters, no-repeat mode & 100% fair RNG.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fnumber-wheel&title=Number+Wheel+%E2%80%93+Random+Number+Picker+%7C+SpinWheelGames&desc=Spin+the+random+number+wheel+online+for+any+custom+range%3A+1-10%2C+1-20%2C+1-50%2C+1-100%2C+or+1-1000.+Features+even%2Fodd+filters%2C+no-repeat+mode+%26+100%25+fair+RNG."
+    ]
   }
 };
 

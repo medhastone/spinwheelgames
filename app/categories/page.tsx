@@ -36,34 +36,34 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'All Wheel Categories & Decision Games | SpinWheelGames',
-  description:
-    'Browse all 18+ wheel categories and 106+ vetted random pickers, classroom tools, party games, decision wheels, and probability spinners.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/categories'
+  "title": "All Wheel Categories & Decision Games | SpinWheelGames",
+  "description": "Browse all 18+ wheel categories and 106+ vetted random pickers, classroom tools, party games, decision wheels, and probability spinners.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/categories"
   },
-  openGraph: {
-    title: 'All Wheel Categories & Decision Games | SpinWheelGames',
-    description:
-      'Browse all 18+ wheel categories and 106+ vetted random pickers, classroom tools, party games, decision wheels, and probability spinners.',
-    url: 'https://spinwheelgames.org/categories',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "All Wheel Categories & Decision Games | SpinWheelGames",
+    "description": "Browse all 18+ wheel categories and 106+ vetted random pickers, classroom tools, party games, decision wheels, and probability spinners.",
+    "url": "https://spinwheelgames.org/categories",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'All Wheel Categories & Decision Games | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fcategories&title=All+Wheel+Categories+%26+Decision+Games+%7C+SpinWheelGames&desc=Browse+all+18%2B+wheel+categories+and+106%2B+vetted+random+pickers%2C+classroom+tools%2C+party+games%2C+decision+wheels%2C+and+probability+spinners.",
+        "width": 1200,
+        "height": 630,
+        "alt": "All Wheel Categories & Decision Games | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'All Wheel Categories & Decision Games | SpinWheelGames',
-    description:
-      'Browse all 18+ wheel categories and 106+ vetted random pickers, classroom tools, party games, decision wheels, and probability spinners.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "All Wheel Categories & Decision Games | SpinWheelGames",
+    "description": "Browse all 18+ wheel categories and 106+ vetted random pickers, classroom tools, party games, decision wheels, and probability spinners.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fcategories&title=All+Wheel+Categories+%26+Decision+Games+%7C+SpinWheelGames&desc=Browse+all+18%2B+wheel+categories+and+106%2B+vetted+random+pickers%2C+classroom+tools%2C+party+games%2C+decision+wheels%2C+and+probability+spinners."
+    ]
   }
 };
 

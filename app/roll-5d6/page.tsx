@@ -20,41 +20,42 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Roll 5d6 Online | SpinWheelGames',
-  description:
-    'Free online 5d6 dice roller. Roll 5 six-sided dice in realistic 3D WebGL physics. View totals (5 to 30), averages (17.5), and outcome probabilities for Yahtzee and Farkle.',
-  keywords: [
-    'roll 5d6',
-    '5d6 roller',
-    'yahtzee dice roller',
-    '5d6 probability',
-    'roll 5d6 online',
-    'five dice roller'
+  "title": "Roll 5d6 Online | SpinWheelGames",
+  "description": "Free online 5d6 dice roller. Roll 5 six-sided dice in realistic 3D WebGL physics. View totals (5 to 30), averages (17.5), and outcome probabilities for Yahtzee and Farkle.",
+  "keywords": [
+    "roll 5d6",
+    "5d6 roller",
+    "yahtzee dice roller",
+    "5d6 probability",
+    "roll 5d6 online",
+    "five dice roller"
   ],
-  alternates: {
-    canonical: 'https://spinwheelgames.org/roll-5d6'
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/roll-5d6"
   },
-  openGraph: {
-    title: 'Roll 5d6 Online | SpinWheelGames',
-    description:
-      'Roll 5 six-sided dice online with 3D physics. Perfect for Yahtzee, Farkle, Shadowrun pools, and board games.',
-    url: 'https://spinwheelgames.org/roll-5d6',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Roll 5d6 Online | SpinWheelGames",
+    "description": "Free online 5d6 dice roller. Roll 5 six-sided dice in realistic 3D WebGL physics. View totals (5 to 30), averages (17.5), and outcome probabilities for Yahtzee and Farkle.",
+    "url": "https://spinwheelgames.org/roll-5d6",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Roll 5d6 Online'
+        "url": "https://spinwheelgames.org/api/og?path=%2Froll-5d6&title=Roll+5d6+Online+%7C+SpinWheelGames&desc=Free+online+5d6+dice+roller.+Roll+5+six-sided+dice+in+realistic+3D+WebGL+physics.+View+totals+%285+to+30%29%2C+averages+%2817.5%29%2C+and+outcome+probabilities+for+Yahtzee+and+Farkle.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Roll 5d6 Online | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Roll 5d6 Online | SpinWheelGames',
-    description:
-      'Free online 5d6 dice roller. Roll 5 six-sided dice in realistic 3D WebGL physics. View totals (5 to 30), averages (17.5), and outcome probabilities for Yahtzee and Farkle.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Roll 5d6 Online | SpinWheelGames",
+    "description": "Free online 5d6 dice roller. Roll 5 six-sided dice in realistic 3D WebGL physics. View totals (5 to 30), averages (17.5), and outcome probabilities for Yahtzee and Farkle.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Froll-5d6&title=Roll+5d6+Online+%7C+SpinWheelGames&desc=Free+online+5d6+dice+roller.+Roll+5+six-sided+dice+in+realistic+3D+WebGL+physics.+View+totals+%285+to+30%29%2C+averages+%2817.5%29%2C+and+outcome+probabilities+for+Yahtzee+and+Farkle."
+    ]
   }
 };
 

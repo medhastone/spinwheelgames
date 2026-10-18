@@ -10,31 +10,34 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy & Data Security | SpinWheelGames',
-  description: 'Designed to minimize collection of user-provided wheel data with local browser processing and transparent practices.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/privacy'
+  "title": "Privacy Policy & Data Security | SpinWheelGames",
+  "description": "Designed to minimize collection of user-provided wheel data with local browser processing and transparent practices.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/privacy"
   },
-  openGraph: {
-    title: 'Privacy Policy & Data Security | SpinWheelGames',
-    description: 'Designed to minimize collection of user-provided wheel data with local browser processing and transparent practices.',
-    url: 'https://spinwheelgames.org/privacy',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Privacy Policy & Data Security | SpinWheelGames",
+    "description": "Designed to minimize collection of user-provided wheel data with local browser processing and transparent practices.",
+    "url": "https://spinwheelgames.org/privacy",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Privacy Policy & Data Security | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fprivacy&title=Privacy+Policy+%26+Data+Security+%7C+SpinWheelGames&desc=Designed+to+minimize+collection+of+user-provided+wheel+data+with+local+browser+processing+and+transparent+practices.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Privacy Policy & Data Security | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Privacy Policy & Data Security | SpinWheelGames',
-    description: 'Designed to minimize collection of user-provided wheel data with local browser processing and transparent practices.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Privacy Policy & Data Security | SpinWheelGames",
+    "description": "Designed to minimize collection of user-provided wheel data with local browser processing and transparent practices.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fprivacy&title=Privacy+Policy+%26+Data+Security+%7C+SpinWheelGames&desc=Designed+to+minimize+collection+of+user-provided+wheel+data+with+local+browser+processing+and+transparent+practices."
+    ]
   }
 };
 

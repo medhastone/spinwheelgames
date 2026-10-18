@@ -30,7 +30,12 @@ export default function SharePanel({ wheel, onClose }: SharePanelProps) {
   }, [wheel]);
 
   const effectiveShareUrl = shareUrl || `${baseUrl}/`;
-  const embedCode = `<iframe src="${effectiveShareUrl}" width="100%" height="650" frameborder="0" style="border:0; border-radius: 16px; overflow:hidden;" allow="fullscreen"></iframe>`;
+  const embedParams = new URLSearchParams({
+    title: wheel.title,
+    items: wheel.items.slice(0, 50).map((i) => i.text).join('|')
+  });
+  const embedSrc = `${baseUrl}/embed/wheel-of-names?${embedParams.toString()}`;
+  const embedCode = `<div style="width:100%;max-width:560px;margin:0 auto;font-family:system-ui,-apple-system,sans-serif;">\n  <iframe src="${embedSrc}" width="100%" height="560" style="border:0;border-radius:16px;overflow:hidden;display:block;width:100%;" allow="fullscreen" loading="lazy" title="${wheel.title.replace(/"/g, '&quot;')} - SpinWheelGames.org"></iframe>\n  <div style="text-align:center;margin-top:6px;font-size:12px;"><a href="https://spinwheelgames.org" target="_blank" rel="noopener noreferrer" style="color:#4648d4;text-decoration:none;font-weight:600;">Made with SpinWheelGames.org</a></div>\n</div>`;
 
   const handleCopyLink = () => {
     navigator.clipboard?.writeText?.(effectiveShareUrl);

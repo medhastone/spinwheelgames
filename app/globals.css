@@ -158,3 +158,28 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* OBS Browser Source Streamer Mode (?stream=1) Transparent Background & Chrome Isolation */
+html.streamer-mode,
+html.streamer-mode body {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  overflow: hidden !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.streamer-mode body > *:not(#streamer-mode-portal) {
+  display: none !important;
+}
+
+html.streamer-mode header,
+html.streamer-mode footer,
+html.streamer-mode #scroll-navigation-controls,
+html.streamer-mode #viral-tools-dock {
+  display: none !important;
+}
+

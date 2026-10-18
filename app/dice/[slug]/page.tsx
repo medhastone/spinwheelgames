@@ -6,6 +6,7 @@ import DedicatedDiePageComponent from '@/components/dice/DedicatedDiePageCompone
 import Navbar from '@/components/Navbar';
 import DiceNavigation from '@/components/dice/DiceNavigation';
 import Footer from '@/components/Footer';
+import { createPageMetadata } from '@/lib/pageMetadata';
 
 export const dynamic = 'force-static';
 export const dynamicParams = true;
@@ -26,56 +27,31 @@ export async function generateMetadata({ params }: DiceSlugPageProps): Promise<M
   const { slug } = await params;
   const normalizedSlug = slug.toLowerCase();
 
-
-
   if (normalizedSlug === '4d6') {
-    return {
-      alternates: {
-        canonical: 'https://spinwheelgames.org/roll-4d6'
-      }
-    };
+    return createPageMetadata({
+      title: 'Roll 4d6 Drop Lowest D&D Stat Roller | SpinWheelGames',
+      description: 'Roll 4d6 and drop the lowest die for D&D 5e ability scores with 3D physics and cryptographic fairness.',
+      path: '/roll-4d6'
+    });
   }
 
   const config = DIE_PAGE_CONFIGS[normalizedSlug];
 
   if (!config) {
-    return {
+    return createPageMetadata({
       title: 'Online 3D Dice Roller | SpinWheelGames',
-      description: 'Free interactive 3D virtual dice roller with rigid-body physics, realistic bounces, and cryptographic fairness.'
-    };
+      description: 'Free interactive 3D virtual dice roller with rigid-body physics, realistic bounces, and cryptographic fairness.',
+      path: `/dice/${normalizedSlug}`
+    });
   }
 
-  const canonicalUrl = `https://spinwheelgames.org/dice/${normalizedSlug}`;
-
-  return {
+  return createPageMetadata({
     title: config.metaTitle,
     description: config.metaDescription,
+    path: `/dice/${normalizedSlug}`,
     keywords: config.primaryKeywords,
-    alternates: {
-      canonical: canonicalUrl
-    },
-    openGraph: {
-      title: config.metaTitle,
-      description: config.metaDescription,
-      url: canonicalUrl,
-      siteName: 'SpinWheelGames',
-      type: 'website',
-      images: [
-        {
-          url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-          width: 1200,
-          height: 630,
-          alt: `${config.name} 3D Online Dice Roller`
-        }
-      ]
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: config.metaTitle,
-      description: config.metaDescription,
-      images: ['https://spinwheelgames.org/spinwheel-logo.webp']
-    }
-  };
+    imageAlt: `${config.name} 3D Online Dice Roller`
+  });
 }
 
 export default async function DiceSlugPage({ params }: DiceSlugPageProps) {

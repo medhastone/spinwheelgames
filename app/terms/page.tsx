@@ -10,31 +10,34 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | SpinWheelGames',
-  description: 'Guidelines and conditions for using SpinWheelGames tools and embedding services.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/terms'
+  "title": "Terms of Service | SpinWheelGames",
+  "description": "Guidelines and conditions for using SpinWheelGames tools and embedding services.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/terms"
   },
-  openGraph: {
-    title: 'Terms of Service | SpinWheelGames',
-    description: 'Guidelines and conditions for using SpinWheelGames tools and embedding services.',
-    url: 'https://spinwheelgames.org/terms',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Terms of Service | SpinWheelGames",
+    "description": "Guidelines and conditions for using SpinWheelGames tools and embedding services.",
+    "url": "https://spinwheelgames.org/terms",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Terms of Service | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fterms&title=Terms+of+Service+%7C+SpinWheelGames&desc=Guidelines+and+conditions+for+using+SpinWheelGames+tools+and+embedding+services.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Terms of Service | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Terms of Service | SpinWheelGames',
-    description: 'Guidelines and conditions for using SpinWheelGames tools and embedding services.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Terms of Service | SpinWheelGames",
+    "description": "Guidelines and conditions for using SpinWheelGames tools and embedding services.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fterms&title=Terms+of+Service+%7C+SpinWheelGames&desc=Guidelines+and+conditions+for+using+SpinWheelGames+tools+and+embedding+services."
+    ]
   }
 };
 

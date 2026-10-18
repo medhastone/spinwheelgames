@@ -30,47 +30,47 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Team Generator Wheel | SpinWheelGames',
-  description:
-    'Easily split names into balanced, fair teams or spin the live draft wheel. Perfect for sports, classroom projects, video game squads, and hackathons!',
-  keywords: [
-    'random team generator wheel',
-    'random team generator',
-    'team generator',
-    'group maker',
-    'random group generator',
-    'team picker wheel',
-    'team divider',
-    'split into teams',
-    'random squad divider',
-    'draft order randomizer',
-    'classroom group maker'
+  "title": "Team Generator Wheel | SpinWheelGames",
+  "description": "Easily split names into balanced, fair teams or spin the live draft wheel. Perfect for sports, classroom projects, video game squads, and hackathons!",
+  "keywords": [
+    "random team generator wheel",
+    "random team generator",
+    "team generator",
+    "group maker",
+    "random group generator",
+    "team picker wheel",
+    "team divider",
+    "split into teams",
+    "random squad divider",
+    "draft order randomizer",
+    "classroom group maker"
   ],
-  alternates: {
-    canonical: 'https://spinwheelgames.org/team-generator'
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/team-generator"
   },
-  openGraph: {
-    title: 'Team Generator Wheel | SpinWheelGames',
-    description:
-      'Easily split names into balanced, fair teams or spin the live draft wheel. Perfect for sports, classroom projects, video game squads, and hackathons!',
-    url: 'https://spinwheelgames.org/team-generator',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Team Generator Wheel | SpinWheelGames",
+    "description": "Easily split names into balanced, fair teams or spin the live draft wheel. Perfect for sports, classroom projects, video game squads, and hackathons!",
+    "url": "https://spinwheelgames.org/team-generator",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Team Generator Wheel | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fteam-generator&title=Team+Generator+Wheel+%7C+SpinWheelGames&desc=Easily+split+names+into+balanced%2C+fair+teams+or+spin+the+live+draft+wheel.+Perfect+for+sports%2C+classroom+projects%2C+video+game+squads%2C+and+hackathons%21",
+        "width": 1200,
+        "height": 630,
+        "alt": "Team Generator Wheel | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Team Generator Wheel | SpinWheelGames',
-    description:
-      'Easily split names into balanced, fair teams or spin the live draft wheel. Perfect for sports, classroom projects, video game squads, and hackathons!',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Team Generator Wheel | SpinWheelGames",
+    "description": "Easily split names into balanced, fair teams or spin the live draft wheel. Perfect for sports, classroom projects, video game squads, and hackathons!",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fteam-generator&title=Team+Generator+Wheel+%7C+SpinWheelGames&desc=Easily+split+names+into+balanced%2C+fair+teams+or+spin+the+live+draft+wheel.+Perfect+for+sports%2C+classroom+projects%2C+video+game+squads%2C+and+hackathons%21"
+    ]
   }
 };
 

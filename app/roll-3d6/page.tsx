@@ -20,42 +20,43 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Roll 3d6 Online | SpinWheelGames',
-  description:
-    'Free online 3d6 dice roller with 3D WebGL physics. View symmetric bell curve probability tables (range 3 to 18, average 10.5) for GURPS and tabletop RPGs.',
-  keywords: [
-    'roll 3d6',
-    '3d6 roller',
-    '3d6 probability',
-    '3d6 bell curve',
-    '3d6 average',
-    'roll 3d6 online',
-    'gurps 3d6 roller'
+  "title": "Roll 3d6 Online | SpinWheelGames",
+  "description": "Free online 3d6 dice roller with 3D WebGL physics. View symmetric bell curve probability tables (range 3 to 18, average 10.5) for GURPS and tabletop RPGs.",
+  "keywords": [
+    "roll 3d6",
+    "3d6 roller",
+    "3d6 probability",
+    "3d6 bell curve",
+    "3d6 average",
+    "roll 3d6 online",
+    "gurps 3d6 roller"
   ],
-  alternates: {
-    canonical: 'https://spinwheelgames.org/roll-3d6'
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/roll-3d6"
   },
-  openGraph: {
-    title: 'Roll 3d6 Online | SpinWheelGames',
-    description:
-      'Free 3D 3d6 dice simulator and bell curve probability distribution for classic tabletop RPGs.',
-    url: 'https://spinwheelgames.org/roll-3d6',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Roll 3d6 Online | SpinWheelGames",
+    "description": "Free online 3d6 dice roller with 3D WebGL physics. View symmetric bell curve probability tables (range 3 to 18, average 10.5) for GURPS and tabletop RPGs.",
+    "url": "https://spinwheelgames.org/roll-3d6",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Roll 3d6 Online'
+        "url": "https://spinwheelgames.org/api/og?path=%2Froll-3d6&title=Roll+3d6+Online+%7C+SpinWheelGames&desc=Free+online+3d6+dice+roller+with+3D+WebGL+physics.+View+symmetric+bell+curve+probability+tables+%28range+3+to+18%2C+average+10.5%29+for+GURPS+and+tabletop+RPGs.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Roll 3d6 Online | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Roll 3d6 Online | SpinWheelGames',
-    description:
-      'Free online 3d6 dice roller with 3D WebGL physics. View symmetric bell curve probability tables (range 3 to 18, average 10.5) for GURPS and tabletop RPGs.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Roll 3d6 Online | SpinWheelGames",
+    "description": "Free online 3d6 dice roller with 3D WebGL physics. View symmetric bell curve probability tables (range 3 to 18, average 10.5) for GURPS and tabletop RPGs.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Froll-3d6&title=Roll+3d6+Online+%7C+SpinWheelGames&desc=Free+online+3d6+dice+roller+with+3D+WebGL+physics.+View+symmetric+bell+curve+probability+tables+%28range+3+to+18%2C+average+10.5%29+for+GURPS+and+tabletop+RPGs."
+    ]
   }
 };
 

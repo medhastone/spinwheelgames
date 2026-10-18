@@ -24,31 +24,34 @@ import Footer from '@/components/Footer';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Movie Wheel – What Movie to Watch | SpinWheelGames',
-  description: 'Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/movie-wheel'
+  "title": "Movie Wheel – What Movie to Watch | SpinWheelGames",
+  "description": "Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/movie-wheel"
   },
-  openGraph: {
-    title: 'Movie Wheel – What Movie to Watch | SpinWheelGames',
-    description: 'Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!',
-    url: 'https://spinwheelgames.org/movie-wheel',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Movie Wheel – What Movie to Watch | SpinWheelGames",
+    "description": "Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!",
+    "url": "https://spinwheelgames.org/movie-wheel",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Movie Wheel – What Movie to Watch | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fmovie-wheel&title=Movie+Wheel+%E2%80%93+What+Movie+to+Watch+%7C+SpinWheelGames&desc=Spin+the+movie+wheel+to+randomly+pick+what+to+watch+on+Netflix%2C+Prime%2C+or+cinema.+Filter+by+genre%2C+date+night%2C+or+your+custom+watchlist.+Free+%26+100%25+fair%21",
+        "width": 1200,
+        "height": 630,
+        "alt": "Movie Wheel – What Movie to Watch | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Movie Wheel – What Movie to Watch | SpinWheelGames',
-    description: 'Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Movie Wheel – What Movie to Watch | SpinWheelGames",
+    "description": "Spin the movie wheel to randomly pick what to watch on Netflix, Prime, or cinema. Filter by genre, date night, or your custom watchlist. Free & 100% fair!",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fmovie-wheel&title=Movie+Wheel+%E2%80%93+What+Movie+to+Watch+%7C+SpinWheelGames&desc=Spin+the+movie+wheel+to+randomly+pick+what+to+watch+on+Netflix%2C+Prime%2C+or+cinema.+Filter+by+genre%2C+date+night%2C+or+your+custom+watchlist.+Free+%26+100%25+fair%21"
+    ]
   }
 };
 

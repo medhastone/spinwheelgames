@@ -23,45 +23,45 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Roll Dice Online 3D | SpinWheelGames',
-  description:
-    'Roll 3D polyhedral dice online with realistic physics, totals, modifiers, and instant face detection. Free interactive virtual dice roller for D&D and board games.',
-  keywords: [
-    'dice roller',
-    'online dice roller',
-    'roll dice online',
-    'virtual dice',
-    'random dice roller',
-    'digital dice',
-    'free dice roller',
-    '3d dice roller',
-    'dnd dice roller'
+  "title": "Roll Dice Online 3D | SpinWheelGames",
+  "description": "Roll 3D polyhedral dice online with realistic physics, totals, modifiers, and instant face detection. Free interactive virtual dice roller for D&D and board games.",
+  "keywords": [
+    "dice roller",
+    "online dice roller",
+    "roll dice online",
+    "virtual dice",
+    "random dice roller",
+    "digital dice",
+    "free dice roller",
+    "3d dice roller",
+    "dnd dice roller"
   ],
-  openGraph: {
-    title: 'Roll Dice Online 3D | SpinWheelGames',
-    description:
-      'Roll 3D polyhedral dice online with realistic physics, totals, modifiers, and instant face detection. Free interactive virtual dice roller for D&D and board games.',
-    url: 'https://spinwheelgames.org/dice-roller',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/dice-roller"
+  },
+  "openGraph": {
+    "title": "Roll Dice Online 3D | SpinWheelGames",
+    "description": "Roll 3D polyhedral dice online with realistic physics, totals, modifiers, and instant face detection. Free interactive virtual dice roller for D&D and board games.",
+    "url": "https://spinwheelgames.org/dice-roller",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Free Online 3D Virtual Dice Roller'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fdice-roller&title=Roll+Dice+Online+3D+%7C+SpinWheelGames&desc=Roll+3D+polyhedral+dice+online+with+realistic+physics%2C+totals%2C+modifiers%2C+and+instant+face+detection.+Free+interactive+virtual+dice+roller+for+D%26D+and+board+games.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Roll Dice Online 3D | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Roll Dice Online 3D | SpinWheelGames',
-    description:
-      'Roll 3D polyhedral dice online with realistic physics, totals, modifiers, and instant face detection. Free interactive virtual dice roller for D&D and board games.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
-  },
-  alternates: {
-    canonical: 'https://spinwheelgames.org/dice-roller'
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Roll Dice Online 3D | SpinWheelGames",
+    "description": "Roll 3D polyhedral dice online with realistic physics, totals, modifiers, and instant face detection. Free interactive virtual dice roller for D&D and board games.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fdice-roller&title=Roll+Dice+Online+3D+%7C+SpinWheelGames&desc=Roll+3D+polyhedral+dice+online+with+realistic+physics%2C+totals%2C+modifiers%2C+and+instant+face+detection.+Free+interactive+virtual+dice+roller+for+D%26D+and+board+games."
+    ]
   }
 };
 

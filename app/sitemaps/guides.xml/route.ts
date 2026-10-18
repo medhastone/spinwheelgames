@@ -10,8 +10,14 @@ export async function GET() {
     (p) => p.pageType === 'guide'
   );
 
-  const urlsXml = guidePages
-    .map((page) => {
+  const urlsXml = [
+    `  <url>
+    <loc>https://spinwheelgames.org/stream-wheel</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>`,
+    ...guidePages.map((page) => {
       return `  <url>
     <loc>https://spinwheelgames.org${page.fullPath}</loc>
     <lastmod>${lastmod}</lastmod>
@@ -19,7 +25,7 @@ export async function GET() {
     <priority>0.7</priority>
   </url>`;
     })
-    .join('\n');
+  ].join('\n');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

@@ -18,8 +18,10 @@ import {
   Play,
   Terminal,
   Info,
-  Eye
+  Eye,
+  Tv
 } from 'lucide-react';
+import { openViralStreamerSetupModal } from '@/lib/viralToolsData';
 import {
   DieType,
   DIE_DEFINITIONS,
@@ -372,6 +374,35 @@ export default function DiceRollerEngine({
           >
             <Terminal className="w-3.5 h-3.5" />
             <span className="hidden md:inline">Physics</span>
+          </button>
+
+          {/* Streamer Mode / OBS Setup Button */}
+          <button
+            type="button"
+            onClick={() =>
+              openViralStreamerSetupModal({
+                title: pageTitle || `${count}d${sides} Dice Roller`,
+                items: Array.from({ length: Math.min(sides, 20) }, (_, i) => ({
+                  id: `die-face-${i + 1}`,
+                  text: String(i + 1),
+                  weight: 1
+                })),
+                toolKind: 'dice',
+                diceConfig: {
+                  sides,
+                  count,
+                  dropLowest,
+                  keepHighest,
+                  modifier,
+                  notation: `${count}d${sides}`
+                }
+              })
+            }
+            className="p-1.5 px-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-300 hover:text-white text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
+            title="Configure OBS Studio & Streamlabs Browser Source (?stream=1)"
+          >
+            <Tv className="w-3.5 h-3.5" />
+            <span>Streamer mode / OBS</span>
           </button>
         </div>
       </div>

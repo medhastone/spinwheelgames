@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ALL_SEO_PAGES_MAP, getSeoPageByPath, ALL_SEO_PAGES_LIST } from '@/lib/seoData';
 import SeoPageView from '@/components/SeoPageView';
+import { createPageMetadata } from '@/lib/pageMetadata';
 
 export const dynamic = 'force-static';
 export const dynamicParams = true;
@@ -20,8 +21,11 @@ const PHYSICAL_STATIC_ROUTES = new Set([
   'animal-wheel',
   'bingo-wheel',
   'birthday-wheel',
+  'categories',
+  'category',
   'challenges',
   'classroom-wheel',
+  'color-wheel',
   'comment-picker',
   'contact',
   'dice',
@@ -30,6 +34,7 @@ const PHYSICAL_STATIC_ROUTES = new Set([
   'dice-roller',
   'dnd-stat-roller',
   'drawing-wheel',
+  'embed',
   'fairness',
   'food-wheel',
   'games',
@@ -38,6 +43,7 @@ const PHYSICAL_STATIC_ROUTES = new Set([
   'pokemon-wheel',
   'privacy',
   'question-wheel',
+  'random-app-picker',
   'random-number-wheel',
   'random-object-generator',
   'random-category-generator',
@@ -51,15 +57,15 @@ const PHYSICAL_STATIC_ROUTES = new Set([
   'sitemap',
   'sitemap-directory',
   'song-wheel',
+  'stream-control',
+  'stream-wheel',
   'team-generator',
   'terms',
   'theme-wheel',
   'truth-or-dare-wheel',
   'unusual-dice',
   'wheel-of-names',
-  'word-spinner',
-  'categories',
-  'category'
+  'word-spinner'
 ]);
 
 export async function generateStaticParams() {
@@ -76,43 +82,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const page = ALL_SEO_PAGES_MAP[slug];
 
   if (!page) {
-    return {
+    return createPageMetadata({
       title: 'Page Not Found | SpinWheelGames',
-      description: 'The requested wheel page could not be found.'
-    };
+      description: 'The requested wheel page could not be found.',
+      path: `/${slug}`
+    });
   }
 
-  const canonicalUrl = `https://spinwheelgames.org${page.fullPath}`;
-
-  return {
+  return createPageMetadata({
     title: page.title,
     description: page.metaDescription,
-    alternates: {
-      canonical: canonicalUrl
-    },
-    openGraph: {
-      title: page.title,
-      description: page.metaDescription,
-      url: canonicalUrl,
-      siteName: 'SpinWheelGames',
-      locale: 'en_US',
-      type: 'website',
-      images: [
-        {
-          url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-          width: 1200,
-          height: 630,
-          alt: page.title
-        }
-      ]
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: page.title,
-      description: page.metaDescription,
-      images: ['https://spinwheelgames.org/spinwheel-logo.webp']
-    }
-  };
+    path: page.fullPath
+  });
 }
 
 export default async function DynamicSeoPage({ params }: PageProps) {

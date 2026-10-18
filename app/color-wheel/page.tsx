@@ -23,31 +23,34 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Color Wheel & Random Color Picker | SpinWheelGames',
-  description: 'Spin the interactive color wheel and color spinner. Random color picker, multiple colors mode, instant HEX, RGB, and HSL conversions, 1-click copy, and automatic harmony palette generation.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/color-wheel'
+  "title": "Color Wheel & Random Color Picker | SpinWheelGames",
+  "description": "Spin the interactive color wheel and color spinner. Random color picker, multiple colors mode, instant HEX, RGB, and HSL conversions, 1-click copy, and automatic harmony palette generation.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/color-wheel"
   },
-  openGraph: {
-    title: 'Color Wheel & Random Color Picker | SpinWheelGames',
-    description: 'Spin the interactive color wheel and color spinner. Random color picker, multiple colors mode, instant HEX, RGB, and HSL conversions, 1-click copy, and automatic harmony palette generation.',
-    url: 'https://spinwheelgames.org/color-wheel',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Color Wheel & Random Color Picker | SpinWheelGames",
+    "description": "Spin the interactive color wheel and color spinner. Random color picker, multiple colors mode, instant HEX, RGB, and HSL conversions, 1-click copy, and automatic harmony palette generation.",
+    "url": "https://spinwheelgames.org/color-wheel",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Color Wheel & Random Color Picker | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fcolor-wheel&title=Color+Wheel+%26+Random+Color+Picker+%7C+SpinWheelGames&desc=Spin+the+interactive+color+wheel+and+color+spinner.+Random+color+picker%2C+multiple+colors+mode%2C+instant+HEX%2C+RGB%2C+and+HSL+conversions%2C+1-click+copy%2C+and+automatic+harmony+palette+ge",
+        "width": 1200,
+        "height": 630,
+        "alt": "Color Wheel & Random Color Picker | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Color Wheel & Random Color Picker | SpinWheelGames',
-    description: 'Spin the interactive color wheel and color spinner. Random color picker, multiple colors mode, instant HEX, RGB, and HSL conversions, 1-click copy, and automatic harmony palette generation.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Color Wheel & Random Color Picker | SpinWheelGames",
+    "description": "Spin the interactive color wheel and color spinner. Random color picker, multiple colors mode, instant HEX, RGB, and HSL conversions, 1-click copy, and automatic harmony palette generation.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fcolor-wheel&title=Color+Wheel+%26+Random+Color+Picker+%7C+SpinWheelGames&desc=Spin+the+interactive+color+wheel+and+color+spinner.+Random+color+picker%2C+multiple+colors+mode%2C+instant+HEX%2C+RGB%2C+and+HSL+conversions%2C+1-click+copy%2C+and+automatic+harmony+palette+ge"
+    ]
   }
 };
 

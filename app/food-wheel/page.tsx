@@ -27,31 +27,34 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Food Wheel – What to Eat Picker | SpinWheelGames',
-  description: 'Spin the free food wheel to randomly decide dinner, lunch, breakfast, fast food, Indian, Asian, or vegetarian meals. Stack filters or import custom restaurant lists!',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/food-wheel'
+  "title": "Food Wheel – What to Eat Picker | SpinWheelGames",
+  "description": "Spin the free food wheel to randomly decide dinner, lunch, breakfast, fast food, Indian, Asian, or vegetarian meals. Stack filters or import custom restaurant lists!",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/food-wheel"
   },
-  openGraph: {
-    title: 'Food Wheel – What to Eat Picker | SpinWheelGames',
-    description: 'Spin the free food wheel to randomly decide dinner, lunch, breakfast, fast food, Indian, Asian, or vegetarian meals. Stack filters or import custom restaurant lists!',
-    url: 'https://spinwheelgames.org/food-wheel',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Food Wheel – What to Eat Picker | SpinWheelGames",
+    "description": "Spin the free food wheel to randomly decide dinner, lunch, breakfast, fast food, Indian, Asian, or vegetarian meals. Stack filters or import custom restaurant lists!",
+    "url": "https://spinwheelgames.org/food-wheel",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Food Wheel – What to Eat Picker | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Ffood-wheel&title=Food+Wheel+%E2%80%93+What+to+Eat+Picker+%7C+SpinWheelGames&desc=Spin+the+free+food+wheel+to+randomly+decide+dinner%2C+lunch%2C+breakfast%2C+fast+food%2C+Indian%2C+Asian%2C+or+vegetarian+meals.+Stack+filters+or+import+custom+restaurant+lists%21",
+        "width": 1200,
+        "height": 630,
+        "alt": "Food Wheel – What to Eat Picker | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Food Wheel – What to Eat Picker | SpinWheelGames',
-    description: 'Spin the free food wheel to randomly decide dinner, lunch, breakfast, fast food, Indian, Asian, or vegetarian meals. Stack filters or import custom restaurant lists!',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Food Wheel – What to Eat Picker | SpinWheelGames",
+    "description": "Spin the free food wheel to randomly decide dinner, lunch, breakfast, fast food, Indian, Asian, or vegetarian meals. Stack filters or import custom restaurant lists!",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Ffood-wheel&title=Food+Wheel+%E2%80%93+What+to+Eat+Picker+%7C+SpinWheelGames&desc=Spin+the+free+food+wheel+to+randomly+decide+dinner%2C+lunch%2C+breakfast%2C+fast+food%2C+Indian%2C+Asian%2C+or+vegetarian+meals.+Stack+filters+or+import+custom+restaurant+lists%21"
+    ]
   }
 };
 

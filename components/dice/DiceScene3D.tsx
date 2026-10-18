@@ -158,6 +158,8 @@ interface DiceScene3DProps {
   onTelemetryUpdate?: (telemetry: RollTelemetry[]) => void;
   onManualThrowTrigger?: () => void;
   className?: string;
+  transparentBg?: boolean;
+  maxFps?: number;
 }
 
 const textureCache = new Map<string, THREE.CanvasTexture>();
@@ -192,7 +194,9 @@ export default function DiceScene3D({
   onAnimationComplete,
   onTelemetryUpdate,
   onManualThrowTrigger,
-  className = ''
+  className = '',
+  transparentBg = false,
+  maxFps = 60
 }: DiceScene3DProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hasWebGL, setHasWebGL] = useState<boolean>(true);
@@ -264,7 +268,10 @@ export default function DiceScene3D({
       powerPreference: 'high-performance'
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, transparentBg ? 1.5 : 2));
+    if (transparentBg) {
+      renderer.setClearColor(0x000000, 0);
+    }
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     rendererRef.current = renderer;
@@ -279,8 +286,8 @@ export default function DiceScene3D({
     const mainSpot = new THREE.DirectionalLight(0xffffff, 2.8);
     mainSpot.position.set(5, 15, 8);
     mainSpot.castShadow = true;
-    mainSpot.shadow.mapSize.width = 2048;
-    mainSpot.shadow.mapSize.height = 2048;
+    mainSpot.shadow.mapSize.width = transparentBg ? 1024 : 2048;
+    mainSpot.shadow.mapSize.height = transparentBg ? 1024 : 2048;
     mainSpot.shadow.camera.near = 1;
     mainSpot.shadow.camera.far = 30;
     mainSpot.shadow.bias = -0.0004;
@@ -294,96 +301,106 @@ export default function DiceScene3D({
     warmFill.position.set(0, -4, 10);
     scene.add(warmFill);
 
-    // Visible 3D Luxury Wooden Tray with Rich Felt Bed
+    // Visible 3D Luxury Wooden Tray with Rich Felt Bed (or Transparent Alpha Shadow Catcher for OBS Streamer Mode)
     const trayWidth = 13.0;
     const trayDepth = 10.5;
     const wallHeight = 1.6;
     const wallThickness = 0.65;
 
-    // Felt Bed Base
-    const feltGeo = new THREE.PlaneGeometry(trayWidth, trayDepth);
-    const feltMat = new THREE.MeshStandardMaterial({
-      color: 0x0f172a, // Deep luxury velvet felt
-      roughness: 0.88,
-      metalness: 0.05
-    });
-    const feltFloor = new THREE.Mesh(feltGeo, feltMat);
-    feltFloor.rotation.x = -Math.PI / 2;
-    feltFloor.position.y = 0;
-    feltFloor.receiveShadow = true;
-    scene.add(feltFloor);
+    if (transparentBg) {
+      const shadowGeo = new THREE.PlaneGeometry(trayWidth * 1.4, trayDepth * 1.4);
+      const shadowMat = new THREE.ShadowMaterial({ opacity: 0.38 });
+      const shadowFloor = new THREE.Mesh(shadowGeo, shadowMat);
+      shadowFloor.rotation.x = -Math.PI / 2;
+      shadowFloor.position.y = 0;
+      shadowFloor.receiveShadow = true;
+      scene.add(shadowFloor);
+    } else {
+      // Felt Bed Base
+      const feltGeo = new THREE.PlaneGeometry(trayWidth, trayDepth);
+      const feltMat = new THREE.MeshStandardMaterial({
+        color: 0x0f172a, // Deep luxury velvet felt
+        roughness: 0.88,
+        metalness: 0.05
+      });
+      const feltFloor = new THREE.Mesh(feltGeo, feltMat);
+      feltFloor.rotation.x = -Math.PI / 2;
+      feltFloor.position.y = 0;
+      feltFloor.receiveShadow = true;
+      scene.add(feltFloor);
 
-    // Inner tray gold trim line
-    const trimGeo = new THREE.RingGeometry(5.2, 5.3, 4);
-    const trimMat = new THREE.MeshStandardMaterial({
-      color: 0xd97706,
-      roughness: 0.2,
-      metalness: 0.8
-    });
-    const trim = new THREE.Mesh(trimGeo, trimMat);
-    trim.rotation.x = -Math.PI / 2;
-    trim.position.y = 0.01;
-    scene.add(trim);
+      // Inner tray gold trim line
+      const trimGeo = new THREE.RingGeometry(5.2, 5.3, 4);
+      const trimMat = new THREE.MeshStandardMaterial({
+        color: 0xd97706,
+        roughness: 0.2,
+        metalness: 0.8
+      });
+      const trim = new THREE.Mesh(trimGeo, trimMat);
+      trim.rotation.x = -Math.PI / 2;
+      trim.position.y = 0.01;
+      scene.add(trim);
 
-    // 4 Wooden Perimeter Walls
-    const woodMat = new THREE.MeshStandardMaterial({
-      color: 0x2e1a0e, // Dark Walnut / Mahogany
-      roughness: 0.35,
-      metalness: 0.15
-    });
+      // 4 Wooden Perimeter Walls
+      const woodMat = new THREE.MeshStandardMaterial({
+        color: 0x2e1a0e, // Dark Walnut / Mahogany
+        roughness: 0.35,
+        metalness: 0.15
+      });
 
-    const brassMat = new THREE.MeshStandardMaterial({
-      color: 0xb45309, // Antique Brass corner brackets
-      roughness: 0.25,
-      metalness: 0.85
-    });
+      const brassMat = new THREE.MeshStandardMaterial({
+        color: 0xb45309, // Antique Brass corner brackets
+        roughness: 0.25,
+        metalness: 0.85
+      });
 
-    const halfW = trayWidth / 2;
-    const halfD = trayDepth / 2;
-    const halfH = wallHeight / 2;
+      const halfW = trayWidth / 2;
+      const halfD = trayDepth / 2;
+      const halfH = wallHeight / 2;
 
-    // North & South Walls
-    const nsGeo = new THREE.BoxGeometry(trayWidth + wallThickness * 2, wallHeight, wallThickness);
-    const northWall = new THREE.Mesh(nsGeo, woodMat);
-    northWall.position.set(0, halfH, halfD + wallThickness / 2);
-    northWall.castShadow = true;
-    northWall.receiveShadow = true;
-    scene.add(northWall);
+      // North & South Walls
+      const nsGeo = new THREE.BoxGeometry(trayWidth + wallThickness * 2, wallHeight, wallThickness);
+      const northWall = new THREE.Mesh(nsGeo, woodMat);
+      northWall.position.set(0, halfH, halfD + wallThickness / 2);
+      northWall.castShadow = true;
+      northWall.receiveShadow = true;
+      scene.add(northWall);
 
-    const southWall = new THREE.Mesh(nsGeo, woodMat);
-    southWall.position.set(0, halfH, -halfD - wallThickness / 2);
-    southWall.castShadow = true;
-    southWall.receiveShadow = true;
-    scene.add(southWall);
+      const southWall = new THREE.Mesh(nsGeo, woodMat);
+      southWall.position.set(0, halfH, -halfD - wallThickness / 2);
+      southWall.castShadow = true;
+      southWall.receiveShadow = true;
+      scene.add(southWall);
 
-    // East & West Walls
-    const ewGeo = new THREE.BoxGeometry(wallThickness, wallHeight, trayDepth);
-    const eastWall = new THREE.Mesh(ewGeo, woodMat);
-    eastWall.position.set(halfW + wallThickness / 2, halfH, 0);
-    eastWall.castShadow = true;
-    eastWall.receiveShadow = true;
-    scene.add(eastWall);
+      // East & West Walls
+      const ewGeo = new THREE.BoxGeometry(wallThickness, wallHeight, trayDepth);
+      const eastWall = new THREE.Mesh(ewGeo, woodMat);
+      eastWall.position.set(halfW + wallThickness / 2, halfH, 0);
+      eastWall.castShadow = true;
+      eastWall.receiveShadow = true;
+      scene.add(eastWall);
 
-    const westWall = new THREE.Mesh(ewGeo, woodMat);
-    westWall.position.set(-halfW - wallThickness / 2, halfH, 0);
-    westWall.castShadow = true;
-    westWall.receiveShadow = true;
-    scene.add(westWall);
+      const westWall = new THREE.Mesh(ewGeo, woodMat);
+      westWall.position.set(-halfW - wallThickness / 2, halfH, 0);
+      westWall.castShadow = true;
+      westWall.receiveShadow = true;
+      scene.add(westWall);
 
-    // 4 Brass Corner Brackets
-    const cornerGeo = new THREE.BoxGeometry(wallThickness * 1.2, wallHeight * 1.05, wallThickness * 1.2);
-    const corners = [
-      [halfW + wallThickness / 2, halfD + wallThickness / 2],
-      [-halfW - wallThickness / 2, halfD + wallThickness / 2],
-      [halfW + wallThickness / 2, -halfD - wallThickness / 2],
-      [-halfW - wallThickness / 2, -halfD - wallThickness / 2]
-    ];
-    corners.forEach(([cx, cz]) => {
-      const cornerMesh = new THREE.Mesh(cornerGeo, brassMat);
-      cornerMesh.position.set(cx, halfH, cz);
-      cornerMesh.castShadow = true;
-      scene.add(cornerMesh);
-    });
+      // 4 Brass Corner Brackets
+      const cornerGeo = new THREE.BoxGeometry(wallThickness * 1.2, wallHeight * 1.05, wallThickness * 1.2);
+      const corners = [
+        [halfW + wallThickness / 2, halfD + wallThickness / 2],
+        [-halfW - wallThickness / 2, halfD + wallThickness / 2],
+        [halfW + wallThickness / 2, -halfD - wallThickness / 2],
+        [-halfW - wallThickness / 2, -halfD - wallThickness / 2]
+      ];
+      corners.forEach(([cx, cz]) => {
+        const cornerMesh = new THREE.Mesh(cornerGeo, brassMat);
+        cornerMesh.position.set(cx, halfH, cz);
+        cornerMesh.castShadow = true;
+        scene.add(cornerMesh);
+      });
+    }
 
     const physicsEngine = new DicePhysicsEngine(handlePhysicsImpact);
     physicsEngineRef.current = physicsEngine;
@@ -410,7 +427,7 @@ export default function DiceScene3D({
         container.removeChild(renderer.domElement);
       }
     };
-  }, [handlePhysicsImpact]);
+  }, [handlePhysicsImpact, transparentBg]);
 
   // Build Three.js visual meshes matching physics bodies
   const rebuildVisualMeshes = useCallback(
@@ -506,6 +523,8 @@ export default function DiceScene3D({
       isSimulatingRef.current = true;
       hasSettledPhysicsRef.current = false;
       lastTimeRef.current = performance.now();
+      let lastRenderTime = 0;
+      const minFrameInterval = maxFps >= 60 ? 15 : 1000 / Math.max(15, maxFps);
       const rollStartTime = performance.now();
 
       const loop = (now: number) => {
@@ -515,26 +534,30 @@ export default function DiceScene3D({
         const isTimeout = (now - rollStartTime) > 3500;
         const allSettled = physics.step(dt) || isTimeout;
 
-        bodies.forEach((dInst, idx) => {
-          const mesh = diceMeshesRef.current[idx];
-          if (mesh) {
-            mesh.position.copy(dInst.body.position as unknown as THREE.Vector3);
-            mesh.quaternion.copy(dInst.body.quaternion as unknown as THREE.Quaternion);
+        const shouldRenderFrame = allSettled || (now - lastRenderTime >= minFrameInterval);
+        if (shouldRenderFrame) {
+          lastRenderTime = now;
+          bodies.forEach((dInst, idx) => {
+            const mesh = diceMeshesRef.current[idx];
+            if (mesh) {
+              mesh.position.copy(dInst.body.position as unknown as THREE.Vector3);
+              mesh.quaternion.copy(dInst.body.quaternion as unknown as THREE.Quaternion);
+            }
+          });
+
+          // Ensure camera remains rock-solid stationary
+          if (cameraRef.current) {
+            cameraRef.current.position.set(0, 11.2, 10.5);
+            cameraRef.current.lookAt(0, 0, 0);
           }
-        });
 
-        // Ensure camera remains rock-solid stationary
-        if (cameraRef.current) {
-          cameraRef.current.position.set(0, 11.2, 10.5);
-          cameraRef.current.lookAt(0, 0, 0);
-        }
+          if (onTelemetryUpdate) {
+            onTelemetryUpdate(physics.getTelemetry());
+          }
 
-        if (onTelemetryUpdate) {
-          onTelemetryUpdate(physics.getTelemetry());
-        }
-
-        if (rendererRef.current && cameraRef.current && sceneRef.current) {
-          rendererRef.current.render(sceneRef.current, cameraRef.current);
+          if (rendererRef.current && cameraRef.current && sceneRef.current) {
+            rendererRef.current.render(sceneRef.current, cameraRef.current);
+          }
         }
 
         if (!allSettled) {
@@ -549,8 +572,6 @@ export default function DiceScene3D({
             isDropped: false
           }));
 
-          // Delayed settle sound removed: contact impacts play in real-time on actual contact
-
           if (onPhysicsRollComplete) {
             onPhysicsRollComplete(settledResults);
           }
@@ -563,7 +584,7 @@ export default function DiceScene3D({
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
       animFrameRef.current = requestAnimationFrame(loop);
     },
-    [count, sides, rebuildVisualMeshes, soundEnabled, onPhysicsRollComplete, onAnimationComplete, onTelemetryUpdate]
+    [count, sides, rebuildVisualMeshes, soundEnabled, onPhysicsRollComplete, onAnimationComplete, onTelemetryUpdate, maxFps]
   );
 
   useEffect(() => {
@@ -654,7 +675,11 @@ export default function DiceScene3D({
 
   return (
     <div
-      className={`relative w-full h-full min-h-[320px] sm:min-h-[420px] lg:min-h-[480px] rounded-3xl overflow-hidden bg-gradient-to-b from-[#0e0f17] via-[#12131e] to-[#090a10] border border-[#222330] shadow-inner select-none ${className}`}
+      className={`relative w-full h-full min-h-[320px] sm:min-h-[420px] lg:min-h-[480px] rounded-3xl overflow-hidden select-none ${
+        transparentBg
+          ? 'bg-transparent border-0 shadow-none'
+          : 'bg-gradient-to-b from-[#0e0f17] via-[#12131e] to-[#090a10] border border-[#222330] shadow-inner'
+      } ${className}`}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
     >
@@ -665,15 +690,19 @@ export default function DiceScene3D({
         aria-hidden="true"
       />
 
-      {/* Decorative Arena Vignette */}
-      <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-indigo-500/10 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+      {!transparentBg && (
+        <>
+          {/* Decorative Arena Vignette */}
+          <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-indigo-500/10 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
 
-      {/* Tray Badge */}
-      <div className="absolute top-3 left-4 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-[10px] uppercase font-mono tracking-widest text-slate-300 pointer-events-none flex items-center gap-1.5 shadow-md">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-        <span>3D Wooden Tray · Drag &amp; Flick to Throw</span>
-      </div>
+          {/* Tray Badge */}
+          <div className="absolute top-3 left-4 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-[10px] uppercase font-mono tracking-widest text-slate-300 pointer-events-none flex items-center gap-1.5 shadow-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>3D Wooden Tray · Drag &amp; Flick to Throw</span>
+          </div>
+        </>
+      )}
     </div>
   );
 }

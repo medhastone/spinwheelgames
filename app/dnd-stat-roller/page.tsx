@@ -25,44 +25,45 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'D&D Stat Roller 5e | SpinWheelGames',
-  description:
-    'Free online D&D 5e stat roller for character creation. Roll all 6 ability scores using 4d6 drop lowest, 27 point buy calculator, or standard array.',
-  keywords: [
-    'dnd stat roller',
-    'dnd 5e character stat generator',
-    '4d6 drop lowest',
-    'dnd ability score calculator',
-    'point buy calculator dnd 5e',
-    'standard array dnd 5e',
-    'roll dnd stats',
-    'dnd character builder stats',
-    'ability score generator 5e'
+  "title": "D&D Stat Roller 5e | SpinWheelGames",
+  "description": "Free online D&D 5e stat roller for character creation. Roll all 6 ability scores using 4d6 drop lowest, 27 point buy calculator, or standard array.",
+  "keywords": [
+    "dnd stat roller",
+    "dnd 5e character stat generator",
+    "4d6 drop lowest",
+    "dnd ability score calculator",
+    "point buy calculator dnd 5e",
+    "standard array dnd 5e",
+    "roll dnd stats",
+    "dnd character builder stats",
+    "ability score generator 5e"
   ],
-  alternates: {
-    canonical: 'https://spinwheelgames.org/dnd-stat-roller'
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/dnd-stat-roller"
   },
-  openGraph: {
-    title: 'D&D Stat Roller 5e | SpinWheelGames',
-    description:
-      'Free online D&D 5e stat roller for character creation. Roll all 6 ability scores using 4d6 drop lowest, 27 point buy calculator, or standard array.',
-    url: 'https://spinwheelgames.org/dnd-stat-roller',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "D&D Stat Roller 5e | SpinWheelGames",
+    "description": "Free online D&D 5e stat roller for character creation. Roll all 6 ability scores using 4d6 drop lowest, 27 point buy calculator, or standard array.",
+    "url": "https://spinwheelgames.org/dnd-stat-roller",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'D&D Stat Roller 5e Online'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fdnd-stat-roller&title=D%26D+Stat+Roller+5e+%7C+SpinWheelGames&desc=Free+online+D%26D+5e+stat+roller+for+character+creation.+Roll+all+6+ability+scores+using+4d6+drop+lowest%2C+27+point+buy+calculator%2C+or+standard+array.",
+        "width": 1200,
+        "height": 630,
+        "alt": "D&D Stat Roller 5e | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'D&D Stat Roller 5e | SpinWheelGames',
-    description:
-      'Free online D&D 5e stat roller for character creation. Roll all 6 ability scores using 4d6 drop lowest, 27 point buy calculator, or standard array.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "D&D Stat Roller 5e | SpinWheelGames",
+    "description": "Free online D&D 5e stat roller for character creation. Roll all 6 ability scores using 4d6 drop lowest, 27 point buy calculator, or standard array.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fdnd-stat-roller&title=D%26D+Stat+Roller+5e+%7C+SpinWheelGames&desc=Free+online+D%26D+5e+stat+roller+for+character+creation.+Roll+all+6+ability+scores+using+4d6+drop+lowest%2C+27+point+buy+calculator%2C+or+standard+array."
+    ]
   }
 };
 

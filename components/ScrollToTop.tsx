@@ -49,7 +49,14 @@ export default function ScrollToTop() {
     });
   };
 
-  if (!canScroll) return null;
+  if (
+    !canScroll ||
+    (typeof window !== 'undefined' &&
+      (window.location.pathname.startsWith('/embed') ||
+        window.location.search.includes('stream=1')))
+  ) {
+    return null;
+  }
 
   return (
     <div

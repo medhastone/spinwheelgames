@@ -36,31 +36,34 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Random Category Generator Wheel | SpinWheelGames',
-  description: 'Free instant category generator. Pick random categories for games, brainstorming, Scattergories, creative writing, classroom activities, and content creation with single, multiple, and no-repeat modes.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/random-category-generator'
+  "title": "Random Category Generator Wheel | SpinWheelGames",
+  "description": "Free instant category generator. Pick random categories for games, brainstorming, Scattergories, creative writing, classroom activities, and content creation with single, multiple, and no-repeat modes.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/random-category-generator"
   },
-  openGraph: {
-    title: 'Random Category Generator Wheel | SpinWheelGames',
-    description: 'Free instant category generator. Pick random categories for games, brainstorming, Scattergories, creative writing, classroom activities, and content creation with single, multiple, and no-repeat modes.',
-    url: 'https://spinwheelgames.org/random-category-generator',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Random Category Generator Wheel | SpinWheelGames",
+    "description": "Free instant category generator. Pick random categories for games, brainstorming, Scattergories, creative writing, classroom activities, and content creation with single, multiple, and no-repeat modes.",
+    "url": "https://spinwheelgames.org/random-category-generator",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Random Category Generator Wheel | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Frandom-category-generator&title=Random+Category+Generator+Wheel+%7C+SpinWheelGames&desc=Free+instant+category+generator.+Pick+random+categories+for+games%2C+brainstorming%2C+Scattergories%2C+creative+writing%2C+classroom+activities%2C+and+content+creation+with+single%2C+multiple%2C",
+        "width": 1200,
+        "height": 630,
+        "alt": "Random Category Generator Wheel | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Random Category Generator Wheel | SpinWheelGames',
-    description: 'Free instant category generator. Pick random categories for games, brainstorming, Scattergories, creative writing, classroom activities, and content creation with single, multiple, and no-repeat modes.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Random Category Generator Wheel | SpinWheelGames",
+    "description": "Free instant category generator. Pick random categories for games, brainstorming, Scattergories, creative writing, classroom activities, and content creation with single, multiple, and no-repeat modes.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Frandom-category-generator&title=Random+Category+Generator+Wheel+%7C+SpinWheelGames&desc=Free+instant+category+generator.+Pick+random+categories+for+games%2C+brainstorming%2C+Scattergories%2C+creative+writing%2C+classroom+activities%2C+and+content+creation+with+single%2C+multiple%2C"
+    ]
   }
 };
 

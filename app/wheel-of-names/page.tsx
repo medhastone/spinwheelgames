@@ -23,46 +23,46 @@ import Footer from '@/components/Footer';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Wheel of Names | SpinWheelGames',
-  description:
-    'Spin the free Wheel of Names generator to randomly pick names, classroom students, or giveaway raffle winners. Fast CSV import, no-repeat elimination, and 100% fair randomness.',
-  keywords: [
-    'wheel of names',
-    'wheel of names generator',
-    'random name picker',
-    'random name wheel',
-    'name spinner',
-    'spinner with names',
-    'number spin wheel',
-    'classroom name wheel',
-    'giveaway name drawer',
-    'team name randomizer'
+  "title": "Wheel of Names | SpinWheelGames",
+  "description": "Spin the free Wheel of Names generator to randomly pick names, classroom students, or giveaway raffle winners. Fast CSV import, no-repeat elimination, and 100% fair randomness.",
+  "keywords": [
+    "wheel of names",
+    "wheel of names generator",
+    "random name picker",
+    "random name wheel",
+    "name spinner",
+    "spinner with names",
+    "number spin wheel",
+    "classroom name wheel",
+    "giveaway name drawer",
+    "team name randomizer"
   ],
-  alternates: {
-    canonical: 'https://spinwheelgames.org/wheel-of-names'
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/wheel-of-names"
   },
-  openGraph: {
-    title: 'Wheel of Names | SpinWheelGames',
-    description:
-      'Spin the free Wheel of Names generator to randomly pick names, classroom students, or giveaway raffle winners. Fast CSV import, no-repeat elimination, and 100% fair randomness.',
-    url: 'https://spinwheelgames.org/wheel-of-names',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Wheel of Names | SpinWheelGames",
+    "description": "Spin the free Wheel of Names generator to randomly pick names, classroom students, or giveaway raffle winners. Fast CSV import, no-repeat elimination, and 100% fair randomness.",
+    "url": "https://spinwheelgames.org/wheel-of-names",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Wheel of Names - Free Random Name Picker'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fwheel-of-names&title=Wheel+of+Names+%7C+SpinWheelGames&desc=Spin+the+free+Wheel+of+Names+generator+to+randomly+pick+names%2C+classroom+students%2C+or+giveaway+raffle+winners.+Fast+CSV+import%2C+no-repeat+elimination%2C+and+100%25+fair+randomness.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Wheel of Names | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Wheel of Names | SpinWheelGames',
-    description:
-      'Spin the free Wheel of Names generator to randomly pick names, classroom students, or giveaway raffle winners. Fast CSV import, no-repeat elimination, and 100% fair randomness.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Wheel of Names | SpinWheelGames",
+    "description": "Spin the free Wheel of Names generator to randomly pick names, classroom students, or giveaway raffle winners. Fast CSV import, no-repeat elimination, and 100% fair randomness.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fwheel-of-names&title=Wheel+of+Names+%7C+SpinWheelGames&desc=Spin+the+free+Wheel+of+Names+generator+to+randomly+pick+names%2C+classroom+students%2C+or+giveaway+raffle+winners.+Fast+CSV+import%2C+no-repeat+elimination%2C+and+100%25+fair+randomness."
+    ]
   }
 };
 

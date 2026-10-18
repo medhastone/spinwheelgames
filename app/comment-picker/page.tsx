@@ -29,31 +29,34 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Random Comment Picker & Giveaway Tool | SpinWheelGames',
-  description: 'Paste comments from YouTube, Instagram, TikTok, or Reddit to pick a random giveaway winner. Features duplicate removal, blank line filtering, exclusions, and winner history 100% in your browser.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/comment-picker'
+  "title": "Random Comment Picker & Giveaway Tool | SpinWheelGames",
+  "description": "Paste comments from YouTube, Instagram, TikTok, or Reddit to pick a random giveaway winner. Features duplicate removal, blank line filtering, exclusions, and winner history 100% in your browser.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/comment-picker"
   },
-  openGraph: {
-    title: 'Random Comment Picker & Giveaway Tool | SpinWheelGames',
-    description: 'Paste comments from YouTube, Instagram, TikTok, or Reddit to pick a random giveaway winner. Features duplicate removal, blank line filtering, exclusions, and winner history 100% in your browser.',
-    url: 'https://spinwheelgames.org/comment-picker',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Random Comment Picker & Giveaway Tool | SpinWheelGames",
+    "description": "Paste comments from YouTube, Instagram, TikTok, or Reddit to pick a random giveaway winner. Features duplicate removal, blank line filtering, exclusions, and winner history 100% in your browser.",
+    "url": "https://spinwheelgames.org/comment-picker",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Random Comment Picker & Giveaway Tool | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fcomment-picker&title=Random+Comment+Picker+%26+Giveaway+Tool+%7C+SpinWheelGames&desc=Paste+comments+from+YouTube%2C+Instagram%2C+TikTok%2C+or+Reddit+to+pick+a+random+giveaway+winner.+Features+duplicate+removal%2C+blank+line+filtering%2C+exclusions%2C+and+winner+history+100%25+in",
+        "width": 1200,
+        "height": 630,
+        "alt": "Random Comment Picker & Giveaway Tool | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Random Comment Picker & Giveaway Tool | SpinWheelGames',
-    description: 'Paste comments from YouTube, Instagram, TikTok, or Reddit to pick a random giveaway winner. Features duplicate removal, blank line filtering, exclusions, and winner history 100% in your browser.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Random Comment Picker & Giveaway Tool | SpinWheelGames",
+    "description": "Paste comments from YouTube, Instagram, TikTok, or Reddit to pick a random giveaway winner. Features duplicate removal, blank line filtering, exclusions, and winner history 100% in your browser.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fcomment-picker&title=Random+Comment+Picker+%26+Giveaway+Tool+%7C+SpinWheelGames&desc=Paste+comments+from+YouTube%2C+Instagram%2C+TikTok%2C+or+Reddit+to+pick+a+random+giveaway+winner.+Features+duplicate+removal%2C+blank+line+filtering%2C+exclusions%2C+and+winner+history+100%25+in"
+    ]
   }
 };
 

@@ -49,8 +49,14 @@ import {
   Lock,
   Sun,
   Moon,
-  Heart
+  Heart,
+  Code2,
+  Tv
 } from 'lucide-react';
+import {
+  openViralEmbedModal,
+  openViralStreamerMode
+} from '@/lib/viralToolsData';
 
 interface SeoPageViewProps {
   page: SeoPageData;
@@ -229,16 +235,48 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
 
         {/* Functioning Interactive Tool Area */}
         <section className="rounded-3xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] p-4 sm:p-7 shadow-lg relative overflow-hidden transition-colors" id="interactive-tool-section">
-          <div className="flex items-center justify-between border-b border-[#eeedf7] dark:border-[#292a39] pb-3 mb-4">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#eeedf7] dark:border-[#292a39] pb-3 mb-4">
             <div className="flex items-center gap-2">
               <Play className="w-4 h-4 text-[#006c49] dark:text-emerald-400" />
               <span className="text-sm font-bold text-[#1a1b22] dark:text-[#f1effa]">
                 Interactive {activeWheel.title}
               </span>
             </div>
-            <span className="text-xs text-[#767586] dark:text-[#908fa1] font-mono">
-              Web Crypto API • CSPRNG
-            </span>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() =>
+                  openViralEmbedModal({
+                    title: activeWheel.title,
+                    items: activeWheel.items,
+                    paletteKey: activeWheel.paletteKey
+                  })
+                }
+                className="px-2.5 py-1 rounded-lg bg-[#f4f2fd] dark:bg-[#222330] hover:bg-[#4648d4] hover:text-white text-[#1a1b22] dark:text-[#f1effa] text-xs font-bold flex items-center gap-1 transition-colors cursor-pointer"
+                title="Embed this wheel via <iframe>"
+              >
+                <Code2 className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
+                <span>Embed</span>
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  openViralStreamerMode({
+                    title: activeWheel.title,
+                    items: activeWheel.items,
+                    paletteKey: activeWheel.paletteKey
+                  })
+                }
+                className="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-300 hover:text-white border border-emerald-500/25 text-xs font-bold flex items-center gap-1 transition-colors cursor-pointer"
+                title="Open full-screen transparent OBS Streamer Mode (?stream=1)"
+              >
+                <Tv className="w-3.5 h-3.5" />
+                <span>Streamer Mode</span>
+              </button>
+              <span className="hidden md:inline text-xs text-[#767586] dark:text-[#908fa1] font-mono">
+                Web Crypto API • CSPRNG
+              </span>
+            </div>
           </div>
 
           <StandaloneWheelHost

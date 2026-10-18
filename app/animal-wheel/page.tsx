@@ -30,31 +30,34 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Animal Wheel – Random Animal Generator | SpinWheelGames',
-  description: 'Spin the free animal wheel to randomly pick mammals, birds, reptiles, sea creatures, and mythical beasts. Perfect for drawing prompts, charades, quizzes, and classroom games!',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/animal-wheel'
+  "title": "Animal Wheel – Random Animal Generator | SpinWheelGames",
+  "description": "Spin the free animal wheel to randomly pick mammals, birds, reptiles, sea creatures, and mythical beasts. Perfect for drawing prompts, charades, quizzes, and classroom games!",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/animal-wheel"
   },
-  openGraph: {
-    title: 'Animal Wheel – Random Animal Generator | SpinWheelGames',
-    description: 'Spin the free animal wheel to randomly pick mammals, birds, reptiles, sea creatures, and mythical beasts. Perfect for drawing prompts, charades, quizzes, and classroom games!',
-    url: 'https://spinwheelgames.org/animal-wheel',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Animal Wheel – Random Animal Generator | SpinWheelGames",
+    "description": "Spin the free animal wheel to randomly pick mammals, birds, reptiles, sea creatures, and mythical beasts. Perfect for drawing prompts, charades, quizzes, and classroom games!",
+    "url": "https://spinwheelgames.org/animal-wheel",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Animal Wheel – Random Animal Generator | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fanimal-wheel&title=Animal+Wheel+%E2%80%93+Random+Animal+Generator+%7C+SpinWheelGames&desc=Spin+the+free+animal+wheel+to+randomly+pick+mammals%2C+birds%2C+reptiles%2C+sea+creatures%2C+and+mythical+beasts.+Perfect+for+drawing+prompts%2C+charades%2C+quizzes%2C+and+classroom+games%21",
+        "width": 1200,
+        "height": 630,
+        "alt": "Animal Wheel – Random Animal Generator | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Animal Wheel – Random Animal Generator | SpinWheelGames',
-    description: 'Spin the free animal wheel to randomly pick mammals, birds, reptiles, sea creatures, and mythical beasts. Perfect for drawing prompts, charades, quizzes, and classroom games!',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Animal Wheel – Random Animal Generator | SpinWheelGames",
+    "description": "Spin the free animal wheel to randomly pick mammals, birds, reptiles, sea creatures, and mythical beasts. Perfect for drawing prompts, charades, quizzes, and classroom games!",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fanimal-wheel&title=Animal+Wheel+%E2%80%93+Random+Animal+Generator+%7C+SpinWheelGames&desc=Spin+the+free+animal+wheel+to+randomly+pick+mammals%2C+birds%2C+reptiles%2C+sea+creatures%2C+and+mythical+beasts.+Perfect+for+drawing+prompts%2C+charades%2C+quizzes%2C+and+classroom+games%21"
+    ]
   }
 };
 

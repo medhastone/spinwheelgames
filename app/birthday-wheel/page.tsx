@@ -28,31 +28,34 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Birthday Wheel – Activity & Gift Picker | SpinWheelGames',
-  description: 'Spin the free birthday wheel to pick birthday party activities, food & dinners, gift ideas, party games, birthday themes, and person pickers. 100% free with custom entries.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/birthday-wheel'
+  "title": "Birthday Wheel – Activity & Gift Picker | SpinWheelGames",
+  "description": "Spin the free birthday wheel to pick birthday party activities, food & dinners, gift ideas, party games, birthday themes, and person pickers. 100% free with custom entries.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/birthday-wheel"
   },
-  openGraph: {
-    title: 'Birthday Wheel – Activity & Gift Picker | SpinWheelGames',
-    description: 'Spin the free birthday wheel to pick birthday party activities, food & dinners, gift ideas, party games, birthday themes, and person pickers. 100% free with custom entries.',
-    url: 'https://spinwheelgames.org/birthday-wheel',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Birthday Wheel – Activity & Gift Picker | SpinWheelGames",
+    "description": "Spin the free birthday wheel to pick birthday party activities, food & dinners, gift ideas, party games, birthday themes, and person pickers. 100% free with custom entries.",
+    "url": "https://spinwheelgames.org/birthday-wheel",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Birthday Wheel – Activity & Gift Picker | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fbirthday-wheel&title=Birthday+Wheel+%E2%80%93+Activity+%26+Gift+Picker+%7C+SpinWheelGames&desc=Spin+the+free+birthday+wheel+to+pick+birthday+party+activities%2C+food+%26+dinners%2C+gift+ideas%2C+party+games%2C+birthday+themes%2C+and+person+pickers.+100%25+free+with+custom+entries.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Birthday Wheel – Activity & Gift Picker | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Birthday Wheel – Activity & Gift Picker | SpinWheelGames',
-    description: 'Spin the free birthday wheel to pick birthday party activities, food & dinners, gift ideas, party games, birthday themes, and person pickers. 100% free with custom entries.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Birthday Wheel – Activity & Gift Picker | SpinWheelGames",
+    "description": "Spin the free birthday wheel to pick birthday party activities, food & dinners, gift ideas, party games, birthday themes, and person pickers. 100% free with custom entries.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fbirthday-wheel&title=Birthday+Wheel+%E2%80%93+Activity+%26+Gift+Picker+%7C+SpinWheelGames&desc=Spin+the+free+birthday+wheel+to+pick+birthday+party+activities%2C+food+%26+dinners%2C+gift+ideas%2C+party+games%2C+birthday+themes%2C+and+person+pickers.+100%25+free+with+custom+entries."
+    ]
   }
 };
 

@@ -10,31 +10,34 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Accessibility Statement | SpinWheelGames',
-  description: 'Engineered with WCAG 2.1 accessibility principles: full keyboard navigation, screen reader live announcements, high contrast, and reduced motion.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/accessibility'
+  "title": "Accessibility Statement | SpinWheelGames",
+  "description": "Engineered with WCAG 2.1 accessibility principles: full keyboard navigation, screen reader live announcements, high contrast, and reduced motion.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/accessibility"
   },
-  openGraph: {
-    title: 'Accessibility Statement | SpinWheelGames',
-    description: 'Engineered with WCAG 2.1 accessibility principles: full keyboard navigation, screen reader live announcements, high contrast, and reduced motion.',
-    url: 'https://spinwheelgames.org/accessibility',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Accessibility Statement | SpinWheelGames",
+    "description": "Engineered with WCAG 2.1 accessibility principles: full keyboard navigation, screen reader live announcements, high contrast, and reduced motion.",
+    "url": "https://spinwheelgames.org/accessibility",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Accessibility Statement | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Faccessibility&title=Accessibility+Statement+%7C+SpinWheelGames&desc=Engineered+with+WCAG+2.1+accessibility+principles%3A+full+keyboard+navigation%2C+screen+reader+live+announcements%2C+high+contrast%2C+and+reduced+motion.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Accessibility Statement | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Accessibility Statement | SpinWheelGames',
-    description: 'Engineered with WCAG 2.1 accessibility principles: full keyboard navigation, screen reader live announcements, high contrast, and reduced motion.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Accessibility Statement | SpinWheelGames",
+    "description": "Engineered with WCAG 2.1 accessibility principles: full keyboard navigation, screen reader live announcements, high contrast, and reduced motion.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Faccessibility&title=Accessibility+Statement+%7C+SpinWheelGames&desc=Engineered+with+WCAG+2.1+accessibility+principles%3A+full+keyboard+navigation%2C+screen+reader+live+announcements%2C+high+contrast%2C+and+reduced+motion."
+    ]
   }
 };
 

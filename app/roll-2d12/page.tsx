@@ -21,42 +21,43 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Roll 2d12 Online | SpinWheelGames',
-  description:
-    'Roll 2d12 online with realistic 3D WebGL physics. View two 12-sided dodecahedron dice sums (2 to 24), triangular probability distributions, and expected averages.',
-  keywords: [
-    'roll 2d12',
-    '2d12 dice roller',
-    'two 12 sided dice',
-    '2d12 average',
-    '2d12 probability',
-    'roll 2d12 online',
-    'd12 dice roller'
+  "title": "Roll 2d12 Online | SpinWheelGames",
+  "description": "Roll 2d12 online with realistic 3D WebGL physics. View two 12-sided dodecahedron dice sums (2 to 24), triangular probability distributions, and expected averages.",
+  "keywords": [
+    "roll 2d12",
+    "2d12 dice roller",
+    "two 12 sided dice",
+    "2d12 average",
+    "2d12 probability",
+    "roll 2d12 online",
+    "d12 dice roller"
   ],
-  alternates: {
-    canonical: 'https://spinwheelgames.org/roll-2d12'
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/roll-2d12"
   },
-  openGraph: {
-    title: 'Roll 2d12 Online | SpinWheelGames',
-    description:
-      'Free interactive 3D 2d12 dice roller with triangular probability distributions and damage averages.',
-    url: 'https://spinwheelgames.org/roll-2d12',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Roll 2d12 Online | SpinWheelGames",
+    "description": "Roll 2d12 online with realistic 3D WebGL physics. View two 12-sided dodecahedron dice sums (2 to 24), triangular probability distributions, and expected averages.",
+    "url": "https://spinwheelgames.org/roll-2d12",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Roll 2d12 Online'
+        "url": "https://spinwheelgames.org/api/og?path=%2Froll-2d12&title=Roll+2d12+Online+%7C+SpinWheelGames&desc=Roll+2d12+online+with+realistic+3D+WebGL+physics.+View+two+12-sided+dodecahedron+dice+sums+%282+to+24%29%2C+triangular+probability+distributions%2C+and+expected+averages.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Roll 2d12 Online | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Roll 2d12 Online | SpinWheelGames',
-    description:
-      'Roll 2d12 online with realistic 3D WebGL physics. View two 12-sided dodecahedron dice sums (2 to 24), triangular probability distributions, and expected averages.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Roll 2d12 Online | SpinWheelGames",
+    "description": "Roll 2d12 online with realistic 3D WebGL physics. View two 12-sided dodecahedron dice sums (2 to 24), triangular probability distributions, and expected averages.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Froll-2d12&title=Roll+2d12+Online+%7C+SpinWheelGames&desc=Roll+2d12+online+with+realistic+3D+WebGL+physics.+View+two+12-sided+dodecahedron+dice+sums+%282+to+24%29%2C+triangular+probability+distributions%2C+and+expected+averages."
+    ]
   }
 };
 

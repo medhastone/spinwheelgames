@@ -51,8 +51,14 @@ import {
   GraduationCap,
   Gift,
   Briefcase,
-  ChevronDown
+  ChevronDown,
+  Code2,
+  Tv
 } from 'lucide-react';
+import {
+  openViralEmbedModal,
+  openViralStreamerMode
+} from '@/lib/viralToolsData';
 import { WheelMode, SpinLogItem, SoundSettings } from '@/lib/types';
 import { selectWeightedWinner } from '@/lib/random';
 import {
@@ -546,6 +552,40 @@ export default function HomePage() {
 
             {/* Quick Utility Actions */}
             <div className="flex items-center gap-1.5 ml-auto">
+              <button
+                type="button"
+                onClick={() =>
+                  openViralEmbedModal({
+                    title: wheelTitle,
+                    items,
+                    paletteKey: activePaletteKey,
+                    palette
+                  })
+                }
+                className="px-2.5 py-1.5 rounded-xl border border-[#eeedf7] dark:border-[#292a39] text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#222330] text-[11px] font-bold flex items-center gap-1 transition-all cursor-pointer"
+                title="Embed this wheel with <iframe> snippet"
+              >
+                <Code2 className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
+                <span className="hidden sm:inline">Embed</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() =>
+                  openViralStreamerMode({
+                    title: wheelTitle,
+                    items,
+                    paletteKey: activePaletteKey,
+                    palette
+                  })
+                }
+                className="px-2.5 py-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 text-[11px] font-bold flex items-center gap-1 transition-all cursor-pointer"
+                title="Launch full-screen transparent OBS Streamer Mode (?stream=1)"
+              >
+                <Tv className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Stream</span>
+              </button>
+
               <button
                 type="button"
                 onClick={() => setShareModalOpen(true)}

@@ -15,44 +15,45 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: '3D RPG Dice Collection | SpinWheelGames',
-  description:
-    'Explore the official 3D RPG gemstone dice collection for SpinWheelGames. Features realistic WebGL 3D physics, crystal glass materials, and gold numerals for D2 through D100.',
-  keywords: [
-    '3d rpg dice collection',
-    '3d dice set',
-    'dnd dice roller 3d',
-    'gemstone crystal dice',
-    'polyhedral dice asset pack',
-    'd20 amber gold die',
-    'spin wheel games dice',
-    'dice gallery',
-    'polyhedral dice showcase'
+  "title": "3D RPG Dice Collection | SpinWheelGames",
+  "description": "Explore the official 3D RPG gemstone dice collection for SpinWheelGames. Features realistic WebGL 3D physics, crystal glass materials, and gold numerals for D2 through D100.",
+  "keywords": [
+    "3d rpg dice collection",
+    "3d dice set",
+    "dnd dice roller 3d",
+    "gemstone crystal dice",
+    "polyhedral dice asset pack",
+    "d20 amber gold die",
+    "spin wheel games dice",
+    "dice gallery",
+    "polyhedral dice showcase"
   ],
-  alternates: {
-    canonical: 'https://spinwheelgames.org/dice-collection'
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/dice-collection"
   },
-  openGraph: {
-    title: '3D RPG Dice Collection | SpinWheelGames',
-    description:
-      'Complete 8-piece 3D RPG dice collection with WebGL physics, crystal glass materials, and metallic gold engraved numerals.',
-    url: 'https://spinwheelgames.org/dice-collection',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "3D RPG Dice Collection | SpinWheelGames",
+    "description": "Explore the official 3D RPG gemstone dice collection for SpinWheelGames. Features realistic WebGL 3D physics, crystal glass materials, and gold numerals for D2 through D100.",
+    "url": "https://spinwheelgames.org/dice-collection",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: '3D RPG Dice Collection'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fdice-collection&title=3D+RPG+Dice+Collection+%7C+SpinWheelGames&desc=Explore+the+official+3D+RPG+gemstone+dice+collection+for+SpinWheelGames.+Features+realistic+WebGL+3D+physics%2C+crystal+glass+materials%2C+and+gold+numerals+for+D2+through+D100.",
+        "width": 1200,
+        "height": 630,
+        "alt": "3D RPG Dice Collection | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: '3D RPG Dice Collection | SpinWheelGames',
-    description:
-      'Explore the official 3D RPG gemstone dice collection for SpinWheelGames. Features realistic WebGL 3D physics, crystal glass materials, and gold numerals for D2 through D100.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "3D RPG Dice Collection | SpinWheelGames",
+    "description": "Explore the official 3D RPG gemstone dice collection for SpinWheelGames. Features realistic WebGL 3D physics, crystal glass materials, and gold numerals for D2 through D100.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fdice-collection&title=3D+RPG+Dice+Collection+%7C+SpinWheelGames&desc=Explore+the+official+3D+RPG+gemstone+dice+collection+for+SpinWheelGames.+Features+realistic+WebGL+3D+physics%2C+crystal+glass+materials%2C+and+gold+numerals+for+D2+through+D100."
+    ]
   }
 };
 

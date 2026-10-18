@@ -1386,7 +1386,7 @@ export default function RandomObjectEngine() {
 
               {/* Winner Announcement Card */}
               {wheelWinner && (
-                <div className="w-full max-w-md bg-gradient-to-r from-indigo-50 via-white to-slate-100 dark:from-indigo-950 dark:to-slate-900 border border-indigo-200 dark:border-indigo-500/50 rounded-2xl p-5 text-center space-y-3 animate-fade-in shadow-xl">
+                <div className="w-full max-w-md bg-gradient-to-r from-indigo-50 via-white to-slate-100 dark:from-indigo-950 dark:via-slate-900 dark:to-slate-900 border border-indigo-200 dark:border-indigo-500/50 rounded-2xl p-5 text-center space-y-3 animate-fade-in shadow-xl">
                   <div className="text-xs text-amber-600 dark:text-amber-400 font-bold uppercase tracking-widest">
                     🎉 Spin Wheel Winner!
                   </div>
@@ -1587,7 +1587,7 @@ export default function RandomObjectEngine() {
 
           {/* ----------------- MODE F: DAILY OBJECT OF THE DAY ----------------- */}
           {activeMode === 'daily' && (
-            <div className="max-w-xl mx-auto bg-gradient-to-br from-indigo-50 via-white to-slate-100 dark:from-indigo-950/60 dark:to-slate-900 border border-indigo-200 dark:border-indigo-500/40 rounded-3xl p-6 sm:p-8 text-center space-y-5 shadow-2xl">
+            <div className="max-w-xl mx-auto bg-gradient-to-br from-indigo-50 via-white to-slate-100 dark:from-indigo-950/60 dark:via-slate-900 dark:to-slate-900 border border-indigo-200 dark:border-indigo-500/40 rounded-3xl p-6 sm:p-8 text-center space-y-5 shadow-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 dark:border-indigo-500/30">
                 <Calendar className="w-3.5 h-3.5" />
                 Object of the Day ({getTodayDateString()})

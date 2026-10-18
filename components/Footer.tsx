@@ -210,6 +210,10 @@ export default function Footer({ onQuickLink }: { onQuickLink?: (type: string) =
           <Link href="/how-to-make-a-classroom-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors">
             Classroom Wheel Best Practices
           </Link>
+          <span>•</span>
+          <Link href="/stream-wheel" className="hover:text-[#4648d4] dark:hover:text-[#8587ff] font-semibold text-emerald-600 dark:text-emerald-400 transition-colors">
+            OBS Streamer Mode Guide
+          </Link>
         </div>
 
         {/* Bottom bar */}

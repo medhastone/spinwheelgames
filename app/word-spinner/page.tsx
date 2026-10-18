@@ -26,31 +26,34 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Word Spinner – Random Word Picker | SpinWheelGames',
-  description: 'Spin the free interactive word spinner to generate random nouns, verbs, adjectives, easy words, and advanced vocabulary. Perfect for creative writing, classroom drills, and party games.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/word-spinner'
+  "title": "Word Spinner – Random Word Picker | SpinWheelGames",
+  "description": "Spin the free interactive word spinner to generate random nouns, verbs, adjectives, easy words, and advanced vocabulary. Perfect for creative writing, classroom drills, and party games.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/word-spinner"
   },
-  openGraph: {
-    title: 'Word Spinner – Random Word Picker | SpinWheelGames',
-    description: 'Spin the free interactive word spinner to generate random nouns, verbs, adjectives, easy words, and advanced vocabulary. Perfect for creative writing, classroom drills, and party games.',
-    url: 'https://spinwheelgames.org/word-spinner',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Word Spinner – Random Word Picker | SpinWheelGames",
+    "description": "Spin the free interactive word spinner to generate random nouns, verbs, adjectives, easy words, and advanced vocabulary. Perfect for creative writing, classroom drills, and party games.",
+    "url": "https://spinwheelgames.org/word-spinner",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Word Spinner – Random Word Picker | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fword-spinner&title=Word+Spinner+%E2%80%93+Random+Word+Picker+%7C+SpinWheelGames&desc=Spin+the+free+interactive+word+spinner+to+generate+random+nouns%2C+verbs%2C+adjectives%2C+easy+words%2C+and+advanced+vocabulary.+Perfect+for+creative+writing%2C+classroom+drills%2C+and+party+g",
+        "width": 1200,
+        "height": 630,
+        "alt": "Word Spinner – Random Word Picker | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Word Spinner – Random Word Picker | SpinWheelGames',
-    description: 'Spin the free interactive word spinner to generate random nouns, verbs, adjectives, easy words, and advanced vocabulary. Perfect for creative writing, classroom drills, and party games.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Word Spinner – Random Word Picker | SpinWheelGames",
+    "description": "Spin the free interactive word spinner to generate random nouns, verbs, adjectives, easy words, and advanced vocabulary. Perfect for creative writing, classroom drills, and party games.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fword-spinner&title=Word+Spinner+%E2%80%93+Random+Word+Picker+%7C+SpinWheelGames&desc=Spin+the+free+interactive+word+spinner+to+generate+random+nouns%2C+verbs%2C+adjectives%2C+easy+words%2C+and+advanced+vocabulary.+Perfect+for+creative+writing%2C+classroom+drills%2C+and+party+g"
+    ]
   }
 };
 

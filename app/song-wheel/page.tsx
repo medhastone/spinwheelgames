@@ -26,31 +26,34 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Song Wheel – Karaoke & Music Picker | SpinWheelGames',
-  description: 'Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/song-wheel'
+  "title": "Song Wheel – Karaoke & Music Picker | SpinWheelGames",
+  "description": "Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/song-wheel"
   },
-  openGraph: {
-    title: 'Song Wheel – Karaoke & Music Picker | SpinWheelGames',
-    description: 'Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!',
-    url: 'https://spinwheelgames.org/song-wheel',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Song Wheel – Karaoke & Music Picker | SpinWheelGames",
+    "description": "Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!",
+    "url": "https://spinwheelgames.org/song-wheel",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Song Wheel – Karaoke & Music Picker | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fsong-wheel&title=Song+Wheel+%E2%80%93+Karaoke+%26+Music+Picker+%7C+SpinWheelGames&desc=Spin+the+free+song+wheel+to+randomly+pick+karaoke+tracks%2C+music+genres%2C+dance+challenges%2C+and+playlist+songs.+Add+custom+tracks+or+spin+party+presets%21",
+        "width": 1200,
+        "height": 630,
+        "alt": "Song Wheel – Karaoke & Music Picker | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Song Wheel – Karaoke & Music Picker | SpinWheelGames',
-    description: 'Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Song Wheel – Karaoke & Music Picker | SpinWheelGames",
+    "description": "Spin the free song wheel to randomly pick karaoke tracks, music genres, dance challenges, and playlist songs. Add custom tracks or spin party presets!",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fsong-wheel&title=Song+Wheel+%E2%80%93+Karaoke+%26+Music+Picker+%7C+SpinWheelGames&desc=Spin+the+free+song+wheel+to+randomly+pick+karaoke+tracks%2C+music+genres%2C+dance+challenges%2C+and+playlist+songs.+Add+custom+tracks+or+spin+party+presets%21"
+    ]
   }
 };
 

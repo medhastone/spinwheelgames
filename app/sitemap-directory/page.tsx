@@ -5,31 +5,34 @@ import { SITE_CONFIG } from '@/lib/siteConfig';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Complete Wheel & Tool Directory | SpinWheelGames',
-  description: 'Interactive random wheel and decision tool on SpinWheelGames.',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/sitemap-directory'
+  "title": "Complete Wheel & Tool Directory | SpinWheelGames",
+  "description": "Interactive random wheel and decision tool on SpinWheelGames.",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/sitemap-directory"
   },
-  openGraph: {
-    title: 'Complete Wheel & Tool Directory | SpinWheelGames',
-    description: 'Interactive random wheel and decision tool on SpinWheelGames.',
-    url: 'https://spinwheelgames.org/sitemap-directory',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Complete Wheel & Tool Directory | SpinWheelGames",
+    "description": "Interactive random wheel and decision tool on SpinWheelGames.",
+    "url": "https://spinwheelgames.org/sitemap-directory",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Complete Wheel & Tool Directory | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fsitemap-directory&title=Complete+Wheel+%26+Tool+Directory+%7C+SpinWheelGames&desc=Interactive+random+wheel+and+decision+tool+on+SpinWheelGames.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Complete Wheel & Tool Directory | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Complete Wheel & Tool Directory | SpinWheelGames',
-    description: 'Interactive random wheel and decision tool on SpinWheelGames.',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Complete Wheel & Tool Directory | SpinWheelGames",
+    "description": "Interactive random wheel and decision tool on SpinWheelGames.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fsitemap-directory&title=Complete+Wheel+%26+Tool+Directory+%7C+SpinWheelGames&desc=Interactive+random+wheel+and+decision+tool+on+SpinWheelGames."
+    ]
   }
 };
 

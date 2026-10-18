@@ -26,8 +26,10 @@ import {
   History,
   Info,
   Home,
-  ChevronRight
+  ChevronRight,
+  Tv
 } from 'lucide-react';
+import { openViralStreamerSetupModal } from '@/lib/viralToolsData';
 import {
   DiePageConfig,
   QuantityPreset,
@@ -360,6 +362,37 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
                   >
                     <Eye className="w-3.5 h-3.5 text-indigo-400" />
                     <span className="hidden sm:inline">Inspect 360°</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      openViralStreamerSetupModal({
+                        title: `${count}${config.dieType.toUpperCase()} Dice Roller`,
+                        items: Array.from(
+                          { length: Math.min(config.sides, 20) },
+                          (_, i) => ({
+                            id: `die-face-${i + 1}`,
+                            text: String(i + 1),
+                            weight: 1
+                          })
+                        ),
+                        toolKind: 'dice',
+                        diceConfig: {
+                          sides: config.sides,
+                          count,
+                          dropLowest,
+                          keepHighest,
+                          modifier,
+                          notation: `${count}${config.dieType}`
+                        }
+                      })
+                    }
+                    className="p-1.5 px-2.5 rounded-lg bg-emerald-500/15 text-emerald-300 hover:text-white hover:bg-emerald-600 border border-emerald-500/30 transition-all flex items-center gap-1.5 text-xs font-bold cursor-pointer"
+                    title="Open Streamer Mode / OBS Browser Source Setup"
+                  >
+                    <Tv className="w-3.5 h-3.5" />
+                    <span>Streamer mode / OBS</span>
                   </button>
                 </div>
               </div>

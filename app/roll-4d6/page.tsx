@@ -25,43 +25,44 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Roll 4d6 Drop Lowest | SpinWheelGames',
-  description:
-    'Roll 4d6 online with realistic 3D WebGL physics. Automatically calculates 4d6 Drop Lowest for D&D character stats, discrete probability distributions, and expected averages.',
-  keywords: [
-    'roll 4d6',
-    'roll 4d6 drop lowest',
-    '4d6 drop lowest online',
-    '4d6 roller',
-    'dnd stat dice roller',
-    '4d6 dice roller',
-    'dnd 5e 4d6 drop lowest',
-    'character stat roller 4d6'
+  "title": "Roll 4d6 Drop Lowest | SpinWheelGames",
+  "description": "Roll 4d6 online with realistic 3D WebGL physics. Automatically calculates 4d6 Drop Lowest for D&D character stats, discrete probability distributions, and expected averages.",
+  "keywords": [
+    "roll 4d6",
+    "roll 4d6 drop lowest",
+    "4d6 drop lowest online",
+    "4d6 roller",
+    "dnd stat dice roller",
+    "4d6 dice roller",
+    "dnd 5e 4d6 drop lowest",
+    "character stat roller 4d6"
   ],
-  alternates: {
-    canonical: 'https://spinwheelgames.org/roll-4d6'
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/roll-4d6"
   },
-  openGraph: {
-    title: 'Roll 4d6 Drop Lowest | SpinWheelGames',
-    description:
-      'Roll 4d6 online with realistic 3D WebGL physics. Automatically calculates 4d6 Drop Lowest for D&D character stats, discrete probability distributions, and expected averages.',
-    url: 'https://spinwheelgames.org/roll-4d6',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Roll 4d6 Drop Lowest | SpinWheelGames",
+    "description": "Roll 4d6 online with realistic 3D WebGL physics. Automatically calculates 4d6 Drop Lowest for D&D character stats, discrete probability distributions, and expected averages.",
+    "url": "https://spinwheelgames.org/roll-4d6",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Roll 4d6 Drop Lowest Online'
+        "url": "https://spinwheelgames.org/api/og?path=%2Froll-4d6&title=Roll+4d6+Drop+Lowest+%7C+SpinWheelGames&desc=Roll+4d6+online+with+realistic+3D+WebGL+physics.+Automatically+calculates+4d6+Drop+Lowest+for+D%26D+character+stats%2C+discrete+probability+distributions%2C+and+expected+averages.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Roll 4d6 Drop Lowest | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Roll 4d6 Drop Lowest | SpinWheelGames',
-    description:
-      'Roll 4d6 online with realistic 3D WebGL physics. Automatically calculates 4d6 Drop Lowest for D&D character stats, discrete probability distributions, and expected averages.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Roll 4d6 Drop Lowest | SpinWheelGames",
+    "description": "Roll 4d6 online with realistic 3D WebGL physics. Automatically calculates 4d6 Drop Lowest for D&D character stats, discrete probability distributions, and expected averages.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Froll-4d6&title=Roll+4d6+Drop+Lowest+%7C+SpinWheelGames&desc=Roll+4d6+online+with+realistic+3D+WebGL+physics.+Automatically+calculates+4d6+Drop+Lowest+for+D%26D+character+stats%2C+discrete+probability+distributions%2C+and+expected+averages."
+    ]
   }
 };
 

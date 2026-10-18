@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import ScrollToTop from '@/components/ScrollToTop';
+import ViralToolsController from '@/components/viral/ViralToolsController';
+import { buildPageOgImageUrl } from '@/lib/pageMetadata';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -60,10 +62,14 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
+        url: buildPageOgImageUrl(
+          '/',
+          'Spin the Wheel & See What Happens | SpinWheelGames',
+          'Not sure what to choose? Give the wheel a spin and let the result surprise you. Play free wheel games, pick names and make decisions.'
+        ),
         width: 1200,
         height: 630,
-        alt: 'SpinWheelGames'
+        alt: 'Spin the Wheel & See What Happens | SpinWheelGames'
       }
     ]
   },
@@ -71,8 +77,14 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Spin the Wheel & See What Happens | SpinWheelGames',
     description:
-      'Free wheel games and random pickers for decisions, names, teams, food, classrooms, parties and giveaways.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+      'Not sure what to choose? Give the wheel a spin and let the result surprise you. Play free wheel games, pick names and make decisions.',
+    images: [
+      buildPageOgImageUrl(
+        '/',
+        'Spin the Wheel & See What Happens | SpinWheelGames',
+        'Not sure what to choose? Give the wheel a spin and let the result surprise you. Play free wheel games, pick names and make decisions.'
+      )
+    ]
   },
   icons: {
     icon: [
@@ -146,6 +158,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `
               (function() {
                 try {
+                  if (window.location.search.indexOf('stream=1') !== -1 || window.location.search.indexOf('bg=transparent') !== -1) {
+                    document.documentElement.classList.add('streamer-mode');
+                    var rMeta = document.querySelector('meta[name="robots"]');
+                    if (!rMeta) {
+                      rMeta = document.createElement('meta');
+                      rMeta.setAttribute('name', 'robots');
+                      document.head.appendChild(rMeta);
+                    }
+                    rMeta.setAttribute('content', 'noindex, nofollow');
+                  }
                   var saved = localStorage.getItem('spinwheel_theme_preference');
                   var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
                   if (saved === 'dark' || (!saved && prefersDark)) {
@@ -227,6 +249,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body suppressHydrationWarning className="antialiased bg-[#fbf8ff] dark:bg-[#0c0d14] text-[#1a1b22] dark:text-[#eeedf7] w-full max-w-full overflow-x-clip">
         {children}
+        <ViralToolsController />
         <ScrollToTop />
       </body>
     </html>

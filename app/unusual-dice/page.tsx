@@ -11,42 +11,43 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Unusual Dice Roller | SpinWheelGames',
-  description:
-    'Free online unusual dice roller. Simulate odd-sided polyhedra like d3, d5, d7, d14, d16, d24, d30, and custom N-sided dice with 3D WebGL physics.',
-  keywords: [
-    'unusual dice roller',
-    'non standard dice',
-    'dcc rpg dice chain',
-    'd3 die roller',
-    'd7 die roller',
-    'd30 dice roller',
-    'custom n sided die'
+  "title": "Unusual Dice Roller | SpinWheelGames",
+  "description": "Free online unusual dice roller. Simulate odd-sided polyhedra like d3, d5, d7, d14, d16, d24, d30, and custom N-sided dice with 3D WebGL physics.",
+  "keywords": [
+    "unusual dice roller",
+    "non standard dice",
+    "dcc rpg dice chain",
+    "d3 die roller",
+    "d7 die roller",
+    "d30 dice roller",
+    "custom n sided die"
   ],
-  alternates: {
-    canonical: 'https://spinwheelgames.org/unusual-dice'
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/unusual-dice"
   },
-  openGraph: {
-    title: 'Unusual Dice Roller | SpinWheelGames',
-    description:
-      'Free online unusual dice roller. Simulate odd-sided polyhedra like d3, d5, d7, d14, d16, d24, d30, and custom N-sided dice with 3D WebGL physics.',
-    url: 'https://spinwheelgames.org/unusual-dice',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Unusual Dice Roller | SpinWheelGames",
+    "description": "Free online unusual dice roller. Simulate odd-sided polyhedra like d3, d5, d7, d14, d16, d24, d30, and custom N-sided dice with 3D WebGL physics.",
+    "url": "https://spinwheelgames.org/unusual-dice",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Unusual Dice Roller Online'
+        "url": "https://spinwheelgames.org/api/og?path=%2Funusual-dice&title=Unusual+Dice+Roller+%7C+SpinWheelGames&desc=Free+online+unusual+dice+roller.+Simulate+odd-sided+polyhedra+like+d3%2C+d5%2C+d7%2C+d14%2C+d16%2C+d24%2C+d30%2C+and+custom+N-sided+dice+with+3D+WebGL+physics.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Unusual Dice Roller | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Unusual Dice Roller | SpinWheelGames',
-    description:
-      'Free online unusual dice roller. Simulate odd-sided polyhedra like d3, d5, d7, d14, d16, d24, d30, and custom N-sided dice with 3D WebGL physics.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Unusual Dice Roller | SpinWheelGames",
+    "description": "Free online unusual dice roller. Simulate odd-sided polyhedra like d3, d5, d7, d14, d16, d24, d30, and custom N-sided dice with 3D WebGL physics.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Funusual-dice&title=Unusual+Dice+Roller+%7C+SpinWheelGames&desc=Free+online+unusual+dice+roller.+Simulate+odd-sided+polyhedra+like+d3%2C+d5%2C+d7%2C+d14%2C+d16%2C+d24%2C+d30%2C+and+custom+N-sided+dice+with+3D+WebGL+physics."
+    ]
   }
 };
 

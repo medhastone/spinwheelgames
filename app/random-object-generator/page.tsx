@@ -32,31 +32,34 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Random Object Generator Wheel | SpinWheelGames',
-  description: 'Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/random-object-generator'
+  "title": "Random Object Generator Wheel | SpinWheelGames",
+  "description": "Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/random-object-generator"
   },
-  openGraph: {
-    title: 'Random Object Generator Wheel | SpinWheelGames',
-    description: 'Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!',
-    url: 'https://spinwheelgames.org/random-object-generator',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Random Object Generator Wheel | SpinWheelGames",
+    "description": "Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!",
+    "url": "https://spinwheelgames.org/random-object-generator",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Random Object Generator Wheel | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Frandom-object-generator&title=Random+Object+Generator+Wheel+%7C+SpinWheelGames&desc=Generate+random+objects+instantly+with+an+interactive+wheel.+Over+1%2C000%2B+curated+items+for+Pictionary%2C+drawing+prompts%2C+creative+writing%2C+and+improv+games%21",
+        "width": 1200,
+        "height": 630,
+        "alt": "Random Object Generator Wheel | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Random Object Generator Wheel | SpinWheelGames',
-    description: 'Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Random Object Generator Wheel | SpinWheelGames",
+    "description": "Generate random objects instantly with an interactive wheel. Over 1,000+ curated items for Pictionary, drawing prompts, creative writing, and improv games!",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Frandom-object-generator&title=Random+Object+Generator+Wheel+%7C+SpinWheelGames&desc=Generate+random+objects+instantly+with+an+interactive+wheel.+Over+1%2C000%2B+curated+items+for+Pictionary%2C+drawing+prompts%2C+creative+writing%2C+and+improv+games%21"
+    ]
   }
 };
 
@@ -337,7 +340,7 @@ export default function RandomObjectGeneratorPage() {
         </section>
 
         {/* Section 3: Technical Fairness & Randomness Explanation */}
-        <section className="bg-gradient-to-br from-indigo-50/90 via-slate-50 to-indigo-100/50 dark:from-slate-900 dark:to-indigo-950/40 rounded-3xl border border-indigo-200 dark:border-indigo-500/30 p-6 sm:p-10 space-y-6 shadow-sm">
+        <section className="bg-gradient-to-br from-indigo-50/90 via-slate-50 to-indigo-100/50 dark:from-slate-900 dark:via-slate-900/95 dark:to-indigo-950/60 rounded-3xl border border-indigo-200 dark:border-indigo-500/30 p-6 sm:p-10 space-y-6 shadow-sm">
           <div className="space-y-2">
             <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest">
               Algorithm &amp; Cryptography
@@ -347,7 +350,7 @@ export default function RandomObjectGeneratorPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
             <div className="space-y-3">
               <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
@@ -355,7 +358,7 @@ export default function RandomObjectGeneratorPage() {
               </h3>
               <p>
                 Standard online randomizers rely on JavaScript’s built-in{' '}
-                <code className="bg-slate-200/80 dark:bg-slate-800 px-1.5 py-0.5 rounded text-amber-700 dark:text-amber-300 text-xs">
+                <code className="bg-slate-200/80 dark:bg-slate-800 px-1.5 py-0.5 rounded text-amber-700 dark:text-amber-300 text-xs font-mono">
                   Math.random()
                 </code>
                 , an algorithm that produces pseudo-random values which can suffer from periodicity,
@@ -363,7 +366,7 @@ export default function RandomObjectGeneratorPage() {
               </p>
               <p>
                 SpinWheelGames.org exclusively implements the W3C standard{' '}
-                <code className="bg-slate-200/80 dark:bg-slate-800 px-1.5 py-0.5 rounded text-indigo-700 dark:text-indigo-300 text-xs">
+                <code className="bg-slate-200/80 dark:bg-slate-800 px-1.5 py-0.5 rounded text-indigo-700 dark:text-indigo-300 text-xs font-mono">
                   window.crypto.getRandomValues()
                 </code>
                 . This powers an unbiased Fisher-Yates shuffle with cryptographic random values,
@@ -382,7 +385,7 @@ export default function RandomObjectGeneratorPage() {
                 same object twice in a row.
               </p>
               <p>
-                When our <strong>No Repeats</strong> toggle is active, every chosen object ID is
+                When our <strong className="text-slate-900 dark:text-white">No Repeats</strong> toggle is active, every chosen object ID is
                 stored in local session state and deducted from the eligible candidate pool. The
                 generator guarantees zero duplicates until the entire eligible category is exhausted
                 or until you manually click the Reset History button.

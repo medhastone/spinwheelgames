@@ -28,31 +28,34 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Question Wheel & Icebreaker Spinner | SpinWheelGames',
-  description: 'Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/question-wheel'
+  "title": "Question Wheel & Icebreaker Spinner | SpinWheelGames",
+  "description": "Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!",
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/question-wheel"
   },
-  openGraph: {
-    title: 'Question Wheel & Icebreaker Spinner | SpinWheelGames',
-    description: 'Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!',
-    url: 'https://spinwheelgames.org/question-wheel',
-    siteName: 'SpinWheelGames',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Question Wheel & Icebreaker Spinner | SpinWheelGames",
+    "description": "Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!",
+    "url": "https://spinwheelgames.org/question-wheel",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Question Wheel & Icebreaker Spinner | SpinWheelGames'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fquestion-wheel&title=Question+Wheel+%26+Icebreaker+Spinner+%7C+SpinWheelGames&desc=Spin+the+question+wheel+for+Truth+or+Dare%2C+deep+icebreakers%2C+trivia%2C+and+party+conversation+starters.+Customize+questions+or+draw+random+cards.+100%25+free%21",
+        "width": 1200,
+        "height": 630,
+        "alt": "Question Wheel & Icebreaker Spinner | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Question Wheel & Icebreaker Spinner | SpinWheelGames',
-    description: 'Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!',
-    images: ['https://spinwheelgames.org/spinwheel.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Question Wheel & Icebreaker Spinner | SpinWheelGames",
+    "description": "Spin the question wheel for Truth or Dare, deep icebreakers, trivia, and party conversation starters. Customize questions or draw random cards. 100% free!",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fquestion-wheel&title=Question+Wheel+%26+Icebreaker+Spinner+%7C+SpinWheelGames&desc=Spin+the+question+wheel+for+Truth+or+Dare%2C+deep+icebreakers%2C+trivia%2C+and+party+conversation+starters.+Customize+questions+or+draw+random+cards.+100%25+free%21"
+    ]
   }
 };
 

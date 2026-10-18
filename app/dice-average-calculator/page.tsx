@@ -24,45 +24,46 @@ export const dynamic = 'force-static';
 
 
 export const metadata: Metadata = {
-  title: 'Dice Average Calculator | SpinWheelGames',
-  description:
-    'Calculate theoretical expected averages, standard deviation, discrete probability distributions, and bell curves for any tabletop RPG dice formula.',
-  keywords: [
-    'dice average calculator',
-    'average dice roll calculator',
-    'dice expected value',
-    'dice probability calculator',
-    'dice average calc',
-    'dnd dice average',
-    '3d6 average',
-    '8d6 average fireball',
-    'd20 average advantage',
-    '2d6 vs 1d12 average'
+  "title": "Dice Average Calculator | SpinWheelGames",
+  "description": "Calculate theoretical expected averages, standard deviation, discrete probability distributions, and bell curves for any tabletop RPG dice formula.",
+  "keywords": [
+    "dice average calculator",
+    "average dice roll calculator",
+    "dice expected value",
+    "dice probability calculator",
+    "dice average calc",
+    "dnd dice average",
+    "3d6 average",
+    "8d6 average fireball",
+    "d20 average advantage",
+    "2d6 vs 1d12 average"
   ],
-  alternates: {
-    canonical: 'https://spinwheelgames.org/dice-average-calculator'
+  "alternates": {
+    "canonical": "https://spinwheelgames.org/dice-average-calculator"
   },
-  openGraph: {
-    title: 'Dice Average Calculator | SpinWheelGames',
-    description:
-      'Calculate theoretical expected averages, standard deviation, discrete probability distributions, and bell curves for any tabletop RPG dice formula.',
-    url: 'https://spinwheelgames.org/dice-average-calculator',
-    type: 'website',
-    images: [
+  "openGraph": {
+    "title": "Dice Average Calculator | SpinWheelGames",
+    "description": "Calculate theoretical expected averages, standard deviation, discrete probability distributions, and bell curves for any tabletop RPG dice formula.",
+    "url": "https://spinwheelgames.org/dice-average-calculator",
+    "siteName": "SpinWheelGames",
+    "locale": "en_US",
+    "type": "website",
+    "images": [
       {
-        url: 'https://spinwheelgames.org/spinwheel-logo.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Dice Average Calculator Online'
+        "url": "https://spinwheelgames.org/api/og?path=%2Fdice-average-calculator&title=Dice+Average+Calculator+%7C+SpinWheelGames&desc=Calculate+theoretical+expected+averages%2C+standard+deviation%2C+discrete+probability+distributions%2C+and+bell+curves+for+any+tabletop+RPG+dice+formula.",
+        "width": 1200,
+        "height": 630,
+        "alt": "Dice Average Calculator | SpinWheelGames"
       }
     ]
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Dice Average Calculator | SpinWheelGames',
-    description:
-      'Calculate theoretical expected averages, standard deviation, discrete probability distributions, and bell curves for any tabletop RPG dice formula.',
-    images: ['https://spinwheelgames.org/spinwheel-logo.webp']
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Dice Average Calculator | SpinWheelGames",
+    "description": "Calculate theoretical expected averages, standard deviation, discrete probability distributions, and bell curves for any tabletop RPG dice formula.",
+    "images": [
+      "https://spinwheelgames.org/api/og?path=%2Fdice-average-calculator&title=Dice+Average+Calculator+%7C+SpinWheelGames&desc=Calculate+theoretical+expected+averages%2C+standard+deviation%2C+discrete+probability+distributions%2C+and+bell+curves+for+any+tabletop+RPG+dice+formula."
+    ]
   }
 };
 
