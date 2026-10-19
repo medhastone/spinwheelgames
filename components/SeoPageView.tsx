@@ -242,7 +242,7 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
                 Interactive {activeWheel.title}
               </span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <button
                 type="button"
                 onClick={() =>
@@ -252,11 +252,12 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
                     paletteKey: activeWheel.paletteKey
                   })
                 }
-                className="px-2.5 py-1 rounded-lg bg-[#f4f2fd] dark:bg-[#222330] hover:bg-[#4648d4] hover:text-white text-[#1a1b22] dark:text-[#f1effa] text-xs font-bold flex items-center gap-1 transition-colors cursor-pointer"
+                className="p-2 sm:px-2.5 sm:py-1 rounded-lg bg-[#f4f2fd] dark:bg-[#222330] hover:bg-[#4648d4] hover:text-white text-[#1a1b22] dark:text-[#f1effa] text-xs font-bold flex items-center justify-center gap-1 transition-colors cursor-pointer"
                 title="Embed this wheel via <iframe>"
+                aria-label="Embed wheel"
               >
                 <Code2 className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
-                <span>Embed</span>
+                <span className="hidden sm:inline">Embed</span>
               </button>
               <button
                 type="button"
@@ -267,12 +268,20 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
                     paletteKey: activeWheel.paletteKey
                   })
                 }
-                className="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-300 hover:text-white border border-emerald-500/25 text-xs font-bold flex items-center gap-1 transition-colors cursor-pointer"
+                className="p-2 sm:px-2.5 sm:py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-300 hover:text-white border border-emerald-500/25 text-xs font-bold flex items-center justify-center gap-1 transition-colors cursor-pointer"
                 title="Open full-screen transparent OBS Streamer Mode (?stream=1)"
+                aria-label="Streamer Mode"
               >
                 <Tv className="w-3.5 h-3.5" />
-                <span>Streamer Mode</span>
+                <span className="hidden sm:inline">Streamer Mode</span>
               </button>
+              <Link
+                href="/stream-wheel"
+                className="hidden sm:inline-flex px-2.5 py-1 rounded-lg bg-[#f4f2fd] dark:bg-[#222330] hover:bg-[#4648d4]/15 text-[#4648d4] dark:text-[#8587ff] text-xs font-bold items-center gap-1 transition-colors"
+                title="OBS Studio & Streamlabs Setup Guide"
+              >
+                <span>OBS Guide</span>
+              </Link>
               <span className="hidden md:inline text-xs text-[#767586] dark:text-[#908fa1] font-mono">
                 Web Crypto API • CSPRNG
               </span>

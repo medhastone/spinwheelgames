@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { Code2, Copy, Check, X, ExternalLink, Tv, Sparkles } from 'lucide-react';
+import Link from 'next/link';
+import { Code2, Copy, Check, X, ExternalLink, Tv, Sparkles, BookOpen } from 'lucide-react';
 import { ViralToolConfig } from '@/lib/viralToolsData';
 
 interface EmbedWheelModalProps {
@@ -198,24 +199,34 @@ export default function EmbedWheelModal({
 
         {/* Footer Actions */}
         <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-[#eeedf7] dark:border-[#252636]">
-          {onSwitchToStreamerMode ? (
-            <button
-              type="button"
-              onClick={() => {
-                onClose();
-                onSwitchToStreamerMode();
-              }}
-              className="px-3.5 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer"
+          <div className="flex flex-wrap items-center gap-2">
+            {onSwitchToStreamerMode ? (
+              <button
+                type="button"
+                onClick={() => {
+                  onClose();
+                  onSwitchToStreamerMode();
+                }}
+                className="px-3.5 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer"
+              >
+                <Tv className="w-4 h-4" />
+                <span>OBS Streamer Mode (?stream=1)</span>
+              </button>
+            ) : (
+              <span className="text-[11px] text-[#767586] dark:text-[#908fa1] flex items-center gap-1">
+                <Sparkles className="w-3.5 h-3.5 text-[#4648d4]" />
+                <span>Zero tracking • Fast edge load</span>
+              </span>
+            )}
+            <Link
+              href="/stream-wheel"
+              onClick={onClose}
+              className="px-3 py-2 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e2b] hover:bg-[#4648d4]/15 text-[#4648d4] dark:text-[#8587ff] text-xs font-bold inline-flex items-center gap-1.5 transition-colors"
             >
-              <Tv className="w-4 h-4" />
-              <span>Launch OBS Streamer Mode (?stream=1)</span>
-            </button>
-          ) : (
-            <span className="text-[11px] text-[#767586] dark:text-[#908fa1] flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5 text-[#4648d4]" />
-              <span>Zero tracking • Fast edge load</span>
-            </span>
-          )}
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>Streamer Guide</span>
+            </Link>
+          </div>
 
           <button
             type="button"

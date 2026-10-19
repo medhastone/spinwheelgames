@@ -77,26 +77,36 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
       </nav>
 
       {isToolPage && (
-        <div className="flex items-center gap-1.5 z-10">
+        <div className="flex items-center gap-1 sm:gap-1.5 z-10">
           <button
             type="button"
             onClick={() => openViralEmbedModal()}
-            className="px-3 py-1.5 rounded-xl bg-white dark:bg-[#181924] hover:bg-[#4648d4] hover:text-white dark:hover:bg-[#4648d4] text-slate-800 dark:text-slate-200 border border-slate-300/70 dark:border-slate-800 text-xs font-bold flex items-center gap-1.5 shadow-xs transition-all cursor-pointer whitespace-nowrap"
+            className="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-white dark:bg-[#181924] hover:bg-[#4648d4] hover:text-white dark:hover:bg-[#4648d4] text-slate-800 dark:text-slate-200 border border-slate-300/70 dark:border-slate-800 text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-all cursor-pointer whitespace-nowrap"
             title="Get responsive <iframe> embed code for this tool"
+            aria-label="Embed tool"
           >
             <Code2 className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
-            <span>Embed</span>
+            <span className="hidden sm:inline">Embed</span>
           </button>
 
           <button
             type="button"
             onClick={() => openViralStreamerMode()}
-            className="px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-300 hover:text-white border border-emerald-500/30 text-xs font-bold flex items-center gap-1.5 shadow-xs transition-all cursor-pointer whitespace-nowrap"
+            className="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-300 hover:text-white border border-emerald-500/30 text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-all cursor-pointer whitespace-nowrap"
             title="Open full-screen transparent OBS Streamer Mode (?stream=1)"
+            aria-label="Streamer Mode"
           >
             <Tv className="w-3.5 h-3.5" />
-            <span>Streamer Mode</span>
+            <span className="hidden sm:inline">Streamer Mode</span>
           </button>
+
+          <Link
+            href="/stream-wheel"
+            className="hidden sm:inline-flex px-2.5 py-1.5 rounded-xl bg-white dark:bg-[#181924] hover:bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff] border border-slate-300/70 dark:border-slate-800 text-xs font-bold items-center gap-1 shadow-xs transition-all whitespace-nowrap"
+            title="OBS Studio & Streamlabs Streamer Wheel Setup Guide"
+          >
+            <span>OBS Guide</span>
+          </Link>
         </div>
       )}
     </div>

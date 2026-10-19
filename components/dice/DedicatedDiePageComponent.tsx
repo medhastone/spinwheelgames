@@ -388,11 +388,12 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
                         }
                       })
                     }
-                    className="p-1.5 px-2.5 rounded-lg bg-emerald-500/15 text-emerald-300 hover:text-white hover:bg-emerald-600 border border-emerald-500/30 transition-all flex items-center gap-1.5 text-xs font-bold cursor-pointer"
+                    className="p-2 sm:px-2.5 sm:py-1.5 rounded-lg bg-emerald-500/15 text-emerald-300 hover:text-white hover:bg-emerald-600 border border-emerald-500/30 transition-all flex items-center justify-center gap-1.5 text-xs font-bold cursor-pointer"
                     title="Open Streamer Mode / OBS Browser Source Setup"
+                    aria-label="Streamer mode / OBS"
                   >
                     <Tv className="w-3.5 h-3.5" />
-                    <span>Streamer mode / OBS</span>
+                    <span className="hidden sm:inline">Streamer mode / OBS</span>
                   </button>
                 </div>
               </div>

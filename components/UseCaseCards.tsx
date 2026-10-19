@@ -70,7 +70,7 @@ export default function UseCaseCards() {
       heading: 'Live Stream Engagement',
       description: 'Engage Twitch and YouTube viewers with interactive wheels for subscriber rewards and gamer challenges.',
       cta: 'Try Streamer Wheels',
-      path: '/games',
+      path: '/stream-wheel',
       icon: Tv,
       color: 'border-purple-500/20 text-purple-500 bg-purple-500/10'
     }

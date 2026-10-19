@@ -32,7 +32,8 @@ const EXCLUDED_PATHS = new Set([
   '/contest-picker',
   '/raffle-wheel',
   '/party-wheel/truth-or-dare',
-  '/bingo-spin-wheel'
+  '/bingo-spin-wheel',
+  '/stream-control'
 ]);
 
 const STATIC_CANONICAL_PATHS = [
@@ -42,6 +43,7 @@ const STATIC_CANONICAL_PATHS = [
   '/challenges',
   '/fairness',
   '/about',
+  '/stream-wheel',
   '/sitemap',
   '/sitemap-directory',
   '/wheel-of-names',

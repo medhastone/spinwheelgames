@@ -531,7 +531,7 @@ export default function DiceScene3D({
         const dt = Math.min((now - lastTimeRef.current) / 1000, 0.05);
         lastTimeRef.current = now;
 
-        const isTimeout = (now - rollStartTime) > 3500;
+        const isTimeout = (now - rollStartTime) > (transparentBg ? 1700 : 3500);
         const allSettled = physics.step(dt) || isTimeout;
 
         const shouldRenderFrame = allSettled || (now - lastRenderTime >= minFrameInterval);
@@ -584,14 +584,33 @@ export default function DiceScene3D({
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
       animFrameRef.current = requestAnimationFrame(loop);
     },
-    [count, sides, rebuildVisualMeshes, soundEnabled, onPhysicsRollComplete, onAnimationComplete, onTelemetryUpdate, maxFps]
+    [count, sides, rebuildVisualMeshes, soundEnabled, onPhysicsRollComplete, onAnimationComplete, onTelemetryUpdate, maxFps, transparentBg]
   );
 
   useEffect(() => {
     if (isRolling && !isSimulatingRef.current) {
+      if (!hasWebGL || !physicsEngineRef.current || !sceneRef.current) {
+        // Fallback when WebGL is unavailable in headless environments
+        const timer = window.setTimeout(() => {
+          const numDice = Math.max(1, Math.min(count, 20));
+          const fallbackResults: SingleDieResult[] = Array.from({ length: numDice }, () => {
+            const arr = new Uint32Array(1);
+            if (typeof window !== 'undefined' && window.crypto?.getRandomValues) {
+              window.crypto.getRandomValues(arr);
+            } else {
+              arr[0] = Math.floor(Math.random() * 0xffffffff);
+            }
+            const val = Math.floor((arr[0] / (0xffffffff + 1)) * sides) + 1;
+            return { value: val, originalValue: val, isDropped: false };
+          });
+          if (onPhysicsRollComplete) onPhysicsRollComplete(fallbackResults);
+          if (onAnimationComplete) onAnimationComplete();
+        }, 450);
+        return () => window.clearTimeout(timer);
+      }
       executePhysicalRoll();
     }
-  }, [isRolling, executePhysicalRoll]);
+  }, [isRolling, hasWebGL, count, sides, executePhysicalRoll, onPhysicsRollComplete, onAnimationComplete]);
 
   // Initial resting render: ONLY rearrange if config changed and NOT right after a physical roll!
   useEffect(() => {
@@ -675,10 +694,10 @@ export default function DiceScene3D({
 
   return (
     <div
-      className={`relative w-full h-full min-h-[320px] sm:min-h-[420px] lg:min-h-[480px] rounded-3xl overflow-hidden select-none ${
+      className={`relative w-full h-full rounded-3xl overflow-hidden select-none ${
         transparentBg
-          ? 'bg-transparent border-0 shadow-none'
-          : 'bg-gradient-to-b from-[#0e0f17] via-[#12131e] to-[#090a10] border border-[#222330] shadow-inner'
+          ? 'min-h-0 bg-transparent border-0 shadow-none'
+          : 'min-h-[320px] sm:min-h-[420px] lg:min-h-[480px] bg-gradient-to-b from-[#0e0f17] via-[#12131e] to-[#090a10] border border-[#222330] shadow-inner'
       } ${className}`}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
@@ -686,7 +705,7 @@ export default function DiceScene3D({
       {/* 3D WebGL Canvas Container */}
       <div
         ref={containerRef}
-        className="w-full h-full cursor-grab active:cursor-grabbing touch-none"
+        className="w-full h-full bg-transparent cursor-grab active:cursor-grabbing touch-none"
         aria-hidden="true"
       />
 

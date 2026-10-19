@@ -398,11 +398,12 @@ export default function DiceRollerEngine({
                 }
               })
             }
-            className="p-1.5 px-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-300 hover:text-white text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
+            className="p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-300 hover:text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
             title="Configure OBS Studio & Streamlabs Browser Source (?stream=1)"
+            aria-label="Streamer mode / OBS"
           >
             <Tv className="w-3.5 h-3.5" />
-            <span>Streamer mode / OBS</span>
+            <span className="hidden sm:inline">Streamer mode / OBS</span>
           </button>
         </div>
       </div>

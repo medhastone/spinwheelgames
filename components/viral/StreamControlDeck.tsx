@@ -281,7 +281,7 @@ export default function StreamControlDeck() {
   );
 
   return (
-    <div className="min-h-screen bg-[#0c0d14] text-[#f1effa] flex flex-col">
+    <div id="stream-control-deck" className="min-h-screen bg-[#0c0d14] text-[#f1effa] flex flex-col">
       {/* Top Bar */}
       <header className="border-b border-[#222330] bg-[#12131d]/90 backdrop-blur-md px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">

@@ -195,6 +195,7 @@ export default function CategoriesIndexPage() {
           </p>
           <div className="flex flex-wrap gap-2">
             {[
+              { href: '/stream-wheel', label: 'OBS Streamer Mode Wheel & Dice Overlay Guide' },
               { href: '/dice-roller', label: '3D Online Dice Roller' },
               { href: '/roll-4d6', label: 'Roll 4d6 Drop Lowest Calculator' },
               { href: '/dnd-stat-roller', label: 'D&D 5e Ability Score Stat Roller' },

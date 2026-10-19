@@ -2,6 +2,7 @@
 import { SITE_COUNTS } from "@/lib/siteConfig";
 
 import React, { useState, useEffect, useCallback, Suspense } from 'react';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import HeroBanner from '@/components/HeroBanner';
 import WheelWorkspace from '@/components/WheelWorkspace';
@@ -562,8 +563,9 @@ export default function HomePage() {
                     palette
                   })
                 }
-                className="px-2.5 py-1.5 rounded-xl border border-[#eeedf7] dark:border-[#292a39] text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#222330] text-[11px] font-bold flex items-center gap-1 transition-all cursor-pointer"
+                className="p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-[#eeedf7] dark:border-[#292a39] text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#222330] text-[11px] font-bold flex items-center justify-center gap-1 transition-all cursor-pointer"
                 title="Embed this wheel with <iframe> snippet"
+                aria-label="Embed wheel"
               >
                 <Code2 className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
                 <span className="hidden sm:inline">Embed</span>
@@ -579,12 +581,21 @@ export default function HomePage() {
                     palette
                   })
                 }
-                className="px-2.5 py-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 text-[11px] font-bold flex items-center gap-1 transition-all cursor-pointer"
+                className="p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 text-[11px] font-bold flex items-center justify-center gap-1 transition-all cursor-pointer"
                 title="Launch full-screen transparent OBS Streamer Mode (?stream=1)"
+                aria-label="Streamer Mode"
               >
                 <Tv className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">Stream</span>
               </button>
+
+              <Link
+                href="/stream-wheel"
+                className="px-2.5 py-1.5 rounded-xl border border-[#eeedf7] dark:border-[#292a39] text-[#4648d4] dark:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#222330] text-[11px] font-bold hidden md:inline-flex items-center gap-1 transition-all"
+                title="OBS Studio & Streamlabs Streamer Wheel Guide"
+              >
+                <span>OBS Guide</span>
+              </Link>
 
               <button
                 type="button"

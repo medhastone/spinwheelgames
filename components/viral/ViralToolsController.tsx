@@ -141,7 +141,7 @@ export default function ViralToolsController() {
       {isToolRoute && !streamerModeActive && (
         <div
           id="viral-tools-dock"
-          className="fixed bottom-6 left-4 sm:bottom-8 sm:left-6 z-40 flex items-center gap-1.5 p-1.5 rounded-2xl bg-white/95 dark:bg-[#181922]/95 backdrop-blur-md border border-[#eeedf7] dark:border-[#292a39] shadow-[0_4px_24px_rgba(70,72,212,0.16)]"
+          className="fixed bottom-4 left-3 sm:bottom-8 sm:left-6 z-40 flex items-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-2xl bg-white/95 dark:bg-[#181922]/95 backdrop-blur-md border border-[#eeedf7] dark:border-[#292a39] shadow-[0_4px_24px_rgba(70,72,212,0.16)]"
         >
           <button
             type="button"
@@ -149,11 +149,12 @@ export default function ViralToolsController() {
               setActiveConfig(getActiveViralWheel(pathname));
               setEmbedModalOpen(true);
             }}
-            className="px-3 py-1.5 rounded-xl bg-[#f4f2fd] dark:bg-[#222330] hover:bg-[#4648d4] hover:text-white dark:hover:bg-[#4648d4] text-[#1a1b22] dark:text-[#f1effa] text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap"
+            className="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-[#f4f2fd] dark:bg-[#222330] hover:bg-[#4648d4] hover:text-white dark:hover:bg-[#4648d4] text-[#1a1b22] dark:text-[#f1effa] text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer whitespace-nowrap"
             title="Get responsive <iframe> embed code for this tool"
+            aria-label="Embed tool"
           >
-            <Code2 className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff] group-hover:text-white" />
-            <span>Embed</span>
+            <Code2 className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#4648d4] dark:text-[#8587ff] group-hover:text-white" />
+            <span className="hidden sm:inline">Embed</span>
           </button>
 
           <button
@@ -162,11 +163,12 @@ export default function ViralToolsController() {
               setActiveConfig(getActiveViralWheel(pathname));
               setStreamerSetupOpen(true);
             }}
-            className="px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-300 hover:text-white border border-emerald-500/25 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap"
+            className="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-300 hover:text-white border border-emerald-500/25 text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer whitespace-nowrap"
             title="Configure OBS Studio & Streamlabs Browser Source (?stream=1)"
+            aria-label="Streamer mode / OBS"
           >
-            <Tv className="w-3.5 h-3.5" />
-            <span>Streamer mode / OBS</span>
+            <Tv className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
+            <span className="hidden sm:inline">Streamer mode / OBS</span>
           </button>
         </div>
       )}
