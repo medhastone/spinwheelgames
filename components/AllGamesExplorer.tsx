@@ -839,8 +839,16 @@ export default function AllGamesExplorer() {
             { href: '/dice/d4', label: 'Roll d4 Tetrahedron Die' },
             { href: '/dice/d2', label: 'Roll d2 Coin Flip Simulator' },
             { href: '/dice/d100', label: 'Roll d100 Percentile Dice' },
-            { href: '/random-number-wheel', label: 'Random Number Wheel Spinner' },
+            { href: '/number-wheel', label: 'Number Wheel Spinner (1–100)' },
             { href: '/team-generator', label: 'Random Team Generator Wheel' },
+            { href: '/team-picker', label: 'Sports & Draft Team Picker' },
+            { href: '/picker-wheel', label: 'Interactive Picker Wheel' },
+            { href: '/random-wheel', label: 'Random Wheel Decision Spinner' },
+            { href: '/party-wheel', label: 'Party Game & Icebreaker Wheel' },
+            { href: '/food-wheel/lunch', label: 'Lunch Idea Picker Wheel' },
+            { href: '/food-wheel/pizza', label: 'Pizza Topping & Style Wheel' },
+            { href: '/giveaways', label: 'Giveaway & Raffle Wheels Hub' },
+            { href: '/challenges', label: 'Interactive Spin Wheel Challenges' },
             { href: '/color-wheel', label: 'Random Color Wheel & Palette Generator' },
             { href: '/theme-wheel', label: 'Random Theme & Aesthetic Wheel' },
             { href: '/birthday-wheel', label: 'Birthday Activity & Gift Wheel' },
@@ -855,7 +863,9 @@ export default function AllGamesExplorer() {
             { href: '/animal-wheel', label: 'Random Animal Generator Wheel' },
             { href: '/drawing-wheel', label: 'Drawing Idea & Art Prompt Wheel' },
             { href: '/question-wheel', label: 'Random Icebreaker Question Wheel' },
-            { href: '/song-wheel', label: 'Random Song & Karaoke Genre Wheel' }
+            { href: '/song-wheel', label: 'Random Song & Karaoke Genre Wheel' },
+            { href: '/about', label: 'About SpinWheelGames & Editorial Team' },
+            { href: '/sitemap', label: 'Complete HTML Sitemap Directory' }
           ].map((item) => (
             <Link
               key={item.href}

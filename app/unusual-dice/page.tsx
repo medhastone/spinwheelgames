@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -120,6 +121,18 @@ export default function UnusualDicePage() {
                 Because physical dice must be isohedral (face-transitive) to be fair, odd-sided physical dice are rare. A digital WebGL simulator provides guaranteed uniform random distributions for any N-sided die without geometric bias.
               </p>
             </div>
+          </div>
+
+          <div className="pt-4 border-t border-slate-200 dark:border-[#1e2030] space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+            <h3 className="text-base font-bold text-slate-900 dark:text-white">
+              The Zocchi Dice Chain &amp; Non-Standard Tabletop Mechanics
+            </h3>
+            <p>
+              Pioneered by game designer Lou Zocchi and popularized by <em>Dungeon Crawl Classics (DCC RPG)</em>, the extended dice chain steps smoothly between standard polyhedra: <strong><Link href="/roll-d3" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d3</Link> &rarr; <Link href="/dice/d4" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d4</Link> &rarr; d5 &rarr; <Link href="/dice/d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d6</Link> &rarr; d7 &rarr; <Link href="/dice/d8" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d8</Link> &rarr; <Link href="/dice/d10" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d10</Link> &rarr; <Link href="/dice/d12" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d12</Link> &rarr; d14 &rarr; d16 &rarr; <Link href="/dice/d20" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d20</Link> &rarr; d24 &rarr; d30</strong>. Instead of adding flat plus-or-minus modifiers to a roll, situational bonuses shift a character one step up or down the dice chain.
+            </p>
+            <p>
+              Beyond dungeon crawlers, odd-sided rollers solve practical problems across board games and classroom activities: a <strong>d7</strong> picks a random day of the week, a <strong>d24</strong> selects a random hour of the day, a <strong>d30</strong> chooses a random calendar day, and a <strong>d60</strong> generates random minutes or seconds. You can also compare odd-sided averages inside our <Link href="/dice-average-calculator" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Dice Average Calculator</Link> or browse the <Link href="/dice-collection" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">3D Gemstone Dice Collection</Link>.
+            </p>
           </div>
         </div>
 

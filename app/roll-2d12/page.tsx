@@ -192,10 +192,13 @@ export default function Roll2d12Page() {
             </h2>
             <div className="space-y-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
               <p>
-                When rolling two 12-sided dice (<strong>2d12</strong>), there are $12 \times 12 = 144$ possible outcomes. Unlike a single 1d12 or 1d24 which has uniform probabilities across all numbers, 2d12 creates a triangular bell curve where central numbers occur much more frequently than the outer extremes.
+                When rolling two 12-sided dodecahedron dice (<strong>2d12</strong>, see <Link href="/dice/d12" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Roll d12</Link>), there are $12 \times 12 = 144$ possible ordered outcomes. Unlike a single <Link href="/dice/d20" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">1d20</Link> or 1d24 which produces a flat, uniform distribution across all faces, 2d12 generates a symmetric triangular distribution where central totals occur far more frequently than the extremes.
               </p>
               <p>
-                The minimum roll of 2 (1+1) occurs in only 1 out of 144 cases (<strong>0.69%</strong>), and the maximum roll of 24 (12+12) likewise occurs in only 1 out of 144 cases (<strong>0.69%</strong>). The most probable single outcome is <strong>13</strong> (occurring 12 times out of 144, or <strong>8.33%</strong>).
+                The minimum roll of 2 (1+1) occurs in only 1 out of 144 throws (<strong>0.69%</strong>), and the maximum roll of 24 (12+12) likewise occurs in only 1 out of 144 throws (<strong>0.69%</strong>). The apex of the triangle is <strong>13</strong>, which can be rolled in 12 different ways (1+12, 2+11, 3+10, ..., 12+1) for an <strong>8.33%</strong> probability.
+              </p>
+              <p>
+                In modern narrative RPGs such as <em>Daggerheart</em>, players roll <strong>2d12 Duality Dice</strong>—one designated as the <em>Hope Die</em> and the other as the <em>Fear Die</em>. Whichever dodecahedron lands higher determines whether the action succeeds or fails with Hope (granting player meta-currency) or with Fear (granting Game Master momentum), while rolling matching doubles (12 out of 144 rolls, or 8.33%) triggers a critical success. You can compare 2d12 against <Link href="/roll-3d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">3d6</Link>, <Link href="/roll-4d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">4d6</Link>, and <Link href="/roll-d3" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d3</Link> in our <Link href="/dice-average-calculator" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Dice Average Calculator</Link>.
               </p>
             </div>
           </section>

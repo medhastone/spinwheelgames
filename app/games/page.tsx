@@ -13,20 +13,20 @@ export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   "title": "Spin Wheel Games & Random Pickers | SpinWheelGames",
-  "description": "Interactive random wheel and decision tool on SpinWheelGames.",
+  "description": "Browse all 106+ free online spin wheel games, 3D polyhedral dice rollers, classroom student pickers, and random decision tools on SpinWheelGames.",
   "alternates": {
     "canonical": "https://spinwheelgames.org/games"
   },
   "openGraph": {
     "title": "Spin Wheel Games & Random Pickers | SpinWheelGames",
-    "description": "Interactive random wheel and decision tool on SpinWheelGames.",
+    "description": "Browse all 106+ free online spin wheel games, 3D polyhedral dice rollers, classroom student pickers, and random decision tools on SpinWheelGames.",
     "url": "https://spinwheelgames.org/games",
     "siteName": "SpinWheelGames",
     "locale": "en_US",
     "type": "website",
     "images": [
       {
-        "url": "https://spinwheelgames.org/api/og?path=%2Fgames&title=Spin+Wheel+Games+%26+Random+Pickers+%7C+SpinWheelGames&desc=Interactive+random+wheel+and+decision+tool+on+SpinWheelGames.",
+        "url": "https://spinwheelgames.org/api/og?path=%2Fgames&title=Spin+Wheel+Games+%26+Random+Pickers+%7C+SpinWheelGames&desc=Browse+all+106%2B+free+online+spin+wheel+games%2C+3D+polyhedral+dice+rollers%2C+classroom+student+pickers%2C+and+random+decision+tools.",
         "width": 1200,
         "height": 630,
         "alt": "Spin Wheel Games & Random Pickers | SpinWheelGames"
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   "twitter": {
     "card": "summary_large_image",
     "title": "Spin Wheel Games & Random Pickers | SpinWheelGames",
-    "description": "Interactive random wheel and decision tool on SpinWheelGames.",
+    "description": "Browse all 106+ free online spin wheel games, 3D polyhedral dice rollers, classroom student pickers, and random decision tools on SpinWheelGames.",
     "images": [
-      "https://spinwheelgames.org/api/og?path=%2Fgames&title=Spin+Wheel+Games+%26+Random+Pickers+%7C+SpinWheelGames&desc=Interactive+random+wheel+and+decision+tool+on+SpinWheelGames."
+      "https://spinwheelgames.org/api/og?path=%2Fgames&title=Spin+Wheel+Games+%26+Random+Pickers+%7C+SpinWheelGames&desc=Browse+all+106%2B+free+online+spin+wheel+games%2C+3D+polyhedral+dice+rollers%2C+classroom+student+pickers%2C+and+random+decision+tools."
     ]
   }
 };
@@ -124,6 +124,19 @@ export default function GamesPage() {
 
         {/* Dynamic Games Explorer Component */}
         <AllGamesExplorer />
+
+        {/* Server-Rendered Catalog Guide & Specialized Tools */}
+        <section className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#292a39] space-y-4 text-sm text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
+          <h2 className="font-headline text-xl sm:text-2xl font-bold text-[#1a1b22] dark:text-white">
+            How to Choose the Right Spin Wheel or 3D Dice Tool for Your Group
+          </h2>
+          <p>
+            Our interactive directory spans over {SITE_COUNTS.wheelsFormatted} specialized randomizers engineered for instant browser execution with zero sign-up friction. For roster draws, live raffles, and classroom cold-calling, start with the <Link href="/wheel-of-names" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Wheel of Names</Link>, <Link href="/giveaway-wheel" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Giveaway Wheel</Link>, <Link href="/classroom-wheel" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Classroom Wheel</Link>, or <Link href="/team-generator" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Random Team Generator</Link>—all featuring one-click Winner Elimination so nobody is picked twice.
+          </p>
+          <p>
+            Hosting a game night, classroom trivia round, or live stream? Try the <Link href="/party-wheel" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Party Wheel</Link>, <Link href="/truth-or-dare-wheel" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Truth or Dare Wheel</Link>, <Link href="/song-wheel" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Song Wheel</Link>, <Link href="/word-spinner" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Word Spinner</Link>, <Link href="/random-category-generator" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Random Category Generator</Link>, <Link href="/random-app-picker" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Random App Picker</Link>, or head into our <Link href="/challenges" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Interactive Wheel Challenges</Link>. For tabletop RPG players, our <Link href="/dice-roller" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">3D Dice Roller</Link> and <Link href="/dice-collection" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Gemstone Dice Collection</Link> simulate polyhedral throws from <Link href="/roll-d3" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">d3</Link> and <Link href="/roll-4d6" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">4d6 Drop Lowest</Link> to <Link href="/roll-2d12" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">2d12 Hope &amp; Fear</Link>. Read more on our <Link href="/about" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">About page</Link> and <Link href="/fairness" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Fairness Verification hub</Link>.
+          </p>
+        </section>
 
         {/* FAQ Section */}
         <FaqSection title="Frequently Asked Questions" faqs={gamesFaqs} />

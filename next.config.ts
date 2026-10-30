@@ -37,6 +37,10 @@ const nextConfig: NextConfig = {
         source: '/:path*',
         headers: [
           {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
+          {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
           },
@@ -80,25 +84,7 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
-    return [
-      { source: '/d2', destination: '/dice/d2', statusCode: 301 },
-      { source: '/d4', destination: '/dice/d4', statusCode: 301 },
-      { source: '/roll-1d4', destination: '/dice/d4', statusCode: 301 },
-      { source: '/d6', destination: '/dice/d6', statusCode: 301 },
-      { source: '/d8', destination: '/dice/d8', statusCode: 301 },
-      { source: '/d10', destination: '/dice/d10', statusCode: 301 },
-      { source: '/d12', destination: '/dice/d12', statusCode: 301 },
-      { source: '/d20', destination: '/dice/d20', statusCode: 301 },
-      { source: '/d100', destination: '/dice/d100', statusCode: 301 },
-      { source: '/4d6', destination: '/roll-4d6', statusCode: 301 },
-      { source: '/dice/4d6', destination: '/roll-4d6', statusCode: 301 },
-      { source: '/dice-average', destination: '/dice-average-calculator', statusCode: 301 },
-      { source: '/dnd-stats', destination: '/dnd-stat-roller', statusCode: 301 },
-      { source: '/fair-randomness', destination: '/fairness', statusCode: 301 },
-      { source: '/category', destination: '/categories', statusCode: 301 },
-      { source: '/category/entertainment', destination: '/entertainment', statusCode: 301 },
-      { source: '/bingo-spin-wheel', destination: '/bingo-wheel', statusCode: 301 },
-    ];
+    return [];
   },
   // output: 'standalone',
   transpilePackages: ['motion', 'canvas-confetti'],

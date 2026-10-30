@@ -368,11 +368,11 @@ export default function WheelOfNamesPage() {
               </Link>
 
               <Link
-                href="/random-number-wheel"
+                href="/number-wheel"
                 className="bg-[#fbf8ff] dark:bg-[#14151e] hover:bg-[#f4f2fd] dark:hover:bg-[#1f202e] border border-[#eeedf7] dark:border-[#222330] p-3.5 rounded-2xl transition-all group"
               >
                 <Zap className="w-5 h-5 text-[#f59e0b] dark:text-[#fbbf24] mb-2 group-hover:scale-110 transition-transform" />
-                <h4 className="font-bold text-xs sm:text-sm text-[#1a1b22] dark:text-[#f1effa]">Random Number Wheel</h4>
+                <h4 className="font-bold text-xs sm:text-sm text-[#1a1b22] dark:text-[#f1effa]">Number Wheel</h4>
                 <p className="text-[11px] text-[#464554] dark:text-[#c7c4d7] mt-0.5">1–100 number spinner</p>
               </Link>
 

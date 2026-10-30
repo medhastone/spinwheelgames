@@ -191,10 +191,10 @@ export default function RollD3Page() {
             </h2>
             <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
               <p>
-                In tabletop gaming, a <strong>d3</strong> delivers a fair 1-in-3 chance (33.33% per result) across the numbers 1, 2, and 3. In physical tabletop games like Warhammer, players roll a standard 6-sided die and map rolls 1-2 to 1, 3-4 to 2, and 5-6 to 3.
+                In tabletop gaming, a <strong>d3</strong> delivers a fair 1-in-3 chance (33.33% per result) across the numbers 1, 2, and 3. Because a flat three-sided polyhedron cannot enclose three-dimensional space with flat faces, physical gaming sets either use a rounded triangular prism barrel die or roll a standard 6-sided cube (<Link href="/dice/d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d6</Link>) and divide by two, rounding up: 1–2 equals 1, 3–4 equals 2, and 5–6 equals 3.
               </p>
               <p>
-                Our digital d3 roller eliminates manual conversions by directly simulating a 3-sided randomizer with full 3D physics and instant mathematical summaries.
+                Our digital d3 roller eliminates manual division and lookup errors by directly simulating a 3-sided randomizer with full 3D physics and instant mathematical summaries. It is heavily used in <em>Warhammer 40,000</em> and <em>Age of Sigmar</em> for resolving D3 mortal wounds, variable weapon attacks, and charge surges, as well as in <em>Dungeon Crawl Classics</em> at the bottom of the <Link href="/unusual-dice" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Unusual Dice</Link> chain. Need other specialized rollers? Try <Link href="/dice/d4" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Roll d4</Link>, <Link href="/roll-3d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Roll 3d6</Link>, <Link href="/roll-4d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Roll 4d6</Link>, <Link href="/roll-2d12" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Roll 2d12</Link>, or inspect our <Link href="/dice-collection" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">3D Gemstone Dice Collection</Link>.
               </p>
             </div>
           </section>

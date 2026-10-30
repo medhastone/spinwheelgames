@@ -188,10 +188,13 @@ export default function Roll5d6Page() {
             </h2>
             <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
               <p>
-                Rolling 5 standard 6-sided dice produces $6^5 = 7,776$ possible distinct permutations. The sums range from a minimum of 5 up to 30, forming a symmetric bell curve centered at the expected mean of <strong>17.5</strong>.
+                Rolling 5 standard 6-sided dice (<Link href="/dice/d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d6</Link>) produces $6^5 = 7,776$ possible distinct permutations. The sums range from a minimum of 5 up to 30, forming a symmetric normal bell curve centered at the expected mean of <strong>17.5</strong>—where sums of 17 and 18 each occur in 780 out of 7,776 throws (10.03% each).
               </p>
               <p>
-                In games like Yahtzee and Farkle, players look for specific poker-style patterns: Pairs, Three of a Kind, Full Houses, Small Straights, Large Straights, and Five of a Kind (Yahtzee).
+                In dice-matching parlor games like <em>Yahtzee</em>, <em>Farkle</em>, and <em>Liar&apos;s Dice</em>, players evaluate poker-style combinations on a single 5d6 throw: One Pair occurs 46.30% of the time (3,600 ways), Two Pair 23.15% (1,800 ways), Three of a Kind 15.43% (1,200 ways), a Full House 3.86% (300 ways), a Large Straight 3.09% (240 ways), Four of a Kind 1.93% (150 ways), and a natural Five of a Kind (Yahtzee) 0.077% (6 ways).
+              </p>
+              <p>
+                For tabletop RPG character creation, some Dungeon Masters use <strong>5d6 drop lowest 2</strong> as a high-powered alternative to <Link href="/roll-4d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">4d6 Drop Lowest</Link> and <Link href="/roll-3d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">3d6</Link>, raising the expected ability score average to 13.43. Compare multi-dice pools inside our <Link href="/dice-average-calculator" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Dice Average Calculator</Link> or explore the <Link href="/dice-collection" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">3D Gemstone Dice Collection</Link>.
               </p>
             </div>
           </section>

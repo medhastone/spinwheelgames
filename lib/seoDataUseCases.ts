@@ -121,12 +121,12 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Dinner Decider', path: '/food-wheel/dinner', description: 'Specifically designed for evening meal planning.' },
+      { name: 'Dinner Decider', path: '/dinner-wheel', description: 'Specifically designed for evening meal planning.' },
       { name: 'Pizza Wheel', path: '/food-wheel/pizza', description: 'Picks crust styles, toppings, and specialty pizza types.' },
       { name: 'Decision Wheel', path: '/decision-wheel', description: 'General multi-choice decision maker.' }
     ],
     relatedWheels: [
-      { name: 'Dinner Wheel', path: '/food-wheel/dinner', count: 6 },
+      { name: 'Dinner Wheel', path: '/dinner-wheel', count: 6 },
       { name: 'Decision Wheel', path: '/decision-wheel', count: 6 }
     ],
     relatedGuides: [
@@ -134,7 +134,7 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     internalLinks: [
       { label: 'Explore Food & Dining Pillar', href: '/food', context: 'All culinary and recipe wheels.' },
-      { label: 'Try Dinner Wheel Subpage', href: '/food-wheel/dinner', context: 'Focused dinner selection experience.' },
+      { label: 'Try Dinner Wheel Subpage', href: '/dinner-wheel', context: 'Focused dinner selection experience.' },
       { label: 'Try Pizza Wheel Subpage', href: '/food-wheel/pizza', context: 'Topping and crust spinner.' }
     ],
     breadcrumbs: [
@@ -506,29 +506,43 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Creating Engaging Live Draft Nights',
+        heading: 'Creating Engaging Live Draft Nights & Tournament Lotteries',
         body: [
-          'Whether for fantasy sports or casual video game tournaments, spinning a live wheel for each draft pick turns routine team generation into a spectator event.'
+          'Whether for fantasy football draft order, esports scrimmage seeding, or recreational intramural leagues, spinning a live wheel for each draft slot turns routine team assignment into a broadcast-worthy event. Instead of generating a static spreadsheet behind closed doors, commissioners cast the Team Picker Wheel on Discord, Zoom, or a living-room TV so every captain watches the pointer decelerate in real time.',
+          'Unlike our bulk Team Generator (/team-generator)—which splits an entire roster into balanced squads in a single click—the Team Picker Wheel is engineered for sequential draft lotteries, franchise selection (picking which NBA, NFL, or Premier League club each player controls), and bracket matchup pairings.'
+        ]
+      },
+      {
+        heading: 'Weighted Draft Lottery Odds (NBA & NHL Style Ping-Pong Balls)',
+        body: [
+          'Want to give last season’s bottom-seeded managers a higher chance at the #1 overall draft pick without guaranteeing tanking rewards? Use the weight sliders in the sidebar to assign 4x weight to last place, 3x weight to second-to-last, and 1x weight to playoff contenders—replicating an authentic weighted draft lottery.'
         ]
       }
     ],
     faqs: [
       {
         question: 'Can I set a maximum number of players per team?',
-        answer: 'Yes! Simply remove a team from the wheel once it reaches your target roster limit.'
+        answer: 'Yes! Simply remove a team from the wheel once it reaches your target roster limit, or enable No-Repeat Elimination mode when drawing draft order slots.'
+      },
+      {
+        question: 'How is the Team Picker Wheel different from the Team Generator?',
+        answer: 'The Team Picker Wheel spins one selection at a time for live draft lotteries and franchise assignments, while the Team Generator (/team-generator) splits a pasted list of names into multiple balanced squads simultaneously.'
       }
     ],
     relatedTools: [
-      { name: 'Random Team Generator', path: '/random-team-generator', description: 'Instant bulk squad divider.' }
+      { name: 'Random Team Generator', path: '/team-generator', description: 'Instant bulk squad divider.' },
+      { name: 'Group Generator Wheel', path: '/group-generator', description: 'Classroom partner and breakout room spinner.' },
+      { name: 'Party Wheel', path: '/party-wheel', description: 'Group icebreakers and game night dares.' }
     ],
     relatedWheels: [
-      { name: 'Random Team Generator', path: '/random-team-generator', count: 8 }
+      { name: 'Random Team Generator', path: '/team-generator', count: 8 }
     ],
     relatedGuides: [
       { name: 'Random vs. Weighted Selection', path: '/random-vs-weighted-selection', readingTime: '5 min' }
     ],
     internalLinks: [
-      { label: 'Explore Sports & Teams Pillar', href: '/sports', context: 'All sports tools.' }
+      { label: 'Explore Sports & Teams Pillar', href: '/sports', context: 'All sports tools.' },
+      { label: 'Bulk Team Generator', href: '/team-generator', context: 'Split full rosters into squads.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org' },
@@ -622,11 +636,11 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Truth or Dare Wheel', path: '/party-wheel/truth-or-dare', description: 'Focused specifically on Truth or Dare.' },
+      { name: 'Truth or Dare Wheel', path: '/truth-or-dare-wheel', description: 'Focused specifically on Truth or Dare.' },
       { name: 'Food Wheel', path: '/food-wheel', description: 'Picks late-night snacks and party takeout.' }
     ],
     relatedWheels: [
-      { name: 'Truth or Dare Wheel', path: '/party-wheel/truth-or-dare', count: 8 }
+      { name: 'Truth or Dare Wheel', path: '/truth-or-dare-wheel', count: 8 }
     ],
     relatedGuides: [
       { name: 'How to Use a Wheel', path: '/how-to-use-a-wheel', readingTime: '4 min' }
@@ -1001,30 +1015,45 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Gamifying Phonics Practice',
+        heading: 'Gamifying Early Literacy, Phonics & ESL Vocabulary',
         body: [
-          'Children learn best when lessons incorporate movement and play. Spinning the alphabet wheel creates anticipation that turns routine letter identification into an exciting game.'
+          'Early-elementary teachers and ESL instructors use the 26-slice Letter Wheel (A–Z) daily to turn phonemic awareness drills into an interactive smartboard game. Spin a letter and challenge students to name an animal, verb, or classroom object starting with that initial sound within ten seconds.',
+          'Because you can toggle Elimination mode on, you can cycle through all 26 letters of the English alphabet across a week of morning meetings without ever repeating a letter—or delete rare consonants like Q, X, and Z when playing fast-paced Scattergories and word-association rounds.'
+        ]
+      },
+      {
+        heading: 'Replacing Missing Scattergories & Word Game Letter Dice',
+        body: [
+          'Physical 20-sided letter dice are heavy, roll off the table, and omit six letters of the alphabet. The online Letter Wheel gives you the full A-to-Z set on any phone or tablet, complete with optional vowel-only (A, E, I, O, U) or consonant-only customization.'
         ]
       }
     ],
     faqs: [
       {
         question: 'Can I remove letters like Q and X for casual games?',
-        answer: 'Yes! Simply open the entries list and delete any letters you don\'t want included.'
+        answer: 'Yes! Simply open the entries list and delete any letters you don\'t want included, or save a custom 20-letter Scattergories preset.'
+      },
+      {
+        question: 'What are the odds of landing on each letter from A to Z?',
+        answer: 'With all 26 letters active, every letter occupies a 13.85-degree wedge and holds an exact 1 in 26 (3.85%) cryptographic probability.'
       }
     ],
     relatedTools: [
       { name: 'Number Wheel', path: '/number-wheel', description: 'Random numeric spinner.' },
+      { name: 'Word Spinner', path: '/word-spinner', description: 'Random vocabulary and Pictionary word wheel.' },
+      { name: 'Random Category Generator', path: '/random-category-generator', description: 'Trivia and Scattergories category prompts.' },
       { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Student activities and chores.' }
     ],
     relatedWheels: [
-      { name: 'Number Wheel', path: '/number-wheel', count: 10 }
+      { name: 'Number Wheel', path: '/number-wheel', count: 10 },
+      { name: 'Word Spinner', path: '/word-spinner', count: 12 }
     ],
     relatedGuides: [
       { name: 'How to Make a Classroom Wheel', path: '/how-to-make-a-classroom-wheel', readingTime: '7 min' }
     ],
     internalLinks: [
-      { label: 'Explore Numbers & Dice Pillar', href: '/numbers', context: 'All random letter and number tools.' }
+      { label: 'Explore Numbers & Dice Pillar', href: '/numbers', context: 'All random letter and number tools.' },
+      { label: 'Try Word Spinner', href: '/word-spinner', context: 'Full words for charades and spelling.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org' },
@@ -1213,7 +1242,7 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     relatedTools: [
       { name: 'Food Wheel', path: '/food-wheel', description: 'General cuisine decider.' },
-      { name: 'Dinner Wheel', path: '/food-wheel/dinner', description: 'Evening dinner decider.' }
+      { name: 'Dinner Wheel', path: '/dinner-wheel', description: 'Evening dinner decider.' }
     ],
     relatedWheels: [
       { name: 'Food Wheel', path: '/food-wheel', count: 8 }
@@ -1298,21 +1327,33 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Overcoming the Lunchtime Slump',
+        heading: 'Reclaiming Your 30-Minute Workday Lunch Break',
         body: [
-          'Midday exhaustion often pairs with dinner-level decision fatigue. Automating lunch selection keeps your productivity high without wasting midday willpower.'
+          'Remote workers and office teams frequently lose half of a 30- or 45-minute lunch break browsing delivery apps or debating where to walk for food. The Lunch Wheel narrows midday meals down to fast, high-energy options—crisp salads, deli paninis, grain bowls, ramen, wraps, and quick leftovers—so you spend your break eating and recharging rather than scrolling.',
+          'Unlike dinner planning (which often involves 45-minute stovetop cooking and family coordination), midday lunch decisions prioritize 10-minute prep speed, portability, and avoiding the 2 PM post-carb energy crash.'
+        ]
+      },
+      {
+        heading: 'Rotating Meal-Prep Containers & Office Takeout Spots',
+        body: [
+          'Use Elimination mode on Monday morning to sequence five distinct workweek lunches—such as Mediterranean grain bowls, turkey club wraps, poke bowls, Thai soup, and Caesar salads—so you never eat the exact same desk lunch three days in a row.'
         ]
       }
     ],
     faqs: [
       {
         question: 'How do I add my custom office favorites?',
-        answer: 'Paste them using the bulk editor on the entries panel.'
+        answer: 'Paste your favorite neighborhood delis, salad bars, or home meal-prep containers using the bulk editor on the entries panel.'
+      },
+      {
+        question: 'How is the Lunch Wheel different from the Dinner Wheel?',
+        answer: 'The Lunch Wheel is curated specifically for fast 10-to-15-minute midday meals, wraps, salads, and quick office takeout breaks, whereas the Dinner Wheel (/dinner-wheel) focuses on evening family recipes.'
       }
     ],
     relatedTools: [
       { name: 'Food Wheel', path: '/food-wheel', description: 'General cuisine decider.' },
-      { name: 'Dinner Wheel', path: '/food-wheel/dinner', description: 'Evening dinner decider.' }
+      { name: 'Dinner Wheel', path: '/dinner-wheel', description: 'Evening dinner decider.' },
+      { name: 'Pizza Wheel', path: '/food-wheel/pizza', description: 'Pizza toppings and styles.' }
     ],
     relatedWheels: [
       { name: 'Food Wheel', path: '/food-wheel', count: 8 }
@@ -1398,20 +1439,32 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     uniqueContentBlocks: [
       {
-        heading: 'The Fun of Random Pizza Creation',
+        heading: 'Settling Half-and-Half Pizza Toppings & Regional Crust Debates',
         body: [
-          'Many of the most popular pizzas in history were created by experimenting with unusual flavor pairings. Let the wheel pick unexpected combinations for your next homemade pizza night.'
+          'Ordering pizza for a family, dorm room, or board-game group inevitably sparks debates over meat lovers vs. veggie, thin New York slices vs. Detroit pan crust, or classic red sauce vs. garlic white pie. The Pizza Wheel acts as an impartial referee: spin once for the left half of the pie and once with Elimination mode enabled for the right half.',
+          'For homemade Friday pizza dough nights, load your kitchen prep bowls—pepperoni cups, caramelized onions, sliced mushrooms, fresh mozzarella, Kalamata olives, hot honey, and basil—onto the wheel so every personal pizza gets a bold artisan combination.'
+        ]
+      },
+      {
+        heading: 'Two-Spin Protocol: Crust Style First, Toppings Second',
+        body: [
+          'To customize your order completely, spin first among regional styles (Neapolitan Wood-Fired, New York Foldable, Sicilian Thick Square, Chicago Tavern Cut, or Gluten-Free Cauliflower) and then spin a second time for your signature topping combo.'
         ]
       }
     ],
     faqs: [
       {
         question: 'Can I add pineapple to the wheel?',
-        answer: 'Yes! Whether pineapple belongs on pizza is up to you and the wheel.'
+        answer: 'Yes! Whether pineapple and jalapeño belong on tonight\'s pizza is completely customizable in the sidebar slice editor.'
+      },
+      {
+        question: 'How do we pick two different toppings without duplicates?',
+        answer: 'Turn on Elimination (No-Repeat) mode before spinning so your first topping is removed from the wheel before you spin for your second topping.'
       }
     ],
     relatedTools: [
-      { name: 'Dinner Decider', path: '/food-wheel/dinner', description: 'Evening dinner ideas.' },
+      { name: 'Dinner Decider', path: '/dinner-wheel', description: 'Evening dinner ideas.' },
+      { name: 'Lunch Wheel', path: '/food-wheel/lunch', description: 'Quick midday lunch picker.' },
       { name: 'Food Wheel', path: '/food-wheel', description: 'General cuisine decider.' }
     ],
     relatedWheels: [
@@ -1422,7 +1475,8 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     internalLinks: [
       { label: 'Back to Food Wheel', href: '/food-wheel', context: 'Main food decider hub.' },
-      { label: 'Try Dinner Wheel', href: '/food-wheel/dinner', context: 'General dinner selection.' }
+      { label: 'Try Lunch Wheel', href: '/food-wheel/lunch', context: 'Midday meal randomizer.' },
+      { label: 'Try Dinner Wheel', href: '/dinner-wheel', context: 'General dinner selection.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org' },
@@ -1499,21 +1553,33 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Building Psychological Safety in Participation',
+        heading: 'Building Psychological Safety in Classroom Cold-Calling',
         body: [
-          'Cold calling can sometimes make students anxious. When an impersonal wheel makes the pick, students understand that everyone has the same fair chance, transforming anxiety into friendly focus.'
+          'Traditional hand-raising allows the same four vocal students to dominate 80% of classroom discourse, while unannounced teacher cold-calling can feel punitive to shy learners. When an impartial digital wheel spins on the front smartboard, students recognize that everyone shares the exact same mathematical probability of being selected.',
+          'By enabling No-Repeat Elimination mode, teachers guarantee that once a student answers a question or reads a passage, their slice is removed for the rest of the period—ensuring 100% roster participation before anyone is called twice.'
+        ]
+      },
+      {
+        heading: 'FERPA-Conscious Local Roster Storage & Multi-Period Presets',
+        body: [
+          'Student privacy is paramount. Every name entered into the Random Student Picker is saved strictly inside your browser’s local storage (localStorage) and is never transmitted to external cloud servers. Departmental teachers can save separate first-name or seat-number presets for Period 1 through Period 6.'
         ]
       }
     ],
     faqs: [
       {
         question: 'Does this store student data on your servers?',
-        answer: 'No. Everything stays in your browser\'s local storage.'
+        answer: 'No. Everything stays 100% in your browser\'s local storage, making it safe for K–12 and university classroom privacy standards.'
+      },
+      {
+        question: 'How is this different from the main Classroom Wheel?',
+        answer: 'This page is pre-configured specifically for single-student cold-calling and no-repeat attendance checks, whereas the main Classroom Wheel (/classroom-wheel) includes multi-tab presets for classroom jobs, brain breaks, and reward spinners.'
       }
     ],
     relatedTools: [
       { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'General teaching activities.' },
-      { name: 'Random Team Generator', path: '/random-team-generator', description: 'Balanced student group creator.' }
+      { name: 'Random Team Generator', path: '/team-generator', description: 'Balanced student group creator.' },
+      { name: 'Word Spinner', path: '/word-spinner', description: 'Vocabulary and spelling word wheel.' }
     ],
     relatedWheels: [
       { name: 'Classroom Wheel', path: '/classroom-wheel', count: 12 }
@@ -1523,7 +1589,7 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     internalLinks: [
       { label: 'Back to Classroom Wheel', href: '/classroom-wheel', context: 'Main teaching wheel.' },
-      { label: 'Try Random Team Generator', href: '/random-team-generator', context: 'Group students into teams.' }
+      { label: 'Try Random Team Generator', href: '/team-generator', context: 'Group students into teams.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org' },

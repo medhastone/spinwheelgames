@@ -369,21 +369,45 @@ export default function ColorWheelPage() {
           </div>
         </section>
 
-        {/* Related Wheels Strip */}
-        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 pb-6">
+        {/* Color Theory Editorial & Related Wheels Strip */}
+        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 pb-6 space-y-6">
+          <article className="p-6 sm:p-8 rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] space-y-4 text-xs sm:text-sm text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
+            <h2 className="text-lg sm:text-xl font-bold text-[#1a1b22] dark:text-white">
+              Mathematical Color Harmonies, Multi-Shade Challenges &amp; Design Workflows
+            </h2>
+            <p>
+              Whether you are starting a 3-color digital illustration challenge, building a UI design system, or teaching Isaac Newton&apos;s color wheel in an art studio, the <strong>Interactive Color Wheel</strong> bridges random creative prompts with exact color-space mathematics. Every spin computes live <strong>HEX</strong>, <strong>RGB</strong>, and <strong>HSL</strong> values alongside six geometric harmony rules: Complementary (180&deg; opposite), Analogous (&plusmn;30&deg; neighbors), Triadic (120&deg; triangle), Split-Complementary (150&deg;/210&deg;), Tetradic (rectangular four-hue), and Monochromatic tint/shade scales.
+            </p>
+            <p>
+              Illustrators and design educators frequently combine a 3-color spin on this wheel with a subject prompt from the <Link href="/drawing-wheel" className="text-pink-600 dark:text-pink-400 font-semibold hover:underline">Drawing Wheel</Link>, an aesthetic mood from the <Link href="/theme-wheel" className="text-pink-600 dark:text-pink-400 font-semibold hover:underline">Theme Wheel</Link>, a vocabulary prompt from the <Link href="/word-spinner" className="text-pink-600 dark:text-pink-400 font-semibold hover:underline">Word Spinner</Link>, a topic from the <Link href="/random-category-generator" className="text-pink-600 dark:text-pink-400 font-semibold hover:underline">Random Category Generator</Link>, or a creative tool challenge on the <Link href="/random-app-picker" className="text-pink-600 dark:text-pink-400 font-semibold hover:underline">Random App Picker</Link>.
+            </p>
+          </article>
+
           <div className="p-4 rounded-2xl bg-gradient-to-r from-pink-900 via-purple-900 to-indigo-950 text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
             <div>
               <h3 className="font-bold text-sm sm:text-base">Explore more creative wheel randomizers</h3>
               <p className="text-xs text-pink-200 mt-0.5">
-                Check out the Theme Wheel, Classroom Wheel, Food Wheel, and Wheel of Names.
+                Check out the Theme Wheel, Drawing Wheel, Word Spinner, and Classroom Wheel.
               </p>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <Link
                 href="/theme-wheel"
                 className="px-3 py-1.5 rounded-xl bg-white text-purple-950 font-bold text-xs hover:bg-purple-50 transition-colors"
               >
                 Theme Wheel
+              </Link>
+              <Link
+                href="/drawing-wheel"
+                className="px-3 py-1.5 rounded-xl bg-purple-800 text-white font-bold text-xs hover:bg-purple-700 transition-colors"
+              >
+                Drawing Wheel
+              </Link>
+              <Link
+                href="/word-spinner"
+                className="px-3 py-1.5 rounded-xl bg-purple-800 text-white font-bold text-xs hover:bg-purple-700 transition-colors"
+              >
+                Word Spinner
               </Link>
               <Link
                 href="/classroom-wheel"

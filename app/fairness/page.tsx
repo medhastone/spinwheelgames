@@ -166,6 +166,19 @@ export function getSecureRandomFloat(): number {
             </Link>
           </div>
         </section>
+
+        {/* Statistical Verification & Audit Methodology */}
+        <section className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#222330] space-y-4 text-[14px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
+          <h2 className="font-headline text-[20px] font-bold text-[#1a1b22] dark:text-white">
+            How Pearson&apos;s Chi-Square (&chi;&sup2;) Goodness-of-Fit Verifies Every Tool
+          </h2>
+          <p>
+            To prove that no slice position, label length, or color index receives hidden weighting, the live Monte Carlo simulator above executes thousands of independent trials across our core engine and computes Pearson&apos;s cumulative test statistic: &chi;&sup2; = &Sigma; ((O<sub>i</sub> &minus; E<sub>i</sub>)&sup2; / E<sub>i</sub>), where O<sub>i</sub> is the observed win count for slice <em>i</em> and E<sub>i</sub> = N / k is the expected uniform count across <em>k</em> equal slices.
+          </p>
+          <p>
+            This identical cryptographic entropy pipeline powers every randomizer on our platform—including the <Link href="/wheel-of-names" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Wheel of Names</Link>, <Link href="/giveaway-wheel" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Giveaway Wheel</Link>, <Link href="/comment-picker" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Comment Picker</Link>, <Link href="/number-wheel" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Number Wheel</Link>, <Link href="/dice-roller" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">3D Dice Roller</Link>, <Link href="/challenges" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">Wheel Challenges</Link>, and <Link href="/stream-wheel" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">OBS Streamer Mode Overlays</Link>. Learn more about our engineering standards on the <Link href="/about" className="text-[#4648d4] dark:text-[#8587ff] font-semibold hover:underline">About SpinWheelGames</Link> page.
+          </p>
+        </section>
       </main>
 
       <Footer />

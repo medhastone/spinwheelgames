@@ -389,21 +389,45 @@ export default function ThemeWheelPage() {
           </div>
         </section>
 
-        {/* Related Wheels Strip */}
-        <section className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pb-6">
+        {/* Editorial Guide & Related Wheels Strip */}
+        <section className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pb-6 space-y-6">
+          <article className="p-6 sm:p-8 rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] space-y-4 text-xs sm:text-sm text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
+            <h2 className="text-lg sm:text-xl font-bold text-[#1a1b22] dark:text-white">
+              How Event Planners, Teachers &amp; Creators Use the Random Theme Wheel
+            </h2>
+            <p>
+              Choosing a cohesive aesthetic or concept for an upcoming event often stalls group planning chats when everyone pitches a different vibe. The <strong>Random Theme Wheel</strong> breaks decision deadlock by categorizing over 150 ready-to-spin themes across nightlife parties, milestone birthdays, school spirit weeks, seasonal festivals, and creator video challenges.
+            </p>
+            <p>
+              With <strong>No-Repeat Deck Mode</strong> enabled, each spun theme is automatically retired from the wheel so classrooms can draft five distinct spirit-week days (Monday through Friday) or content creators can plan a 7-day filming sprint without landing on duplicate concepts. Pair your chosen theme with a matching color scheme on the <Link href="/color-wheel" className="text-purple-600 dark:text-purple-400 font-semibold hover:underline">Color Wheel</Link>, spin up a playlist genre on the <Link href="/song-wheel" className="text-purple-600 dark:text-purple-400 font-semibold hover:underline">Song Wheel</Link>, break the ice with the <Link href="/party-wheel" className="text-purple-600 dark:text-purple-400 font-semibold hover:underline">Party Wheel</Link>, or launch interactive <Link href="/challenges" className="text-purple-600 dark:text-purple-400 font-semibold hover:underline">Wheel Challenges</Link>, <Link href="/word-spinner" className="text-purple-600 dark:text-purple-400 font-semibold hover:underline">Word Spinner</Link>, and the <Link href="/random-category-generator" className="text-purple-600 dark:text-purple-400 font-semibold hover:underline">Random Category Generator</Link>.
+            </p>
+          </article>
+
           <div className="p-4 rounded-2xl bg-gradient-to-r from-purple-900 to-indigo-950 text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
             <div>
               <h3 className="font-bold text-sm sm:text-base">Looking for other decision spinners?</h3>
               <p className="text-xs text-purple-200 mt-0.5">
-                Explore our Color Wheel, Wheel of Names, Food Wheel, and Classroom Wheel.
+                Explore our Color Wheel, Party Wheel, Song Wheel, and Classroom Wheel.
               </p>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <Link
                 href="/color-wheel"
                 className="px-3 py-1.5 rounded-xl bg-white text-purple-950 font-bold text-xs hover:bg-purple-50 transition-colors"
               >
                 Color Wheel
+              </Link>
+              <Link
+                href="/party-wheel"
+                className="px-3 py-1.5 rounded-xl bg-purple-800 text-white font-bold text-xs hover:bg-purple-700 transition-colors"
+              >
+                Party Wheel
+              </Link>
+              <Link
+                href="/song-wheel"
+                className="px-3 py-1.5 rounded-xl bg-purple-800 text-white font-bold text-xs hover:bg-purple-700 transition-colors"
+              >
+                Song Wheel
               </Link>
               <Link
                 href="/classroom-wheel"

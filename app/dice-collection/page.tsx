@@ -183,6 +183,18 @@ export default function DiceCollectionPage() {
               </p>
             </Link>
           </div>
+
+          <article className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-slate-800 space-y-4 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+            <h2 className="text-xl font-black text-slate-900 dark:text-white">
+              Platonic Solids, Gemstone Shaders &amp; Cryptographic Tabletop Fairness
+            </h2>
+            <p>
+              The <strong>3D RPG Gemstone Dice Collection</strong> brings together all five classical Platonic solids—the four-sided tetrahedron (<Link href="/dice/d4" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d4</Link>), six-sided hexahedron (<Link href="/dice/d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d6</Link>), eight-sided octahedron (<Link href="/dice/d8" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d8</Link>), twelve-sided dodecahedron (<Link href="/dice/d12" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d12</Link>), and twenty-sided icosahedron (<Link href="/dice/d20" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d20</Link>)—alongside the pentagonal trapezohedron (<Link href="/dice/d10" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d10</Link> and <Link href="/dice/d100" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d100 percentile</Link>) and dual-metal decision coin (<Link href="/dice/d2" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d2</Link>).
+            </p>
+            <p>
+              Unlike molded acrylic or resin dice that can suffer from microscopic air bubbles or tumbling wear along specific edges, every die in our WebGL showcase resolves outcomes using the browser&apos;s hardware-backed <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">crypto.getRandomValues()</code> CSPRNG before animating the physical trajectory. Whether you are testing a <Link href="/roll-4d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">4d6 drop lowest stat block</Link>, rolling <Link href="/roll-2d12" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">2d12 duality dice</Link>, or triggering a <Link href="/roll-d3" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d3 damage roll</Link>, each face maintains an exact, verifiable probability weight.
+            </p>
+          </article>
         </section>
 
         {/* Popular Wheels & CTA */}

@@ -394,7 +394,7 @@ export default function HomeEditorialContent() {
               Eliminate morning meeting fatigue by randomizing speaker order for sprint retros and standups. Split sports leagues or hackathon participants into mathematically balanced squads in one click.
             </p>
             <Link
-              href="/random-team-generator"
+              href="/team-generator"
               className="inline-flex items-center gap-1 text-xs font-semibold text-purple-600 dark:text-purple-400 hover:underline pt-1"
             >
               <span>Split Teams Now</span>
@@ -531,16 +531,24 @@ export default function HomeEditorialContent() {
             {[
               { name: 'Spin the Wheel', path: '/spin-the-wheel' },
               { name: 'Wheel of Names', path: '/wheel-of-names' },
-              { name: 'Random Team Generator', path: '/random-team-generator' },
+              { name: 'Random Team Generator', path: '/team-generator' },
+              { name: 'Team Picker Wheel', path: '/team-picker' },
               { name: 'Decision Wheel', path: '/decision-wheel' },
               { name: 'Random Picker', path: '/random-picker' },
+              { name: 'Picker Wheel', path: '/picker-wheel' },
+              { name: 'Random Wheel', path: '/random-wheel' },
               { name: 'Yes or No Wheel', path: '/yes-or-no-wheel' },
               { name: 'Classroom Wheel', path: '/classroom-wheel' },
               { name: 'Food Wheel', path: '/food-wheel' },
+              { name: 'Lunch Picker Wheel', path: '/food-wheel/lunch' },
+              { name: 'Pizza Topping Wheel', path: '/food-wheel/pizza' },
               { name: 'Party Wheel', path: '/party-wheel' },
               { name: 'Giveaway Wheel', path: '/giveaway-wheel' },
               { name: 'Number Wheel', path: '/number-wheel' },
-              { name: 'Letter Wheel', path: '/letter-wheel' }
+              { name: 'Letter Wheel', path: '/letter-wheel' },
+              { name: 'Daily Challenges', path: '/challenges' },
+              { name: 'About SpinWheelGames', path: '/about' },
+              { name: 'HTML Sitemap', path: '/sitemap' }
             ].map((tool, idx) => (
               <Link
                 key={idx}

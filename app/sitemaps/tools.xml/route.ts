@@ -13,6 +13,7 @@ export async function GET() {
     { path: '/movie-wheel', changefreq: 'daily', priority: '0.95' },
     { path: '/food-wheel', changefreq: 'daily', priority: '0.95' },
     { path: '/number-wheel', changefreq: 'daily', priority: '0.95' },
+    { path: '/team-generator', changefreq: 'daily', priority: '0.95' },
     { path: '/bingo-wheel', changefreq: 'daily', priority: '0.95' },
     { path: '/animal-wheel', changefreq: 'daily', priority: '0.95' },
     { path: '/pokemon-wheel', changefreq: 'daily', priority: '0.95' },
@@ -51,7 +52,6 @@ export async function GET() {
     { path: '/fairness', changefreq: 'monthly', priority: '0.7' },
     { path: '/stream-wheel', changefreq: 'weekly', priority: '0.88' },
     { path: '/sitemap', changefreq: 'weekly', priority: '0.6' },
-    { path: '/sitemap-directory', changefreq: 'weekly', priority: '0.6' },
   ];
 
   const existingPaths = new Set(staticRoutes.map((r) => r.path));

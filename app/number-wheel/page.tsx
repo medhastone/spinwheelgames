@@ -307,10 +307,10 @@ export default function NumberWheelPage() {
 
               <div className="pt-0.5 text-xs flex items-center justify-between">
                 <Link
-                  href="/random-number-wheel"
+                  href="/1-100-wheel"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#4648d4] dark:text-[#8587ff] hover:underline"
                 >
-                  <span>Explore full features on Random Number Wheel</span>
+                  <span>Explore dedicated 1–100 Number Wheel</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
                 <span className="text-[11px] text-[#767586] dark:text-[#908fa1] hidden sm:inline">
@@ -579,17 +579,17 @@ export default function NumberWheelPage() {
                 <span className="text-xs font-bold text-[#1a1b22] dark:text-white flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" /> More Wheels
                 </span>
-                <Link href="/sitemap-directory" className="text-[11px] text-[#4648d4] dark:text-[#8587ff] font-bold hover:underline">
+                <Link href="/sitemap" className="text-[11px] text-[#4648d4] dark:text-[#8587ff] font-bold hover:underline">
                   All Tools ›
                 </Link>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
                 <Link
-                  href="/random-number-wheel"
+                  href="/1-100-wheel"
                   className="p-2 rounded-xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#272838] hover:border-[#4648d4]/50 transition-colors text-center"
                 >
-                  <span className="font-bold text-[#1a1b22] dark:text-white block text-[11px]">Random Number Wheel</span>
-                  <span className="text-[10px] text-[#767586] dark:text-[#908fa1]">Presets &amp; CSV history</span>
+                  <span className="font-bold text-[#1a1b22] dark:text-white block text-[11px]">1–100 Number Wheel</span>
+                  <span className="text-[10px] text-[#767586] dark:text-[#908fa1]">Percentile &amp; raffle draws</span>
                 </Link>
                 <Link
                   href="/bingo-wheel"

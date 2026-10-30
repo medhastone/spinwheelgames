@@ -89,7 +89,7 @@ export default function PopularWheels() {
         </div>
 
         <Link
-          href="/sitemap-directory"
+          href="/sitemap"
           className="text-xs font-bold text-[#4648d4] dark:text-[#8587ff] hover:underline flex items-center gap-1"
         >
           <span>All Tools</span>

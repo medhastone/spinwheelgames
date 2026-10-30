@@ -147,7 +147,7 @@ export default function CategoriesIndexPage() {
         {/* Category Grid */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {categoriesList.map(([key, cat]) => {
-            const targetHref = CATEGORY_SLUG_MAP[key] || `/category/${key.toLowerCase()}`;
+            const targetHref = CATEGORY_SLUG_MAP[key] || `/${key.toLowerCase()}`;
             const icon = ICON_MAP[cat.iconKey] || <Layers className="w-5 h-5 text-[#4648d4]" />;
 
             return (
@@ -190,8 +190,8 @@ export default function CategoriesIndexPage() {
           <h2 className="text-xl font-headline font-bold text-[#1a1b22] dark:text-white">
             Featured Interactive Spinners, Generators &amp; 3D Dice Tools
           </h2>
-          <p className="text-xs sm:text-sm text-[#464554] dark:text-[#c7c4d7]">
-            Jump directly to our specialized random generators, tabletop RPG dice calculators, and themed wheel spinners:
+          <p className="text-xs sm:text-sm text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
+            Every category hub on SpinWheelGames groups tools by real-world decision intent—separating classroom roster management and balanced team drafting from quick meal deciders, verified giveaway drawings, creative art prompts, and polyhedral tabletop dice probability calculators. All spinners run 100% client-side using Web Crypto API hardware entropy, support custom slice editing and bulk list imports, and include transparent OBS Studio browser-source overlays. Jump directly to our specialized random generators, tabletop RPG dice calculators, and themed wheel spinners below:
           </p>
           <div className="flex flex-wrap gap-2">
             {[
@@ -214,8 +214,16 @@ export default function CategoriesIndexPage() {
               { href: '/dice/d4', label: 'Roll d4 Tetrahedron Die' },
               { href: '/dice/d2', label: 'Roll d2 Coin Flip Simulator' },
               { href: '/dice/d100', label: 'Roll d100 Percentile Dice' },
-              { href: '/random-number-wheel', label: 'Random Number Wheel Spinner' },
+              { href: '/number-wheel', label: 'Number Wheel Spinner (1–100)' },
               { href: '/team-generator', label: 'Random Team Generator Wheel' },
+              { href: '/team-picker', label: 'Sports & Draft Team Picker Wheel' },
+              { href: '/picker-wheel', label: 'Interactive Picker Wheel' },
+              { href: '/random-wheel', label: 'Random Wheel Decision Spinner' },
+              { href: '/party-wheel', label: 'Party Game & Icebreaker Wheel' },
+              { href: '/food-wheel/lunch', label: 'Lunch Idea Picker Wheel' },
+              { href: '/food-wheel/pizza', label: 'Pizza Topping & Style Wheel' },
+              { href: '/giveaways', label: 'Giveaway & Raffle Wheels Hub' },
+              { href: '/challenges', label: 'Interactive Spin Wheel Challenges' },
               { href: '/color-wheel', label: 'Random Color Wheel & Palette Generator' },
               { href: '/theme-wheel', label: 'Random Theme & Aesthetic Wheel' },
               { href: '/birthday-wheel', label: 'Birthday Activity & Gift Wheel' },
@@ -230,7 +238,9 @@ export default function CategoriesIndexPage() {
               { href: '/animal-wheel', label: 'Random Animal Generator Wheel' },
               { href: '/drawing-wheel', label: 'Drawing Idea & Art Prompt Wheel' },
               { href: '/question-wheel', label: 'Random Icebreaker Question Wheel' },
-              { href: '/song-wheel', label: 'Random Song & Karaoke Genre Wheel' }
+              { href: '/song-wheel', label: 'Random Song & Karaoke Genre Wheel' },
+              { href: '/about', label: 'About SpinWheelGames & Editorial Team' },
+              { href: '/sitemap', label: 'Complete HTML Sitemap Directory' }
             ].map((item) => (
               <Link
                 key={item.href}

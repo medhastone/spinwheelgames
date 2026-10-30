@@ -44,7 +44,7 @@ interface SitemapDirectoryViewProps {
   activePath?: string;
 }
 
-export default function SitemapDirectoryView({ activePath = '/sitemap-directory' }: SitemapDirectoryViewProps) {
+export default function SitemapDirectoryView({ activePath = '/sitemap' }: SitemapDirectoryViewProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
   // Dynamically group all SEO pages by their category
@@ -164,7 +164,7 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
         description: 'Mathematical generators, number wheels, and raffle drawings.',
         links: [
           { href: '/number-wheel', label: 'Number Wheel Randomizer (1–100)', desc: 'Spin random numbers in custom ranges 1-10, 1-50, 1-100' },
-          { href: '/random-number-wheel', label: 'Random Number Picker Spinner', desc: 'Custom range number spinner with even/odd and no-repeat filters' },
+          { href: '/1-100-wheel', label: '1 to 100 Number Wheel Spinner', desc: 'Full 100-slice percentile and raffle number spinner' },
           { href: '/bingo-wheel', label: 'Bingo Wheel & Ball Caller', desc: '75-ball and 90-ball digital bingo caller' }
         ]
       },
@@ -187,6 +187,7 @@ export default function SitemapDirectoryView({ activePath = '/sitemap-directory'
         icon: <Gift className="w-5 h-5 text-pink-500" />,
         description: 'Cryptographically random prize wheels, raffle stubs, and discount drawers.',
         links: [
+          { href: '/giveaways', label: 'Giveaways & Contest Wheels Hub', desc: 'Complete hub for audited prize drawings and raffle wheels' },
           { href: '/comment-picker', label: 'Random Comment Picker for Giveaways', desc: 'Free giveaway winner generator with no API login required' }
         ]
       },

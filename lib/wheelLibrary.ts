@@ -13,6 +13,16 @@ import { COLOR_PALETTES } from './presets';
 
 export * from './wheelLibraryTypes';
 
+export const CONSOLIDATED_EXPERIENCE_IDS = new Set([
+  'random-student-picker',
+  'random-number-wheel',
+  'winner-picker',
+  'contest-picker',
+  'raffle-wheel',
+  'team-maker',
+  'pizza-topping-wheel'
+]);
+
 export const ALL_WHEEL_EXPERIENCES: WheelExperience[] = [
   ...WHEEL_LIBRARY_PART1, // 16 (Decisions: 9, Names: 7)
   ...WHEEL_LIBRARY_PART2, // 16 (Classroom: 9, Party: 7)
@@ -23,7 +33,7 @@ export const ALL_WHEEL_EXPERIENCES: WheelExperience[] = [
   ...WHEEL_LIBRARY_PART7, // 11 (Creativity: 6, Productivity: 5)
   ...WHEEL_LIBRARY_PART8, // 10 (Wellness: 5, Date Night: 5)
   ...WHEEL_LIBRARY_PART9  // 11 (Icebreakers: 6, Finance: 5)
-];
+].filter((exp) => !CONSOLIDATED_EXPERIENCE_IDS.has(exp.id));
 
 // Helper to convert a WheelExperience into an active WheelConfig playable in the canvas
 export function experienceToWheelConfig(exp: WheelExperience): WheelConfig {

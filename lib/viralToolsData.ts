@@ -574,7 +574,7 @@ export const SPECIALIZED_TOOL_CONFIGS: Record<string, Omit<ViralToolConfig, 'pal
     slug: 'roll-1d4',
     title: 'd4 Tetrahedron Die Roller',
     subtitle: 'Uniform 1 to 4 four-sided pyramid die roller.',
-    canonicalPath: '/roll-1d4',
+    canonicalPath: '/dice/d4',
     paletteKey: 'sunset',
     toolKind: 'dice',
     diceConfig: DICE_TOOL_CONFIGS['roll-1d4'],

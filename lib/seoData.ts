@@ -18,14 +18,26 @@ const RAW_PAGES_MAP: Record<string, SeoPageData> = {
 const CONSOLIDATED_REDIRECT_KEYS = new Set([
   'food-wheel/dinner',
   'food-wheel/breakfast',
+  'pizza-topping-wheel',
+  'lunch-wheel',
+  'what-to-eat-wheel',
   'random-student-picker',
+  'student-picker',
+  'student-picker-wheel',
+  'random-team-generator',
+  'team-maker',
   'random-number-wheel',
+  '1-20-wheel',
+  'number-wheel/1-10',
+  'number-wheel/1-50',
+  'number-wheel/1-100',
   'winner-picker',
   'contest-picker',
   'raffle-wheel',
   'party-wheel/truth-or-dare',
   'team-generator',
-  'entertainment'
+  'entertainment',
+  'sitemap-directory'
 ]);
 
 const LEGACY_PATH_REPLACEMENTS: Record<string, string> = {
@@ -47,15 +59,37 @@ const LEGACY_PATH_REPLACEMENTS: Record<string, string> = {
   '/fair-randomness': '/fairness',
   '/food-wheel/dinner': '/dinner-wheel',
   '/food-wheel/breakfast': '/breakfast-wheel',
+  '/pizza-topping-wheel': '/food-wheel/pizza',
+  '/lunch-wheel': '/food-wheel/lunch',
+  '/what-to-eat-wheel': '/what-should-i-eat',
   '/random-student-picker': '/classroom-wheel/random-student',
+  '/student-picker': '/classroom-wheel/random-student',
+  '/student-picker-wheel': '/classroom-wheel/random-student',
+  '/random-team-generator': '/team-generator',
+  '/team-maker': '/team-generator',
+  '/random-number-wheel': '/number-wheel',
+  '/1-20-wheel': '/number-wheel',
+  '/number-wheel/1-10': '/1-10-wheel',
+  '/number-wheel/1-50': '/1-50-wheel',
+  '/number-wheel/1-100': '/1-100-wheel',
   '/winner-picker': '/giveaway-wheel',
   '/contest-picker': '/giveaway-wheel',
   '/raffle-wheel': '/giveaway-wheel',
-  '/party-wheel/truth-or-dare': '/truth-or-dare-wheel'
+  '/party-wheel/truth-or-dare': '/truth-or-dare-wheel',
+  '/category': '/categories',
+  '/bingo-spin-wheel': '/bingo-wheel',
+  '/sitemap-directory': '/sitemap'
 };
 
 function sanitizePath(p: string): string {
   return LEGACY_PATH_REPLACEMENTS[p] || p;
+}
+
+function sanitizeFullUrl(url: string): string {
+  if (!url.startsWith('https://spinwheelgames.org/')) return url;
+  const pathPart = url.slice('https://spinwheelgames.org'.length).replace(/\/+$/, '') || '/';
+  const mapped = sanitizePath(pathPart);
+  return mapped === '/' ? 'https://spinwheelgames.org' : `https://spinwheelgames.org${mapped}`;
 }
 
 /**
@@ -102,7 +136,8 @@ function normalizeSeoPage(page: SeoPageData): SeoPageData {
     relatedTools: page.relatedTools?.map((t) => ({ ...t, path: sanitizePath(t.path) })),
     relatedWheels: page.relatedWheels?.map((w) => ({ ...w, path: sanitizePath(w.path) })),
     relatedGuides: page.relatedGuides?.map((g) => ({ ...g, path: sanitizePath(g.path) })),
-    internalLinks: page.internalLinks?.map((l) => ({ ...l, href: sanitizePath(l.href) }))
+    internalLinks: page.internalLinks?.map((l) => ({ ...l, href: sanitizePath(l.href) })),
+    breadcrumbs: page.breadcrumbs?.map((b) => ({ ...b, item: sanitizeFullUrl(b.item) }))
   };
 }
 

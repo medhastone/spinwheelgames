@@ -73,14 +73,14 @@ export const TOPIC_CLUSTERS: Record<string, TopicCluster> = {
     primaryIntent: 'entertainment',
     supportingTools: [
       '/party-wheel',
-      '/party-wheel/truth-or-dare',
+      '/truth-or-dare-wheel',
       '/spin-the-wheel'
     ],
     supportingGuides: [
       '/how-to-use-a-wheel'
     ],
     subpages: [
-      '/party-wheel/truth-or-dare'
+      '/truth-or-dare-wheel'
     ],
     clusterSummary: 'Entertaining social wheels engineered for icebreakers, game nights, campus events, and friendly group dares.'
   },
@@ -93,9 +93,9 @@ export const TOPIC_CLUSTERS: Record<string, TopicCluster> = {
     primaryIntent: 'decision',
     supportingTools: [
       '/food-wheel',
-      '/food-wheel/dinner',
+      '/dinner-wheel',
       '/food-wheel/pizza',
-      '/food-wheel/breakfast',
+      '/breakfast-wheel',
       '/food-wheel/lunch',
       '/decision-wheel'
     ],
@@ -103,9 +103,9 @@ export const TOPIC_CLUSTERS: Record<string, TopicCluster> = {
       '/how-to-use-a-wheel'
     ],
     subpages: [
-      '/food-wheel/dinner',
+      '/dinner-wheel',
       '/food-wheel/pizza',
-      '/food-wheel/breakfast',
+      '/breakfast-wheel',
       '/food-wheel/lunch'
     ],
     clusterSummary: 'Caters to dinner disputes, takeout indecision, office lunch runs, and gourmet cooking inspiration.'

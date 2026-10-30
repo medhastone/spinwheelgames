@@ -356,23 +356,24 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     uniqueContentBlocks: [
       {
-        heading: 'The Pedagogical Power of Gamified Cold-Calling',
+        heading: 'The Pedagogical Power of Gamified Cold-Calling & Station Rotation',
         body: [
-          'Educational research shows that random cold-calling dramatically increases active listening among students. When students know anyone could be called upon next, attention remains high across the entire room.',
-          'Projecting a visual wheel makes the process playful rather than punitive.'
+          'Educational research shows that transparent random participation systems significantly increase active listening across K–12 and university classrooms. When students see an impartial digital wheel projected on an interactive smartboard, cold-calling shifts from stressful interrogation to a fair, game-like routine.',
+          'Educators use this hub to launch single-student no-repeat pickers (/classroom-wheel/random-student), split lab partners (/group-generator), spin phonics letters (/letter-wheel), and run vocabulary review games (/word-spinner) while keeping all student names 100% private in local browser storage.'
         ]
       }
     ],
     faqs: [
       {
         question: 'Is this tool free for teachers and schools?',
-        answer: 'Yes, 100% free with no account creation or paywalls.'
+        answer: 'Yes, 100% free with no account creation, no student data collection, and no paywalls.'
       }
     ],
     relatedTools: [
       { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Core classroom participation spinner.' },
       { name: 'Random Student Picker', path: '/classroom-wheel/random-student', description: 'Direct student cold-caller.' },
-      { name: 'Random Team Generator', path: '/random-team-generator', description: 'Balanced group project creator.' }
+      { name: 'Random Team Generator', path: '/team-generator', description: 'Balanced group project creator.' },
+      { name: 'Word Spinner', path: '/word-spinner', description: 'Vocabulary and spelling word wheel.' }
     ],
     relatedWheels: [
       { name: 'Classroom Wheel', path: '/classroom-wheel', count: 12 }
@@ -456,21 +457,24 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Creating Great Party Energy',
+        heading: 'Creating High-Energy Party Momentum Without Awkward Lulls',
         body: [
-          'The best party games rely on momentum. Using a phone or tablet with a responsive spinning wheel keeps turns moving briskly and avoids awkward silence.'
+          'The best house parties, sleepovers, and virtual team socials rely on momentum. Placing a smartphone or tablet in the center of the room with an interactive party spinner removes the pressure of inventing questions on the spot and gives everyone a shared focal point.',
+          'From two-stage Truth or Dare (/truth-or-dare-wheel) and karaoke song roulette (/song-wheel) to trivia categories (/random-category-generator) and daily challenge dares (/challenges), every tool in the Party Hub supports No-Repeat Elimination mode so prompts never go stale.'
         ]
       }
     ],
     faqs: [
       {
         question: 'Can I play this on a smartphone?',
-        answer: 'Yes! Fully touch-optimized for passing around a living room or circle of friends.'
+        answer: 'Yes! Fully touch-optimized for passing around a living room or casting to a smart TV.'
       }
     ],
     relatedTools: [
       { name: 'Party Wheel', path: '/party-wheel', description: 'Core party challenge wheel.' },
-      { name: 'Truth or Dare Wheel', path: '/party-wheel/truth-or-dare', description: 'Focused truth or dare spinner.' }
+      { name: 'Truth or Dare Wheel', path: '/truth-or-dare-wheel', description: 'Focused truth or dare spinner.' },
+      { name: 'Song & Karaoke Wheel', path: '/song-wheel', description: 'Random karaoke track and genre picker.' },
+      { name: 'Random Category Generator', path: '/random-category-generator', description: 'Scattergories and trivia category spinner.' }
     ],
     relatedWheels: [
       { name: 'Party Wheel', path: '/party-wheel', count: 6 }
@@ -479,7 +483,8 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       { name: 'How to Use a Wheel', path: '/how-to-use-a-wheel', readingTime: '4 min' }
     ],
     internalLinks: [
-      { label: 'Try Party Wheel', href: '/party-wheel', context: 'Main party game spinner.' }
+      { label: 'Try Party Wheel', href: '/party-wheel', context: 'Main party game spinner.' },
+      { label: 'Explore Daily Challenges', href: '/challenges', context: 'Interactive spin challenges.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org' },
@@ -553,21 +558,23 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Why Outsourcing Dinner Decisions Reduces Stress',
+        heading: 'Why Outsourcing Mealtime Decisions Eliminates Household Friction',
         body: [
-          'After making hundreds of decisions throughout the day, choosing what to eat can trigger decision fatigue. A simple spin provides momentum, turning indecision into action.'
+          'After making hundreds of micro-decisions throughout the workday, choosing what to cook or order at 6 PM triggers executive fatigue. Our Food & Dining Hub organizes culinary randomizers by mealtime and dining format so you always spin the right list.',
+          'Use the flagship Food Wheel (/food-wheel) for dietary filters and two-stage Cuisine-to-Dish spins, the Lunch Wheel (/food-wheel/lunch) for 15-minute workday breaks, the Dinner Wheel (/dinner-wheel) for weeknight family recipes, the Restaurant Wheel (/restaurant-wheel) for dining out, or the Pizza Wheel (/food-wheel/pizza) for custom topping combinations.'
         ]
       }
     ],
     faqs: [
       {
         question: 'Can I add my local neighborhood restaurants?',
-        answer: 'Yes! Customize any wheel with your exact local spots and save them in your browser.'
+        answer: 'Yes! Customize any food wheel with your exact local spots and save them in your browser.'
       }
     ],
     relatedTools: [
       { name: 'Food Wheel', path: '/food-wheel', description: 'Core what to eat decider.' },
-      { name: 'Dinner Wheel', path: '/food-wheel/dinner', description: 'Focused evening meal planner.' },
+      { name: 'Dinner Wheel', path: '/dinner-wheel', description: 'Focused evening meal planner.' },
+      { name: 'Lunch Wheel', path: '/food-wheel/lunch', description: 'Quick midday meal decider.' },
       { name: 'Pizza Wheel', path: '/food-wheel/pizza', description: 'Pizza styles and toppings.' }
     ],
     relatedWheels: [
@@ -577,7 +584,8 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       { name: 'How to Use a Wheel for Decisions', path: '/how-to-use-a-wheel', readingTime: '4 min' }
     ],
     internalLinks: [
-      { label: 'Try Food Wheel', href: '/food-wheel', context: 'Main food decider.' }
+      { label: 'Try Food Wheel', href: '/food-wheel', context: 'Main food decider.' },
+      { label: 'Try Lunch Wheel', href: '/food-wheel/lunch', context: '15-minute lunch ideas.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org' },
@@ -653,9 +661,10 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Why Fair Team Selection Protects Confidence',
+        heading: 'Why Fair Team Selection & Draft Lotteries Protect Confidence',
         body: [
-          'Traditional schoolyard picking creates unnecessary social anxiety for young athletes. Using an impartial team generator ensures that every squad is formed with respect and equal dignity.'
+          'Traditional schoolyard captain picking creates unnecessary social anxiety and unbalanced matchups. Using a cryptographic team splitter or draft lottery wheel ensures that every squad is formed with transparency and mathematical fairness.',
+          'Choose our bulk Team Generator (/team-generator) when you want to paste 20+ player names and split them into balanced squads in one click, or launch the interactive Team Picker Wheel (/team-picker) when hosting live fantasy draft order lotteries and tournament bracket matchups.'
         ]
       }
     ],
@@ -666,8 +675,9 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Random Team Generator', path: '/random-team-generator', description: 'Bulk balanced squad divider.' },
-      { name: 'Team Picker', path: '/team-picker', description: 'Interactive squad drafter.' }
+      { name: 'Random Team Generator', path: '/team-generator', description: 'Bulk balanced squad divider.' },
+      { name: 'Team Picker', path: '/team-picker', description: 'Interactive squad drafter.' },
+      { name: 'Group Generator', path: '/group-generator', description: 'Partner and triad wheel.' }
     ],
     relatedWheels: [
       { name: 'Team Picker', path: '/team-picker', count: 8 }
@@ -676,7 +686,8 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       { name: 'Random vs. Weighted Selection', path: '/random-vs-weighted-selection', readingTime: '5 min' }
     ],
     internalLinks: [
-      { label: 'Try Random Team Generator', href: '/random-team-generator', context: 'Primary team splitting tool.' }
+      { label: 'Try Random Team Generator', href: '/team-generator', context: 'Primary team splitting tool.' },
+      { label: 'Try Team Picker Wheel', href: '/team-picker', context: 'Sequential draft lottery wheel.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org' },
@@ -948,31 +959,38 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Why Digital Wheels Never Have Physical Bias',
+        heading: 'Why Cryptographic Number Wheels & 3D Polyhedral Dice Eliminate Physical Bias',
         body: [
-          'Cheap plastic dice frequently have microscopic air pockets inside that bias rolls toward certain numbers. A cryptographic digital wheel guarantees true uniform probability.'
+          'Molded plastic dice frequently contain microscopic internal air pockets or rounded edges that skew outcomes toward specific faces. Every number wheel and virtual die in our Numbers & Probability Hub draws its entropy directly from the browser Web Cryptography API (window.crypto.getRandomValues), guaranteeing exact uniform distribution across all outcomes.',
+          'Whether you need a custom-range integer spinner (/number-wheel), pre-built single-digit (/1-10-wheel), fifty-slot (/1-50-wheel), or percentile (/1-100-wheel) wheels, or specialized tabletop dice rollers like 4d6 Drop Lowest (/roll-4d6), 2d12 Hope & Fear (/roll-2d12), and 3-sided d3 (/roll-d3), you can launch them instantly with zero setup.'
         ]
       }
     ],
     faqs: [
       {
         question: 'Are large number wheels readable?',
-        answer: 'Yes! The canvas automatically optimizes text size and slice lines even on wheels with 50+ numbers.'
+        answer: 'Yes! The canvas automatically optimizes text size and slice lines even on wheels with 50 to 100 numbers.'
       }
     ],
     relatedTools: [
       { name: 'Number Wheel', path: '/number-wheel', description: 'Core number generator.' },
-      { name: 'Letter Wheel', path: '/letter-wheel', description: 'Alphabet A-Z spinner.' }
+      { name: 'Letter Wheel', path: '/letter-wheel', description: 'Alphabet A-Z spinner.' },
+      { name: 'Roll 4d6 Stat Roller', path: '/roll-4d6', description: 'Four 6-sided dice with drop-lowest.' },
+      { name: 'Roll 2d12 Dice Roller', path: '/roll-2d12', description: 'Dual 12-sided polyhedral dice.' },
+      { name: 'Roll d3 Three-Sided Die', path: '/roll-d3', description: 'Fair 1-to-3 outcome roller.' },
+      { name: '3D Dice Collection', path: '/dice-collection', description: 'Complete 8-piece RPG polyhedra showcase.' }
     ],
     relatedWheels: [
-      { name: 'Number Wheel', path: '/number-wheel', count: 10 }
+      { name: 'Number Wheel', path: '/number-wheel', count: 10 },
+      { name: '1 to 100 Wheel', path: '/1-100-wheel', count: 100 }
     ],
     relatedGuides: [
       { name: 'How Random Wheels Work', path: '/how-random-wheels-work', readingTime: '6 min' }
     ],
     internalLinks: [
       { label: 'Try Number Wheel', href: '/number-wheel', context: 'Main number spinner.' },
-      { label: 'Try Letter Wheel', href: '/letter-wheel', context: 'Alphabet spinner.' }
+      { label: 'Try Letter Wheel', href: '/letter-wheel', context: 'Alphabet spinner.' },
+      { label: 'Explore 3D Dice Collection', href: '/dice-collection', context: 'Gemstone RPG dice.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org' },

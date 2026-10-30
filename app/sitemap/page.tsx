@@ -6,20 +6,20 @@ export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   "title": "HTML Sitemap & Directory | SpinWheelGames",
-  "description": "Interactive random wheel and decision tool on SpinWheelGames.",
+  "description": "Complete HTML sitemap and categorized directory of all interactive spin wheels, 3D RPG dice rollers, classroom randomizers, and guides on SpinWheelGames.",
   "alternates": {
     "canonical": "https://spinwheelgames.org/sitemap"
   },
   "openGraph": {
     "title": "HTML Sitemap & Directory | SpinWheelGames",
-    "description": "Interactive random wheel and decision tool on SpinWheelGames.",
+    "description": "Complete HTML sitemap and categorized directory of all interactive spin wheels, 3D RPG dice rollers, classroom randomizers, and guides on SpinWheelGames.",
     "url": "https://spinwheelgames.org/sitemap",
     "siteName": "SpinWheelGames",
     "locale": "en_US",
     "type": "website",
     "images": [
       {
-        "url": "https://spinwheelgames.org/api/og?path=%2Fsitemap&title=HTML+Sitemap+%26+Directory+%7C+SpinWheelGames&desc=Interactive+random+wheel+and+decision+tool+on+SpinWheelGames.",
+        "url": "https://spinwheelgames.org/api/og?path=%2Fsitemap&title=HTML+Sitemap+%26+Directory+%7C+SpinWheelGames&desc=Complete+HTML+sitemap+and+categorized+directory+of+all+interactive+spin+wheels%2C+3D+RPG+dice+rollers%2C+and+classroom+randomizers.",
         "width": 1200,
         "height": 630,
         "alt": "HTML Sitemap & Directory | SpinWheelGames"
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   "twitter": {
     "card": "summary_large_image",
     "title": "HTML Sitemap & Directory | SpinWheelGames",
-    "description": "Interactive random wheel and decision tool on SpinWheelGames.",
+    "description": "Complete HTML sitemap and categorized directory of all interactive spin wheels, 3D RPG dice rollers, classroom randomizers, and guides on SpinWheelGames.",
     "images": [
-      "https://spinwheelgames.org/api/og?path=%2Fsitemap&title=HTML+Sitemap+%26+Directory+%7C+SpinWheelGames&desc=Interactive+random+wheel+and+decision+tool+on+SpinWheelGames."
+      "https://spinwheelgames.org/api/og?path=%2Fsitemap&title=HTML+Sitemap+%26+Directory+%7C+SpinWheelGames&desc=Complete+HTML+sitemap+and+categorized+directory+of+all+interactive+spin+wheels%2C+3D+RPG+dice+rollers%2C+and+classroom+randomizers."
     ]
   }
 };

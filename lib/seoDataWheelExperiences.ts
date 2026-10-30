@@ -1,26 +1,7 @@
 import { SeoPageData, SearchIntentType } from './seoArchitecture';
 import { WheelExperience } from './wheelLibraryTypes';
-import { WHEEL_LIBRARY_PART1 } from './wheelLibraryPart1';
-import { WHEEL_LIBRARY_PART2 } from './wheelLibraryPart2';
-import { WHEEL_LIBRARY_PART3 } from './wheelLibraryPart3';
-import { WHEEL_LIBRARY_PART4 } from './wheelLibraryPart4';
-import { WHEEL_LIBRARY_PART5 } from './wheelLibraryPart5';
-import { WHEEL_LIBRARY_PART6 } from './wheelLibraryPart6';
-import { WHEEL_LIBRARY_PART7 } from './wheelLibraryPart7';
-import { WHEEL_LIBRARY_PART8 } from './wheelLibraryPart8';
-import { WHEEL_LIBRARY_PART9 } from './wheelLibraryPart9';
-
-const ALL_WHEEL_EXPERIENCES: WheelExperience[] = [
-  ...WHEEL_LIBRARY_PART1,
-  ...WHEEL_LIBRARY_PART2,
-  ...WHEEL_LIBRARY_PART3,
-  ...WHEEL_LIBRARY_PART4,
-  ...WHEEL_LIBRARY_PART5,
-  ...WHEEL_LIBRARY_PART6,
-  ...WHEEL_LIBRARY_PART7,
-  ...WHEEL_LIBRARY_PART8,
-  ...WHEEL_LIBRARY_PART9,
-];
+import { ALL_WHEEL_EXPERIENCES } from './wheelLibrary';
+import { CLUSTER_EXPERIENCE_OVERRIDES } from './seoClusterOverrides';
 
 // Domain metadata and category routing
 export const CATEGORY_METADATA: Record<
@@ -475,12 +456,54 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
     return baseTitle.slice(0, 60);
   };
 
-  // Keyword-rich SEO Title (< 60 chars) & H1 targeting specific search intent
-  const title = customFlagship?.title || generateCleanTitle(baseWheelTitle, meta.name);
-  const h1 = customFlagship?.h1 || `${baseWheelTitle}: Free Random ${meta.name} Spinner`;
-  const metaDescription = customFlagship?.desc || `Spin the free ${baseWheelTitle} online. ${exp.purpose} Browser-based cryptographic randomness, customizable weights, and elimination mode.`;
+  const clusterOverride = CLUSTER_EXPERIENCE_OVERRIDES[exp.id];
 
-  const intro = `${exp.purpose} Whether you are seeking a fast resolution, planning an activity, or adding excitement to a group session, the ${baseWheelTitle} provides browser-based cryptographic randomness directly in your web browser.`;
+  // Deterministic hash to vary structural templates across sibling experiences
+  let hash = 0;
+  for (let i = 0; i < exp.id.length; i++) {
+    hash = (hash * 31 + exp.id.charCodeAt(i)) >>> 0;
+  }
+  const v = hash % 6;
+
+  const sliceCount = exp.defaultEntries.length;
+  const sliceAngle = (360 / Math.max(sliceCount, 1)).toFixed(1);
+  const sliceProb = (100 / Math.max(sliceCount, 1)).toFixed(1);
+  const e0 = exp.defaultEntries[0] || 'Option A';
+  const e1 = exp.defaultEntries[1] || 'Option B';
+  const e2 = exp.defaultEntries[2] || 'Option C';
+  const e3 = exp.defaultEntries[3] || 'Option D';
+  const e4 = exp.defaultEntries[4] || e0;
+  const e5 = exp.defaultEntries[5] || e1;
+  const m0 = exp.optionalModes?.[0] || 'No-Repeat Elimination Mode';
+  const m1 = exp.optionalModes?.[1] || 'Weighted Slice Probability';
+  const m2 = exp.optionalModes?.[2] || 'Fullscreen Presentation Mode';
+  const t0 = exp.relatedTools?.[0] || 'Session History Log';
+  const t1 = exp.relatedTools?.[1] || 'Custom Preset Exporter';
+
+  // Keyword-rich SEO Title (< 60 chars) & H1 targeting specific search intent
+  const title =
+    clusterOverride?.title ||
+    customFlagship?.title ||
+    generateCleanTitle(baseWheelTitle, meta.name);
+  const h1 =
+    clusterOverride?.h1 ||
+    customFlagship?.h1 ||
+    `${baseWheelTitle}: ${exp.purpose.split('.')[0].slice(0, 48)}`;
+  const metaDescription =
+    clusterOverride?.metaDescription ||
+    customFlagship?.desc ||
+    `${exp.purpose} Spin the ${baseWheelTitle} with ${sliceCount} pre-loaded slices (${e0}, ${e1}, ${e2}) designed for ${exp.targetAudience.toLowerCase()}`;
+
+  const introVariants = [
+    `${exp.purpose} Built specifically for ${exp.targetAudience.toLowerCase()}, the ${baseWheelTitle} comes pre-configured with ${sliceCount} curated slices—including ${e0}, ${e1}, ${e2}, and ${e3}—each occupying a ${sliceAngle}° arc (${sliceProb}% initial odds). ${exp.uniqueValueProposition}`,
+    `Designed for ${exp.targetAudience.toLowerCase()}, the ${baseWheelTitle} solves a distinct challenge: ${exp.purpose.charAt(0).toLowerCase() + exp.purpose.slice(1)} Instead of building a list from scratch, you can spin ${sliceCount} ready-made options (${e0} through ${exp.defaultEntries[sliceCount - 1]}) or customize weights using ${m0}. ${exp.uniqueValueProposition}`,
+    `${exp.uniqueValueProposition} The ${baseWheelTitle} helps ${exp.targetAudience.toLowerCase()} ${exp.purpose.charAt(0).toLowerCase() + exp.purpose.slice(1)} With ${sliceCount} balanced entries (${sliceProb}% per slice) such as ${e0}, ${e1}, and ${e2}, every spin follows "${exp.instructions}"`,
+    `When ${exp.targetAudience.toLowerCase()} need to ${exp.purpose.charAt(0).toLowerCase() + exp.purpose.slice(1).replace(/\.$/, '')}, the ${baseWheelTitle} provides an immediate, unbiased ${sliceCount}-slice setup. Pre-populated with ${e0}, ${e1}, ${e2}, and ${e3}, it pairs ${m0} with a ${exp.shareableResultConcept.toLowerCase()}`,
+    `${exp.purpose} Tailored to ${exp.targetAudience.toLowerCase()}, this ${sliceCount}-segment ${baseWheelTitle} (${sliceAngle}° per wedge) features ${e0}, ${e1}, ${e2}, and ${e3}. ${exp.instructions} ${exp.uniqueValueProposition}`,
+    `Whether you are ${exp.targetAudience.toLowerCase()} or organizing a live session, the ${baseWheelTitle} is engineered to ${exp.purpose.charAt(0).toLowerCase() + exp.purpose.slice(1).replace(/\.$/, '')}. Featuring ${sliceCount} default entries (${e0}, ${e1}, ${e2}, ${e3}) and support for ${m0} and ${m1}, it delivers ${exp.uniqueValueProposition.charAt(0).toLowerCase() + exp.uniqueValueProposition.slice(1)}`
+  ];
+
+  const intro = clusterOverride?.introduction || introVariants[v];
 
   const items = exp.defaultEntries.map((entry, idx) => ({
     id: `${exp.id}-entry-${idx + 1}`,
@@ -488,147 +511,207 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
     weight: 1
   }));
 
-  const instructions = [
-    `Tap the SPIN button (or press Spacebar) to spin the ${cleanName} Wheel.`,
-    'Watch the pointer decelerate with realistic physics and sound ticks until it settles on the winning slice.',
-    'Use the sidebar to add your custom options, adjust probabilities with weight sliders, or remove slices.',
-    'Turn on Elimination (No-Repeat) mode if you need multiple successive picks without duplicate winners.',
-    'Share your result or export your wheel preset for future sessions.'
+  const instructions = clusterOverride?.instructions || [
+    exp.instructions,
+    `Review the ${sliceCount} pre-loaded slices (${e0}, ${e1}, ${e2}, ${e3}, etc.) and remove or re-weight any entry to fit your ${exp.difficulty.toLowerCase()}-level session.`,
+    `Activate ${m0} or ${m1} in the controls panel before spinning if your workflow requires specialized rules.`,
+    `Compare or export your winning outcome using ${t0} and ${t1}, or share the ${exp.shareableResultConcept}`
   ];
 
-  const whoItsUsefulFor = [
+  const whoItsUsefulFor = clusterOverride?.whoItsUsefulFor || [
     {
       audience: exp.targetAudience,
       benefit: exp.uniqueValueProposition
     },
     {
-      audience: 'Group Facilitators & Organizers',
-      benefit: 'Serves as an impartial, transparent arbiter that everyone respects without dispute.'
+      audience: `${cleanName} Organizers & Hosts`,
+      benefit: `Uses ${sliceCount} pre-vetted slices (${e0}, ${e1}, ${e2}) so sessions start in seconds with zero prep.`
     },
     {
-      audience: 'Independent Creators & Solopreneurs',
-      benefit: 'Eliminates overthinking and brings playful spontaneity to daily routines.'
+      audience: `Users Seeking ${m0}`,
+      benefit: `Combines ${m0} and ${m1} with ${t0} for structured multi-round play.`
     }
   ];
 
-  const useCases = [
+  const useCases = clusterOverride?.useCases || [
     {
-      title: `Instant ${cleanName} Selection`,
-      description: `Rapidly choose between options without second-guessing or decision deadlock.`,
-      benefit: 'Resolves stalemates in under 10 seconds.'
+      title: `Primary ${cleanName} Workflow`,
+      description: `${exp.purpose} Start with ${e0}, ${e1}, and ${e2} at ${sliceProb}% probability each.`,
+      benefit: exp.uniqueValueProposition
     },
     {
-      title: 'Group & Live Stream Drawings',
-      description: 'Display the wheel on a shared projector, monitor, or video call to build genuine visual suspense.',
-      benefit: 'Engaging, transparent, and unbiased for all participants.'
+      title: `${m0} Sessions`,
+      description: `${exp.instructions} Combine with ${m0} and ${m1} for customized pacing.`,
+      benefit: `Tailored specifically for ${exp.targetAudience.toLowerCase()}`
     },
     {
-      title: 'Sequential Multi-Pick Elimination',
-      description: 'Remove winning slices one by one to pick ranked tiers, rosters, or schedules without duplicates.',
-      benefit: 'Zero duplicate draws across rounds.'
+      title: `${exp.shareableResultConcept.split(' ')[0]} & ${t0} Integration`,
+      description: `Log every winning pick (${e3}, ${e4}, ${e5}) alongside ${t0} and ${t1}.`,
+      benefit: `Generates a ${exp.shareableResultConcept.toLowerCase()}`
     }
   ];
 
-  const customizationOptions = [
+  const customizationOptions = clusterOverride?.customizationOptions || [
     {
-      title: 'Weighted Probability Sliders',
-      description: 'Adjust weights between 1x and 10x to make specific slices proportionally more or less likely.'
+      title: m0,
+      description: `Configure the ${baseWheelTitle} for ${m0.toLowerCase()} when choosing among ${e0}, ${e1}, and ${e2}.`
     },
     {
-      title: 'No-Repeat Elimination Mode',
-      description: 'Automatically remove selected slices upon winning so every item is chosen exactly once.'
+      title: m1,
+      description: `Adjust individual slice weights across all ${sliceCount} items (default ${sliceAngle}° / ${sliceProb}% per item) to favor priority picks.`
     },
     {
-      title: 'Audio Sound Themes',
-      description: 'Choose between carnival clicks, retro arcade chimes, or complete silence.'
+      title: m2,
+      description: `Switch into ${m2.toLowerCase()} or pair with ${t0} for ${exp.targetAudience.toLowerCase()}`
     },
     {
-      title: 'Fullscreen Presentation Mode',
-      description: 'Enlarge the wheel to fill the entire display for classrooms, boardrooms, and live streams.'
+      title: `${exp.shareableResultConcept.split(' ').slice(0, 3).join(' ')} Export`,
+      description: `Capture your winning outcome as a ${exp.shareableResultConcept.toLowerCase()} or pair with ${t1}.`
     }
   ];
 
   const featureBadges = [
-    '100% Free & No Account Required',
-    'Web Crypto CSPRNG Randomness',
-    'Custom Slice Weights',
-    'No-Repeat Elimination',
-    'Web Audio Real-Time Ticking'
+    `${sliceCount} Curated Slices (${sliceProb}% Odds)`,
+    m0,
+    m1,
+    `${exp.difficulty} Setup Difficulty`,
+    'Web Crypto CSPRNG Verified'
   ];
 
-  const resultExplanation = `Every outcome on the ${baseWheelTitle} is computed using the browser's native Web Cryptography API (crypto.getRandomValues). SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values with uniform probability distribution.`;
+  const resultExplanation =
+    clusterOverride?.resultExplanation ||
+    `On the ${baseWheelTitle}, each of the ${sliceCount} default entries (${e0}, ${e1}, ${e2}, up to ${exp.defaultEntries[sliceCount - 1]}) spans ${sliceAngle}° of the 360° canvas (${sliceProb}% probability). Stopping angles are drawn via window.crypto.getRandomValues() so ${exp.targetAudience.toLowerCase()} get provably unbiased selections.`;
 
-  const uniqueExamples = [
-    `Standard Setup: ${exp.defaultEntries.slice(0, 4).join(', ')}`,
-    `Full List: ${exp.defaultEntries.join(', ')}`
+  const uniqueExamples = clusterOverride?.uniqueExamples || [
+    `Opening Spin Scenario: Pit "${e0}" against "${e1}" and "${e2}" using ${m0}.`,
+    `Multi-Round Elimination: Start with all ${sliceCount} items (${exp.defaultEntries.slice(0, 6).join(', ')}) and remove each winner to rank "${e3}", "${e4}", and "${e5}".`,
+    `Companion Workflow: Pair your winning "${e0}" or "${e1}" draw with ${t0} and ${t1} to produce a ${exp.shareableResultConcept}`
   ];
 
-  const comparisonTable = {
-    headers: ['Feature', baseWheelTitle, 'Manual Choice / Coin Flip', 'Standard Text RNG'],
+  const comparisonTable = clusterOverride?.comparisonTable || {
+    headers: [`${cleanName} Criterion`, baseWheelTitle, `Manual ${meta.name} Pick`, `Static Spreadsheet List`],
     rows: [
-      ['Visual Suspense', 'High (spinning canvas & sound)', 'Low / None', 'None (instant plain text)'],
-      ['Custom Probability', 'Yes (1x–10x weight sliders)', 'No (equal only)', 'Requires complex coding'],
-      ['Elimination Mode', 'Yes (1-click automatic remove)', 'Manual pencil tracking', 'Manual tracking'],
-      ['Cryptographic Randomness', 'Yes (Web Cryptography API)', 'Prone to human bias', 'Often basic Math.random()'],
-      ['Presentation Mode', 'Yes (Fullscreen & Shareable)', 'No', 'No']
+      ['Pre-Loaded Domain Slices', `${sliceCount} curated items (${e0}, ${e1}...)`, 'None (blank slate)', 'Requires manual typing'],
+      ['Specialized Modes', `${m0} & ${m1}`, 'Not available', 'Requires complex formulas'],
+      ['Target Audience Fit', exp.targetAudience, 'Prone to recency bias', 'Low visual engagement'],
+      ['Companion Workflow', `${t0} & ${t1}`, 'Manual notes only', 'Static rows'],
+      ['Result Output', exp.shareableResultConcept, 'Verbal only', 'Plain cell text']
     ]
   };
 
-  // In-Depth Long-Form Blog Content Chapters
-  const uniqueContentBlocks = [
-    {
-      heading: `1. The Psychology of ${cleanName}: Overcoming Analysis Paralysis`,
-      body: [
-        meta.psychologicalDilemma,
-        meta.frictionAnalysis,
-        `When utilizing the ${baseWheelTitle}, you bypass cognitive exhaustion. Rather than debating micro-advantages endlessly, the wheel acts as an objective, neutral catalyst that initiates immediate momentum.`
-      ]
-    },
-    {
-      heading: '2. Tactical Strategy: Weights, Elimination & Presentation Modes',
-      body: [
-        meta.tacticalGuide,
-        'By opening the Edit Items drawer, you have granular control over your decision matrix. Need to favor certain choices? Assign a 2x or 3x probability weight to increase their angular slice on the wheel while preserving true statistical randomness.',
-        'If you are presenting to a classroom, live stream, or meeting room, hit F on your keyboard to trigger Fullscreen mode. The wheel scales dynamically to 4K resolution displays with crystal-clear vector arcs and pointer deflection physics.'
-      ]
-    },
-    {
-      heading: '3. Cryptographic Integrity: Browser Web Crypto vs. Math.random()',
-      body: [
-        'Many online randomizers rely on legacy pseudo-random algorithms (such as Math.random() in JavaScript), which use non-cryptographic pseudo-random number generators.',
-        'SpinWheelGames enforces the browser Web Cryptography API (window.crypto.getRandomValues). By generating 32-bit cryptographically secure values and applying dynamic rejection sampling, each slice possesses an exact probability matching its designated arc on the wheel without server bias.'
-      ]
-    },
-    {
-      heading: '4. Proven Scenarios & Actionable Protocols',
-      body: [
-        `• Solo Deciders: Use the ${baseWheelTitle} whenever you catch yourself spending more than 3 minutes on a low-stakes decision. Honor the outcome and take action immediately.`,
-        '• Group Facilitation: Cast or screen-share the wheel so all participants witness the draw simultaneously. Shared visual anticipation builds instant consensus.',
-        '• Elimination Rounds: Turn on Elimination mode to pick a ranked order or tier list across successive rounds without duplicate winners.'
-      ]
-    }
+  const blockVariants = [
+    [
+      {
+        heading: `Why ${exp.targetAudience.split(',')[0]} Use the ${baseWheelTitle}`,
+        body: [
+          `${exp.purpose} In real-world sessions involving ${exp.targetAudience.toLowerCase()}, choosing between options like "${e0}", "${e1}", "${e2}", and "${e3}" often stalls out due to recency bias or group hesitation.`,
+          `${exp.uniqueValueProposition} By placing all ${sliceCount} possibilities on a radial ${sliceAngle}°-per-slice dial, the ${baseWheelTitle} turns hesitation into immediate action. ${exp.instructions}`
+        ]
+      },
+      {
+        heading: `Configuring ${m0} and ${m1}`,
+        body: [
+          `Every ${cleanName} session has different rules. That is why this preset supports ${m0}, ${m1}, and ${m2}. If "${e0}" or "${e1}" should appear more frequently than "${e4}", simply slide its weight multiplier upward in the item drawer.`,
+          `For multi-stage sessions, combine the wheel with ${t0} and ${t1}. Each spin can also be shared using the ${exp.shareableResultConcept.toLowerCase()}`
+        ]
+      }
+    ],
+    [
+      {
+        heading: `Inside the ${sliceCount}-Slice ${baseWheelTitle} Preset`,
+        body: [
+          `Out of the box, the ${baseWheelTitle} is calibrated at ${exp.difficulty.toLowerCase()} difficulty with ${sliceCount} distinct segments: ${exp.defaultEntries.join(', ')}. Each wedge represents an equal ${sliceProb}% share (${sliceAngle}° of arc) unless custom weights are applied.`,
+          `This specific selection was curated for ${exp.targetAudience.toLowerCase()}. ${exp.uniqueValueProposition}`
+        ]
+      },
+      {
+        heading: `Step-by-Step Protocol: ${exp.instructions.slice(0, 52)}`,
+        body: [
+          `To get the most out of the ${baseWheelTitle}, follow this workflow: ${exp.instructions} When a spin lands on "${e2}" or "${e3}", decide whether to keep it on the board or engage ${m0} so future spins focus on "${e4}" and "${e5}".`,
+          `Facilitators also pair the wheel with ${t0} and ${t1}, turning every spin into a repeatable system backed by our ${exp.shareableResultConcept.toLowerCase()}`
+        ]
+      }
+    ],
+    [
+      {
+        heading: `Solving ${meta.name} Deadlocks for ${exp.targetAudience.split(',')[0]}`,
+        body: [
+          `${exp.uniqueValueProposition} When ${exp.targetAudience.toLowerCase()} face choices such as "${e0}", "${e1}", "${e2}", or "${e3}", manual picking almost always favors familiar defaults and ignores great alternatives like "${e4}" and "${e5}".`,
+          `The ${baseWheelTitle} eliminates that bias: ${exp.purpose} With a single tap or Spacebar press, all ${sliceCount} slices spin with authentic angular friction before locking onto a winner.`
+        ]
+      },
+      {
+        heading: `Advanced Modes: ${m0}, ${m1} & ${t0}`,
+        body: [
+          `${exp.instructions} Beyond basic spinning, power users take advantage of ${m0} and ${m1} to adapt the ${baseWheelTitle} to changing conditions.`,
+          `Once your winning slice is chosen, integrate the result directly with ${t0} or ${t1} and export a ${exp.shareableResultConcept.toLowerCase()} for your group.`
+        ]
+      }
+    ],
+    [
+      {
+        heading: `How the ${baseWheelTitle} Elevates ${meta.name} Sessions`,
+        body: [
+          `${exp.purpose} Specifically engineered for ${exp.targetAudience.toLowerCase()}, this tool replaces predictable routines with ${sliceCount} high-contrast choices including "${e0}", "${e1}", "${e2}", and "${e3}".`,
+          `${exp.uniqueValueProposition} Follow the core rule—"${exp.instructions}"—to keep energy high and decision time under ten seconds.`
+        ]
+      },
+      {
+        heading: `Pairing "${e0}" & "${e1}" Spins with ${t0}`,
+        body: [
+          `Whether you activate ${m0} or ${m1}, the ${baseWheelTitle} adapts to both solo and group environments. Each of the ${sliceCount} slices starts at ${sliceProb}% probability (${sliceAngle}° arc).`,
+          `After the pointer lands on "${e2}" or "${e4}", log the draw in ${t0}, cross-reference ${t1}, and showcase your ${exp.shareableResultConcept.toLowerCase()}`
+        ]
+      }
+    ],
+    [
+      {
+        heading: `Tailored for ${exp.targetAudience}: ${baseWheelTitle} Breakdown`,
+        body: [
+          `Why build a list from scratch when you can start with ${sliceCount} battle-tested options? The ${baseWheelTitle} launches with ${exp.defaultEntries.slice(0, 6).join(', ')}, and more—specifically structured to ${exp.purpose.charAt(0).toLowerCase() + exp.purpose.slice(1)}`,
+          `${exp.uniqueValueProposition} Every spin follows a clear protocol: ${exp.instructions}`
+        ]
+      },
+      {
+        heading: `Using ${m0} Alongside ${t0} & ${t1}`,
+        body: [
+          `To customize the experience, toggle ${m0} or ${m1}. For instance, you can weight "${e0}" and "${e1}" higher for quick rounds, or eliminate "${e2}" and "${e3}" once they have been completed.`,
+          `Combine your spin results with ${t0} and ${t1}, and wrap up the session by generating a ${exp.shareableResultConcept.toLowerCase()}`
+        ]
+      }
+    ],
+    [
+      {
+        heading: `From Indecision to Action: ${baseWheelTitle} (${sliceCount} Slices)`,
+        body: [
+          `${exp.purpose} Built with ${exp.targetAudience.toLowerCase()} in mind, the ${baseWheelTitle} assigns equal ${sliceProb}% mathematical odds (${sliceAngle}° per wedge) across ${exp.defaultEntries.slice(0, 5).join(', ')}, and ${sliceCount - 5} additional choices.`,
+          `${exp.uniqueValueProposition} Simply follow the recommended approach: ${exp.instructions}`
+        ]
+      },
+      {
+        heading: `Customizing Weights, ${m0} & ${exp.shareableResultConcept.split(' ')[0]} Outputs`,
+        body: [
+          `Need more control over "${e0}", "${e1}", or "${e2}"? Enable ${m0} or ${m1} in the sidebar, or launch ${m2} for shared screens.`,
+          `Every outcome connects seamlessly with workflows involving ${t0} and ${t1}, complete with a ${exp.shareableResultConcept.toLowerCase()}`
+        ]
+      }
+    ]
   ];
 
-  const faqs = [
+  const uniqueContentBlocks = clusterOverride?.uniqueContentBlocks || blockVariants[v];
+
+  const faqs = clusterOverride?.faqs || [
     {
-      question: `Is the ${baseWheelTitle} completely free to use?`,
-      answer: 'Yes, this wheel is 100% free with no registration, no subscription fees, and no sign-in required.'
+      question: `What options are pre-loaded on the ${baseWheelTitle}?`,
+      answer: `The ${baseWheelTitle} comes pre-loaded with ${sliceCount} curated slices: ${exp.defaultEntries.join(', ')}. Each slice starts with an equal ${sliceProb}% (${sliceAngle}°) probability, and you can edit, add, or delete any entry in the sidebar.`
     },
     {
-      question: `Can I add or remove options on the ${baseWheelTitle}?`,
-      answer: `Yes! Click the Edit Items panel in the sidebar to add new options, delete items, adjust probability weights, or paste an entire custom list from your clipboard.`
+      question: `Who is the ${baseWheelTitle} designed for?`,
+      answer: `It is specifically designed for ${exp.targetAudience.toLowerCase()} looking to ${exp.purpose.charAt(0).toLowerCase() + exp.purpose.slice(1)} ${exp.uniqueValueProposition}`
     },
     {
-      question: 'How do I prevent the same choice from winning twice?',
-      answer: 'Turn on Elimination (No-Repeat) mode in the wheel settings, or click "Remove Winner" on the outcome popup so that item is excluded from subsequent spins.'
-    },
-    {
-      question: 'Is the outcome truly random and fair?',
-      answer: 'Yes. SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values directly on your device with uniform probability distribution.'
-    },
-    {
-      question: 'Can I use keyboard shortcuts to spin?',
-      answer: 'Yes! Press Spacebar on any desktop keyboard to spin instantly, and press F to enter or exit Fullscreen presentation mode.'
+      question: `How do I use ${m0} on the ${baseWheelTitle}?`,
+      answer: `${exp.instructions} You can enable ${m0} or ${m1} in the wheel settings panel so options like "${e0}" and "${e1}" follow your exact session rules without duplicate picks.`
     }
   ];
 
@@ -711,7 +794,11 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
     whoItsUsefulFor,
     useCases,
     customizationOptions,
-    tips: meta.proTips,
+    tips: clusterOverride?.tips || [
+      exp.instructions,
+      `Use ${m0} or ${m1} to customize how "${e0}" and "${e1}" behave across rounds.`,
+      ...meta.proTips.slice(0, 1)
+    ],
     featureBadges,
     resultExplanation,
     uniqueExamples,

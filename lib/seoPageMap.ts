@@ -63,7 +63,7 @@ export const KEYWORD_CONTENT_MATRIX: KeywordContentMatrixItem[] = [
       '/classroom-wheel',
       '/number-wheel',
       '/random-object-generator',
-      '/fair-randomness'
+      '/fairness'
     ],
     sourceRequirements: ['Standard 75-Ball & 90-Ball Bingo Rules', 'Web Speech Synthesis API'],
     indexable: true

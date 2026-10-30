@@ -1,4 +1,15 @@
 {
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        }
+      ]
+    }
+  ],
   "redirects": [
     {
       "source": "/d2",
@@ -71,11 +82,6 @@
       "statusCode": 301
     },
     {
-      "source": "/team-generator",
-      "destination": "https://spinwheelgames.org/team-picker",
-      "statusCode": 301
-    },
-    {
       "source": "/category",
       "destination": "https://spinwheelgames.org/categories",
       "statusCode": 301
@@ -111,11 +117,6 @@
       "statusCode": 301
     },
     {
-      "source": "/random-number-wheel",
-      "destination": "https://spinwheelgames.org/number-wheel",
-      "statusCode": 301
-    },
-    {
       "source": "/winner-picker",
       "destination": "https://spinwheelgames.org/giveaway-wheel",
       "statusCode": 301
@@ -133,6 +134,71 @@
     {
       "source": "/party-wheel/truth-or-dare",
       "destination": "https://spinwheelgames.org/truth-or-dare-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/pizza-topping-wheel",
+      "destination": "https://spinwheelgames.org/food-wheel/pizza",
+      "statusCode": 301
+    },
+    {
+      "source": "/lunch-wheel",
+      "destination": "https://spinwheelgames.org/food-wheel/lunch",
+      "statusCode": 301
+    },
+    {
+      "source": "/what-to-eat-wheel",
+      "destination": "https://spinwheelgames.org/what-should-i-eat",
+      "statusCode": 301
+    },
+    {
+      "source": "/student-picker",
+      "destination": "https://spinwheelgames.org/classroom-wheel/random-student",
+      "statusCode": 301
+    },
+    {
+      "source": "/student-picker-wheel",
+      "destination": "https://spinwheelgames.org/classroom-wheel/random-student",
+      "statusCode": 301
+    },
+    {
+      "source": "/random-team-generator",
+      "destination": "https://spinwheelgames.org/team-generator",
+      "statusCode": 301
+    },
+    {
+      "source": "/team-maker",
+      "destination": "https://spinwheelgames.org/team-generator",
+      "statusCode": 301
+    },
+    {
+      "source": "/random-number-wheel",
+      "destination": "https://spinwheelgames.org/number-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/1-20-wheel",
+      "destination": "https://spinwheelgames.org/number-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/number-wheel/1-10",
+      "destination": "https://spinwheelgames.org/1-10-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/number-wheel/1-50",
+      "destination": "https://spinwheelgames.org/1-50-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/number-wheel/1-100",
+      "destination": "https://spinwheelgames.org/1-100-wheel",
+      "statusCode": 301
+    },
+    {
+      "source": "/sitemap-directory",
+      "destination": "https://spinwheelgames.org/sitemap",
       "statusCode": 301
     },
     {

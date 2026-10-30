@@ -70,7 +70,7 @@ export const WHEEL_LIBRARY_PART6: WheelExperience[] = [
   },
   {
     id: 'travel-activity-picker',
-    name: 'Activity Picker',
+    name: 'Travel Activity Picker',
     purpose: 'Decide day-trip activities once you have arrived at your travel destination.',
     targetAudience: 'Tourists standing in hotel lobbies wondering what to do that morning.',
     defaultEntries: ['Visit the Top-Rated Art Museum', 'Take a Local Guided Food Walking Tour', 'Rent Bicycles and Tour Riverfront Trails', 'Climb the Highest Scenic City Viewpoint', 'Explore Local Flea & Artisanal Markets', 'Relax at a Historic Botanical Garden', 'Join a Boat / Harbour Sightseeing Cruise', 'Get Lost in the Old Town Quarter'],

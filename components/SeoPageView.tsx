@@ -701,11 +701,13 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
                         }`}
                       />
                     </button>
-                    {isOpen && (
-                      <div className="px-4 pb-4 pt-1 text-sm text-[#464554] dark:text-[#c7c4d7] leading-relaxed border-t border-[#eeedf7] dark:border-[#222330]">
-                        {faq.answer}
-                      </div>
-                    )}
+                    <div
+                      className={`${
+                        isOpen ? 'block' : 'hidden'
+                      } px-4 pb-4 pt-1 text-sm text-[#464554] dark:text-[#c7c4d7] leading-relaxed border-t border-[#eeedf7] dark:border-[#222330]`}
+                    >
+                      {faq.answer}
+                    </div>
                   </div>
                 );
               })}

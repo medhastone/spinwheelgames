@@ -231,6 +231,18 @@ export default function Roll3d6Page() {
             </div>
           </section>
 
+          <section className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-3 shadow-xs text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+            <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white">
+              How the 3d6 Bell Curve Shapes Tabletop RPG Gameplay
+            </h2>
+            <p>
+              When you roll three six-sided dice (<Link href="/dice/d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d6</Link>) and sum the faces, there are $6^3 = 216$ ordered permutations producing totals from 3 to 18. Because middle totals like 10 and 11 can be assembled in 27 different ways each (12.50% apiece), while 3 and 18 can only be rolled in 1 way each (0.46%), <strong>3d6</strong> creates a classic Gaussian-style bell curve centered at 10.5.
+            </p>
+            <p>
+              In systems like <em>GURPS</em> (where players roll 3d6-under-skill), a single +1 modifier near a skill level of 10 shifts success odds by 12.5%, whereas on a flat <Link href="/dice/d20" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">1d20</Link> a +1 modifier always equals a flat 5%. For Old-School Renaissance (OSR) character creation, rolling <strong>3d6 in order</strong> produces gritty, grounded adventurers compared to the heroic 12.24 average of <Link href="/roll-4d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">4d6 Drop Lowest</Link> or our full <Link href="/dnd-stat-roller" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">D&amp;D 5e Stat Roller</Link>. You can also compare 3d6 against <Link href="/roll-2d12" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">2d12</Link>, <Link href="/roll-5d6" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">5d6</Link>, and <Link href="/roll-d3" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">d3</Link> inside the <Link href="/dice-average-calculator" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Dice Average Calculator</Link>.
+            </p>
+          </section>
+
           <section className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#12131a] border border-slate-200 dark:border-[#222330] space-y-3.5 shadow-xs">
             <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
               <HelpCircle className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
