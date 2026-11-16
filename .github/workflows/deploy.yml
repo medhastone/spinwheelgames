@@ -39,10 +39,8 @@ jobs:
       - name: Build static export for GitHub Pages
         env:
           GITHUB_PAGES: 'true'
-          # Leave blank when using a custom domain (e.g. spinwheelgames.org).
-          # For project sites (username.github.io/repo), this auto-computes /repo:
-          NEXT_PUBLIC_BASE_PATH: ${{ vars.CUSTOM_DOMAIN != '' && '' || (endsWith(github.event.repository.name, '.github.io') && '' || format('/{0}', github.event.repository.name)) }}
-          GH_PAGES_CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN }}
+          NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH || '' }}
+          GH_PAGES_CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN || 'spinwheelgames.org' }}
         run: npm run build:gh-pages
 
       - name: Upload GitHub Pages artifact

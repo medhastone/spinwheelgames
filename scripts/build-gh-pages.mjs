@@ -164,8 +164,8 @@ try {
   // Ensure .nojekyll is present in out/
   fs.writeFileSync(path.join(OUT_DIR, '.nojekyll'), '', 'utf8');
 
-  // Optional custom domain CNAME
-  const customDomain = process.env.GH_PAGES_CUSTOM_DOMAIN?.trim();
+  // Custom domain CNAME (defaults to spinwheelgames.org)
+  const customDomain = (process.env.GH_PAGES_CUSTOM_DOMAIN ?? 'spinwheelgames.org').trim();
   if (customDomain) {
     fs.writeFileSync(path.join(OUT_DIR, 'CNAME'), `${customDomain}\n`, 'utf8');
     console.log(`[gh-pages] Wrote CNAME for ${customDomain}`);
