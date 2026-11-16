@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import WheelCanvas from './WheelCanvas';
 import SpinButton from './SpinButton';
@@ -135,29 +134,30 @@ interface WinnerLog {
 }
 
 export default function WheelOfNamesEngine() {
-  const searchParams = useSearchParams();
-
   // Mode Selection: 'standard' | 'classroom' | 'giveaway' | 'team'
   const [activeMode, setActiveMode] = useState<'standard' | 'classroom' | 'giveaway' | 'team'>('standard');
 
   // Sidebar Tab: 'entries' | 'history' | 'settings'
   const [activeTab, setActiveTab] = useState<'entries' | 'history' | 'settings'>('entries');
 
-  // Raw text state for rapid editing
-  const [rawText, setRawText] = useState<string>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const queryNames = searchParams.get('names');
-        if (queryNames) {
-          const parsed = queryNames.split(',').map(n => n.trim()).filter(Boolean);
-          if (parsed.length > 0) return parsed.join('\n');
+  // Raw text state for rapid editing (deterministic initial SSR state)
+  const [rawText, setRawText] = useState<string>(() => POPULAR_PRESETS.sample.names.join('\n'));
+
+  useEffect(() => {
+    try {
+      if (typeof window === 'undefined') return;
+      const params = new URLSearchParams(window.location.search);
+      const queryNames = params.get('names');
+      if (queryNames) {
+        const parsed = queryNames.split(',').map(n => n.trim()).filter(Boolean);
+        if (parsed.length > 0) {
+          setRawText(parsed.join('\n'));
         }
-      } catch {
-        // Fallback
       }
+    } catch {
+      // Fallback
     }
-    return POPULAR_PRESETS.sample.names.join('\n');
-  });
+  }, []);
 
   // Undo / Redo Stacks
   const [historyPast, setHistoryPast] = useState<string[]>([]);

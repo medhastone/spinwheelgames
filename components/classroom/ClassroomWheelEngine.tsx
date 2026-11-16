@@ -181,19 +181,6 @@ function getInitialClassroomCategoryPools(): Record<ClassroomMode, StudentEntry[
     review: DEFAULT_REVIEW_ENTRIES
   };
 
-  if (typeof window !== 'undefined') {
-    try {
-      const saved = localStorage.getItem('classroom_wheel_pools_v3');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (parsed && typeof parsed === 'object') {
-          return { ...defaults, ...parsed };
-        }
-      }
-    } catch {
-      // ignore
-    }
-  }
   return defaults;
 }
 
@@ -212,28 +199,33 @@ export default function ClassroomWheelEngine() {
   const [noRepeat, setNoRepeat] = useState<boolean>(true);
   const [eliminatedIds, setEliminatedIds] = useState<string[]>([]);
 
-  const [winnerHistory, setWinnerHistory] = useState<WinnerHistoryItem[]>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem('classroom_wheel_winner_history_v3');
-        if (saved) return JSON.parse(saved);
-      } catch {
-        // ignore
+  const [winnerHistory, setWinnerHistory] = useState<WinnerHistoryItem[]>([]);
+  const [roundCounter, setRoundCounter] = useState<number>(1);
+
+  useEffect(() => {
+    try {
+      const savedPools = localStorage.getItem('classroom_wheel_pools_v3');
+      if (savedPools) {
+        const parsed = JSON.parse(savedPools);
+        if (parsed && typeof parsed === 'object') {
+          setCategoryPools((prev) => ({ ...prev, ...parsed }));
+        }
       }
-    }
-    return [];
-  });
-  const [roundCounter, setRoundCounter] = useState<number>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem('classroom_wheel_round_counter_v3');
-        if (saved) return Number(saved) || 1;
-      } catch {
-        // ignore
+      const savedHistory = localStorage.getItem('classroom_wheel_winner_history_v3');
+      if (savedHistory) {
+        const parsedHistory = JSON.parse(savedHistory);
+        if (Array.isArray(parsedHistory)) {
+          setWinnerHistory(parsedHistory);
+        }
       }
+      const savedRound = localStorage.getItem('classroom_wheel_round_counter_v3');
+      if (savedRound) {
+        setRoundCounter(Number(savedRound) || 1);
+      }
+    } catch {
+      // ignore
     }
-    return 1;
-  });
+  }, []);
 
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [ttsEnabled, setTtsEnabled] = useState<boolean>(true);

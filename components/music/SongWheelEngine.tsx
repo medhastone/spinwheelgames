@@ -90,20 +90,6 @@ function getInitialSongCategoryPools(): Record<SongCategory, SongEntry[]> {
     }
   });
 
-  if (typeof window !== 'undefined') {
-    try {
-      const savedPools = localStorage.getItem('song_wheel_category_pools_v2');
-      if (savedPools) {
-        const parsed = JSON.parse(savedPools);
-        if (parsed && typeof parsed === 'object') {
-          return { ...pools, ...parsed };
-        }
-      }
-    } catch {
-      // ignore
-    }
-  }
-
   return pools;
 }
 
@@ -112,6 +98,20 @@ export default function SongWheelEngine() {
   const [activeCategory, setActiveCategory] = useState<SongCategory>('genre');
   const [selectedDecade, setSelectedDecade] = useState<string>('all');
   const [categoryPools, setCategoryPools] = useState<Record<SongCategory, SongEntry[]>>(getInitialSongCategoryPools);
+
+  useEffect(() => {
+    try {
+      const savedPools = localStorage.getItem('song_wheel_category_pools_v2');
+      if (savedPools) {
+        const parsed = JSON.parse(savedPools);
+        if (parsed && typeof parsed === 'object') {
+          setCategoryPools((prev) => ({ ...prev, ...parsed }));
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
 
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [isSpinning, setIsSpinning] = useState<boolean>(false);

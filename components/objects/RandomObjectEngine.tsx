@@ -190,25 +190,27 @@ export default function RandomObjectEngine() {
   const [streakGameTarget, setStreakGameTarget] = useState<RandomObject | null>(null);
   const [streakGameOptions, setStreakGameOptions] = useState<string[]>([]);
   const [currentStreak, setCurrentStreak] = useState<number>(0);
-  const [bestStreak, setBestStreak] = useState<number>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const stored = localStorage.getItem('spinwheel_object_best_streak');
-        return stored ? parseInt(stored, 10) : 0;
-      } catch {
-        return 0;
-      }
-    }
-    return 0;
-  });
+  const [bestStreak, setBestStreak] = useState<number>(0);
+  const [todayDateStr, setTodayDateStr] = useState<string>('2026-01-01');
   const [streakFeedback, setStreakFeedback] = useState<'correct' | 'wrong' | null>(null);
+
+  useEffect(() => {
+    setTodayDateStr(getTodayDateString());
+    try {
+      const stored = localStorage.getItem('spinwheel_object_best_streak');
+      if (stored) {
+        setBestStreak(parseInt(stored, 10) || 0);
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
 
   // Daily Object of the Day (seeded by YYYY-MM-DD)
   const dailyObject = useMemo(() => {
-    const todayStr = getTodayDateString();
-    const index = getDailySeedIndex(todayStr, OBJECT_DATABASE.length);
+    const index = getDailySeedIndex(todayDateStr, OBJECT_DATABASE.length);
     return OBJECT_DATABASE[index];
-  }, []);
+  }, [todayDateStr]);
 
   // Filter eligible database pool based on purpose, category, difficulty
   const eligiblePool = useMemo(() => {
@@ -1590,7 +1592,7 @@ export default function RandomObjectEngine() {
             <div className="max-w-xl mx-auto bg-gradient-to-br from-indigo-50 via-white to-slate-100 dark:from-indigo-950/60 dark:via-slate-900 dark:to-slate-900 border border-indigo-200 dark:border-indigo-500/40 rounded-3xl p-6 sm:p-8 text-center space-y-5 shadow-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 dark:border-indigo-500/30">
                 <Calendar className="w-3.5 h-3.5" />
-                Object of the Day ({getTodayDateString()})
+                <span suppressHydrationWarning>Object of the Day ({todayDateStr})</span>
               </div>
 
               <div className="space-y-2">

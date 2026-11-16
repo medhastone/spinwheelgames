@@ -161,7 +161,7 @@ export default async function DiceSlugPage({ params }: DiceSlugPageProps) {
           <DiceNavigation currentPath={`/dice/${normalizedSlug}`} />
         </div>
 
-        <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16">
           <DedicatedDiePageComponent config={config} />
         </main>
         <Footer />

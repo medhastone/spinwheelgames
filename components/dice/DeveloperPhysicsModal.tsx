@@ -217,7 +217,7 @@ export default function DeveloperPhysicsModal({
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   <div className="p-3 rounded-2xl bg-[#12131a] border border-slate-800/80">
                     <span className="text-[10px] uppercase font-mono text-slate-500">Sample Size</span>
-                    <div className="text-base font-black text-white">{stats.totalRolls.toLocaleString()}</div>
+                    <div className="text-base font-black text-white">{stats.totalRolls.toLocaleString('en-US')}</div>
                   </div>
                   <div className="p-3 rounded-2xl bg-[#12131a] border border-slate-800/80">
                     <span className="text-[10px] uppercase font-mono text-slate-500">Expected / Face</span>

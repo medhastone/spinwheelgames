@@ -160,13 +160,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 try {
                   if (window.location.search.indexOf('stream=1') !== -1 || window.location.search.indexOf('bg=transparent') !== -1) {
                     document.documentElement.classList.add('streamer-mode');
-                    var rMeta = document.querySelector('meta[name="robots"]');
-                    if (!rMeta) {
-                      rMeta = document.createElement('meta');
-                      rMeta.setAttribute('name', 'robots');
-                      document.head.appendChild(rMeta);
-                    }
-                    rMeta.setAttribute('content', 'noindex, nofollow');
                   }
                   var saved = localStorage.getItem('spinwheel_theme_preference');
                   var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -194,6 +187,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
+                function isRecoverableOrExtensionError(str) {
+                  if (!str || typeof str !== 'string') return false;
+                  return (
+                    str.indexOf('chrome-extension://') !== -1 ||
+                    str.indexOf('Cannot set property fetch') !== -1 ||
+                    str.indexOf('Hydration failed') !== -1 ||
+                    str.indexOf('server rendered HTML') !== -1 ||
+                    str.indexOf('A tree hydrated but') !== -1 ||
+                    str.indexOf('Text content does not match') !== -1 ||
+                    str.indexOf('There was an error while hydrating') !== -1 ||
+                    str.indexOf('react.dev/link/hydration-mismatch') !== -1
+                  );
+                }
+
                 try {
                   var origFetch = window.fetch;
                   Object.defineProperty(window, 'fetch', {
@@ -204,15 +211,71 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   });
                 } catch (e) {}
 
+                try {
+                  if (typeof window.reportError === 'function') {
+                    var currentReportError = window.reportError.bind(window);
+                    var wrapReportError = function(fn) {
+                      return function(err) {
+                        var msg = (err && (err.message || err.stack)) || String(err || '');
+                        if (isRecoverableOrExtensionError(msg)) {
+                          return;
+                        }
+                        return fn.apply(window, arguments);
+                      };
+                    };
+                    var guardedReportError = wrapReportError(currentReportError);
+                    Object.defineProperty(window, 'reportError', {
+                      get: function() { return guardedReportError; },
+                      set: function(newFn) {
+                        if (typeof newFn === 'function') {
+                          guardedReportError = wrapReportError(newFn);
+                        }
+                      },
+                      configurable: true,
+                      enumerable: true
+                    });
+                  }
+                } catch (e) {}
+
+                try {
+                  if (typeof console !== 'undefined' && typeof console.error === 'function') {
+                    var currentConsoleError = console.error.bind(console);
+                    var wrapConsoleError = function(fn) {
+                      return function() {
+                        for (var i = 0; i < arguments.length; i++) {
+                          var arg = arguments[i];
+                          var text = (arg && (arg.message || arg.stack)) || (typeof arg === 'string' ? arg : '');
+                          if (isRecoverableOrExtensionError(text)) {
+                            return;
+                          }
+                        }
+                        return fn.apply(console, arguments);
+                      };
+                    };
+                    var guardedConsoleError = wrapConsoleError(currentConsoleError);
+                    Object.defineProperty(console, 'error', {
+                      get: function() { return guardedConsoleError; },
+                      set: function(newFn) {
+                        if (typeof newFn === 'function') {
+                          guardedConsoleError = wrapConsoleError(newFn);
+                        }
+                      },
+                      configurable: true,
+                      enumerable: true
+                    });
+                  }
+                } catch (e) {}
+
                 window.addEventListener('error', function(event) {
-                  var message = (event && event.message) || '';
+                  var message = (event && event.message) || (event && event.error && event.error.message) || '';
                   var filename = (event && event.filename) || '';
                   if (
                     filename.indexOf('chrome-extension://') !== -1 ||
-                    message.indexOf('Cannot set property fetch') !== -1
+                    isRecoverableOrExtensionError(message)
                   ) {
                     if (event.preventDefault) event.preventDefault();
                     if (event.stopPropagation) event.stopPropagation();
+                    if (event.stopImmediatePropagation) event.stopImmediatePropagation();
                     return true;
                   }
 
@@ -237,17 +300,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   var stack = reason.stack || '';
                   if (
                     stack.indexOf('chrome-extension://') !== -1 ||
-                    msg.indexOf('Cannot set property fetch') !== -1
+                    isRecoverableOrExtensionError(msg) ||
+                    isRecoverableOrExtensionError(stack)
                   ) {
                     if (event.preventDefault) event.preventDefault();
+                    if (event.stopPropagation) event.stopPropagation();
+                    if (event.stopImmediatePropagation) event.stopImmediatePropagation();
                   }
-                });
+                }, true);
               })();
             `
           }}
         />
       </head>
-      <body suppressHydrationWarning className="antialiased bg-[#fbf8ff] dark:bg-[#0c0d14] text-[#1a1b22] dark:text-[#eeedf7] w-full max-w-full overflow-x-clip">
+      <body suppressHydrationWarning className="min-h-screen flex flex-col antialiased bg-[#fbf8ff] dark:bg-[#0c0d14] text-[#1a1b22] dark:text-[#eeedf7] w-full max-w-full overflow-x-clip">
         {children}
         <ViralToolsController />
         <ScrollToTop />

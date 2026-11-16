@@ -11,6 +11,14 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (
+        window.location.pathname.startsWith('/embed') ||
+        window.location.search.includes('stream=1')
+      ) {
+        setCanScroll(false);
+        return;
+      }
+
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       
@@ -49,12 +57,7 @@ export default function ScrollToTop() {
     });
   };
 
-  if (
-    !canScroll ||
-    (typeof window !== 'undefined' &&
-      (window.location.pathname.startsWith('/embed') ||
-        window.location.search.includes('stream=1')))
-  ) {
+  if (!canScroll) {
     return null;
   }
 

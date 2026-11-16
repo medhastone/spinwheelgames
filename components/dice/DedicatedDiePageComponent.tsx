@@ -779,7 +779,7 @@ export default function DedicatedDiePageComponent({ config }: DedicatedDiePageCo
                   {distribution.slice(0, 20).map((row) => (
                     <tr key={row.value} className="hover:bg-slate-50 dark:hover:bg-[#13141f] transition-colors bg-white dark:bg-transparent">
                       <td className="py-2.5 px-4 font-bold font-mono text-slate-900 dark:text-white">{row.value}</td>
-                      <td className="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-300">{row.ways.toLocaleString()}</td>
+                      <td className="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-300">{row.ways.toLocaleString('en-US')}</td>
                       <td className="py-2.5 px-4 font-mono text-indigo-600 dark:text-indigo-400 font-bold">{row.probability}%</td>
                       <td className="py-2.5 px-4 font-mono text-slate-500 dark:text-slate-400">{row.cumulativeProbability}%</td>
                       <td className="py-2.5 px-4 w-1/3">

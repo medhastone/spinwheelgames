@@ -174,6 +174,7 @@ export default function PokemonWheelEngine() {
   const wheelSlices = useMemo(() => {
     if (filteredPool.length === 0) return [];
     if (filteredPool.length <= 16) return filteredPool;
+    if (shuffleSeed === 0) return filteredPool.slice(0, 14);
     const shuffled = [...filteredPool];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

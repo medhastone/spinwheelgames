@@ -105,38 +105,7 @@ function getInitialCategoryPools(): Record<ThemeCategory, ThemeEntry[]> {
     }
   });
 
-  if (typeof window !== 'undefined') {
-    try {
-      const savedPools = localStorage.getItem('theme_wheel_category_pools_v3');
-      if (savedPools) {
-        const parsed = JSON.parse(savedPools);
-        if (parsed && typeof parsed === 'object') {
-          return { ...pools, ...parsed };
-        }
-      }
-    } catch {
-      // ignore
-    }
-  }
-
   return pools;
-}
-
-function getInitialFavorites(): ThemeEntry[] {
-  if (typeof window !== 'undefined') {
-    try {
-      const savedFavs = localStorage.getItem('theme_wheel_favorites');
-      if (savedFavs) {
-        const parsedFavs = JSON.parse(savedFavs);
-        if (Array.isArray(parsedFavs)) {
-          return parsedFavs;
-        }
-      }
-    } catch {
-      // ignore
-    }
-  }
-  return [];
 }
 
 export default function ThemeWheelEngine() {
@@ -169,8 +138,29 @@ export default function ThemeWheelEngine() {
   const [eliminatedIds, setEliminatedIds] = useState<string[]>([]);
 
   // Saved Favorites for Theme Prompts
-  const [favorites, setFavorites] = useState<ThemeEntry[]>(getInitialFavorites);
+  const [favorites, setFavorites] = useState<ThemeEntry[]>([]);
   const [showFavoritesModal, setShowFavoritesModal] = useState<boolean>(false);
+
+  useEffect(() => {
+    try {
+      const savedPools = localStorage.getItem('theme_wheel_category_pools_v3');
+      if (savedPools) {
+        const parsed = JSON.parse(savedPools);
+        if (parsed && typeof parsed === 'object') {
+          setCategoryPools((prev) => ({ ...prev, ...parsed }));
+        }
+      }
+      const savedFavs = localStorage.getItem('theme_wheel_favorites');
+      if (savedFavs) {
+        const parsedFavs = JSON.parse(savedFavs);
+        if (Array.isArray(parsedFavs)) {
+          setFavorites(parsedFavs);
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
 
   // Saved Wheels hook from storage
   const savedWheels = useSavedWheels();

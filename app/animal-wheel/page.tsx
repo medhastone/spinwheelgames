@@ -559,7 +559,7 @@ export default function AnimalWheelPage() {
           </section>
 
           {/* E-E-A-T Editorial Details */}
-          <footer className="p-6 rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-[#fbf8ff] dark:bg-[#151620] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#767586] dark:text-[#908fa1]">
+          <aside className="p-6 rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-[#fbf8ff] dark:bg-[#151620] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#767586] dark:text-[#908fa1]">
             <div className="space-y-1">
               <p>
                 <strong>Editorial Team:</strong> SpinWheelGames STEM &amp; Zoology Lab
@@ -576,7 +576,7 @@ export default function AnimalWheelPage() {
                 <CheckCircle2 className="w-3.5 h-3.5" /> Verified Educational Tool
               </span>
             </div>
-          </footer>
+          </aside>
         </article>
       </main>
 

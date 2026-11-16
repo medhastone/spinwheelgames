@@ -91,38 +91,7 @@ function getInitialQuestionCategoryPools(): Record<QuestionMode, QuestionEntry[]
     }
   });
 
-  if (typeof window !== 'undefined') {
-    try {
-      const savedPools = localStorage.getItem('question_wheel_category_pools_v2');
-      if (savedPools) {
-        const parsed = JSON.parse(savedPools);
-        if (parsed && typeof parsed === 'object') {
-          return { ...pools, ...parsed };
-        }
-      }
-    } catch {
-      // ignore
-    }
-  }
-
   return pools;
-}
-
-function getInitialFavorites(): QuestionEntry[] {
-  if (typeof window !== 'undefined') {
-    try {
-      const savedFavs = localStorage.getItem('question_wheel_favorites');
-      if (savedFavs) {
-        const parsedFavs = JSON.parse(savedFavs);
-        if (Array.isArray(parsedFavs)) {
-          return parsedFavs;
-        }
-      }
-    } catch {
-      // ignore
-    }
-  }
-  return [];
 }
 
 export default function QuestionWheelEngine() {
@@ -163,7 +132,29 @@ export default function QuestionWheelEngine() {
   const currentAngleRef = useRef<number>(0);
   const audioCtxRef = useRef<AudioContext | null>(null);
 
-  const [favorites, setFavorites] = useState<QuestionEntry[]>(getInitialFavorites);
+  const [favorites, setFavorites] = useState<QuestionEntry[]>([]);
+
+  useEffect(() => {
+    try {
+      const savedPools = localStorage.getItem('question_wheel_category_pools_v2');
+      if (savedPools) {
+        const parsed = JSON.parse(savedPools);
+        if (parsed && typeof parsed === 'object') {
+          setCategoryPools((prev) => ({ ...prev, ...parsed }));
+        }
+      }
+      const savedFavs = localStorage.getItem('question_wheel_favorites');
+      if (savedFavs) {
+        const parsedFavs = JSON.parse(savedFavs);
+        if (Array.isArray(parsedFavs)) {
+          setFavorites(parsedFavs);
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
+
   const savedWheels = useSavedWheels();
 
   const isGameFavorited = savedWheels.some(

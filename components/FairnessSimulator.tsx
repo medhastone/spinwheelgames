@@ -95,7 +95,7 @@ export default function FairnessSimulator() {
 
         <div>
           <label htmlFor="fairness-iterations" className="block text-xs font-bold uppercase tracking-wider text-[#464554] dark:text-[#c7c4d7] mb-1.5">
-            Simulated Spins: {simIterations.toLocaleString()} iterations
+            Simulated Spins: {simIterations.toLocaleString('en-US')} iterations
           </label>
           <select
             id="fairness-iterations"
@@ -152,7 +152,7 @@ export default function FairnessSimulator() {
                     <div className="flex justify-between text-xs text-[#464554] dark:text-[#c7c4d7]">
                       <span className="font-semibold">Slice #{Number(index) + 1}</span>
                       <span>
-                        {count.toLocaleString()} spins ({percentage.toFixed(2)}% | {variance > 0 ? `+${variance.toFixed(2)}` : variance.toFixed(2)}%)
+                        {count.toLocaleString('en-US')} spins ({percentage.toFixed(2)}% | {variance > 0 ? `+${variance.toFixed(2)}` : variance.toFixed(2)}%)
                       </span>
                     </div>
                     <div className="h-2.5 w-full bg-[#f4f2fd] dark:bg-[#12131a] rounded-full overflow-hidden">
@@ -169,7 +169,7 @@ export default function FairnessSimulator() {
         </div>
       ) : (
         <div className="text-center py-8 border-2 border-dashed border-[#eeedf7] dark:border-[#222330] rounded-2xl text-[#767586] text-xs">
-          Click &quot;Run Live Simulation&quot; above to execute {simIterations.toLocaleString()} CSPRNG spins and verify uniform statistical distribution.
+          Click &quot;Run Live Simulation&quot; above to execute {simIterations.toLocaleString('en-US')} CSPRNG spins and verify uniform statistical distribution.
         </div>
       )}
     </section>

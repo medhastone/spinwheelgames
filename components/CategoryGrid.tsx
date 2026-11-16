@@ -189,24 +189,25 @@ export default function CategoryGrid() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {categories.map((cat, idx) => {
           const IconComp = cat.icon;
+          const isSaved = savedWheels.some(
+            (w) => w.category === cat.name || w.title.includes(cat.name)
+          );
           return (
-            <Link
-              prefetch={false}
+            <div
               key={idx}
-              href={cat.path}
-              className="group p-5 rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] hover:border-[#4648d4]/50 dark:hover:border-[#8587ff]/50 hover:bg-[#f8f7fd] dark:hover:bg-[#1f202c] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-3"
+              className="group relative p-5 rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] hover:border-[#4648d4]/50 dark:hover:border-[#8587ff]/50 hover:bg-[#f8f7fd] dark:hover:bg-[#1f202c] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-3"
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <div className={`p-2.5 rounded-xl ${cat.color}`}>
                     <IconComp className="w-5 h-5" />
                   </div>
-                  <div className="flex items-center gap-1.5">
+                  <div className="relative z-10 flex items-center gap-1.5">
                     <button
                       type="button"
                       onClick={(e) => handleFavoriteCategory(cat, e)}
                       title={
-                        savedWheels.some((w) => w.category === cat.name || w.title.includes(cat.name))
+                        isSaved
                           ? 'Saved in Profile Favorites'
                           : 'Save to Profile Favorites'
                       }
@@ -215,7 +216,7 @@ export default function CategoryGrid() {
                     >
                       <Heart
                         className={`w-4 h-4 ${
-                          savedWheels.some((w) => w.category === cat.name || w.title.includes(cat.name))
+                          isSaved
                             ? 'fill-rose-500 text-rose-500'
                             : ''
                         }`}
@@ -228,7 +229,9 @@ export default function CategoryGrid() {
                 </div>
 
                 <h3 className="font-headline font-bold text-base text-[#1a1b22] dark:text-white group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors">
-                  {cat.name}
+                  <Link prefetch={false} href={cat.path} className="after:absolute after:inset-0">
+                    {cat.name}
+                  </Link>
                 </h3>
                 <p className="text-xs text-[#464554] dark:text-[#c7c4d7] leading-relaxed">
                   {cat.description}
@@ -239,7 +242,7 @@ export default function CategoryGrid() {
                 <span>Browse Category</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
-            </Link>
+            </div>
           );
         })}
       </div>

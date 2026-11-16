@@ -135,7 +135,7 @@ export default function SearchModal({
 
         {/* Quick Hint Header */}
         <div className="px-4 py-2 bg-[#f4f2fd] dark:bg-[#1d1e28] text-[11px] font-semibold text-[#767586] flex items-center justify-between">
-          <span>{query ? `Matching Results (${searchResults.length})` : 'Instant Wheel Index ({SITE_COUNTS.wheelsFormatted} Wheels & Tools)'}</span>
+          <span>{query ? `Matching Results (${searchResults.length})` : `Instant Wheel Index (${SITE_COUNTS.wheelsFormatted} Wheels & Tools)`}</span>
           <span className="flex items-center gap-1 text-[#4648d4] dark:text-[#8587ff]">
             <Sparkles className="w-3 h-3" />
             Instant Search

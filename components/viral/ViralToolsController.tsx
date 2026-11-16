@@ -8,6 +8,7 @@ import StreamerSetupModal from './StreamerSetupModal';
 import StreamerModeOverlay from './StreamerModeOverlay';
 import {
   getActiveViralWheel,
+  resolveToolWheelConfig,
   subscribeActiveViralWheel,
   ViralToolConfig
 } from '@/lib/viralToolsData';
@@ -33,7 +34,7 @@ export default function ViralToolsController() {
   const [streamerSetupOpen, setStreamerSetupOpen] = useState(false);
   const [streamerModeActive, setStreamerModeActive] = useState(false);
   const [activeConfig, setActiveConfig] = useState<ViralToolConfig>(() =>
-    getActiveViralWheel(pathname)
+    resolveToolWheelConfig(pathname === '/' ? 'home' : pathname.replace(/^\/+|\/+$/g, ''))
   );
 
   // Sync active tool wheel/dice config when pathname or custom wheel state changes

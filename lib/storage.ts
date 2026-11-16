@@ -1,4 +1,4 @@
-import { useSyncExternalStore, useCallback } from 'react';
+import { useSyncExternalStore, useCallback, useState, useEffect } from 'react';
 import { WheelConfig, SoundSettings, DailyChallengeState, WheelMode, UserStats, Achievement, WheelItem } from './types';
 import { INITIAL_ACHIEVEMENTS, evaluateAchievements } from './gamification';
 
@@ -90,6 +90,10 @@ function getSoundSnapshot(): SoundSettings {
 }
 
 export function useAppPreferences(): [AppPreferences, (update: Partial<AppPreferences>) => void] {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const prefs = useSyncExternalStore(
     subscribeStorage,
     getPreferencesSnapshot,
@@ -99,10 +103,14 @@ export function useAppPreferences(): [AppPreferences, (update: Partial<AppPrefer
     savePreferences(update);
     notifyStorageChange();
   }, []);
-  return [prefs, updatePrefs];
+  return [mounted ? prefs : DEFAULT_PREFERENCES, updatePrefs];
 }
 
 export function useAppSoundSettings(): [SoundSettings, (settings: SoundSettings) => void] {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const settings = useSyncExternalStore(
     subscribeStorage,
     getSoundSnapshot,
@@ -112,7 +120,7 @@ export function useAppSoundSettings(): [SoundSettings, (settings: SoundSettings)
     saveSoundSettings(newSettings);
     notifyStorageChange();
   }, []);
-  return [settings, updateSound];
+  return [mounted ? settings : DEFAULT_SOUND_SETTINGS, updateSound];
 }
 
 export interface SavedWheel {
@@ -244,7 +252,6 @@ function refreshFavoritesCache(): SavedWheel[] {
     _hasInitializedFavoritesCache = true;
     if (!raw) {
       _cachedFavoritesSnapshot = INITIAL_SAVED_WHEELS;
-      safeSetItem(STORAGE_KEYS.FAVORITE_WHEELS, INITIAL_SAVED_WHEELS);
       return _cachedFavoritesSnapshot;
     }
     const parsed = JSON.parse(raw);
@@ -368,11 +375,16 @@ export function subscribeSavedWheels(callback: () => void): () => void {
 }
 
 export function useSavedWheels(): SavedWheel[] {
-  return useSyncExternalStore(
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  const wheels = useSyncExternalStore(
     subscribeSavedWheels,
     getSavedWheelsSnapshot,
     getSavedWheelsServerSnapshot
   );
+  return mounted ? wheels : INITIAL_SAVED_WHEELS;
 }
 
 export function loadDailyChallenge(dateKey: string): DailyChallengeState {
@@ -493,7 +505,6 @@ function refreshUserStatsCache(): UserStats {
     _hasInitializedUserStatsCache = true;
     if (!raw) {
       _cachedUserStatsSnapshot = DEFAULT_USER_STATS;
-      safeSetItem(STORAGE_KEYS.STATS, DEFAULT_USER_STATS);
       return _cachedUserStatsSnapshot;
     }
     const parsed = JSON.parse(raw);
@@ -524,11 +535,16 @@ export function subscribeUserStats(callback: () => void): () => void {
 }
 
 export function useUserStats(): UserStats {
-  return useSyncExternalStore(
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  const stats = useSyncExternalStore(
     subscribeUserStats,
     getUserStatsSnapshot,
     getUserStatsServerSnapshot
   );
+  return mounted ? stats : DEFAULT_USER_STATS;
 }
 
 export function loadUserStats(): UserStats {

@@ -295,7 +295,7 @@ export default function DiceAverageCalculatorComponent() {
             <h3 className="text-base font-bold text-slate-900 dark:text-white">Discrete Outcome Breakdown Table</h3>
           </div>
           <span className="text-xs text-slate-600 dark:text-slate-400">
-            Total Possible Combinations: <strong>{Math.pow(sides, count).toLocaleString()}</strong>
+            Total Possible Combinations: <strong>{Math.pow(sides, count).toLocaleString('en-US')}</strong>
           </span>
         </div>
 
@@ -313,7 +313,7 @@ export default function DiceAverageCalculatorComponent() {
               {distributionData.map((item) => (
                 <tr key={item.value} className="hover:bg-slate-50 dark:hover:bg-[#181924] transition-colors">
                   <td className="py-3 px-4 text-slate-900 dark:text-white font-bold text-sm">{item.adjustedValue}</td>
-                  <td className="py-3 px-4 text-slate-700 dark:text-slate-300">{item.ways.toLocaleString()}</td>
+                  <td className="py-3 px-4 text-slate-700 dark:text-slate-300">{item.ways.toLocaleString('en-US')}</td>
                   <td className="py-3 px-4 text-indigo-600 dark:text-indigo-400 font-bold">{item.probability}%</td>
                   <td className="py-3 px-4 w-1/3">
                     <div className="w-full h-2.5 rounded-full bg-slate-200 dark:bg-[#1e202e] overflow-hidden">

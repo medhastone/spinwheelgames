@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useSyncExternalStore } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import StandaloneWheelHost from './StandaloneWheelHost';
@@ -17,9 +17,7 @@ import { SeoPageData, SeoQuickFacts } from '@/lib/seoArchitecture';
 import { WheelExperience } from '@/lib/wheelLibrary';
 import { generatePageJsonLd } from '@/lib/seoData';
 import {
-  subscribeTheme,
-  getThemeSnapshot,
-  getThemeServerSnapshot,
+  useIsDarkTheme,
   toggleTheme,
   applySavedTheme
 } from '@/lib/theme';
@@ -133,11 +131,7 @@ export default function SeoPageView({ page }: SeoPageViewProps) {
     }
   };
 
-  const isDark = useSyncExternalStore(
-    subscribeTheme,
-    getThemeSnapshot,
-    getThemeServerSnapshot
-  );
+  const isDark = useIsDarkTheme();
 
   const savedWheels = useSavedWheels();
 

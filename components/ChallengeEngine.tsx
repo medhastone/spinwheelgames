@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useCallback, useSyncExternalStore } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useSyncExternalStore } from 'react';
 import { WheelItem, WheelConfig, DailyChallengeState, ResultCardData } from '@/lib/types';
 import { DAILY_CHALLENGE_POOL } from '@/lib/presets';
 import { createDateSeededPRNG } from '@/lib/random';
@@ -22,14 +22,19 @@ interface ChallengeEngineProps {
   volume: number;
 }
 
+const SSR_FALLBACK_DATE_STR = '2026-01-01';
+
 export default function ChallengeEngine({
   soundEnabled,
   soundPack,
   volume
 }: ChallengeEngineProps) {
-  const todayStr = useMemo(() => {
-    const now = new Date();
-    return now.toISOString().split('T')[0];
+  const [todayStr, setTodayStr] = useState<string>(SSR_FALLBACK_DATE_STR);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    setTodayStr(new Date().toISOString().split('T')[0]);
   }, []);
 
   const [localChallenge, setLocalChallenge] = useState<DailyChallengeState | null>(null);
@@ -43,7 +48,7 @@ export default function ChallengeEngine({
     getServerSnapshot
   );
 
-  const challengeState = localChallenge || clientChallenge;
+  const challengeState = localChallenge || (mounted ? clientChallenge : getServerSnapshot());
 
   const setChallengeState = (newState: DailyChallengeState) => {
     setLocalChallenge(newState);
