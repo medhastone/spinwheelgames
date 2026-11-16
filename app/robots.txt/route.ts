@@ -24,7 +24,9 @@ Sitemap: https://spinwheelgames.org/sitemap.xml
   return new NextResponse(content, {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
-      'Cache-Control': 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400'
+      'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
+      'CDN-Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
+      'Vercel-CDN-Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800'
     }
   });
 }

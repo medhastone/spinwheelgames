@@ -1,6 +1,0 @@
-{
-  "summary": "Implementation plan to delay result display until 3D dice settle completely, synchronize results with physical face normal detection, and trigger celebratory feedback on Natural 20.",
-  "updatedAt": "2026-10-13T09:48:48.009545260Z",
-  "requestFeedback": true,
-  "userFacing": true
-}

@@ -1,8 +1,17 @@
 import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
-import { getSeoPageByPath, ALL_SEO_PAGES_MAP } from '@/lib/seoData';
 
 export const runtime = 'edge';
+
+function formatSlugFallback(slug: string): string {
+  if (!slug) return 'Spin the Wheel & See What Happens';
+  return slug
+    .split('/')
+    .pop()!
+    .split('-')
+    .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : ''))
+    .join(' ');
+}
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -10,17 +19,13 @@ export async function GET(req: NextRequest) {
   const cleanPath = rawPath.startsWith('/') ? rawPath : `/${rawPath}`;
   const slug = cleanPath.replace(/^\/+|\/+$/g, '');
 
-  const seoPage = getSeoPageByPath(cleanPath) || (slug ? ALL_SEO_PAGES_MAP[slug] : undefined);
-
   const title =
     searchParams.get('title') ||
-    seoPage?.title ||
-    'Spin the Wheel & See What Happens | SpinWheelGames';
+    `${formatSlugFallback(slug)} | SpinWheelGames`;
 
   const description =
     searchParams.get('desc') ||
     searchParams.get('description') ||
-    seoPage?.metaDescription ||
     'Free interactive wheel games, random pickers, and cryptographically fair decision tools.';
 
   const displayTitle = title.replace(/\s*\|\s*SpinWheelGames(\.org)?$/i, '').trim();
@@ -156,23 +161,25 @@ export async function GET(req: NextRequest) {
             justifyContent: 'center',
             width: '320px',
             height: '320px',
-            borderRadius: '160px',
-            border: '10px solid #ffffff',
-            background: 'conic-gradient(#4648d4 0deg 60deg, #10b981 60deg 120deg, #f59e0b 120deg 180deg, #ec4899 180deg 240deg, #3b82f6 240deg 300deg, #8b5cf6 300deg 360deg)',
-            boxShadow: '0 25px 60px rgba(0,0,0,0.65)',
             position: 'relative'
           }}
         >
+          <svg width="320" height="320" viewBox="0 0 320 320">
+            <circle cx="160" cy="160" r="154" fill="#ffffff" />
+            <path d="M160,160 L160,14 A146,146 0 0,1 286.4,87 Z" fill="#4648d4" />
+            <path d="M160,160 L286.4,87 A146,146 0 0,1 286.4,233 Z" fill="#10b981" />
+            <path d="M160,160 L286.4,233 A146,146 0 0,1 160,306 Z" fill="#f59e0b" />
+            <path d="M160,160 L160,306 A146,146 0 0,1 33.6,233 Z" fill="#ec4899" />
+            <path d="M160,160 L33.6,233 A146,146 0 0,1 33.6,87 Z" fill="#3b82f6" />
+            <path d="M160,160 L33.6,87 A146,146 0 0,1 160,14 Z" fill="#8b5cf6" />
+            <circle cx="160" cy="160" r="52" fill="#12131a" stroke="#ffffff" strokeWidth="8" />
+          </svg>
           <div
             style={{
+              position: 'absolute',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '104px',
-              height: '104px',
-              borderRadius: '52px',
-              background: '#12131a',
-              border: '6px solid #ffffff',
               color: '#ffffff',
               fontSize: '22px',
               fontWeight: 900,
@@ -186,7 +193,12 @@ export async function GET(req: NextRequest) {
     ),
     {
       width: 1200,
-      height: 630
+      height: 630,
+      headers: {
+        'Cache-Control': 'public, max-age=86400, s-maxage=31536000, stale-while-revalidate=604800',
+        'CDN-Cache-Control': 'public, s-maxage=31536000, stale-while-revalidate=604800',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=31536000, immutable'
+      }
     }
   );
 }

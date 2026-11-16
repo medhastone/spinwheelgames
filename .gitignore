@@ -9,6 +9,7 @@
 # Next.js build output
 /.next/
 /out/
+/.gh-pages-staging/
 /build
 /dist
 

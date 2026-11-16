@@ -37,47 +37,47 @@ export default function DiceFooter() {
             </h3>
             <ul className="grid grid-cols-2 gap-2 text-xs">
               <li>
-                <Link href="/dice/d2" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link prefetch={false} href="/dice/d2" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll a d2 (Coin)
                 </Link>
               </li>
               <li>
-                <Link href="/dice/d4" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link prefetch={false} href="/dice/d4" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll 1d4 / d4 Roller
                 </Link>
               </li>
               <li>
-                <Link href="/dice/d6" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link prefetch={false} href="/dice/d6" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll a D6 (Cube)
                 </Link>
               </li>
               <li>
-                <Link href="/roll-4d6" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link prefetch={false} href="/roll-4d6" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll 4d6 Online
                 </Link>
               </li>
               <li>
-                <Link href="/dice/d8" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link prefetch={false} href="/dice/d8" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll a d8 / 1d8
                 </Link>
               </li>
               <li>
-                <Link href="/dice/d10" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link prefetch={false} href="/dice/d10" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll d10 / Decahedron
                 </Link>
               </li>
               <li>
-                <Link href="/dice/d12" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link prefetch={false} href="/dice/d12" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll 1d12 / Dodecahedron
                 </Link>
               </li>
               <li>
-                <Link href="/dice/d20" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link prefetch={false} href="/dice/d20" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll 1d20 / Advantage
                 </Link>
               </li>
               <li>
-                <Link href="/dice/d100" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
+                <Link prefetch={false} href="/dice/d100" className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">
                   Roll 1d100 / Percentile
                 </Link>
               </li>
@@ -93,6 +93,7 @@ export default function DiceFooter() {
             <ul className="space-y-2 text-xs">
               <li>
                 <Link
+                  prefetch={false}
                   href="/dnd-stat-roller"
                   className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors flex items-center gap-1"
                 >
@@ -102,6 +103,7 @@ export default function DiceFooter() {
               </li>
               <li>
                 <Link
+                  prefetch={false}
                   href="/dice-average-calculator"
                   className="hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors flex items-center gap-1"
                 >
@@ -132,6 +134,7 @@ export default function DiceFooter() {
                 { label: 'roll 2d12', href: '/roll-2d12' }
               ].map((kw) => (
                 <Link
+                  prefetch={false}
                   key={kw.label}
                   href={kw.href}
                   className="px-2 py-1 rounded bg-slate-100 hover:bg-indigo-600 hover:text-white dark:bg-[#11121b] dark:hover:bg-indigo-600 dark:hover:text-white text-[11px] font-mono text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#1e202d] transition-all"
@@ -147,19 +150,19 @@ export default function DiceFooter() {
         <div className="pt-8 border-t border-slate-200 dark:border-[#151620] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
           <p>© {new Date().getFullYear()} 3D Dice Roller &amp; Tabletop Suite. All rights reserved.</p>
           <div className="flex items-center gap-4 flex-wrap">
-            <Link href="/about" className="hover:text-slate-900 dark:hover:text-white font-medium transition-colors">
+            <Link prefetch={false} href="/about" className="hover:text-slate-900 dark:hover:text-white font-medium transition-colors">
               About Us
             </Link>
-            <Link href="/privacy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+            <Link prefetch={false} href="/privacy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
               Privacy
             </Link>
-            <Link href="/terms" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+            <Link prefetch={false} href="/terms" className="hover:text-slate-900 dark:hover:text-white transition-colors">
               Terms
             </Link>
-            <Link href="/accessibility" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+            <Link prefetch={false} href="/accessibility" className="hover:text-slate-900 dark:hover:text-white transition-colors">
               Accessibility
             </Link>
-            <Link href="/contact" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+            <Link prefetch={false} href="/contact" className="hover:text-slate-900 dark:hover:text-white transition-colors">
               Contact
             </Link>
           </div>

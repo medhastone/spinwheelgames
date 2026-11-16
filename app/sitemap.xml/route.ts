@@ -136,7 +136,9 @@ ${urlEntries.join('\n')}
   return new NextResponse(xml, {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+      'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
+      'CDN-Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
+      'Vercel-CDN-Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
       'X-Content-Type-Options': 'nosniff'
     }
   });

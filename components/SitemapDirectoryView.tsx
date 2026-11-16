@@ -374,6 +374,7 @@ export default function SitemapDirectoryView({ activePath = '/sitemap' }: Sitema
                   {category.links.map((link) => (
                     <li key={link.href} className="py-2.5 first:pt-0 last:pb-0">
                       <Link
+                        prefetch={false}
                         href={link.href}
                         className="group flex flex-col gap-0.5 hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors"
                       >

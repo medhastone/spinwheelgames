@@ -175,6 +175,7 @@ export default function CategoryWheelExplorer({
               {/* Action Buttons */}
               <div className="pt-2 border-t border-[#eeedf7] dark:border-[#222330] flex items-center justify-between gap-2">
                 <Link
+                  prefetch={false}
                   href={dedicatedPath}
                   className="inline-flex items-center gap-1 text-xs font-semibold text-[#4648d4] dark:text-[#8587ff] hover:underline"
                 >
@@ -193,6 +194,7 @@ export default function CategoryWheelExplorer({
                   </button>
                 ) : (
                   <Link
+                    prefetch={false}
                     href={dedicatedPath}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-[#4648d4] text-white hover:bg-[#3b3dbb] shadow-2xs transition-all"
                   >

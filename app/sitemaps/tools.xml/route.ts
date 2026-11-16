@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
 import { ALL_SEO_PAGES_LIST } from '@/lib/seoData';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export async function GET() {
-  const lastmod = new Date().toISOString().split('T')[0];
+  const lastmod = '2026-10-17';
 
   const staticRoutes: { path: string; changefreq: string; priority: string }[] = [
     { path: '', changefreq: 'daily', priority: '1.0' },
@@ -93,7 +93,9 @@ ${toolXml}
   return new NextResponse(xml, {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+      'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
+      'CDN-Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
+      'Vercel-CDN-Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
       'X-Content-Type-Options': 'nosniff'
     }
   });

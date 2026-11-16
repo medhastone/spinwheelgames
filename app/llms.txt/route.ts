@@ -1,7 +1,7 @@
 import { SITE_COUNTS } from "@/lib/siteConfig";
 import { NextResponse } from 'next/server';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export async function GET() {
   const markdown = `# SpinWheelGames.org
@@ -57,7 +57,9 @@ SpinWheelGames.org is an open, high-performance web platform featuring ${SITE_CO
   return new NextResponse(markdown, {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
-      'Cache-Control': 'public, max-age=86400, s-maxage=86400'
+      'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
+      'CDN-Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
+      'Vercel-CDN-Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800'
     }
   });
 }

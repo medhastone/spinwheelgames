@@ -734,6 +734,7 @@ export default function Navbar({
                     src="/avatar.svg"
                     alt="User Profile"
                     fill
+                    sizes="36px"
                     className="object-cover"
                     referrerPolicy="no-referrer"
                   />
@@ -754,6 +755,7 @@ export default function Navbar({
                           src="/avatar.svg"
                           alt="User Profile"
                           fill
+                          sizes="36px"
                           className="object-cover"
                           referrerPolicy="no-referrer"
                         />

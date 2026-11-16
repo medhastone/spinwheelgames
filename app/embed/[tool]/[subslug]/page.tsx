@@ -2,7 +2,24 @@ import React from 'react';
 import type { Metadata } from 'next';
 import MinimalEmbedWheel from '@/components/embed/MinimalEmbedWheel';
 import { resolveToolWheelConfig } from '@/lib/viralToolsData';
+import { ALL_SEO_PAGES_LIST } from '@/lib/seoData';
 import { createPageMetadata } from '@/lib/pageMetadata';
+
+export const dynamic = 'force-static';
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  return ALL_SEO_PAGES_LIST.filter((p) => {
+    const parts = p.fullPath.split('/').filter(Boolean);
+    return parts.length === 2;
+  }).map((p) => {
+    const parts = p.fullPath.split('/').filter(Boolean);
+    return {
+      tool: parts[0],
+      subslug: parts[1]
+    };
+  });
+}
 
 interface EmbedSubtoolPageProps {
   params: Promise<{ tool: string; subslug: string }>;

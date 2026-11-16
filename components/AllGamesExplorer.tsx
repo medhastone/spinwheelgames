@@ -727,7 +727,7 @@ export default function AllGamesExplorer() {
                 </div>
 
                 {/* Title */}
-                <Link href={game.href} className="block group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors">
+                <Link prefetch={false} href={game.href} className="block group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors">
                   <h3 className="text-lg sm:text-xl font-bold text-[#1a1b22] dark:text-white leading-snug">
                     {game.name}
                   </h3>
@@ -765,6 +765,7 @@ export default function AllGamesExplorer() {
                 </span>
 
                 <Link
+                  prefetch={false}
                   href={game.href}
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#4648d4] hover:bg-[#3b3dbb] text-white text-xs sm:text-sm font-bold shadow-xs hover:shadow-md transition-all active:scale-95"
                 >
@@ -813,6 +814,7 @@ export default function AllGamesExplorer() {
             </p>
           </div>
           <Link
+            prefetch={false}
             href="/categories"
             className="text-xs font-bold text-[#4648d4] dark:text-[#8587ff] hover:underline shrink-0"
           >
@@ -868,6 +870,7 @@ export default function AllGamesExplorer() {
             { href: '/sitemap', label: 'Complete HTML Sitemap Directory' }
           ].map((item) => (
             <Link
+              prefetch={false}
               key={item.href}
               href={item.href}
               className="px-3 py-1.5 rounded-xl bg-[#fbf8ff] dark:bg-[#1c1d29] border border-[#eeedf7] dark:border-[#292a39] hover:border-[#4648d4] dark:hover:border-[#8587ff] text-xs font-medium text-[#1a1b22] dark:text-[#e2e0f5] hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors"

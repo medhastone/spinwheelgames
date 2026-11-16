@@ -9,6 +9,9 @@ export interface PageMetadataInput {
 }
 
 export function buildPageOgImageUrl(path: string, title: string, description?: string): string {
+  if (process.env.GITHUB_PAGES === 'true') {
+    return 'https://spinwheelgames.org/spinwheel-logo.webp';
+  }
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   const params = new URLSearchParams();
   params.set('path', cleanPath);

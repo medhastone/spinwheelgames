@@ -191,6 +191,7 @@ export default function CategoryGrid() {
           const IconComp = cat.icon;
           return (
             <Link
+              prefetch={false}
               key={idx}
               href={cat.path}
               className="group p-5 rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] hover:border-[#4648d4]/50 dark:hover:border-[#8587ff]/50 hover:bg-[#f8f7fd] dark:hover:bg-[#1f202c] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-3"
