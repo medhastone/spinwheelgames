@@ -9,18 +9,9 @@ import {
   Sparkles,
   BookOpen,
   Dices,
-  Compass,
   Grid
 } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/siteConfig';
-
-const PLATFORM_HUBS = [
-  { href: '/games', label: `All ${SITE_CONFIG.counts.wheelsFormatted} Wheel Games Hub` },
-  { href: '/categories', label: `Browse All Categories (${SITE_CONFIG.counts.categories})` },
-  { href: '/dice-collection', label: '3D RPG Dice Collection' },
-  { href: '/challenges', label: 'Interactive Wheel Challenges' },
-  { href: '/sitemap', label: 'Complete Site Directory' },
-];
 
 const FLAGSHIP_WHEELS = [
   { href: '/', label: 'Spin the Wheel (Home)' },
@@ -74,42 +65,6 @@ const DICE_TOOLS = [
   { href: '/roll-2d12', label: 'Roll 2d12 (Duality Dice)' },
 ];
 
-const CATEGORY_LINKS = [
-  { href: '/decisions', label: 'Decisions' },
-  { href: '/names', label: 'Names' },
-  { href: '/classroom', label: 'Classroom' },
-  { href: '/party', label: 'Party' },
-  { href: '/food', label: 'Food & Dining' },
-  { href: '/gaming', label: 'Gaming' },
-  { href: '/sports', label: 'Sports' },
-  { href: '/numbers', label: 'Numbers' },
-  { href: '/workout', label: 'Workout' },
-  { href: '/travel', label: 'Travel' },
-  { href: '/giveaways', label: 'Giveaways' },
-  { href: '/creativity', label: 'Creativity' },
-  { href: '/productivity', label: 'Productivity' },
-  { href: '/wellness', label: 'Wellness' },
-  { href: '/date-night', label: 'Date Night' },
-  { href: '/icebreakers', label: 'Icebreakers' },
-  { href: '/finance', label: 'Finance' },
-];
-
-const POLYHEDRAL_DICE_LINKS = [
-  { href: '/dice/d2', label: 'd2 Coin' },
-  { href: '/roll-d3', label: 'd3' },
-  { href: '/dice/d4', label: 'd4' },
-  { href: '/dice/d6', label: 'd6' },
-  { href: '/dice/d8', label: 'd8' },
-  { href: '/dice/d10', label: 'd10' },
-  { href: '/dice/d12', label: 'd12' },
-  { href: '/dice/d20', label: 'd20' },
-  { href: '/dice/d100', label: 'd100' },
-  { href: '/roll-3d6', label: '3d6' },
-  { href: '/roll-4d6', label: '4d6' },
-  { href: '/roll-5d6', label: '5d6' },
-  { href: '/roll-2d12', label: '2d12' },
-];
-
 const GUIDE_LINKS = [
   { href: '/how-to-use-a-wheel', label: 'How to Use a Wheel' },
   { href: '/how-random-wheels-work', label: 'How Random Wheels Work' },
@@ -161,25 +116,6 @@ export default function Footer({
               <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-[#4648d4]/10 text-[#4648d4] dark:text-[#8587ff] text-[11px] font-semibold border border-[#4648d4]/20">
                 100% Client-Side
               </span>
-            </div>
-            <div className="pt-2 border-t border-[#e3e1ec] dark:border-[#222330]">
-              <h3 className="text-[11px] font-bold text-[#1a1b22] dark:text-white uppercase tracking-wider flex items-center gap-1.5 mb-2.5">
-                <Compass className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
-                Platform Directories
-              </h3>
-              <ul className="flex flex-col gap-1.5 text-[12.5px] text-[#464554] dark:text-[#c7c4d7]">
-                {PLATFORM_HUBS.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      prefetch={false}
-                      href={item.href}
-                      className="hover:text-[#4648d4] dark:hover:text-[#8587ff] font-medium transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
 
@@ -268,49 +204,8 @@ export default function Footer({
           </div>
         </div>
 
-        {/* Global Taxonomy Rows: Categories, Polyhedral Dice & Guides */}
-        <div className="border-t border-[#e3e1ec] dark:border-[#222330] pt-6 space-y-4 text-xs text-[#767586] dark:text-[#918f9e]">
-          {/* Categories Row */}
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-            <span className="font-bold text-[#1a1b22] dark:text-white flex items-center gap-1 shrink-0">
-              <Layers className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
-              Categories:
-            </span>
-            {CATEGORY_LINKS.map((cat, idx) => (
-              <React.Fragment key={cat.href}>
-                {idx > 0 && <span className="text-[#c7c4d7] dark:text-[#313345]">•</span>}
-                <Link
-                  prefetch={false}
-                  href={cat.href}
-                  className="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors"
-                >
-                  {cat.label}
-                </Link>
-              </React.Fragment>
-            ))}
-          </div>
-
-          {/* Polyhedral Dice Quick-Links Row */}
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-            <span className="font-bold text-[#1a1b22] dark:text-white flex items-center gap-1 shrink-0">
-              <Dices className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
-              Roll Dice:
-            </span>
-            {POLYHEDRAL_DICE_LINKS.map((die, idx) => (
-              <React.Fragment key={die.href}>
-                {idx > 0 && <span className="text-[#c7c4d7] dark:text-[#313345]">•</span>}
-                <Link
-                  prefetch={false}
-                  href={die.href}
-                  className="hover:text-[#4648d4] dark:hover:text-[#8587ff] font-mono transition-colors"
-                >
-                  {die.label}
-                </Link>
-              </React.Fragment>
-            ))}
-          </div>
-
-          {/* Educational Guides Row */}
+        {/* Educational Guides Row */}
+        <div className="border-t border-[#e3e1ec] dark:border-[#222330] pt-6 text-xs text-[#767586] dark:text-[#918f9e]">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
             <span className="font-bold text-[#1a1b22] dark:text-white flex items-center gap-1 shrink-0">
               <BookOpen className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
