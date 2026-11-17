@@ -313,33 +313,65 @@ export default function Navbar({
 
   return (
     <>
+      <style>{`
+        .swg-header-inner { height: 68px; }
+        .swg-logo-box, .swg-logo-img { height: 48px; width: auto !important; max-width: none; object-fit: contain; }
+        @media (min-width: 360px) {
+          .swg-logo-box, .swg-logo-img { height: 54px; }
+        }
+        @media (min-width: 390px) {
+          .swg-logo-box, .swg-logo-img { height: 58px; }
+        }
+        @media (min-width: 640px) {
+          .swg-header-inner { height: 72px; }
+          .swg-logo-box, .swg-logo-img { height: 58px; }
+        }
+        @media (min-width: 768px) {
+          .swg-logo-box, .swg-logo-img { height: 64px; }
+        }
+        @media (min-width: 1024px) {
+          .swg-header-inner { height: 78px; }
+          .swg-logo-box, .swg-logo-img { height: 62px; }
+        }
+        @media (min-width: 1280px) {
+          .swg-header-inner { height: 80px; }
+          .swg-logo-box, .swg-logo-img { height: 74px; }
+        }
+        @media (min-width: 1536px) {
+          .swg-logo-box, .swg-logo-img { height: 76px; }
+        }
+        .dark .swg-logo-img {
+          filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.92)) drop-shadow(0 0 8px rgba(255, 255, 255, 0.42)) drop-shadow(0 0 18px rgba(133, 135, 255, 0.55)) brightness(1.18) saturate(1.15);
+        }
+      `}</style>
       <header className="fixed top-0 w-full max-w-full overflow-x-clip z-50 bg-[#fbf8ff]/95 dark:bg-[#12131a]/95 backdrop-blur-xl border-b border-[#eeedf7] dark:border-[#222330] shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-        <div ref={navRef} className="max-w-7xl mx-auto px-3 sm:px-6 h-14 sm:h-16 lg:h-16 flex items-center justify-between gap-2 sm:gap-3 w-full">
+        <div ref={navRef} className="swg-header-inner max-w-[1400px] mx-auto px-2.5 sm:px-4 md:px-6 lg:px-3 xl:px-4 2xl:px-6 flex items-center justify-between gap-1.5 sm:gap-3 w-full">
           
           {/* Brand Logo */}
-          <div className="flex items-center gap-2 sm:gap-4 lg:gap-8 min-w-0">
+          <div className="flex items-center gap-2 sm:gap-3 lg:gap-2.5 xl:gap-4 2xl:gap-5 min-w-0">
             <button
               type="button"
               onClick={handleLogoClick}
-              className="flex items-center gap-2 group text-left cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98] shrink-0"
+              className="flex items-center group text-left cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98] shrink-0"
               aria-label="SpinWheelGames Home"
             >
-              <div className="relative h-8 sm:h-9 lg:h-10 w-auto flex items-center">
+              <div className="swg-logo-box relative flex items-center shrink-0">
                 <Image
                   src="/spinwheel-logo-v2.webp"
                   alt="SpinWheelGames Logo"
-                  width={240}
-                  height={60}
-                  className="h-7 sm:h-8 lg:h-9 w-auto object-contain max-h-[36px] sm:max-h-[40px] dark:drop-shadow-[0_0_16px_rgba(133,135,255,0.45)] dark:brightness-110"
+                  width={320}
+                  height={84}
+                  sizes="(max-width: 639px) 220px, (max-width: 767px) 220px, (max-width: 1023px) 243px, (max-width: 1279px) 236px, 289px"
+                  className="swg-logo-img block"
+                  style={{ width: 'auto' }}
                   priority
-                  unoptimized
                   referrerPolicy="no-referrer"
                 />
               </div>
             </button>
 
             {/* Clean Desktop Navigation: Popular Games & Trending Games */}
-            <nav className="hidden md:flex items-center gap-2">
+            <nav className="hidden lg:flex items-center gap-0.5 2xl:gap-1 shrink-0">
               
               {/* 1. POPULAR GAMES DROPDOWN */}
               <div className="relative">
@@ -350,16 +382,16 @@ export default function Navbar({
                     setTrendingOpen(false);
                     setProfileOpen(false);
                   }}
-                  className={`px-3.5 py-2 rounded-xl text-[13px] font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                  className={`px-1 xl:px-1.5 2xl:px-2 py-1.5 xl:py-2 rounded-xl text-[12px] xl:text-[13px] font-bold whitespace-nowrap transition-all flex items-center gap-0.5 xl:gap-1 2xl:gap-1.5 cursor-pointer ${
                     popularOpen
                       ? 'bg-[#4648d4] text-white shadow-sm shadow-[#4648d4]/20'
                       : 'text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28]'
                   }`}
                   aria-expanded={popularOpen}
                 >
-                  <Star className={`w-4 h-4 ${popularOpen ? 'text-amber-300' : 'text-amber-500'}`} />
+                  <Star className={`w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0 ${popularOpen ? 'text-amber-300' : 'text-amber-500'}`} />
                   <span>Popular</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${popularOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-3 h-3 xl:w-3.5 xl:h-3.5 shrink-0 transition-transform ${popularOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {popularOpen && (
@@ -426,16 +458,16 @@ export default function Navbar({
                     setPopularOpen(false);
                     setProfileOpen(false);
                   }}
-                  className={`px-3.5 py-2 rounded-xl text-[13px] font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                  className={`px-1 xl:px-1.5 2xl:px-2 py-1.5 xl:py-2 rounded-xl text-[12px] xl:text-[13px] font-bold whitespace-nowrap transition-all flex items-center gap-0.5 xl:gap-1 2xl:gap-1.5 cursor-pointer ${
                     trendingOpen
                       ? 'bg-gradient-to-r from-rose-500 to-amber-500 text-white shadow-sm'
                       : 'text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28]'
                   }`}
                   aria-expanded={trendingOpen}
                 >
-                  <Flame className={`w-4 h-4 ${trendingOpen ? 'text-amber-200 fill-amber-200' : 'text-rose-500'}`} />
+                  <Flame className={`w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0 ${trendingOpen ? 'text-amber-200 fill-amber-200' : 'text-rose-500'}`} />
                   <span>Trending</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${trendingOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-3 h-3 xl:w-3.5 xl:h-3.5 shrink-0 transition-transform ${trendingOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {trendingOpen && (
@@ -503,16 +535,16 @@ export default function Navbar({
                     setTrendingOpen(false);
                     setProfileOpen(false);
                   }}
-                  className={`px-3.5 py-2 rounded-xl text-[13px] font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                  className={`px-1 xl:px-1.5 2xl:px-2 py-1.5 xl:py-2 rounded-xl text-[12px] xl:text-[13px] font-bold whitespace-nowrap transition-all flex items-center gap-0.5 xl:gap-1 2xl:gap-1.5 cursor-pointer ${
                     diceOpen
                       ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm'
                       : 'text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28]'
                   }`}
                   aria-expanded={diceOpen}
                 >
-                  <Dices className={`w-4 h-4 ${diceOpen ? 'text-indigo-200' : 'text-indigo-500'}`} />
+                  <Dices className={`w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0 ${diceOpen ? 'text-indigo-200' : 'text-indigo-500'}`} />
                   <span>Roll Dice</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${diceOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-3 h-3 xl:w-3.5 xl:h-3.5 shrink-0 transition-transform ${diceOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {diceOpen && (
@@ -581,16 +613,16 @@ export default function Navbar({
                     setDiceOpen(false);
                     setProfileOpen(false);
                   }}
-                  className={`px-3.5 py-2 rounded-xl text-[13px] font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                  className={`px-1 xl:px-1.5 2xl:px-2 py-1.5 xl:py-2 rounded-xl text-[12px] xl:text-[13px] font-bold whitespace-nowrap transition-all flex items-center gap-0.5 xl:gap-1 2xl:gap-1.5 cursor-pointer ${
                     categoriesOpen
                       ? 'bg-[#4648d4] text-white shadow-sm'
                       : 'text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28]'
                   }`}
                   aria-expanded={categoriesOpen}
                 >
-                  <Sparkles className={`w-4 h-4 ${categoriesOpen ? 'text-amber-200' : 'text-[#4648d4] dark:text-[#8587ff]'}`} />
+                  <Sparkles className={`w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0 ${categoriesOpen ? 'text-amber-200' : 'text-[#4648d4] dark:text-[#8587ff]'}`} />
                   <span>Categories</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${categoriesOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-3 h-3 xl:w-3.5 xl:h-3.5 shrink-0 transition-transform ${categoriesOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {categoriesOpen && (
                   <div className="absolute left-0 top-12 w-[540px] max-w-[calc(100vw-1.5rem)] bg-white dark:bg-[#181922] rounded-2xl shadow-2xl border border-[#eeedf7] dark:border-[#292a39] p-3 z-50 animate-fadeIn">
@@ -650,7 +682,7 @@ export default function Navbar({
               {/* 5. Direct All Games Link */}
               <Link
                 href="/games"
-                className="px-3.5 py-2 rounded-xl text-[13px] font-semibold text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] transition-colors"
+                className="px-1 xl:px-1.5 2xl:px-2 py-1.5 xl:py-2 rounded-xl text-[12px] xl:text-[13px] font-semibold whitespace-nowrap text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] transition-colors"
               >
                 All Games
               </Link>
@@ -658,7 +690,7 @@ export default function Navbar({
           </div>
 
           {/* Quick Actions (Dice, Search, Create, Sound, Theme, User) */}
-          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+          <div className="flex items-center gap-1 sm:gap-1.5 lg:gap-1 xl:gap-1.5 2xl:gap-2 shrink-0">
             
             {/* Search Trigger */}
             <button
@@ -666,11 +698,11 @@ export default function Navbar({
               type="button"
               onClick={handleOpenSearch}
               aria-label="Search wheels"
-              className="flex items-center gap-2 p-2 sm:px-3 sm:py-2 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] hover:bg-[#eae8f7] dark:hover:bg-[#282937] text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white transition-colors border border-[#eeedf7] dark:border-[#292a39] text-xs sm:text-[13px] font-semibold cursor-pointer"
+              className="flex items-center gap-2 p-1.5 sm:p-2 md:px-3 md:py-2 lg:p-2 xl:px-2.5 2xl:px-3 xl:py-2 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] hover:bg-[#eae8f7] dark:hover:bg-[#282937] text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white transition-colors border border-[#eeedf7] dark:border-[#292a39] text-xs sm:text-[13px] font-semibold cursor-pointer"
             >
-              <Search className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
-              <span className="hidden sm:inline">Search</span>
-              <kbd className="hidden lg:inline text-[10px] font-medium px-1.5 py-0.5 rounded bg-white dark:bg-[#12131a] text-[#767586] dark:text-[#908fa1] border border-[#eeedf7] dark:border-[#383a4c]">
+              <Search className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
+              <span className="hidden md:inline lg:hidden xl:inline">Search</span>
+              <kbd className="hidden 2xl:inline text-[10px] font-medium px-1.5 py-0.5 rounded bg-white dark:bg-[#12131a] text-[#767586] dark:text-[#908fa1] border border-[#eeedf7] dark:border-[#383a4c]">
                 ⌘K
               </kbd>
             </button>
@@ -680,10 +712,10 @@ export default function Navbar({
               id="header-create-wheel-btn"
               type="button"
               onClick={handleOpenCreateWheel}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#4648d4] text-white text-[13px] font-bold hover:bg-[#3b3dbb] shadow-xs transition-all cursor-pointer"
+              className="hidden sm:inline-flex items-center gap-1.5 px-2.5 lg:px-2 xl:px-2.5 2xl:px-3.5 py-2 rounded-xl bg-[#4648d4] text-white text-[12.5px] xl:text-[13px] font-bold hover:bg-[#3b3dbb] shadow-xs transition-all cursor-pointer whitespace-nowrap shrink-0"
             >
-              <PlusCircle className="w-4 h-4" />
-              <span>Create Wheel</span>
+              <PlusCircle className="w-4 h-4 shrink-0" />
+              <span>Create<span className="lg:hidden xl:inline"> Wheel</span></span>
             </button>
 
             {/* Audio Sound Toggle */}
@@ -708,7 +740,7 @@ export default function Navbar({
               onClick={toggleDarkMode}
               aria-label="Toggle dark and light theme"
               title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-              className="p-2 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white border border-[#eeedf7] dark:border-[#292a39] transition-colors cursor-pointer"
+              className="p-1.5 sm:p-2 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] text-[#464554] dark:text-[#c7c4d7] hover:text-[#1a1b22] dark:hover:text-white border border-[#eeedf7] dark:border-[#292a39] transition-colors cursor-pointer"
             >
               {isDark ? (
                 <Sun className="w-4 h-4 text-amber-400" />
@@ -822,11 +854,11 @@ export default function Navbar({
               )}
             </div>
 
-            {/* Mobile Hamburger Toggle */}
+            {/* Mobile & Tablet Hamburger Toggle */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-xl text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center"
+              className="lg:hidden p-2 rounded-xl text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#1d1e28] cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? (
@@ -838,9 +870,9 @@ export default function Navbar({
           </div>
         </div>
 
-        {/* Accessible Mobile Menu Drawer */}
+        {/* Accessible Mobile & Tablet Menu Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white dark:bg-[#181922] border-b border-[#eeedf7] dark:border-[#222330] px-4 py-4 flex flex-col gap-3 shadow-xl max-h-[85vh] overflow-y-auto">
+          <div className="lg:hidden bg-white dark:bg-[#181922] border-b border-[#eeedf7] dark:border-[#222330] px-4 py-4 flex flex-col gap-3 shadow-xl max-h-[85vh] overflow-y-auto">
             
             {/* Mobile Segmented Tab: Popular vs Trending vs Dice */}
             <div className="flex p-1 bg-[#f4f2fd] dark:bg-[#12131a] rounded-xl border border-[#eeedf7] dark:border-[#292a39] gap-1">
