@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: EmbedSubtoolPageProps): Promi
 
   return {
     ...base,
+    alternates: {},
     robots: {
       index: false,
       follow: false,

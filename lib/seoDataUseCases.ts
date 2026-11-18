@@ -441,111 +441,172 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     slug: 'team-picker',
     fullPath: '/team-picker',
     pageType: 'tool',
-    title: 'Team Picker – Fair Group Creator & Squad Generator',
-    metaDescription: 'Draft players, organize tournament brackets, and create fair squads with our interactive Team Picker wheel.',
-    h1: 'Team Picker: Fair Group Creator & Squad Generator',
-    introduction: 'Drafting players for a league, scrimmage, or party game? The Team Picker wheel lets you assign participants to teams one by one with visual spin excitement.',
+    title: 'Team Picker Wheel – Live Draft Order & Squad Lottery',
+    metaDescription:
+      'Run exciting live player drafts, NBA/NHL-style weighted draft lotteries, and tournament squad assignments with the interactive Team Picker Wheel.',
+    h1: 'Team Picker Wheel: Live Draft Order, Squad Lottery & Franchise Assigner',
+    introduction:
+      'When you are hosting a fantasy sports draft night, assigning captains for an esports scrimmage, or running a recreational league draft, generating a static spreadsheet behind closed doors kills all the excitement. The Team Picker Wheel lets commissioners and captains draft players, draw Pick #1 through #12 lottery slots, and assign tournament franchises one spin at a time on a shared screen.',
     primaryIntent: 'sports',
     secondaryIntents: ['classroom', 'transactional/use tool'],
     categoryKey: 'sports',
     parentCategoryPath: '/sports',
     parentCategoryName: 'Sports & Teams',
     featureBadges: [
-      'Interactive Squad Drafting',
-      'Visual Spin Tension',
-      'Custom Team Names',
-      'No-Repeat Elimination',
-      'Tournament Bracket Compatible'
+      'Live Draft Order Lottery',
+      'Weighted Ping-Pong Ball Odds',
+      'No-Repeat Elimination Draft',
+      'Franchise & Club Assigner',
+      'Discord & TV Screen-Share Ready'
     ],
     defaultWheelData: {
-      title: 'Squad Drafter',
-      description: 'Random player assignment wheel',
+      title: 'Live Squad & Draft Lottery Wheel',
+      description: 'Interactive player assignment & draft order spinner',
       paletteKey: 'arcade',
       items: [
-        { id: 'tp-1', text: 'Team Red', weight: 1, color: '#ef4444' },
-        { id: 'tp-2', text: 'Team Blue', weight: 1, color: '#3b82f6' },
-        { id: 'tp-3', text: 'Team Yellow', weight: 1, color: '#eab308' },
-        { id: 'tp-4', text: 'Team Green', weight: 1, color: '#22c55e' }
+        { id: 'tp-1', text: 'Team Red (Alpha Squad)', weight: 1, color: '#ef4444' },
+        { id: 'tp-2', text: 'Team Blue (Bravo Squad)', weight: 1, color: '#3b82f6' },
+        { id: 'tp-3', text: 'Team Gold (Charlie Squad)', weight: 1, color: '#eab308' },
+        { id: 'tp-4', text: 'Team Emerald (Delta Squad)', weight: 1, color: '#22c55e' },
+        { id: 'tp-5', text: 'Team Purple (Echo Squad)', weight: 1, color: '#a855f7' },
+        { id: 'tp-6', text: 'Team Cyan (Foxtrot Squad)', weight: 1, color: '#06b6d4' }
       ]
     },
     instructions: [
-      'Enter the teams or squads you want to fill.',
-      'Call each player\'s name and spin the wheel to determine their assigned squad.',
-      'Track assignments in the spin log.',
-      'Celebrate when balanced teams are finalized.'
+      'Choose your draft format: put Team/Squad names on the wheel to assign each player one by one, OR put Manager names on the wheel with Elimination mode enabled to draw Pick #1 to #12 draft order.',
+      'For weighted draft lotteries (NBA/NHL style), adjust the weight slider for bottom-seeded managers to give them 3x or 4x lottery odds.',
+      'Share your screen in Fullscreen Mode on Discord, Zoom, or a living-room TV so every participant watches the pointer decelerate live.',
+      'Remove any team slice once its roster cap is full, or switch to our bulk Team Generator (/team-generator) if you want to split 30 names into balanced squads in one instant table.'
     ],
     whoItsUsefulFor: [
       {
-        audience: 'Intramural Coordinators',
-        benefit: 'Organizes league drafts transparently with zero favoritism.'
+        audience: 'Fantasy Football, Basketball & Baseball Commissioners',
+        benefit: 'Broadcasts a transparent, un-riggable draft order lottery live on Discord or Zoom with cryptographic seed logs.'
       },
       {
-        audience: 'Gaming Guild Leaders',
-        benefit: 'Drafts raid groups and party scrimmages with visual stream entertainment.'
+        audience: 'Esports, FIFA/EA FC & 2K Tournament Organizers',
+        benefit: 'Randomly assigns which Premier League, NFL, or NBA franchise each player controls—or seeds 5v5 custom lobby captains.'
+      },
+      {
+        audience: 'Intramural Coaches, Camp Directors & PE Teachers',
+        benefit: 'Drafts balanced Color War houses and field-day squads on a projector with high-energy crowd suspense.'
       }
     ],
     useCases: [
       {
-        title: 'Intramural Draft Lottery',
-        benefit: 'Determines draft order or team placement for recreational sports leagues.',
-        description: 'Determines draft order or team placement for recreational sports leagues.'
+        title: '1. Fantasy League Draft Order Lottery (Reverse Countdown)',
+        benefit: 'Builds massive draft-night hype by revealing picks from last (#12) down to the coveted #1 overall pick.',
+        description:
+          'Example Slice List: Paste all 10 or 12 league managers onto the wheel, turn on Elimination mode, and announce before Spin #1 that the first manager drawn receives Pick #12, counting backward until the final survivor claims Pick #1!'
+      },
+      {
+        title: '2. Weighted NBA/NHL-Style "Ping-Pong Ball" Lottery',
+        benefit: 'Rewards non-playoff teams with better odds at the #1 pick without encouraging blatant late-season tanking.',
+        description:
+          'Example Slice List & Weights: 12th Place Manager (Weight: 5x), 11th Place Manager (Weight: 4x), 10th Place Manager (Weight: 3x), 9th Place Manager (Weight: 2x), 8th & 7th Place (Weight: 1x).'
+      },
+      {
+        title: '3. EA FC / NBA 2K / Madden Couch Tournament Club Assigner',
+        benefit: 'Stops friends from arguing over who gets Real Madrid, Man City, or the Chiefs during game night.',
+        description:
+          'Example Slice List: Real Madrid, Manchester City, Arsenal, Bayern Munich, Inter Milan, PSG, Liverpool, Barcelona (Turn on Elimination so no two players get the same club).'
+      },
+      {
+        title: '4. Pot-Seeded Tiered Scrimmage Draft (Balanced Skill Tiers)',
+        benefit: 'Prevents lopsided stacked teams in Valorant, CS2, League of Legends, or pickup basketball.',
+        description:
+          'Workflow: Divide players into Tier A (Veterans) and Tier B (Developing). Put 4 Squad Names on the wheel and spin for Tier A players first (eliminating each squad as it gets one captain), then reset the 4 squads for Tier B.'
+      },
+      {
+        title: '5. Summer Camp & School "Four Houses" Sorting Ceremony',
+        benefit: 'Turns student or camper group placement into an unforgettable stage ceremony.',
+        description:
+          'Example Slice List: House Phoenix (Red), House Titan (Blue), House Viper (Green), House Thunder (Gold)—call each camper up to press the Spacebar and discover their house!'
       }
     ],
     customizationOptions: [
       {
-        title: 'Cap Limits',
-        description: 'Cap the number of players per team and remove filled teams from the wheel.'
+        title: 'Roster Cap Elimination',
+        description: 'Remove a squad slice from the wheel the moment it reaches its maximum player limit (e.g., 5 players per team).'
+      },
+      {
+        title: 'Weighted Lottery Multipliers',
+        description: 'Assign custom integer weights (1x to 10x) to replicate weighted draft lottery balls with exact angular percentages.'
       }
     ],
-    resultExplanation: 'All teams maintain equal angular probability throughout the draft process.',
+    resultExplanation:
+      'Every spin invokes window.crypto.getRandomValues() to calculate stopping angles across active squad sectors, with verifiable hex seeds logged in the Audit tab.',
     uniqueExamples: [
-      'Raid Squads: Fireteam Alpha, Fireteam Bravo, Fireteam Charlie'
+      '4-Squad Color War Deck: Red Dragons, Blue Krakens, Gold Griffins, Green Rangers (25.0% initial probability per squad).',
+      'Esports 5v5 Map & Side Decider Deck: Ascent (Attack), Bind (Defense), Haven (Attack), Split (Defense), Lotus (Attack), Sunset (Defense).'
     ],
     tips: [
-      'Display the wheel on a shared screen during Discord or Zoom draft nights.'
+      'For Fantasy Draft Lotteries, always draw in REVERSE order (Spin 1 = Pick #12, Spin 11 = Pick #2, remaining slice = Pick #1) so suspense peaks on the final spin instead of ending after Spin 1!',
+      'To enforce strict equal team sizes when assigning players to 4 teams of 3, add each team name 3 times (12 slices total) and turn on Elimination mode—every team is mathematically guaranteed to land exactly 3 times.',
+      'Open the Audit Log panel while screen-sharing on Discord so league mates can verify the cryptographic timestamp and seed.',
+      'Need to split 30 pasted names into 6 teams in a single click without spinning one by one? Use our companion Team Generator (/team-generator).'
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Creating Engaging Live Draft Nights & Tournament Lotteries',
+        heading: 'When, Why, and How to Use the Team Picker Wheel vs. a Bulk Team Generator',
         body: [
-          'Whether for fantasy football draft order, esports scrimmage seeding, or recreational intramural leagues, spinning a live wheel for each draft slot turns routine team assignment into a broadcast-worthy event. Instead of generating a static spreadsheet behind closed doors, commissioners cast the Team Picker Wheel on Discord, Zoom, or a living-room TV so every captain watches the pointer decelerate in real time.',
-          'Unlike our bulk Team Generator (/team-generator)—which splits an entire roster into balanced squads in a single click—the Team Picker Wheel is engineered for sequential draft lotteries, franchise selection (picking which NBA, NFL, or Premier League club each player controls), and bracket matchup pairings.'
+          'Organizers often ask when to use the Team Picker Wheel (/team-picker) versus our bulk Team Generator (/team-generator). The distinction comes down to **live ceremony versus instant batching**: when a teacher needs to split 32 students into 8 lab tables in three seconds, a bulk list generator is ideal. Put simply, batch tools optimize for speed, whereas the Team Picker Wheel optimizes for **live audience drama, transparent lottery proof, and sequential drafting**.',
+          'In fantasy sports leagues, esports tournaments, and camp sorting ceremonies, half the fun is watching the wheel decelerate toward the pointer while eight people cheer or groan on voice chat. By combining Elimination mode with custom slice weights, commissioners can run an authentic NBA-style weighted draft lottery or a pot-seeded tournament draw where every participant sees with their own eyes that zero favoritism occurred.'
         ]
       },
       {
-        heading: 'Weighted Draft Lottery Odds (NBA & NHL Style Ping-Pong Balls)',
+        heading: 'The "Duplicate Slice + Elimination" Trick for Guaranteed Equal Rosters',
         body: [
-          'Want to give last season’s bottom-seeded managers a higher chance at the #1 overall draft pick without guaranteeing tanking rewards? Use the weight sliders in the sidebar to assign 4x weight to last place, 3x weight to second-to-last, and 1x weight to playoff contenders—replicating an authentic weighted draft lottery.'
+          'If you put 4 team names (Red, Blue, Yellow, Green) on a standard wheel and spin for 12 players without removing slices, pure chance could easily assign 5 players to Red and only 1 to Green. Here is the pro commissioner trick: duplicate each team slice to match the exact roster size (for example, enter "Team Red" 3 times, "Team Blue" 3 times, "Team Yellow" 3 times, and "Team Green" 3 times for 12 total slices) and turn **Elimination Mode ON**. Now every player gets a suspenseful live spin, and all four teams are guaranteed to finish with exactly 3 players!'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Can I set a maximum number of players per team?',
-        answer: 'Yes! Simply remove a team from the wheel once it reaches your target roster limit, or enable No-Repeat Elimination mode when drawing draft order slots.'
+        question: 'How is the Team Picker Wheel different from the Team Generator?',
+        answer:
+          'The Team Picker Wheel (/team-picker) is a visual spinning wheel built for live one-by-one draft lotteries, fantasy draft order drawings, and franchise assignments on a shared screen. Our Team Generator (/team-generator) is a bulk roster splitter that divides a pasted list of 20+ names into balanced multi-team tables in a single click.'
       },
       {
-        question: 'How is the Team Picker Wheel different from the Team Generator?',
-        answer: 'The Team Picker Wheel spins one selection at a time for live draft lotteries and franchise assignments, while the Team Generator (/team-generator) splits a pasted list of names into multiple balanced squads simultaneously.'
+        question: 'How do I guarantee every team gets the exact same number of players?',
+        answer:
+          'Use the "Quota Slice" method: if you are assigning 12 players across 3 teams (4 players per team), add each team name 4 times to the wheel (12 slices total) and turn on Elimination (No-Repeat) mode. As each player spins, their winning team slot is removed, guaranteeing 3 perfectly balanced 4-player squads.'
+      },
+      {
+        question: 'How do I run a weighted NBA-style fantasy football draft lottery?',
+        answer:
+          'Enter all non-playoff managers onto the wheel, open the Entries sidebar, and increase the Weight multiplier for the bottom seeds (e.g., Last Place = 5, Second-to-Last = 4, Third-to-Last = 3). Turn on Elimination mode and spin in reverse or forward order while sharing your screen on Discord or Zoom.'
+      },
+      {
+        question: 'Can league members verify that the commissioner didn’t rig the spin?',
+        answer:
+          'Yes! SpinWheelGames uses your browser’s hardware Web Cryptography API (window.crypto.getRandomValues) and records the exact timestamp, winning probability, and random hex seed in the Audit Log tab so you can screenshot or screen-record proof for your league.'
+      },
+      {
+        question: 'Can I save our league managers or tournament clubs for next season?',
+        answer:
+          'Yes. Your custom team slices, colors, and weight settings persist automatically in local browser storage and can also be shared via a custom URL.'
       }
     ],
     relatedTools: [
-      { name: 'Random Team Generator', path: '/team-generator', description: 'Instant bulk squad divider.' },
+      { name: 'Random Team Generator', path: '/team-generator', description: 'Instant bulk roster splitter into balanced squads.' },
       { name: 'Group Generator Wheel', path: '/group-generator', description: 'Classroom partner and breakout room spinner.' },
-      { name: 'Party Wheel', path: '/party-wheel', description: 'Group icebreakers and game night dares.' }
+      { name: 'Team Name Wheel', path: '/team-name-wheel', description: 'Creative squad, trivia & fantasy team names.' },
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Pick a single random captain or MVP.' }
     ],
     relatedWheels: [
-      { name: 'Random Team Generator', path: '/team-generator', count: 8 }
+      { name: 'Random Team Generator', path: '/team-generator', count: 8 },
+      { name: 'Group Generator Wheel', path: '/group-generator', count: 8 }
     ],
     relatedGuides: [
       { name: 'Random vs. Weighted Selection', path: '/random-vs-weighted-selection', readingTime: '5 min' }
     ],
     internalLinks: [
-      { label: 'Explore Sports & Teams Pillar', href: '/sports', context: 'All sports tools.' },
-      { label: 'Bulk Team Generator', href: '/team-generator', context: 'Split full rosters into squads.' }
+      { label: 'Explore Sports & Teams Pillar', href: '/sports', context: 'All sports & draft tools.' },
+      { label: 'Bulk Team Generator', href: '/team-generator', context: 'Split full rosters into squads in one click.' }
     ],
     breadcrumbs: [
-      { name: 'Home', item: 'https://spinwheelgames.org' },
+      { name: 'Home', item: 'https://spinwheelgames.org/' },
       { name: 'Sports', item: 'https://spinwheelgames.org/sports' },
       { name: 'Team Picker', item: 'https://spinwheelgames.org/team-picker' }
     ]
@@ -555,101 +616,155 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     slug: 'party-wheel',
     fullPath: '/party-wheel',
     pageType: 'tool',
-    title: 'Party Wheel – Truth or Dare, Icebreakers & Group Games',
-    metaDescription: 'Liven up your party or game night! Spin for Truth or Dare, fun icebreakers, dares, and parlor game challenges.',
-    h1: 'Party Wheel: Truth or Dare, Icebreakers & Group Games',
-    introduction: 'Need to get the party started? The Party Wheel brings instant laughter to game nights, birthdays, and hangouts with fun Truth or Dare prompts, lighthearted challenges, and social icebreakers.',
+    title: 'Party Wheel – Game Night Dares, Challenges & Icebreakers',
+    metaDescription:
+      'Kickstart birthdays, house parties, and family game nights with the Party Wheel. Spin rapid-fire mini-challenges, clean dares, charades, and group trivia.',
+    h1: 'Party Wheel: Group Game Night Challenges, Dares & Social Prompts',
+    introduction:
+      'Every great house party or family game night hits a lull when guests cluster in corners scrolling their phones. The Party Wheel breaks the ice in 10 seconds with rapid-fire 60-second parlor challenges, group charades, harmless camera-roll dares, and hilarious storytelling prompts that get the whole living room cheering.',
     primaryIntent: 'entertainment',
     secondaryIntents: ['transactional/use tool', 'decision'],
     categoryKey: 'party',
     parentCategoryPath: '/party',
     parentCategoryName: 'Party & Social Games',
     featureBadges: [
-      'Instant Icebreaker Generator',
-      'Truth or Dare Prompts',
-      'Custom Dares & Challenges',
-      'Festive Audio & Confetti',
-      'Mobile & Party Ready'
+      '60-Second Party Challenges',
+      'Family & Adult Presets',
+      'No-Repeat Elimination Mode',
+      'Festive Confetti & Audio',
+      'Living Room TV & Mobile Ready'
     ],
     defaultWheelData: {
       title: 'Party Night Challenges',
       description: 'Lively dares, truths, and parlor prompts',
       paletteKey: 'party',
       items: [
-        { id: 'pw-1', text: 'Sing a Chorus in a Funny Accent', weight: 1 },
-        { id: 'pw-2', text: 'Share Your Most Embarrassing Text', weight: 1 },
-        { id: 'pw-3', text: 'Do 10 Jumping Jacks While Singing', weight: 1 },
-        { id: 'pw-4', text: 'Tell a Truth About Your First Job', weight: 1 },
-        { id: 'pw-5', text: 'Imitate Another Player for 1 Minute', weight: 1 },
-        { id: 'pw-6', text: 'Speak in Rhyme Until Your Next Turn', weight: 1 }
+        { id: 'pw-1', text: 'Sing a 20-Sec Chorus in an Opera Voice', weight: 1 },
+        { id: 'pw-2', text: 'Show the 5th Photo in Your Camera Roll & Explain', weight: 1 },
+        { id: 'pw-3', text: '30-Sec Silent Charades: Act Out a Famous Movie', weight: 1 },
+        { id: 'pw-4', text: 'Tell a Truth About Your Weirdest First Job or Date', weight: 1 },
+        { id: 'pw-5', text: 'Imitate Another Player Until Someone Guesses Who', weight: 1 },
+        { id: 'pw-6', text: 'Speak in Rhyming Sentences Until Your Next Turn', weight: 1 },
+        { id: 'pw-7', text: 'Group Challenge: Everyone Competes in Rock-Paper-Scissors!', weight: 1 },
+        { id: 'pw-8', text: 'Wildcard: Nominate Any Two Players to Swap Seats', weight: 1 }
       ]
     },
     instructions: [
-      'Gather your friends in a circle or join a video call.',
-      'Take turns clicking SPIN or passing the phone around.',
-      'Perform the challenge or answer the prompt that lands.',
-      'Pass to the next player and keep the momentum going!'
+      'Cast the Party Wheel onto your living-room TV or pass a tablet/phone around the circle.',
+      'Turn on Elimination (No-Repeat) mode so every challenge is performed only once per round.',
+      'Give every guest one single "Pass & Double Spin" token for the night so nobody ever feels uncomfortable.',
+      'Award +1 point for every completed challenge (or +2 points for brave physical charades) to crown a Party Champion.'
     ],
     whoItsUsefulFor: [
       {
-        audience: 'College & Young Adult Hangouts',
-        benefit: 'Breaks the ice and gets everyone off their phones with spontaneous laughter.'
+        audience: 'House Party, Birthday & Bachelorette Hosts',
+        benefit: 'Gets mixed friend groups laughing together within 2 minutes without complicated board game rulebooks.'
       },
       {
-        audience: 'Family Game Night Organizers',
-        benefit: 'Provides clean, family-friendly parlor game challenges for all ages.'
+        audience: 'Multi-Generational Family Gatherings',
+        benefit: 'Bridges kids, parents, and grandparents with wholesome 60-second acting and trivia prompts.'
+      },
+      {
+        audience: 'Youth Groups, Dorm RA Mixers & Club Socials',
+        benefit: 'High-energy crowd game that scales effortlessly from 5 players to 30+ attendees.'
       }
     ],
     useCases: [
       {
-        title: 'Truth or Dare Game Nights',
-        benefit: 'Takes the pressure off players having to invent questions on the spot.',
-        description: 'Takes the pressure off players having to invent questions on the spot.'
+        title: '1. Mixed-Friend-Group Housewarming Mixer',
+        benefit: 'Connects guests who don’t know each other yet using low-pressure storytelling and duo challenges.',
+        description:
+          'Slices: Two Truths and a Lie (30s), Show Your Most Used Emoji, Name Your Guilty Pleasure Song, Challenge Player on Left to Thumb War, Share Your Best Travel Story.'
+      },
+      {
+        title: '2. All-Ages Family & Kids Birthday Party Wheel',
+        benefit: '100% clean, physical comedy challenges that kids ages 6–14 beg to spin again.',
+        description:
+          'Slices: Freeze Dance for 30 Seconds, Do Your Best T-Rex Impression, Balance a Spoon on Your Nose 10s, Tell Your Funniest Knock-Knock Joke, Walk Like a Crab Across the Room.'
+      },
+      {
+        title: '3. Board Game Night "Loser Penalty / Intermission" Wheel',
+        benefit: 'Keep the Party Wheel ready for the runner-up of Mario Kart, Catan, or Uno.',
+        description:
+          'Slices: Refill Everyone’s Drinks/Snacks, Announce the Winner in a Sportsscaster Voice, Wear the Silly Hat for Round 2, Do 10 Victory Squat Jumps, Pick the Next Playlist.'
+      },
+      {
+        title: '4. Holiday & New Year’s Eve Countdown Wheel',
+        benefit: 'Spin once every 30 minutes leading up to midnight for group toasts and trivia.',
+        description:
+          'Slices: Share Your Favorite Memory of This Year, Group Photo Pose Challenge, Predict One Headline for Next Year, Name 3 Things You Are Grateful For, Karaoke Chorus Duel.'
       }
     ],
     customizationOptions: [
       {
-        title: 'Custom Inside Jokes',
-        description: 'Add specific dares and memories that your group of friends will appreciate.'
+        title: 'Inside-Joke Customization',
+        description: 'Add your friend group’s specific inside jokes, local spots, and birthday guest trivia in 15 seconds.'
+      },
+      {
+        title: 'Group vs. Solo Slices',
+        description: 'Mix solo prompts with "Everyone in the Room..." slices so the entire circle stays on their toes.'
       }
     ],
-    resultExplanation: 'Pure random selection ensures every player faces completely unpredictable prompts.',
+    resultExplanation:
+      'Pure cryptographic selection ensures every guest faces genuinely unpredictable challenges with zero host bias.',
     uniqueExamples: [
-      'Clean Prompts: Show the 5th photo in your camera roll, Do your best cartoon voice, Swap seats with the person on your right'
+      'Camera-Roll & Phone Safe Dares: Read the last thing you typed into Google Search, Show the oldest photo on your phone from 3 years ago, Play the last song you listened to on Spotify for 15 seconds, Reveal your daily screen-time average.'
     ],
     tips: [
-      'Add a "Wildcard: Make Someone Else Do a Dare" slice for maximum fun.',
-      'Always agree on house rules before spinning to keep things fun and comfortable for everyone.'
+      'Mix 3 categories on your Party Wheel: 40% quick storytelling truths, 40% 30-second acting/improv challenges, and 20% "Everyone Plays" group showdowns.',
+      'Keep every challenge under 60 seconds so the tablet moves rapidly around the room and nobody gets bored waiting.',
+      'Pair with our dedicated Truth or Dare Wheel (/truth-or-dare-wheel) or Never Have I Ever Wheel (/never-have-i-ever-wheel) for round two!'
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Keeping Party Games Fun and Comfortable',
+        heading: 'How to Design a Party Wheel That Includes Introverts and Extroverts Alike',
         body: [
-          'The best party games keep everyone laughing without making anyone feel genuinely uncomfortable. Mix silly physical dares with lighthearted conversational truths.'
+          'The fastest way a party game flops is when every single prompt forces players into high-pressure solo stage acting, causing introverted guests to quietly opt out. Conversely, if every prompt is a slow philosophical question, high-energy guests lose focus.',
+          'The ideal Party Wheel balances both personality styles by interleaving quick seated prompts (like "Show the 5th photo in your camera roll" or "Two Truths and a Lie") with physical charades and group mini-games ("Rock-Paper-Scissors tournament"). When paired with a one-time "Pass or Tag-a-Partner" token, every guest stays relaxed and engaged.'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Can I make a family-friendly version?',
-        answer: 'Yes! Simply edit the entries to include wholesome prompts suitable for kids and grandparents.'
+        question: 'How is the Party Wheel different from the Truth or Dare Wheel?',
+        answer:
+          'The Party Wheel combines solo dares, lighthearted truths, group mini-games (like thumb wars or charades), and wildcard seat-swaps into a single all-in-one parlor game. If you want strictly classic Truth or Dare prompts, check out our Truth or Dare Wheel (/truth-or-dare-wheel).'
+      },
+      {
+        question: 'Can I make a 100% kid-friendly or classroom party version?',
+        answer:
+          'Yes! Use our All-Ages Family & Kids Birthday preset above or edit the slices in the sidebar to include freeze-dance challenges, animal impressions, and tongue twisters.'
+      },
+      {
+        question: 'What is the "Tag-a-Partner" rule for shy party guests?',
+        answer:
+          'Give every player one "Tag-a-Partner" token per game. If the wheel lands on a singing or acting dare and the spinner feels shy, they can spend their token to draft any friend in the circle to perform the dare together as a duo!'
+      },
+      {
+        question: 'Can we project the Party Wheel onto a smart TV?',
+        answer:
+          'Yes. Open the page in your smart TV browser or AirPlay/Chromecast your phone screen and tap the Fullscreen button for big-screen confetti and sound effects.'
       }
     ],
     relatedTools: [
-      { name: 'Truth or Dare Wheel', path: '/truth-or-dare-wheel', description: 'Focused specifically on Truth or Dare.' },
-      { name: 'Food Wheel', path: '/food-wheel', description: 'Picks late-night snacks and party takeout.' }
+      { name: 'Truth or Dare Wheel', path: '/truth-or-dare-wheel', description: 'Classic party truth and dare prompts.' },
+      { name: 'Never Have I Ever Wheel', path: '/never-have-i-ever-wheel', description: '10-finger confession party spinner.' },
+      { name: 'Trivia Category Wheel', path: '/trivia-category-wheel', description: 'Quiz night subject & category selector.' },
+      { name: 'Movie Wheel', path: '/movie-wheel', description: 'Pick tonight’s group movie with veto mode.' }
     ],
     relatedWheels: [
-      { name: 'Truth or Dare Wheel', path: '/truth-or-dare-wheel', count: 8 }
+      { name: 'Truth or Dare Wheel', path: '/truth-or-dare-wheel', count: 8 },
+      { name: 'Never Have I Ever Wheel', path: '/never-have-i-ever-wheel', count: 8 }
     ],
     relatedGuides: [
       { name: 'How to Use a Wheel', path: '/how-to-use-a-wheel', readingTime: '4 min' }
     ],
     internalLinks: [
-      { label: 'Explore Party Hub', href: '/party', context: 'All party and entertainment spinners.' }
+      { label: 'Explore Party Hub', href: '/party', context: 'All party and social game spinners.' },
+      { label: 'Try Never Have I Ever Wheel', href: '/never-have-i-ever-wheel', context: 'Hilarious group confession game.' }
     ],
     breadcrumbs: [
-      { name: 'Home', item: 'https://spinwheelgames.org' },
+      { name: 'Home', item: 'https://spinwheelgames.org/' },
       { name: 'Party', item: 'https://spinwheelgames.org/party' },
       { name: 'Party Wheel', item: 'https://spinwheelgames.org/party-wheel' }
     ]
@@ -709,37 +824,79 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Twitch & YouTube Stream Giveaways',
+        title: 'Twitch, YouTube & TikTok Live Stream Raffles',
         benefit: 'Draws live chat winners during subscriber milestone celebrations.',
-        description: 'Draws live chat winners during subscriber milestone celebrations.'
+        description: 'Paste active chat participants or subscriber usernames onto the wheel during a livestream and spin with full screen-share audio and confetti.'
+      },
+      {
+        title: 'Multi-Tier Charity & Fundraiser Ticket Drawings',
+        benefit: 'Awards 3rd, 2nd, and Grand Prize tiers without duplicate winners.',
+        description: 'Load ticket numbers (#1001–#1250), enable No-Repeat Elimination mode, and draw ascending prize tiers while recording the cryptographic audit log.'
+      },
+      {
+        title: 'Weighted VIP & Patron Loyalty Giveaways',
+        benefit: 'Gives multi-ticket buyers proportionally larger slices.',
+        description: 'Assign weight: 1 to standard entrants, weight: 3 to Silver supporters, and weight: 10 to Gold patrons so odds match ticket counts transparently.'
+      },
+      {
+        title: 'Trade Show Booth & Conference Door Prizes',
+        benefit: 'Captures foot traffic with an interactive stage or tablet spin.',
+        description: 'Let conference attendees spin for instant swag tiers or enter badge scan IDs for end-of-day grand prize drawings.'
       }
     ],
     customizationOptions: [
       {
         title: 'Weighted Ticket Entries',
         description: 'Give participants who bought multiple raffle tickets proportionally larger slices.'
+      },
+      {
+        title: 'Elimination Mode for Multi-Prize Draws',
+        description: 'Automatically remove each winner before spinning for the next prize tier.'
       }
     ],
     resultExplanation: 'Calculated using window.crypto.getRandomValues with a full session audit log showing seed hexes and timestamps.',
     uniqueExamples: [
-      'Prize Tiers: Grand Prize Winner, 2nd Place $50 Card, 3rd Place T-Shirt'
+      'Prize Tiers: Grand Prize Winner, 2nd Place $50 Gift Card, 3rd Place Merch Pack, Runner-Up Sticker Bundle',
+      'Weighted Raffle Entries: Sarah (5 Tickets - Weight 5), Marcus (3 Tickets - Weight 3), Elena (1 Ticket - Weight 1)',
+      'Trade Show Instant Win Wheel: Free T-Shirt, Enamel Pin, 20% Discount Code, Mystery Box, Spin Again'
     ],
     tips: [
-      'Always record your screen during the spin so you have video proof to post on social media.',
-      'Use the Audit tab to verify the exact time of the draw.'
+      'Always record your screen during the spin and open the Audit Log tab afterward so followers can verify the exact timestamp and cryptographic seed.',
+      'Draw in reverse order (3rd Place first, 2nd Place second, Grand Prize last) with Elimination Mode enabled to build maximum live-stream suspense.',
+      'When someone buys 5 raffle tickets, use the Weight column (set weight to 5) instead of pasting their name 5 separate times—this keeps the wheel clean and visually proportional.'
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Why Transparency Builds Audience Trust',
+        heading: 'How to Run a Verifiably Fair Online Giveaway or Raffle Drawing',
         body: [
-          'Followers are naturally skeptical of online giveaways. Using a screen-shared wheel with verifiable CSPRNG seeds eliminates accusations of rigging and builds lasting credibility.'
+          'Audience skepticism is the biggest challenge in any social media giveaway, charity raffle, or company prize drawing. When winners are announced via a static text post, followers inevitably wonder whether the host picked a friend or sponsor. Projecting the Giveaway Wheel live on Instagram, YouTube, Twitch, or Zoom transforms a hidden calculation into a transparent public event where every entrant can see their name on the wheel before the spin begins.',
+          'Under the hood, our Giveaway Wheel replaces predictable pseudo-random counters with the browser Web Crypto API (window.crypto.getRandomValues). Every spin generates a hardware-sourced 32-bit entropy value and logs the timestamp and result in the session history, giving contest organizers verifiable proof that the drawing was 100% unmanipulated.'
+        ]
+      },
+      {
+        heading: 'Managing Multi-Ticket Odds & Reverse-Countdown Prize Tiers',
+        body: [
+          'If your raffle allows entrants to earn extra entries by purchasing multiple tickets, referring friends, or subscribing at a higher tier, you can assign custom numerical weights to each participant. An entrant with a weight of 5 receives a slice five times wider than an entrant with a weight of 1, and the wheel automatically calculates the exact percentage probability for every participant.',
+          'For multi-winner drawings, activate No-Repeat Elimination Mode before your first spin. This guarantees that the person who wins the 3rd-place gift card is automatically removed from the pool before you spin for the Grand Prize.'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Can one person have multiple entries?',
-        answer: 'Yes! Increase their slice weight (e.g. weight: 5 for 5 tickets) or enter their name 5 times.'
+        question: 'Can one person have multiple entries in the giveaway?',
+        answer: 'Yes! Either increase their slice weight in the entry list (for example, set Weight to 5 for 5 raffle tickets) or paste their name 5 times. Both methods give them an exact 5x probability.'
+      },
+      {
+        question: 'How do I prove to my followers that the giveaway spin was not rigged?',
+        answer: 'Screen-record the entire spin showing the full participant list, the live wheel deceleration, and the Results/Audit history tab, which displays the exact timestamp of the cryptographic draw.'
+      },
+      {
+        question: 'Can I draw multiple winners without the same person winning twice?',
+        answer: 'Yes. Turn on Elimination (No-Repeat) mode or click "Remove Winner" inside the celebration modal after each spin so each entrant can only win one prize tier.'
+      },
+      {
+        question: 'How many giveaway names can I paste into the wheel at once?',
+        answer: 'You can bulk-paste hundreds of usernames or ticket numbers directly from Excel, Google Sheets, or CSV exports in a single click.'
       }
     ],
     relatedTools: [
@@ -995,9 +1152,19 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Scattergories Game Nights',
-        benefit: 'Spins letters without rare letters (Q, X, Z) if removed, or keeps the full alphabet.',
-        description: 'Spins letters without rare letters (Q, X, Z) if removed, or keeps the full alphabet.'
+        title: 'Scattergories & Fast-Paced Word Game Nights',
+        benefit: 'Replaces missing 20-sided letter dice on any phone or TV.',
+        description: 'Spin a starting letter for category rounds (Cities, Foods, Movie Titles, Animals) with optional removal of rare letters like Q, X, and Z.'
+      },
+      {
+        title: 'Kindergarten & ESL Phonics Sound Drills',
+        benefit: 'Gamifies letter recognition and initial-sound vocabulary.',
+        description: 'Project the A–Z wheel on a classroom smartboard and ask students to pronounce the phoneme and name three objects starting with that letter.'
+      },
+      {
+        title: 'Creative Writing & Improvisation Constraints',
+        benefit: 'Sparks alliteration challenges and acrostic poetry.',
+        description: 'Spin three letters in a row to create acronyms, improv character initials, or mandatory starting letters for storytelling sentences.'
       }
     ],
     customizationOptions: [
@@ -1008,10 +1175,14 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     resultExplanation: 'All 26 letters have exactly 1/26 (3.846%) chance of selection on a standard spin.',
     uniqueExamples: [
-      'Phonics Practice: S (Snake), M (Monkey), B (Ball), T (Tiger)'
+      'Phonics Practice: S (Snake), M (Monkey), B (Ball), T (Tiger)',
+      '20-Letter Scattergories Preset (No Q, U, V, X, Y, Z): A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, R, S, T, W',
+      'Vowels-Only Short/Long Sound Wheel: A, E, I, O, U, Sometimes Y'
     ],
     tips: [
-      'Remove difficult letters like Q, X, and Z if you\'re playing with younger children.'
+      'Remove difficult letters like Q, X, and Z if you\'re playing word games with younger children or time-pressured party groups.',
+      'Enable No-Repeat Elimination mode during Scattergories so you never play the same starting letter twice in one evening.',
+      'Turn on Text-to-Speech (TTS) audio in classroom settings so early readers hear the letter spoken aloud as the confetti pops.'
     ],
     uniqueContentBlocks: [
       {
@@ -1030,12 +1201,20 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     faqs: [
       {
-        question: 'Can I remove letters like Q and X for casual games?',
-        answer: 'Yes! Simply open the entries list and delete any letters you don\'t want included, or save a custom 20-letter Scattergories preset.'
+        question: 'Can I remove letters like Q, X, and Z for Scattergories?',
+        answer: 'Yes! Simply open the entries list and delete any letters you don\'t want included, or save a custom 20-letter Scattergories preset in your browser.'
       },
       {
         question: 'What are the odds of landing on each letter from A to Z?',
         answer: 'With all 26 letters active, every letter occupies a 13.85-degree wedge and holds an exact 1 in 26 (3.85%) cryptographic probability.'
+      },
+      {
+        question: 'Can I spin only vowels or only consonants for phonics lessons?',
+        answer: 'Yes. Paste A, E, I, O, U into the bulk editor for vowel-sound drills, or remove the five vowels to practice consonant blends.'
+      },
+      {
+        question: 'How do I prevent the same letter from spinning twice in one game?',
+        answer: 'Toggle on Elimination (No-Repeat) mode before your first spin so each chosen letter is automatically removed from the wheel.'
       }
     ],
     relatedTools: [
@@ -1308,8 +1487,19 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Corporate Lunch Orders',
-        benefit: 'Impartially picks the lunch restaurant for team outings.'
+        title: 'Office & Coworking Team Lunch Orders',
+        benefit: 'Impartially picks the lunch spot for group delivery or walk-outs.',
+        description: 'Load 6 nearby fast-casual spots (Chipotle, Sweetgreen, Local Deli, Thai Express, Ramen Bar, Poke Bowl) and settle the 12:00 PM debate in one spin.'
+      },
+      {
+        title: '10-Minute Work-From-Home Fridge Raid',
+        benefit: 'Prevents skipping lunch or overspending on delivery fees.',
+        description: 'Spin between quick home staples: Turkey Avocado Wrap, Egg Salad Toast, Quesadilla, Greek Salad Bowl, or Reheated Leftovers.'
+      },
+      {
+        title: '5-Day Workweek Meal-Prep Rotation',
+        benefit: 'Eliminates midday boredom with No-Repeat Elimination.',
+        description: 'Put five distinct meal-prep or lunchbox options on the wheel on Monday and remove each winner so every workday lunch feels fresh.'
       }
     ],
     customizationOptions: [
@@ -1320,10 +1510,12 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     resultExplanation: 'A secure RNG ensures unbiased midday decision selections.',
     uniqueExamples: [
-      'Lunch Options: Quinoa Bowls, Ramen, Grilled Paninis, Meal Prep Boxes'
+      'Fast Office Walk-Out: Deli Panini, Burrito Bowl, Sushi Lunch Special, Mediterranean Falafel Wrap, Ramen',
+      '10-Minute WFH Kitchen Lunch: Avocado Egg Toast, Tuna Melt, Hummus & Pita Plate, Grilled Cheese & Tomato Soup'
     ],
     tips: [
-      'Add your top 5 favorite nearby lunch spots to save time during busy shifts.'
+      'Add your top 5 nearby lunch spots that can deliver or serve within 20 minutes so you never waste your break waiting in line.',
+      'Weight home-packed lunches at 3 and paid takeout spots at 1 to stick to your monthly food budget while still enjoying occasional treats.'
     ],
     uniqueContentBlocks: [
       {
@@ -1348,6 +1540,10 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
       {
         question: 'How is the Lunch Wheel different from the Dinner Wheel?',
         answer: 'The Lunch Wheel is curated specifically for fast 10-to-15-minute midday meals, wraps, salads, and quick office takeout breaks, whereas the Dinner Wheel (/dinner-wheel) focuses on evening family recipes.'
+      },
+      {
+        question: 'Can I weight healthy salads higher than fast food?',
+        answer: 'Yes! Set the weight of your homemade salads or wraps to 3 and fast-food takeout to 1 so you eat healthy 75% of the time.'
       }
     ],
     relatedTools: [
@@ -1419,9 +1615,19 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Friday Pizza Party',
-        benefit: 'Creates unique pizza topping combos that friends wouldn\'t have thought of.',
-        description: 'Creates unique pizza topping combos that friends wouldn\'t have thought of.'
+        title: 'Half-and-Half Pie Compromises',
+        benefit: 'Settles group topping disagreements in two quick spins.',
+        description: 'Spin once to lock in the left half of the pizza, enable Elimination mode, and spin a second time for the right half.'
+      },
+      {
+        title: 'Homemade Friday Pizza Dough Bar',
+        benefit: 'Creates unexpected artisan combinations from kitchen prep bowls.',
+        description: 'Load your counter ingredients (Pepperoni, Caramelized Onion, Hot Honey, Goat Cheese, Arugula, Mushrooms) and spin 3 toppings per personal pie.'
+      },
+      {
+        title: 'Regional Pizza Style & Crust Roulette',
+        benefit: 'Breaks the habit of ordering from the same chain every Friday.',
+        description: 'Spin between Neapolitan Wood-Fired, New York Thin Slice, Detroit Crispy Pan, Sicilian Square, and Chicago Tavern Cut.'
       }
     ],
     customizationOptions: [
@@ -1432,10 +1638,12 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     resultExplanation: 'All pizza options have equal probability determined by client-side Web Crypto entropy.',
     uniqueExamples: [
-      'Adventurous Toppings: Hot Honey & Soppressata, Fig & Prosciutto, Pineapple & Jalapeño'
+      'Adventurous Toppings: Hot Honey & Soppressata, Fig & Prosciutto, Pineapple & Jalapeño, Ricotta & Roasted Garlic',
+      'Regional Crust Styles: NY Foldable Thin, Detroit Brick-Cheese Pan, Neapolitan Blistered Crust, Roman Al Taglio'
     ],
     tips: [
-      'Spin once for each half of the pizza to satisfy two different cravings!'
+      'Spin once for each half of the pizza to satisfy two different cravings without ordering two separate pies!',
+      'When making homemade pizzas, spin once for the sauce base (San Marzano Red, Garlic Olive Oil, Pesto, BBQ) and twice for toppings.'
     ],
     uniqueContentBlocks: [
       {
@@ -1460,6 +1668,10 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
       {
         question: 'How do we pick two different toppings without duplicates?',
         answer: 'Turn on Elimination (No-Repeat) mode before spinning so your first topping is removed from the wheel before you spin for your second topping.'
+      },
+      {
+        question: 'Can we spin for local pizzerias instead of toppings?',
+        answer: 'Absolutely. Replace the default topping slices with your neighborhood pizza shops to pick where to order from tonight.'
       }
     ],
     relatedTools: [
@@ -1533,9 +1745,19 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Oral Reading Turns',
+        title: 'Oral Reading & Paragraph Turns',
         benefit: 'Picks the next paragraph reader without student debates.',
-        description: 'Picks the next paragraph reader without student debates.'
+        description: 'Project the roster wheel during novel studies or history readings and remove each student as they read aloud.'
+      },
+      {
+        title: 'Equitable Socratic Seminar & Review Checks',
+        benefit: 'Prevents the same 4 vocal hands from dominating 80% of class time.',
+        description: 'Spin for formative assessment checks after mini-lessons so every learner stays actively engaged.'
+      },
+      {
+        title: 'Classroom Job & Line Leader Rotation',
+        benefit: 'Assigns coveted daily roles with zero accusations of teacher favoritism.',
+        description: 'Draw the daily Line Leader, Tech Helper, Paper Distributor, and Timekeeper in four quick morning spins.'
       }
     ],
     customizationOptions: [
@@ -1546,10 +1768,12 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     resultExplanation: 'All students have mathematically equal odds computed via local browser entropy.',
     uniqueExamples: [
-      'Reading Groups: Student 1, Student 2, Student 3, Student 4'
+      'Period 1 Roster (First Name + Initial): Aiden M., Brianna K., Caleb T., Danielle R., Ethan S., Fatima H.',
+      'Seat Number Mode (Privacy-First): Desk #1, Desk #2, Desk #3, Desk #4, Table Group A, Table Group B'
     ],
     tips: [
-      'Encourage peer support: let the chosen student ask a friend for a hint if they get stuck!'
+      'Encourage peer support: give students a "Phone a Friend" or "Ask Your Table Partner" option if they get stuck when selected!',
+      'Read the question to the entire class BEFORE spinning the student wheel—this ensures all 25 brains formulate an answer during the 4-second spin.'
     ],
     uniqueContentBlocks: [
       {
@@ -1574,6 +1798,10 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
       {
         question: 'How is this different from the main Classroom Wheel?',
         answer: 'This page is pre-configured specifically for single-student cold-calling and no-repeat attendance checks, whereas the main Classroom Wheel (/classroom-wheel) includes multi-tab presets for classroom jobs, brain breaks, and reward spinners.'
+      },
+      {
+        question: 'How do I temporarily skip an absent student without deleting them from my roster?',
+        answer: 'Click the Remove/Hide toggle on the absent student\'s slice at the start of class, and click Reset Wheel tomorrow to restore the full class list.'
       }
     ],
     relatedTools: [

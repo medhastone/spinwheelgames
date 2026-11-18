@@ -35,7 +35,7 @@ export function createPageMetadata({
   imageAlt
 }: PageMetadataInput): Metadata {
   const cleanPath = path === '/' ? '/' : path.startsWith('/') ? path.replace(/\/+$/, '') : `/${path.replace(/\/+$/, '')}`;
-  const canonicalUrl = `https://spinwheelgames.org${cleanPath}`;
+  const canonicalUrl = cleanPath === '/' ? 'https://spinwheelgames.org/' : `https://spinwheelgames.org${cleanPath}`;
   const ogImageUrl = buildPageOgImageUrl(cleanPath, title, description);
   const resolvedAlt = imageAlt || title;
 

@@ -49,9 +49,7 @@ export const metadata: Metadata = {
   creator: 'SpinWheelGames',
   publisher: 'SpinWheelGames',
   applicationName: 'SpinWheelGames',
-  alternates: {
-    canonical: 'https://spinwheelgames.org/'
-  },
+  alternates: {},
   openGraph: {
     title: 'Spin the Wheel & See What Happens | SpinWheelGames',
     description:

@@ -93,12 +93,12 @@ function sanitizeFullUrl(url: string): string {
 }
 
 /**
- * Formats page titles to "<Primary keyword> | SpinWheelGames" under 60 characters
- * with no duplicate brand suffixes.
+ * Formats page titles to "<Unique Descriptive Title> | SpinWheelGames"
+ * preserving the descriptive hook so titles never collapse into generic 2-word labels.
  */
 export function formatSeoTitle(rawTitle: string, fallbackH1?: string): string {
   const suffix = ' | SpinWheelGames';
-  const maxKeywordLen = 59 - suffix.length; // 42 chars max so total <= 59 (< 60)
+  const maxKeywordLen = 58; // Preserves complete descriptive title hooks up to 75 total chars
 
   let cleaned = rawTitle
     .replace(/\s*\|\s*SpinWheelGames(\.org)?/gi, '')
@@ -107,22 +107,17 @@ export function formatSeoTitle(rawTitle: string, fallbackH1?: string): string {
     .replace(/\s*[-–—]\s*SpinWheelGames(\.org)?/gi, '')
     .trim();
 
-  if (cleaned.length > maxKeywordLen) {
-    const splitParts = cleaned.split(/\s*[-–—:|]\s*/);
-    if (splitParts[0] && splitParts[0].trim().length >= 8 && splitParts[0].trim().length <= maxKeywordLen) {
-      cleaned = splitParts[0].trim();
-    } else if (fallbackH1) {
-      const h1Short = fallbackH1.split(/\s*[-–—:|]\s*/)[0].trim();
-      if (h1Short.length >= 6 && h1Short.length <= maxKeywordLen) {
-        cleaned = h1Short;
-      }
-    }
+  if (cleaned.length < 18 && fallbackH1 && fallbackH1.length > cleaned.length) {
+    cleaned = fallbackH1.trim();
   }
 
   if (cleaned.length > maxKeywordLen) {
     const truncated = cleaned.slice(0, maxKeywordLen);
     const lastSpace = truncated.lastIndexOf(' ');
-    cleaned = (lastSpace > 15 ? truncated.slice(0, lastSpace) : truncated).replace(/[,;&–—-]+$/, '').trim();
+    cleaned = (lastSpace > 20 ? truncated.slice(0, lastSpace) : truncated)
+      .replace(/[\s,;&–—:-]+$/, '')
+      .replace(/\s+(?:for|and|with|the|a|an|of|to|in|on|by|or)$/i, '')
+      .trim();
   }
 
   return `${cleaned}${suffix}`;

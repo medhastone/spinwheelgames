@@ -333,6 +333,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#12131a] text-[#1a1b22] dark:text-[#f1effa] transition-colors">
+      <link rel="canonical" href="https://spinwheelgames.org/" />
       {/* Fixed Header */}
       <Navbar
         soundEnabled={soundSettings.enabled}

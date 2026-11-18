@@ -20,9 +20,7 @@ export const metadata: Metadata = {
       follow: false
     }
   },
-  alternates: {
-    canonical: 'https://spinwheelgames.org/stream-wheel'
-  },
+  alternates: {},
   openGraph: {
     title,
     description,

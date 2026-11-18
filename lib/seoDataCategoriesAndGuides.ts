@@ -233,9 +233,19 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Classroom Turn Taking',
+        title: 'Classroom Cold-Calling & Turn Taking',
         benefit: 'Picks reading, whiteboard, and question turns fairly.',
-        description: 'Picks reading, whiteboard, and question turns fairly.'
+        description: 'Project a class roster on the smartboard with No-Repeat Elimination enabled so every student contributes once before the list resets.'
+      },
+      {
+        title: 'Daily Standup & Retrospective Speaker Order',
+        benefit: 'Replaces predictable round-robin updates in remote meetings.',
+        description: 'Spin engineering, product, and design teammates on Zoom or Teams to keep daily standups crisp and attentive.'
+      },
+      {
+        title: 'Secret Santa & Gift Exchange Matching',
+        benefit: 'Draws gift recipients without awkward paper slips.',
+        description: 'Spin through family members or coworkers with Elimination Mode active to assign holiday gift recipients transparently.'
       }
     ],
     customizationOptions: [
@@ -246,24 +256,34 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     resultExplanation: 'All names have mathematically identical odds determined by browser Web Crypto cryptographic randomness.',
     uniqueExamples: [
-      'Roster: Aiden, Chloe, Daniel, Grace, Henry, Maya, Owen, Zoe'
+      'Classroom Roster: Aiden, Chloe, Daniel, Grace, Henry, Maya, Owen, Zoe',
+      'Standup Team: Priya (Backend), Marcus (Frontend), Elena (Design), Liam (QA), Sofia (PM)'
     ],
     tips: [
-      'Use Elimination Mode so you never call on the same person twice in one session.'
+      'Use Elimination Mode so you never call on the same person twice in one session.',
+      'Enable Text-to-Speech (TTS) audio when projecting in a large room so the winning name is announced automatically.'
     ],
     uniqueContentBlocks: [
       {
         heading: 'Why Fairness Matters When Selecting People',
         body: [
-          'Human memory is naturally subjective. When a teacher or manager tries to call on people "randomly" from memory, they tend to favor people in their direct eye line or individuals who spoke recently.',
-          'Using a cryptographic name spinner removes all unconscious bias, giving every participant equal dignity and opportunity.'
+          'Human memory is naturally subjective. When a teacher, facilitator, or event host tries to call on people "randomly" from memory, cognitive availability bias causes them to favor individuals in their direct line of sight or people who spoke recently.',
+          'Using a cryptographic name spinner removes all unconscious bias, giving every participant equal dignity and mathematical probability. All rosters entered on SpinWheelGames stay 100% private in your local browser storage.'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Are my rosters private?',
-        answer: 'Yes. All data remains in your local browser storage. No names are sent to any remote server.'
+        question: 'Are my rosters and student names private?',
+        answer: 'Yes. All data remains in your local browser storage. No names are ever transmitted to any remote server.'
+      },
+      {
+        question: 'How do I prevent the same person from being picked twice?',
+        answer: 'Turn on Elimination (No-Repeat) mode before spinning, or click "Remove Winner" after each draw.'
+      },
+      {
+        question: 'Can I paste a list of 100+ names from Excel or Google Sheets?',
+        answer: 'Yes! Copy any column of names from your spreadsheet and paste it directly into the bulk entry box.'
       }
     ],
     relatedTools: [
@@ -336,9 +356,19 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Equity in Class Participation',
+        title: 'Equity in Class Participation & Cold-Calling',
         benefit: 'Provides balanced speaking time for quiet and outspoken students alike.',
-        description: 'Provides balanced speaking time for quiet and outspoken students alike.'
+        description: 'Use No-Repeat Elimination so all 25–30 students on your roster get an opportunity to answer before the wheel resets.'
+      },
+      {
+        title: 'Weekly Classroom Job & Helper Rotation',
+        benefit: 'Assigns coveted student responsibilities without favoritism.',
+        description: 'Spin on Monday morning to assign Line Leader, Tech Assistant, Paper Passer, Messenger, and Library Organizer.'
+      },
+      {
+        title: 'Brain Breaks & Reward Milestones',
+        benefit: 'Re-energizes distracted classes between heavy instructional blocks.',
+        description: 'Let students spin a reward wheel for 5-Minute Dance Party, Silent Drawing, Trivia Blitz, or Homework Pass.'
       }
     ],
     customizationOptions: [
@@ -349,10 +379,12 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     resultExplanation: 'All students receive equal chances generated by local browser cryptography.',
     uniqueExamples: [
-      'Classroom Routines: Attendance Check, Paper Helper, Line Leader, Tech Assistant, Library Organizer'
+      'Classroom Routines: Attendance Check, Paper Helper, Line Leader, Tech Assistant, Library Organizer',
+      'Brain Break Spin: 60-Second Stretch, Desk Drum Roll, Silent Ball, Two Truths & A Lie, Riddle of the Day'
     ],
     tips: [
-      'Give students "Phone a Friend" lifeline tokens to ease performance anxiety when cold-called.'
+      'Give students "Phone a Friend" lifeline tokens to ease performance anxiety when cold-called.',
+      'Always state the review question to the whole class BEFORE spinning the student wheel so every learner formulates an answer while the wheel turns.'
     ],
     uniqueContentBlocks: [
       {
@@ -367,6 +399,14 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       {
         question: 'Is this tool free for teachers and schools?',
         answer: 'Yes, 100% free with no account creation, no student data collection, and no paywalls.'
+      },
+      {
+        question: 'Is student roster data FERPA and COPPA friendly?',
+        answer: 'Yes. Names typed into any classroom wheel are saved exclusively in your local browser storage and never uploaded to external servers.'
+      },
+      {
+        question: 'Can I save separate wheels for different class periods?',
+        answer: 'Yes! Save custom presets in your browser for Period 1, Period 2, Homeroom, or small reading groups.'
       }
     ],
     relatedTools: [
@@ -437,9 +477,19 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Game Night Icebreakers',
+        title: 'Game Night Icebreakers & Warmups',
         benefit: 'Warms up guests before settling into long strategy board games.',
-        description: 'Warms up guests before settling into long strategy board games.'
+        description: 'Run 10 minutes of rapid-fire party prompts so guests from different friend circles mingle effortlessly.'
+      },
+      {
+        title: 'Two-Stage Truth, Dare & Penalty Roulette',
+        benefit: 'Keeps house parties and sleepovers spontaneous.',
+        description: 'Spin first to select the player, then spin the challenge wheel for a hilarious 60-second dare or storytelling truth.'
+      },
+      {
+        title: 'Karaoke Genre & Party Song Battles',
+        benefit: 'Ends microphone shyness with campy musical themes.',
+        description: 'Spin a decade or genre (90s Boy Bands, Disney Classics, 80s Rock Anthems, One-Hit Wonders) for each duet.'
       }
     ],
     customizationOptions: [
@@ -450,24 +500,34 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     resultExplanation: 'All party prompts are selected through pure random distribution.',
     uniqueExamples: [
-      'Dares: Imitate a celebrity, Swap seats, Speak in an accent, Tell your funniest vacation story'
+      'Dares: Imitate a celebrity, Swap seats, Speak in an accent, Tell your funniest vacation story',
+      'Karaoke Roulette: 2000s Pop Throwback, Broadway Showtune, 80s Synth Hit, Country Singalong'
     ],
     tips: [
-      'Keep dares fun and lighthearted so everyone feels comfortable participating!'
+      'Keep dares fun and lighthearted so everyone feels comfortable participating!',
+      'Add one "Host Wildcard" or "Pick Your Partner" slice so solo challenges can turn into hilarious group duets.'
     ],
     uniqueContentBlocks: [
       {
         heading: 'Creating High-Energy Party Momentum Without Awkward Lulls',
         body: [
           'The best house parties, sleepovers, and virtual team socials rely on momentum. Placing a smartphone or tablet in the center of the room with an interactive party spinner removes the pressure of inventing questions on the spot and gives everyone a shared focal point.',
-          'From two-stage Truth or Dare (/truth-or-dare-wheel) and karaoke song roulette (/song-wheel) to trivia categories (/random-category-generator) and daily challenge dares (/challenges), every tool in the Party Hub supports No-Repeat Elimination mode so prompts never go stale.'
+          'From two-stage Truth or Dare (/truth-or-dare-wheel) and Never Have I Ever (/never-have-i-ever-wheel) to karaoke song roulette (/song-wheel) and trivia categories (/random-category-generator), every tool in the Party Hub supports No-Repeat Elimination mode so prompts never go stale.'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Can I play this on a smartphone?',
-        answer: 'Yes! Fully touch-optimized for passing around a living room or casting to a smart TV.'
+        question: 'Can I play these party wheels on a smartphone or cast to a TV?',
+        answer: 'Yes! Every wheel is touch-optimized for passing around a living room or screen-mirroring via AirPlay and Chromecast.'
+      },
+      {
+        question: 'Can we customize the wheel with our own inside jokes?',
+        answer: 'Absolutely. Edit or replace any slice in seconds to tailor dares and trivia prompts to your specific group.'
+      },
+      {
+        question: 'Are the default party prompts family-friendly?',
+        answer: 'Yes. All default party and icebreaker presets are clean, inclusive, and safe for mixed-age family gatherings.'
       }
     ],
     relatedTools: [
@@ -538,9 +598,19 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Friday Night Takeout',
+        title: 'Friday Night Takeout & Restaurant Roulette',
         benefit: 'Quickly picks the dinner destination when everyone is too tired to decide.',
-        description: 'Quickly picks the dinner destination when everyone is too tired to decide.'
+        description: 'Load your 6 favorite local restaurants or delivery cuisines and let one spin settle the evening order.'
+      },
+      {
+        title: 'Weeknight Pantry & Home-Cooking Planner',
+        benefit: 'Reduces food waste and delivery app overspending.',
+        description: 'Spin through 20-minute home meals (Tacos, Stir-Fry, Sheet-Pan Chicken, Pasta Marinara, Grain Bowls) based on what is already in your fridge.'
+      },
+      {
+        title: 'Workday Lunch & Pizza Topping Combos',
+        benefit: 'Solves 12 PM desk lunch ruts and half-and-half pizza debates.',
+        description: 'Use dedicated sub-wheels for quick midday wraps/salads or two-spin pizza crust and topping combinations.'
       }
     ],
     customizationOptions: [
@@ -551,10 +621,12 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     resultExplanation: 'All food choices have mathematically equal odds computed via local browser entropy.',
     uniqueExamples: [
-      'Cuisines: Italian, Mexican, Thai, Japanese, Mediterranean, Indian, Burgers, BBQ'
+      'Cuisines: Italian, Mexican, Thai, Japanese, Mediterranean, Indian, Burgers, BBQ',
+      'Weeknight Cook-at-Home: Crispy Black Bean Tacos, Pesto Pasta, Veggie Fried Rice, Grilled Cheese & Tomato Soup'
     ],
     tips: [
-      'Agree before spinning that everyone will honor the wheel\'s verdict—no second spins allowed!'
+      'Agree before spinning that everyone will honor the wheel\'s verdict—no second spins allowed!',
+      'Give each person one "Pre-Spin Veto" to delete the single food they truly do not want tonight before hitting Spin.'
     ],
     uniqueContentBlocks: [
       {
@@ -569,6 +641,14 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       {
         question: 'Can I add my local neighborhood restaurants?',
         answer: 'Yes! Customize any food wheel with your exact local spots and save them in your browser.'
+      },
+      {
+        question: 'How do we balance healthy cooking with weekend takeout?',
+        answer: 'Add both home-cooked recipes and takeout spots to the wheel, and set the weight of home-cooked meals to 3 and takeout to 1.'
+      },
+      {
+        question: 'Can I filter for vegetarian, vegan, or gluten-free meals?',
+        answer: 'Yes. The main Food Wheel (/food-wheel) includes dietary presets, and every wheel lets you customize slices to match your household’s allergies or macro goals.'
       }
     ],
     relatedTools: [
@@ -641,9 +721,19 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Pickup Game Scrimmages',
+        title: 'Pickup Game & Gym Class Scrimmages',
         benefit: 'Creates evenly sized teams in seconds for basketball, soccer, or flag football.',
-        description: 'Creates evenly sized teams in seconds for basketball, soccer, or flag football.'
+        description: 'Divide 10 to 30 players into balanced squads without the social awkwardness of captains picking someone last.'
+      },
+      {
+        title: 'Fantasy Football & Basketball Draft Order Lotteries',
+        benefit: 'Turns draft order selection into a dramatic live-streamed event.',
+        description: 'Load league managers onto the wheel and draw in reverse order from #12 down to the #1 overall pick.'
+      },
+      {
+        title: 'Esports & Tournament Bracket Seeding',
+        benefit: 'Generates impartial first-round matchups and map picks.',
+        description: 'Pair competitors two by two with Elimination Mode enabled for FIFA/EA FC, Smash Bros, or Pickleball brackets.'
       }
     ],
     customizationOptions: [
@@ -654,10 +744,12 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     resultExplanation: 'Balanced permutations generated through Fisher-Yates algorithmic shuffles backed by hardware CSPRNG entropy.',
     uniqueExamples: [
-      'Squads: Team Alpha, Team Bravo, Team Charlie, Team Delta'
+      'Squads: Team Alpha, Team Bravo, Team Charlie, Team Delta',
+      'Weighted Draft Lottery: 12th Place (Weight 6), 11th Place (Weight 4), 10th Place (Weight 2), 9th Place (Weight 1)'
     ],
     tips: [
-      'Assign skilled captains as team anchors first, then randomize the remaining players for competitive balance.'
+      'Assign skilled captains as team anchors first, then randomize the remaining players for competitive balance.',
+      'For weighted NBA-style draft lotteries, adjust slice weights in the Team Picker so bottom-seeded teams receive proportionally higher odds.'
     ],
     uniqueContentBlocks: [
       {
@@ -670,8 +762,16 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     faqs: [
       {
-        question: 'Can I copy the teams to clipboard?',
-        answer: 'Yes! Use the Random Team Generator to copy formatted rosters in one click.'
+        question: 'Can I copy the generated teams to my clipboard?',
+        answer: 'Yes! Use the Random Team Generator (/team-generator) to copy formatted team rosters to Slack, Discord, or group text in one click.'
+      },
+      {
+        question: 'Should I use the Team Picker Wheel or the bulk Team Generator?',
+        answer: 'Use the Team Picker Wheel (/team-picker) when you want dramatic one-by-one spin suspense for draft orders or club assignments; use the bulk Team Generator (/team-generator) to split 20+ players into balanced rosters simultaneously.'
+      },
+      {
+        question: 'Can I run a weighted draft lottery where last place gets better odds?',
+        answer: 'Yes. On the Team Picker Wheel, assign higher numerical weights to lower-seeded managers so their slices occupy a larger percentage of the wheel.'
       }
     ],
     relatedTools: [
@@ -741,9 +841,19 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Starting Player Selection',
+        title: 'Starting Player & Turn-Order Selection',
         benefit: 'Picks who goes first in strategy games fairly.',
-        description: 'Picks who goes first in strategy games fairly.'
+        description: 'Replace arbitrary "youngest player goes first" rules with an unbiased spin of everyone around the table.'
+      },
+      {
+        title: 'Board Game Shelf Backlog Chooser',
+        benefit: 'Ends 20-minute debates over which box to pull off the Kallax shelf.',
+        description: 'Have each player nominate two games from your collection and let the wheel pick tonight’s feature tabletop game.'
+      },
+      {
+        title: 'Emergency Digital Dice & Custom Modifier Wheel',
+        benefit: 'Replaces missing polyhedral dice and event decks.',
+        description: 'Use our 3D RPG Dice Collection (/dice-collection) or custom modifier wheels for D&D, Catan, and house-rule penalties.'
       }
     ],
     customizationOptions: [
@@ -754,23 +864,34 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     resultExplanation: 'All game options have mathematically equal probability.',
     uniqueExamples: [
-      'Games: Terraforming Mars, Scythe, 7 Wonders, Splendor, Carcassonne, Clank!'
+      'Strategy Shelf: Terraforming Mars, Scythe, 7 Wonders, Splendor, Carcassonne, Clank!',
+      'Gateway & Party Games: Catan, Ticket to Ride, Wingspan, Codenames, Azul, Cascadia'
     ],
     tips: [
-      'Spin for first player, then proceed clockwise around the table for quick setup.'
+      'Spin for first player, then proceed clockwise around the table for quick setup.',
+      'Separate your shelf presets by play time ("Under 45 Mins Filler Games" vs. "2-Hour Heavy Strategy") so you always spin age- and time-appropriate titles.'
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Starting Games on Time',
+        heading: 'Starting Board Game Night on Time & Replacing Missing Dice',
         body: [
-          'Board gamers often spend more time debating what to play than actually playing. A quick spin gets the cardboard on the table and the dice rolling.'
+          'Board gamers often spend more time debating what to play than actually playing. By letting every guest nominate one or two boxes onto the Game Night Shelf Chooser, you get cardboard on the table in thirty seconds flat with zero hard feelings.',
+          'Need polyhedral dice for Dungeons & Dragons, Pathfinder, or tabletop wargames? Our Games & Dice ecosystem includes dedicated 3D rollers for D4, D6, D8, D10, D12, D20, 4d6 Drop Lowest stat generation (/roll-4d6), and 2d12 duality rolls (/roll-2d12).'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Can I replace tabletop dice with this?',
-        answer: 'Yes! Use the Number Wheel for 6-sided, 10-sided, or 20-sided rolls.'
+        question: 'Can I replace tabletop RPG dice with these tools?',
+        answer: 'Yes! Use the Number Wheel (/number-wheel) or our dedicated 3D Dice Collection (/dice-collection) for D4, D6, D8, D10, D12, D20, and D100 rolls.'
+      },
+      {
+        question: 'How do we pick a complete turn order for 5 players?',
+        answer: 'Put all 5 player names on the wheel, enable Elimination Mode, and spin 5 times to establish 1st through 5th seat order.'
+      },
+      {
+        question: 'Can I save my personal board game collection in the wheel?',
+        answer: 'Yes. Paste your BoardGameGeek or shelf list into the editor and save it as a browser preset for future game nights.'
       }
     ],
     relatedTools: [
@@ -838,9 +959,19 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Video Game Backlogs',
-        benefit: 'Picks which unplayed Steam or console game to start next.',
-        description: 'Picks which unplayed Steam or console game to start next.'
+        title: 'Friday Movie Night & Streaming Watchlists',
+        benefit: 'Ends 40-minute Netflix and Max browsing stalemates.',
+        description: 'Have each person nominate 2 films onto the wheel or spin by genre using the dedicated Movie Wheel (/movie-wheel).'
+      },
+      {
+        title: 'Steam & Console Video Game Backlog Crusher',
+        benefit: 'Picks which unplayed RPG or indie game to start next.',
+        description: 'Paste 8 unplayed games from your Steam, PlayStation, or Switch library and commit to playing the winner for 2 hours.'
+      },
+      {
+        title: 'Book Club & TBR Pile Selector',
+        benefit: 'Selects next month’s group read with zero lobbying.',
+        description: 'Load nominated novels from Goodreads or StoryGraph and spin live during your monthly book club meeting.'
       }
     ],
     customizationOptions: [
@@ -851,23 +982,34 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     resultExplanation: 'All media titles have equal probability.',
     uniqueExamples: [
-      'Movie Night: The Matrix, Inception, Interstellar, Arrival, Blade Runner 2049'
+      'Movie Night: The Matrix, Inception, Interstellar, Arrival, Blade Runner 2049',
+      'Gaming Backlog: Baldur\'s Gate 3, Hades II, Elden Ring, Hollow Knight, Cyberpunk 2077, Stardew Valley'
     ],
     tips: [
-      'Make a rule: each person adds 2 movies to the wheel, and everyone commits to whatever lands.'
+      'Make a rule: each person adds 2 movies to the wheel, and everyone commits to whatever lands.',
+      'Include the runtime or platform in parentheses (e.g., "Arrival [Max - 116m]") so you know immediately where to stream the winner.'
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Beating the Streaming Paralysis Trap',
+        heading: 'Beating the Streaming & Backlog Paralysis Trap',
         body: [
-          'Streaming algorithms are designed to keep you browsing. Taking control with a simple, decisive wheel lets you actually enjoy movies instead of endlessly watching preview trailers.'
+          'Streaming algorithms and digital game storefronts are engineered to keep you browsing infinite carousels rather than committing to a single title. Narrowing your choices down to a 6-to-10 slice shortlist on an entertainment wheel restores the excitement of movie night and clears years-old gaming and reading backlogs.',
+          'Explore our flagship Movie Wheel (/movie-wheel) for genre-first filters, our Song & Karaoke Wheel (/song-wheel) for music nights, or our Anime & Gaming pickers below.'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Can I add specific movie titles?',
-        answer: 'Yes! Type any movie, TV show, or video game title into the entry box.'
+        question: 'Can I add specific movie, anime, or video game titles?',
+        answer: 'Yes! Type or paste any list of movies, TV shows, anime series, books, or video games into the entry box.'
+      },
+      {
+        question: 'What if we don\'t know what specific movie we want to watch?',
+        answer: 'Start by spinning genres (Sci-Fi, Thriller, Rom-Com, Horror, Animation, Documentary) on the Movie Wheel (/movie-wheel) to narrow down the mood first.'
+      },
+      {
+        question: 'Can we remove each movie after we watch it?',
+        answer: 'Yes. Enable Elimination Mode or click "Remove Winner" so your watchlist wheel automatically tracks what your group has already watched.'
       }
     ],
     relatedTools: [
@@ -939,9 +1081,19 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Math Fact Fluency',
-        benefit: 'Practices multiplication and addition with randomized factors.',
-        description: 'Practices multiplication and addition with randomized factors.'
+        title: 'Classroom Math Fact Fluency & Number Sense',
+        benefit: 'Practices multiplication, addition, and place value with randomized factors.',
+        description: 'Spin two numbers in a row on a smartboard for mental math warmups, prime/composite identification, or probability tally experiments.'
+      },
+      {
+        title: 'Tabletop RPG Polyhedral Dice & Stat Rolling',
+        benefit: 'Replaces D4, D6, D8, D10, D12, D20, and D100 dice with zero physical bias.',
+        description: 'Roll ability scores with 4d6 Drop Lowest (/roll-4d6), Daggerheart 2d12 Hope & Fear (/roll-2d12), or percentile loot tables (/1-100-wheel).'
+      },
+      {
+        title: 'Raffle Ticket & Bingo Number Calling',
+        benefit: 'Draws non-repeating integers across custom ranges.',
+        description: 'Use the 1–50 (/1-50-wheel) or 1–100 (/1-100-wheel) spinners with Elimination Mode enabled so no bingo or raffle number is called twice.'
       }
     ],
     customizationOptions: [
@@ -952,10 +1104,12 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     resultExplanation: 'Every integer has identical mathematical odds backed by cryptographic entropy.',
     uniqueExamples: [
-      'Dice Equivalents: D4, D6, D8, D10, D12, D20, D100'
+      'Dice Equivalents: D4 (1-4), D6 (1-6), D8 (1-8), D10 (1-10), D12 (1-12), D20 (1-20), D100 (1-100)',
+      'Alphabet & Alphanumeric: A-Z Letter Wheel (26 slices), Vowels Only (A, E, I, O, U)'
     ],
     tips: [
-      'Spin twice in a row for two-digit bingo numbers or math problem generation!'
+      'Spin twice in a row for two-digit bingo numbers or multiplication problem generation!',
+      'Enable Elimination Mode when calling bingo or raffle ticket numbers so drawn integers are automatically removed.'
     ],
     uniqueContentBlocks: [
       {
@@ -968,8 +1122,16 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     faqs: [
       {
-        question: 'Are large number wheels readable?',
-        answer: 'Yes! The canvas automatically optimizes text size and slice lines even on wheels with 50 to 100 numbers.'
+        question: 'Are large number wheels (like 1 to 100) readable on screen?',
+        answer: 'Yes! The HTML5 canvas automatically scales font sizes and radial division lines so even 50- and 100-number wheels remain crisp and legible.'
+      },
+      {
+        question: 'Can I generate numbers without repeating any previous winners?',
+        answer: 'Yes. Turn on Elimination (No-Repeat) mode before spinning so every drawn integer is removed from the pool.'
+      },
+      {
+        question: 'What is the difference between the Number Wheel and the 3D Dice rollers?',
+        answer: 'The Number Wheel (/number-wheel) lets you spin any custom integer range (such as 1–28 or 100–250) on a radial wheel, whereas our 3D Dice rollers (/dice-collection) simulate physical polyhedral RPG dice with modifier math and drop-lowest rules.'
       }
     ],
     relatedTools: [
@@ -1049,9 +1211,19 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     useCases: [
       {
-        title: 'Social Media Giveaways',
-        benefit: 'Selects winners from Instagram comments, Discord members, or survey submissions.',
-        description: 'Selects winners from Instagram comments, Discord members, or survey submissions.'
+        title: 'Social Media & Livestream Giveaways',
+        benefit: 'Selects winners from Instagram comments, Discord members, or Twitch chat.',
+        description: 'Paste qualified usernames into the wheel during a livestream and spin with full confetti and sound effects.'
+      },
+      {
+        title: 'Weighted Multi-Ticket Charity Raffles',
+        benefit: 'Reflects exact ticket quantities without duplicating names.',
+        description: 'Assign weight: 5 to supporters who purchased 5 raffle tickets so their slice area and odds scale proportionally.'
+      },
+      {
+        title: 'Multi-Tier Corporate & Event Door Prizes',
+        benefit: 'Draws 3rd, 2nd, and 1st place prizes without duplicate winners.',
+        description: 'Enable Elimination Mode so each prize winner is automatically removed before spinning for the Grand Prize.'
       }
     ],
     customizationOptions: [
@@ -1062,23 +1234,34 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
     ],
     resultExplanation: 'All selections use window.crypto.getRandomValues, producing cryptographically unbiasable seeds.',
     uniqueExamples: [
-      'Prize Tiers: Grand Prize Winner, 2nd Place $50 Card, 3rd Place Swag Bag'
+      'Prize Tiers: Grand Prize Winner, 2nd Place $50 Card, 3rd Place Swag Bag',
+      'Weighted Ticket Pool: @alex_stream (10 Tickets), @samira_dev (5 Tickets), @jordan_playz (1 Ticket)'
     ],
     tips: [
-      'Always screen record the spin and the audit log together so you have permanent video proof.'
+      'Always screen record the spin and the audit log together so you have permanent video proof.',
+      'Draw runner-up prizes first and save the Grand Prize spin for last to keep livestream viewers watching until the end.'
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Why Transparent Winner Selection Matters',
+        heading: 'Why Transparent Winner Selection Builds Community Trust',
         body: [
-          'Contest entrants are naturally skeptical of black-box random pickers. Showing the wheel decelerate physically—backed by a verifiable cryptographic audit seed—protects your brand reputation.'
+          'Contest entrants are naturally skeptical of black-box random pickers. Showing the wheel decelerate physically—backed by a verifiable cryptographic audit seed from the Web Crypto API—protects your brand reputation and proves that every follower had a fair shot.',
+          'Whether you are drawing a single winner on the Giveaway Wheel (/giveaway-wheel), running a ticket-number draw on the Raffle Generator (/raffle-generator), or spinning a prize-tier wheel at a trade show booth (/prize-wheel), our tools require zero login and log every spin timestamp automatically.'
         ]
       }
     ],
     faqs: [
       {
         question: 'Can I remove the 1st place winner and spin again for 2nd place?',
-        answer: 'Yes! Click "Remove Winner" on the celebration modal and spin again immediately.'
+        answer: 'Yes! Click "Remove Winner" on the celebration modal or toggle on Elimination Mode before spinning.'
+      },
+      {
+        question: 'How do I give someone extra entries if they bought multiple raffle tickets?',
+        answer: 'Increase their numerical Weight in the slice editor (e.g., set Weight to 5 for 5 tickets) to multiply their slice size and mathematical probability.'
+      },
+      {
+        question: 'Is the giveaway RNG truly random?',
+        answer: 'Yes. Every giveaway tool uses window.crypto.getRandomValues() for cryptographic hardware entropy rather than predictable Math.random() counters.'
       }
     ],
     relatedTools: [

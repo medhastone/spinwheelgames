@@ -154,6 +154,7 @@ const nextConfig: NextConfig = {
           return [];
         },
       }),
+  skipTrailingSlashRedirect: true,
   // output: 'standalone',
   transpilePackages: ['motion', 'canvas-confetti'],
   webpack: (config, {dev}) => {

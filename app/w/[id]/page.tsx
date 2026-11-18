@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     });
     return {
       ...base,
+      alternates: {},
       robots: {
         index: false,
         follow: false,
@@ -43,10 +44,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const base = createPageMetadata({
       title,
       description,
-      path: '/wheel-of-names'
+      path: `/w/${shortCode}`
     });
     return {
       ...base,
+      alternates: {},
       robots: {
         index: false,
         follow: false,
@@ -58,11 +60,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const fallback = createPageMetadata({
     title: 'Shared Spin Wheel | SpinWheelGames',
     description: 'Spin interactive custom decision wheels on SpinWheelGames.org.',
-    path: '/wheel-of-names'
+    path: `/w/${shortCode}`
   });
 
   return {
     ...fallback,
+    alternates: {},
     robots: {
       index: false,
       follow: false,

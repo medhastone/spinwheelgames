@@ -509,7 +509,7 @@ export default function AnimalWheelPage() {
               </Link>
 
               <Link
-                href="/student-picker-wheel"
+                href="/classroom-wheel/random-student"
                 className="p-4 rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#1c1d2b] hover:border-[#4648d4] transition-all group"
               >
                 <div className="flex items-center justify-between">

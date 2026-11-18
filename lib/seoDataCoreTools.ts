@@ -496,10 +496,12 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     slug: 'decision-wheel',
     fullPath: '/decision-wheel',
     pageType: 'tool',
-    title: 'Decision Wheel – Free Online Random Decision Maker Spinner',
-    metaDescription: 'Make decisions faster with our free Decision Wheel. Put an end to overthinking, break deadlocks, and settle choices in seconds.',
-    h1: 'Decision Wheel: Fast Online Decision Maker',
-    introduction: 'Paralyzed by too many choices? The Decision Wheel helps you break analysis paralysis and make confident decisions in seconds. Load your dilemmas, spin the wheel, and move forward with clarity.',
+    title: 'Decision Wheel – Everyday Dilemma & Tie-Breaker Spinner',
+    metaDescription:
+      'Break analysis paralysis in 5 seconds with the Decision Wheel. Load competing options, weight priorities, or use the Gut-Check Rule to settle any dilemma.',
+    h1: 'Decision Wheel: Everyday Dilemma Resolver & Tie-Breaker Spinner',
+    introduction:
+      'Why waste 25 minutes comparing two equally good options when the mental friction of hesitating costs more than the choice itself? The Decision Wheel breaks everyday analysis paralysis—from weekend plans and restaurant tie-breakers to project prioritization—by combining impartial Web Crypto randomness with the psychological "Mid-Spin Gut Check."',
     primaryIntent: 'decision',
     secondaryIntents: ['transactional/use tool', 'entertainment'],
     categoryKey: 'decisions',
@@ -507,8 +509,8 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     parentCategoryName: 'Decisions',
     featureBadges: [
       'Instant Deadlock Breaker',
-      'Custom Dilemma Presets',
-      'No-Repeat Elimination',
+      'Weighted Priority Sliders',
+      'No-Repeat Elimination Mode',
       'Audible Click Feedback',
       'Zero Decision Fatigue'
     ],
@@ -517,110 +519,148 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       description: 'Break common daily stalemates',
       paletteKey: 'sunset',
       items: [
-        { id: 'd-1', text: 'Do It Right Now', weight: 1 },
-        { id: 'd-2', text: 'Wait Until Tomorrow', weight: 1 },
-        { id: 'd-3', text: 'Ask a Friend', weight: 1 },
-        { id: 'd-4', text: 'Delegate the Task', weight: 1 },
-        { id: 'd-5', text: 'Rethink the Plan', weight: 1 }
+        { id: 'd-1', text: 'Do It Right Now (25-Min Sprint)', weight: 1 },
+        { id: 'd-2', text: 'Schedule It for Tomorrow 9 AM', weight: 1 },
+        { id: 'd-3', text: 'Ask a Teammate / Partner to Vote', weight: 1 },
+        { id: 'd-4', text: 'Delegate or Automate the Task', weight: 1 },
+        { id: 'd-5', text: 'Simplify to a 10-Minute Version', weight: 1 },
+        { id: 'd-6', text: 'Drop It & Take a Guilt-Free Break', weight: 1 }
       ]
     },
     instructions: [
-      'Enter the alternatives you are torn between.',
-      'Adjust spin speed in settings (quick 2s spin for rapid fire, or 6s for suspense).',
-      'Hit SPIN or tap the Spacebar.',
-      'Commit to the outcome or reflect on your emotional reaction to find your true preference.'
+      'Type only the 2 to 8 candidate choices that have already passed your basic common-sense filter.',
+      'If one option is objectively better or cheaper, give it a 2x weight multiplier in the Entries sidebar.',
+      'Press SPIN (or tap the Spacebar) and watch your immediate emotional reaction as the pointer slows down.',
+      'Either honor the winning slice immediately, or use the "Veto & Eliminate" button once if the spin reveals what you secretly didn’t want.'
     ],
     whoItsUsefulFor: [
       {
-        audience: 'Chronic Overthinkers',
-        benefit: 'Limits the time spent agonizing over low-stakes choices that drain mental energy.'
+        audience: 'Chronic Overthinkers & Perfectionists',
+        benefit: 'Caps the time spent deliberating reversible "Type 2" daily decisions at under 30 seconds.'
       },
       {
-        audience: 'Couples & Families',
-        benefit: 'Stops "I don\'t care, what do you want?" deadlocks over food, TV shows, and outings.'
+        audience: 'Couples, Roommates & Families',
+        benefit: 'Settles "I don’t care, you pick" stalemates over dinner, weekend errands, and streaming shows.'
       },
       {
-        audience: 'Product Teams & Startups',
-        benefit: 'Quickly breaks ties on non-critical feature names, test variables, or lunch destinations.'
+        audience: 'Product Teams & Freelancers',
+        benefit: 'Breaks 50/50 ties on low-stakes naming, backlog ordering, or Friday team lunch spots.'
       }
     ],
     useCases: [
       {
-        title: 'Settling Group Stalemates',
-        benefit: 'Provides an objective, neutral arbiter that everyone agrees to honor beforehand.',
-        description: 'Provides an objective, neutral arbiter that everyone agrees to honor beforehand.'
+        title: '1. Friday Night Couple & Roommate Tie-Breaker',
+        benefit: 'Each person nominates 2 ideas so all 4 slices have guaranteed buy-in before the spin.',
+        description:
+          'Example Slice List: Cook Tacos at Home, Try the New Thai Spot, Order Wood-Fired Pizza, Walk to the Ramen Bar.'
       },
       {
-        title: 'Beating Procrastination',
-        benefit: 'Picks the single task you will focus on for the next 25 minutes without hesitation.',
-        description: 'Picks the single task you will focus on for the next 25 minutes without hesitation.'
+        title: '2. The Saturday Morning "Work vs. Rest" Balancer',
+        benefit: 'Balances household errands with genuine weekend recovery without guilt.',
+        description:
+          'Example Slice List: 30-Min Apartment Reset, Coffee Shop Reading Hour, Grocery Run + Meal Prep, Gym / Outdoor Walk, Guilt-Free Video Game / Movie Block.'
       },
       {
-        title: 'Micro-Habits & Daily Routines',
-        benefit: 'Randomizes your morning routine or evening reading selection for playful variety.',
-        description: 'Randomizes your morning routine or evening reading selection for playful variety.'
+        title: '3. Career & Side-Project Learning Focus Decider',
+        benefit: 'Stops creators and developers from jumping between 5 half-finished tutorials.',
+        description:
+          'Example Slice List: Ship Landing Page Copy, Record 60s Demo Video, Fix 3 Open GitHub Issues, Write Weekly Newsletter, Refactor UI Components.'
+      },
+      {
+        title: '4. Discretionary Purchase "Buy, Wait, or Skip" Arbitrator',
+        benefit: 'Adds a rational speedbump before checking out an impulse shopping cart.',
+        description:
+          'Example Slice List: Wait 48 Hours & Re-Evaluate, Buy Only If You Sell 1 Old Item, Transfer Equal Amount to Savings First, Skip It Entirely, Treat Yourself Guilt-Free!'
       }
     ],
     customizationOptions: [
       {
-        title: 'Countdown Timer',
-        description: 'Enable an optional 3-2-1 countdown before the wheel initiates rotation.'
+        title: 'Weighted Preference Tilting',
+        description: 'Give your responsible option a 2x weight and your fun wildcard a 1x weight for balanced spontaneity.'
       },
       {
-        title: 'Sound Packs',
-        description: 'Choose subtle clicks or upbeat carnival jingles.'
+        title: 'Best-of-3 Tournament Mode',
+        description: 'Spin rapidly with the Spacebar until one option reaches 2 wins in the Spin Log.'
       }
     ],
-    resultExplanation: 'A cryptographic random float is multiplied by total weights to guarantee equal opportunity across all dilemma sectors.',
+    resultExplanation:
+      'A cryptographic 32-bit random integer from window.crypto.getRandomValues() maps across total slice weights to guarantee zero angular bias.',
     uniqueExamples: [
-      'Dinner Dilemmas: Cook Pasta, Order Thai, Heat Leftovers, Breakfast for Dinner, Mexican Takeout',
-      'Next Hobby: Watercolor Painting, Learn Guitar Chord, Read Novel Chapter, Garden Pruning, Code Side Project'
+      '3-Option Double-Slice Layout: When deciding between only 3 options (A, B, C), enter them twice (A, B, C, A, B, C = 6 slices) so the wheel spins with tighter peg intervals and smoother visual rhythm.',
+      'Weekend Activity Shortlist: Farmers Market & Bakery, Museum Exhibition, Scenic Trail Hike, Board Game Café, Backyard BBQ, Home DIY Project.'
     ],
     tips: [
-      'Set ground rules with your group before spinning: agree in advance that everyone honors the wheel\'s choice.',
-      'If you have a 3-way tie, enter each option twice to create a balanced 6-slice wheel for optimal visual physics.',
-      'Use the spacebar for quick one-handed spins during group huddles.'
+      'Apply the Freud Coin-Toss Diagnostic: if the pointer lands on Option B and your stomach sinks, don’t force yourself to do Option B—the wheel just did its job by revealing you truly wanted Option A!',
+      'When choosing between only 2 or 3 items, duplicate each entry twice (4 or 6 total slices) for faster peg ticks and richer visual suspense.',
+      'Agree on a "One Veto Max" rule before spinning with friends so nobody begs for endless best-3-out-of-5 re-spins.',
+      'Use our binary Yes or No Wheel (/yes-or-no-wheel) when your dilemma boils down to a strict 50/50 go/no-go call.'
     ],
     comparisonTable: {
-      headers: ['Criteria', 'Decision Wheel', 'Pros & Cons List', 'Asking Social Media'],
+      headers: ['Criteria', 'Decision Wheel', 'Pros & Cons List', 'Group Chat Poll'],
       rows: [
-        ['Decision Speed', '5 seconds', '15–30 minutes', 'Hours to days'],
-        ['Mental Effort', 'Zero cognitive load', 'High (fatigue inducing)', 'Medium (conflicting advice)'],
-        ['Deadlock Resolution', '100% decisive', 'Often leads to 50/50 ties', 'Creates more confusion']
+        ['Time to Resolution', '5 seconds', '15–30 minutes', '20+ minutes of "idk you pick"'],
+        ['Mental Energy Cost', 'Near zero', 'High (triggers analysis paralysis)', 'Medium (social negotiation)'],
+        ['Reveals Gut Instinct', 'Yes (immediate emotional check)', 'Rarely (rationalizes both sides)', 'No'],
+        ['Deadlock Proof', '100% decisive', 'Often ends in a 50/50 tie', 'Frequently ties']
       ]
     },
     uniqueContentBlocks: [
       {
-        heading: 'Overcoming the Paradox of Choice',
+        heading: 'When, Why, and How to Outsource Reversible Decisions (Type 1 vs. Type 2 Choices)',
         body: [
-          'Modern life bombards us with thousands of choices daily. Psychologists call this decision fatigue: the more minor choices we make, the harder subsequent choices become.',
-          'Outsourcing low-consequence choices (like where to eat or which chore to do first) preserves willpower for high-impact decisions.'
+          'Decision theorists divide human choices into two categories: irreversible, high-stakes **Type 1 decisions** (like signing a mortgage or changing careers) and reversible, equivalent **Type 2 decisions** (like which restaurant to visit, which book to read next, or which task to start at 10 AM). The tragedy of modern decision fatigue is that our brains spend Type 1 glucose and anxiety agonizing over Type 2 choices.',
+          'Once you have narrowed a daily dilemma down to four or five good candidates, spending another 30 minutes reading reviews destroys more value than the difference between Option A and Option B. Loading those finalists onto the Decision Wheel caps deliberation time immediately and preserves your mental clarity for work that actually matters.'
+        ]
+      },
+      {
+        heading: 'How the "Mid-Spin Gut Check" Unlocks Your Subconscious Preference',
+        body: [
+          'Often you already know what you want deep down, but logical over-analysis blocks you from admitting it. Watch your emotional reflex while the Decision Wheel decelerates across the final three slices: if you catch yourself silently rooting for the pointer to slip past one slice and land on the next, your subconscious has already made the decision.'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Why should I trust a wheel for decisions?',
-        answer: 'For minor choices, any good decision is better than prolonged indecision. The wheel provides momentum and eliminates wasted time.'
+        question: 'When should I use a Decision Wheel instead of a pros-and-cons list?',
+        answer:
+          'Use a pros-and-cons list to eliminate bad options first. Once you are left with 2 to 6 good, pre-vetted options that are roughly equal in cost and quality, switch to the Decision Wheel—because further overthinking only drains time and energy.'
+      },
+      {
+        question: 'What if the wheel picks an option and I immediately want to spin again?',
+        answer:
+          'That is called the "Diagnostic Groan Test." If the wheel lands on Option A and your immediate instinct is disappointment, delete Option A right away! The spin succeeded by revealing your true preference among the remaining slices.'
+      },
+      {
+        question: 'Why should I duplicate options when I only have 2 or 3 choices?',
+        answer:
+          'While a 2-slice or 3-slice wheel is mathematically 100% fair, duplicating your 3 choices twice to create a 6-slice wheel (A, B, C, A, B, C) keeps the exact same 33.3% odds while doubling the color contrast and pointer tick frequency.'
+      },
+      {
+        question: 'Can I weight one option higher if I lean slightly toward it?',
+        answer:
+          'Yes! Open the Entries sidebar and adjust the numeric weight slider (for example, give your healthy home-cooked dinner option a weight of 2 and takeout a weight of 1 for 66.7% vs. 33.3% odds).'
       }
     ],
     relatedTools: [
-      { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', description: 'Simple two-way binary decider.' },
-      { name: 'Food Wheel', path: '/food-wheel', description: 'Dedicated to solving mealtime stalemates.' }
+      { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', description: '50/50 binary decider with optional Maybe mode.' },
+      { name: 'Food Wheel', path: '/food-wheel', description: 'Dedicated meal, cuisine, and restaurant decider.' },
+      { name: 'Movie Wheel', path: '/movie-wheel', description: 'Pick what movie to watch by genre or watchlist.' },
+      { name: 'Task Selector Wheel', path: '/task-selector', description: 'Prioritize your to-do list & Pomodoro blocks.' }
     ],
     relatedWheels: [
       { name: 'Spin the Wheel', path: '/spin-the-wheel', count: 6 },
-      { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', count: 2 }
+      { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', count: 4 }
     ],
     relatedGuides: [
-      { name: 'How to Use a Wheel for Decisions', path: '/how-to-use-a-wheel', readingTime: '4 min' }
+      { name: 'How to Use a Wheel for Decisions', path: '/how-to-use-a-wheel', readingTime: '4 min' },
+      { name: 'Decision Fatigue & The Psychology of Chance', path: '/decision-fatigue-and-the-psychology-of-chance', readingTime: '7 min' }
     ],
     internalLinks: [
       { label: 'Explore Decision Hub', href: '/decisions', context: 'All decision-making spinners.' },
       { label: 'Try Food Wheel', href: '/food-wheel', context: 'Solve dinner indecision.' }
     ],
     breadcrumbs: [
-      { name: 'Home', item: 'https://spinwheelgames.org' },
+      { name: 'Home', item: 'https://spinwheelgames.org/' },
       { name: 'Decisions', item: 'https://spinwheelgames.org/decisions' },
       { name: 'Decision Wheel', item: 'https://spinwheelgames.org/decision-wheel' }
     ]
@@ -630,21 +670,23 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     slug: 'yes-or-no-wheel',
     fullPath: '/yes-or-no-wheel',
     pageType: 'tool',
-    title: 'Yes or No Wheel – Free Instant Binary Decision Spinner',
-    metaDescription: 'Need a fast yes or no answer? Spin our clean 50/50 Yes or No Wheel. Digital coin flip with customizable odds, audio clicks, and instant answers.',
-    h1: 'Yes or No Wheel: Instant Binary Decision Spinner',
-    introduction: 'Should you do it or skip it? When you need a quick 50/50 call, our Yes or No Wheel gives you an instant, unbiased answer. Think of it as a digital coin flip with more suspense, audible clicks, and provable fairness.',
+    title: 'Yes or No Wheel – 50/50 Binary Decider & Coin Flip',
+    metaDescription:
+      'Need an instant Yes or No answer? Spin our 50/50 Yes or No Wheel with alternating sectors, optional YES/NO/MAYBE mode, and Web Crypto fairness.',
+    h1: 'Yes or No Wheel: Instant 50/50 Binary Decision Spinner',
+    introduction:
+      'Should you go or stay in, buy it or skip it, text first or wait? When a choice boils down to a strict 50/50 call, our Yes or No Wheel replaces a physical coin flip with high-suspense alternating green and red sectors, crisp peg audio, and optional "Yes / No / Maybe" customization.',
     primaryIntent: 'decision',
     secondaryIntents: ['transactional/use tool', 'entertainment'],
     categoryKey: 'decisions',
     parentCategoryPath: '/decisions',
     parentCategoryName: 'Decisions',
     featureBadges: [
-      '50/50 Equal Odds',
-      'Digital Coin Flip Alternative',
-      'Custom Maybe Option',
-      'Rapid-Fire Mode',
-      'Audible Click Track'
+      'Exact 50.0% Binary Odds',
+      '4-, 6- or 8-Slice Alternation',
+      'Optional YES / NO / MAYBE Mode',
+      'Best-of-3 Showdown Support',
+      'Web Crypto CSPRNG Fair'
     ],
     defaultWheelData: {
       title: 'Yes or No Decider',
@@ -654,96 +696,122 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
         { id: 'yn-1', text: 'YES', weight: 1, color: '#10b981' },
         { id: 'yn-2', text: 'NO', weight: 1, color: '#ef4444' },
         { id: 'yn-3', text: 'YES', weight: 1, color: '#059669' },
-        { id: 'yn-4', text: 'NO', weight: 1, color: '#dc2626' }
+        { id: 'yn-4', text: 'NO', weight: 1, color: '#dc2626' },
+        { id: 'yn-5', text: 'YES', weight: 1, color: '#10b981' },
+        { id: 'yn-6', text: 'NO', weight: 1, color: '#ef4444' }
       ]
     },
     instructions: [
-      'Formulate your question clearly in your mind so a Yes or No answer makes sense.',
-      'Click the central SPIN button or press Spacebar.',
-      'Watch the wheel rotate between alternating green (Yes) and red (No) slices.',
-      'Read the random result and take immediate action.'
+      'Phrase your dilemma as a crystal-clear, closed Yes-or-No statement before touching the wheel (e.g., "Should I book the flight tonight?").',
+      'Decide upfront whether this is a Single Sudden-Death Spin or a Best-2-out-of-3 series.',
+      'Click SPIN or press the Spacebar to watch the pointer tick across alternating green YES and red NO wedges.',
+      'Add a third "MAYBE / ASK AGAIN IN 1 HOUR" slice in the sidebar if your question allows for a deferred call.'
     ],
     whoItsUsefulFor: [
       {
-        audience: 'Spontaneous Decision Makers',
-        benefit: 'Decides quick binary dilemmas (e.g., "Should I go to the gym now?") without hesitation.'
+        audience: 'Everyday Binary Decision Makers',
+        benefit: 'Settles 50/50 micro-dilemmas ("Should I go to the gym now?", "Should I order dessert?") in 4 seconds.'
       },
       {
-        audience: 'Party & Drinking Games',
-        benefit: 'Adds quick 50/50 suspense to dares, truth prompts, or game board challenges.'
+        audience: 'Board Gamers, Sports Captains & Referees',
+        benefit: 'Replaces a physical coin toss for kickoff possession, first-turn advantage, or rule tie-breakers on a visible screen.'
       },
       {
-        audience: 'Streamers & Content Creators',
-        benefit: 'Lets chat ask binary questions during gaming breaks with visible random fairness.'
+        audience: 'Twitch Streamers, YouTubers & Party Hosts',
+        benefit: 'Lets live viewers or party guests ask rapid-fire binary fate questions with big-screen visual suspense.'
       }
     ],
     useCases: [
       {
-        title: 'Breaking Everyday Hesitation',
-        benefit: 'Answers questions like "Should I buy this non-essential item?" or "Should I text them first?".',
-        description: 'Answers questions like "Should I buy this non-essential item?" or "Should I text them first?".'
+        title: '1. Classic 6-Slice 50/50 Sudden-Death Binary Decider',
+        benefit: 'Alternates 3 YES slices and 3 NO slices (60° each) for smooth deceleration and exact 50.00% odds.',
+        description:
+          'Example Slice List: YES, NO, YES, NO, YES, NO.'
       },
       {
-        title: 'Workout Commitments',
-        benefit: 'Decides whether to do an extra set of intervals or take a well-earned rest day.',
-        description: 'Decides whether to do an extra set of intervals or take a well-earned rest day.'
+        title: '2. The "Yes, No, or Maybe" 3-Way Qualifier Wheel',
+        benefit: 'Adds a middle buffer when you want a small chance to sleep on a purchase or decision.',
+        description:
+          'Example Slice List: YES (Weight 2), NO (Weight 2), MAYBE – WAIT 24 HOURS (Weight 1) -> 40% Yes, 40% No, 20% Maybe.'
       },
       {
-        title: 'Game Night Referee',
-        benefit: 'Settles binary rule disputes or coin-toss kickoff decisions without carrying loose change.',
-        description: 'Settles binary rule disputes or coin-toss kickoff decisions without carrying loose change.'
+        title: '3. Action-Biased "Nudge Toward Yes" Wheel (60/40 Split)',
+        benefit: 'Ideal when you know you *should* go to the gym or study, but want a playful game of chance.',
+        description:
+          'Example Slice List: YES – DO IT NOW (Weight 3), NO – TAKE A BREAK (Weight 2) -> Gives action a 60% mathematical edge.'
+      },
+      {
+        title: '4. Magic 8-Ball Nuanced Answer Deck (8 Slices)',
+        benefit: 'Turns the binary spinner into an expressive party oracle with graded enthusiasm.',
+        description:
+          'Example Slice List: HECK YES!, Definite No, Yes (With Conditions), Hard Pass, Ask Again Tomorrow, 100% Go For It, Not Tonight, Flip It to a Friend.'
       }
     ],
     customizationOptions: [
       {
-        title: 'Add a "MAYBE" Slice',
-        description: 'Add a 3rd option if you want to leave room for a tie-breaker or delayed call.'
+        title: 'Add a "Maybe" or "Wait 24h" Slice',
+        description: 'Insert a third outcome at 1x weight so the wheel can occasionally prescribe a cooling-off period.'
       },
       {
-        title: 'Adjust Weighted Odds',
-        description: 'Make YES twice as likely as NO if you want a subtle nudge toward taking action.'
+        title: '60/40 or 70/30 Weighted Nudge',
+        description: 'Tilt the odds slightly toward YES when you want encouragement to take healthy action.'
       }
     ],
-    resultExplanation: 'The wheel alternates equal YES and NO sectors. A cryptographically generated random byte selects the landing slice with exact 50.00% probability for each outcome.',
+    resultExplanation:
+      'The wheel alternates equal YES and NO sectors around 360°. A cryptographically generated random integer selects the stopping angle with exact 50.00% probability.',
     uniqueExamples: [
-      'Daily Dilemmas: Should I take an evening walk? Should I order takeout? Should I start reading this book tonight?'
+      'Everyday Binary Prompts: Should I go for a 20-minute run right now?, Should we order takeout instead of cooking?, Should I buy this item in my cart?, Should I send that text message?'
     ],
     tips: [
-      'If the wheel lands on NO and your immediate reaction is to spin again, your gut already wants YES! Honor your gut.',
-      'Use 4 alternating sectors (Yes, No, Yes, No) rather than just 2 slices. It creates better angular visual rhythm.',
-      'Tap the Spacebar twice quickly to run a Best 2 out of 3 showdown.'
+      'Always phrase your question POSITIVELY ("Should I go to the gym?") rather than negatively ("Should I not skip the gym?") so a green YES never causes confusion.',
+      'Use 6 or 8 alternating slices (YES, NO, YES, NO, YES, NO) rather than just two giant 180° halves—the pointer ticks 3x faster and builds far better suspense.',
+      'Notice how you feel the millisecond the pointer stops on NO: if your first impulse is "Best 2 out of 3!", your gut already wants YES.',
+      'Press Spacebar three times in a row and check the Results History tab to score an instant Best-2-out-of-3 match.'
     ],
     comparisonTable: {
-      headers: ['Feature', 'Yes/No Wheel', 'Physical Coin Toss', 'Voice Assistant ("Flip a Coin")'],
+      headers: ['Feature', 'Yes or No Wheel', 'Physical Coin Toss', 'Voice Assistant Coin Flip'],
       rows: [
-        ['Visible to Group', 'Yes (full screen)', 'Hard to see across room', 'Audio only'],
-        ['Drop / Roll Away Risk', 'None', 'Coins roll under tables', 'None'],
-        ['Can Add "Maybe"', 'Yes', 'No', 'No'],
-        ['Provable Record', 'Audit log timestamp', 'None', 'None']
+        ['Visible Across Room / Stream', 'Yes (high-contrast green/red canvas)', 'Hard to see on floor/table', 'Audio only'],
+        ['Suspense & Deceleration', '4-second peg click buildup', 'Over in 1 second', 'Instant robotic reply'],
+        ['Supports "Maybe" or 60/40 Odds', 'Yes (customizable weights)', 'No (strictly 50/50)', 'No'],
+        ['Audit History Log', 'Tracks Best-of-3 & timestamps', 'None', 'None']
       ]
     },
     uniqueContentBlocks: [
       {
-        heading: 'Why Alternating 4 Slices is Better Than 2 Slices',
+        heading: 'Why Alternating 6 Slices Beats a 2-Slice Wheel (while Keeping Exact 50/50 Odds)',
         body: [
-          'While a binary decision only requires two outcomes, displaying 4 alternating slices (Yes - No - Yes - No) creates a much more balanced visual spin.',
-          'With two giant halves, the deceleration feels abrupt. With four quarters, the pointer clicks rapidly across colors, building authentic suspense until the final click locks in.'
+          'Mathematically, a wheel with one 180° green YES half and one 180° red NO half has the exact same 50.0% probability as a wheel with six alternating 60° slices (YES, NO, YES, NO, YES, NO). However, from a visual physics standpoint, a 2-slice wheel feels sluggish because the pointer only crosses a boundary twice per full rotation.',
+          'By dividing the 360° circle into six or eight alternating green and red sectors, the pointer clicks rapidly across YES and NO boundaries right up to the final millimeter of deceleration—delivering maximum dramatic tension while preserving strict 50.00% cryptographic fairness.'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Are the odds truly 50/50?',
-        answer: 'Yes. By default, the wheel is divided into equal angular sectors. The Web Cryptography engine guarantees exact 50.0% probability.'
+        question: 'Are the Yes or No Wheel odds truly 50/50?',
+        answer:
+          'Yes. By default, the wheel contains an equal number of YES and NO slices with identical 1x weights (180° total green arc and 180° total red arc). Every spin uses your browser’s Web Cryptography API (window.crypto.getRandomValues) for an exact 50.00% probability.'
       },
       {
-        question: 'Can I add a Maybe option?',
-        answer: 'Yes. Click Edit Entries and add a "Maybe" slice with equal weight.'
+        question: 'How do I add a "Maybe" option to the Yes or No Wheel?',
+        answer:
+          'Open the Entries panel in the sidebar and click "+ Add Entry" to type "MAYBE". If you keep 2 YES slices, 2 NO slices, and 1 MAYBE slice, your odds automatically adjust to 40% Yes, 40% No, and 20% Maybe.'
+      },
+      {
+        question: 'How do I run a Best-2-out-of-3 Yes or No showdown?',
+        answer:
+          'Keep Elimination mode turned OFF (so the 50/50 odds stay constant on every spin) and spin up to three times. The Results tab automatically logs Spin 1, Spin 2, and Spin 3 so you can declare the first side to win two spins.'
+      },
+      {
+        question: 'Can I rig or weight the wheel to make YES slightly more likely?',
+        answer:
+          'You can customize the weights transparently in the Entries sidebar—for example, setting YES to weight 3 and NO to weight 2 creates a 60% / 40% "productive nudge" wheel when you want a gentle push to work out or study.'
       }
     ],
     relatedTools: [
-      { name: 'Decision Wheel', path: '/decision-wheel', description: 'When you have more than two alternatives.' },
-      { name: 'Spin the Wheel', path: '/spin-the-wheel', description: 'General multi-slice random spinner.' }
+      { name: 'Decision Wheel', path: '/decision-wheel', description: 'When you have 3 or more competing options.' },
+      { name: 'Dice Roller (D2 Coin)', path: '/dice/d2', description: '3D two-sided coin and binary die roller.' },
+      { name: 'Spin the Wheel', path: '/spin-the-wheel', description: 'Classic multi-slice customizable spinner.' }
     ],
     relatedWheels: [
       { name: 'Decision Wheel', path: '/decision-wheel', count: 6 },
@@ -757,7 +825,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       { label: 'Try Multi-Choice Decision Wheel', href: '/decision-wheel', context: 'Move beyond binary choices.' }
     ],
     breadcrumbs: [
-      { name: 'Home', item: 'https://spinwheelgames.org' },
+      { name: 'Home', item: 'https://spinwheelgames.org/' },
       { name: 'Decisions', item: 'https://spinwheelgames.org/decisions' },
       { name: 'Yes or No Wheel', item: 'https://spinwheelgames.org/yes-or-no-wheel' }
     ]
@@ -767,115 +835,160 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     slug: 'picker-wheel',
     fullPath: '/picker-wheel',
     pageType: 'tool',
-    title: 'Picker Wheel – Free Multi-Option Custom Choice Spinner',
-    metaDescription: 'Custom picker wheel for decisions, activities, names, and games. Fast, customizable, responsive, and completely fair.',
-    h1: 'Picker Wheel: Multi-Option Custom Choice Spinner',
-    introduction: 'Customize your own wheel with names, numbers, or activities and spin to pick one instantly. Clean, responsive, and unbiased for workshops, game nights, and everyday dilemmas.',
+    title: 'Picker Wheel – Custom Option List & Activity Spinner',
+    metaDescription:
+      'Paste any custom option list into the Picker Wheel and spin to choose activities, board games, stream challenges, or workshop topics with no-repeat elimination.',
+    h1: 'Picker Wheel: Custom Multi-Option List & Activity Spinner',
+    introduction:
+      'When you have a custom list of board games, stream challenges, workshop discussion topics, or weekend chores in your notes app, the Picker Wheel turns plain text into a 60-FPS interactive canvas spinner in seconds. Bulk-paste up to 100 items, pick a high-contrast color palette, and spin with one-click winner elimination.',
     primaryIntent: 'transactional/use tool',
     secondaryIntents: ['decision', 'entertainment'],
     categoryKey: 'decisions',
     parentCategoryPath: '/decisions',
     parentCategoryName: 'Decisions',
     featureBadges: [
-      'Unlimited Entries',
-      'Responsive Canvas',
-      'No-Repeat Elimination',
-      'Custom Color Themes',
-      'Instant Spin Sound'
+      'Bulk Paste Custom Lists',
+      '60-FPS Retina HTML5 Canvas',
+      'No-Repeat Elimination Mode',
+      'Custom Color Palettes',
+      'Text-to-Speech Winner Audio'
     ],
     defaultWheelData: {
       title: 'Custom Picker Wheel',
-      description: 'Multi-option custom spinner',
+      description: 'Multi-option custom list spinner',
       paletteKey: 'emerald',
       items: [
-        { id: 'pw-1', text: 'Item 1', weight: 1 },
-        { id: 'pw-2', text: 'Item 2', weight: 1 },
-        { id: 'pw-3', text: 'Item 3', weight: 1 },
-        { id: 'pw-4', text: 'Item 4', weight: 1 },
-        { id: 'pw-5', text: 'Item 5', weight: 1 },
-        { id: 'pw-6', text: 'Item 6', weight: 1 }
+        { id: 'pw-1', text: 'Option 1: Board Game Night', weight: 1 },
+        { id: 'pw-2', text: 'Option 2: Outdoor Sunset Walk', weight: 1 },
+        { id: 'pw-3', text: 'Option 3: Cook a New Recipe', weight: 1 },
+        { id: 'pw-4', text: 'Option 4: Movie & Popcorn Marathon', weight: 1 },
+        { id: 'pw-5', text: 'Option 5: Local Trivia or Arcade', weight: 1 },
+        { id: 'pw-6', text: 'Option 6: Co-Op Video Game Session', weight: 1 }
       ]
     },
     instructions: [
-      'Replace the placeholder items with your custom text.',
-      'Pick a color palette that matches your meeting or stream theme.',
-      'Click SPIN to run the physics simulation.',
-      'Copy the winning result or remove it to pick the next item.'
+      'Click the Entries box or Bulk Paste button to paste your custom list from Excel, Google Sheets, Notion, or Apple Notes.',
+      'Choose a color theme (Emerald, Arcade, Cyberpunk, Ocean, Sunset, or Pastel) that matches your projector or stream overlay.',
+      'Click SPIN or tap the Spacebar to run the physics simulation.',
+      'Use "Eliminate Winner" inside the result modal to pick 1st, 2nd, and 3rd choices sequentially without duplicates.'
     ],
     whoItsUsefulFor: [
       {
-        audience: 'Workshop Organizers',
-        benefit: 'Picks breakout discussion topics and speaking order interactively.'
+        audience: 'Workshop Facilitizers & Educators',
+        benefit: 'Selects breakout discussion prompts, case studies, and Q&A topics interactively on a shared screen.'
       },
       {
-        audience: 'Content Creators',
-        benefit: 'Selects video game challenge modifiers, fan submissions, or stream topics live.'
+        audience: 'Twitch, YouTube & TikTok Creators',
+        benefit: 'Spins viewer-submitted gaming challenges, weapon loadouts, and stream giveaways at 60 FPS.'
       },
       {
-        audience: 'Friends & Families',
-        benefit: 'Picks board games, party activities, or road trip stops without disagreements.'
+        audience: 'Board Game Groups & Families',
+        benefit: 'Picks which board game hits the table or which weekend activity the family tackles first.'
       }
     ],
     useCases: [
       {
-        title: 'Team Workshop Prompts',
-        benefit: 'Selects retro questions or icebreakers for cross-functional groups.',
-        description: 'Selects retro questions or icebreakers for cross-functional groups.'
+        title: '1. Board Game Shelf Night Decider',
+        benefit: 'Ends the 20-minute debate in front of the Kallax shelf before game night even begins.',
+        description:
+          'Example Slice List: Settlers of Catan, Wingspan, Ticket to Ride, Codenames, Azul, Carcassonne, 7 Wonders, Cascadia.'
       },
       {
-        title: 'Streamer Challenges',
-        benefit: 'Randomizes in-game weapons, builds, or gameplay handicaps for audience entertainment.',
-        description: 'Randomizes in-game weapons, builds, or gameplay handicaps for audience entertainment.'
+        title: '2. Streamer Challenge & Loadout Roulette',
+        benefit: 'Adds high-retention viewer interactivity to Battle Royale, RPG, or speedrun streams.',
+        description:
+          'Example Slice List: Pistols Only Round, No Healing Items, Swap Controller Hands for 60s, Viewer Picks Landing Spot, Melee Only,Invert Mouse/Stick.'
+      },
+      {
+        title: '3. Workshop & Book Club Discussion Topic Picker',
+        benefit: 'Keeps seminar discussions fresh by randomizing the next talking point.',
+        description:
+          'Example Slice List: Character Motivation Analysis, Most Surprising Plot Turn, Real-World Industry Application, Favourite Quote Breakdown, Sequel Prediction.'
+      },
+      {
+        title: '4. Weekly Family Meal & Recipe Rotation',
+        benefit: 'Spin 5 times in Elimination mode on Sunday morning to build your weekly grocery list.',
+        description:
+          'Example Slice List: Sheet-Pan Fajitas, Pesto Chicken Pasta, Stir-Fry & Jasmine Rice, Homemade Burger Night, Slow-Cooker Chili, Breakfast for Dinner.'
       }
     ],
     customizationOptions: [
       {
-        title: 'Palette Swapping',
-        description: 'Switch between Arcade, Ocean, Sunset, Neon, Pastel, and Emerald color themes.'
+        title: '6 High-Contrast Color Palettes',
+        description: 'Swap between Emerald, Arcade, Ocean, Sunset, Cyberpunk, and Pastel palettes for readability.'
       },
       {
-        title: 'TTS Winner Audio',
-        description: 'Have the browser speak the winning item aloud through your speakers.'
+        title: 'TTS Winner Voice Announcement',
+        description: 'Enable browser speech synthesis so the winning option is read aloud automatically.'
       }
     ],
-    resultExplanation: 'Web Crypto CSPRNG values map directly to slice arcs with zero algorithmic bias.',
+    resultExplanation:
+      'Web Crypto CSPRNG values map directly to slice angular widths with zero algorithmic bias and 60-FPS hardware-accelerated canvas rendering.',
     uniqueExamples: [
-      'Board Games: Catan, Ticket to Ride, Wingspan, Pandemic, Codenames, Azul'
+      'Spreadsheet Paste Tip: Copy any single column of cells from Google Sheets or Excel and paste directly into the Bulk Paste box—each row automatically becomes its own colored slice.'
     ],
     tips: [
-      'Keep slice labels under 20 characters for clean typography on smaller mobile displays.',
-      'Use Bulk Paste to add dozens of items at once from notes or docs.'
+      'Keep individual slice labels between 2 and 24 characters for crisp radial typography on both desktop monitors and mobile screens.',
+      'Use the Shuffle button in the sidebar before spinning if you pasted an alphabetical list and want colors and positions mixed up.',
+      'Toggle on Elimination mode when ranking a list from 1st to 5th place.',
+      'Share your customized wheel setup with teammates or viewers using the Share URL button.'
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Why Responsive Canvas Rendering Matters',
+        heading: 'When, Why, and How to Build Reusable Custom Picker Wheels',
         body: [
-          'Many old Flash or DOM-based wheels stutter on high-refresh-rate monitors or shrink awkwardly on mobile screens.',
-          'Our HTML5 canvas engine continuously recalculates coordinate geometry against container dimensions, delivering 60 FPS animation on retina laptops, mobile phones, and 4K conference displays.'
+          'While our specialized wheels (like the Movie Wheel or Chore Picker) come pre-loaded with domain-specific presets, power users often need a clean, general-purpose list spinner where they can paste their own spreadsheet column or notes checklist in five seconds.',
+          'The Picker Wheel is engineered specifically for fast list ingestion and reusable templates. Every item you add is automatically persisted in your browser’s local storage, and you can adjust individual slice weights (from 1x to 10x) or toggle temporary items off without deleting them from your master list.'
+        ]
+      },
+      {
+        heading: 'Why 60-FPS HTML5 Canvas Rendering Matters on Projectors & Streams',
+        body: [
+          'Legacy CSS-transform and DOM-based wheel spinners frequently stutter when loaded with more than 15 slices or when screen-shared over OBS, Zoom, or Discord. Our Picker Wheel renders directly to a device-pixel-ratio calibrated HTML5 `<canvas>`, calculating cubic-bezier angular deceleration at your monitor’s native refresh rate (60Hz to 144Hz).'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Does this work on mobile devices?',
-        answer: 'Yes, full touch support for iOS and Android phones and tablets.'
+        question: 'How do I paste a list of options from Excel, Google Sheets, or Notes?',
+        answer:
+          'Copy your column of cells or newline-separated text, open the Entries sidebar on the Picker Wheel, click "Bulk Paste", and paste your text. Every line automatically generates a separate slice on the wheel.'
+      },
+      {
+        question: 'How many options can I put on the Picker Wheel at once?',
+        answer:
+          'You can add anywhere from 2 to 100+ slices on the Picker Wheel. For optimal visual readability from across a room or on mobile screens, 4 to 24 active slices works best.'
+      },
+      {
+        question: 'Can I temporarily hide an option without deleting it from my saved list?',
+        answer:
+          'Yes! Use the Eliminate Winner button after a spin (or toggle items in the sidebar) so completed options are removed for the current session, then click Reset Wheel whenever you want the full list restored.'
+      },
+      {
+        question: 'Does the Picker Wheel work offline and on iOS/Android phones?',
+        answer:
+          'Yes. The entire physics engine, Web Audio peg synthesis, and Web Crypto randomizer run 100% locally in your mobile or desktop browser with full touch-to-spin support.'
       }
     ],
     relatedTools: [
-      { name: 'Spin the Wheel', path: '/spin-the-wheel', description: 'Classic decision wheel.' },
-      { name: 'Random Picker', path: '/random-picker', description: 'General item selector.' }
+      { name: 'Spin the Wheel', path: '/spin-the-wheel', description: 'Flagship all-purpose decision spinner.' },
+      { name: 'Random Wheel', path: '/random-wheel', description: 'Auditable CSPRNG randomizer with seed logs.' },
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Optimized for participant and student rosters.' },
+      { name: 'Random Picker', path: '/random-picker', description: 'Fast item & raffle winner selector.' }
     ],
     relatedWheels: [
-      { name: 'Spin the Wheel', path: '/spin-the-wheel', count: 6 }
+      { name: 'Spin the Wheel', path: '/spin-the-wheel', count: 6 },
+      { name: 'Random Wheel', path: '/random-wheel', count: 6 }
     ],
     relatedGuides: [
       { name: 'How to Use a Wheel', path: '/how-to-use-a-wheel', readingTime: '4 min' }
     ],
     internalLinks: [
-      { label: 'Explore Decision Hub', href: '/decisions', context: 'All decision tools.' }
+      { label: 'Explore Decision Hub', href: '/decisions', context: 'All decision tools.' },
+      { label: 'Try Wheel of Names', href: '/wheel-of-names', context: 'Best for people & rosters.' }
     ],
     breadcrumbs: [
-      { name: 'Home', item: 'https://spinwheelgames.org' },
+      { name: 'Home', item: 'https://spinwheelgames.org/' },
       { name: 'Decisions', item: 'https://spinwheelgames.org/decisions' },
       { name: 'Picker Wheel', item: 'https://spinwheelgames.org/picker-wheel' }
     ]
@@ -885,111 +998,168 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     slug: 'random-wheel',
     fullPath: '/random-wheel',
     pageType: 'tool',
-    title: 'Random Wheel – Unbiased Random Selection Engine',
-    metaDescription: 'Free random wheel generator powered by Web Crypto API. Cryptographic randomness for games, raffles, and team choices.',
-    h1: 'Random Wheel: Unbiased Random Selection Engine',
-    introduction: 'When true randomness matters, the Random Wheel delivers mathematically unbiased outcomes powered by your browser\'s native cryptographic engine. No pre-set outcomes, no server-side logging, just pure chance.',
+    title: 'Random Wheel – Auditable CSPRNG & Weighted Spinner',
+    metaDescription:
+      'Spin a provably fair Random Wheel powered by hardware Web Crypto (CSPRNG). Inspect live random hex seeds, calibrate weighted probabilities, and run audited draws.',
+    h1: 'Random Wheel: Cryptographic CSPRNG & Weighted Probability Spinner',
+    introduction:
+      'When "probably random" isn’t good enough—whether you are running an audited community raffle, teaching empirical probability in a statistics lab, or seeding a competitive tournament—the Random Wheel delivers mathematically uniform selections powered by your browser’s hardware Web Cryptography engine (`window.crypto.getRandomValues`), complete with verifiable spin timestamps and probability math.',
     primaryIntent: 'transactional/use tool',
     secondaryIntents: ['decision', 'educational'],
     categoryKey: 'decisions',
     parentCategoryPath: '/decisions',
     parentCategoryName: 'Decisions',
     featureBadges: [
-      'Web Crypto CSPRNG',
-      'Client-Side Execution',
-      'Audit Log Verification',
-      'Custom Slices & Weights',
-      'Instant Free Access'
+      'Web Crypto CSPRNG Engine',
+      'Zero Math.random() Bias',
+      'Verifiable Audit Seed Log',
+      'Exact Angular Weight Math',
+      '100% Client-Side Execution'
     ],
     defaultWheelData: {
       title: 'Cryptographic Random Wheel',
       description: 'Browser-based cryptographic randomizer',
       paletteKey: 'cyberpunk',
       items: [
-        { id: 'rw-1', text: 'Sector 1', weight: 1 },
-        { id: 'rw-2', text: 'Sector 2', weight: 1 },
-        { id: 'rw-3', text: 'Sector 3', weight: 1 },
-        { id: 'rw-4', text: 'Sector 4', weight: 1 },
-        { id: 'rw-5', text: 'Sector 5', weight: 1 },
-        { id: 'rw-6', text: 'Sector 6', weight: 1 }
+        { id: 'rw-1', text: 'Sector Alpha (16.7%)', weight: 1 },
+        { id: 'rw-2', text: 'Sector Beta (16.7%)', weight: 1 },
+        { id: 'rw-3', text: 'Sector Gamma (16.7%)', weight: 1 },
+        { id: 'rw-4', text: 'Sector Delta (16.7%)', weight: 1 },
+        { id: 'rw-5', text: 'Sector Epsilon (16.7%)', weight: 1 },
+        { id: 'rw-6', text: 'Sector Zeta (16.7%)', weight: 1 }
       ]
     },
     instructions: [
-      'Input the items or participants you want to randomize.',
-      'Check the Audit panel to verify the cryptographic seed for the upcoming spin.',
-      'Click SPIN to generate the random value and watch the deceleration physics.',
-      'Review the verified timestamp and random seed in the spin log.'
+      'Enter your candidate items, ticket holders, or probability events in the Entries sidebar.',
+      'Keep all weights at 1 for a uniform distribution ($P = 1/N$), or assign integer weights ($w_i$) for custom probability ratios.',
+      'Click SPIN to sample 32 bits of hardware entropy from window.crypto.getRandomValues() and drive the angular deceleration.',
+      'Open the Results & Audit log to inspect the timestamp, exact slice percentage, and session draw history.'
     ],
     whoItsUsefulFor: [
       {
-        audience: 'Compliance & Raffle Coordinators',
-        benefit: 'Requires a transparent, auditable selection process that participants can verify.'
+        audience: 'Raffle, Giveaway & Contest Coordinators',
+        benefit: 'Provides a transparent, client-side drawing where viewers see that no server-side manipulation or hidden rigging exists.'
       },
       {
-        audience: 'Math & Computer Science Teachers',
-        benefit: 'Demonstrates concepts of probability, entropy, and uniform distributions visually.'
+        audience: 'AP Statistics, Math & CS Educators',
+        benefit: 'Demonstrates uniform vs. weighted probability distributions, sampling without replacement, and hardware entropy live in class.'
+      },
+      {
+        audience: 'Tabletop RPG Designers & Speedrunners',
+        benefit: 'Simulates custom loot tables and weighted encounter probabilities with exact percentage arcs.'
       }
     ],
     useCases: [
       {
-        title: 'Audited Giveaway Drawings',
-        benefit: 'Records the exact seed and timestamp for every winner selection.',
-        description: 'Records the exact seed and timestamp for every winner selection.'
+        title: '1. Uniform Equal-Odds Tournament & Raffle Seeding',
+        benefit: 'Every entrant receives an identical $360^\\circ / N$ angular wedge and exact $100\\% / N$ probability.',
+        description:
+          'Example Slice List: Entrant #101, Entrant #102, Entrant #103, Entrant #104, Entrant #105, Entrant #106, Entrant #107, Entrant #108 (12.50% each).'
       },
       {
-        title: 'Classroom Probability Demonstrations',
-        benefit: 'Shows students how empirical frequencies converge to theoretical probability over many spins.',
-        description: 'Shows students how empirical frequencies converge to theoretical probability over many spins.'
+        title: '2. Weighted RPG Loot Table & Gacha Probability Simulator',
+        benefit: 'Visualize how weighted drop tables behave across 20 spins by assigning tiered weights.',
+        description:
+          'Example Slice List & Weights: Common Iron Sword (Weight 10 = 50%), Uncommon Silver Bow (Weight 6 = 30%), Rare Arcane Staff (Weight 3 = 15%), Legendary Dragon Blade (Weight 1 = 5%).'
+      },
+      {
+        title: '3. Sampling Without Replacement (Hypergeometric Elimination Draw)',
+        benefit: 'Turn on Elimination mode to draw 1st, 2nd, and 3rd place sequentially without duplicate winners.',
+        description:
+          'Workflow: Spin 1 selects from $N$ slices ($1/N$); Spin 2 automatically recalculates 360° across $N-1$ slices ($1/(N-1)$); Spin 3 draws from $N-2$.'
+      },
+      {
+        title: '4. Classroom Law of Large Numbers Experiment',
+        benefit: 'Students compare theoretical probability ($16.67\\%$) against empirical spin frequency across 30 trials.',
+        description:
+          'Example Slice List: Outcome A, Outcome B, Outcome C, Outcome D, Outcome E, Outcome F—record tallies in the Results tab.'
       }
     ],
     customizationOptions: [
       {
-        title: 'Cryptographic Audit Log',
-        description: 'View the 32-bit random hex seed and calculated odds for every spin.'
+        title: 'Exact Proportional Weight Calibration',
+        description: 'Each slice’s angular width ($\\theta_i = 360^\\circ \\times w_i / \\sum W$) scales dynamically to match its exact mathematical odds.'
       },
       {
-        title: 'Elimination Mode',
-        description: 'Remove winners sequentially for tournament or prize tier drawings.'
+        title: 'Sampling With vs. Without Replacement',
+        description: 'Toggle Elimination Mode off for independent trials (with replacement) or on for dependent multi-prize draws (without replacement).'
       }
     ],
-    resultExplanation: 'Utilizes window.crypto.getRandomValues to extract hardware-generated system entropy, completely bypassing standard pseudo-random number generator vulnerabilities.',
+    resultExplanation:
+      'Utilizes window.crypto.getRandomValues(new Uint32Array(1)) to sample OS-level hardware entropy (CPU thermal noise, interrupt timings), completely avoiding pseudo-random Math.random() periodicity.',
     uniqueExamples: [
-      'Raffle Tiers: Grand Prize, 1st Runner Up, 2nd Runner Up, Consolation 1, Consolation 2'
+      'Multi-Ticket Raffle Weighting: Instead of pasting a donor’s name 5 separate times, enter their name once and set their Weight to 5—their single slice expands to 5x width with exact proportional odds!',
+      'Tiered Mystery Box Wheel: $5 Sticker Pack (Weight 8), $15 T-Shirt (Weight 5), $40 Hoodie (Weight 2), $100 Grand Prize Bundle (Weight 1).'
     ],
     tips: [
-      'Open the Audit tab in the workspace to view the cryptographic hex seed of each completed spin.',
-      'Screen record the spin and audit tab together if you are publishing proof of a contest drawing.'
+      'When running a public raffle or league lottery on Zoom, Twitch, or Discord, keep the Results History tab visible so viewers can see the sequential draw order.',
+      'Use integer weights (e.g., 5, 3, 1) to represent multi-ticket entries cleanly on a single slice rather than cluttering the wheel with duplicate labels.',
+      'To test empirical fairness yourself, run 20 rapid spins using the Spacebar and inspect the distribution in the Results counter.',
+      'Read our technical whitepaper on /how-random-wheels-work for the complete Chi-Square goodness-of-fit methodology.'
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Why CSPRNG Matters Over Math.random()',
+        heading: 'When, Why, and How Hardware CSPRNG Outperforms Standard Math.random() Wheels',
         body: [
-          'Standard programming languages often use pseudo-random formulas (like Math.random in JavaScript) that rely on internal state formulas. While fine for casual toys, they can have statistical biases or predictable sequences.',
-          'CSPRNG (Cryptographically Secure Pseudo-Random Number Generator) gathers entropy from system hardware events (like CPU timing variations and hardware interrupts), ensuring true unpredictability suitable for legal prize drawings.'
+          'The majority of casual spinning wheels on the web rely on JavaScript’s default `Math.random()` function—a non-cryptographic pseudo-random number generator (typically Xorshift128+) seeded from an internal browser clock state. While acceptable for trivial animations, standard PRNGs are deterministic and not designed for high-trust drawings.',
+          'Our Random Wheel queries the W3C **Web Cryptography API** (`window.crypto.getRandomValues`) on every single spin. The operating system harvests physical entropy from hardware interrupt timings and system noise to generate a cryptographically uniform 32-bit integer. That value is normalized across the cumulative weight array ($W = \\sum w_i$) before the physics animation even begins, and the wheel’s cubic-bezier deceleration curve is solved backward so the visual pointer stops inside the exact cryptographically chosen angular sector.'
+        ]
+      },
+      {
+        heading: 'Sampling With Replacement vs. Sampling Without Replacement (Elimination Mode)',
+        body: [
+          'In probability theory, every random draw follows one of two models. When **Elimination Mode is OFF** (sampling *with* replacement), every spin is a statistically independent event—meaning a slice with 20% probability retains that exact 20% chance on Spin 1, Spin 2, and Spin 10, regardless of whether it just won.',
+          'When **Elimination Mode is ON** (sampling *without* replacement), each winning slice is removed from the sample space immediately after landing. The remaining $N-1$ slices expand proportionally to fill the 360° circle, guaranteeing that every item on your list is selected once before any item can repeat.'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Is the outcome predetermined before the spin?',
-        answer: 'The random winner is selected using crypto.getRandomValues when you click Spin. The physics animation then calculates the exact angular travel to decelerate and land precisely on that selected sector.'
+        question: 'Is the winning slice decided before the wheel stops spinning, or by the physics animation?',
+        answer:
+          'The moment you press Spin, our engine calls window.crypto.getRandomValues() to draw a cryptographically uniform target angle. The 60-FPS physics engine then calculates the exact total rotational travel (multiple full revolutions plus the target offset) so the pointer decelerates smoothly and lands at that exact cryptographic coordinate.'
+      },
+      {
+        question: 'Why did the Random Wheel land on the same slice twice in a row?',
+        answer:
+          'In true independent randomness (when Elimination Mode is OFF), the wheel has no memory of previous spins—just like flipping Heads twice in a row on a fair coin ($0.5 \\times 0.5 = 25\\%$). If you want zero repeats across spins, toggle ON Elimination (No-Repeat) mode before spinning.'
+      },
+      {
+        question: 'How do weighted slices work mathematically on the Random Wheel?',
+        answer:
+          'Each slice’s probability equals its weight divided by the sum of all active weights ($P_i = w_i / \\sum W$). For example, if Slice A has weight 3, Slice B has weight 2, and Slice C has weight 1 (total weight = 6), Slice A spans $180^\\circ$ ($50.0\\%$), Slice B spans $120^\\circ$ ($33.3\\%$), and Slice C spans $60^\\circ$ ($16.7\\%$).'
+      },
+      {
+        question: 'Does any spin data get sent to an external server?',
+        answer:
+          'No. 100% of the random number generation, canvas rendering, and history logging executes locally inside your browser tab. No external server can intercept or alter the outcome of a spin.'
+      },
+      {
+        question: 'When should I use the Random Wheel vs. the Giveaway Wheel?',
+        answer:
+          'Both share the exact same Web Crypto CSPRNG engine. Use this Random Wheel (/random-wheel) for general probability testing, weighted loot tables, and multi-purpose random selection, or use the Giveaway Wheel (/giveaway-wheel) when you want a gold-themed prize raffle setup.'
       }
     ],
     relatedTools: [
-      { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Optimized for social media and event drawings.' },
-      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Best for participant rosters.' }
+      { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Prize raffle & social media contest drawing tool.' },
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Participant roster & student name spinner.' },
+      { name: 'Number Wheel', path: '/number-wheel', description: 'Random integer generator on a visual wheel.' },
+      { name: 'Picker Wheel', path: '/picker-wheel', description: 'Custom multi-option list spinner.' }
     ],
     relatedWheels: [
-      { name: 'Giveaway Wheel', path: '/giveaway-wheel', count: 5 }
+      { name: 'Giveaway Wheel', path: '/giveaway-wheel', count: 8 },
+      { name: 'Number Wheel', path: '/number-wheel', count: 10 }
     ],
     relatedGuides: [
-      { name: 'How Random Wheels Work', path: '/how-random-wheels-work', readingTime: '6 min' }
+      { name: 'How Random Wheels Work', path: '/how-random-wheels-work', readingTime: '6 min' },
+      { name: 'Random vs. Weighted Selection', path: '/random-vs-weighted-selection', readingTime: '5 min' }
     ],
     internalLinks: [
-      { label: 'Read Technical Fairness Whitepaper', href: '/how-random-wheels-work', context: 'Inspect CSPRNG implementation details.' }
+      { label: 'Read Technical Fairness Whitepaper', href: '/how-random-wheels-work', context: 'Inspect CSPRNG implementation details.' },
+      { label: 'Explore Fairness & RNG Lab', href: '/fairness', context: 'Verify statistical uniformity.' }
     ],
     breadcrumbs: [
-      { name: 'Home', item: 'https://spinwheelgames.org' },
+      { name: 'Home', item: 'https://spinwheelgames.org/' },
       { name: 'Decisions', item: 'https://spinwheelgames.org/decisions' },
       { name: 'Random Wheel', item: 'https://spinwheelgames.org/random-wheel' }
     ]
@@ -999,110 +1169,162 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     slug: 'random-name-picker',
     fullPath: '/random-name-picker',
     pageType: 'tool',
-    title: 'Random Name Picker – Fair Roster & Student Selector',
-    metaDescription: 'Quickly select random names from a class roster, employee list, or party group. 100% fair and free name picker.',
-    h1: 'Random Name Picker: Fair Roster & Student Selector',
-    introduction: 'Need to pick a name quickly without hassle? Add your list, spin the wheel, and celebrate the chosen winner with confetti and sound. Ideal for quick draws, student turn taking, and team speaker selection.',
+    title: 'Random Name Picker – Roster, Student & Raffle Selector',
+    metaDescription:
+      'Pick random names fairly from any class roster, team standup list, or raffle spreadsheet. Bulk paste names, enable No-Repeat Elimination, and announce winners.',
+    h1: 'Random Name Picker: Fair Roster, Student & Winner Selector',
+    introduction:
+      'Whether you are calling on students for classroom participation, picking the speaking order for a morning engineering standup, or drawing a raffle winner from a 50-person event list, the Random Name Picker selects names with transparent cryptographic fairness, optional Text-to-Speech voice announcements, and one-click winner elimination.',
     primaryIntent: 'transactional/use tool',
     secondaryIntents: ['classroom', 'event'],
     categoryKey: 'names',
     parentCategoryPath: '/names',
     parentCategoryName: 'Names & Rosters',
     featureBadges: [
-      'Quick Roster Input',
-      'Confetti Winner Modal',
-      'No-Repeat Mode',
-      'Speech Synthesis TTS',
-      'Private Browser Storage'
+      'Bulk Spreadsheet Paste',
+      'No-Repeat Elimination Mode',
+      'Speech Synthesis TTS Voice',
+      '100% Local FERPA-Safe Storage',
+      'Web Crypto CSPRNG Fair'
     ],
     defaultWheelData: {
-      title: 'Name Selector',
+      title: 'Roster Name Selector',
       description: 'Quick random name picker',
       paletteKey: 'neon',
       items: [
-        { id: 'rn-1', text: 'Alice', weight: 1 },
-        { id: 'rn-2', text: 'Benjamin', weight: 1 },
-        { id: 'rn-3', text: 'Chloe', weight: 1 },
-        { id: 'rn-4', text: 'David', weight: 1 },
-        { id: 'rn-5', text: 'Emily', weight: 1 },
-        { id: 'rn-6', text: 'Frank', weight: 1 }
+        { id: 'rn-1', text: 'Alice M.', weight: 1 },
+        { id: 'rn-2', text: 'Benjamin K.', weight: 1 },
+        { id: 'rn-3', text: 'Chloe R.', weight: 1 },
+        { id: 'rn-4', text: 'David T.', weight: 1 },
+        { id: 'rn-5', text: 'Elena S.', weight: 1 },
+        { id: 'rn-6', text: 'Frankie W.', weight: 1 },
+        { id: 'rn-7', text: 'Grace L.', weight: 1 },
+        { id: 'rn-8', text: 'Hassan P.', weight: 1 }
       ]
     },
     instructions: [
-      'Enter the names into the list or paste multiple names at once.',
-      'Hit SPIN or press Spacebar.',
-      'Announce the winner or use the TTS voice feature.',
-      'Click Remove Winner to take them off the wheel for subsequent rounds.'
+      'Paste your class roster, team list, or event attendee column using the Bulk Paste button in the sidebar.',
+      'Turn on Elimination (No-Repeat) mode so every person is called once before anyone is picked a second time.',
+      'Click SPIN or press the Spacebar on your smartboard or laptop.',
+      'Optionally enable Text-to-Speech (TTS) audio so the browser speaks the winning name aloud across the room.'
     ],
     whoItsUsefulFor: [
       {
-        audience: 'K-12 & University Teachers',
-        benefit: 'Encourages equal classroom participation and removes perception of instructor bias.'
+        audience: 'K–12 Teachers & University Instructors',
+        benefit: 'Replaces hand-raising bias with equitable, low-anxiety student participation where every roster name stays private on-device.'
       },
       {
-        audience: 'Standup Leaders',
-        benefit: 'Chooses morning meeting speaker order quickly and playfully.'
+        audience: 'Scrum Masters & Remote Team Leads',
+        benefit: 'Randomizes daily standup speaking order on Zoom or Teams so nobody zones out waiting for their turn.'
+      },
+      {
+        audience: 'Event Hosts, HR & Club Organizers',
+        benefit: 'Draws door prize winners, volunteer shifts, and gift-exchange pairings live in front of the crowd.'
       }
     ],
     useCases: [
       {
-        title: 'Classroom Turn Taking',
-        benefit: 'Selects the next student for reading, math problem presentation, or lab equipment duty.',
-        description: 'Selects the next student for reading, math problem presentation, or lab equipment duty.'
+        title: '1. Equitable Classroom Cold-Calling & Turn-Taking',
+        benefit: 'Ensures all 28 students participate across the week without anyone feeling singled out by the teacher.',
+        description:
+          'Workflow: Paste your Period 1 roster, turn on Elimination mode, and leave the tab open—your remaining uncalled students persist automatically between lessons.'
       },
       {
-        title: 'Raffle Ticket Winner',
-        benefit: 'Selects door prize winners at community meetups, PTA meetings, or company parties.',
-        description: 'Selects door prize winners at community meetups, PTA meetings, or company parties.'
+        title: '2. Agile Daily Standup Speaking Queue',
+        benefit: 'Keeps 15-minute morning standups crisp by drawing the next speaker in 3 seconds.',
+        description:
+          'Example Roster: Maya (Frontend), Liam (Backend), Priya (Design), Noah (QA), Sofia (PM), Ethan (DevOps), Chloe (Data).'
+      },
+      {
+        title: '3. Live Door-Prize & Meetup Raffle Drawing',
+        benefit: 'Draws 3 consecutive prize winners from an Eventbrite or Google Forms attendee export.',
+        description:
+          'Workflow: Paste the attendee name column, spin for 3rd Prize -> Eliminate Winner -> Spin for 2nd Prize -> Eliminate Winner -> Spin for Grand Prize.'
+      },
+      {
+        title: '4. Book Club, Seminar & Panel Moderator Queue',
+        benefit: 'Randomizes who opens the discussion or presents their chapter reflection first.',
+        description:
+          'Example Roster: Rachel, Greg, Sam, Vanessa, Marcus, Tara, Jin, Olivia.'
       }
     ],
     customizationOptions: [
       {
-        title: 'Elimination Mode',
-        description: 'Automatically take chosen participants out of the rotation.'
+        title: 'No-Repeat Roster Memory',
+        description: 'Eliminate selected names after each spin so everyone speaks once before resetting the full roster.'
       },
       {
-        title: 'Sound Themes',
-        description: 'Pick cheering crowds, party horns, or subtle ticks.'
+        title: 'Multi-Entry Raffle Weights',
+        description: 'Adjust a participant’s weight to 2x or 5x if they earned extra raffle tickets or classroom bonus points.'
       }
     ],
-    resultExplanation: 'All names have identical angular widths on the wheel and identical mathematical probability determined by Web Cryptography API random integers.',
+    resultExplanation:
+      'All active names share identical angular sectors ($360^\\circ / N$) unless weighted, and winners are chosen via window.crypto.getRandomValues().',
     uniqueExamples: [
-      'Book Club Speakers: Rachel, Greg, Sam, Vanessa, Marcus, Tara'
+      'Privacy-First Classroom Tip: Use "First Name + Last Initial" (e.g., "Maya R.", "Lucas T.") when projecting on a classroom smartboard or screen-sharing on Zoom.'
     ],
     tips: [
-      'Save your roster as a template in your browser so you don\'t have to re-enter names every day.',
-      'Turn on text-to-speech so you can walk around the classroom while the wheel announces the selected student.'
+      'Keep Elimination mode ON during daily standups and classroom Q&A so no participant gets called twice while others haven’t spoken.',
+      'Copy a column of names directly from Google Sheets or Excel and paste it into the Bulk Paste modal—no comma formatting required.',
+      'Enable Text-to-Speech (TTS) audio when teaching from the back of the classroom with a wireless presenter clicker.',
+      'Need to split your entire roster of names into 4 or 6 balanced teams at once? Switch to our bulk Team Generator (/team-generator).'
     ],
     uniqueContentBlocks: [
       {
-        heading: 'Reducing Performance Anxiety with Random Selection',
+        heading: 'When, Why, and How Random Name Pickers Improve Classroom & Meeting Equity',
         body: [
-          'When students know that selection is 100% random and transparent, participation anxiety decreases. Students prepare equally because anyone might be selected, while removing the feeling of being targeted by the teacher.'
+          'In traditional classrooms and corporate video meetings alike, voluntary hand-raising leads to the "80/20 participation trap"—where the same four extroverted voices contribute 80% of the comments while quieter thinkers stay silent. Yet manual cold-calling often makes students or junior teammates feel targeted.',
+          'Projecting the Random Name Picker on a shared screen solves both problems simultaneously. Because every participant can see their name on an equal slice of the wheel, selection feels like a shared game of chance rather than an interrogation. When combined with a "Tag-a-Teammate Lifelines" rule (allowing a chosen speaker to ask a peer for a hint), engagement climbs across the entire room.'
+        ]
+      },
+      {
+        heading: '100% Local Browser Privacy for Student & Employee Rosters',
+        body: [
+          'Teachers and managers rightly worry about uploading student names or internal employee rosters to third-party cloud databases. SpinWheelGames executes 100% client-side: every name you type or paste is stored exclusively in your own device’s local browser storage (`localStorage`) and is never transmitted to our servers.'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Can I reuse this list tomorrow?',
-        answer: 'Yes, your entries are automatically saved in local storage on your device.'
+        question: 'Are student or employee names uploaded to any server?',
+        answer:
+          'No. All names entered into the Random Name Picker remain 100% inside your local web browser (localStorage). Nothing is uploaded to a central database, making the tool safe for FERPA-conscious classrooms and internal corporate teams.'
+      },
+      {
+        question: 'How do I remove a name after it is picked so they aren’t picked again?',
+        answer:
+          'Either toggle on Elimination (No-Repeat) mode before you spin so winners are removed automatically, or click the "Remove / Eliminate Winner" button on the celebration popup after each spin.'
+      },
+      {
+        question: 'Can I paste a list of 40+ names from Excel or Google Classroom?',
+        answer:
+          'Yes! Copy the name column from your spreadsheet, click the Bulk Paste button in the Entries panel, and paste. Every line becomes an individual slice on the wheel automatically.'
+      },
+      {
+        question: 'How is the Random Name Picker different from the Wheel of Names?',
+        answer:
+          'Both tools run on our cryptographic HTML5 wheel engine. The Random Name Picker (/random-name-picker) is streamlined for rapid one-click roster draws, standup queues, and door prizes, whereas our Wheel of Names (/wheel-of-names) includes extended roster presets and multi-list comparison guides.'
       }
     ],
     relatedTools: [
-      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Comprehensive name wheel with full roster management.' },
-      { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Pre-loaded with classroom activities and chore wheels.' }
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Comprehensive name wheel with roster management.' },
+      { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Teacher toolkit for student jobs & cold-calling.' },
+      { name: 'Random Team Generator', path: '/team-generator', description: 'Split a roster of names into balanced squads.' },
+      { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Run transparent raffle & contest drawings.' }
     ],
     relatedWheels: [
-      { name: 'Wheel of Names', path: '/wheel-of-names', count: 8 }
+      { name: 'Wheel of Names', path: '/wheel-of-names', count: 8 },
+      { name: 'Classroom Wheel', path: '/classroom-wheel', count: 8 }
     ],
     relatedGuides: [
       { name: 'How to Pick a Random Winner', path: '/how-to-pick-a-random-winner', readingTime: '5 min' }
     ],
     internalLinks: [
-      { label: 'Explore Name Picker Pillar', href: '/names', context: 'All name selection tools.' }
+      { label: 'Explore Name Picker Pillar', href: '/names', context: 'All name selection tools.' },
+      { label: 'Classroom Student Picker', href: '/classroom-wheel/random-student', context: 'Dedicated teacher student selector.' }
     ],
     breadcrumbs: [
-      { name: 'Home', item: 'https://spinwheelgames.org' },
+      { name: 'Home', item: 'https://spinwheelgames.org/' },
       { name: 'Names', item: 'https://spinwheelgames.org/names' },
       { name: 'Random Name Picker', item: 'https://spinwheelgames.org/random-name-picker' }
     ]

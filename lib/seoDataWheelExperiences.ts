@@ -445,15 +445,40 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
 
   const customFlagship = FLAGSHIP_TITLES[exp.id];
 
-  // Helper to ensure clean, non-repetitive titles under 60 chars
-  const generateCleanTitle = (baseTitle: string, _catName: string): string => {
-    const candidate1 = `${baseTitle} – Free Online Spinner`;
-    if (candidate1.length <= 60) return candidate1;
-    const candidate2 = `${baseTitle} – Free Picker`;
-    if (candidate2.length <= 60) return candidate2;
-    const candidate3 = `${baseTitle} Spinner`;
-    if (candidate3.length <= 60) return candidate3;
-    return baseTitle.slice(0, 60);
+  // Helper to ensure unique, domain-specific titles without generic "Free Online Spinner" boilerplate
+  const cleanWordBoundary = (text: string, maxLen: number): string => {
+    const clean = text.replace(/\.$/, '').trim();
+    if (clean.length <= maxLen) return clean;
+    const sliced = clean.slice(0, maxLen);
+    const lastSpace = sliced.lastIndexOf(' ');
+    const cut = lastSpace > 14 ? sliced.slice(0, lastSpace) : sliced;
+    return cut
+      .replace(/[\s,;&–—:-]+$/, '')
+      .replace(/\s+(?:for|and|with|the|a|an|of|to|in|on|by|or|that|who|from|at|into)$/i, '')
+      .trim();
+  };
+
+  const generateCleanTitle = (baseTitle: string, catName: string): string => {
+    const purposeClause = exp.purpose.split('.')[0].trim();
+    const audienceLead = exp.targetAudience.split(',')[0].replace(/^and\s+/i, '').trim();
+    const maxHookLen = Math.max(14, 47 - baseTitle.length);
+
+    const hookFromPurpose = cleanWordBoundary(purposeClause, maxHookLen);
+    if (hookFromPurpose.length >= 12 && `${baseTitle} – ${hookFromPurpose}`.length <= 52) {
+      return `${baseTitle} – ${hookFromPurpose}`;
+    }
+
+    const hookFromAudience = cleanWordBoundary(`For ${audienceLead}`, maxHookLen);
+    if (hookFromAudience.length >= 10 && `${baseTitle} – ${hookFromAudience}`.length <= 52) {
+      return `${baseTitle} – ${hookFromAudience}`;
+    }
+
+    const hookFromCat = cleanWordBoundary(`${catName} Tool`, maxHookLen);
+    if (`${baseTitle} – ${hookFromCat}`.length <= 52) {
+      return `${baseTitle} – ${hookFromCat}`;
+    }
+
+    return baseTitle;
   };
 
   const clusterOverride = CLUSTER_EXPERIENCE_OVERRIDES[exp.id];
@@ -480,7 +505,7 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
   const t0 = exp.relatedTools?.[0] || 'Session History Log';
   const t1 = exp.relatedTools?.[1] || 'Custom Preset Exporter';
 
-  // Keyword-rich SEO Title (< 60 chars) & H1 targeting specific search intent
+  // Keyword-rich SEO Title & non-truncated H1 targeting specific search intent
   const title =
     clusterOverride?.title ||
     customFlagship?.title ||
@@ -488,11 +513,11 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
   const h1 =
     clusterOverride?.h1 ||
     customFlagship?.h1 ||
-    `${baseWheelTitle}: ${exp.purpose.split('.')[0].slice(0, 48)}`;
+    `${baseWheelTitle}: ${cleanWordBoundary(exp.purpose.split('.')[0], 56)}`;
   const metaDescription =
     clusterOverride?.metaDescription ||
     customFlagship?.desc ||
-    `${exp.purpose} Spin the ${baseWheelTitle} with ${sliceCount} pre-loaded slices (${e0}, ${e1}, ${e2}) designed for ${exp.targetAudience.toLowerCase()}`;
+    `${exp.purpose} Includes ${sliceCount} customizable options (${e0}, ${e1}, ${e2}) plus ${m0.toLowerCase()} for ${exp.targetAudience.toLowerCase()}.`;
 
   const introVariants = [
     `${exp.purpose} Built specifically for ${exp.targetAudience.toLowerCase()}, the ${baseWheelTitle} comes pre-configured with ${sliceCount} curated slices—including ${e0}, ${e1}, ${e2}, and ${e3}—each occupying a ${sliceAngle}° arc (${sliceProb}% initial odds). ${exp.uniqueValueProposition}`,
@@ -535,18 +560,23 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
 
   const useCases = clusterOverride?.useCases || [
     {
-      title: `Primary ${cleanName} Workflow`,
-      description: `${exp.purpose} Start with ${e0}, ${e1}, and ${e2} at ${sliceProb}% probability each.`,
+      title: `1. Quick-Start ${cleanName} Preset (${sliceCount} Slices)`,
+      description: `${exp.purpose} Launch immediately with "${e0}", "${e1}", "${e2}", and "${e3}" at ${sliceProb}% equal probability.`,
       benefit: exp.uniqueValueProposition
     },
     {
-      title: `${m0} Sessions`,
-      description: `${exp.instructions} Combine with ${m0} and ${m1} for customized pacing.`,
+      title: `2. ${m0} Multi-Round Workflow`,
+      description: `${exp.instructions} Remove each winning slice ("${e0}", "${e1}") after it lands so your session progresses through "${e4}" and "${e5}" without repeats.`,
       benefit: `Tailored specifically for ${exp.targetAudience.toLowerCase()}`
     },
     {
-      title: `${exp.shareableResultConcept.split(' ')[0]} & ${t0} Integration`,
-      description: `Log every winning pick (${e3}, ${e4}, ${e5}) alongside ${t0} and ${t1}.`,
+      title: `3. Weighted Priority Deck (${m1})`,
+      description: `Double the slice weight on high-priority picks like "${e0}" or "${e2}" while keeping wildcard options like "${e5}" at 1x weight.`,
+      benefit: 'Balances structured preferences with spontaneous discovery.'
+    },
+    {
+      title: `4. ${exp.shareableResultConcept.split(' ')[0]} & ${t0} Audit`,
+      description: `Track every winning draw (${e3}, ${e4}, ${e5}) alongside ${t0} and ${t1} for live screen-sharing or group records.`,
       benefit: `Generates a ${exp.shareableResultConcept.toLowerCase()}`
     }
   ];
@@ -583,9 +613,10 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
     `On the ${baseWheelTitle}, each of the ${sliceCount} default entries (${e0}, ${e1}, ${e2}, up to ${exp.defaultEntries[sliceCount - 1]}) spans ${sliceAngle}° of the 360° canvas (${sliceProb}% probability). Stopping angles are drawn via window.crypto.getRandomValues() so ${exp.targetAudience.toLowerCase()} get provably unbiased selections.`;
 
   const uniqueExamples = clusterOverride?.uniqueExamples || [
-    `Opening Spin Scenario: Pit "${e0}" against "${e1}" and "${e2}" using ${m0}.`,
-    `Multi-Round Elimination: Start with all ${sliceCount} items (${exp.defaultEntries.slice(0, 6).join(', ')}) and remove each winner to rank "${e3}", "${e4}", and "${e5}".`,
-    `Companion Workflow: Pair your winning "${e0}" or "${e1}" draw with ${t0} and ${t1} to produce a ${exp.shareableResultConcept}`
+    `Complete Default Option List (${sliceCount} Slices): ${exp.defaultEntries.join(', ')}.`,
+    `Opening Spin Scenario: Pit "${e0}" against "${e1}" and "${e2}" using ${m0} so each round introduces a fresh outcome.`,
+    `Multi-Round Elimination Deck: Start with ${exp.defaultEntries.slice(0, 4).join(', ')} and remove each winner to rank "${e3}", "${e4}", and "${e5}".`,
+    `Companion Workflow: Pair your winning "${e0}" or "${e1}" draw with ${t0} and ${t1} to produce a ${exp.shareableResultConcept}.`
   ];
 
   const comparisonTable = clusterOverride?.comparisonTable || {
@@ -602,33 +633,33 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
   const blockVariants = [
     [
       {
-        heading: `Why ${exp.targetAudience.split(',')[0]} Use the ${baseWheelTitle}`,
+        heading: `When, Why, and How ${exp.targetAudience.split(',')[0]} Use the ${baseWheelTitle}`,
         body: [
-          `${exp.purpose} In real-world sessions involving ${exp.targetAudience.toLowerCase()}, choosing between options like "${e0}", "${e1}", "${e2}", and "${e3}" often stalls out due to recency bias or group hesitation.`,
-          `${exp.uniqueValueProposition} By placing all ${sliceCount} possibilities on a radial ${sliceAngle}°-per-slice dial, the ${baseWheelTitle} turns hesitation into immediate action. ${exp.instructions}`
+          `${exp.purpose} In real-world sessions involving ${exp.targetAudience.toLowerCase()}, choosing manually between options like "${e0}", "${e1}", "${e2}", and "${e3}" frequently stalls due to recency bias, polite hesitation, or decision fatigue.`,
+          `${exp.uniqueValueProposition} By placing all ${sliceCount} possibilities (${exp.defaultEntries.join(', ')}) on an impartial radial dial, the ${baseWheelTitle} converts debate into immediate momentum. ${exp.instructions}`
         ]
       },
       {
-        heading: `Configuring ${m0} and ${m1}`,
+        heading: `Configuring ${m0} and ${m1} for Your Session`,
         body: [
-          `Every ${cleanName} session has different rules. That is why this preset supports ${m0}, ${m1}, and ${m2}. If "${e0}" or "${e1}" should appear more frequently than "${e4}", simply slide its weight multiplier upward in the item drawer.`,
-          `For multi-stage sessions, combine the wheel with ${t0} and ${t1}. Each spin can also be shared using the ${exp.shareableResultConcept.toLowerCase()}`
+          `Every ${cleanName} workflow has unique constraints. That is why this tool supports ${m0}, ${m1}, and ${m2}. If "${e0}" or "${e1}" should appear twice as often as "${e4}", simply adjust its weight multiplier in the sidebar editor.`,
+          `For multi-round sessions, turn on Elimination mode so each completed slice is removed automatically, and combine the wheel with ${t0} and ${t1} to export a ${exp.shareableResultConcept.toLowerCase()}.`
         ]
       }
     ],
     [
       {
-        heading: `Inside the ${sliceCount}-Slice ${baseWheelTitle} Preset`,
+        heading: `Inside the ${sliceCount}-Slice ${baseWheelTitle} Preset & Option List`,
         body: [
           `Out of the box, the ${baseWheelTitle} is calibrated at ${exp.difficulty.toLowerCase()} difficulty with ${sliceCount} distinct segments: ${exp.defaultEntries.join(', ')}. Each wedge represents an equal ${sliceProb}% share (${sliceAngle}° of arc) unless custom weights are applied.`,
-          `This specific selection was curated for ${exp.targetAudience.toLowerCase()}. ${exp.uniqueValueProposition}`
+          `This specific option list was built for ${exp.targetAudience.toLowerCase()}. ${exp.uniqueValueProposition} You can edit any label, bulk-paste your own custom list, or save multiple presets locally in your browser.`
         ]
       },
       {
-        heading: `Step-by-Step Protocol: ${exp.instructions.slice(0, 52)}`,
+        heading: `Step-by-Step Protocol: ${cleanWordBoundary(exp.instructions, 54)}`,
         body: [
-          `To get the most out of the ${baseWheelTitle}, follow this workflow: ${exp.instructions} When a spin lands on "${e2}" or "${e3}", decide whether to keep it on the board or engage ${m0} so future spins focus on "${e4}" and "${e5}".`,
-          `Facilitators also pair the wheel with ${t0} and ${t1}, turning every spin into a repeatable system backed by our ${exp.shareableResultConcept.toLowerCase()}`
+          `To get the most out of the ${baseWheelTitle}, follow this workflow: ${exp.instructions} When a spin lands on "${e2}" or "${e3}", decide whether to keep it active on the board or engage ${m0} so subsequent spins focus on "${e4}" and "${e5}".`,
+          `Facilitators and hosts also pair the wheel with ${t0} and ${t1}, turning every spin into a repeatable system backed by our ${exp.shareableResultConcept.toLowerCase()}.`
         ]
       }
     ],
@@ -636,15 +667,15 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
       {
         heading: `Solving ${meta.name} Deadlocks for ${exp.targetAudience.split(',')[0]}`,
         body: [
-          `${exp.uniqueValueProposition} When ${exp.targetAudience.toLowerCase()} face choices such as "${e0}", "${e1}", "${e2}", or "${e3}", manual picking almost always favors familiar defaults and ignores great alternatives like "${e4}" and "${e5}".`,
-          `The ${baseWheelTitle} eliminates that bias: ${exp.purpose} With a single tap or Spacebar press, all ${sliceCount} slices spin with authentic angular friction before locking onto a winner.`
+          `${exp.uniqueValueProposition} When ${exp.targetAudience.toLowerCase()} face choices such as "${e0}", "${e1}", "${e2}", or "${e3}", manual picking almost always favors familiar defaults and overlooks great alternatives like "${e4}" and "${e5}".`,
+          `The ${baseWheelTitle} eliminates that bias: ${exp.purpose} With a single click or Spacebar tap, all ${sliceCount} slices spin with authentic angular deceleration before locking onto an unbiased winner.`
         ]
       },
       {
         heading: `Advanced Modes: ${m0}, ${m1} & ${t0}`,
         body: [
-          `${exp.instructions} Beyond basic spinning, power users take advantage of ${m0} and ${m1} to adapt the ${baseWheelTitle} to changing conditions.`,
-          `Once your winning slice is chosen, integrate the result directly with ${t0} or ${t1} and export a ${exp.shareableResultConcept.toLowerCase()} for your group.`
+          `${exp.instructions} Beyond basic spinning, power users take advantage of ${m0} and ${m1} to adapt the ${baseWheelTitle} to live audience or solo rules.`,
+          `Once your winning slice is chosen from ${exp.defaultEntries.slice(0, 5).join(', ')}, integrate the result directly with ${t0} or ${t1} and export a ${exp.shareableResultConcept.toLowerCase()} for your group.`
         ]
       }
     ],
@@ -652,15 +683,15 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
       {
         heading: `How the ${baseWheelTitle} Elevates ${meta.name} Sessions`,
         body: [
-          `${exp.purpose} Specifically engineered for ${exp.targetAudience.toLowerCase()}, this tool replaces predictable routines with ${sliceCount} high-contrast choices including "${e0}", "${e1}", "${e2}", and "${e3}".`,
+          `${exp.purpose} Specifically engineered for ${exp.targetAudience.toLowerCase()}, this tool replaces predictable routines with ${sliceCount} high-contrast choices: ${exp.defaultEntries.join(', ')}.`,
           `${exp.uniqueValueProposition} Follow the core rule—"${exp.instructions}"—to keep energy high and decision time under ten seconds.`
         ]
       },
       {
         heading: `Pairing "${e0}" & "${e1}" Spins with ${t0}`,
         body: [
-          `Whether you activate ${m0} or ${m1}, the ${baseWheelTitle} adapts to both solo and group environments. Each of the ${sliceCount} slices starts at ${sliceProb}% probability (${sliceAngle}° arc).`,
-          `After the pointer lands on "${e2}" or "${e4}", log the draw in ${t0}, cross-reference ${t1}, and showcase your ${exp.shareableResultConcept.toLowerCase()}`
+          `Whether you activate ${m0} or ${m1}, the ${baseWheelTitle} adapts to both solo and group environments. Each of the ${sliceCount} slices starts at ${sliceProb}% probability (${sliceAngle}° arc) powered by browser Web Cryptography.`,
+          `After the pointer lands on "${e2}" or "${e4}", log the draw in ${t0}, cross-reference ${t1}, and showcase your ${exp.shareableResultConcept.toLowerCase()}.`
         ]
       }
     ],
@@ -668,15 +699,15 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
       {
         heading: `Tailored for ${exp.targetAudience}: ${baseWheelTitle} Breakdown`,
         body: [
-          `Why build a list from scratch when you can start with ${sliceCount} battle-tested options? The ${baseWheelTitle} launches with ${exp.defaultEntries.slice(0, 6).join(', ')}, and more—specifically structured to ${exp.purpose.charAt(0).toLowerCase() + exp.purpose.slice(1)}`,
+          `Why build a list from scratch when you can start with ${sliceCount} battle-tested options? The ${baseWheelTitle} launches with ${exp.defaultEntries.join(', ')}—specifically structured to ${exp.purpose.charAt(0).toLowerCase() + exp.purpose.slice(1)}`,
           `${exp.uniqueValueProposition} Every spin follows a clear protocol: ${exp.instructions}`
         ]
       },
       {
         heading: `Using ${m0} Alongside ${t0} & ${t1}`,
         body: [
-          `To customize the experience, toggle ${m0} or ${m1}. For instance, you can weight "${e0}" and "${e1}" higher for quick rounds, or eliminate "${e2}" and "${e3}" once they have been completed.`,
-          `Combine your spin results with ${t0} and ${t1}, and wrap up the session by generating a ${exp.shareableResultConcept.toLowerCase()}`
+          `To customize the experience, toggle ${m0} or ${m1}. For instance, you can weight "${e0}" and "${e1}" higher for quick opening rounds, or eliminate "${e2}" and "${e3}" once they have been completed.`,
+          `Combine your spin results with ${t0} and ${t1}, and wrap up the session by generating a ${exp.shareableResultConcept.toLowerCase()}.`
         ]
       }
     ],
@@ -684,15 +715,15 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
       {
         heading: `From Indecision to Action: ${baseWheelTitle} (${sliceCount} Slices)`,
         body: [
-          `${exp.purpose} Built with ${exp.targetAudience.toLowerCase()} in mind, the ${baseWheelTitle} assigns equal ${sliceProb}% mathematical odds (${sliceAngle}° per wedge) across ${exp.defaultEntries.slice(0, 5).join(', ')}, and ${sliceCount - 5} additional choices.`,
+          `${exp.purpose} Built with ${exp.targetAudience.toLowerCase()} in mind, the ${baseWheelTitle} assigns equal ${sliceProb}% mathematical odds (${sliceAngle}° per wedge) across all ${sliceCount} default entries: ${exp.defaultEntries.join(', ')}.`,
           `${exp.uniqueValueProposition} Simply follow the recommended approach: ${exp.instructions}`
         ]
       },
       {
         heading: `Customizing Weights, ${m0} & ${exp.shareableResultConcept.split(' ')[0]} Outputs`,
         body: [
-          `Need more control over "${e0}", "${e1}", or "${e2}"? Enable ${m0} or ${m1} in the sidebar, or launch ${m2} for shared screens.`,
-          `Every outcome connects seamlessly with workflows involving ${t0} and ${t1}, complete with a ${exp.shareableResultConcept.toLowerCase()}`
+          `Need more control over "${e0}", "${e1}", or "${e2}"? Enable ${m0} or ${m1} in the sidebar, or launch ${m2} for shared screens and projectors.`,
+          `Every outcome connects seamlessly with workflows involving ${t0} and ${t1}, complete with a ${exp.shareableResultConcept.toLowerCase()}.`
         ]
       }
     ]
@@ -702,16 +733,20 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
 
   const faqs = clusterOverride?.faqs || [
     {
-      question: `What options are pre-loaded on the ${baseWheelTitle}?`,
-      answer: `The ${baseWheelTitle} comes pre-loaded with ${sliceCount} curated slices: ${exp.defaultEntries.join(', ')}. Each slice starts with an equal ${sliceProb}% (${sliceAngle}°) probability, and you can edit, add, or delete any entry in the sidebar.`
+      question: `What options come pre-loaded on the ${baseWheelTitle}?`,
+      answer: `The ${baseWheelTitle} launches with ${sliceCount} curated slices: ${exp.defaultEntries.join(', ')}. Each slice starts with an equal ${sliceProb}% (${sliceAngle}°) probability, and you can edit, bulk-paste, or delete any entry in the sidebar.`
     },
     {
-      question: `Who is the ${baseWheelTitle} designed for?`,
-      answer: `It is specifically designed for ${exp.targetAudience.toLowerCase()} looking to ${exp.purpose.charAt(0).toLowerCase() + exp.purpose.slice(1)} ${exp.uniqueValueProposition}`
+      question: `When and why should I use the ${baseWheelTitle}?`,
+      answer: `It is designed for ${exp.targetAudience.toLowerCase()} looking to ${exp.purpose.charAt(0).toLowerCase() + exp.purpose.slice(1)} ${exp.uniqueValueProposition}`
     },
     {
-      question: `How do I use ${m0} on the ${baseWheelTitle}?`,
-      answer: `${exp.instructions} You can enable ${m0} or ${m1} in the wheel settings panel so options like "${e0}" and "${e1}" follow your exact session rules without duplicate picks.`
+      question: `How do I prevent duplicate picks using ${m0}?`,
+      answer: `${exp.instructions} Turn on Elimination (No-Repeat) mode or ${m0} in the wheel controls panel so winning slices like "${e0}" and "${e1}" are automatically removed after each spin.`
+    },
+    {
+      question: `Is the ${baseWheelTitle} truly random and customizable on mobile?`,
+      answer: `Yes. Every spin uses your browser's Web Cryptography API (window.crypto.getRandomValues) for zero-bias randomness, and your custom slice lists save automatically in local browser storage across desktop, tablet, and mobile devices.`
     }
   ];
 

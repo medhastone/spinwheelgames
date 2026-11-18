@@ -360,7 +360,7 @@ export const SPECIALIZED_TOOL_CONFIGS: Record<string, Omit<ViralToolConfig, 'pal
     slug: 'random-number-wheel',
     title: 'Random Number Generator Wheel',
     subtitle: 'Instant 1 to 25 random number spinner for raffles and games.',
-    canonicalPath: '/random-number-wheel',
+    canonicalPath: '/number-wheel',
     paletteKey: 'ocean',
     toolKind: 'wheel',
     items: makeSlices(Array.from({ length: 20 }, (_, i) => String(i + 1)))

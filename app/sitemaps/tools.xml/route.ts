@@ -63,7 +63,7 @@ export async function GET() {
   const staticXml = staticRoutes
     .map(
       (r) => `  <url>
-    <loc>https://spinwheelgames.org${r.path}</loc>
+    <loc>${r.path === '' || r.path === '/' ? 'https://spinwheelgames.org/' : `https://spinwheelgames.org${r.path}`}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${r.changefreq}</changefreq>
     <priority>${r.priority}</priority>

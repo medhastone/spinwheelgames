@@ -74,6 +74,7 @@ export async function generateMetadata({ params }: EmbedToolPageProps): Promise<
 
   return {
     ...base,
+    alternates: {},
     robots: {
       index: false,
       follow: false,

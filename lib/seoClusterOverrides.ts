@@ -687,5 +687,548 @@ export const CLUSTER_EXPERIENCE_OVERRIDES: Record<string, ClusterExperienceOverr
           'Yes. All student names stay 100% inside your local browser memory (localStorage) and are never uploaded to any external database—making it FERPA and COPPA friendly.'
       }
     ]
+  },
+
+  'never-have-i-ever-wheel': {
+    title: 'Never Have I Ever Wheel – Party Questions & Rules',
+    h1: 'Never Have I Ever Wheel: Clean, College & Party Confession Prompts',
+    metaDescription:
+      'Spin the Never Have I Ever Wheel for instant party prompts, 10-finger countdown rules, and customizable clean, college, or couples confession lists.',
+    introduction:
+      'Most games of Never Have I Ever stall out after five minutes because players freeze when it is their turn to invent a clever prompt on the spot. The Never Have I Ever Wheel keeps the confession circle moving at high speed with curated, universally relatable prompts—from harmless travel mishaps and awkward text fails to hilarious college stories—while letting your group switch seamlessly between Clean Family, Icebreaker, and After-Hours Party lists.',
+    instructions: [
+      'Have everyone in the circle hold up 5 or 10 fingers (or start with zero penalty points).',
+      'Spin the Never Have I Ever Wheel and read the winning confession prompt out loud.',
+      'Anyone who HAS done the action on the slice must put one finger down and share the 30-second backstory if they were the only person in the room to fold.',
+      'Turn on Elimination (No-Repeat) mode so every question is asked only once during the round.'
+    ],
+    useCases: [
+      {
+        title: '1. Clean Classroom & Youth Group Icebreaker List',
+        description:
+          'Safe-for-school prompts that get students laughing without crossing personal boundaries: "Fallen asleep in class", "Sent a text to the wrong group chat", "Pretended to know a song lyric", "Binge-watched an entire season in one Saturday".',
+        benefit: 'Works for middle school, high school, and corporate retreats with zero awkwardness.'
+      },
+      {
+        title: '2. College Dorm & Housewarming Party Deck',
+        description:
+          'High-energy prompts for twenty-somethings: "Stayed up past 5 AM cramming", "Ghosted a bad first date", "Faked a sick day to travel", "Re-gifted a birthday present", "Missed a flight or train by minutes".',
+        benefit: 'Uncovers hilarious dorm and roommate stories within the first three spins.'
+      },
+      {
+        title: '3. Couples & Double-Date Edition',
+        description:
+          'Relationship-focused prompts: "Snooped through a partner’s Spotify history", "Forgotten an anniversary or birthday", "Pretended to like a home-cooked meal", "Stalked an ex’s LinkedIn profile".',
+        benefit: 'Sparks playful banter on double dates and bachelorette weekends.'
+      },
+      {
+        title: '4. Remote Team Happy Hour & Discord Hangout',
+        description:
+          'Work-from-home confessions: "Joined a Zoom call in pajama pants", "Blamed Wi-Fi for being late", "Accidentally unmuted during a rant", "Worked from a coffee shop just for the pastry".',
+        benefit: 'Lets remote coworkers bond over shared WFH habits on video calls.'
+      }
+    ],
+    uniqueExamples: [
+      'Clean & Family Slice List: Forgotten someone’s name right after meeting, Dropped my phone on my face in bed, Wave back at someone waving at the person behind me, Locked myself out of the house, Cried during an animated movie, Pretended to be on a phone call to avoid small talk.',
+      'College & Game Night Slice List: Pulled an all-nighter before an exam, Lied about my age or major at a party, Sent a risky text and immediately put my phone on airplane mode, Crashed a party where I knew nobody, Used someone else’s Netflix login for over a year.',
+      'Solo Backstory Rule: If only ONE person in the circle puts a finger down on a spin, they earn their finger back if they tell the full 60-second story behind it.'
+    ],
+    tips: [
+      'Use the "Solo Storyteller Bonus" rule: whenever only one player puts a finger down, pause the wheel for 60 seconds so they can tell the story behind that confession.',
+      'Start with a 5-Finger Sprint for large groups (8+ people) so rounds finish in 12 minutes rather than dragging on for an hour.',
+      'Give every player one "Pass & Add" token: they can veto one slice before it is answered if they replace it with two custom prompts of their own.',
+      'Pair with the Truth or Dare Wheel (/truth-or-dare-wheel) by making the first player who loses all five fingers spin a dare penalty.'
+    ],
+    uniqueContentBlocks: [
+      {
+        heading: 'When, Why, and How to Use a Never Have I Ever Spinner Instead of Prompt Cards',
+        body: [
+          'Traditional Never Have I Ever relies on each player thinking up a statement on their turn. In practice, players either target one specific friend in the circle or draw a total mental blank, killing the room’s momentum. Placing 10 to 20 prompts on an impartial spinning wheel removes targeted targeting and keeps everyone guessing what slice the pointer will click onto next.',
+          'Even better, a digital wheel lets you tailor the room temperature in 15 seconds. Before friends arrive, paste a mixed deck of 12 slices—combining travel blunders, social media mishaps, and custom inside jokes specific to your friend group—and toggle Elimination Mode so every spin reveals a brand-new confession.'
+        ]
+      },
+      {
+        heading: 'How to Score the 5-Finger Sprint vs. Reverse Point Accumulation',
+        body: [
+          'For groups of 4 to 6 people, play the classic 10-Finger Countdown where the last player with a finger standing wins. For larger groups of 7 to 15 people—or virtual Zoom/Discord calls where counting fingers on webcams is difficult—play Reverse Point Accumulation: anyone who has done the prompt raises their hand and scores +1 Adventurer Point, and the first player to reach 7 points wins the round.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'How do you play Never Have I Ever with a spinning wheel?',
+        answer:
+          'Everyone starts with 5 or 10 fingers held up. One player spins the Never Have I Ever Wheel and reads the winning slice aloud ("Never have I ever..."). Anyone in the group who HAS done that action lowers one finger. Turn on Elimination mode so completed prompts are removed after each spin.'
+      },
+      {
+        question: 'Can I customize the wheel with clean PG questions or adult party prompts?',
+        answer:
+          'Yes! The default slices are lighthearted, PG-13 crowd-pleasers suitable for any hangout. You can click the Entries sidebar to bulk-paste clean classroom prompts, remote team WFH confessions, or spicier college game-night questions.'
+      },
+      {
+        question: 'What happens if nobody in the room has done the action on the wheel?',
+        answer:
+          'Under house wheel rules, if a spin lands on a prompt and zero players put a finger down, the person who spun the wheel must tell a quick truth or spin again immediately with Elimination enabled.'
+      },
+      {
+        question: 'How many prompts should I put on the Never Have I Ever Wheel?',
+        answer:
+          'We recommend loading 10 to 16 prompts on the wheel at a time with Elimination mode turned on. That gives you a brisk 15-minute round with clean, readable typography on mobile phones and living-room TVs.'
+      }
+    ]
+  },
+
+  'workout-wheel': {
+    title: 'Workout Wheel – HIIT Circuit & EMOM Exercise Spinner',
+    h1: 'Workout Wheel: Random HIIT, Tabata & Bodyweight Circuit Generator',
+    metaDescription:
+      'Break gym boredom with the Workout Wheel. Spin random bodyweight exercises, 20-minute EMOM intervals, and equipment-free HIIT circuits at home or the gym.',
+    introduction:
+      'Doing the exact same three exercises in the same order every Tuesday leads to both mental boredom and muscular adaptation plateaus. The Workout Wheel turns bodyweight training, garage gym sessions, and group fitness classes into a gamified interval circuit: spin once every 60 seconds to pick your next movement—eliminating cherry-picking and forcing full-body variety across push, pull, legs, and core.',
+    instructions: [
+      'Complete a 3-minute dynamic warm-up (arm circles, bodyweight squats, inchworms, and high knees) before your first spin.',
+      'Choose your protocol: either spin for 8–12 total sets in Elimination mode, or run a 15-minute EMOM (Every Minute on the Minute) where you spin at the top of each minute.',
+      'Perform the winning exercise for 40 seconds of work followed by 20 seconds of rest (during which you click Spin for the next station).',
+      'Customize the slices in the sidebar to match your available equipment (bodyweight-only, dumbbells, kettlebells, or pull-up bar).'
+    ],
+    useCases: [
+      {
+        title: '1. Zero-Equipment Living Room HIIT Circuit (16 Minutes)',
+        description:
+          'Load 8 bodyweight slices: "20 Jump Squats", "15 Push-Ups", "60-Sec Plank Hold", "12 Burpees", "20 Alternating Lunges", "30 Mountain Climbers", "15 Tricep Chair Dips", "45-Sec Wall Sit".',
+        benefit: 'Delivers a high-heart-rate full-body sweat in a hotel room or apartment with zero gear.'
+      },
+      {
+        title: '2. Garage Gym Kettlebell & Dumbbell EMOM',
+        description:
+          'Load 6 weighted slices: "15 Kettlebell Swings", "10 Goblet Squats", "8 Dumbbell Thrusters", "12 Renegade Rows", "10 Romanian Deadlifts", "40m Farmer Carry".',
+        benefit: 'Balances posterior chain, overhead press, and grip endurance across 15–20 rounds.'
+      },
+      {
+        title: '3. Work-From-Home "Pomodoro Movement Snack" Wheel',
+        description:
+          'Spin once every 60 minutes at your standing desk: "15 Air Squats", "10 Desk Push-Ups", "45-Sec Dead Hang / Doorway Stretch", "20 Calf Raises", "30-Sec Thoracic Spine Opener".',
+        benefit: 'Reverses desk stiffness and boosts afternoon energy in under 90 seconds per break.'
+      },
+      {
+        title: '4. PE Class & Bootcamp Finisher Roulette',
+        description:
+          'Let the athlete of the day spin the final 3-minute team finisher on the gym tablet: "Synchronized Plank Hold", "Partner Wheelbarrow Relay", "25 Team Jumping Jacks", "Bear Crawl Shuttle".',
+        benefit: 'Turns dreaded conditioning finishers into a cheering group spectacle.'
+      }
+    ],
+    uniqueExamples: [
+      'Balanced Push/Pull/Legs/Core Deck (8 Slices): 15 Push-Ups (Upper Push), 12 Inverted Table Rows or Band Pull-Aparts (Upper Pull), 20 Bodyweight Squats (Quad Dominant), 15 Glute Bridges (Posterior Chain), 20 Alternating Reverse Lunges (Unilateral Legs), 60-Second Forearm Plank (Anti-Extension Core), 30 Mountain Climbers (Cardio Core), 12 Burpees (Full-Body Metabolic).',
+      'Rep-Multiplier Combo Workflow: Pair the Workout Wheel with our 1-10 Number Wheel (/1-10-wheel)—spin the Workout Wheel for the exercise, then spin the Number Wheel and multiply by 3 to set your rep target (3 to 30 reps).',
+      'Anti-Back-to-Back Rule: Turn on Elimination mode so you never draw three upper-body pushing movements in a row before hitting legs and core.'
+    ],
+    tips: [
+      'Always enable Elimination (No-Repeat) mode for your first 8 spins so you hit every muscle group exactly once before resetting the wheel for Round 2.',
+      'Add one "60-Second Active Recovery (Walk + Deep Nasal Breathing)" slice with a 1x weight to keep your heart rate in an sustainable aerobic-anaerobic zone.',
+      'Scale intensity by time rather than fixed reps (e.g., 40 seconds of quality reps, 20 seconds to breathe and spin) so beginners and advanced athletes can train together.',
+      'Mount a tablet or phone on a tripod in Fullscreen Mode and use the Spacebar on a Bluetooth keyboard for sweaty hands-free spinning.'
+    ],
+    uniqueContentBlocks: [
+      {
+        heading: 'When, Why, and How Randomized Interval Training Beats Workout Skip Bias',
+        body: [
+          'When athletes design their own quick home workouts on the fly, human psychology naturally gravitates toward favorite strengths and skips uncomfortable movements like burpees, single-leg lunges, or isometric wall sits. Exercise physiologists note that introducing structured randomness removes pre-workout negotiation and increases session adherence because you only have to focus on the current 45-second slice.',
+          'To keep a randomized workout biomechanically safe, never throw 15 exercises from the same joint pattern onto the wheel. Instead, structure your Workout Wheel using the 2-2-2-2 Balance Rule: two upper-body pushes/pulls, two lower-body knee/hip hinges, two core stabilizers, and two metabolic cardio bursts. With Elimination mode enabled, an 8-spin circuit guarantees a complete, anatomically balanced training session in under 15 minutes.'
+        ]
+      },
+      {
+        heading: 'Workout Wheel vs. Exercise Wheel vs. Home Workout Wheel',
+        body: [
+          'Use this flagship Workout Wheel for high-intensity interval circuits (HIIT), Tabata timers, and 15-to-30-minute conditioning blocks. If you want a gentler 60-second movement break between office meetings, check out our Exercise Wheel (/exercise-wheel), or use the Home Workout Wheel (/home-workout-wheel) for quiet, apartment-friendly routines with zero jumping.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Is a randomized Workout Wheel actually effective for fitness, or just a gimmick?',
+        answer:
+          'When loaded with balanced compound movements (squats, push-ups, lunges, planks, swings) and spun with Elimination mode enabled, the Workout Wheel functions as a structured full-body circuit. Randomizing the sequence prevents you from skipping hard exercises while guaranteeing every movement pattern is trained.'
+      },
+      {
+        question: 'How do I prevent the wheel from picking burpees or push-ups three times in a row?',
+        answer:
+          'Toggle on Elimination (No-Repeat) mode in the wheel controls before starting your circuit. Each winning exercise is removed after you complete it, ensuring you complete all 8 exercises once before the wheel resets for Round 2.'
+      },
+      {
+        question: 'Can I customize the exercises for dumbbells, kettlebells, or knee-friendly low impact?',
+        answer:
+          'Yes! Open the Entries panel to delete any high-impact jumping movement and paste your own dumbbell, resistance band, or physical-therapy rehab exercises. Your custom circuit saves automatically in your browser.'
+      },
+      {
+        question: 'How many spins make a complete workout?',
+        answer:
+          'For a brisk morning energizer, run 1 round of 8 spins with Elimination on (about 8–10 minutes). For a full conditioning session, complete 2 to 3 full rounds (16 to 24 total spins) using a 40-seconds-on, 20-seconds-rest interval clock.'
+      }
+    ]
+  },
+
+  'chore-picker': {
+    title: 'Chore Picker Wheel – Fair Family & Roommate Task Spinner',
+    h1: 'Chore Picker Wheel: Conflict-Free Household & Kids Chore Decider',
+    metaDescription:
+      'End arguments over who washes dishes or vacuums. Spin the Chore Picker Wheel for fair roommate cleaning drafts, kids allowance charts, and 15-minute power cleans.',
+    introduction:
+      'Static paper chore charts almost always fail by Week 3 because someone feels stuck with the worst bathroom job or accuses the house organizer of nagging. The Chore Picker Wheel turns Saturday morning housekeeping into a transparent, 60-second draft: gather the family or roommates in the kitchen, turn on No-Repeat Elimination mode, and let each person spin their own assignment so nobody can blame the parent or leaseholder.',
+    instructions: [
+      'Match the chore slices on the wheel to the actual tasks that need to be finished today (and remove any task that is already clean).',
+      'Turn on Elimination (No-Repeat) mode so once a chore is claimed, it disappears from the wheel for the next spinner.',
+      'Have each child, partner, or roommate tap Spin themselves—personal ownership jumps dramatically when you trigger your own spin.',
+      'Set a shared 15- or 20-minute countdown timer and blast an upbeat playlist so everyone cleans simultaneously.'
+    ],
+    useCases: [
+      {
+        title: '1. Saturday Morning Kids Chore & Allowance Draft',
+        description:
+          'Load age-appropriate tasks: "Unload Dishwasher", "Feed Pets & Refill Water", "Vacuum Living Room Rug", "Collect & Take Out Recycling", "Wipe Dining Table & Counters", "Sort & Fold Towel Load", "BONUS: Pick Tonight’s Dessert!".',
+        benefit: 'Stops sibling bickering ("You always give me the hard job!") with visible mathematical fairness.'
+      },
+      {
+        title: '2. Apartment Roommate Sunday Reset Protocol',
+        description:
+          'Split shared common-area zones fairly among 3–4 roommates: "Kitchen Sink, Stovetop & Counters", "Bathroom Mirror, Sink & Toilet", "Sweep & Mop Hard Floors", "Trash, Recycling & Entryway Declutter".',
+        benefit: 'Eliminates passive-aggressive group chat texts about dirty dishes and shared bathrooms.'
+      },
+      {
+        title: '3. Solo ADHD 15-Minute "Clean One Thing" Momentum Starter',
+        description:
+          'Overwhelmed by a messy house? Break cleaning into tiny 10-minute micro-slices: "Clear Just the Coffee Table", "Run 1 Load of Laundry", "Empty Kitchen Trash Only", "2-Minute Bathroom Counter Wipe", "Put Away 10 Items".',
+        benefit: 'Bypasses executive dysfunction by picking one bite-sized starting point in 3 seconds.'
+      },
+      {
+        title: '4. Classroom End-of-Day 3-Minute Cleanup Jobs',
+        description:
+          'Elementary and middle school teachers spin classroom jobs: "Floor Inspector", "Whiteboard Eraser", "Chromebook Cart Plug-In", "Bookshelf Straightener", "Supply Caddy Organizer".',
+        benefit: 'Gets 25 students resetting the classroom in under 180 seconds before the bell rings.'
+      }
+    ],
+    uniqueExamples: [
+      'Equal-Effort 15-Minute Task List (8 Slices): Unload & Reload Dishwasher (12 min), Vacuum Living Room & Hallway (12 min), Scrub Bathroom Sink, Mirror & Toilet (12 min), Wipe Kitchen Counters, Stovetop & Microwave (12 min), Fold & Put Away One Laundry Basket (12 min), Take Out All Trash & Recycling Bins (10 min), Sweep Kitchen & Entryway Floors (10 min), Wildcard: Pick Your Favorite Chore or Assist!',
+      'The "Golden Ticket" Reward Slice: Add one low-weight bonus slice—"DJ & Hydration Boss (Picks the Music + 5 Min Early Break)"—so kids actually race to the tablet to spin.',
+      '30-Second Trade Window Rule: After everyone spins their chore in Elimination mode, open a 30-second swap window where two people can mutually trade tasks if one prefers vacuuming and the other prefers dishes.'
+    ],
+    tips: [
+      'Keep every slice on the wheel roughly equal in duration (e.g., all 10–15 minute tasks). Never put a 45-minute deep oven scrub next to a 2-minute plant watering on the same wheel!',
+      'Include one fun reward or wildcard slice (like "Music DJ + Easy Chore" or "Skip One Task Token") when spinning with kids ages 5–12 to build positive excitement.',
+      'Allow a 30-second consensual trade window after all spins are done: if Sibling A hates trash duty and Sibling B hates folding laundry, let them swap voluntarily.',
+      'For ADHD or executive-function overwhelm, commit to the "One Spin Only" pact: you only have to do the single micro-chore the wheel lands on, then you have full permission to stop.'
+    ],
+    uniqueContentBlocks: [
+      {
+        heading: 'When, Why, and How to Use a Chore Picker Wheel Without Sparking Resentment',
+        body: [
+          'Household conflict over chores rarely comes from the physical labor itself—it comes from perceived unfairness and the mental load of one partner or parent acting as the "house manager." When a human assigns chores, family members instinctively negotiate or feel micromanaged. When every member of the household taps the Chore Picker Wheel themselves with Elimination mode active, the algorithm becomes the neutral referee.',
+          'The secret to a successful chore wheel is Time-Boxing Equivalence. Before spinning, calibrate your slices so every option takes roughly 12 to 15 minutes of active effort. If you have a massive 40-minute job (like cleaning out the refrigerator), split it into two separate 15-minute slices ("Fridge Top 2 Shelves" and "Fridge Drawers & Door Bins") so no unlucky spinner gets stuck working twice as long as everyone else.'
+        ]
+      },
+      {
+        heading: 'How Adults With ADHD Use Micro-Chore Wheels to Beat Cleaning Paralysis',
+        body: [
+          'Looking at a cluttered apartment creates an all-or-nothing cognitive bottleneck where your brain sees 20 intertwined tasks and freezes. By loading 6 tiny, self-contained 10-minute actions onto the Chore Picker Wheel (such as "Collect all cups and plates into the sink" or "Clear the entryway floor"), you outsource the prioritization step completely. Once the wheel picks a single micro-target, starting takes zero willpower.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'How do I make sure two kids or roommates don’t get the same chore?',
+        answer:
+          'Turn on Elimination (No-Repeat) mode before the first person spins. Every time a chore slice is selected, it is automatically removed from the wheel so the next spinner draws from the remaining unassigned tasks.'
+      },
+      {
+        question: 'What if one chore takes 30 minutes and another takes only 5 minutes?',
+        answer:
+          'For maximum fairness, split big jobs into equal 10-to-15-minute slices (e.g., split "Clean Bathroom" into "Bathroom Sink & Mirror" and "Toilet & Bathroom Floor"), or bundle two quick 5-minute tasks onto a single slice ("Take Out Trash + Wipe Dining Table").'
+      },
+      {
+        question: 'Can I save separate Daily After-School and Saturday Deep-Clean chore lists?',
+        answer:
+          'Yes! You can edit the slices in the sidebar and save custom lists in your browser or copy a shareable link for your weekday routine versus your weekend deep-clean draft.'
+      },
+      {
+        question: 'What is the "30-Second Trade Rule" for family chore wheels?',
+        answer:
+          'After everyone has spun their random chore, allow a 30-second window where any two players can mutually agree to swap assignments. Because the baseline assignment was 100% fair, voluntary trades feel collaborative rather than forced.'
+      }
+    ]
+  },
+
+  'exercise-wheel': {
+    title: 'Exercise Wheel – Desk Mobility & PE Warm-Up Spinner',
+    h1: 'Exercise Wheel: Quick Desk Breaks, PE Warm-Ups & Mobility Prompts',
+    metaDescription:
+      'Spin the Exercise Wheel for 60-second desk mobility breaks, school PE class warm-ups, and low-barrier daily movement prompts without changing clothes.',
+    introduction:
+      'While our high-intensity Workout Wheel (/workout-wheel) is built for sweaty 20-minute HIIT circuits, the Exercise Wheel is designed for instant, zero-barrier movement snacks throughout the day—from 60-second work-from-home posture resets and physical therapy mobility drills to energetic K–12 PE warm-up circles.',
+    instructions: [
+      'Keep the Exercise Wheel open in a pinned browser tab during long desk workdays or project it on the gymnasium screen for PE warm-ups.',
+      'Spin once every 50–60 minutes (or at the start of class) to select a 60-second movement prompt.',
+      'Perform the movement at a comfortable, controlled tempo focusing on joint range of motion and blood flow.',
+      'Enable Elimination mode so you cycle through upper spine, hips, legs, and core across the day.'
+    ],
+    useCases: [
+      {
+        title: '1. Remote Worker Hourly Posture & Mobility Reset',
+        description:
+          'No-sweat desk slices: "15 Desk Push-Ups", "20 Bodyweight Air Squats", "45-Sec Doorway Chest Stretch", "10 Standing Hip Circles", "20 Standing Calf Raises", "30-Sec Wall Angels".',
+        benefit: 'Eliminates afternoon lower-back stiffness and neck tension without needing gym clothes.'
+      },
+      {
+        title: '2. Elementary & Middle School PE Warm-Up Circle',
+        description:
+          'Let the student leader of the day spin 4 warm-up movements: "20 Jumping Jacks", "10 High Knees + Butt Kicks", "10 Frankenstein Toe Touches", "10 Arm Circles Forward & Back", "30-Sec Balance on One Foot".',
+        benefit: 'Gets 30 students excited and moving within 60 seconds of entering the gym.'
+      },
+      {
+        title: '3. Study Break & Classroom Brain-Break Spinner',
+        description:
+          'Between 45-minute test prep blocks: "10 Star Jumps", "Touch Toes & Reach for Sky x10", "30-Sec Invisible Jump Rope", "10 Slow Lunges".',
+        benefit: 'Floods the brain with oxygen and restores classroom focus in 2 minutes.'
+      },
+      {
+        title: '4. Gamer Between-Match Lobby Fitness Wheel',
+        description:
+          'Spin during 90-second matchmaking queues: "10 Push-Ups", "15 Squats", "45-Sec Plank", "20 Wrist & Forearm Stretches".',
+        benefit: 'Turns dead lobby waiting time into 100+ effortless reps per gaming evening.'
+      }
+    ],
+    uniqueExamples: [
+      'No-Sweat Office Mobility Deck (8 Slices): 15 Incline Desk Push-Ups, 15 Chair Sit-to-Stand Squats, 30-Second Doorway Pec Stretch, 10 Standing Thoracic Windmills, 20 Standing Calf Raises, 10 Reverse Lunges, 30-Second Wrist & Finger Flexor Stretch, 45-Second Single-Leg Balance.',
+      'PE Class Leader Protocol: Have a different student spin the Exercise Wheel at the start of each PE period until all 4 warm-up slices are completed.'
+    ],
+    tips: [
+      'Keep movements under 60 seconds so you never hesitate to spin during a busy workday.',
+      'If you want a full 20-minute sweaty cardio or dumbbell circuit instead of quick movement snacks, switch to our Workout Wheel (/workout-wheel).'
+    ],
+    uniqueContentBlocks: [
+      {
+        heading: 'Why 60-Second "Exercise Snacks" Outperform Sitting for 8 Hours Straight',
+        body: [
+          'Sports medicine research shows that even if you work out for 45 minutes in the evening, sitting motionless for 8 consecutive hours still impairs glucose metabolism and tightens hip flexors. Spinning the Exercise Wheel once per hour for a 60-second set of squats, wall angels, or desk push-ups reactivates postural muscles and sharpens mental alertness.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'How is the Exercise Wheel different from the Workout Wheel?',
+        answer:
+          'The Exercise Wheel is tailored for quick 60-second movement snacks, office mobility breaks, and classroom/PE warm-ups, while the Workout Wheel (/workout-wheel) is built for full 15-to-30-minute HIIT and strength circuits.'
+      },
+      {
+        question: 'Can teachers use the Exercise Wheel for classroom brain breaks?',
+        answer:
+          'Yes! Project the wheel on your smartboard between lessons and let a student spin two 30-second movement slices to reset class energy.'
+      },
+      {
+        question: 'Can I add my physical therapist’s daily rehab stretches?',
+        answer:
+          'Absolutely. Replace the default slices with your prescribed PT stretches and use Elimination mode to check off all 6 exercises every day.'
+      }
+    ]
+  },
+
+  'home-workout-wheel': {
+    title: 'Home Workout Wheel – Quiet Apartment & No-Gear Routines',
+    h1: 'Home Workout Wheel: Zero-Equipment & Apartment-Friendly Fitness Spinner',
+    metaDescription:
+      'Spin quiet, zero-equipment home workout routines that won’t wake downstairs neighbors. Perfect for small apartments, bedrooms, and hotel travel fitness.',
+    introduction:
+      'Training in a second-floor apartment or a cramped bedroom means noisy box jumps and sprawling gym equipment are off the table. The Home Workout Wheel is curated specifically for small spaces and quiet floors—combining slow-tempo strength movements, isometric holds, and low-impact core work that require nothing more than a yoga mat.',
+    instructions: [
+      'Clear a 6-by-3-foot yoga mat space in your living room, bedroom, or hotel room.',
+      'Turn on Elimination mode and spin 6 to 8 slices for a complete, neighbor-friendly strength circuit.',
+      'Use a slow 3-second lowering tempo on squats, push-ups, and lunges to maximize muscle tension without noisy jumping.',
+      'Swap in resistance band or dumbbell slices in the sidebar if you have compact home gear.'
+    ],
+    useCases: [
+      {
+        title: '1. Quiet Upstairs Apartment Circuit (Zero Jumping)',
+        description:
+          '100% silent floor slices: "15 Slow-Tempo Squats", "12 Push-Ups", "45-Sec Forearm Plank", "20 Glute Bridges", "12 Reverse Lunges per Leg", "30-Sec Side Plank Left & Right", "15 Superman Back Extensions", "45-Sec Wall Sit".',
+        benefit: 'Builds serious lower-body and core strength at 6 AM or 10 PM without thumping the floor.'
+      },
+      {
+        title: '2. Resistance Band & Door Anchor Home Gym',
+        description:
+          'Compact band slices: "15 Banded Rows", "12 Overhead Band Presses", "15 Banded Chest Flies", "20 Banded Clamshells", "15 Bicep Curls", "15 Tricep Pressdowns".',
+        benefit: 'Adds pulling and shoulder hypertrophy to home routines using a single $15 resistance band.'
+      },
+      {
+        title: '3. Hotel Room Business Travel Routine',
+        description:
+          'No-floor-touching travel slices (when hotel carpet feels sketchy): "20 Bulgarian Split Squats (Foot on Bed)", "15 Incline Bed/Desk Push-Ups", "60-Sec Wall Sit", "20 Standing Calf Raises", "30 Standing Bicycle Crunches".',
+        benefit: 'Keeps you fit on the road without ever lying down on hotel room carpet.'
+      }
+    ],
+    uniqueExamples: [
+      'Silent Apartment Strength List (8 Slices): 12 Slow 3-Second Tempo Push-Ups, 20 Pause Bodyweight Squats, 60-Second Forearm Plank, 15 Single-Leg Glute Bridges, 16 Alternating Reverse Lunges, 45-Second Isometric Wall Sit, 20 Dead Bug Core Reps, 15 Chair Tricep Dips.'
+    ],
+    tips: [
+      'Replace explosive jumping power with a 3-second eccentric pause at the bottom of every squat and push-up—your muscles will burn twice as hard with zero floor noise.',
+      'Use the Hotel Stand-Only preset above whenever you want a great sweat without lying on a floor.'
+    ],
+    uniqueContentBlocks: [
+      {
+        heading: 'How to Build Real Strength at Home Without Heavy Weights or Noise',
+        body: [
+          'The biggest mistake in home workouts is assuming you need high-impact jumping to get an effective session. By switching to unilateral (single-leg) movements like Bulgarian split squats, single-leg glute bridges, and slow-tempo push-ups on the Home Workout Wheel, you double the load on each working muscle while keeping floor noise at zero decibels.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Can I remove jumping exercises for an upstairs apartment?',
+        answer:
+          'Yes! Use our Quiet Upstairs Apartment preset or delete any plyometric jump slice in the sidebar so your entire routine is 100% silent and neighbor-friendly.'
+      },
+      {
+        question: 'How is the Home Workout Wheel different from the main Workout Wheel?',
+        answer:
+          'The Home Workout Wheel focuses on zero-equipment, small-space, and low-noise apartment movements, whereas the main Workout Wheel (/workout-wheel) includes high-intensity gym intervals, sprints, and equipment-based EMOMs.'
+      },
+      {
+        question: 'How much space do I need for the Home Workout Wheel?',
+        answer:
+          'Every default exercise on the Home Workout Wheel can be performed inside a standard 6-foot by 3-foot yoga mat footprint.'
+      }
+    ]
+  },
+
+  'date-night-wheel': {
+    title: 'Date Night Wheel – Romantic At-Home & Outing Ideas',
+    h1: 'Date Night Wheel: Spontaneous Couple Activities & Romantic Ideas',
+    metaDescription:
+      'Break out of the "dinner and scrolling phones" rut. Spin the Date Night Wheel for budget at-home dates, adventurous local outings, and couple challenges.',
+    introduction:
+      'After a busy workweek, most couples want quality time together but lack the mental bandwidth to plan something creative—defaulting to ordering the same takeout on the couch. The Date Night Wheel injects immediate novelty into Friday and Saturday nights with curated ideas spanning cozy $0 living-room dates, local foodie adventures, and nostalgic novelty outings.',
+    instructions: [
+      'Agree on tonight’s budget and energy level before spinning (Cozy Stay-In vs. Out on the Town).',
+      'Have each partner add 2 secret dream dates to the wheel alongside 4 classic favorites.',
+      'Make a pact to honor the very first spin—or give each partner one single Veto token for the evening.',
+      'Pair with our Dinner Wheel (/dinner-wheel) and Movie Wheel (/movie-wheel) for a 3-spin full evening itinerary.'
+    ],
+    useCases: [
+      {
+        title: '1. Zero-Budget Cozy Stay-At-Home Date Night (Babysitter-Free)',
+        description:
+          'Slices after the kids are asleep: "Living Room Blanket Fort & Classic Movie", "Blind Wine/Chocolate Tasting Flight", "Cook a 3-Course Pasta Recipe Together", "2-Player Board Game Championship", "At-Home Spa & Massage Swap", "Sunset Balcony Mocktails & Music".',
+        benefit: 'Turns a stay-at-home evening into an intentional event without spending on a sitter.'
+      },
+      {
+        title: '2. Under-$40 Local Adventure & Novelty Outing',
+        description:
+          'Out-of-the-house slices: "Arcade & Pinball Bar Showdown", "Progressive Dinner (Apps, Mains, Dessert at 3 Spots)", "Late-Night Bookstore + Coffee Date", "Mini Golf or Bowling Loser-Buys-Ice-Cream", "Botanical Garden or Museum Evening Walk", "Food Truck Park Tasting".',
+        benefit: 'Creates memorable shared experiences for less than a standard restaurant bill.'
+      },
+      {
+        title: '3. The "3-Wheel Combo" Full Evening Generator',
+        description:
+          'Spin 1: Cuisine on the Dinner Wheel (/dinner-wheel). Spin 2: Activity on the Date Night Wheel. Spin 3: Film on the Movie Wheel (/movie-wheel).',
+        benefit: 'Plans an entire 4-hour Friday date night from start to finish in 30 seconds.'
+      }
+    ],
+    uniqueExamples: [
+      'Balanced 8-Slice Date Night Deck: Homemade Pizza & Cocktail Lab, Sunset Picnic at a Scenic Overlook, Retro Arcade & Ice Cream Run, Bookstore Pick-For-Each-Other Challenge, Comedy Club or Live Local Music, Tapas & Dessert Crawl, Stargazing with Thermos Hot Cocoa, Board Game Café Showdown.'
+    ],
+    tips: [
+      'Use the "Secret Wildcard Slice": let each partner type one surprise date onto the wheel without explaining the details until it lands.',
+      'Turn on Elimination mode across the month so you try 4 completely different date nights every four weeks instead of repeating the same restaurant.'
+    ],
+    uniqueContentBlocks: [
+      {
+        heading: 'Why Novelty Spins Strengthen Relationships Better Than Routine Dinner Dates',
+        body: [
+          'Relationship researchers studying the "self-expansion model" have found that couples experience a measurable spike in relationship satisfaction when they share novel, slightly unpredictable activities rather than repeating familiar routines. Spinning the Date Night Wheel removes planning friction while nudging both partners out of their default Friday habits.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Can we customize the Date Night Wheel for a stay-at-home or rainy night?',
+        answer:
+          'Yes! Use our Cozy Stay-At-Home list above or edit the slices in the sidebar to include only indoor activities like homemade pizza challenges, board games, and movie marathons.'
+      },
+      {
+        question: 'How do we prevent one partner from vetoing every spin?',
+        answer:
+          'Before spinning, let both partners review the 6 to 8 slices on the wheel and remove any genuine non-starters. Once the wheel is approved, each person gets at most one Veto token.'
+      },
+      {
+        question: 'Can we save our monthly bucket-list dates on the wheel?',
+        answer:
+          'Yes. Your custom date list persists in local browser storage, so you can load 12 bucket-list dates at the start of the season and eliminate one every weekend.'
+      }
+    ]
+  },
+
+  'task-selector': {
+    title: 'Task Selector Wheel – ADHD & Pomodoro To-Do Prioritizer',
+    h1: 'Task Selector Wheel: Overcome To-Do List Overwhelm & Start Working',
+    metaDescription:
+      'Stuck staring at 15 equally urgent tasks? Spin the Task Selector Wheel to pick your next 25-minute Pomodoro sprint and break procrastination instantly.',
+    introduction:
+      'When five tasks on your to-do list all carry equal priority, your brain wastes more energy debating which one to tackle first than it takes to actually complete one. The Task Selector Wheel acts as an external executive-function starter: paste your top 5 deliverables, spin once, and commit to a single 25-minute Pomodoro block on whichever slice wins.',
+    instructions: [
+      'Paste only 4 to 7 actionable, ready-to-start tasks onto the Task Selector Wheel (break huge projects into 25-minute sub-steps first).',
+      'Turn on Elimination mode so finished tasks are cleared off your board with a burst of confetti.',
+      'Spin the wheel and start a 25-minute timer within 10 seconds—no second-guessing allowed.',
+      'When the timer rings, remove the completed slice and spin for your next sprint.'
+    ],
+    useCases: [
+      {
+        title: '1. Morning Email & Admin Inbox Zero Sprint',
+        description:
+          'Clear dreaded admin tasks: "Reply to 3 Client Emails", "Submit Expense Receipts", "Update Jira/Asana Tickets", "Review Pull Request", "Schedule Dentist/Doctor Appointment", "Clean Desktop Downloads Folder".',
+        benefit: 'Turns boring administrative backlog into a rapid-fire game.'
+      },
+      {
+        title: '2. Student Exam Study & Homework Block Selector',
+        description:
+          'Rotate study subjects: "25-Min Biology Flashcards", "Solve 5 Calculus Practice Problems", "Outline History Essay Intro", "Review Spanish Vocab Deck", "Read 15 Pages of Literature Chapter".',
+        benefit: 'Prevents students from procrastinating by interleaved subject switching.'
+      },
+      {
+        title: '3. Freelancer & Creator Backlog Crusher',
+        description:
+          'Balance creative tasks: "Draft Newsletter Hook", "Edit 60-Sec Video Clip", "Send 2 Pitch Outreach Emails", "Update Portfolio Case Study", "Invoice Completed Project".',
+        benefit: 'Ensures marketing, billing, and creative work all get done across the week.'
+      }
+    ],
+    uniqueExamples: [
+      'The 25-Minute Rule: Never put "Write Annual Report" on a slice; put "Draft Outline & First 200 Words of Report" so every spin is 100% achievable in one sitting.'
+    ],
+    tips: [
+      'Assign 2x or 3x weight to high-deadline tasks so they are statistically more likely to be drawn early in the morning while your focus is sharpest.',
+      'Add one "10-Minute Walk & Coffee Break" slice so your Pomodoro sprints include built-in recovery.'
+    ],
+    uniqueContentBlocks: [
+      {
+        heading: 'How Random Task Selection Defeats Procrastination & Analysis Paralysis',
+        body: [
+          'Procrastination is rarely laziness; cognitive psychologists define it as emotional friction triggered by ambiguity and choice overload. When you force yourself to reduce a sprawling backlog into six concrete 25-minute slices on the Task Selector Wheel, the spin makes the starting decision for you—preserving your prefrontal cortex energy for deep work.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Should I use a random wheel when some tasks are more urgent than others?',
+        answer:
+          'Only put tasks from the SAME priority tier on the wheel at once (for example, your Top 5 tasks due today), OR use the Weight slider to give urgent deadlines a 3x higher probability of landing first.'
+      },
+      {
+        question: 'How does the Task Selector Wheel help with ADHD task initiation?',
+        answer:
+          'People with ADHD often experience paralysis when choosing between multiple unappealing or equally interesting tasks. The visual spin, audio click track, and winner confetti create an immediate dopamine cue that bridges the gap between planning and starting.'
+      },
+      {
+        question: 'How is the Task Selector different from the Chore Picker Wheel?',
+        answer:
+          'The Task Selector Wheel is built for solo deep work, Pomodoro study blocks, and professional to-do lists, while the Chore Picker Wheel (/chore-picker) is designed for household cleaning and multi-person family/roommate task drafts.'
+      }
+    ]
   }
 };
+
