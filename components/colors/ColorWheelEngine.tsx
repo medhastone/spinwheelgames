@@ -938,12 +938,14 @@ export default function ColorWheelEngine() {
               <form onSubmit={handleAddColor} className="flex items-center gap-1.5 pt-1">
                 <input
                   type="color"
+                  aria-label="Pick wheel slice color"
                   value={inputHex}
                   onChange={(e) => setInputHex(e.target.value.toUpperCase())}
                   className="w-8 h-8 rounded-lg cursor-pointer border border-slate-300 dark:border-slate-700 bg-transparent p-0"
                 />
                 <input
                   type="text"
+                  aria-label="Hex color code"
                   placeholder="#6366F1"
                   value={inputHex}
                   onChange={(e) => setInputHex(e.target.value)}
@@ -971,9 +973,11 @@ export default function ColorWheelEngine() {
                     />
                     <span className="font-mono text-slate-700 dark:text-slate-300">{hex}</span>
                     <button
+                      type="button"
                       onClick={() => handleRemoveColor(hex)}
-                      className="p-0.5 text-slate-400 hover:text-rose-500 transition-colors ml-0.5 cursor-pointer"
+                      className="p-0.5 text-slate-500 hover:text-rose-600 transition-colors ml-0.5 cursor-pointer"
                       title="Remove color"
+                      aria-label={`Remove color ${hex}`}
                     >
                       <Trash2 className="w-2.5 h-2.5" />
                     </button>

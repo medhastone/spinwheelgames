@@ -195,7 +195,7 @@ export default function CategoryGrid() {
           return (
             <div
               key={idx}
-              className="group relative p-5 rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] hover:border-[#4648d4]/50 dark:hover:border-[#8587ff]/50 hover:bg-[#f8f7fd] dark:hover:bg-[#1f202c] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-3"
+              className="group relative p-5 rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] hover:border-[#4648d4]/50 dark:hover:border-[#8587ff]/50 hover:bg-[#f8f7fd] dark:hover:bg-[#1f202c] shadow-xs hover:shadow-md transition-colors flex flex-col justify-between space-y-3"
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
@@ -212,7 +212,7 @@ export default function CategoryGrid() {
                           : 'Save to Profile Favorites'
                       }
                       aria-label="Save category to profile favorites"
-                      className="p-1.5 rounded-lg text-[#767586] dark:text-[#a09eaf] hover:text-rose-500 transition-colors cursor-pointer"
+                      className="p-1.5 rounded-lg text-[#555466] dark:text-[#a09eaf] hover:text-rose-500 transition-colors cursor-pointer"
                     >
                       <Heart
                         className={`w-4 h-4 ${
@@ -222,7 +222,7 @@ export default function CategoryGrid() {
                         }`}
                       />
                     </button>
-                    <span className="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 rounded-full bg-[#f4f2fd] dark:bg-[#222330]">
+                    <span className="text-[11px] font-bold text-[#555466] dark:text-[#908fa1] px-2 py-0.5 rounded-full bg-[#f4f2fd] dark:bg-[#222330]">
                       {cat.count}
                     </span>
                   </div>

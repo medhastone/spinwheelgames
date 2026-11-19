@@ -4,6 +4,7 @@ import { SITE_COUNTS } from "@/lib/siteConfig";
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import {
   Search,
@@ -48,8 +49,8 @@ import {
   SavedWheel
 } from '@/lib/storage';
 import { WheelConfig } from '@/lib/presets';
-import SavedWheelsModal from './SavedWheelsModal';
-import SearchModal from './SearchModal';
+const SavedWheelsModal = dynamic(() => import('./SavedWheelsModal'), { ssr: false });
+const SearchModal = dynamic(() => import('./SearchModal'), { ssr: false });
 
 interface NavbarProps {
   soundEnabled?: boolean;
@@ -359,9 +360,9 @@ export default function Navbar({
                 <Image
                   src="/spinwheel-logo-v2.webp"
                   alt="SpinWheelGames Logo"
-                  width={320}
-                  height={84}
-                  sizes="(max-width: 639px) 220px, (max-width: 767px) 220px, (max-width: 1023px) 243px, (max-width: 1279px) 236px, 289px"
+                  width={289}
+                  height={76}
+                  sizes="(max-width: 639px) 220px, (max-width: 1023px) 244px, 289px"
                   className="swg-logo-img block"
                   style={{ width: 'auto' }}
                   priority
@@ -399,7 +400,7 @@ export default function Navbar({
                     <div className="flex items-center justify-between px-2 pb-2 mb-2 border-b border-[#eeedf7] dark:border-[#222330]">
                       <div className="flex items-center gap-1.5">
                         <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#555466] dark:text-[#908fa1]">
                           Most Played Wheels
                         </span>
                       </div>
@@ -437,7 +438,7 @@ export default function Navbar({
                                   </span>
                                 )}
                               </div>
-                              <p className="text-[11px] text-[#767586] dark:text-[#908fa1] truncate mt-0.5">
+                              <p className="text-[11px] text-[#555466] dark:text-[#908fa1] truncate mt-0.5">
                                 {game.desc}
                               </p>
                             </div>
@@ -475,7 +476,7 @@ export default function Navbar({
                     <div className="flex items-center justify-between px-2 pb-2 mb-2 border-b border-[#eeedf7] dark:border-[#222330]">
                       <div className="flex items-center gap-1.5">
                         <Flame className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#555466] dark:text-[#908fa1]">
                           Fast-Rising &amp; Interactive Games
                         </span>
                       </div>
@@ -513,7 +514,7 @@ export default function Navbar({
                                   </span>
                                 )}
                               </div>
-                              <p className="text-[11px] text-[#767586] dark:text-[#908fa1] truncate mt-0.5">
+                              <p className="text-[11px] text-[#555466] dark:text-[#908fa1] truncate mt-0.5">
                                 {game.desc}
                               </p>
                             </div>
@@ -552,7 +553,7 @@ export default function Navbar({
                     <div className="flex items-center justify-between px-2 pb-2 mb-2 border-b border-[#eeedf7] dark:border-[#222330]">
                       <div className="flex items-center gap-1.5">
                         <Dices className="w-3.5 h-3.5 text-indigo-500" />
-                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#555466] dark:text-[#908fa1]">
                           Interactive 3D Dice &amp; RPG Tools
                         </span>
                       </div>
@@ -590,7 +591,7 @@ export default function Navbar({
                                   </span>
                                 )}
                               </div>
-                              <p className="text-[11px] text-[#767586] dark:text-[#908fa1] truncate mt-0.5">
+                              <p className="text-[11px] text-[#555466] dark:text-[#908fa1] truncate mt-0.5">
                                 {game.desc}
                               </p>
                             </div>
@@ -629,7 +630,7 @@ export default function Navbar({
                     <div className="flex items-center justify-between px-2 pb-2 mb-2 border-b border-[#eeedf7] dark:border-[#222330]">
                       <div className="flex items-center gap-1.5">
                         <Sparkles className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
-                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#767586] dark:text-[#908fa1]">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#555466] dark:text-[#908fa1]">
                           15 Category Topic Hubs
                         </span>
                       </div>
@@ -669,7 +670,7 @@ export default function Navbar({
                           <span className="text-[13px] font-bold text-[#1a1b22] dark:text-white group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors">
                             {cat.name}
                           </span>
-                          <span className="text-[11px] text-[#767586] dark:text-[#908fa1] truncate">
+                          <span className="text-[11px] text-[#555466] dark:text-[#908fa1] truncate">
                             {cat.desc}
                           </span>
                         </Link>
@@ -702,7 +703,7 @@ export default function Navbar({
             >
               <Search className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
               <span className="hidden md:inline lg:hidden xl:inline">Search</span>
-              <kbd className="hidden 2xl:inline text-[10px] font-medium px-1.5 py-0.5 rounded bg-white dark:bg-[#12131a] text-[#767586] dark:text-[#908fa1] border border-[#eeedf7] dark:border-[#383a4c]">
+              <kbd className="hidden 2xl:inline text-[10px] font-medium px-1.5 py-0.5 rounded bg-white dark:bg-[#12131a] text-[#555466] dark:text-[#908fa1] border border-[#eeedf7] dark:border-[#383a4c]">
                 ⌘K
               </kbd>
             </button>
@@ -729,7 +730,7 @@ export default function Navbar({
               {isSoundActive ? (
                 <Volume2 className="w-4 h-4 text-[#4648d4] dark:text-[#8587ff]" />
               ) : (
-                <VolumeX className="w-4 h-4 text-[#767586]" />
+                <VolumeX className="w-4 h-4 text-[#555466]" />
               )}
             </button>
 
@@ -759,7 +760,7 @@ export default function Navbar({
                   setTrendingOpen(false);
                 }}
                 aria-label="User account menu"
-                className="flex items-center gap-1 rounded-full p-0.5 hover:ring-2 hover:ring-[#4648d4]/30 transition-all cursor-pointer"
+                className="flex items-center gap-1 rounded-full p-0.5 hover:ring-2 hover:ring-[#4648d4]/30 transition-shadow cursor-pointer"
               >
                 <div className="relative w-8 h-8 rounded-full overflow-hidden border border-[#c7c4d7] dark:border-[#464554]">
                   <Image
@@ -796,7 +797,7 @@ export default function Navbar({
                         <p className="text-[14px] font-bold text-[#1a1b22] dark:text-white truncate">
                           Spin Master
                         </p>
-                        <p className="text-[11px] text-[#767586] dark:text-[#908fa1]">
+                        <p className="text-[11px] text-[#555466] dark:text-[#908fa1]">
                           Verified Free Profile
                         </p>
                       </div>
@@ -829,7 +830,7 @@ export default function Navbar({
                       }}
                       className="w-full text-left px-4 py-2.5 hover:bg-[#f4f2fd] dark:hover:bg-[#222330] flex items-center justify-between cursor-pointer"
                     >
-                      <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold">
+                      <div className="flex items-center gap-2 text-[#006c49] dark:text-emerald-400 font-semibold">
                         <Flame className="w-4 h-4" />
                         <span>Daily Streak</span>
                       </div>
@@ -882,7 +883,7 @@ export default function Navbar({
                 className={`flex-1 py-2 rounded-lg text-xs font-bold flex items-center justify-center gap-1 transition-all cursor-pointer min-h-[40px] ${
                   mobileTab === 'popular'
                     ? 'bg-white dark:bg-[#222330] text-[#4648d4] dark:text-[#8587ff] shadow-xs'
-                    : 'text-[#767586] dark:text-[#908fa1]'
+                    : 'text-[#555466] dark:text-[#908fa1]'
                 }`}
               >
                 <Star className="w-3.5 h-3.5 text-amber-500" />
@@ -895,7 +896,7 @@ export default function Navbar({
                 className={`flex-1 py-2 rounded-lg text-xs font-bold flex items-center justify-center gap-1 transition-all cursor-pointer min-h-[40px] ${
                   mobileTab === 'trending'
                     ? 'bg-white dark:bg-[#222330] text-rose-600 dark:text-rose-400 shadow-xs'
-                    : 'text-[#767586] dark:text-[#908fa1]'
+                    : 'text-[#555466] dark:text-[#908fa1]'
                 }`}
               >
                 <Flame className="w-3.5 h-3.5 text-rose-500" />
@@ -908,7 +909,7 @@ export default function Navbar({
                 className={`flex-1 py-2 rounded-lg text-xs font-bold flex items-center justify-center gap-1 transition-all cursor-pointer min-h-[40px] ${
                   mobileTab === 'dice'
                     ? 'bg-white dark:bg-[#222330] text-indigo-600 dark:text-indigo-400 shadow-xs'
-                    : 'text-[#767586] dark:text-[#908fa1]'
+                    : 'text-[#555466] dark:text-[#908fa1]'
                 }`}
               >
                 <Dices className="w-3.5 h-3.5 text-indigo-500" />
@@ -947,11 +948,11 @@ export default function Navbar({
                           </span>
                         )}
                       </div>
-                      <p className="text-[11px] text-[#767586] dark:text-[#908fa1] truncate">
+                      <p className="text-[11px] text-[#555466] dark:text-[#908fa1] truncate">
                         {game.desc}
                       </p>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-[#767586] shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-[#555466] shrink-0" />
                   </Link>
                 );
               })}
@@ -987,7 +988,7 @@ export default function Navbar({
                 className="py-2.5 px-3 rounded-xl bg-[#f4f2fd] dark:bg-[#1d1e28] text-[#464554] dark:text-[#c7c4d7] text-xs font-bold flex items-center justify-center gap-1.5 min-h-[44px]"
                 title={isSoundActive ? 'Sound On' : 'Sound Off'}
               >
-                {isSoundActive ? <Volume2 className="w-4 h-4 text-[#4648d4] dark:text-[#8587ff]" /> : <VolumeX className="w-4 h-4 text-[#767586]" />}
+                {isSoundActive ? <Volume2 className="w-4 h-4 text-[#4648d4] dark:text-[#8587ff]" /> : <VolumeX className="w-4 h-4 text-[#555466]" />}
                 <span>{isSoundActive ? 'Sound' : 'Muted'}</span>
               </button>
 

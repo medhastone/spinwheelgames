@@ -32,7 +32,7 @@ export default function SpinButton({
             ? 'Wheel is spinning and calculating winner'
             : 'Spin the wheel'
         }
-        className={`relative w-full py-4 px-8 rounded-2xl font-headline font-bold text-[18px] sm:text-[20px] tracking-wide shadow-xl transition-all flex items-center justify-center gap-3 cursor-pointer select-none ${
+        className={`relative w-full py-4 px-8 rounded-2xl font-headline font-bold text-[18px] sm:text-[20px] tracking-wide shadow-xl transition-transform flex items-center justify-center gap-3 cursor-pointer select-none ${
           isSpinning || isCountingDown
             ? 'bg-gradient-to-r from-[#5052e4] to-[#7678f5] text-white opacity-90 cursor-not-allowed scale-[0.98]'
             : disabled
@@ -58,8 +58,8 @@ export default function SpinButton({
         )}
       </button>
 
-      <div className="flex items-center gap-2 text-[12px] text-[#767586] dark:text-[#908fa1]">
-        <kbd className="px-2 py-0.5 rounded bg-[#eeedf7] dark:bg-[#222330] border border-[#c7c4d7] dark:border-[#464554] font-mono text-[11px] font-bold">
+      <div className="flex items-center gap-2 text-[12px] text-[#464554] dark:text-[#c7c4d7]">
+        <kbd className="px-2 py-0.5 rounded bg-[#eeedf7] dark:bg-[#222330] border border-[#c7c4d7] dark:border-[#464554] text-[#1a1b22] dark:text-[#f1effa] font-mono text-[11px] font-bold">
           SPACE
         </kbd>
         <span>or Click to Spin</span>

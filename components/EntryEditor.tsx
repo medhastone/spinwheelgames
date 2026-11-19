@@ -145,12 +145,13 @@ export default function EntryEditor({
           value={newText}
           onChange={(e) => setNewText(e.target.value)}
           placeholder="Type an option and press Enter..."
-          className="flex-1 px-3.5 py-2 rounded-xl bg-[#f4f2fd] dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#292a39] text-[13px] text-[#1a1b22] dark:text-[#f1effa] placeholder:text-[#908fa1] focus:outline-none focus:ring-2 focus:ring-[#4648d4]/40"
+          aria-label="Add new wheel option"
+          className="flex-1 px-3.5 py-2 rounded-xl bg-[#f4f2fd] dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#292a39] text-[13px] text-[#1a1b22] dark:text-[#f1effa] placeholder:text-[#555466] dark:placeholder:text-[#908fa1] focus:outline-none focus:ring-2 focus:ring-[#4648d4]/40"
         />
         <button
           type="submit"
           disabled={!newText.trim()}
-          className="px-4 py-2 rounded-xl bg-[#4648d4] hover:bg-[#6063ee] text-white text-[13px] font-bold disabled:opacity-50 disabled:cursor-not-allowed shadow-sm flex items-center gap-1 transition-all cursor-pointer"
+          className="px-4 py-2 rounded-xl bg-[#4648d4] hover:bg-[#6063ee] text-white text-[13px] font-bold disabled:opacity-50 disabled:cursor-not-allowed shadow-sm flex items-center gap-1 transition-colors cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>Add</span>
@@ -160,13 +161,14 @@ export default function EntryEditor({
       {/* Search Filter when > 8 items */}
       {items.length > 8 && (
         <div className="relative">
-          <Search className="w-4 h-4 text-[#908fa1] absolute left-3 top-2.5" />
+          <Search className="w-4 h-4 text-[#555466] dark:text-[#908fa1] absolute left-3 top-2.5" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search entries..."
-            className="w-full pl-9 pr-3 py-1.5 text-[12px] rounded-lg bg-[#f4f2fd] dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#292a39] text-[#1a1b22] dark:text-[#f1effa] placeholder:text-[#908fa1] focus:outline-none focus:ring-1 focus:ring-[#4648d4]"
+            aria-label="Search wheel entries"
+            className="w-full pl-9 pr-3 py-1.5 text-[12px] rounded-lg bg-[#f4f2fd] dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#292a39] text-[#1a1b22] dark:text-[#f1effa] placeholder:text-[#555466] dark:placeholder:text-[#908fa1] focus:outline-none focus:ring-1 focus:ring-[#4648d4]"
           />
         </div>
       )}
@@ -174,7 +176,7 @@ export default function EntryEditor({
       {/* Entries Scrollable List */}
       <div className="flex flex-col gap-1.5 max-h-[320px] overflow-y-auto pr-1">
         {filteredItems.length === 0 ? (
-          <p className="text-center py-6 text-[13px] text-[#767586] dark:text-[#908fa1]">
+          <p className="text-center py-6 text-[13px] text-[#555466] dark:text-[#908fa1]">
             No entries match your search.
           </p>
         ) : (
@@ -193,13 +195,16 @@ export default function EntryEditor({
                 <div className="flex items-center gap-2 flex-1 min-w-0">
                   {/* Color Picker trigger */}
                   <label className="relative cursor-pointer shrink-0">
+                    <span className="sr-only">Choose slice color for {item.text}</span>
                     <span
                       className="block w-4 h-4 rounded-full border border-black/10 shadow-xs"
                       style={{ backgroundColor: sliceColor }}
+                      aria-hidden="true"
                     />
                     <input
                       type="color"
                       value={sliceColor}
+                      aria-label={`Choose slice color for ${item.text}`}
                       onChange={(e) => onUpdateItem(item.id, item.text, e.target.value)}
                       className="sr-only"
                     />
@@ -210,6 +215,7 @@ export default function EntryEditor({
                     <input
                       type="text"
                       value={editingText}
+                      aria-label={`Edit entry ${item.text}`}
                       onChange={(e) => setEditingText(e.target.value)}
                       onKeyDown={(e) => {
                         if (e.key === 'Enter') saveEdit(item.id);
@@ -231,7 +237,7 @@ export default function EntryEditor({
 
                   {/* Duplicate pill badge */}
                   {isDup && (
-                    <span className="px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 text-[10px] font-bold">
+                    <span className="px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 text-[10px] font-bold">
                       Dup
                     </span>
                   )}
@@ -244,6 +250,7 @@ export default function EntryEditor({
                     onClick={() => (isEditing ? saveEdit(item.id) : startEdit(item))}
                     className="p-1 rounded text-[#464554] dark:text-[#c7c4d7] hover:text-[#4648d4] dark:hover:text-[#8587ff] cursor-pointer"
                     title="Edit entry"
+                    aria-label={isEditing ? `Save entry ${item.text}` : `Edit entry ${item.text}`}
                   >
                     {isEditing ? (
                       <Check className="w-3.5 h-3.5" />
@@ -254,8 +261,9 @@ export default function EntryEditor({
                   <button
                     type="button"
                     onClick={() => onDeleteItem(item.id)}
-                    className="p-1 rounded text-[#464554] dark:text-[#c7c4d7] hover:text-red-500 transition-colors cursor-pointer"
+                    className="p-1 rounded text-[#464554] dark:text-[#c7c4d7] hover:text-red-700 dark:hover:text-red-400 transition-colors cursor-pointer"
                     title="Delete entry"
+                    aria-label={`Delete entry ${item.text}`}
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                   </button>
@@ -267,13 +275,13 @@ export default function EntryEditor({
       </div>
 
       {/* Footer count and clear all */}
-      <div className="flex items-center justify-between text-[12px] text-[#767586] dark:text-[#908fa1] pt-2 border-t border-[#eeedf7] dark:border-[#292a39]">
+      <div className="flex items-center justify-between text-[12px] text-[#555466] dark:text-[#908fa1] pt-2 border-t border-[#eeedf7] dark:border-[#292a39]">
         <span>{items.length} total options</span>
         {items.length > 0 && (
           <button
             type="button"
             onClick={onClearAll}
-            className="text-red-500 hover:text-red-600 font-semibold transition-colors cursor-pointer"
+            className="text-red-700 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 font-semibold transition-colors cursor-pointer"
           >
             Clear All
           </button>

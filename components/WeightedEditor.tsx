@@ -110,12 +110,14 @@ export default function WeightedEditor({
                   disabled={w <= 1}
                   className="w-7 h-7 rounded-lg border border-[#c7c4d7] dark:border-[#464554] flex items-center justify-center text-[#464554] dark:text-[#c7c4d7] hover:bg-white dark:hover:bg-[#292a39] disabled:opacity-30 disabled:cursor-not-allowed text-[14px] font-bold cursor-pointer"
                   title="Decrease weight"
+                  aria-label={`Decrease weight for ${item.text}`}
                 >
                   -
                 </button>
 
                 <input
                   type="number"
+                  aria-label={`Weight for ${item.text}`}
                   min="1"
                   max="100"
                   value={w}
@@ -133,6 +135,7 @@ export default function WeightedEditor({
                   onClick={() => onUpdateWeight(item.id, Math.min(100, w + 1))}
                   className="w-7 h-7 rounded-lg border border-[#c7c4d7] dark:border-[#464554] flex items-center justify-center text-[#464554] dark:text-[#c7c4d7] hover:bg-white dark:hover:bg-[#292a39] text-[14px] font-bold cursor-pointer"
                   title="Increase weight"
+                  aria-label={`Increase weight for ${item.text}`}
                 >
                   +
                 </button>

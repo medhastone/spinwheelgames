@@ -1,8 +1,20 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import ChallengeEngine from './ChallengeEngine';
+import dynamic from 'next/dynamic';
 import { Flame, Calendar } from 'lucide-react';
+
+const ChallengeEngine = dynamic(() => import('./ChallengeEngine'), {
+  ssr: false,
+  loading: () => (
+    <div
+      className="w-full min-h-[360px] rounded-2xl border border-[#eeedf7] dark:border-[#222330] bg-white/60 dark:bg-[#181922]/60 flex items-center justify-center text-sm font-medium text-[#555466] dark:text-[#908fa1]"
+      aria-busy="true"
+    >
+      Loading daily spin challenge…
+    </div>
+  ),
+});
 
 interface DailyChallengeProps {
   soundEnabled?: boolean;
@@ -27,14 +39,14 @@ export default function DailyChallenge({ soundEnabled = true }: DailyChallengePr
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#eeedf7] dark:border-[#222330] pb-6">
           <div className="flex items-center gap-3">
             <div className="p-3 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-sm">
-              <Flame className="w-6 h-6 fill-current animate-bounce" />
+              <Flame className="w-6 h-6 fill-current" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xs font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400">
+                <span className="text-xs font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-800 dark:text-amber-300">
                   Daily Habit Booster
                 </span>
-                <span className="text-xs text-[#767586] dark:text-[#908fa1] flex items-center gap-1 font-mono">
+                <span className="text-xs text-[#555466] dark:text-[#908fa1] flex items-center gap-1 font-mono">
                   <Calendar className="w-3.5 h-3.5" />
                   <span suppressHydrationWarning>{dateLabel}</span>
                 </span>

@@ -62,7 +62,7 @@ export default function GuideCards() {
             Tips, Tutorials &amp; Decision Guides
           </h2>
         </div>
-        <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] max-w-md">
+        <p className="text-xs sm:text-sm text-[#555466] dark:text-[#908fa1] max-w-md">
           Learn how to get the most out of random pickers for classroom management, team building, and giveaways.
         </p>
       </div>
@@ -72,7 +72,7 @@ export default function GuideCards() {
           <Link
             key={g.path}
             href={g.path}
-            className="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] p-5 hover:border-[#4648d4]/50 dark:hover:border-[#8587ff]/50 hover:bg-[#f8f7fd] dark:hover:bg-[#1f202c] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-3"
+            className="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] p-5 hover:border-[#4648d4]/50 dark:hover:border-[#8587ff]/50 hover:bg-[#f8f7fd] dark:hover:bg-[#1f202c] shadow-xs hover:shadow-md transition-colors flex flex-col justify-between space-y-3"
           >
             <div className="space-y-2">
               <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#f4f2fd] dark:bg-[#222330] text-[#4648d4] dark:text-[#8587ff]">

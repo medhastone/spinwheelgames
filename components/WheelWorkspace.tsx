@@ -2,14 +2,16 @@
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import WheelCanvas from './WheelCanvas';
 import EntryEditor from './EntryEditor';
 import WeightedEditor from './WeightedEditor';
 import SpinButton from './SpinButton';
 import SoundControls from './SoundControls';
-import BestOfThreeModal from './BestOfThreeModal';
-import WinnerModal from './WinnerModal';
 import { WheelItem, WheelMode, SpinLogItem, SoundSettings } from '@/lib/types';
+
+const BestOfThreeModal = dynamic(() => import('./BestOfThreeModal'), { ssr: false });
+const WinnerModal = dynamic(() => import('./WinnerModal'), { ssr: false });
 import { playCountdownBeep, unlockAudioContext } from '@/lib/sound';
 import { toggleWheelFavorite, useSavedWheels } from '@/lib/storage';
 import { COLOR_PALETTES } from '@/lib/presets';
@@ -406,7 +408,7 @@ export default function WheelWorkspace({
     <div
       ref={workspaceRef}
       aria-label={`Interactive Wheel: ${wheelTitle}`}
-      className={`w-full max-w-[1440px] mx-auto flex flex-col gap-4 transition-all ${
+      className={`w-full max-w-[1440px] mx-auto flex flex-col gap-4 ${
         isFullscreen
           ? 'fixed inset-0 z-50 bg-[#fbf8ff] dark:bg-[#0d0e15] p-4 sm:p-6 overflow-y-auto flex items-center justify-center'
           : ''
@@ -421,7 +423,7 @@ export default function WheelWorkspace({
         {/* ------------------------------------------------------------------------- */}
         {/* LEFT COLUMN: Large Centered Wheel Stage (~800–960px on Desktop)          */}
         {/* ------------------------------------------------------------------------- */}
-        <div className="flex-1 w-full lg:min-w-0 bg-white dark:bg-[#0f1017] rounded-3xl border border-[#eeedf7] dark:border-[#20212f] p-3.5 sm:p-5 lg:p-6 flex flex-col justify-between items-center shadow-lg dark:shadow-xl relative min-h-[auto] sm:min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] transition-colors overflow-hidden">
+        <div className="flex-1 w-full lg:min-w-0 bg-white dark:bg-[#0f1017] rounded-3xl border border-[#eeedf7] dark:border-[#20212f] p-3.5 sm:p-5 lg:p-6 flex flex-col justify-between items-center shadow-lg dark:shadow-xl relative min-h-[460px] sm:min-h-[520px] lg:min-h-[560px] xl:min-h-[580px] transition-colors overflow-hidden">
           
           {/* Top Stage Bar: Pointer label indicator + Top-Right Action buttons */}
           <div className="w-full flex items-center justify-between z-10">
@@ -599,7 +601,7 @@ export default function WheelWorkspace({
           <div className="bg-white dark:bg-[#0f1017] text-[#1a1b22] dark:text-white rounded-3xl border border-[#eeedf7] dark:border-[#20212f] p-4 sm:p-5 shadow-lg dark:shadow-xl flex flex-col gap-3.5 transition-colors">
             
             {/* Breadcrumb Navigation */}
-            <div className="text-[11px] text-[#767586] dark:text-[#908fa1] flex items-center gap-1.5 font-medium truncate">
+            <div className="text-[11px] text-[#555466] dark:text-[#908fa1] flex items-center gap-1.5 font-medium truncate">
               <Link href="/" className="hover:text-[#1a1b22] dark:hover:text-white transition-colors">
                 Home
               </Link>
@@ -621,7 +623,7 @@ export default function WheelWorkspace({
                   className={`p-1.5 rounded-lg border transition-all cursor-pointer ${
                     isFavorite
                       ? 'bg-rose-500/10 dark:bg-rose-500/20 border-rose-500/40 text-rose-500 dark:text-rose-400'
-                      : 'bg-[#f4f2fd] dark:bg-[#1b1c28] border-[#eeedf7] dark:border-[#2e3042] text-[#767586] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
+                      : 'bg-[#f4f2fd] dark:bg-[#1b1c28] border-[#eeedf7] dark:border-[#2e3042] text-[#555466] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
                   }`}
                   title={isFavorite ? 'Saved to favorites' : 'Save to favorites'}
                   aria-label="Toggle favorite"
@@ -642,7 +644,7 @@ export default function WheelWorkspace({
                 className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer ${
                   activeTab === 'entries'
                     ? 'bg-[#4648d4] text-white shadow-xs'
-                    : 'text-[#767586] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
+                    : 'text-[#555466] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
                 }`}
               >
                 <List className="w-3.5 h-3.5" />
@@ -655,7 +657,7 @@ export default function WheelWorkspace({
                 className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer ${
                   activeTab === 'results'
                     ? 'bg-[#4648d4] text-white shadow-xs'
-                    : 'text-[#767586] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
+                    : 'text-[#555466] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
                 }`}
               >
                 <History className="w-3.5 h-3.5" />
@@ -668,7 +670,7 @@ export default function WheelWorkspace({
                 className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer ${
                   activeTab === 'tools'
                     ? 'bg-[#4648d4] text-white shadow-xs'
-                    : 'text-[#767586] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
+                    : 'text-[#555466] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
                 }`}
               >
                 <Sliders className="w-3.5 h-3.5" />
@@ -687,7 +689,7 @@ export default function WheelWorkspace({
                 className={`flex-1 py-1 px-1 rounded-lg text-[11px] font-bold flex items-center justify-center gap-1 transition-all cursor-pointer ${
                   subView === 'list' && currentMode === 'standard'
                     ? 'bg-white dark:bg-[#282a3a] text-[#1a1b22] dark:text-white shadow-xs'
-                    : 'text-[#767586] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
+                    : 'text-[#555466] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
                 }`}
                 title="List view"
               >
@@ -704,7 +706,7 @@ export default function WheelWorkspace({
                 className={`flex-1 py-1 px-1 rounded-lg text-[11px] font-bold flex items-center justify-center gap-1 transition-all cursor-pointer ${
                   currentMode === 'weighted' || subView === 'weighted'
                     ? 'bg-amber-500 dark:bg-amber-600 text-white shadow-xs'
-                    : 'text-[#767586] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
+                    : 'text-[#555466] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
                 }`}
                 title="Weighted mode"
               >
@@ -718,7 +720,7 @@ export default function WheelWorkspace({
                 className={`flex-1 py-1 px-1 rounded-lg text-[11px] font-bold flex items-center justify-center gap-1 transition-all cursor-pointer ${
                   subView === 'style'
                     ? 'bg-white dark:bg-[#282a3a] text-[#1a1b22] dark:text-white shadow-xs'
-                    : 'text-[#767586] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
+                    : 'text-[#555466] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
                 }`}
                 title="Style & Color Palettes"
               >
@@ -732,7 +734,7 @@ export default function WheelWorkspace({
                 className={`flex-1 py-1 px-1 rounded-lg text-[11px] font-bold flex items-center justify-center gap-1 transition-all cursor-pointer ${
                   subView === 'sound'
                     ? 'bg-white dark:bg-[#282a3a] text-[#1a1b22] dark:text-white shadow-xs'
-                    : 'text-[#767586] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
+                    : 'text-[#555466] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
                 }`}
                 title="Audio settings"
               >
@@ -746,7 +748,7 @@ export default function WheelWorkspace({
                 className={`flex-1 py-1 px-1 rounded-lg text-[11px] font-bold flex items-center justify-center gap-1 transition-all cursor-pointer ${
                   subView === 'timing'
                     ? 'bg-white dark:bg-[#282a3a] text-[#1a1b22] dark:text-white shadow-xs'
-                    : 'text-[#767586] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
+                    : 'text-[#555466] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white'
                 }`}
                 title="Spin duration & countdown"
               >
@@ -825,7 +827,7 @@ export default function WheelWorkspace({
                             className={`py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                               spinDuration === dur
                                 ? 'bg-[#4648d4] text-white'
-                                : 'bg-white dark:bg-[#1c1d2a] text-[#767586] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white border border-[#eeedf7] dark:border-transparent'
+                                : 'bg-white dark:bg-[#1c1d2a] text-[#555466] dark:text-[#908fa1] hover:text-[#1a1b22] dark:hover:text-white border border-[#eeedf7] dark:border-transparent'
                             }`}
                           >
                             {dur}s
@@ -842,7 +844,7 @@ export default function WheelWorkspace({
                         className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                           countdownEnabled
                             ? 'bg-emerald-600 text-white'
-                            : 'bg-white dark:bg-[#1c1d2a] text-[#767586] dark:text-[#908fa1] border border-[#eeedf7] dark:border-transparent'
+                            : 'bg-white dark:bg-[#1c1d2a] text-[#555466] dark:text-[#908fa1] border border-[#eeedf7] dark:border-transparent'
                         }`}
                       >
                         {countdownEnabled ? 'On' : 'Off'}
@@ -879,7 +881,7 @@ export default function WheelWorkspace({
             {activeTab === 'results' && (
               <div className="w-full flex flex-col gap-2 max-h-[380px] overflow-y-auto pr-1">
                 {spinLogs.length === 0 ? (
-                  <div className="text-center py-8 text-xs text-[#767586] dark:text-[#908fa1] space-y-2">
+                  <div className="text-center py-8 text-xs text-[#555466] dark:text-[#908fa1] space-y-2">
                     <History className="w-8 h-8 mx-auto text-[#a09eaf] dark:text-[#464554]" />
                     <p>No spins recorded yet this session.</p>
                     <p className="text-[11px]">Click Spin to generate cryptographically fair results!</p>
@@ -894,9 +896,9 @@ export default function WheelWorkspace({
                         <span className="font-extrabold text-[#1a1b22] dark:text-white text-sm">
                           #{log.spinNumber} {log.itemText}
                         </span>
-                        <span className="text-[10px] font-mono text-[#767586] dark:text-[#908fa1]">{log.time}</span>
+                        <span className="text-[10px] font-mono text-[#555466] dark:text-[#908fa1]">{log.time}</span>
                       </div>
-                      <div className="flex items-center justify-between text-[11px] text-[#767586] dark:text-[#908fa1]">
+                      <div className="flex items-center justify-between text-[11px] text-[#555466] dark:text-[#908fa1]">
                         <span>Odds: {log.oddsPercent}%</span>
                         <span className="font-mono text-[10px] text-[#4648d4] dark:text-[#8587ff]">Seed: {log.seed}</span>
                       </div>

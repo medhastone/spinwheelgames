@@ -3,6 +3,12 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-headline: var(--font-plus-jakarta-sans), system-ui, -apple-system, sans-serif;
+}
+
 @layer base {
   :root {
     --surface: #fbf8ff;
@@ -17,7 +23,7 @@
     --on-surface-variant: #464554;
     --inverse-surface: #2f3038;
     --inverse-on-surface: #f1effa;
-    --outline: #767586;
+    --outline: #555466;
     --outline-variant: #c7c4d7;
     --primary: #4648d4;
     --primary-container: #6063ee;
@@ -98,11 +104,11 @@
   body {
     background-color: var(--surface);
     color: var(--on-surface);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-plus-jakarta-sans), system-ui, -apple-system, sans-serif;
   }
 
   /* Accessible Visible Focus for Keyboard Navigation */

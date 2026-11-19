@@ -81,6 +81,38 @@ const nextConfig: NextConfig = {
                   key: 'Referrer-Policy',
                   value: 'strict-origin-when-cross-origin',
                 },
+                {
+                  key: 'Cross-Origin-Opener-Policy',
+                  value: 'same-origin',
+                },
+                {
+                  key: 'Permissions-Policy',
+                  value: 'camera=(), microphone=(), geolocation=(), payment=()',
+                },
+              ],
+            },
+            {
+              source: '/((?!embed/).*)',
+              headers: [
+                {
+                  key: 'X-Frame-Options',
+                  value: 'SAMEORIGIN',
+                },
+                {
+                  key: 'Content-Security-Policy',
+                  value:
+                    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; media-src 'self' data: blob:; worker-src 'self' blob:; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests",
+                },
+              ],
+            },
+            {
+              source: '/embed/:path*',
+              headers: [
+                {
+                  key: 'Content-Security-Policy',
+                  value:
+                    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; media-src 'self' data: blob:; worker-src 'self' blob:; base-uri 'self'; form-action 'self'; frame-ancestors *; upgrade-insecure-requests",
+                },
               ],
             },
             {
@@ -88,6 +120,14 @@ const nextConfig: NextConfig = {
               headers: [
                 {
                   key: 'Cache-Control',
+                  value: 'public, max-age=31536000, immutable',
+                },
+                {
+                  key: 'CDN-Cache-Control',
+                  value: 'public, max-age=31536000, immutable',
+                },
+                {
+                  key: 'Vercel-CDN-Cache-Control',
                   value: 'public, max-age=31536000, immutable',
                 },
               ],
@@ -98,6 +138,10 @@ const nextConfig: NextConfig = {
                 {
                   key: 'Cache-Control',
                   value: 'public, max-age=86400, s-maxage=31536000, stale-while-revalidate=604800',
+                },
+                {
+                  key: 'CDN-Cache-Control',
+                  value: 'public, s-maxage=31536000, stale-while-revalidate=604800',
                 },
                 {
                   key: 'Vercel-CDN-Cache-Control',
@@ -112,10 +156,18 @@ const nextConfig: NextConfig = {
                   key: 'Cache-Control',
                   value: 'public, max-age=31536000, immutable',
                 },
+                {
+                  key: 'CDN-Cache-Control',
+                  value: 'public, max-age=31536000, immutable',
+                },
+                {
+                  key: 'Vercel-CDN-Cache-Control',
+                  value: 'public, max-age=31536000, immutable',
+                },
               ],
             },
             {
-              source: '/((?!api|_next|w/|stream-control|robots\\.txt|sitemap\\.xml|sitemaps|llms\\.txt).*)',
+              source: '/((?!api|_next|w/|stream-control|robots\\.txt|sitemap\\.xml|sitemaps|llms\\.txt|.*\\.(?:ico|png|svg|jpg|jpeg|gif|webp|avif|woff2|woff|ttf|eot|css|js|webmanifest)$).*)',
               headers: [
                 {
                   key: 'Cache-Control',

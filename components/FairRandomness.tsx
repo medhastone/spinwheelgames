@@ -18,7 +18,7 @@ export default function FairRandomness() {
       <div className="rounded-3xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] p-6 sm:p-10 shadow-xs space-y-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-[#006c49] dark:text-emerald-400 text-xs font-bold">
               <ShieldCheck className="w-4 h-4" />
               <span>Transparent Browser Entropy</span>
             </div>
@@ -65,7 +65,7 @@ export default function FairRandomness() {
 
         {/* Compact "Simple by Default" Section */}
         <div className="pt-6 border-t border-[#f4f2fd] dark:border-[#222330] space-y-3">
-          <span className="text-[11px] font-bold text-[#767586] uppercase tracking-wider block">
+          <span className="text-[11px] font-bold text-[#555466] dark:text-[#908fa1] uppercase tracking-wider block">
             Simple by Default
           </span>
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">

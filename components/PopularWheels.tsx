@@ -142,7 +142,7 @@ export default function PopularWheels() {
             <h2 className="text-xl sm:text-2xl font-black text-[#1a1b22] dark:text-white tracking-tight">
               Featured Spin Wheel Tools
             </h2>
-            <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1]">
+            <p className="text-xs sm:text-sm text-[#555466] dark:text-[#908fa1]">
               Jump directly into our 15 most-used random pickers, party games, and everyday decision wheels.
             </p>
           </div>
@@ -163,20 +163,20 @@ export default function PopularWheels() {
             prefetch={false}
             key={pick.path}
             href={pick.path}
-            className="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] p-4 sm:p-5 hover:border-[#4648d4]/50 dark:hover:border-[#8587ff]/50 hover:bg-[#f8f7fd] dark:hover:bg-[#1f202c] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-2.5"
+            className="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] p-4 sm:p-5 hover:border-[#4648d4]/50 dark:hover:border-[#8587ff]/50 hover:bg-[#f8f7fd] dark:hover:bg-[#1f202c] shadow-xs hover:shadow-md transition-colors flex flex-col justify-between space-y-2.5"
           >
             <div>
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#f4f2fd] dark:bg-[#222330] text-[#4648d4] dark:text-[#8587ff]">
                   {pick.category}
                 </span>
-                <span className="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5 rounded bg-[#eeedf7]/60 dark:bg-[#2a2c3a]">
+                <span className="text-[10px] font-semibold text-[#555466] dark:text-[#908fa1] px-1.5 py-0.5 rounded bg-[#eeedf7]/60 dark:bg-[#2a2c3a]">
                   {pick.tag}
                 </span>
               </div>
               <h3 className="font-headline font-bold text-sm sm:text-base text-[#1a1b22] dark:text-white group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors flex items-start justify-between gap-2 leading-snug">
                 <span>{pick.anchorText}</span>
-                <ArrowUpRight className="w-4 h-4 shrink-0 mt-0.5 text-[#767586] dark:text-[#908fa1] group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                <ArrowUpRight className="w-4 h-4 shrink-0 mt-0.5 text-[#555466] dark:text-[#908fa1] group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </h3>
               <p className="text-[12px] text-[#464554] dark:text-[#c7c4d7] leading-relaxed mt-1.5">
                 {pick.description}

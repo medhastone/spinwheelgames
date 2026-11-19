@@ -106,10 +106,11 @@ export default function SoundControls({ settings, onChangeSettings }: SoundContr
       {/* Volume Slider & Test Button */}
       <div className="flex items-center justify-between gap-4 pt-2 border-t border-[#eeedf7] dark:border-[#292a39]">
         <div className="flex items-center gap-2 flex-1">
-          <Sliders className="w-4 h-4 text-[#767586] dark:text-[#908fa1] shrink-0" />
+          <Sliders className="w-4 h-4 text-[#555466] dark:text-[#908fa1] shrink-0" />
           <span className="text-[12px] text-[#464554] dark:text-[#c7c4d7] font-medium">Volume</span>
           <input
             type="range"
+            aria-label="Sound effects volume"
             min="0"
             max="1"
             step="0.05"
@@ -119,7 +120,7 @@ export default function SoundControls({ settings, onChangeSettings }: SoundContr
             }
             className="flex-1 accent-[#4648d4] cursor-pointer"
           />
-          <span className="text-[11px] font-mono text-[#767586] dark:text-[#908fa1] w-8 text-right">
+          <span className="text-[11px] font-mono text-[#555466] dark:text-[#908fa1] w-8 text-right">
             {Math.round(settings.volume * 100)}%
           </span>
         </div>
@@ -127,7 +128,7 @@ export default function SoundControls({ settings, onChangeSettings }: SoundContr
         <button
           type="button"
           onClick={handleTestSound}
-          className="px-3 py-1.5 rounded-lg border border-[#c7c4d7] dark:border-[#464554] hover:bg-[#f4f2fd] dark:hover:bg-[#222330] text-[12px] font-semibold text-[#1a1b22] dark:text-[#f1effa] flex items-center gap-1 transition-all cursor-pointer"
+          className="px-3 py-1.5 rounded-lg border border-[#c7c4d7] dark:border-[#464554] hover:bg-[#f4f2fd] dark:hover:bg-[#222330] text-[12px] font-semibold text-[#1a1b22] dark:text-[#f1effa] flex items-center gap-1 transition-colors cursor-pointer"
         >
           <Play className="w-3.5 h-3.5 fill-current" />
           <span>Test Fanfare</span>
@@ -142,7 +143,7 @@ export default function SoundControls({ settings, onChangeSettings }: SoundContr
             <span className="text-[13px] font-semibold text-[#1a1b22] dark:text-[#f1effa] block">
               Speak Winner Out Loud (TTS)
             </span>
-            <span className="text-[11px] text-[#767586] dark:text-[#908fa1]">
+            <span className="text-[11px] text-[#555466] dark:text-[#908fa1]">
               Uses browser Web Speech API to announce winner words upon landing
             </span>
           </div>
@@ -152,7 +153,7 @@ export default function SoundControls({ settings, onChangeSettings }: SoundContr
           <button
             type="button"
             onClick={handleTestVoice}
-            className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
+            className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold flex items-center gap-1 transition-colors cursor-pointer ${
               isSpeakingTest
                 ? 'bg-[#4648d4] text-white border-[#4648d4]'
                 : 'border-[#c7c4d7] dark:border-[#464554] text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#222330]'
@@ -165,6 +166,7 @@ export default function SoundControls({ settings, onChangeSettings }: SoundContr
 
           <input
             type="checkbox"
+            aria-label="Speak winner out loud with text-to-speech"
             checked={settings.ttsEnabled}
             onChange={(e) => onChangeSettings({ ...settings, ttsEnabled: e.target.checked })}
             className="w-4 h-4 accent-[#4648d4] cursor-pointer ml-1"

@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import { Code2, Tv } from 'lucide-react';
-import EmbedWheelModal from './EmbedWheelModal';
-import StreamerSetupModal from './StreamerSetupModal';
-import StreamerModeOverlay from './StreamerModeOverlay';
+
+const EmbedWheelModal = dynamic(() => import('./EmbedWheelModal'), { ssr: false });
+const StreamerSetupModal = dynamic(() => import('./StreamerSetupModal'), { ssr: false });
+const StreamerModeOverlay = dynamic(() => import('./StreamerModeOverlay'), { ssr: false });
 import {
   getActiveViralWheel,
   resolveToolWheelConfig,

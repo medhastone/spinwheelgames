@@ -109,7 +109,7 @@ export default function Footer({
               Fast, accessible, client-side random decision tools for teachers, streamers, teams, and organizers. Powered by browser Web Crypto entropy.
             </p>
             <div className="flex flex-wrap items-center gap-1.5">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-semibold border border-emerald-500/20">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 text-[#006c49] dark:text-emerald-400 text-[11px] font-semibold border border-emerald-500/20">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 Web Crypto CSPRNG
               </span>
@@ -205,7 +205,7 @@ export default function Footer({
         </div>
 
         {/* Educational Guides Row */}
-        <div className="border-t border-[#e3e1ec] dark:border-[#222330] pt-6 text-xs text-[#767586] dark:text-[#918f9e]">
+        <div className="border-t border-[#e3e1ec] dark:border-[#222330] pt-6 text-xs text-[#464554] dark:text-[#c7c4d7]">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
             <span className="font-bold text-[#1a1b22] dark:text-white flex items-center gap-1 shrink-0">
               <BookOpen className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" />
@@ -219,7 +219,7 @@ export default function Footer({
                   href={guide.href}
                   className={
                     guide.highlight
-                      ? 'font-semibold text-emerald-600 dark:text-emerald-400 hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors'
+                      ? 'font-semibold text-[#006c49] dark:text-emerald-400 hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors'
                       : 'hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors'
                   }
                 >
@@ -255,7 +255,7 @@ export default function Footer({
               <span className="w-2 h-2 rounded-full bg-[#006c49] dark:bg-[#4edea3] animate-pulse" />
               Fair Random Selection
             </span>
-            <span className="text-[#767586] dark:text-[#908fa1]">Web Crypto CSPRNG</span>
+            <span className="text-[#555466] dark:text-[#c7c4d7]">Web Crypto CSPRNG</span>
           </div>
         </div>
       </div>

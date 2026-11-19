@@ -34,7 +34,7 @@ export default function HowItWorks() {
         <h2 className="text-2xl sm:text-3xl font-black text-[#1a1b22] dark:text-white tracking-tight">
           How It Works
         </h2>
-        <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1]">
+        <p className="text-xs sm:text-sm text-[#555466] dark:text-[#908fa1]">
           Start with a ready-made wheel or create your own in seconds.
         </p>
       </div>
@@ -51,7 +51,7 @@ export default function HowItWorks() {
                 <div className="w-10 h-10 rounded-2xl bg-[#4648d4]/10 dark:bg-[#4648d4]/20 text-[#4648d4] dark:text-[#8587ff] flex items-center justify-center font-black text-base">
                   {s.step}
                 </div>
-                <div className="p-2.5 rounded-2xl bg-[#f4f2fd] dark:bg-[#222330] text-[#767586] dark:text-[#908fa1]">
+                <div className="p-2.5 rounded-2xl bg-[#f4f2fd] dark:bg-[#222330] text-[#555466] dark:text-[#908fa1]">
                   <IconComp className="w-5 h-5" />
                 </div>
               </div>

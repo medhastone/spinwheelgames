@@ -1,8 +1,9 @@
 'use client';
 import { SITE_COUNTS } from "@/lib/siteConfig";
 
-import React, { useState, useEffect, useCallback, Suspense } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import Navbar from '@/components/Navbar';
 import HeroBanner from '@/components/HeroBanner';
 import WheelWorkspace from '@/components/WheelWorkspace';
@@ -19,20 +20,27 @@ import HowItWorks from '@/components/HowItWorks';
 import GuideCards from '@/components/GuideCards';
 import FaqSection from '@/components/FaqSection';
 import Footer from '@/components/Footer';
-import WinnerModal from '@/components/WinnerModal';
-import ImportExport from '@/components/ImportExport';
-import SharePanel from '@/components/SharePanel';
-import CreateWheelModal from '@/components/CreateWheelModal';
-import SearchModal from '@/components/SearchModal';
 
-import ClassroomModeView from '@/components/ClassroomModeView';
-import GiveawayModeView from '@/components/GiveawayModeView';
-import BusinessModeView from '@/components/BusinessModeView';
-import MultiWheelEngine from '@/components/MultiWheelEngine';
-import TournamentEngine from '@/components/TournamentEngine';
-import ChallengeEngine from '@/components/ChallengeEngine';
-import WheelBattleEngine from '@/components/WheelBattleEngine';
-import FairnessPanel from '@/components/FairnessPanel';
+const WinnerModal = dynamic(() => import('@/components/WinnerModal'), { ssr: false });
+const ImportExport = dynamic(() => import('@/components/ImportExport'), { ssr: false });
+const SharePanel = dynamic(() => import('@/components/SharePanel'), { ssr: false });
+const CreateWheelModal = dynamic(() => import('@/components/CreateWheelModal'), { ssr: false });
+const SearchModal = dynamic(() => import('@/components/SearchModal'), { ssr: false });
+
+const EngineFallback = () => (
+  <div className="w-full min-h-[480px] rounded-3xl border border-[#eeedf7] dark:border-[#20212f] bg-white dark:bg-[#0f1017] flex items-center justify-center text-sm font-semibold text-[#555466] dark:text-[#c7c4d7]">
+    Loading interactive studio...
+  </div>
+);
+
+const ClassroomModeView = dynamic(() => import('@/components/ClassroomModeView'), { ssr: false, loading: EngineFallback });
+const GiveawayModeView = dynamic(() => import('@/components/GiveawayModeView'), { ssr: false, loading: EngineFallback });
+const BusinessModeView = dynamic(() => import('@/components/BusinessModeView'), { ssr: false, loading: EngineFallback });
+const MultiWheelEngine = dynamic(() => import('@/components/MultiWheelEngine'), { ssr: false, loading: EngineFallback });
+const TournamentEngine = dynamic(() => import('@/components/TournamentEngine'), { ssr: false, loading: EngineFallback });
+const ChallengeEngine = dynamic(() => import('@/components/ChallengeEngine'), { ssr: false, loading: EngineFallback });
+const WheelBattleEngine = dynamic(() => import('@/components/WheelBattleEngine'), { ssr: false, loading: EngineFallback });
+const FairnessPanel = dynamic(() => import('@/components/FairnessPanel'), { ssr: false, loading: EngineFallback });
 
 import {
   WHEEL_PRESETS,
@@ -374,7 +382,7 @@ export default function HomePage() {
                   setEngineView('solo');
                   setMoreSuitesOpen(false);
                 }}
-                className={`px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-bold whitespace-nowrap flex items-center justify-center gap-1.5 transition-colors cursor-pointer ${
                   engineView === 'solo'
                     ? 'bg-[#4648d4] text-white shadow-xs'
                     : 'text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#222330]'
@@ -390,13 +398,13 @@ export default function HomePage() {
                   setEngineView('classroom');
                   setMoreSuitesOpen(false);
                 }}
-                className={`px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-bold whitespace-nowrap flex items-center justify-center gap-1.5 transition-colors cursor-pointer ${
                   engineView === 'classroom'
                     ? 'bg-[#4648d4] text-white shadow-xs'
                     : 'text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#222330]'
                 }`}
               >
-                <GraduationCap className="w-3.5 h-3.5 text-emerald-500" />
+                <GraduationCap className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 <span className="hidden sm:inline">Classroom Suite</span>
                 <span className="sm:hidden">Classroom</span>
               </button>
@@ -407,13 +415,13 @@ export default function HomePage() {
                   setEngineView('giveaway');
                   setMoreSuitesOpen(false);
                 }}
-                className={`px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-bold whitespace-nowrap flex items-center justify-center gap-1.5 transition-colors cursor-pointer ${
                   engineView === 'giveaway'
                     ? 'bg-[#4648d4] text-white shadow-xs'
                     : 'text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#222330]'
                 }`}
               >
-                <Gift className="w-3.5 h-3.5 text-amber-500" />
+                <Gift className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
                 <span className="hidden sm:inline">Giveaway Suite</span>
                 <span className="sm:hidden">Giveaway</span>
               </button>
@@ -424,13 +432,13 @@ export default function HomePage() {
                   setEngineView('business');
                   setMoreSuitesOpen(false);
                 }}
-                className={`hidden md:flex px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-bold items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                className={`hidden md:flex px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-bold whitespace-nowrap items-center justify-center gap-1.5 transition-colors cursor-pointer ${
                   engineView === 'business'
                     ? 'bg-[#4648d4] text-white shadow-xs'
                     : 'text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#222330]'
                 }`}
               >
-                <Briefcase className="w-3.5 h-3.5 text-blue-500" />
+                <Briefcase className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                 <span>Business &amp; Agile</span>
               </button>
 
@@ -439,7 +447,7 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={() => setMoreSuitesOpen(!moreSuitesOpen)}
-                  className={`px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-bold flex items-center justify-center gap-1 transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-bold whitespace-nowrap flex items-center justify-center gap-1 transition-colors cursor-pointer ${
                     ['multi', 'tournament', 'battle', 'challenge', 'fairness', 'business'].includes(engineView) && engineView !== 'classroom' && engineView !== 'giveaway' && engineView !== 'solo'
                       ? 'bg-[#4648d4] text-white shadow-xs'
                       : 'text-[#464554] dark:text-[#c7c4d7] hover:bg-[#f4f2fd] dark:hover:bg-[#222330]'

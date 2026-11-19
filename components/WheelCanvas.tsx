@@ -288,7 +288,7 @@ export default function WheelCanvas({
 
   return (
     <div
-      className={`relative w-full aspect-square mx-auto flex items-center justify-center select-none transition-all duration-300 touch-manipulation ${
+      className={`relative w-full aspect-square mx-auto flex items-center justify-center select-none touch-manipulation ${
         className
           ? className
           : isFullscreen
@@ -302,6 +302,8 @@ export default function WheelCanvas({
       {/* Main SVG Wheel Container */}
       <div className="relative w-full h-full p-2">
         <svg
+          width="440"
+          height="440"
           viewBox="0 0 440 440"
           className="w-full h-full drop-shadow-2xl overflow-visible"
         >
@@ -349,7 +351,7 @@ export default function WheelCanvas({
                   x="220"
                   y="235"
                   textAnchor="middle"
-                  fill="#767586"
+                  fill="#555466"
                   className="dark:fill-[#a09eaf]"
                   fontSize="12"
                   fontWeight="500"
@@ -379,7 +381,7 @@ export default function WheelCanvas({
                     stroke="#ffffff"
                     strokeWidth={isHighDensity ? '0.75' : '1.5'}
                     strokeLinejoin="round"
-                    className="hover:brightness-105 transition-all"
+                    className="hover:opacity-95 transition-opacity"
                   />
 
                   {/* Slice Text Label (unless extreme density) */}
@@ -406,7 +408,7 @@ export default function WheelCanvas({
                         stroke: 'rgba(0, 0, 0, 0.45)',
                         strokeWidth: '2.5px',
                         letterSpacing: '-0.02em',
-                        fontFamily: 'Inter, system-ui, sans-serif'
+                        fontFamily: 'var(--font-inter), system-ui, sans-serif'
                       }}
                     >
                       {labelText}
@@ -491,7 +493,7 @@ export default function WheelCanvas({
               cy="220"
               r="32"
               fill="#4648d4"
-              className="group-hover:fill-[#6063ee] active:scale-95 transition-all"
+              className="group-hover:fill-[#6063ee] active:scale-95 transition-transform"
             />
 
             {/* Hub Icon / Text */}
@@ -504,7 +506,7 @@ export default function WheelCanvas({
               fontWeight="800"
               fontSize={isSpinning ? '12' : '13'}
               letterSpacing="0.06em"
-              fontFamily="'Plus Jakarta Sans', system-ui, sans-serif"
+              fontFamily="var(--font-plus-jakarta-sans), system-ui, sans-serif"
               className="pointer-events-none select-none"
             >
               {isSpinning ? 'SPINNING' : 'SPIN'}

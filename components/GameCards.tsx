@@ -78,7 +78,7 @@ export default function GameCards() {
             </h2>
           </div>
         </div>
-        <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] max-w-md">
+        <p className="text-xs sm:text-sm text-[#555466] dark:text-[#908fa1] max-w-md">
           Turn decisions into delightful mini-games. Play instantly in your browser with zero downloads.
         </p>
       </div>
@@ -88,7 +88,7 @@ export default function GameCards() {
           const IconComponent = g.icon;
           return (
             <Link key={g.path} href={g.path} className="block h-full">
-              <div className={`group relative rounded-3xl border p-5 bg-white dark:bg-[#181922] bg-gradient-to-br ${g.color} hover:shadow-lg hover:-translate-y-1 transition-all space-y-4 cursor-pointer flex flex-col justify-between h-full`}>
+              <div className={`group relative rounded-3xl border p-5 bg-white dark:bg-[#181922] bg-gradient-to-br ${g.color} hover:shadow-lg hover:-translate-y-1 transition-transform space-y-4 cursor-pointer flex flex-col justify-between h-full`}>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="p-3 rounded-2xl bg-white dark:bg-[#222330] shadow-xs">

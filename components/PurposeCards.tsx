@@ -38,8 +38,8 @@ export default function PurposeCards() {
       title: 'Make Teams',
       description: 'Instantly split groups into balanced random teams & drafts.',
       icon: Users,
-      color: 'from-emerald-500/10 to-teal-500/5 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
-      badgeColor: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+      color: 'from-emerald-500/10 to-teal-500/5 text-[#006c49] dark:text-emerald-400 border-emerald-500/20',
+      badgeColor: 'bg-emerald-500/10 text-[#006c49] dark:text-emerald-400',
       path: '/team-generator'
     },
     {
@@ -111,7 +111,7 @@ export default function PurposeCards() {
             What are you trying to choose?
           </h2>
         </div>
-        <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] max-w-md">
+        <p className="text-xs sm:text-sm text-[#555466] dark:text-[#908fa1] max-w-md">
           Select your goal below to launch the exact purpose-built wheel experience immediately.
         </p>
       </div>
@@ -121,13 +121,13 @@ export default function PurposeCards() {
           const IconComponent = p.icon;
           const isAnchor = p.path.startsWith('#');
           const CardContent = (
-            <div className={`group relative h-full rounded-2xl border p-4 bg-white dark:bg-[#181922] bg-gradient-to-br ${p.color} hover:shadow-md hover:-translate-y-0.5 transition-all flex flex-col justify-between space-y-3 cursor-pointer`}>
+            <div className={`group relative h-full rounded-2xl border p-4 bg-white dark:bg-[#181922] bg-gradient-to-br ${p.color} hover:shadow-md hover:-translate-y-0.5 transition-transform flex flex-col justify-between space-y-3 cursor-pointer`}>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <div className={`p-2.5 rounded-xl ${p.badgeColor}`}>
                     <IconComponent className="w-5 h-5" />
                   </div>
-                  <ArrowRight className="w-4 h-4 text-[#767586] group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] group-hover:translate-x-0.5 transition-all" />
+                  <ArrowRight className="w-4 h-4 text-[#555466] group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] group-hover:translate-x-0.5 transition-transform" />
                 </div>
                 <h3 className="font-headline font-bold text-sm sm:text-base text-[#1a1b22] dark:text-white group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors">
                   {p.title}

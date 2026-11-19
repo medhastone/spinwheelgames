@@ -28,9 +28,9 @@ export default function HeroBanner({ onSpinClick, onExploreClick }: HeroBannerPr
         {/* H1 */}
         <h1 className="font-headline text-[32px] sm:text-[44px] md:text-[52px] tracking-tight font-black leading-[1.05] flex flex-wrap justify-center gap-x-2 sm:gap-x-3">
           <span className="text-[#4648d4] dark:text-[#8587ff]">Spin.</span>
-          <span className="text-[#00a86b] dark:text-[#4edea3]">Pick.</span>
-          <span className="text-[#f59e0b] dark:text-[#fbbf24]">Decide.</span>
-          <span className="text-[#ec4899] dark:text-[#f472b6]">Play.</span>
+          <span className="text-[#007a4d] dark:text-[#4edea3]">Pick.</span>
+          <span className="text-[#b45309] dark:text-[#fbbf24]">Decide.</span>
+          <span className="text-[#be185d] dark:text-[#f472b6]">Play.</span>
         </h1>
 
         {/* Supporting Copy */}
@@ -44,7 +44,7 @@ export default function HeroBanner({ onSpinClick, onExploreClick }: HeroBannerPr
             type="button"
             onClick={onSpinClick}
             id="hero-spin-now-btn"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#4648d4] hover:bg-[#3b3dbb] text-white text-[13px] sm:text-[14px] font-extrabold shadow-sm hover:shadow-md active:scale-[0.98] transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#4648d4] hover:bg-[#3b3dbb] text-white text-[13px] sm:text-[14px] font-extrabold shadow-sm hover:shadow-md active:scale-[0.98] transition-colors cursor-pointer"
           >
             <Play className="w-3.5 h-3.5 fill-current" />
             <span>Spin The Wheel</span>

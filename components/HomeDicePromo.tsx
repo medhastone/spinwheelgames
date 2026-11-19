@@ -90,7 +90,7 @@ export default function HomeDicePromo() {
           <div className="flex items-center gap-2">
             <Link
               href="/dice-roller"
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold text-sm shadow-md shadow-indigo-500/20 hover:shadow-lg hover:shadow-indigo-500/30 transition-all shrink-0"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold text-sm shadow-md shadow-indigo-500/20 hover:shadow-lg hover:shadow-indigo-500/30 transition-colors shrink-0"
             >
               <span>3D Multi-Dice Studio</span>
               <ArrowRight className="w-4 h-4" />
@@ -104,7 +104,7 @@ export default function HomeDicePromo() {
             <Link
               key={tool.id}
               href={tool.href}
-              className={`group p-5 rounded-2xl bg-white dark:bg-[#181924] border border-[#e5e3f4] dark:border-[#292a39] hover:border-indigo-400 dark:hover:border-indigo-500/50 shadow-xs hover:shadow-xl hover:shadow-indigo-500/10 transition-all duration-200 flex flex-col justify-between relative overflow-hidden bg-gradient-to-b ${tool.color}`}
+              className={`group p-5 rounded-2xl bg-white dark:bg-[#181924] border border-[#e5e3f4] dark:border-[#292a39] hover:border-indigo-400 dark:hover:border-indigo-500/50 shadow-xs hover:shadow-xl hover:shadow-indigo-500/10 transition-colors duration-200 flex flex-col justify-between relative overflow-hidden bg-gradient-to-b ${tool.color}`}
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -138,7 +138,7 @@ export default function HomeDicePromo() {
               <Layers className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
               <span>Dedicated 8 Polyhedral Dice Pages (with Math &amp; Odds)</span>
             </span>
-            <span className="text-[11px] text-[#767586] dark:text-slate-400 font-mono font-medium">100% Cryptographic Fairness</span>
+            <span className="text-[11px] text-[#555466] dark:text-slate-400 font-mono font-medium">100% Cryptographic Fairness</span>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -146,12 +146,12 @@ export default function HomeDicePromo() {
               <Link
                 key={idx}
                 href={die.href}
-                className="p-3 rounded-2xl bg-[#f7f6fc] dark:bg-[#0d0e14] hover:bg-indigo-50/80 dark:hover:bg-indigo-950/60 border border-[#e5e3f4] dark:border-[#202230] hover:border-indigo-400 dark:hover:border-indigo-500/50 transition-all flex flex-col group shadow-2xs"
+                className="p-3 rounded-2xl bg-[#f7f6fc] dark:bg-[#0d0e14] hover:bg-indigo-50/80 dark:hover:bg-indigo-950/60 border border-[#e5e3f4] dark:border-[#202230] hover:border-indigo-400 dark:hover:border-indigo-500/50 transition-colors flex flex-col group shadow-2xs"
               >
                 <span className="text-xs font-bold text-[#1a1b22] dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-300 font-mono transition-colors">
                   {die.name}
                 </span>
-                <span className="text-[10px] text-[#767586] dark:text-slate-400 mt-0.5">{die.desc}</span>
+                <span className="text-[10px] text-[#555466] dark:text-slate-400 mt-0.5">{die.desc}</span>
               </Link>
             ))}
           </div>

@@ -85,7 +85,7 @@ export default function UseCaseCards() {
         <h2 className="text-2xl sm:text-3xl font-black text-[#1a1b22] dark:text-white tracking-tight">
           Made for Real-World Decisions
         </h2>
-        <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] max-w-xl">
+        <p className="text-xs sm:text-sm text-[#555466] dark:text-[#908fa1] max-w-xl">
           Purpose-built random wheel workflows tailored for educators, creators, event hosts, and busy teams.
         </p>
       </div>
@@ -96,11 +96,11 @@ export default function UseCaseCards() {
           return (
             <div
               key={idx}
-              className="group rounded-3xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] p-6 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between space-y-4"
+              className="group rounded-3xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] p-6 hover:shadow-lg hover:-translate-y-1 transition-transform flex flex-col justify-between space-y-4"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-black uppercase tracking-widest text-[#767586] dark:text-[#908fa1]">
+                  <span className="text-[11px] font-black uppercase tracking-widest text-[#555466] dark:text-[#908fa1]">
                     {uc.title}
                   </span>
                   <div className={`p-2.5 rounded-2xl ${uc.color}`}>

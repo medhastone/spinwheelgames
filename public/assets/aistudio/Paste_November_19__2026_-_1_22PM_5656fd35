@@ -1,0 +1,518 @@
+
+Use efficient cache lifetimes Est savings of 614 KiB
+A long cache lifetime can speed up repeat visits to your page. Learn more about caching.LCPFCPUnscored
+Request
+Cache TTL
+Transfer Size
+spinwheelgames.org 1st party
+669 KiB
+…chunks/4492-f8cd866e375746e3.js(spinwheelgames.org)
+10m
+204 KiB
+/spinwheel-logo-v2.webp(spinwheelgames.org)
+10m
+97 KiB
+…chunks/4bd1b696-100b9d70ed4e49c1.js(spinwheelgames.org)
+10m
+54 KiB
+…media/e4af272ccee01ff0-s.p.woff2(spinwheelgames.org)
+10m
+48 KiB
+…chunks/1255-7f79746c61ad3cbe.js(spinwheelgames.org)
+10m
+47 KiB
+…css/3b736b3c2cb10d39.css(spinwheelgames.org)
+10m
+40 KiB
+…app/page-73c7ab736d302eb1.js(spinwheelgames.org)
+10m
+38 KiB
+…media/636a5ac981f94f8b-s.p.woff2(spinwheelgames.org)
+10m
+27 KiB
+…chunks/7642-87b2165488fc1769.js(spinwheelgames.org)
+10m
+22 KiB
+…app/layout-a8c5984d9aad33d4.js(spinwheelgames.org)
+10m
+15 KiB
+…chunks/3861-42586843b3e3bc50.js(spinwheelgames.org)
+10m
+13 KiB
+…chunks/3666-4e6cdb44d23e0879.js(spinwheelgames.org)
+10m
+11 KiB
+…chunks/7939-341b0ade5bb651eb.js(spinwheelgames.org)
+10m
+9 KiB
+…chunks/5032-510ccbe0ff4b1057.js(spinwheelgames.org)
+10m
+8 KiB
+…chunks/1912-25110b480c9273aa.js(spinwheelgames.org)
+10m
+8 KiB
+…chunks/9412-8fbce7157400d1b0.js(spinwheelgames.org)
+10m
+5 KiB
+…chunks/8181-67f132961ed8a489.js(spinwheelgames.org)
+10m
+5 KiB
+…chunks/9162-be958962b0df6da6.js(spinwheelgames.org)
+10m
+4 KiB
+…chunks/546-1f4d29b8466b91ec.js(spinwheelgames.org)
+10m
+3 KiB
+…chunks/2118-e2c63813a50fdc06.js(spinwheelgames.org)
+10m
+3 KiB
+…chunks/2622-e020768e8d08bafb.js(spinwheelgames.org)
+10m
+3 KiB
+…chunks/webpack-9cf986486fcf241d.js(spinwheelgames.org)
+10m
+3 KiB
+…css/124113f90ec81cf7.css(spinwheelgames.org)
+10m
+1 KiB
+…chunks/main-app-15797f71ead2bd0e.js(spinwheelgames.org)
+10m
+1 KiB
+…app/not-found-402dc28dc0b0fda3.js(spinwheelgames.org)
+10m
+1 KiB
+Render-blocking requests Est savings of 550 ms
+Requests are blocking the page’s initial render, which may delay LCP. Deferring or inlining can move these network requests out of the critical path.LCPFCPUnscored
+URL
+Transfer Size
+Duration
+spinwheelgames.org 1st party
+41.8 KiB	760 ms
+…css/124113f90ec81cf7.css(spinwheelgames.org)
+1.5 KiB
+150 ms
+…css/3b736b3c2cb10d39.css(spinwheelgames.org)
+40.4 KiB
+600 ms
+Layout shift culprits
+Layout shifts occur when elements move absent any user interaction. Investigate the causes of layout shifts, such as elements being added, removed, or their fonts changing as the page loads.CLSUnscored
+Element
+Layout shift score
+Total
+0.265
+Dinner Decider Wheel (6) Pizza Burger Biryani Pasta Tacos Sushi SPIN CLICK OR S…
+<div class="flex-1 w-full lg:min-w-0 bg-white dark:bg-[#0f1017] rounded-3xl border bor…">
+0.265
+…media/e4af272ccee01ff0-s.p.woff2(spinwheelgames.org)
+Web font
+Forced reflow
+A forced reflow occurs when JavaScript queries geometric properties (such as offsetWidth) after styles have been invalidated by a change to the DOM state. This can result in poor performance. Learn more about forced reflows and possible mitigations.Unscored
+Source
+Total reflow time
+[unattributed]
+58 ms
+Network dependency tree
+Avoid chaining critical requests by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page loadLCPUnscored
+Maximum critical path latency: 842 ms
+Initial Navigation
+https://spinwheelgames.org - 528 ms, 40.34 KiB
+…css/124113f90ec81cf7.css(spinwheelgames.org) - 842 ms, 1.48 KiB
+…css/3b736b3c2cb10d39.css(spinwheelgames.org) - 767 ms, 40.36 KiB
+Preconnected origins
+preconnect hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.
+Origin
+Source
+https://fonts.googleapis.com/
+head > link
+<link rel="preconnect" href="https://fonts.googleapis.com">
+Unused preconnect. Only use `preconnect` for origins that the page is likely to request.
+https://fonts.gstatic.com/
+head > link
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+Unused preconnect. Only use `preconnect` for origins that the page is likely to request.
+Preconnect candidates
+Add preconnect hints to your most important origins, but try to use no more than 4
+No additional origins are good candidates for preconnecting
+Improve image delivery Est savings of 90 KiB
+Reducing the download time of images can improve the perceived load time of the page and LCP. Learn more about optimizing image size.LCPFCPUnscored
+URL
+Resource Size
+Est Savings
+spinwheelgames.org 1st party
+96.5 KiB	90.4 KiB
+SpinWheelGames Logo
+<img alt="SpinWheelGames Logo" referrerpolicy="no-referrer" width="320" height="84" decoding="async" data-nimg="1" class="swg-logo-img block" style="color:transparent;width:auto" src="/spinwheel-logo-v2.webp">
+/spinwheel-logo-v2.webp(spinwheelgames.org)
+96.5 KiB
+90.4 KiB
+This image file is larger than it needs to be (1536x404) for its displayed dimensions (386x101). Use responsive images to reduce the image download size.
+90.4 KiB
+Legacy JavaScript Est savings of 12 KiB
+Polyfills and transforms enable older browsers to use new JavaScript features. However, many aren’t necessary for modern browsers. Consider modifying your JavaScript build process to not transpile Baseline features, unless you know you must support older browsers. Learn why most sites can deploy ES6+ code without transpiling.LCPFCPUnscored
+URL
+Wasted bytes
+spinwheelgames.org 1st party
+11.8 KiB
+…chunks/1255-7f79746c61ad3cbe.js(spinwheelgames.org)
+11.8 KiB
+…chunks/1255-7f79746c61ad3cbe.js:1:144306(spinwheelgames.org)
+Array.prototype.at
+…chunks/1255-7f79746c61ad3cbe.js:1:143694(spinwheelgames.org)
+Array.prototype.flat
+…chunks/1255-7f79746c61ad3cbe.js:1:143807(spinwheelgames.org)
+Array.prototype.flatMap
+…chunks/1255-7f79746c61ad3cbe.js:1:144183(spinwheelgames.org)
+Object.fromEntries
+…chunks/1255-7f79746c61ad3cbe.js:1:144441(spinwheelgames.org)
+Object.hasOwn
+…chunks/1255-7f79746c61ad3cbe.js:1:143436(spinwheelgames.org)
+String.prototype.trimEnd
+…chunks/1255-7f79746c61ad3cbe.js:1:143351(spinwheelgames.org)
+String.prototype.trimStart
+Optimize DOM size
+A large DOM can increase the duration of style calculations and layout reflows, impacting page responsiveness. A large DOM will also increase memory usage. Learn how to avoid an excessive DOM size.Unscored
+Statistic
+Element
+Value
+Total elements
+2,230
+DOM depth
+div.flex > button.p-1 > svg.lucide > path
+<path d="M12 20h9">
+16
+Most children
+body.min-h-screen
+<body class="min-h-screen flex flex-col antialiased bg-[#fbf8ff] dark:bg-[#0c0d14] text…">
+21
+LCP breakdown
+Each subpart has specific improvement strategies. Ideally, most of the LCP time should be spent on loading the resources, not within delays.LCPUnscored
+Subpart
+Duration
+Time to first byte
+20 ms
+Element render delay
+1,040 ms
+svg.w-full > g > g.transition-opacity > text
+<text x="103.0866" y="287.5" transform="rotate(150, 103.0866, 287.5)" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-weight="700" font-size="14" style="paint-order: stroke; stroke: rgba(0, 0, 0, 0.45); stroke-width: 2.5px;">
+These insights are also available in the Chrome DevTools Performance Panel - record a trace to view more detailed information.
+Diagnostics
+Reduce unused JavaScript Est savings of 20 KiB
+Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. Learn how to reduce unused JavaScript.LCPFCPUnscored
+URL
+Transfer Size
+Est Savings
+spinwheelgames.org 1st party
+45.8 KiB	20.0 KiB
+…chunks/1255-7f79746c61ad3cbe.js(spinwheelgames.org)
+45.8 KiB
+20.0 KiB
+Avoid long main-thread tasks 3 long tasks found
+Avoid non-composited animations 1 animated element found
+More information about the performance of your application. These numbers don't directly affect the Performance score.
+Passed audits (15)
+Show
+91
+Accessibility
+These checks highlight opportunities to improve the accessibility of your web app. Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so manual testing is also encouraged.
+Names and labels
+Form elements do not have associated labels
+Labels ensure that form controls are announced properly by assistive technologies, like screen readers. Learn more about form element labels.
+Failing Elements
+div.group > div.flex > label.relative > input.sr-only
+<input type="color" class="sr-only" value="#6063ee">
+div.flex > div.group > div.flex > label.relative
+<label class="relative cursor-pointer shrink-0">
+div.group > div.flex > label.relative > input.sr-only
+<input type="color" class="sr-only" value="#006c49">
+div.flex > div.group > div.flex > label.relative
+<label class="relative cursor-pointer shrink-0">
+div.group > div.flex > label.relative > input.sr-only
+<input type="color" class="sr-only" value="#dc2c4f">
+div.flex > div.group > div.flex > label.relative
+<label class="relative cursor-pointer shrink-0">
+div.group > div.flex > label.relative > input.sr-only
+<input type="color" class="sr-only" value="#4648d4">
+div.flex > div.group > div.flex > label.relative
+<label class="relative cursor-pointer shrink-0">
+div.group > div.flex > label.relative > input.sr-only
+<input type="color" class="sr-only" value="#00a86b">
+div.flex > div.group > div.flex > label.relative
+<label class="relative cursor-pointer shrink-0">
+div.group > div.flex > label.relative > input.sr-only
+<input type="color" class="sr-only" value="#ff6b8b">
+div.flex > div.group > div.flex > label.relative
+<label class="relative cursor-pointer shrink-0">
+These are opportunities to improve the semantics of the controls in your application. This may enhance the experience for users of assistive technology, like a screen reader.
+Contrast
+Background and foreground colors do not have a sufficient contrast ratio.
+Low-contrast text is difficult or impossible for many users to read. Learn how to provide sufficient color contrast.
+Failing Elements
+Pick.
+<span class="text-[#00a86b] dark:text-[#4edea3]">
+div.min-h-screen > main.w-full > section.relative > div.absolute
+<div class="absolute top-12 right-0 w-[28rem] h-[28rem] rounded-full bg-[#6cf8bb]/15 d…">
+div.min-h-screen > main.w-full > section.relative > div.absolute
+<div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#4648d4]/10 dark:bg-[…">
+Interactive Spin Wheel & Truly Fair Random Decision Studio Spin. Pick. Decide. …
+<section class="relative w-full px-4 sm:px-6 pt-3 sm:pt-4 pb-2 sm:pb-3 overflow-hidden bg-…">
+SPACE
+<kbd class="px-2 py-0.5 rounded bg-[#eeedf7] dark:bg-[#222330] border border-[#c7c4d7]…">
+Results (1)
+<span>
+Entries Results (1) Tools
+<div class="grid grid-cols-3 gap-1 p-1 bg-[#f4f2fd] dark:bg-[#14151e] rounded-xl borde…">
+Tools
+<span>
+Entries Results (1) Tools
+<div class="grid grid-cols-3 gap-1 p-1 bg-[#f4f2fd] dark:bg-[#14151e] rounded-xl borde…">
+Weight
+<span>
+List Weight Style Sound Timing
+<div class="flex items-center justify-between gap-1 p-1 bg-[#f4f2fd] dark:bg-[#14151e]…">
+Style
+<span>
+List Weight Style Sound Timing
+<div class="flex items-center justify-between gap-1 p-1 bg-[#f4f2fd] dark:bg-[#14151e]…">
+Sound
+<span>
+List Weight Style Sound Timing
+<div class="flex items-center justify-between gap-1 p-1 bg-[#f4f2fd] dark:bg-[#14151e]…">
+Timing
+<span>
+List Weight Style Sound Timing
+<div class="flex items-center justify-between gap-1 p-1 bg-[#f4f2fd] dark:bg-[#14151e]…">
+Clear All
+<button type="button" class="text-red-500 hover:text-red-600 font-semibold transition-colors cursor-poi…">
+Wheel Entries 6 Add Pizza Burger Biryani Pasta Tacos Sushi 6 total options Clea…
+<div class="w-full bg-white dark:bg-[#181922] rounded-2xl p-4 sm:p-5 border border-[#e…">
+Select your goal below to launch the exact purpose-built wheel experience immed…
+<p class="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] max-w-md">
+Interactive Spin Wheel & Truly Fair Random Decision Studio Spin. Pick. Decide. …
+<div class="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#12131a] text-[#1a1b22] d…">
+Jump directly into our 15 most-used random pickers, party games, and everyday d…
+<p class="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1]">
+Interactive Spin Wheel & Truly Fair Random Decision Studio Spin. Pick. Decide. …
+<div class="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#12131a] text-[#1a1b22] d…">
+Top Pick
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+ENTERTAINMENT Top Pick Try the Movie Wheel for family movie night & watchlists …
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/movie-wheel">
+Most Popular
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+NAMES Most Popular Spin the Wheel of Names for fair student & raffle picks Pas…
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/wheel-of-names">
+Remote Teams
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+MEETINGS Remote Teams Use the Icebreaker Wheel for remote team warmups Break a…
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/icebreakers">
+Party Hit
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+PARTY Party Hit Play the Never Have I Ever Wheel for party confessions Spin cl…
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/never-have-i-ever-wheel">
+Fitness
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+FITNESS Fitness Spin the Workout Wheel for HIIT & bodyweight circuits Generate…
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/workout-wheel">
+Household
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+HOME Household Use the Chore Picker to split household tasks fairly Assign dis…
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/chore-picker">
+Drafts
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+SPORTS & DRAFTS Drafts Run a live draft lottery on the Team Picker Wheel Draw …
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/team-picker">
+Auditable
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+CORE TOOL Auditable Spin the Random Wheel with auditable CSPRNG odds Customize…
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/random-wheel">
+Trending
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+DINING Trending Spin the Food Wheel to settle dinner & takeout debates Decide …
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/food-wheel">
+Everyday
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+DECISIONS Everyday Use the Decision Wheel to break everyday indecision Load 3 …
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/decision-wheel">
+Fast
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+BINARY Fast Spin the Yes or No Wheel for instant 50/50 choices Fast cryptograp…
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/yes-or-no-wheel">
+Teachers
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+EDUCATION Teachers Launch the Classroom Wheel for equitable cold-calling 7 tea…
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/classroom-wheel">
+Classic
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+PARTY Classic Play the Truth or Dare Wheel for game night challenges Two-stage…
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/truth-or-dare-wheel">
+Raffles
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+CONTESTS Raffles Draw verified winners on the Giveaway & Raffle Wheel Screen-s…
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/giveaway-wheel">
+Utility
+<span class="text-[10px] font-semibold text-[#767586] dark:text-[#908fa1] px-1.5 py-0.5…">
+NUMBERS Utility Spin the Random Number Wheel for 1–100 & custom ranges Pick no…
+<a class="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white d…" href="/number-wheel">
+Turn decisions into delightful mini-games. Play instantly in your browser with …
+<p class="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] max-w-md">
+Interactive Spin Wheel & Truly Fair Random Decision Studio Spin. Pick. Decide. …
+<div class="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#12131a] text-[#1a1b22] d…">
+50/50 decisions
+<span class="text-[10px] text-[#767586] dark:text-slate-400 mt-0.5">
+Roll d2 (Coin) 50/50 decisions
+<a class="p-3 rounded-2xl bg-[#f7f6fc] dark:bg-[#0d0e14] hover:bg-indigo-50/80 dark:…" href="/dice/d2">
+Magic Missile, Heals
+<span class="text-[10px] text-[#767586] dark:text-slate-400 mt-0.5">
+Roll 1d4 (Tetrahedron) Magic Missile, Heals
+<a class="p-3 rounded-2xl bg-[#f7f6fc] dark:bg-[#0d0e14] hover:bg-indigo-50/80 dark:…" href="/dice/d4">
+Stats, Fireball
+<span class="text-[10px] text-[#767586] dark:text-slate-400 mt-0.5">
+Roll 3d6 / 4d6 (Cube) Stats, Fireball
+<a class="p-3 rounded-2xl bg-[#f7f6fc] dark:bg-[#0d0e14] hover:bg-indigo-50/80 dark:…" href="/dice/d6">
+Divine Smite, Longswords
+<span class="text-[10px] text-[#767586] dark:text-slate-400 mt-0.5">
+Roll a d8 (Octahedron) Divine Smite, Longswords
+<a class="p-3 rounded-2xl bg-[#f7f6fc] dark:bg-[#0d0e14] hover:bg-indigo-50/80 dark:…" href="/dice/d8">
+Eldritch Blast
+<span class="text-[10px] text-[#767586] dark:text-slate-400 mt-0.5">
+Roll d10 (Decahedron) Eldritch Blast
+<a class="p-3 rounded-2xl bg-[#f7f6fc] dark:bg-[#0d0e14] hover:bg-indigo-50/80 dark:…" href="/dice/d10">
+Greataxe Damage
+<span class="text-[10px] text-[#767586] dark:text-slate-400 mt-0.5">
+Roll 1d12 (Dodecahedron) Greataxe Damage
+<a class="p-3 rounded-2xl bg-[#f7f6fc] dark:bg-[#0d0e14] hover:bg-indigo-50/80 dark:…" href="/dice/d12">
+Attacks & Saves
+<span class="text-[10px] text-[#767586] dark:text-slate-400 mt-0.5">
+Roll 1d20 (Advantage) Attacks & Saves
+<a class="p-3 rounded-2xl bg-[#f7f6fc] dark:bg-[#0d0e14] hover:bg-indigo-50/80 dark:…" href="/dice/d20">
+Wild Magic Tables
+<span class="text-[10px] text-[#767586] dark:text-slate-400 mt-0.5">
+Roll 1d100 (Percentile) Wild Magic Tables
+<a class="p-3 rounded-2xl bg-[#f7f6fc] dark:bg-[#0d0e14] hover:bg-indigo-50/80 dark:…" href="/dice/d100">
+14 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+10 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+8 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+6 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+12 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+16 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+18 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+15 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+10 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+8 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+7 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+9 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+8 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+7 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+8 Wheels
+<span class="text-[11px] font-bold text-[#767586] dark:text-[#908fa1] px-2 py-0.5 round…">
+Purpose-built random wheel workflows tailored for educators, creators, event ho…
+<p class="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] max-w-xl">
+Interactive Spin Wheel & Truly Fair Random Decision Studio Spin. Pick. Decide. …
+<div class="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#12131a] text-[#1a1b22] d…">
+Transparent Browser Entropy
+<span>
+Transparent Browser Entropy
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 te…">
+Transparent Browser Entropy Fair Random Selection SpinWheelGames uses your bro…
+<div class="rounded-3xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg…">
+Start with a ready-made wheel or create your own in seconds.
+<p class="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1]">
+Interactive Spin Wheel & Truly Fair Random Decision Studio Spin. Pick. Decide. …
+<div class="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#12131a] text-[#1a1b22] d…">
+Learn how to get the most out of random pickers for classroom management, team …
+<p class="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] max-w-md">
+Interactive Spin Wheel & Truly Fair Random Decision Studio Spin. Pick. Decide. …
+<div class="min-h-screen flex flex-col bg-[#fbf8ff] dark:bg-[#12131a] text-[#1a1b22] d…">
+Web Crypto CSPRNG
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 …">
+Fast, accessible, client-side random decision tools for teachers, streamers, te…
+<footer class="w-full bg-[#f4f2fd] dark:bg-[#12131a] border-t border-[#eeedf7] dark:borde…">
+How to Use a Wheel
+<a class="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors" href="/how-to-use-a-wheel">
+Fast, accessible, client-side random decision tools for teachers, streamers, te…
+<footer class="w-full bg-[#f4f2fd] dark:bg-[#12131a] border-t border-[#eeedf7] dark:borde…">
+How Random Wheels Work
+<a class="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors" href="/how-random-wheels-work">
+Fast, accessible, client-side random decision tools for teachers, streamers, te…
+<footer class="w-full bg-[#f4f2fd] dark:bg-[#12131a] border-t border-[#eeedf7] dark:borde…">
+How to Pick a Random Winner
+<a class="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors" href="/how-to-pick-a-random-winner">
+Fast, accessible, client-side random decision tools for teachers, streamers, te…
+<footer class="w-full bg-[#f4f2fd] dark:bg-[#12131a] border-t border-[#eeedf7] dark:borde…">
+Random vs. Weighted Slices
+<a class="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors" href="/random-vs-weighted-selection">
+Fast, accessible, client-side random decision tools for teachers, streamers, te…
+<footer class="w-full bg-[#f4f2fd] dark:bg-[#12131a] border-t border-[#eeedf7] dark:borde…">
+Classroom Wheel Best Practices
+<a class="hover:text-[#4648d4] dark:hover:text-[#8587ff] transition-colors" href="/how-to-make-a-classroom-wheel">
+Fast, accessible, client-side random decision tools for teachers, streamers, te…
+<footer class="w-full bg-[#f4f2fd] dark:bg-[#12131a] border-t border-[#eeedf7] dark:borde…">
+OBS Streamer Mode Guide
+<a class="font-semibold text-emerald-600 dark:text-emerald-400 hover:text-[#4648d4] …" href="/stream-wheel">
+Fast, accessible, client-side random decision tools for teachers, streamers, te…
+<footer class="w-full bg-[#f4f2fd] dark:bg-[#12131a] border-t border-[#eeedf7] dark:borde…">
+Web Crypto CSPRNG
+<span class="text-[#767586] dark:text-[#908fa1]">
+© 2026 SpinWheelGames.org. All rights reserved. About Fairness & CSPRNG Privac…
+<div class="pt-2 flex flex-col lg:flex-row items-center justify-between gap-4 bg-[#eee…">
+These are opportunities to improve the legibility of your content.
+Additional items to manually check (10)
+Show
+These items address areas which an automated testing tool cannot cover. Learn more in our guide on conducting an accessibility review.
+Passed audits (23)
+Show
+Not applicable (38)
+Show
+100
+Best Practices
+Trust and Safety
+Ensure CSP is effective against XSS attacks
+Use a strong HSTS policy
+Ensure proper origin isolation with COOP
+Mitigate clickjacking with XFO or CSP
+Mitigate DOM-based XSS with Trusted Types
+Browser Compatibility
+Baseline Features
+General
+Missing source maps for large first-party JavaScript
+Passed audits (12)
+Show
+Not applicable (2)
+Show
+100
+SEO
+These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on Core Web Vitals. Learn more about Google Search Essentials.
+Additional items to manually check (1)
+Hide
+Structured data is valid
+Run these additional validators on your site to check additional SEO best practices.
+Passed audits (10)
+Show
+1/3
+Agentic Browsing
+These checks ensure high-quality, browsable websites for AI agents and validate the correctness of WebMCP integrations. This category is still under development and subject to change.
+Cumulative Layout Shift 0.265
+Cumulative Layout Shift measures the movement of visible elements within the viewport. Learn more about the Cumulative Layout Shift metric.
+Agent Accessibility
+Accessibility tree is not well-formed
+A well-formed accessibility tree helps AI agents to navigate and interact with the page.
+Failed Audits
+Description
+Failing Element
+Form elements must have labels
+div.group > div.flex > label.relative > input.sr-only
+<input type="color" class="sr-only" value="#6063ee">
