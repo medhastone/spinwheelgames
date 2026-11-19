@@ -26,6 +26,7 @@ import DrawingWheelEngine from '@/components/drawing/DrawingWheelEngine';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import RelatedWheelsSection from '@/components/RelatedWheelsSection';
 
 export const dynamic = 'force-static';
 
@@ -545,6 +546,45 @@ export default function DrawingWheelPage() {
             </div>
           </div>
         </section>
+
+        {/* Related Wheels Section */}
+        <RelatedWheelsSection
+          title="Related Creative & Art Prompt Wheels"
+          subtitle="Combine your drawing subject with random color palettes, animals, themes, and everyday objects."
+          wheels={[
+            {
+              name: 'Color Wheel',
+              href: '/color-wheel',
+              anchorText: 'Spin the Color Wheel for limited-palette art challenges',
+              description: 'Pick random hex hues and complementary palettes for illustration sprints.',
+              tag: 'Palettes'
+            },
+            {
+              name: 'Animal Wheel',
+              href: '/animal-wheel',
+              anchorText: 'Try the Animal Wheel for creature & wildlife sketching',
+              description: 'Spin mammals, ocean life, and mythical creatures for gesture studies.',
+              tag: 'Creatures'
+            },
+            {
+              name: 'Theme Wheel',
+              href: '/theme-wheel',
+              anchorText: 'Use the Theme Wheel for aesthetic & worldbuilding genres',
+              description: 'Generate Cyberpunk, Cottagecore, Noir, or Steampunk visual moods.',
+              tag: 'Aesthetics'
+            },
+            {
+              name: 'Random Object Generator',
+              href: '/random-object-generator',
+              anchorText: 'Spin the Random Object Generator for still-life props',
+              description: 'Instant everyday items for Pictionary rounds and perspective practice.',
+              tag: 'Props'
+            }
+          ]}
+          guides={[
+            { label: 'How to Use a Wheel to Beat Creative Paralysis', href: '/how-to-use-a-wheel', readingTime: '4 min' }
+          ]}
+        />
       </main>
 
       <Footer />

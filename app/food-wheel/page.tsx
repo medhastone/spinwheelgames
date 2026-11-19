@@ -23,6 +23,7 @@ import PresetLaunchButton from '@/components/food/PresetLaunchButton';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import RelatedWheelsSection from '@/components/RelatedWheelsSection';
 
 export const dynamic = 'force-static';
 
@@ -548,73 +549,46 @@ export default function FoodWheelPage() {
             </div>
           </section>
 
-          {/* SECTION 7: RELATED DECISION TOOLS */}
-          <section className="space-y-5 pt-8 border-t border-gray-200 dark:border-gray-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
-              Explore Related Decision Wheels & Pickers
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-              <Link
-                href="/decision-wheel"
-                className="p-5 rounded-2xl bg-white dark:bg-[#161722] border border-gray-200 dark:border-gray-800 hover:border-orange-500/50 hover:shadow-md transition-all group flex flex-col justify-between"
-              >
-                <div>
-                  <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors flex items-center justify-between mb-1.5">
-                    <span>Decision Wheel</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                    Break analysis paralysis on daily choices.
-                  </p>
-                </div>
-              </Link>
-
-              <Link
-                href="/yes-or-no-wheel"
-                className="p-5 rounded-2xl bg-white dark:bg-[#161722] border border-gray-200 dark:border-gray-800 hover:border-orange-500/50 hover:shadow-md transition-all group flex flex-col justify-between"
-              >
-                <div>
-                  <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors flex items-center justify-between mb-1.5">
-                    <span>Yes or No Wheel</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                    Fast 50/50 binary choice decider.
-                  </p>
-                </div>
-              </Link>
-
-              <Link
-                href="/wheel-of-names"
-                className="p-5 rounded-2xl bg-white dark:bg-[#161722] border border-gray-200 dark:border-gray-800 hover:border-orange-500/50 hover:shadow-md transition-all group flex flex-col justify-between"
-              >
-                <div>
-                  <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors flex items-center justify-between mb-1.5">
-                    <span>Wheel of Names</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                    Fair random student and raffle picker.
-                  </p>
-                </div>
-              </Link>
-
-              <Link
-                href="/random-object-generator"
-                className="p-5 rounded-2xl bg-white dark:bg-[#161722] border border-gray-200 dark:border-gray-800 hover:border-orange-500/50 hover:shadow-md transition-all group flex flex-col justify-between"
-              >
-                <div>
-                  <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors flex items-center justify-between mb-1.5">
-                    <span>Random Objects</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                    1,000+ items for games, drawing, and stories.
-                  </p>
-                </div>
-              </Link>
-            </div>
-          </section>
+          {/* SECTION 7: RELATED WHEELS */}
+          <RelatedWheelsSection
+            maxWidthClass="max-w-7xl px-0 sm:px-0 lg:px-0"
+            title="Related Wheels"
+            subtitle="Pair your dinner decision with movie night picks, quick tie-breakers, and fair cleanup rotations."
+            wheels={[
+              {
+                name: 'Movie Wheel',
+                href: '/movie-wheel',
+                anchorText: 'Try the Movie Wheel for dinner and family movie night',
+                description: 'Once takeout is ordered, spin genres or your custom watchlist to pick tonight’s film.',
+                tag: 'Night In'
+              },
+              {
+                name: 'Decision Wheel',
+                href: '/decision-wheel',
+                anchorText: 'Use the Decision Wheel for weekend plans and outings',
+                description: 'Break everyday analysis paralysis across date ideas, errands, and activities.',
+                tag: 'Decisions'
+              },
+              {
+                name: 'Yes or No Wheel',
+                href: '/yes-or-no-wheel',
+                anchorText: 'Spin the Yes or No Wheel for fast dine-in vs takeout calls',
+                description: 'Instant 50/50 binary tie-breaker when you only have two options left.',
+                tag: 'Quick Pick'
+              },
+              {
+                name: 'Chore Picker',
+                href: '/chore-picker',
+                anchorText: 'Open the Chore Picker to assign post-dinner kitchen cleanup',
+                description: 'Rotate dishes, cooking, and weekly household chores fairly without arguments.',
+                tag: 'Household'
+              }
+            ]}
+            guides={[
+              { label: 'How to Use a Spin Wheel for Faster Group Decisions', href: '/how-to-use-a-wheel', readingTime: '5 min' },
+              { label: 'Random vs. Weighted Selection Explained', href: '/random-vs-weighted-selection', readingTime: '5 min' }
+            ]}
+          />
         </article>
       </main>
 

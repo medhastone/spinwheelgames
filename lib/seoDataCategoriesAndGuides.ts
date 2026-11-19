@@ -895,8 +895,10 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Number Wheel', path: '/number-wheel', description: 'Digital dice spinner.' },
-      { name: 'Random Picker', path: '/random-picker', description: 'General item selector.' }
+      { name: 'Random Game Picker', path: '/random-game-picker', description: 'Choose what board game or video game to play tonight.' },
+      { name: 'Number Wheel', path: '/number-wheel', description: 'Digital dice and turn-order integer spinner.' },
+      { name: 'Truth or Dare Wheel', path: '/truth-or-dare-wheel', description: 'Classic game-night party challenges.' },
+      { name: 'Team Picker Wheel', path: '/team-picker', description: 'Live squad draft and tournament matchup wheel.' }
     ],
     relatedWheels: [
       { name: 'Number Wheel', path: '/number-wheel', count: 10 }
@@ -1265,8 +1267,10 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Core raffle wheel.' },
-      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Participant roster drawer.' }
+      { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Verifiable prize and raffle drawing wheel.' },
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Bulk participant roster drawer with elimination.' },
+      { name: 'Comment Picker', path: '/comment-picker', description: 'Draw winners from social media comment entries.' },
+      { name: 'Random Wheel', path: '/random-wheel', description: 'Cryptographic CSPRNG wheel with weighted odds.' }
     ],
     relatedWheels: [
       { name: 'Giveaway Wheel', path: '/giveaway-wheel', count: 6 }
@@ -1352,7 +1356,7 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
         heading: '1. The Psychology of Decision Fatigue',
         body: [
           'Published scientific research on [decision fatigue and ego depletion](https://en.wikipedia.org/wiki/Decision_fatigue) demonstrates that human willpower and cognitive bandwidth are finite resources depleted through continuous micro-choices throughout the day.',
-          'When you agonize over trivial choices like where to buy lunch, what shirt to wear, or which low-priority task to tackle first, you deplete the executive function needed for high-stakes problem solving.',
+          'When you agonize over trivial choices like where to buy lunch, what to watch on Friday night, or which household task to tackle first, you deplete the executive function needed for high-stakes problem solving. Instead of browsing endless menus, you can [spin the Food Wheel to settle dinner debates](/food-wheel), [try the Movie Wheel for family movie night](/movie-wheel), or [use the Chore Picker to divide weekly household tasks](/chore-picker).',
           'Delegating low-consequence choices to an unbiased random wheel backed by [W3C Web Cryptography standards](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues) preserves your mental energy for decisions that actually determine your success.'
         ]
       },
@@ -1360,14 +1364,14 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
         heading: '2. The Wheel as an Emotional Mirror',
         body: [
           'The greatest secret of spinning a wheel isn\'t that you must obey it blindly. It\'s that spinning forces your subconscious to reveal itself.',
-          'When the wheel is slowing down, you will almost always feel an emotional pull toward one specific option. If it lands on Option A and your heart sinks, you know instantly that you really wanted Option B. Listen to that reaction.'
+          'When you are torn between two choices, [spin the Yes or No Wheel for an instant 50/50 gut check](/yes-or-no-wheel). While the pointer slows down, you will almost always feel an emotional pull toward one outcome—if it lands on Option A and your heart sinks, you know immediately that you really wanted Option B.'
         ]
       },
       {
         heading: '3. The "One Veto" Rule for Groups',
         body: [
-          'When making group decisions (like picking a restaurant with friends or a movie with a partner), establish a One Veto rule before spinning.',
-          'Each participant gets exactly one veto if the outcome is genuinely unpalatable. If nobody exercises their veto, the group commits to the wheel\'s choice with zero complaints.'
+          'When making group decisions (like picking a restaurant with friends, assigning weekend workouts, or selecting a film with a partner), load 6 to 8 shortlisted options into the [Decision Wheel for multi-option group tie-breakers](/decision-wheel) and establish a One Veto rule before spinning.',
+          'Each participant gets exactly one veto if the outcome is genuinely unpalatable. If nobody exercises their veto, the group commits to the wheel\'s choice with zero complaints—or kicks off a spontaneous session on the [Workout Wheel for randomized HIIT circuits](/workout-wheel).'
         ]
       }
     ],
@@ -1378,8 +1382,11 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Decision Wheel', path: '/decision-wheel', description: 'Interactive decision tool.' },
-      { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', description: 'Binary choice spinner.' }
+      { name: 'Decision Wheel', path: '/decision-wheel', description: 'Customizable multi-choice dilemma solver.' },
+      { name: 'Movie Wheel', path: '/movie-wheel', description: 'Random movie picker by genre and watchlist.' },
+      { name: 'Food Wheel', path: '/food-wheel', description: 'Settle dinner, takeout, and cuisine debates.' },
+      { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', description: 'Fast 50/50 binary gut-check spinner.' },
+      { name: 'Chore Picker Wheel', path: '/chore-picker', description: 'Fair household and roommate task decider.' }
     ],
     relatedWheels: [
       { name: 'Decision Wheel', path: '/decision-wheel', count: 6 }
@@ -1388,8 +1395,9 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       { name: 'How Random Wheels Work', path: '/how-random-wheels-work', readingTime: '6 min' }
     ],
     internalLinks: [
-      { label: 'Try Decision Wheel', href: '/decision-wheel', context: 'Put this guide into practice.' },
-      { label: 'Explore Decision Hub', href: '/decisions', context: 'All choice tools.' }
+      { label: 'Try the Decision Wheel', href: '/decision-wheel', context: 'Put this decision framework into practice.' },
+      { label: 'Try the Movie Wheel for family movie night', href: '/movie-wheel', context: 'End streaming fatigue in 5 seconds.' },
+      { label: 'Explore Decision Hub', href: '/decisions', context: 'All everyday choice tools.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org' },
@@ -1470,7 +1478,7 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
         body: [
           'Most basic websites generate random numbers using JavaScript\'s built-in Math.random(). While Math.random() is fast, it is a pseudo-random algorithm (often xorshift128+) that begins with an internal seed.',
           'Under rapid sequential calls, pseudo-random generators can display subtle statistical clustering. More importantly, they are not cryptographically secure and fail strict randomness distribution benchmarks.',
-          'SpinWheelGames uses the modern [W3C Web Cryptography API documented on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues): window.crypto.getRandomValues(). SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values directly in your browser.',
+          'SpinWheelGames uses the modern [W3C Web Cryptography API documented on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues): window.crypto.getRandomValues(). You can [test cryptographic CSPRNG spins live on the Random Wheel](/random-wheel) or inspect uniform integer ranges on the [Number Wheel for unbiased 1–100 draws](/number-wheel).',
           'By generating 32-bit cryptographically secure pseudo-random integers and applying dynamic rejection sampling, our engine guarantees zero positional bias and uniform distribution across all sectors.'
         ]
       },
@@ -1479,13 +1487,13 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
         body: [
           'When you click Spin, the engine generates an unsigned 32-bit integer (a number between 0 and 4,294,967,295).',
           'It normalizes this number into a uniform float between 0.0 and 1.0, then multiplies it across the sum of all slice weights.',
-          'By walking through cumulative slice weights, the engine identifies the exact winning sector before the animation even starts. Every slice receives an angular arc strictly proportional to its weight.'
+          'By walking through cumulative slice weights, the engine identifies the exact winning sector before the animation even starts. This exact weighted arc math powers high-stakes drawings when you [run an auditable prize draw on the Giveaway Wheel](/giveaway-wheel) or [host a weighted fantasy draft lottery on the Team Picker Wheel](/team-picker).'
         ]
       },
       {
         heading: '3. Physics Simulation and Deceleration Curves',
         body: [
-          'If the winner is already chosen, why does the wheel spin? Because the physical animation provides vital psychological transparency and anticipation.',
+          'If the winner is already chosen, why does the wheel spin? Because the physical animation provides vital psychological transparency and anticipation—whether you [spin the Wheel of Names for classroom cold-calling](/wheel-of-names) or run a live livestream raffle.',
           'The physics engine calculates an initial angular velocity and applies a cubic ease-out deceleration curve: f(t) = 1 - (1 - t)³. This mirrors real-world rotational friction with authentic flipper resistance and audio clicks, arriving smoothly at the target angle.'
         ]
       }
@@ -1497,8 +1505,11 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Random Wheel', path: '/random-wheel', description: 'Browser-based cryptographic randomizer.' },
-      { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Audited raffle drawing tool.' }
+      { name: 'Random Wheel', path: '/random-wheel', description: 'Auditable CSPRNG and weighted probability spinner.' },
+      { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Transparent raffle and contest winner drawer.' },
+      { name: 'Team Picker Wheel', path: '/team-picker', description: 'Live weighted draft lottery and squad wheel.' },
+      { name: 'Number Wheel', path: '/number-wheel', description: 'Uniform random integer spinner from 1 to 100+.' },
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Fair roster picker with no-repeat elimination.' }
     ],
     relatedWheels: [
       { name: 'Random Wheel', path: '/random-wheel', count: 6 }
@@ -1507,7 +1518,8 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       { name: 'Random vs. Weighted Selection', path: '/random-vs-weighted-selection', readingTime: '5 min' }
     ],
     internalLinks: [
-      { label: 'Try Random Wheel', href: '/random-wheel', context: 'Test cryptographic randomness live.' },
+      { label: 'Test CSPRNG fairness on the Random Wheel', href: '/random-wheel', context: 'Inspect weighted odds and live spin logs.' },
+      { label: 'Run an auditable draw on the Giveaway Wheel', href: '/giveaway-wheel', context: 'Verifiable contest & raffle drawings.' },
       { label: 'Read Weighted Selection Guide', href: '/random-vs-weighted-selection', context: 'Learn probability weighting.' }
     ],
     breadcrumbs: [
@@ -1589,22 +1601,22 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       {
         heading: '1. Clean Your Entrant List & Meet Legal Standards',
         body: [
-          'Before opening the wheel, verify that every entrant met your official contest rules (such as age requirements or promotional actions).',
+          'Before opening the wheel, verify that every entrant met your official contest rules (such as age requirements or promotional actions). For Instagram, YouTube, or TikTok replies, you can [filter and draw social media contest entries with the Comment Picker](/comment-picker).',
           'Under transparency rules enforced by consumer protection regulators including the [Federal Trade Commission (FTC) Guidance on Contests and Sweepstakes](https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers), promotions must maintain verifiable criteria with clear odds of winning.',
-          'Remove spam bots and deduplicate entries so that each legitimate participant receives their exact allotted odds.'
+          'Remove spam bots and deduplicate entries, then [paste your qualified entrant roster into the Wheel of Names](/wheel-of-names) or load ticket numbers directly into the [Giveaway Wheel for transparent raffle drawings](/giveaway-wheel).'
         ]
       },
       {
         heading: '2. Record the Drawing with Cryptographic Audit Proof',
         body: [
           'Always screen-record the drawing from start to finish. Show the list of entries on screen, click Spin, and let the wheel come to a natural stop without cuts.',
-          'SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values with uniform probability distribution, ensuring every ticket has equal odds. Posting the unedited recording silences any accusations of favoritism.'
+          'SpinWheelGames uses the browser Web Crypto API (crypto.getRandomValues()) to generate random values with uniform probability distribution—you can also [verify weighted ticket odds on the Random Wheel](/random-wheel). Posting the unedited recording silences any accusations of favoritism.'
         ]
       },
       {
         heading: '3. Handling Multiple Prize Tiers with Elimination Mode',
         body: [
-          'If you have 1st, 2nd, and 3rd place prizes, draw the Grand Prize first. Once selected, click "Remove Winner" so their name is taken off the wheel, then spin again for runner-up prizes.',
+          'If you have 1st, 2nd, and 3rd place prizes, draw in reverse order (3rd place first, Grand Prize last) or draw the Grand Prize first and click "Remove Winner" so their name is taken off the wheel before spinning for runner-up prizes.',
           'This prevents the same person from winning multiple prizes unless your rules explicitly permit it.'
         ]
       }
@@ -1616,8 +1628,10 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Core giveaway spinner.' },
-      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Participant roster wheel.' }
+      { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Verifiable prize and raffle drawing tool.' },
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Bulk entrant roster wheel with elimination.' },
+      { name: 'Comment Picker', path: '/comment-picker', description: 'Random winner picker for social comments.' },
+      { name: 'Random Wheel', path: '/random-wheel', description: 'Weighted CSPRNG spinner with session logs.' }
     ],
     relatedWheels: [
       { name: 'Giveaway Wheel', path: '/giveaway-wheel', count: 6 }
@@ -1626,7 +1640,7 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       { name: 'Random vs. Weighted Selection', path: '/random-vs-weighted-selection', readingTime: '5 min' }
     ],
     internalLinks: [
-      { label: 'Try Giveaway Wheel', href: '/giveaway-wheel', context: 'Run your drawing now.' },
+      { label: 'Launch the Giveaway Wheel for your raffle', href: '/giveaway-wheel', context: 'Run an auditable prize drawing now.' },
       { label: 'Explore Giveaways Hub', href: '/giveaways', context: 'All contest tools.' }
     ],
     breadcrumbs: [
@@ -1706,20 +1720,21 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
         heading: '1. What is Equal Selection?',
         body: [
           'In an equal selection model (uniform distribution), every slice has identical angular width (360° / N). If there are 8 students in a group, each has exactly 1/8 (12.5%) probability.',
-          'Equal selection is the gold standard for classroom cold-calling, chore assignments, and standard drawings where everyone entered once.'
+          'Equal selection is the gold standard when you [launch the Classroom Wheel for equitable cold-calling](/classroom-wheel) or spin standard giveaways where every participant entered once.'
         ]
       },
       {
         heading: '2. What is Weighted Selection?',
         body: [
           'In a weighted selection model, options have unequal probability. A slice\'s probability is determined by its individual weight divided by the sum of all weights: P(i) = W(i) / ∑W.',
-          'Visually, the wheel\'s sectors expand or contract based on their weight. A slice with a weight of 3 takes up three times as much space on the wheel as a slice with a weight of 1.'
+          'Visually, the wheel\'s sectors expand or contract based on their weight. You can [test custom slice weights live on the Random Wheel](/random-wheel), where a slice with a weight of 3 occupies three times as much arc space as a slice with a weight of 1.'
         ]
       },
       {
         heading: '3. When Should You Use Weighted Selection?',
         body: [
-          'Use weighted selection when fairness requires rewarding greater contribution (like raffle tickets purchased or volunteer hours logged), or when personal decisions have clear soft preferences (e.g. you would prefer to cook at home, but want to leave a 25% chance of treating yourself to takeout).'
+          'Use weighted selection when fairness requires rewarding greater contribution—such as assigning multi-ticket entries on the [Giveaway Wheel for charity raffles](/giveaway-wheel) or running an NBA-style ping-pong lottery on the [Team Picker Wheel for fantasy draft orders](/team-picker).',
+          'Weighted slices are equally powerful for household routines: [use Effort-Point weighting on the Chore Picker](/chore-picker) so quick 5-minute tasks appear more often than 40-minute deep cleans, or [weight home-cooked meals higher than takeout on the Food Wheel](/food-wheel).'
         ]
       }
     ],
@@ -1730,17 +1745,20 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Random Picker', path: '/random-picker', description: 'Selector with custom weight sliders.' },
-      { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Raffle wheel with ticket weighting.' }
+      { name: 'Random Wheel', path: '/random-wheel', description: 'CSPRNG wheel with custom probability weights.' },
+      { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Raffle wheel with multi-ticket weighting.' },
+      { name: 'Team Picker Wheel', path: '/team-picker', description: 'Weighted draft lottery and squad spinner.' },
+      { name: 'Chore Picker Wheel', path: '/chore-picker', description: 'Effort-Point weighted household chore spinner.' }
     ],
     relatedWheels: [
-      { name: 'Random Picker', path: '/random-picker', count: 8 }
+      { name: 'Random Wheel', path: '/random-wheel', count: 8 }
     ],
     relatedGuides: [
       { name: 'How Random Wheels Work', path: '/how-random-wheels-work', readingTime: '6 min' }
     ],
     internalLinks: [
-      { label: 'Try Random Picker', href: '/random-picker', context: 'Test weighted sliders live.' }
+      { label: 'Test weighted slices on the Random Wheel', href: '/random-wheel', context: 'Experiment with live probability weights.' },
+      { label: 'Run a weighted draft lottery on the Team Picker', href: '/team-picker', context: 'Assign higher odds to bottom-seeded teams.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org' },
@@ -1817,16 +1835,16 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
         heading: '1. Why Digital Wheels Outperform Popsicle Sticks',
         body: [
           'Popsicle sticks in a cup were a staple of 20th-century classrooms, but they have major drawbacks: sticks get lost, teachers accidentally put sticks back into the wrong jar, and students can\'t see whether the draw was truly random.',
-          'Projecting a colorful digital wheel onto an interactive whiteboard makes the selection process communal. Everyone sees their name on the wheel, creating shared excitement.'
+          'Projecting the [Classroom Wheel for 7 teacher-built lesson modes](/classroom-wheel) or spinning the [Wheel of Names on your smartboard](/wheel-of-names) makes the selection process communal. Everyone sees their name on the wheel, creating shared excitement—and you can switch to the [Random Team Generator to split cooperative lab partners](/team-generator) in one click.'
         ]
       },
       {
         heading: '2. Preserving Student Psychological Safety',
         body: [
           'Cold calling can cause acute performance anxiety if handled punitively. As highlighted in pedagogical research on [Edutopia on cold-calling classroom engagement](https://www.edutopia.org/article/cold-calling-classroom-engagement/), random calling should be framed as an invitation to think out loud rather than a pop quiz:',
-          '• Emphasize effort over perfection: "The wheel picked you to explore, not to be instantly correct."',
-          '• Allow a "Pass to a Partner" lifeline if a student genuinely freezes, maintaining engagement without humiliation.',
-          '• Celebrate thoughtful reasoning with supportive peer applause or custom audio chimes.'
+          '• Emphasize effort over perfection and warm up the room first using the [Icebreaker Wheel for morning meeting questions](/icebreakers).',
+          '• Use the [Random Student Picker with No-Repeat Elimination](/classroom-wheel/random-student) and allow a "Pass to a Partner" lifeline if a student genuinely freezes.',
+          '• Pair phonics and vocabulary drills with the [A–Z Letter Wheel for early-literacy sound games](/letter-wheel).'
         ]
       },
       {
@@ -1844,9 +1862,11 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Core teaching wheel.' },
-      { name: 'Random Student Picker', path: '/classroom-wheel/random-student', description: 'Direct cold-calling wheel.' },
-      { name: 'Random Team Generator', path: '/random-team-generator', description: 'Balanced group project divider.' }
+      { name: 'Classroom Wheel', path: '/classroom-wheel', description: '7-mode classroom spinner for jobs, reviews, and cold-calling.' },
+      { name: 'Random Student Picker', path: '/classroom-wheel/random-student', description: 'Direct single-student cold-calling wheel.' },
+      { name: 'Team Generator', path: '/team-generator', description: 'Balanced cooperative group and lab partner divider.' },
+      { name: 'Icebreaker Wheels', path: '/icebreakers', description: 'Morning circle and advisory warmup prompts.' },
+      { name: 'Letter Wheel', path: '/letter-wheel', description: 'A–Z alphabet spinner for phonics and spelling.' }
     ],
     relatedWheels: [
       { name: 'Classroom Wheel', path: '/classroom-wheel', count: 12 }
@@ -1855,7 +1875,8 @@ export const CATEGORIES_AND_GUIDES_SEO: Record<string, SeoPageData> = {
       { name: 'How to Pick a Random Winner', path: '/how-to-pick-a-random-winner', readingTime: '5 min' }
     ],
     internalLinks: [
-      { label: 'Try Classroom Wheel', href: '/classroom-wheel', context: 'Main teaching tool.' },
+      { label: 'Launch the Classroom Wheel', href: '/classroom-wheel', context: '7 dedicated teaching modes.' },
+      { label: 'Try the Icebreaker Wheel for morning circles', href: '/icebreakers', context: 'Inclusive warmup prompts.' },
       { label: 'Explore Classroom Hub', href: '/classroom', context: 'All educational spinners.' }
     ],
     breadcrumbs: [

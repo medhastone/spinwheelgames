@@ -24,6 +24,7 @@ import {
 import NumberWheelEngine from '@/components/numbers/NumberWheelEngine';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
+import RelatedWheelsSection from '@/components/RelatedWheelsSection';
 
 export const dynamic = 'force-static';
 
@@ -573,47 +574,46 @@ export default function NumberWheelPage() {
               </div>
             </section>
 
-            {/* 8. More Decision & Randomizer Wheels (Compact 4-Card Row) */}
-            <section className="p-3.5 sm:p-4 rounded-2xl bg-[#fbf8fd] dark:bg-[#12131a] border border-[#eeedf7] dark:border-[#292a39]">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-bold text-[#1a1b22] dark:text-white flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-[#4648d4] dark:text-[#8587ff]" /> More Wheels
-                </span>
-                <Link href="/sitemap" className="text-[11px] text-[#4648d4] dark:text-[#8587ff] font-bold hover:underline">
-                  All Tools ›
-                </Link>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                <Link
-                  href="/1-100-wheel"
-                  className="p-2 rounded-xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#272838] hover:border-[#4648d4]/50 transition-colors text-center"
-                >
-                  <span className="font-bold text-[#1a1b22] dark:text-white block text-[11px]">1–100 Number Wheel</span>
-                  <span className="text-[10px] text-[#767586] dark:text-[#908fa1]">Percentile &amp; raffle draws</span>
-                </Link>
-                <Link
-                  href="/bingo-wheel"
-                  className="p-2 rounded-xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#272838] hover:border-[#4648d4]/50 transition-colors text-center"
-                >
-                  <span className="font-bold text-[#1a1b22] dark:text-white block text-[11px]">Bingo Wheel</span>
-                  <span className="text-[10px] text-[#767586] dark:text-[#908fa1]">75 &amp; 90-ball caller</span>
-                </Link>
-                <Link
-                  href="/dice-roller"
-                  className="p-2 rounded-xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#272838] hover:border-[#4648d4]/50 transition-colors text-center"
-                >
-                  <span className="font-bold text-[#1a1b22] dark:text-white block text-[11px]">Dice Roller</span>
-                  <span className="text-[10px] text-[#767586] dark:text-[#908fa1]">Polyhedral 3D dice</span>
-                </Link>
-                <Link
-                  href="/wheel-of-names"
-                  className="p-2 rounded-xl bg-white dark:bg-[#181922] border border-[#eeedf7] dark:border-[#272838] hover:border-[#4648d4]/50 transition-colors text-center"
-                >
-                  <span className="font-bold text-[#1a1b22] dark:text-white block text-[11px]">Wheel of Names</span>
-                  <span className="text-[10px] text-[#767586] dark:text-[#908fa1]">Raffle &amp; student caller</span>
-                </Link>
-              </div>
-            </section>
+            {/* 8. Related Wheels */}
+            <RelatedWheelsSection
+              maxWidthClass="max-w-7xl px-0 sm:px-0 lg:px-0"
+              title="Related Wheels"
+              subtitle="Explore closely related number callers, raffle pickers, and cryptographic randomizers."
+              wheels={[
+                {
+                  name: 'Giveaway Wheel',
+                  href: '/giveaway-wheel',
+                  anchorText: 'Use the Giveaway Wheel for numbered raffle & contest draws',
+                  description: 'Pick verified contest winners with weighted tickets, no-repeat elimination, and live audit logs.',
+                  tag: 'Raffles'
+                },
+                {
+                  name: 'Random Wheel',
+                  href: '/random-wheel',
+                  anchorText: 'Try the Random Wheel for custom text lists and weighted odds',
+                  description: 'All-purpose cryptographic spinner when you need custom entries beyond numeric ranges.',
+                  tag: 'All-Purpose'
+                },
+                {
+                  name: 'Bingo Wheel',
+                  href: '/bingo-wheel',
+                  anchorText: 'Open the Bingo Wheel for 75-ball and 90-ball live calling',
+                  description: 'Automated digital bingo cage with voice caller audio and no-repeat master board.',
+                  tag: 'Number Game'
+                },
+                {
+                  name: 'Wheel of Names',
+                  href: '/wheel-of-names',
+                  anchorText: 'Spin the Wheel of Names for rosters and student callouts',
+                  description: 'Paste participant or student rosters directly instead of assigning seat numbers.',
+                  tag: 'Rosters'
+                }
+              ]}
+              guides={[
+                { label: 'How Random Wheels Guarantee CSPRNG Fairness', href: '/how-random-wheels-work', readingTime: '6 min' },
+                { label: 'How to Pick a Random Winner Transparently', href: '/how-to-pick-a-random-winner', readingTime: '5 min' }
+              ]}
+            />
           </div>
         </main>
 

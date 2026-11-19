@@ -323,8 +323,9 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     ],
     relatedTools: [
       { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Pre-configured with classroom activities, student prompts, and reading turns.' },
-      { name: 'Random Team Generator', path: '/random-team-generator', description: 'Splits your student roster into balanced, randomized project teams.' },
-      { name: 'Random Name Picker', path: '/random-name-picker', description: 'Clean, minimalist name selector for quick single drawings.' }
+      { name: 'Random Team Generator', path: '/team-generator', description: 'Splits your student roster into balanced, randomized project teams.' },
+      { name: 'Team Picker', path: '/team-picker', description: 'Assign sports squads, hackathon groups, and group-project partners fairly.' },
+      { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Run transparent live raffles with weighted tickets and winner elimination.' }
     ],
     relatedWheels: [
       { name: 'Random Picker', path: '/random-picker', count: 8 },
@@ -337,7 +338,7 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     ],
     internalLinks: [
       { label: 'Explore Name Picker Pillar', href: '/names', context: 'All name pickers and roster utilities.' },
-      { label: 'Try Random Team Generator', href: '/random-team-generator', context: 'Group students or coworkers into teams.' },
+      { label: 'Try Random Team Generator', href: '/team-generator', context: 'Group students or coworkers into teams.' },
       { label: 'Teacher Guide', href: '/how-to-make-a-classroom-wheel', context: 'Strategies for classroom gamification.' }
     ],
     breadcrumbs: [
@@ -471,8 +472,10 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Decision Wheel', path: '/decision-wheel', description: 'Focused on resolving yes/no and multiple-choice dilemmas.' },
-      { name: 'Random Name Picker', path: '/random-name-picker', description: 'Tailored for rosters, classrooms, and prize drawings.' }
+      { name: 'Decision Wheel', path: '/decision-wheel', description: 'Break everyday indecision across custom options with balanced slices.' },
+      { name: 'Random Wheel', path: '/random-wheel', description: 'All-purpose cryptographic random spinner for lists, tasks, and activities.' },
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Tailored for student rosters, team turns, and live prize drawings.' },
+      { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', description: 'Instant 50/50 binary tie-breaker when you only have two choices.' }
     ],
     relatedWheels: [
       { name: 'Spin the Wheel', path: '/spin-the-wheel', count: 6 },
@@ -645,15 +648,15 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', description: '50/50 binary decider with optional Maybe mode.' },
       { name: 'Food Wheel', path: '/food-wheel', description: 'Dedicated meal, cuisine, and restaurant decider.' },
       { name: 'Movie Wheel', path: '/movie-wheel', description: 'Pick what movie to watch by genre or watchlist.' },
-      { name: 'Task Selector Wheel', path: '/task-selector', description: 'Prioritize your to-do list & Pomodoro blocks.' }
+      { name: 'Chore Picker', path: '/chore-picker', description: 'Assign daily chores and prioritize to-do tasks fairly.' }
     ],
     relatedWheels: [
       { name: 'Spin the Wheel', path: '/spin-the-wheel', count: 6 },
       { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', count: 4 }
     ],
     relatedGuides: [
-      { name: 'How to Use a Wheel for Decisions', path: '/how-to-use-a-wheel', readingTime: '4 min' },
-      { name: 'Decision Fatigue & The Psychology of Chance', path: '/decision-fatigue-and-the-psychology-of-chance', readingTime: '7 min' }
+      { name: 'How to Use a Wheel for Decisions', path: '/how-to-use-a-wheel', readingTime: '5 min' },
+      { name: 'How Random Wheels Work', path: '/how-random-wheels-work', readingTime: '6 min' }
     ],
     internalLinks: [
       { label: 'Explore Decision Hub', href: '/decisions', context: 'All decision-making spinners.' },
@@ -810,8 +813,9 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
     ],
     relatedTools: [
       { name: 'Decision Wheel', path: '/decision-wheel', description: 'When you have 3 or more competing options.' },
-      { name: 'Dice Roller (D2 Coin)', path: '/dice/d2', description: '3D two-sided coin and binary die roller.' },
-      { name: 'Spin the Wheel', path: '/spin-the-wheel', description: 'Classic multi-slice customizable spinner.' }
+      { name: 'Dice Roller', path: '/dice-roller', description: '3D polyhedral and coin-flip dice roller.' },
+      { name: 'Random Wheel', path: '/random-wheel', description: 'All-purpose customizable cryptographic spinner.' },
+      { name: 'Food Wheel', path: '/food-wheel', description: 'Settle tonight’s dinner or takeout choice in one spin.' }
     ],
     relatedWheels: [
       { name: 'Decision Wheel', path: '/decision-wheel', count: 6 },
@@ -1767,14 +1771,14 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Drawing Prompts Wheel', path: '/drawing-prompts-wheel', description: 'Random art ideas and sketching constraints.' },
-      { name: 'Student Picker Wheel', path: '/student-picker-wheel', description: 'Fair classroom cold-calling tool.' },
-      { name: 'Creative Writing Wheel', path: '/creative-writing-prompts-wheel', description: 'Story starters and character concepts.' },
-      { name: 'Number Wheel', path: '/number-wheel', description: 'Custom number generator from 1 to 100.' }
+      { name: 'Drawing Wheel', path: '/drawing-wheel', description: 'Random art ideas, animals, and timed sketching challenges.' },
+      { name: 'Random Student Picker', path: '/classroom-wheel/random-student', description: 'Fair classroom cold-calling wheel with no-repeat rotation.' },
+      { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Pre-built teacher spinner for lessons, reading turns, and class rewards.' },
+      { name: 'Number Wheel', path: '/number-wheel', description: 'Custom number generator wheel from 1 to 100 for math and games.' }
     ],
     relatedWheels: [
-      { name: 'Drawing Prompts Wheel', path: '/drawing-prompts-wheel', count: 6 },
-      { name: 'Student Picker Wheel', path: '/student-picker-wheel', count: 6 }
+      { name: 'Drawing Wheel', path: '/drawing-wheel', count: 6 },
+      { name: 'Random Student Picker', path: '/classroom-wheel/random-student', count: 6 }
     ],
     relatedGuides: [
       { name: 'How to Make a Classroom Wheel', path: '/how-to-make-a-classroom-wheel', readingTime: '5 min' }
@@ -1893,15 +1897,17 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Animal Wheel', path: '/animal-wheel', description: 'Random animal picker for sketching and games.' },
-      { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Student picker and teaching activity spinner.' }
+      { name: 'Theme Wheel', path: '/theme-wheel', description: 'Random creative themes for drawing sprints, writing, and photography.' },
+      { name: 'Animal Wheel', path: '/animal-wheel', description: 'Spin random mammals, birds, marine life, and dinosaurs to sketch.' },
+      { name: 'Song Wheel', path: '/song-wheel', description: 'Pick random music genres, decades, or karaoke prompts while you draw.' },
+      { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Student picker and creative art-class warm-up activity spinner.' }
     ],
     relatedWheels: [
       { name: 'Animal Wheel', path: '/animal-wheel', count: 8 },
       { name: 'Classroom Wheel', path: '/classroom-wheel', count: 7 }
     ],
     relatedGuides: [
-      { name: 'Creative Writing Prompts Guide', path: '/creative-writing-prompts-guide', readingTime: '5 min' }
+      { name: 'How to Use a Spin Wheel for Creative Prompts', path: '/how-to-use-a-wheel', readingTime: '5 min' }
     ],
     internalLinks: [
       { label: 'Explore Creativity Hub', href: '/creativity', context: 'All artistic and writing wheels.' }
@@ -2021,15 +2027,17 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Drawing Wheel', path: '/drawing-wheel', description: 'Random drawing ideas and art prompt generator.' },
-      { name: 'Movie Wheel', path: '/movie-wheel', description: 'Random movie and show picker for movie night.' }
+      { name: 'Movie Wheel', path: '/movie-wheel', description: 'Random movie and genre picker for family movie night and watchlists.' },
+      { name: 'Truth or Dare Wheel', path: '/truth-or-dare-wheel', description: 'Two-stage party game spinner with clean family, friends, and party modes.' },
+      { name: 'Icebreakers Wheel', path: '/icebreakers', description: 'Fun conversation starters and party warm-up prompts for groups.' },
+      { name: 'Drawing Wheel', path: '/drawing-wheel', description: 'Random drawing ideas and timed art prompt generator.' }
     ],
     relatedWheels: [
       { name: 'Drawing Wheel', path: '/drawing-wheel', count: 12 },
       { name: 'Movie Wheel', path: '/movie-wheel', count: 10 }
     ],
     relatedGuides: [
-      { name: 'Party Games Guide', path: '/party-games-guide', readingTime: '4 min' }
+      { name: 'How to Use a Spin Wheel for Party Nights', path: '/how-to-use-a-wheel', readingTime: '5 min' }
     ],
     internalLinks: [
       { label: 'Explore Creativity Hub', href: '/creativity', context: 'All artistic and entertainment wheels.' }
@@ -2141,15 +2149,17 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Song Wheel', path: '/song-wheel', description: 'Random song, genre, and karaoke challenge picker.' },
-      { name: 'Number Wheel', path: '/number-wheel', description: 'Random number generator wheel.' }
+      { name: 'Icebreakers Wheel', path: '/icebreakers', description: 'Non-awkward team standup, classroom, and remote meeting icebreakers.' },
+      { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Random student caller and lesson activity spinner for teachers.' },
+      { name: 'Never Have I Ever Wheel', path: '/never-have-i-ever-wheel', description: 'Classic party confession prompt wheel with clean and friends packs.' },
+      { name: 'Truth or Dare Wheel', path: '/truth-or-dare-wheel', description: 'Two-stage fate and prompt spinner for game nights and sleepovers.' }
     ],
     relatedWheels: [
       { name: 'Song Wheel', path: '/song-wheel', count: 7 },
       { name: 'Number Wheel', path: '/number-wheel', count: 10 }
     ],
     relatedGuides: [
-      { name: 'Icebreaker Games Guide', path: '/icebreaker-guide', readingTime: '5 min' }
+      { name: 'How to Make a Classroom & Group Wheel', path: '/how-to-make-a-classroom-wheel', readingTime: '7 min' }
     ],
     internalLinks: [
       { label: 'Explore Classroom Hub', href: '/classroom', context: 'All educational and conversation wheels.' }
@@ -2265,8 +2275,10 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Drawing Wheel', path: '/drawing-wheel', description: 'Random art and sketching generator.' },
-      { name: 'Question Wheel', path: '/question-wheel', description: 'Random question picker for games and trivia.' }
+      { name: 'Drawing Wheel', path: '/drawing-wheel', description: 'Random art, character, and environment prompts with sketchpad.' },
+      { name: 'Question Wheel', path: '/question-wheel', description: 'Random trivia, classroom, and conversation prompt picker.' },
+      { name: 'Movie Wheel', path: '/movie-wheel', description: 'Spin film genres and streaming watchlists for themed movie nights.' },
+      { name: 'Random Wheel', path: '/random-wheel', description: 'All-purpose customizable spinner for custom lists and creative rules.' }
     ],
     relatedWheels: [
       { name: 'Drawing Wheel', path: '/drawing-wheel', count: 12 },
@@ -2387,8 +2399,10 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Number Wheel', path: '/number-wheel', description: 'Random number range generator and dice roller.' },
-      { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Student picker and classroom game wheel.' }
+      { name: 'Number Wheel', path: '/number-wheel', description: 'Custom random number range wheel with even/odd filters and no-repeat mode.' },
+      { name: 'Giveaway Wheel', path: '/giveaway-wheel', description: 'Transparent raffle and door-prize winner picker with weighted tickets.' },
+      { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Student picker and classroom review game wheel for teachers.' },
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Fair random name spinner with elimination mode for group drawings.' }
     ],
     relatedWheels: [
       { name: 'Number Wheel', path: '/number-wheel', count: 15 },
@@ -2522,8 +2536,10 @@ export const CORE_TOOLS_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Student picker and classroom game wheel.' },
-      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Random name picker with elimination.' }
+      { name: 'Team Picker', path: '/team-picker', description: 'Spin a visual team wheel for pickup sports, hackathons, and game nights.' },
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Fair random name picker with no-repeat elimination for live drafts.' },
+      { name: 'Classroom Wheel', path: '/classroom-wheel', description: 'Student picker and classroom activity wheel for teachers and tutors.' },
+      { name: 'Icebreakers Wheel', path: '/icebreakers', description: 'Warm up newly formed teams with quick conversation starter spins.' }
     ],
     relatedWheels: [
       { name: 'Classroom Wheel', path: '/classroom-wheel', count: 12 },

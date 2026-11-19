@@ -21,6 +21,7 @@ import {
 import QuestionWheelEngine from '@/components/questions/QuestionWheelEngine';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
+import RelatedWheelsSection from '@/components/RelatedWheelsSection';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const dynamic = 'force-static';
@@ -278,6 +279,45 @@ export default function QuestionWheelPage() {
             </div>
           </div>
         </section>
+
+        {/* Related Wheels Section */}
+        <RelatedWheelsSection
+          title="Related Icebreaker & Conversation Wheels"
+          subtitle="Keep group chats, remote meetings, and party nights flowing effortlessly."
+          wheels={[
+            {
+              name: 'Icebreaker Wheels',
+              href: '/icebreakers',
+              anchorText: 'Use the Icebreaker Wheel for remote team standups',
+              description: 'Work-safe 3-minute Zoom and Teams warmups, onboarding, and retro prompts.',
+              tag: 'Meetings'
+            },
+            {
+              name: 'Never Have I Ever Wheel',
+              href: '/never-have-i-ever-wheel',
+              anchorText: 'Play the Never Have I Ever Wheel with friends',
+              description: 'Clean family, college, and office-safe confession statements with 5-finger rules.',
+              tag: 'Party'
+            },
+            {
+              name: 'Truth or Dare Wheel',
+              href: '/truth-or-dare-wheel',
+              anchorText: 'Spin the Truth or Dare Wheel for game night',
+              description: 'Two-stage truth prompts and spontaneous group dares for any crowd.',
+              tag: 'Classic'
+            },
+            {
+              name: 'Date Night Wheel',
+              href: '/date-night-wheel',
+              anchorText: 'Try the Date Night Wheel for couple activities',
+              description: 'Deep conversation starters paired with cozy at-home and local outing ideas.',
+              tag: 'Couples'
+            }
+          ]}
+          guides={[
+            { label: 'How to Use a Wheel for Group Decisions', href: '/how-to-use-a-wheel', readingTime: '4 min' }
+          ]}
+        />
       </main>
 
       <Footer />

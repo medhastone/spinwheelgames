@@ -271,8 +271,9 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     ],
     relatedTools: [
       { name: 'Random Student Picker', path: '/classroom-wheel/random-student', description: 'Focused student cold-calling wheel.' },
-      { name: 'Random Team Generator', path: '/random-team-generator', description: 'Splits students into balanced small groups.' },
-      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'General multi-purpose name selector.' }
+      { name: 'Random Team Generator', path: '/team-generator', description: 'Splits students into balanced small groups.' },
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'General multi-purpose name selector.' },
+      { name: 'Icebreakers Wheel', path: '/icebreakers', description: 'Warm-up discussion questions for the first 5 minutes of class.' }
     ],
     relatedWheels: [
       { name: 'Random Student Picker', path: '/classroom-wheel/random-student', count: 12 },
@@ -749,7 +750,7 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
     relatedTools: [
       { name: 'Truth or Dare Wheel', path: '/truth-or-dare-wheel', description: 'Classic party truth and dare prompts.' },
       { name: 'Never Have I Ever Wheel', path: '/never-have-i-ever-wheel', description: '10-finger confession party spinner.' },
-      { name: 'Trivia Category Wheel', path: '/trivia-category-wheel', description: 'Quiz night subject & category selector.' },
+      { name: 'Question Wheel', path: '/question-wheel', description: 'Quiz night trivia, party, and icebreaker prompt selector.' },
       { name: 'Movie Wheel', path: '/movie-wheel', description: 'Pick tonight’s group movie with veto mode.' }
     ],
     relatedWheels: [
@@ -900,8 +901,10 @@ export const USE_CASES_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Quick name drawing tool.' },
-      { name: 'Random Wheel', path: '/random-wheel', description: 'Cryptographic randomizer.' }
+      { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Quick name drawing spinner with bulk paste and winner elimination.' },
+      { name: 'Random Wheel', path: '/random-wheel', description: 'All-purpose cryptographic randomizer for custom prize lists and odds.' },
+      { name: 'Number Wheel', path: '/number-wheel', description: 'Draw winning raffle ticket numbers from 1–100 or any custom range.' },
+      { name: 'Team Picker', path: '/team-picker', description: 'Fairly group giveaway entrants or event guests into tournament squads.' }
     ],
     relatedWheels: [
       { name: 'Wheel of Names', path: '/wheel-of-names', count: 8 }

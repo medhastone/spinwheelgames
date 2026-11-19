@@ -7,43 +7,43 @@ import { BookOpen, ArrowRight } from 'lucide-react';
 export default function GuideCards() {
   const guides = [
     {
-      title: 'How to Use a Random Picker',
-      description: 'Step-by-step guide to adding entries, customizing probability weights, and drawing winners.',
-      category: 'Tutorial',
-      path: '/random-picker'
+      title: 'How to Use a Wheel Spinner for Better Decisions',
+      cta: 'Read the Decision Wheel Guide',
+      description: 'Beat choice paralysis, use the One-Veto rule for movie nights, and spot your gut preference while the wheel spins.',
+      category: 'Decision Science',
+      path: '/how-to-use-a-wheel'
     },
     {
-      title: 'How to Run a Fair Giveaway',
-      description: 'Best practices for verifiable prize drawings, removing previous winners, and streaming raffles.',
+      title: 'How Random Wheels Work: CSPRNG & Physics',
+      cta: 'Explore How Random Wheels Work',
+      description: 'Understand why Web Crypto API (crypto.getRandomValues) beats Math.random() for provably fair spins.',
+      category: 'Fairness & Tech',
+      path: '/how-random-wheels-work'
+    },
+    {
+      title: 'How to Pick a Random Winner Fairly',
+      cta: 'Read the Fair Giveaway Drawing Guide',
+      description: 'Step-by-step checklist for auditable social media raffles, screen recordings, and multi-tier elimination.',
       category: 'Giveaways',
-      path: '/giveaways'
+      path: '/how-to-pick-a-random-winner'
     },
     {
-      title: 'How to Create Random Teams',
-      description: 'Split classes or sports leagues into balanced random groups without biased picking.',
-      category: 'Teams',
-      path: '/team-generator'
+      title: 'Random vs. Weighted Selection Explained',
+      cta: 'Compare Equal vs. Weighted Probabilities',
+      description: 'Learn exact slice probability math for multi-ticket raffles, weighted draft lotteries, and chore effort points.',
+      category: 'Probability',
+      path: '/random-vs-weighted-selection'
     },
     {
-      title: 'How to Use a Wheel in the Classroom',
-      description: 'Cold-calling students, gamifying lesson reviews, and managing classroom jobs effectively.',
+      title: 'How to Make a Classroom Wheel (Teacher Guide)',
+      cta: 'Read the Classroom Participation Guide',
+      description: 'Replace popsicle sticks with equitable cold-calling, FERPA-safe local rosters, and anxiety-free partner lifelines.',
       category: 'Education',
-      path: '/classroom'
-    },
-    {
-      title: 'How Weighted Wheels Work',
-      description: 'Understand slice angles, probability distribution, and custom weight multipliers.',
-      category: 'Mathematics',
-      path: '/fairness'
-    },
-    {
-      title: 'How to Make a Decision With a Wheel',
-      description: 'Overcome choice fatigue and settle group arguments quickly using structured random pickers.',
-      category: 'Decisions',
-      path: '/decisions'
+      path: '/how-to-make-a-classroom-wheel'
     },
     {
       title: 'OBS Streamer Mode & Browser Source Guide',
+      cta: 'Open the OBS Streamer Wheel Guide',
       description: 'Add a transparent wheel or 3D dice overlay (?stream=1) to OBS Studio and Streamlabs with live remote control.',
       category: 'Streaming',
       path: '/stream-wheel'
@@ -68,9 +68,9 @@ export default function GuideCards() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {guides.map((g, idx) => (
+        {guides.map((g) => (
           <Link
-            key={idx}
+            key={g.path}
             href={g.path}
             className="group rounded-2xl border border-[#eeedf7] dark:border-[#292a39] bg-white dark:bg-[#181922] p-5 hover:border-[#4648d4]/50 dark:hover:border-[#8587ff]/50 hover:bg-[#f8f7fd] dark:hover:bg-[#1f202c] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-3"
           >
@@ -87,7 +87,7 @@ export default function GuideCards() {
             </div>
 
             <div className="text-xs font-semibold text-[#4648d4] dark:text-[#8587ff] flex items-center gap-1 group-hover:translate-x-1 transition-transform pt-1">
-              <span>Read Guide</span>
+              <span>{g.cta}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </Link>

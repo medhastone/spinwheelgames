@@ -24,6 +24,7 @@ import TruthOrDareWheelEngine from '@/components/truthOrDare/TruthOrDareWheelEng
 import PresetLaunchButton from '@/components/truthOrDare/PresetLaunchButton';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
+import RelatedWheelsSection from '@/components/RelatedWheelsSection';
 
 export const dynamic = 'force-static';
 
@@ -472,60 +473,46 @@ export default function TruthOrDareWheelPage() {
             </div>
           </section>
 
-          {/* SECTION 5: RELATED PARTY & DECISION GAMES */}
-          <section className="p-6 rounded-2xl bg-gradient-to-r from-indigo-900/20 via-purple-900/20 to-pink-900/20 border border-indigo-500/20 space-y-4">
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-              Explore More Free Party & Decision Wheels
-            </h2>
-            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
-              Keep the excitement alive with our full suite of interactive party games and random pickers:
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-              <Link
-                href="/food-wheel"
-                className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-gray-200 dark:border-slate-800 hover:border-indigo-500 transition-all text-center block group"
-              >
-                <span className="text-lg block mb-1">🍕</span>
-                <span className="text-xs font-bold text-gray-900 dark:text-white group-hover:text-indigo-400">
-                  Food Wheel
-                </span>
-                <span className="text-[10px] text-gray-500 dark:text-gray-400 block mt-0.5">Dinner & Fast Food</span>
-              </Link>
-
-              <Link
-                href="/wheel-of-names"
-                className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-gray-200 dark:border-slate-800 hover:border-indigo-500 transition-all text-center block group"
-              >
-                <span className="text-lg block mb-1">🎯</span>
-                <span className="text-xs font-bold text-gray-900 dark:text-white group-hover:text-indigo-400">
-                  Wheel of Names
-                </span>
-                <span className="text-[10px] text-gray-500 dark:text-gray-400 block mt-0.5">Random Name Picker</span>
-              </Link>
-
-              <Link
-                href="/dice-roller"
-                className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-gray-200 dark:border-slate-800 hover:border-indigo-500 transition-all text-center block group"
-              >
-                <span className="text-lg block mb-1">🎲</span>
-                <span className="text-xs font-bold text-gray-900 dark:text-white group-hover:text-indigo-400">
-                  Dice Roller
-                </span>
-                <span className="text-[10px] text-gray-500 dark:text-gray-400 block mt-0.5">D6 & RPG Dice</span>
-              </Link>
-
-              <Link
-                href="/movie-wheel"
-                className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-gray-200 dark:border-slate-800 hover:border-indigo-500 transition-all text-center block group"
-              >
-                <span className="text-lg block mb-1">🍿</span>
-                <span className="text-xs font-bold text-gray-900 dark:text-white group-hover:text-indigo-400">
-                  Movie Wheel
-                </span>
-                <span className="text-[10px] text-gray-500 dark:text-gray-400 block mt-0.5">Genre & Film Picker</span>
-              </Link>
-            </div>
-          </section>
+          {/* SECTION 5: RELATED WHEELS */}
+          <RelatedWheelsSection
+            maxWidthClass="max-w-4xl px-0 sm:px-0 lg:px-0"
+            title="Related Wheels"
+            subtitle="Keep game night rolling with closely related party, movie, and dinner spinners."
+            wheels={[
+              {
+                name: 'Never Have I Ever Wheel',
+                href: '/never-have-i-ever-wheel',
+                anchorText: 'Spin the Never Have I Ever Wheel for group confessions',
+                description: 'Switch up the energy with clean family, friends, or party confession prompts.',
+                tag: 'Party Game'
+              },
+              {
+                name: 'Icebreakers Wheel',
+                href: '/icebreakers',
+                anchorText: 'Try the Icebreakers Wheel to warm up new groups',
+                description: 'Start the night with low-pressure conversation prompts before diving into dares.',
+                tag: 'Social'
+              },
+              {
+                name: 'Movie Wheel',
+                href: '/movie-wheel',
+                anchorText: 'Use the Movie Wheel to pick a late-night watch',
+                description: 'End the sleepover or hangout by spinning genres and your custom watchlist.',
+                tag: 'Entertainment'
+              },
+              {
+                name: 'Food Wheel',
+                href: '/food-wheel',
+                anchorText: 'Spin the Food Wheel to settle party snacks & takeout',
+                description: 'Stop debating pizza vs tacos—let cryptographic randomness pick the food order.',
+                tag: 'Food & Drink'
+              }
+            ]}
+            guides={[
+              { label: 'How to Use a Spin Wheel for Party & Group Nights', href: '/how-to-use-a-wheel', readingTime: '5 min' },
+              { label: 'How Random Wheels Guarantee Fair Spins', href: '/how-random-wheels-work', readingTime: '6 min' }
+            ]}
+          />
         </article>
       </main>
 

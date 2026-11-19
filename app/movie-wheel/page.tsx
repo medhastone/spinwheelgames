@@ -21,6 +21,7 @@ import {
 import MovieWheelEngine from '@/components/movie/MovieWheelEngine';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
+import RelatedWheelsSection from '@/components/RelatedWheelsSection';
 
 export const dynamic = 'force-static';
 
@@ -509,6 +510,47 @@ export default function MovieWheelPage() {
             ))}
           </div>
         </section>
+
+        {/* Related Wheels Section */}
+        <RelatedWheelsSection
+          title="Related Wheels for Movie Night & Entertainment"
+          subtitle="Pair your movie spin with dinner takeout, date night ideas, or party games."
+          maxWidthClass="max-w-7xl px-0!"
+          wheels={[
+            {
+              name: 'Food Wheel',
+              href: '/food-wheel',
+              anchorText: 'Spin the Food Wheel to pick movie-night takeout',
+              description: 'Settle pizza, sushi, Thai, or home-cooked dinner before pressing play.',
+              tag: 'Dining'
+            },
+            {
+              name: 'Date Night Wheel',
+              href: '/date-night-wheel',
+              anchorText: 'Use the Date Night Wheel for Friday couple plans',
+              description: 'Cozy at-home dates, local outings, and fun relationship conversation sparks.',
+              tag: 'Couples'
+            },
+            {
+              name: 'Never Have I Ever Wheel',
+              href: '/never-have-i-ever-wheel',
+              anchorText: 'Play the Never Have I Ever Wheel after the film',
+              description: 'Clean family, college, and party prompts for group watch-party hangouts.',
+              tag: 'Party'
+            },
+            {
+              name: 'Decision Wheel',
+              href: '/decision-wheel',
+              anchorText: 'Try the Decision Wheel for custom group tie-breakers',
+              description: 'Settle TV show marathons, video games, or weekend plans with weighted slices.',
+              tag: 'Decisions'
+            }
+          ]}
+          guides={[
+            { label: 'How to Use a Wheel for Faster Decisions', href: '/how-to-use-a-wheel', readingTime: '4 min' },
+            { label: 'How Random Wheels Work (CSPRNG Fairness)', href: '/how-random-wheels-work', readingTime: '6 min' }
+          ]}
+        />
       </main>
 
       <Footer />

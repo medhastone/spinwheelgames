@@ -19,6 +19,7 @@ import {
 import SongWheelEngine from '@/components/music/SongWheelEngine';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
+import RelatedWheelsSection from '@/components/RelatedWheelsSection';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const dynamic = 'force-static';
@@ -296,6 +297,45 @@ export default function SongWheelPage() {
             </div>
           </div>
         </section>
+
+        {/* Related Wheels Section */}
+        <RelatedWheelsSection
+          title="Related Party & Entertainment Wheels"
+          subtitle="Pair karaoke night with movie picks, party dares, and themed challenges."
+          wheels={[
+            {
+              name: 'Movie Wheel',
+              href: '/movie-wheel',
+              anchorText: 'Try the Movie Wheel for family movie night',
+              description: 'Pick tonight’s film by genre, mood, or custom streaming watchlist.',
+              tag: 'Movies'
+            },
+            {
+              name: 'Truth or Dare Wheel',
+              href: '/truth-or-dare-wheel',
+              anchorText: 'Play the Truth or Dare Wheel at your next party',
+              description: 'Spontaneous party challenges and questions for friends and sleepovers.',
+              tag: 'Party'
+            },
+            {
+              name: 'Never Have I Ever Wheel',
+              href: '/never-have-i-ever-wheel',
+              anchorText: 'Spin Never Have I Ever prompts for group laughs',
+              description: 'Clean, college, and housewarming editions with no-repeat elimination.',
+              tag: 'Icebreaker'
+            },
+            {
+              name: 'Theme Wheel',
+              href: '/theme-wheel',
+              anchorText: 'Use the Theme Wheel to pick a party dress code',
+              description: 'Generate instant karaoke decades, costume aesthetics, and event themes.',
+              tag: 'Themes'
+            }
+          ]}
+          guides={[
+            { label: 'How Random Wheels Work (CSPRNG)', href: '/how-random-wheels-work', readingTime: '6 min' }
+          ]}
+        />
       </main>
 
       <Footer />

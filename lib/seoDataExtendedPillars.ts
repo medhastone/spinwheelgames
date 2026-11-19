@@ -299,20 +299,21 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Road Trip Wheel', path: '/road-trip-wheel', description: 'Spontaneous highway detours & car games.' },
+      { name: 'Weekend Trip Wheel', path: '/weekend-trip-wheel', description: 'Spontaneous road trips and weekend getaways.' },
+      { name: 'Travel Activity Picker', path: '/travel-activity-picker', description: 'Pick local adventures, food stops, and sightseeing.' },
       { name: 'Date Night Wheel', path: '/date-night-wheel', description: 'Local evening outings for couples.' },
       { name: 'Decision Wheel', path: '/decision-wheel', description: 'General multi-option choice spinner.' }
     ],
     relatedWheels: [
-      { name: 'Road Trip Wheel', path: '/road-trip-wheel', count: 8 },
-      { name: 'Weekend Activity Wheel', path: '/weekend-activity-wheel', count: 8 }
+      { name: 'Weekend Trip Wheel', path: '/weekend-trip-wheel', count: 8 },
+      { name: 'Travel Activity Picker', path: '/travel-activity-picker', count: 8 }
     ],
     relatedGuides: [
-      { name: 'How to Use a Wheel for Decisions', path: '/how-to-use-a-wheel', readingTime: '4 min' }
+      { name: 'How to Use a Wheel for Decisions', path: '/how-to-use-a-wheel', readingTime: '5 min' }
     ],
     internalLinks: [
-      { label: 'Try Road Trip Wheel', href: '/road-trip-wheel', context: 'Highway stops and games.' },
-      { label: 'Weekend Activity Wheel', href: '/weekend-activity-wheel', context: 'Local weekend plans.' }
+      { label: 'Try Weekend Trip Wheel', href: '/weekend-trip-wheel', context: 'Highway stops and weekend getaways.' },
+      { label: 'Travel Activity Picker', href: '/travel-activity-picker', context: 'Local weekend plans and outings.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org/' },
@@ -455,19 +456,20 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Drawing Prompts Wheel', path: '/drawing-prompts-wheel', description: 'Daily sketching & illustration ideas.' },
+      { name: 'Drawing Wheel', path: '/drawing-wheel', description: 'Daily sketching & illustration ideas with canvas.' },
       { name: 'Writing Prompt Wheel', path: '/writing-prompt-wheel', description: 'Story starters & flash fiction hooks.' },
+      { name: 'Theme Wheel', path: '/theme-wheel', description: 'Random creative themes for art, video, and photography.' },
       { name: 'Character Name Wheel', path: '/character-name-wheel', description: 'Fiction, RPG & novel character names.' }
     ],
     relatedWheels: [
-      { name: 'Drawing Prompts Wheel', path: '/drawing-prompts-wheel', count: 8 },
+      { name: 'Drawing Wheel', path: '/drawing-wheel', count: 8 },
       { name: 'Writing Prompt Wheel', path: '/writing-prompt-wheel', count: 8 }
     ],
     relatedGuides: [
       { name: 'How Random Wheels Work', path: '/how-random-wheels-work', readingTime: '6 min' }
     ],
     internalLinks: [
-      { label: 'Launch Drawing Prompts Wheel', href: '/drawing-prompts-wheel', context: 'Art & sketchbook ideas.' },
+      { label: 'Launch Drawing Wheel', href: '/drawing-wheel', context: 'Art & sketchbook ideas.' },
       { label: 'Launch Writing Prompt Wheel', href: '/writing-prompt-wheel', context: 'Story starters & scenes.' }
     ],
     breadcrumbs: [
@@ -528,7 +530,7 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       },
       {
         audience: 'Families, Roommates & Students',
-        benefit: 'Assigns household cleaning zones (/chore-picker) and interleaves exam study subjects (/study-topic-wheel) fairly.'
+        benefit: 'Assigns household cleaning zones (/chore-picker) and interleaves timed focus sprints (/pomodoro-break-wheel) fairly.'
       }
     ],
     useCases: [
@@ -601,7 +603,7 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       {
         question: 'Which productivity wheel should I use for family or roommate cleaning?',
         answer:
-          'For shared household tasks, kids allowance charts, and roommate cleaning drafts, use our dedicated Chore Picker Wheel (/chore-picker). For personal work and study backlogs, use the Task Selector (/task-selector) or Study Topic Wheel (/study-topic-wheel).'
+          'For shared household tasks, kids allowance charts, and roommate cleaning drafts, use our dedicated Chore Picker Wheel (/chore-picker). For personal work sprints and deep focus resets, use the Pomodoro Break Wheel (/pomodoro-break-wheel) or Habit Streak Wheel (/habit-streak-wheel).'
       },
       {
         question: 'Can I weight urgent deadlines higher than routine admin tasks?',
@@ -611,19 +613,20 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
     ],
     relatedTools: [
       { name: 'Chore Picker Wheel', path: '/chore-picker', description: 'Fair household & roommate cleaning drafts.' },
-      { name: 'Task Selector Wheel', path: '/task-selector', description: 'Pomodoro & ADHD to-do list prioritizer.' },
-      { name: 'Study Topic Wheel', path: '/study-topic-wheel', description: 'Exam subject & revision block spinner.' }
+      { name: 'Pomodoro Break Wheel', path: '/pomodoro-break-wheel', description: 'Healthy 5-minute focus break selector.' },
+      { name: 'Declutter Wheel', path: '/declutter-wheel', description: '15-minute home and desk tidy sprints.' },
+      { name: 'Decision Wheel', path: '/decision-wheel', description: 'Break to-do list paralysis across competing tasks.' }
     ],
     relatedWheels: [
       { name: 'Chore Picker Wheel', path: '/chore-picker', count: 8 },
-      { name: 'Task Selector Wheel', path: '/task-selector', count: 8 }
+      { name: 'Pomodoro Break Wheel', path: '/pomodoro-break-wheel', count: 8 }
     ],
     relatedGuides: [
-      { name: 'Decision Fatigue & The Psychology of Chance', path: '/decision-fatigue-and-the-psychology-of-chance', readingTime: '7 min' }
+      { name: 'How to Use a Spin Wheel for Faster Decisions', path: '/how-to-use-a-wheel', readingTime: '5 min' }
     ],
     internalLinks: [
       { label: 'Launch Chore Picker Wheel', href: '/chore-picker', context: 'Family & roommate cleaning tasks.' },
-      { label: 'Launch Task Selector Wheel', href: '/task-selector', context: 'Deep work & Pomodoro sprints.' }
+      { label: 'Launch Pomodoro Break Wheel', href: '/pomodoro-break-wheel', context: 'Deep work & Pomodoro sprints.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org/' },
@@ -766,19 +769,20 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
     ],
     relatedTools: [
       { name: 'Self-Care Wheel', path: '/self-care-wheel', description: 'Daily restorative & grounding rituals.' },
-      { name: 'Exercise Wheel', path: '/exercise-wheel', description: '60-second desk posture & stretch breaks.' },
-      { name: 'Hobby Wheel', path: '/hobby-wheel', description: 'Screen-free creative leisure ideas.' }
+      { name: 'Workout Wheel', path: '/workout-wheel', description: 'Bodyweight HIIT, desk stretches, and active resets.' },
+      { name: 'Mindfulness Wheel', path: '/mindfulness-wheel', description: 'Breathing and nervous system grounding prompts.' },
+      { name: 'Journaling Prompt Wheel', path: '/journaling-prompt-wheel', description: 'Screen-free evening reflection prompts.' }
     ],
     relatedWheels: [
       { name: 'Self-Care Wheel', path: '/self-care-wheel', count: 8 },
-      { name: 'Hobby Wheel', path: '/hobby-wheel', count: 8 }
+      { name: 'Mindfulness Wheel', path: '/mindfulness-wheel', count: 8 }
     ],
     relatedGuides: [
-      { name: 'Decision Fatigue & The Psychology of Chance', path: '/decision-fatigue-and-the-psychology-of-chance', readingTime: '7 min' }
+      { name: 'How to Use a Spin Wheel for Daily Habits', path: '/how-to-use-a-wheel', readingTime: '5 min' }
     ],
     internalLinks: [
       { label: 'Launch Self-Care Wheel', href: '/self-care-wheel', context: 'Daily mindfulness & calm prompts.' },
-      { label: 'Launch Hobby Wheel', href: '/hobby-wheel', context: 'Screen-free evening activities.' }
+      { label: 'Launch Mindfulness Wheel', href: '/mindfulness-wheel', context: '3-minute breathing & grounding resets.' }
     ],
     breadcrumbs: [
       { name: 'Home', item: 'https://spinwheelgames.org/' },
@@ -929,7 +933,7 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       { name: 'Movie Wheel', path: '/movie-wheel', count: 8 }
     ],
     relatedGuides: [
-      { name: 'Decision Fatigue & The Psychology of Chance', path: '/decision-fatigue-and-the-psychology-of-chance', readingTime: '7 min' }
+      { name: 'How to Use a Spin Wheel for Faster Decisions', path: '/how-to-use-a-wheel', readingTime: '5 min' }
     ],
     internalLinks: [
       { label: 'Launch Date Night Wheel', href: '/date-night-wheel', context: 'Spontaneous couple activities.' },
@@ -1097,13 +1101,13 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
     ],
     relatedTools: [
       { name: 'Zoom Icebreaker Wheel', path: '/zoom-icebreaker-wheel', description: 'Dedicated remote video call warmup spinner.' },
-      { name: 'Icebreaker Question Wheel', path: '/icebreaker-question-wheel', description: 'Curated conversation starter prompts.' },
+      { name: 'Question Wheel', path: '/question-wheel', description: 'Curated conversation, trivia, and classroom prompts.' },
       { name: 'Never Have I Ever Wheel', path: '/never-have-i-ever-wheel', description: 'Social confession game for parties & happy hours.' },
       { name: 'Wheel of Names', path: '/wheel-of-names', description: 'Pick random speaking order for standups.' }
     ],
     relatedWheels: [
       { name: 'Zoom Icebreaker Wheel', path: '/zoom-icebreaker-wheel', count: 8 },
-      { name: 'Icebreaker Question Wheel', path: '/icebreaker-question-wheel', count: 8 }
+      { name: 'Question Wheel', path: '/question-wheel', count: 8 }
     ],
     relatedGuides: [
       { name: 'How to Pick a Random Winner', path: '/how-to-pick-a-random-winner', readingTime: '5 min' }
@@ -1252,19 +1256,20 @@ export const EXTENDED_PILLARS_SEO: Record<string, SeoPageData> = {
       }
     ],
     relatedTools: [
-      { name: 'Budget Wheel', path: '/budget-wheel', description: 'Weekly micro-savings & expense challenge spinner.' },
+      { name: 'Budget Allocation Wheel', path: '/budget-allocation-wheel', description: 'Weekly micro-savings & expense challenge spinner.' },
+      { name: 'Savings Challenge Wheel', path: '/savings-challenge-wheel', description: 'Gamified weekly envelope and payday savings draws.' },
       { name: 'Chore Picker Wheel', path: '/chore-picker', description: 'Kids allowance & household chore draft.' },
       { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', description: 'Instant binary impulse-buy decider.' }
     ],
     relatedWheels: [
-      { name: 'Budget Wheel', path: '/budget-wheel', count: 8 },
+      { name: 'Budget Allocation Wheel', path: '/budget-allocation-wheel', count: 8 },
       { name: 'Yes or No Wheel', path: '/yes-or-no-wheel', count: 4 }
     ],
     relatedGuides: [
-      { name: 'Decision Fatigue & The Psychology of Chance', path: '/decision-fatigue-and-the-psychology-of-chance', readingTime: '7 min' }
+      { name: 'How to Use a Spin Wheel for Faster Decisions', path: '/how-to-use-a-wheel', readingTime: '5 min' }
     ],
     internalLinks: [
-      { label: 'Launch Budget Wheel', href: '/budget-wheel', context: 'Gamified micro-savings spinner.' },
+      { label: 'Launch Budget Allocation Wheel', href: '/budget-allocation-wheel', context: 'Gamified micro-savings spinner.' },
       { label: 'Launch Yes or No Wheel', href: '/yes-or-no-wheel', context: 'Quick splurge-or-save decider.' }
     ],
     breadcrumbs: [

@@ -24,6 +24,7 @@ import {
 import RandomGameEngine from '@/components/games/RandomGameEngine';
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
+import RelatedWheelsSection from '@/components/RelatedWheelsSection';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const dynamic = 'force-static';
@@ -422,6 +423,45 @@ export default function RandomGamePickerPage() {
             </div>
           </div>
         </section>
+
+        {/* Related Wheels Section */}
+        <RelatedWheelsSection
+          title="Related Gaming & Game Night Wheels"
+          subtitle="Draft balanced squads, pick board games, and launch party mini-games in one spin."
+          wheels={[
+            {
+              name: 'Team Picker Wheel',
+              href: '/team-picker',
+              anchorText: 'Use the Team Picker Wheel for esports & FIFA drafts',
+              description: 'Run live draft order lotteries or assign random clubs and team captains.',
+              tag: 'Drafts'
+            },
+            {
+              name: 'Movie Wheel',
+              href: '/movie-wheel',
+              anchorText: 'Try the Movie Wheel when game night switches to movies',
+              description: 'Pick tonight’s sci-fi, comedy, or thriller by genre or custom watchlist.',
+              tag: 'Movies'
+            },
+            {
+              name: 'Truth or Dare Wheel',
+              href: '/truth-or-dare-wheel',
+              anchorText: 'Play the Truth or Dare Wheel between gaming rounds',
+              description: 'Clean and spicy prompts for Discord hangouts and living-room game nights.',
+              tag: 'Party'
+            },
+            {
+              name: 'Dice Roller',
+              href: '/dice-roller',
+              anchorText: 'Roll 3D RPG Dice for tabletop & board games',
+              description: 'Physics-powered D4, D6, D8, D10, D12, and D20 polyhedral dice.',
+              tag: 'Tabletop'
+            }
+          ]}
+          guides={[
+            { label: 'How Random Wheels Work', href: '/how-random-wheels-work', readingTime: '6 min' }
+          ]}
+        />
       </main>
 
       <Footer />

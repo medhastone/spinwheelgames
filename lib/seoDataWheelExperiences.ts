@@ -129,7 +129,7 @@ export const CATEGORY_METADATA: Record<
     comparisonRowToolLabel: 'Catalog Discovery'
   },
   GAMING: {
-    slug: 'gaming',
+    slug: 'games',
     name: 'Gaming & Esports',
     intent: 'entertainment',
     secondaryIntents: ['transactional/use tool', 'sports'],
@@ -791,7 +791,7 @@ function buildExperienceSeoPage(exp: WheelExperience): SeoPageData {
 
   const relatedGuides = [
     { name: 'How Random Wheels Work', path: '/how-random-wheels-work', readingTime: '6 min' },
-    { name: 'Decision Fatigue & The Psychology of Chance', path: '/decision-fatigue-and-the-psychology-of-chance', readingTime: '7 min' }
+    { name: 'How to Use a Wheel for Faster Decisions', path: '/how-to-use-a-wheel', readingTime: '5 min' }
   ];
 
   const internalLinks = [

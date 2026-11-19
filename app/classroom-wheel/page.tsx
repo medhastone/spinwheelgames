@@ -30,6 +30,7 @@ import ClassroomPresetButton from '@/components/classroom/ClassroomPresetButton'
 import SubpageHeader from '@/components/SubpageHeader';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import RelatedWheelsSection from '@/components/RelatedWheelsSection';
 
 export const dynamic = 'force-static';
 
@@ -648,6 +649,46 @@ export default function ClassroomWheelPage() {
             ))}
           </div>
         </section>
+
+        {/* Related Wheels Section */}
+        <RelatedWheelsSection
+          title="Related Classroom & Teacher Wheels"
+          subtitle="Pair your classroom spinner with fair student rosters, phonics drills, and group makers."
+          wheels={[
+            {
+              name: 'Wheel of Names',
+              href: '/wheel-of-names',
+              anchorText: 'Spin the Wheel of Names for attendance & reading turns',
+              description: 'Full-screen smartboard name spinner with TTS callouts and no-repeat elimination.',
+              tag: 'Rosters'
+            },
+            {
+              name: 'Team Generator',
+              href: '/team-generator',
+              anchorText: 'Split cooperative project squads with the Team Generator',
+              description: 'Paste a full class roster and divide students into balanced pairs, triads, or lab groups.',
+              tag: 'Groups'
+            },
+            {
+              name: 'Icebreaker Wheels',
+              href: '/icebreakers',
+              anchorText: 'Use the Icebreaker Wheel for morning meeting warmups',
+              description: 'Non-cringe advisory circle questions and student check-in prompts.',
+              tag: 'Warmups'
+            },
+            {
+              name: 'Letter Wheel',
+              href: '/letter-wheel',
+              anchorText: 'Spin the A–Z Letter Wheel for phonics & spelling bees',
+              description: '26-letter alphabet spinner with vowel-only and Scattergories presets.',
+              tag: 'Literacy'
+            }
+          ]}
+          guides={[
+            { label: 'How to Make a Classroom Wheel (Teacher Guide)', href: '/how-to-make-a-classroom-wheel', readingTime: '7 min' },
+            { label: 'How Random Wheels Work', href: '/how-random-wheels-work', readingTime: '6 min' }
+          ]}
+        />
       </main>
 
       <Footer />

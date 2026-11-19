@@ -61,7 +61,7 @@ interface SeoPageViewProps {
 }
 
 function renderParagraphWithLinks(text: string) {
-  const linkRegex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+  const linkRegex = /\[([^\]]+)\]\(((?:https?:\/\/|\/)[^\s)]+)\)/g;
   const parts: (string | React.ReactNode)[] = [];
   let lastIndex = 0;
   let match: RegExpExecArray | null;
@@ -72,18 +72,31 @@ function renderParagraphWithLinks(text: string) {
     }
     const label = match[1];
     const url = match[2];
-    parts.push(
-      <a
-        key={match.index}
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[#4648d4] dark:text-[#8587ff] hover:underline font-medium inline-flex items-center gap-0.5"
-      >
-        <span>{label}</span>
-        <ExternalLink className="w-3 h-3 inline ml-0.5" />
-      </a>
-    );
+    const isInternal = url.startsWith('/');
+    if (isInternal) {
+      parts.push(
+        <Link
+          key={match.index}
+          href={url}
+          className="text-[#4648d4] dark:text-[#8587ff] hover:underline font-semibold"
+        >
+          {label}
+        </Link>
+      );
+    } else {
+      parts.push(
+        <a
+          key={match.index}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#4648d4] dark:text-[#8587ff] hover:underline font-medium inline-flex items-center gap-0.5"
+        >
+          <span>{label}</span>
+          <ExternalLink className="w-3 h-3 inline ml-0.5" />
+        </a>
+      );
+    }
     lastIndex = match.index + match[0].length;
   }
 
