@@ -38,7 +38,7 @@ export default function BrandLogo({
           width={iconSize}
           height={iconSize}
           sizes={`${iconSize}px`}
-          className="w-full h-full object-contain dark:drop-shadow-[0_0_12px_rgba(133,135,255,0.45)] dark:brightness-110"
+          className="w-full h-full object-contain"
           referrerPolicy="no-referrer"
         />
       </div>
@@ -56,7 +56,7 @@ export default function BrandLogo({
         width={width}
         height={height}
         sizes={`${width}px`}
-        className="h-full w-auto object-contain dark:drop-shadow-[0_0_16px_rgba(133,135,255,0.45)] dark:brightness-110"
+        className="h-full w-auto object-contain"
         referrerPolicy="no-referrer"
       />
     </div>

@@ -341,9 +341,6 @@ export default function Navbar({
         @media (min-width: 1536px) {
           .swg-logo-box, .swg-logo-img { height: 76px; }
         }
-        .dark .swg-logo-img {
-          filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.92)) drop-shadow(0 0 8px rgba(255, 255, 255, 0.42)) drop-shadow(0 0 18px rgba(133, 135, 255, 0.55)) brightness(1.18) saturate(1.15);
-        }
       `}</style>
       <header className="fixed top-0 w-full max-w-full overflow-x-clip z-50 bg-[#fbf8ff]/95 dark:bg-[#12131a]/95 backdrop-blur-xl border-b border-[#eeedf7] dark:border-[#222330] shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
         <div ref={navRef} className="swg-header-inner max-w-[1400px] mx-auto px-2.5 sm:px-4 md:px-6 lg:px-3 xl:px-4 2xl:px-6 flex items-center justify-between gap-1.5 sm:gap-3 w-full">
@@ -353,7 +350,7 @@ export default function Navbar({
             <button
               type="button"
               onClick={handleLogoClick}
-              className="flex items-center group text-left cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98] shrink-0"
+              className="flex items-center group text-left cursor-pointer bg-transparent border-0 p-0 select-none rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4648d4]/60 dark:focus-visible:ring-[#8587ff]/60 transition-transform hover:scale-[1.02] active:scale-[0.98] shrink-0"
               aria-label="SpinWheelGames Home"
             >
               <div className="swg-logo-box relative flex items-center shrink-0">
