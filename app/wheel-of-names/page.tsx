@@ -23,7 +23,7 @@ import Footer from '@/components/Footer';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  "title": "Wheel of Names | SpinWheelGames",
+  "title": "Wheel of Names – Free Random Name Picker & Raffle Spinner | SpinWheelGames",
   "description": "Spin the free Wheel of Names generator to randomly pick names, classroom students, or giveaway raffle winners. Fast CSV import, no-repeat elimination, and 100% fair randomness.",
   "keywords": [
     "wheel of names",
@@ -83,13 +83,6 @@ const JSON_LD_DATA = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD'
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.95',
-        reviewCount: '2840',
-        bestRating: '5',
-        worstRating: '1'
       }
     },
     {
@@ -377,12 +370,12 @@ export default function WheelOfNamesPage() {
               </Link>
 
               <Link
-                href="/spin-the-wheel"
+                href="/random-wheel"
                 className="bg-[#fbf8ff] dark:bg-[#14151e] hover:bg-[#f4f2fd] dark:hover:bg-[#1f202e] border border-[#eeedf7] dark:border-[#222330] p-3.5 rounded-2xl transition-all group"
               >
                 <RotateCcw className="w-5 h-5 text-[#4648d4] dark:text-[#8587ff] mb-2 group-hover:scale-110 transition-transform" />
-                <h4 className="font-bold text-xs sm:text-sm text-[#1a1b22] dark:text-[#f1effa]">Spin the Wheel</h4>
-                <p className="text-[11px] text-[#464554] dark:text-[#c7c4d7] mt-0.5">Custom decision maker</p>
+                <h4 className="font-bold text-xs sm:text-sm text-[#1a1b22] dark:text-[#f1effa]">Random Wheel</h4>
+                <p className="text-[11px] text-[#464554] dark:text-[#c7c4d7] mt-0.5">Weighted CSPRNG spinner</p>
               </Link>
             </div>
           </div>

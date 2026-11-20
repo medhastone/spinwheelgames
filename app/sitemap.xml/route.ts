@@ -101,7 +101,7 @@ const STATIC_CANONICAL_PATHS = [
 ];
 
 export async function GET() {
-  const lastmod = '2026-10-17';
+  const lastmod = '2026-11-20';
   const uniquePaths = new Set<string>();
 
   for (const p of STATIC_CANONICAL_PATHS) {

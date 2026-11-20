@@ -74,7 +74,7 @@ const CATEGORY_SLUG_MAP: Record<string, string> = {
   PARTY: '/party',
   FOOD: '/food',
   ENTERTAINMENT: '/movie-wheel',
-  GAMING: '/gaming',
+  GAMING: '/games',
   SPORTS: '/sports',
   NUMBERS: '/numbers',
   WORKOUT: '/workout',
@@ -170,7 +170,7 @@ export default function CategoriesIndexPage() {
                     <h2 className="text-lg font-bold text-[#1a1b22] dark:text-white group-hover:text-[#4648d4] dark:group-hover:text-[#8587ff] transition-colors leading-snug">
                       {cat.label}
                     </h2>
-                    <p className="text-xs sm:text-sm text-[#767586] dark:text-[#908fa1] leading-relaxed mt-1.5">
+                    <p className="text-xs sm:text-sm text-[#555466] dark:text-[#908fa1] leading-relaxed mt-1.5">
                       {cat.description}
                     </p>
                   </div>

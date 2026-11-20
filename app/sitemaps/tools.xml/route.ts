@@ -4,10 +4,13 @@ import { ALL_SEO_PAGES_LIST } from '@/lib/seoData';
 export const dynamic = 'force-static';
 
 export async function GET() {
-  const lastmod = '2026-10-17';
+  const lastmod = '2026-11-20';
 
   const staticRoutes: { path: string; changefreq: string; priority: string }[] = [
     { path: '', changefreq: 'daily', priority: '1.0' },
+    { path: '/wheel-of-names', changefreq: 'daily', priority: '0.95' },
+    { path: '/color-wheel', changefreq: 'daily', priority: '0.95' },
+    { path: '/truth-or-dare-wheel', changefreq: 'daily', priority: '0.95' },
     { path: '/challenges', changefreq: 'daily', priority: '0.95' },
     { path: '/games', changefreq: 'daily', priority: '0.95' },
     { path: '/movie-wheel', changefreq: 'daily', priority: '0.95' },

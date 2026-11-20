@@ -4,7 +4,7 @@ import { ALL_SEO_PAGES_LIST } from '@/lib/seoData';
 export const dynamic = 'force-static';
 
 export async function GET() {
-  const lastmod = '2026-10-17';
+  const lastmod = '2026-11-20';
 
   const guidePages = ALL_SEO_PAGES_LIST.filter(
     (p) => p.pageType === 'guide'
